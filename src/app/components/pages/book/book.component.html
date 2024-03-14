@@ -1,0 +1,73 @@
+<!-- About-->
+<section class="page-section bg-light" id="books">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">
+        Livros <span class="badge rounded-pill bg-warning fs-6">{{books.length}}</span>
+      </h2>
+      <h3 class="section-subheading text-muted">Saiba mais sobre os meus livros</h3>
+    </div>
+    <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
+    <ul class="list-group list-group-light mb-4">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let item of books | sortby:'publishYear':'desc' | paginate: config; index as i;">
+        <div class="d-flex align-items-center ms-5">
+          <img src="assets/img/others/livro.jpg" alt="" style="width: 60px; height: 60px"
+            class="rounded-circle" />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{ item.title }}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Subtitulo:</b> {{ item.subtitle }}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Editora: </b> {{item.publishName }}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Autor: </b> {{item.author | printTags }}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Tags: </b> {{item.tags | printTags}}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;">Publicado em {{item.publishYear }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl">Mais detalhes...</a></p>
+          </div>
+        </div>
+        <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+          {{absoluteIndex(i)}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </li>
+    </ul>
+
+
+
+    <!--
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 mb-4" *ngFor="let item of books | sortby:'conclusion':'desc' | paginate: config; index as i;">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <img
+                src="assets/img/others/livro.jpg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+              />
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{ item.title }}</p>
+                <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Subtitulo:</b> {{ item.subtitle }}</p>
+                <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Editora: </b> {{item.publishName }}</p>
+                <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Autor: </b> {{item.author | printTags }}</p>
+                <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Tags: </b> {{item.tags | printTags}}</p>
+                <p class="text-muted" style="font-size: 14px; margin: 0px;">Publicado em {{item.publishYear }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl">Mais detalhes...</a></p>
+              </div>
+            </div>
+            <span class="position-absolute ms-3 translate-middle badge rounded-pill bg-danger" style="font-size: 14px; margin: -150px;">
+              {{absoluteIndex(i)}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <div class="text-center">
+      <div class="has-text-centered">
+        <pagination-controls (pageChange)="onPageChange($event)" id="booksPag"></pagination-controls>
+      </div>
+    </div>
+
+  </div>
+</section>
