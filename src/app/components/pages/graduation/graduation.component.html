@@ -2,49 +2,21 @@
 <section class="page-section bg-light" id="graduation">
   <div class="container">
       <div class="text-center">
-          <h2 class="section-heading text-uppercase">(Pós)Graduação</h2>
+          <h2 class="section-heading text-uppercase">(Pós)Graduação <span class="badge rounded-pill bg-warning fs-6" >{{graduations.length}}</span></h2>
           <h3 class="section-subheading text-muted">Saiba mais sobre minhas graduações e pós-graduações</h3>
       </div>
       <ul class="timeline">
-          <li>
+          <li *ngFor="let item of graduations; index as i;" [ngClass]="{'timeline-inverted': i%2 != 0}">
               <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/others/formacao.png" alt="..." /></div>
               <div class="timeline-panel">
                   <div class="timeline-heading">
-                      <h4>2022</h4>
-                      <h4 class="subheading">PÓS GRADUAÇÃO FULLSTACK JAVASCRIPT</h4>
+                      <h4>{{ item.conclusionDate | date:'yyyy' }}</h4>
+                      <h4 class="subheading">{{ item.name }}</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted"><b>Concluído</b></p>
-                    <p class="text-muted">Faculdade Cruzeiro Do Sul - 2022</p>
-                    <p class="text-muted"><a href="https://www.cruzeirodosulvirtual.com.br" target="_blank">https://www.cruzeirodosulvirtual.com.br</a></p>
-                  </div>
-              </div>
-          </li>
-          <li class="timeline-inverted">
-              <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/others/formacao.png" alt="..." /></div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4>2012</h4>
-                      <h4 class="subheading">REDES DE COMPUTADORES</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted"><b>Concluído</b></p>
-                    <p class="text-muted">Faculdade Tuiuti Do Paraná - 2012</p>
-                    <p class="text-muted"><a href="https://tuiuti.edu.br/" target="_blank">https://tuiuti.edu.br</a></p>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/others/formacao.png" alt="..." /></div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4>2000</h4>
-                      <h4 class="subheading">DESENVOLVIMENTO WEB</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted"><b>Tracado</b></p>
-                    <p class="text-muted">Faculdade De Tecnologia Opet - 2000</p>
-                    <p class="text-muted"><a href="https://www.opet.com.br/" target="_blank">https://www.opet.com.br</a></p>
+                    <p class="text-muted"><b>{{ item.conclusion | messageDateConclusion }}</b></p>
+                    <p class="text-muted">{{ item.institution }}</p>
+                    <p class="text-muted"><a [href]="item.websiteInstituition" target="_blank">{{ item.websiteInstituition }}</a></p>
                   </div>
               </div>
           </li>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ICourse } from './interfaces/ICourse';
 import { Courses } from './data/Course';
+import { IGraduation } from './interfaces/IGraduation';
+import { Graduations } from './data/Graduation';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +12,5 @@ import { Courses } from './data/Course';
 export class AppComponent {
   title = 'Robson Candido dos Santos Alves';
   courses: ICourse[] = Courses;
+  graduations: IGraduation[] = Graduations;
 }
