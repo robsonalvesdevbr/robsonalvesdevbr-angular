@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ICourse } from './interfaces/ICourse';
+import { Courses } from './data/Course';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'robsonalvesdevbr-angular17';
+  title = 'Robson Candido dos Santos Alves';
+  courses: ICourse[] = Courses;
 }

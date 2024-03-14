@@ -9,6 +9,9 @@ import { ClientsComponent } from './pages/clients/clients.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { GraduationComponent } from './pages/graduation/graduation.component';
+import { CourseComponent } from './pages/course/course.component';
+import { CommonModule } from '@angular/common';
+import { ImgcursoPipe } from '../pipes/imgcurso.pipe';
 
 
 @NgModule({
@@ -22,10 +25,12 @@ import { GraduationComponent } from './pages/graduation/graduation.component';
     ClientsComponent,
     ContactComponent,
     FooterComponent,
-    GraduationComponent
+    GraduationComponent,
+    CourseComponent,
+    ImgcursoPipe
   ],
   imports: [
-
+    CommonModule
   ],
   exports: [
     NavigationComponent,
@@ -37,7 +42,9 @@ import { GraduationComponent } from './pages/graduation/graduation.component';
     ClientsComponent,
     ContactComponent,
     FooterComponent,
-    GraduationComponent
+    GraduationComponent,
+    CourseComponent,
+    ImgcursoPipe
   ]
 })
 export class ComponentsModule { }
