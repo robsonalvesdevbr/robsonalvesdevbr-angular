@@ -16,6 +16,7 @@ import { PrintTagsPipe } from '../pipes/print-tags.pipe';
 import { MessageDateConclusionPipe } from '../pipes/message-date-conclusion.pipe';
 import { SortbyPipe } from '../pipes/sortby.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BookComponent } from './pages/book/book.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ImgcursoPipe,
     PrintTagsPipe,
     MessageDateConclusionPipe,
-    SortbyPipe
+    SortbyPipe,
+    BookComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ImgcursoPipe,
     PrintTagsPipe,
     MessageDateConclusionPipe,
-    SortbyPipe
+    SortbyPipe,
+    BookComponent
   ]
 })
 export class ComponentsModule { }

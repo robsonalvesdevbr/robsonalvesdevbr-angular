@@ -12,13 +12,13 @@
       <li class="list-group-item d-flex justify-content-between align-items-center"
         *ngFor="let item of courses | sortby:'conclusion':'desc' | paginate: config; index as i;">
         <div class="d-flex align-items-center ms-5">
-          <img src="assets/img/others/{{item.institution | imgcurso}}" alt="" style="width: 45px; height: 45px"
+          <img src="assets/img/others/{{item.institution | imgcurso}}" alt="" style="width: 60px; height: 60px"
             class="rounded-circle" />
           <div class="ms-3">
             <p class="fw-bold mb-1">{{ item.name }}</p>
-            <p class="text-muted" style="font-size: 13px; margin: 0px;"><b>Instituição:</b> {{ item.institution }}</p>
-            <p class="text-muted" style="font-size: 13px; margin: 0px;"><b>Tags: </b> {{item.tags | printTags}}</p>
-            <p class="text-muted" style="font-size: 13px; margin: 0px;">Concluído em {{item.conclusion |
+            <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Instituição:</b> {{ item.institution }}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Tags: </b> {{item.tags | printTags}}</p>
+            <p class="text-muted" style="font-size: 14px; margin: 0px;">Concluído em {{item.conclusion |
               date:"dd/MM/yyyy"}} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl">Certificado</a></p>
           </div>
         </div>
@@ -30,9 +30,8 @@
     </ul>
     <div class="text-center">
       <div class="has-text-centered">
-        <pagination-controls (pageChange)="onPageChange($event)" id="server"></pagination-controls>
+        <pagination-controls (pageChange)="onPageChange($event)" id="coursesPag"></pagination-controls>
       </div>
     </div>
-
   </div>
 </section>

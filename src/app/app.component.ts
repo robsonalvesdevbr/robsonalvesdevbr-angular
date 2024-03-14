@@ -3,6 +3,8 @@ import { ICourse } from './interfaces/ICourse';
 import { Courses } from './data/Course';
 import { IGraduation } from './interfaces/IGraduation';
 import { Graduations } from './data/Graduation';
+import { IBook } from './interfaces/IBook';
+import { Books } from './data/Book';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +15,5 @@ export class AppComponent {
   title = 'Robson Candido dos Santos Alves';
   courses: ICourse[] = Courses;
   graduations: IGraduation[] = Graduations;
+  books: IBook[] = Books;
 }

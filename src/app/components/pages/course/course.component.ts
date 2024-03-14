@@ -9,10 +9,10 @@ import { PaginationInstance } from 'ngx-pagination';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent {
-  @Input({required: true}) courses: ICourse[] = [];
+  @Input({ required: true }) courses: ICourse[] = [];
 
   config: PaginationInstance = {
-    id: 'server',
+    id: 'coursesPag',
     itemsPerPage: 5,
     currentPage: 1
   };
@@ -23,5 +23,5 @@ export class CourseComponent {
 
   onPageChange(number: number) {
     this.config.currentPage = number;
-}
+  }
 }
