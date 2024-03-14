@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { ImgcursoPipe } from '../pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '../pipes/print-tags.pipe';
 import { MessageDateConclusionPipe } from '../pipes/message-date-conclusion.pipe';
+import { SortbyPipe } from '../pipes/sortby.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -31,10 +33,12 @@ import { MessageDateConclusionPipe } from '../pipes/message-date-conclusion.pipe
     CourseComponent,
     ImgcursoPipe,
     PrintTagsPipe,
-    MessageDateConclusionPipe
+    MessageDateConclusionPipe,
+    SortbyPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxPaginationModule
   ],
   exports: [
     NavigationComponent,
@@ -50,7 +54,8 @@ import { MessageDateConclusionPipe } from '../pipes/message-date-conclusion.pipe
     CourseComponent,
     ImgcursoPipe,
     PrintTagsPipe,
-    MessageDateConclusionPipe
+    MessageDateConclusionPipe,
+    SortbyPipe
   ]
 })
 export class ComponentsModule { }
