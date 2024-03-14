@@ -12,6 +12,7 @@ import { GraduationComponent } from './pages/graduation/graduation.component';
 import { CourseComponent } from './pages/course/course.component';
 import { CommonModule } from '@angular/common';
 import { ImgcursoPipe } from '../pipes/imgcurso.pipe';
+import { PrintTagsPipe } from '../pipes/print-tags.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ImgcursoPipe } from '../pipes/imgcurso.pipe';
     FooterComponent,
     GraduationComponent,
     CourseComponent,
-    ImgcursoPipe
+    ImgcursoPipe,
+    PrintTagsPipe
   ],
   imports: [
     CommonModule
@@ -44,7 +46,8 @@ import { ImgcursoPipe } from '../pipes/imgcurso.pipe';
     FooterComponent,
     GraduationComponent,
     CourseComponent,
-    ImgcursoPipe
+    ImgcursoPipe,
+    PrintTagsPipe
   ]
 })
 export class ComponentsModule { }

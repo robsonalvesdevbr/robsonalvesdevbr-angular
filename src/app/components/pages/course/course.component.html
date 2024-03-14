@@ -13,7 +13,7 @@
           <div class="ms-3">
             <p class="fw-bold mb-1">{{ item.name }}</p>
             <p class="text-muted" style="font-size: 13px; margin: 0px;"><b>Instituição:</b> {{ item.institution }}</p>
-            <p class="text-muted" style="font-size: 13px; margin: 0px;"><b>Tags: </b> <span *ngFor="let tag of item.tags; even as isEven;">{{tag}}<span *ngIf="isEven"> , </span></span></p>
+            <p class="text-muted" style="font-size: 13px; margin: 0px;"><b>Tags: </b> {{item.tags | printTags}}</p>
             <p class="text-muted" style="font-size: 13px; margin: 0px;">Concluído em {{item.conclusion | date:"dd/MM/yyyy"}} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl">Certificado</a></p>
           </div>
         </div>

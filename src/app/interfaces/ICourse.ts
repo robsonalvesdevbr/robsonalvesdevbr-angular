@@ -1,7 +1,7 @@
 export interface ICourse {
   name: string;
   institution: 'Alura' | 'Desenvolvedor.IO' | 'Udemy';
-  tags: string[] | undefined | null;
+  tags: string[];
   certificateUrl: string | undefined | null;
   conclusion: Date | undefined | null;
 }
