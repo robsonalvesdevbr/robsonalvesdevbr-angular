@@ -10,7 +10,6 @@ import { PaginationInstance } from 'ngx-pagination';
 })
 export class CourseComponent {
   @Input({required: true}) courses: ICourse[] = [];
-  page: number = 1;
 
   config: PaginationInstance = {
     id: 'server',
