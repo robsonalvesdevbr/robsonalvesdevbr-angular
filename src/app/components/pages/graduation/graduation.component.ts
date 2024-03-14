@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IGraduation } from '../../../interfaces/IGraduation';
 
 @Component({
   selector: 'app-graduation',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./graduation.component.scss']
 })
 export class GraduationComponent {
-
+  @Input({required: true}) graduations: IGraduation[] = [];
 }

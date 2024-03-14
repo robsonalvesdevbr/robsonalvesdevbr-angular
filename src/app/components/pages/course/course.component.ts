@@ -7,5 +7,5 @@ import { ICourse } from '../../../interfaces/ICourse';
   styleUrl: './course.component.scss'
 })
 export class CourseComponent {
-  @Input({required: true}) courses: ICourse[] = {} as ICourse[];
+  @Input({required: true}) courses: ICourse[] = [];
 }

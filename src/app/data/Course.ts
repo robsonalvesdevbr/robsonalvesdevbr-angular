@@ -21,5 +21,19 @@ export const Courses: ICourse[] = [
     certificateUrl: "https://www.udemy.com.br",
     tags:['development', 'csharp'],
     conclusion: new Date()
+  },
+  {
+    name: "Desenvolvimento em Angular",
+    institution: "Udemy",
+    certificateUrl: "https://www.udemy.com.br",
+    tags:['development', 'angular', 'javascript', 'typescrypt'],
+    conclusion: new Date()
+  },
+  {
+    name: "Desenvolvimento em Java",
+    institution: "Udemy",
+    certificateUrl: "https://www.udemy.com.br",
+    tags:['development', 'angular', 'java'],
+    conclusion: new Date()
   }
 ]

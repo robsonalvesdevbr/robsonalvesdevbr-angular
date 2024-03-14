@@ -13,6 +13,7 @@ import { CourseComponent } from './pages/course/course.component';
 import { CommonModule } from '@angular/common';
 import { ImgcursoPipe } from '../pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '../pipes/print-tags.pipe';
+import { MessageDateConclusionPipe } from '../pipes/message-date-conclusion.pipe';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { PrintTagsPipe } from '../pipes/print-tags.pipe';
     GraduationComponent,
     CourseComponent,
     ImgcursoPipe,
-    PrintTagsPipe
+    PrintTagsPipe,
+    MessageDateConclusionPipe
   ],
   imports: [
     CommonModule
@@ -47,7 +49,8 @@ import { PrintTagsPipe } from '../pipes/print-tags.pipe';
     GraduationComponent,
     CourseComponent,
     ImgcursoPipe,
-    PrintTagsPipe
+    PrintTagsPipe,
+    MessageDateConclusionPipe
   ]
 })
 export class ComponentsModule { }
