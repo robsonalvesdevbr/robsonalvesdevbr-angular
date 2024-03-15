@@ -118,7 +118,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: calc(1.325rem + 0.9vw);
+  --font-size: calc(1.325rem + 0.9vw);
 }
 @media (min-width: 1200px) {
   h2, .h2 {
@@ -10826,7 +10826,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 2rem 0;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
@@ -10838,7 +10838,7 @@ p {
   font-weight: 400;
   font-style: italic;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
