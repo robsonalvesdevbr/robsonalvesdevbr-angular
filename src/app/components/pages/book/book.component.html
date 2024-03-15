@@ -15,12 +15,11 @@
           <img src="assets/img/others/livro.jpg" alt="" style="width: 60px; height: 60px"
             class="rounded-circle" />
           <div class="ms-3">
-            <p class="fw-bold mb-0">{{ item.title }}</p>
-            <p class="text-muted fontemenor"><b>Subtitulo:</b> {{ item.subtitle }}</p>
+            <p class="fw-bold mb-0">{{ item.title }} <span class="text-muted fontemenor11"> ( Publicado em {{item.publishYear }} )</span></p>
+            <p class="text-muted fontemenor"><b>Subtitulo:</b> {{ item.subtitle }} <span class="text-muted fontemenor11">&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank">Mais detalhes</a></span></p>
             <p class="text-muted fontemenor"><b>Editora: </b> {{item.publishName }}</p>
             <p class="text-muted fontemenor"><b>Autor: </b> {{item.author | printTags }}</p>
             <p class="text-muted fontemenor"><b>Tags: </b> {{item.tags | printTags}}</p>
-            <p class="text-muted fontemenor">Publicado em {{item.publishYear }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl">Mais detalhes...</a></p>
           </div>
         </div>
         <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
