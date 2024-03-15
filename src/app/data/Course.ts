@@ -138,7 +138,161 @@ export const Courses: ICourse[] = [
     name: ".NET 5 e Identity: autenticando e autorizando usuários",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/af681830-f65c-4cea-a290-ec0ebe460365?lang=pt_BR",
-    tags:['microsoft', 'database', 'orm', 'entity framework', '.net'],
+    tags:['microsoft', 'identity', '.net'],
     conclusion: new Date('2021-5-25')
+  },
+  {
+    name: ".NET 5 e Identity: implementando controle de usuário",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/0ebecc61-a94d-48a7-8cf3-17840664106c?lang=pt_BR",
+    tags:['microsoft', 'identity', '.net'],
+    conclusion: new Date('2021-5-24')
+  },
+  {
+    name: ".NET 6: criando uma web API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e5b315fd-973e-45b5-b4a7-44d1d609bc37?lang=pt_BR",
+    tags:['microsoft', 'identity', '.net'],
+    conclusion: new Date('2023-1-12')
+  },
+  {
+    name: "API Rest com .NET 5: operações essenciais com verbos HTTP",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/569e52ad-945f-4436-90ee-24719cec0dc9?lang=pt_BR",
+    tags:['microsoft', 'rest', '.net'],
+    conclusion: new Date('2021-9-9')
+  },
+  {
+    name: "Amazon EKS: gerenciando aplicações conteinerizadas com Kubernetes",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/dd427b1b-ae43-4d8e-ae50-66932d9b3228?lang=pt_BR",
+    tags:['aws', 'cloud', 'kubernetes', 'container', 'eks'],
+    conclusion: new Date('2022-5-13')
+  },
+  {
+    name: "Agilidade: promovendo a transformação ágil",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/40ae2b6e-fa77-407c-b4db-55b0d2c3dfd0?lang=pt_BR",
+    tags:['agil'],
+    conclusion: new Date('2022-11-20')
+  },
+  {
+    name: ".Net e MongoDB parte 1: integre aplicações .NET",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/cf749f0e-95a4-4654-a1e5-5747e6f23d7e?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-8-6')
+  },
+  {
+    name: "Azure: Deploy de uma webapp na nuvem da Microsoft",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/25a5539c-faf6-40a5-a58a-19849c9ae8a3?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-9-17')
+  },
+  {
+    name: "Azure Cloud: segurança e recursos avançados",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/ee5f9313-467b-44a5-ad05-b553b39d77b5?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2023-8-22')
+  },
+  {
+    name: "Azure Cloud: criando um servidor com banco de dados para receber uma aplicação",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/57764ba5-ebeb-4195-9cdd-67e578bb5b2b?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2023-8-17')
+  },
+  {
+    name: "ASP.NET Identity parte 1: Gerencie contas de usuários",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/37d80b3e-730a-4da2-bcc9-88ad25403458?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2019-9-15')
+  },
+  {
+    name: "Asp.NET Core: uma webapp usando o padrão MVC",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/38dec12f-dc83-4f70-910d-6a56a9a5bd0d?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-13')
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 3: padronizando a API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/1e96ddd2-3e54-4b36-85fc-a5362c9731bc?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-22')
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-13')
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-6')
+  },
+  {
+    name: "Azure: gerencie Kubernetes com AKS e ACR",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/ca4b1404-eafb-48a3-b4fe-dad28ed9c6e2?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-6')
+  },
+  {
+    name: "C# parte 1: primeiros passos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e66dac5c-2f3f-4ed3-bb3b-5b784749bc86?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-2-9')
+  },
+  {
+    name: "C# parte 2: Entendendo a Orientação a Objetos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/f34c4a9f-9084-4a0e-ae2f-a28c88cff0a2?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-3-9')
+  },
+  {
+    name: "C# parte 3: entendendo herança e interface",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/eb3d4a38-50ba-4dbb-8082-4f6b75e558be?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-3-21')
+  },
+  {
+    name: "C# parte 4: entendendo exceções",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/4e81e86d-d9eb-4dd5-990f-1fbbc4854ed8?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-3-22')
+  },
+  {
+    name: "C# parte 5: bibliotecas DLLs, documentação e usando o NuGet",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e86e6535-543c-4db0-ae6a-59b02263cb9f?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-17')
+  },
+  {
+    name: "C# parte 6: Strings, expressões regulares e a classe Object",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/aa61efbc-4554-4a27-80cd-88d6bad8e68a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-19')
+  },
+  {
+    name: "C# parte 7: Array e tipos genéricos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/957cfc38-6039-4d9d-9111-7a67755a4b1a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-21')
   }
 ]
