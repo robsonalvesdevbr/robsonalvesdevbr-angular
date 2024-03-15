@@ -3,9 +3,9 @@
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase">
-        Cursos de Formação <span class="badge rounded-pill bg-warning fs-6">{{formationCourses.length}}</span>
+        Cursos de Formação
       </h2>
-      <h3 class="section-subheading text-muted">Saiba mais sobre meus cursos de formação</h3>
+      <h3 class="section-subheading text-muted">Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{formationCourses.length}}</span></h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
       <ul class="list-group list-group-light mb-4">
@@ -16,9 +16,9 @@
               class="rounded-circle" />
             <div class="ms-3">
               <p class="fw-bold mb-0">{{ item.name }}</p>
-              <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Instituição:</b> {{ item.institution }}</p>
-              <p class="text-muted" style="font-size: 14px; margin: 0px;"><b>Tags: </b> {{item.tags | printTags}}</p>
-              <p class="text-muted" style="font-size: 14px; margin: 0px;">Concluído em {{item.conclusion |
+              <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
+              <p class="text-muted fontemenor"><b>Tags: </b> {{item.tags | printTags}}</p>
+              <p class="text-muted fontemenor">Concluído em {{item.conclusion |
                 date:"dd/MM/yyyy"}} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
             </div>
 
