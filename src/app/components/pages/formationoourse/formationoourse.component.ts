@@ -1,19 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { IBook } from '../../../interfaces/IBook';
 import { PaginationInstance } from 'ngx-pagination';
+import { IFormationCourse } from '../../../interfaces/IFormationCourse';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrl: './book.component.scss'
+  selector: 'app-formationoourse',
+  templateUrl: './formationoourse.component.html',
+  styleUrl: './formationoourse.component.scss'
 })
-export class BookComponent {
+export class FormationoourseComponent {
   @Input({required: false}) bglight: boolean = false;
-  @Input({ required: true }) books: IBook[] = [];
+  @Input({ required: true }) formationCourses: IFormationCourse[] = [];
 
   config: PaginationInstance = {
-    id: 'booksPag',
-    itemsPerPage: 4,
+    id: 'formationCoursesPag',
+    itemsPerPage: 5,
     currentPage: 1
   };
 

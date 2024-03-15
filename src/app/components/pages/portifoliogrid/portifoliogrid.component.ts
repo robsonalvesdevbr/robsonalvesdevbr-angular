@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-portifoliogrid',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./portifoliogrid.component.scss']
 })
 export class PortifoliogridComponent {
-
+  @Input({required: false}) bglight: boolean = false;
 }

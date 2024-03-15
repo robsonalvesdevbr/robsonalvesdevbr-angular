@@ -1,4 +1,4 @@
-export interface ICourse {
+export interface IFormationCourse {
   name: string;
   institution: 'Alura' | 'Desenvolvedor.IO' | 'Udemy';
   tags: string[];

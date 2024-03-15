@@ -7,5 +7,6 @@ import { IGraduation } from '../../../interfaces/IGraduation';
   styleUrls: ['./graduation.component.scss']
 })
 export class GraduationComponent {
+  @Input({required: false}) bglight: boolean = false;
   @Input({required: true}) graduations: IGraduation[] = [];
 }
