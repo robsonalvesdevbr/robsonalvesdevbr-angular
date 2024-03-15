@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-masterhead',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./masterhead.component.scss']
 })
 export class MasterheadComponent {
-
+  @Input({required: false}) bglight: boolean = false;
 }

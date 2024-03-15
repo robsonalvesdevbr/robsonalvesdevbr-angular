@@ -5,6 +5,8 @@ import { IGraduation } from './interfaces/IGraduation';
 import { Graduations } from './data/Graduation';
 import { IBook } from './interfaces/IBook';
 import { Books } from './data/Book';
+import { IFormationCourse } from './interfaces/IFormationCourse';
+import { FormationCourses } from './data/FormationCourse';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +18,5 @@ export class AppComponent {
   courses: ICourse[] = Courses;
   graduations: IGraduation[] = Graduations;
   books: IBook[] = Books;
+  formationCourses: IFormationCourse[] = FormationCourses
 }

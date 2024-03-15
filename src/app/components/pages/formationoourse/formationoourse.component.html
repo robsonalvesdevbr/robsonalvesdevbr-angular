@@ -1,16 +1,16 @@
 <!-- About-->
-<section class="page-section" id="courses" [ngClass]="{'bg-light': bglight}">
+<section class="page-section" id="formationcourse" [ngClass]="{'bg-light': bglight}">
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase">
-        Cursos <span class="badge rounded-pill bg-warning fs-6">{{courses.length}}</span>
+        Cursos de Formação <span class="badge rounded-pill bg-warning fs-6">{{formationCourses.length}}</span>
       </h2>
-      <h3 class="section-subheading text-muted">Saiba mais sobre meus cursos</h3>
+      <h3 class="section-subheading text-muted">Saiba mais sobre meus cursos de formação</h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
       <ul class="list-group list-group-light mb-4">
         <li class="list-group-item d-flex justify-content-between align-items-center"
-          *ngFor="let item of courses | sortby:'conclusion':'desc' | paginate: config; index as i;">
+          *ngFor="let item of formationCourses | sortby:'conclusion':'desc' | paginate: config; index as i;">
           <div class="d-flex align-items-center ms-5">
             <img src="assets/img/others/{{item.institution | imgcurso}}" alt="" style="width: 60px; height: 60px"
               class="rounded-circle" />
@@ -31,7 +31,7 @@
       </ul>
     <div class="text-center">
       <div class="has-text-centered">
-        <pagination-controls (pageChange)="onPageChange($event)" id="coursesPag"></pagination-controls>
+        <pagination-controls (pageChange)="onPageChange($event)" id="formationCoursesPag"></pagination-controls>
       </div>
     </div>
   </div>

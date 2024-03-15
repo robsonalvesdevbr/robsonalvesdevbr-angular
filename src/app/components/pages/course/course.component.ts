@@ -9,6 +9,7 @@ import { PaginationInstance } from 'ngx-pagination';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent {
+  @Input({required: false}) bglight: boolean = false;
   @Input({ required: true }) courses: ICourse[] = [];
 
   config: PaginationInstance = {

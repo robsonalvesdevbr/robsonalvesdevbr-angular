@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-clients',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent {
-
+  @Input({required: false}) bglight: boolean = false;
 }
