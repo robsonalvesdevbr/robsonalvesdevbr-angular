@@ -720,7 +720,284 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2021-4-28'),
     favorite: false
   },
-
-
-
+  {
+    name: "C# Parte 9: entrada e saída (I/O) com streams",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e4ee4e24-6a87-4d43-91b5-c42b39238832?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-26'),
+    favorite: false
+  },
+  {
+    name: "C# parte 8: List, lambda, linq",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/5b6328e1-45de-4e7d-b51e-c56ea346bc0c?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-23'),
+    favorite: false
+  },
+  {
+    name: "C# parte 7: Array e tipos genéricos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/957cfc38-6039-4d9d-9111-7a67755a4b1a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-21'),
+    favorite: false
+  },
+  {
+    name: "C# parte 6: Strings, expressões regulares e a classe Object",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/aa61efbc-4554-4a27-80cd-88d6bad8e68a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-19'),
+    favorite: false
+  },
+  {
+    name: "C# parte 5: bibliotecas DLLs, documentação e usando o NuGet",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e86e6535-543c-4db0-ae6a-59b02263cb9f?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-17'),
+    favorite: false
+  },
+  {
+    name: "C# parte 4: entendendo exceções",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/4e81e86d-d9eb-4dd5-990f-1fbbc4854ed8?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-3-22'),
+    favorite: false
+  },
+  {
+    name: "C# parte 3: entendendo herança e interface",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/eb3d4a38-50ba-4dbb-8082-4f6b75e558be?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-3-21'),
+    favorite: false
+  },
+  {
+    name: "C# parte 2: Entendendo a Orientação a Objetos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/f34c4a9f-9084-4a0e-ae2f-a28c88cff0a2?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-3-9'),
+    favorite: false
+  },
+  {
+    name: "Vue.js parte 1: construindo Single Page Applications",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/41a2319c-2a51-4db8-afaa-611b4dd8f595?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-2-24'),
+    favorite: false
+  },
+  {
+    name: "C# parte 1: primeiros passos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e66dac5c-2f3f-4ed3-bb3b-5b784749bc86?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-2-9'),
+    favorite: false
+  },
+  {
+    name: "Kafka: produtores, consumidores e streams",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/2fc0994c-98ce-4fb5-9473-2fed548ed3fd?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-2-4'),
+    favorite: false
+  },
+  {
+    name: "Mocks em C#: testes de Integração com xUnit e Moq",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/31e4e9ef-f7cf-423f-977d-2cc1317fb29c?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-12-9'),
+    favorite: false
+  },
+  {
+    name: "Scrum: agilidade em seu projeto",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/d8554a75-364a-471e-83de-6a43d6b2af5b?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-11-30'),
+    favorite: false
+  },
+  {
+    name: "Agilidade: promovendo a transformação ágil",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/40ae2b6e-fa77-407c-b4db-55b0d2c3dfd0?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-11-20'),
+    favorite: false
+  },
+  {
+    name: "SOLID com C#: princípios da programação orientada a objetos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/7ad17dd8-69dd-47f4-a4b3-a9da4091cd8c?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-10-22'),
+    favorite: false
+  },
+  {
+    name: "C#: Testes de unidade e TDD com xUnit",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/cb374d96-3f26-420b-8d20-9b01f72a7717?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-9-28'),
+    favorite: false
+  },
+  {
+    name: "Azure: Deploy de uma webapp na nuvem da Microsoft",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/25a5539c-faf6-40a5-a58a-19849c9ae8a3?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-9-17'),
+    favorite: false
+  },
+  {
+    name: "Deploy no Amazon EC2: alta disponibilidade e escalabilidade de uma aplicação",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/8541d344-2ff8-4109-ad7a-7b369f7d3f04?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-7-8'),
+    favorite: false
+  },
+  {
+    name: "LGPD: conhecendo e entendendo seus impactos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/7c0cb1cd-87ea-4e0b-8886-75167e46a820?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-7-7'),
+    favorite: false
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 3: padronizando a API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/1e96ddd2-3e54-4b36-85fc-a5362c9731bc?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-22'),
+    favorite: false
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-13'),
+    favorite: false
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-6'),
+    favorite: false
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-13'),
+    favorite: false
+  },
+  {
+    name: "APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-5-6'),
+    favorite: false
+  },
+  {
+    name: "Entity Framework Core: banco de dados de forma eficiente",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/19f07f01-327f-40cb-b331-b0bf4d3ac26f?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-3-3'),
+    favorite: false
+  },
+  {
+    name: "Webpack: Manipulando módulos na sua webapp",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/decdd4b1-09e8-4776-a14a-3c9adff3136d?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-1-20'),
+    favorite: false
+  },
+  {
+    name: "TypeScript parte 2: Mais técnicas e boas práticas",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/7e92f117-f13f-44c1-8dce-529ef65c7c02?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-1-19'),
+    favorite: false
+  },
+  {
+    name: "TypeScript parte 1: evoluindo seu JavaScript",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/2eaf88e6-e655-4c9d-9803-ade895189378?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-1-15'),
+    favorite: false
+  },
+  {
+    name: "Node.js Parte 1: Inovando com JavaScript no backend",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/7d24ef92-7bdd-47ee-b630-7311622dfd3e?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-1-13'),
+    favorite: false
+  },
+  {
+    name: "JavaScript: aprofundando em MVC, padrão Proxy e Factory",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/b03d047f-017b-4b44-b9c5-9937402b78aa?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-1-7'),
+    favorite: false
+  },
+  {
+    name: "JavaScript: conhecendo o Browser e padrões de projeto",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/88d168f0-6a8a-4b42-978f-d49cb9547c39?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2020-1-4'),
+    favorite: false
+  },
+  {
+    name: "JavaScript: programando na linguagem da web",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/f3125d22-e542-4101-b8f6-27f12fcc0c07?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2019-12-14'),
+    favorite: false
+  },
+  {
+    name: "HTTP: Entendendo a web por baixo dos panos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/5d54dc3e-3df3-4afb-84dc-159f33cdfb7b?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2019-12-1'),
+    favorite: false
+  },
+  {
+    name: "ASP.NET Identity parte 1: Gerencie contas de usuários",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/37d80b3e-730a-4da2-bcc9-88ad25403458?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2019-11-15'),
+    favorite: false
+  },
+  {
+    name: "Docker: Criando containers sem dor de cabeça",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/333f4ba7-4347-40dc-b835-f6537db07ecc?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2019-11-6'),
+    favorite: false
+  }
 ]
