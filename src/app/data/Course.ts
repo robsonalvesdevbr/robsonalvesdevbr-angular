@@ -156,7 +156,7 @@ export const Courses: ICourse[] = [
     name: "Lógica de programação: explore funções e listas",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/06a6aa9d-4057-46a9-a082-d2b810998a01?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'logic'],
     conclusion: new Date('2024-2-17'),
     favorite: false
   },
@@ -164,7 +164,7 @@ export const Courses: ICourse[] = [
     name: "Lógica de programação: mergulhe em programação com JavaScript",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f8a1f9fd-a3ac-4100-b398-38d891f09952?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'logic'],
     conclusion: new Date('2024-1-3'),
     favorite: false
   },
@@ -172,7 +172,7 @@ export const Courses: ICourse[] = [
     name: "Microsoft SQL Server 2022: conhecendo SQL",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/573c53e0-215a-4138-8866-6b8a91621b81?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2023-9-5'),
     favorite: false
   },
@@ -180,7 +180,7 @@ export const Courses: ICourse[] = [
     name: "Azure Cloud: segurança e recursos avançados",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/ee5f9313-467b-44a5-ad05-b553b39d77b5?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure'],
     conclusion: new Date('2023-8-22'),
     favorite: false
   },
@@ -188,7 +188,7 @@ export const Courses: ICourse[] = [
     name: "Azure Cloud: criando um servidor com banco de dados para receber uma aplicação",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/57764ba5-ebeb-4195-9cdd-67e578bb5b2b?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure', 'database'],
     conclusion: new Date('2023-8-17'),
     favorite: false
   },
@@ -196,7 +196,7 @@ export const Courses: ICourse[] = [
     name: "Kubernetes: prática, Helm e Cloud",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1bd12d60-6a2f-438b-b669-03709ca8c734?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure', 'kubernetes', 'container'],
     conclusion: new Date('2023-8-16'),
     favorite: true
   },
@@ -204,7 +204,7 @@ export const Courses: ICourse[] = [
     name: "Dart: criando e manipulando variáveis e listas",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/362f75ac-a636-40d2-bcbf-0c448a39c528?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'dart'],
     conclusion: new Date('2023-3-1'),
     favorite: false
   },
@@ -212,7 +212,7 @@ export const Courses: ICourse[] = [
     name: "OWASP Top 10: de Injections a Broken Access Control",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/54be0077-be6d-4d69-8573-86e5353a1c6c?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'security'],
     conclusion: new Date('2023-1-19'),
     favorite: true
   },
@@ -220,7 +220,7 @@ export const Courses: ICourse[] = [
     name: ".NET 6: criando uma web API",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e5b315fd-973e-45b5-b4a7-44d1d609bc37?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2023-1-12'),
     favorite: false
   },
@@ -228,7 +228,7 @@ export const Courses: ICourse[] = [
     name: "Vue3: explorando o framework",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/a977f1f5-8f86-4589-a92b-d023fe439196?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'vue'],
     conclusion: new Date('2022-8-15'),
     favorite: false
   },
@@ -236,7 +236,7 @@ export const Courses: ICourse[] = [
     name: "Rust: a linguagem de programação performática e segura",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/bade0182-f781-44e4-a8ff-ebd874c0554f?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'rust'],
     conclusion: new Date('2022-8-12'),
     favorite: true
   },
@@ -244,7 +244,7 @@ export const Courses: ICourse[] = [
     name: "Rust: aprenda mais sobre tipos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1e1d3c58-87c4-4e5d-992a-d13e6217530b?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'rust'],
     conclusion: new Date('2022-8-12'),
     favorite: true
   },
@@ -252,7 +252,7 @@ export const Courses: ICourse[] = [
     name: "SQL Server: administração do Microsoft SQL Server 2017",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/41279343-fbd3-49e2-8373-29cda9909596?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-12'),
     favorite: false
   },
@@ -260,7 +260,7 @@ export const Courses: ICourse[] = [
     name: "SQL Server: T-SQL com Microsoft SQL Server 2017",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/a7f8d24d-aa64-404f-8197-6dfdb6a017c5?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-10'),
     favorite: false
   },
@@ -268,7 +268,7 @@ export const Courses: ICourse[] = [
     name: "SQL Server: Manipulação de dados com Microsoft SQL Server 2017",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f9fcd1eb-e007-4e7a-a417-192a446c53b9?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-9'),
     favorite: false
   },
@@ -276,7 +276,7 @@ export const Courses: ICourse[] = [
     name: "SQL Server: consultas avançadas com Microsoft SQL Server 2017",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/cab204dd-3c1a-4101-bdda-f778cdd7117b?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-8'),
     favorite: false
   },
@@ -284,7 +284,7 @@ export const Courses: ICourse[] = [
     name: "SQL Server: Introdução ao SQL com Microsoft SQL Server 2017",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/42559db4-15e4-4a16-9bd8-b13e8a94b345?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-8'),
     favorite: false
   },
@@ -292,7 +292,7 @@ export const Courses: ICourse[] = [
     name: "Modelagem de banco de dados relacional: Álgebra Relacional",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/cf23a4eb-7223-4523-8b69-8c70f6b8fa21?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-3'),
     favorite: false
   },
@@ -300,7 +300,7 @@ export const Courses: ICourse[] = [
     name: "Modelagem de banco de dados relacional: entendendo SQL",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/097df050-faa9-4504-80ba-5587925077fe?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-3'),
     favorite: false
   },
@@ -308,7 +308,7 @@ export const Courses: ICourse[] = [
     name: "Modelagem de banco de dados relacional: normalização",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/184457d6-5fe9-4187-ad29-6ed0e5015a4f?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-3'),
     favorite: false
   },
@@ -316,7 +316,7 @@ export const Courses: ICourse[] = [
     name: "Modelagem de banco de dados relacional: modelagem lógica e física",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/6addd0fb-4be1-48f4-8b8e-8f2fe70699b3?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-2'),
     favorite: false
   },
@@ -324,7 +324,7 @@ export const Courses: ICourse[] = [
     name: "Modelagem de banco de dados: entidades, relacionamentos e atributos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f4fb9541-03d7-4214-a7ad-b960fb02f736?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'sqlserver'],
     conclusion: new Date('2022-8-1'),
     favorite: false
   },
@@ -332,7 +332,7 @@ export const Courses: ICourse[] = [
     name: "Redis II: estruturas e recursos na sua base NoSQL",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/8b3d2118-b233-4530-ad60-d9254f091a7e?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'redis', 'cache'],
     conclusion: new Date('2022-7-20'),
     favorite: false
   },
@@ -340,7 +340,7 @@ export const Courses: ICourse[] = [
     name: "Redis I: armazenando chaves e valores",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f3e017a1-fb3e-4b50-b33e-2a42fbf4cc74?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'redis', 'cache'],
     conclusion: new Date('2022-7-20'),
     favorite: false
   },
@@ -348,7 +348,7 @@ export const Courses: ICourse[] = [
     name: "Microsserviços e .NET6: implementando a comunicação",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e51f515b-bb63-4333-9dfe-5961c2eb1da1?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2022-7-27'),
     favorite: false
   },
@@ -356,7 +356,7 @@ export const Courses: ICourse[] = [
     name: "Modelagem MongoDB: relacionamentos e cardinalidade",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1fdb3723-9f1b-4f06-bc90-c268502224f7?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'nosql'],
     conclusion: new Date('2022-7-25'),
     favorite: false
   },
@@ -364,7 +364,7 @@ export const Courses: ICourse[] = [
     name: "MongoDB: modelagem de dados",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/ca5dbfc1-068a-43d7-8759-5134ab1263c4?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'nosql'],
     conclusion: new Date('2022-7-22'),
     favorite: false
   },
@@ -372,7 +372,7 @@ export const Courses: ICourse[] = [
     name: "MongoDB: uma alternativa aos bancos relacionais tradicionais",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/2cdd5a78-4b70-42e8-a4ba-d319cff5776a?lang=pt_BR",
-    tags:['all'],
+    tags:['database', 'nosql'],
     conclusion: new Date('2022-7-22'),
     favorite: false
   },
@@ -380,7 +380,7 @@ export const Courses: ICourse[] = [
     name: "C#: entendendo exceções",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/31f830a1-a293-4840-9c26-b4fa1f89f655?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2022-7-19'),
     favorite: false
   },
@@ -388,7 +388,7 @@ export const Courses: ICourse[] = [
     name: "Estrutura de Dados: computação na prática com Java",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e40feed1-13aa-420c-8747-5e84bf1bb837?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'java', 'algorithm'],
     conclusion: new Date('2022-7-18'),
     favorite: false
   },
@@ -396,7 +396,7 @@ export const Courses: ICourse[] = [
     name: "Microsoft AZ-900 parte 4: Azure Fundamentals",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/804c23fc-85e8-4bd2-9836-437c74a137a0?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure'],
     conclusion: new Date('2022-7-7'),
     favorite: false
   },
@@ -404,7 +404,7 @@ export const Courses: ICourse[] = [
     name: "Microsoft AZ-900 parte 3: Azure Fundamentals",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e4157be2-f56f-4559-8bdd-a21a0f012b0a?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure'],
     conclusion: new Date('2022-7-5'),
     favorite: false
   },
@@ -412,7 +412,7 @@ export const Courses: ICourse[] = [
     name: "Microsoft AZ-900 parte 2: Azure Fundamentals",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/8e362b2b-9d79-43e8-88a8-36c199413ecf?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure'],
     conclusion: new Date('2022-7-1'),
     favorite: false
   },
@@ -420,7 +420,7 @@ export const Courses: ICourse[] = [
     name: "Microsoft AZ-900 parte 1: Azure Fundamentals",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/fd708be3-4db2-4d76-b7fc-712d6cd43210?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure'],
     conclusion: new Date('2022-6-29'),
     favorite: false
   },
@@ -428,7 +428,7 @@ export const Courses: ICourse[] = [
     name: "Git e Github: controle e compartilhe seu código",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/4f3c3358-1eae-432c-84b8-4a1fac6ecfcc?lang=pt_BR",
-    tags:['all'],
+    tags:['git'],
     conclusion: new Date('2022-6-24'),
     favorite: false
   },
@@ -444,7 +444,7 @@ export const Courses: ICourse[] = [
     name: "Go: a linguagem do Google",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1d0fc6df-f017-41ef-91a3-3b28084cef4f?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'golang', 'google'],
     conclusion: new Date('2022-5-27'),
     favorite: false
   },
@@ -452,7 +452,7 @@ export const Courses: ICourse[] = [
     name: ".NET 5 e Identity: autenticando e autorizando usuários",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/af681830-f65c-4cea-a290-ec0ebe460365?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp'],
     conclusion: new Date('2022-5-25'),
     favorite: false
   },
@@ -460,7 +460,7 @@ export const Courses: ICourse[] = [
     name: ".NET 5 e Identity: implementando controle de usuário",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/0ebecc61-a94d-48a7-8cf3-17840664106c?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp'],
     conclusion: new Date('2022-5-24'),
     favorite: false
   },
@@ -492,7 +492,7 @@ export const Courses: ICourse[] = [
     name: "Selenium WebDriver e C# parte 2: outros recursos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/51ec0753-6343-459a-a83b-17afad4e57fe?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp', 'test'],
     conclusion: new Date('2022-5-22'),
     favorite: false
   },
@@ -500,7 +500,7 @@ export const Courses: ICourse[] = [
     name: "Selenium WebDriver e C# parte 1: testes da sua web app",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/ab2636e8-4bd9-483e-8a42-8da43b7f65f3?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp', 'test'],
     conclusion: new Date('2022-5-21'),
     favorite: false
   },
@@ -516,7 +516,7 @@ export const Courses: ICourse[] = [
     name: "Testes em .NET: testes de interface usando Selenium",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/a9b65aba-b6da-47f6-b1f9-b4c5d580ab31?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp', 'test'],
     conclusion: new Date('2022-5-17'),
     favorite: false
   },
@@ -524,7 +524,7 @@ export const Courses: ICourse[] = [
     name: "Testes em .NET: integração e entrega contínua com Azure DevOps",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/85310144-c8be-40db-89c6-166a741a315a?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp', 'test'],
     conclusion: new Date('2022-5-16'),
     favorite: false
   },
@@ -532,7 +532,7 @@ export const Courses: ICourse[] = [
     name: "Testes em .NET: integrando a aplicação com um banco de dados",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/52fada6f-39a9-440c-8462-630f6770fe52?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp', 'test'],
     conclusion: new Date('2022-5-15'),
     favorite: false
   },
@@ -540,7 +540,7 @@ export const Courses: ICourse[] = [
     name: "Testes em .NET: testando software",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/b9ba25ed-660f-4b8e-a316-59543cd3373f?lang=pt_BR",
-    tags:['all'],
+    tags:['development', '.net',' csharp', 'test'],
     conclusion: new Date('2022-5-15'),
     favorite: false
   },
@@ -548,7 +548,7 @@ export const Courses: ICourse[] = [
     name: "Amazon EKS: gerenciando aplicações conteinerizadas com Kubernetes",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/dd427b1b-ae43-4d8e-ae50-66932d9b3228?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'aws'],
     conclusion: new Date('2022-5-13'),
     favorite: false
   },
@@ -556,7 +556,7 @@ export const Courses: ICourse[] = [
     name: "Google Kubernetes Engine: avançando com GKE",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/38261f2f-775c-4391-a470-2dd4c23b1948?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'google'],
     conclusion: new Date('2022-5-13'),
     favorite: false
   },
@@ -564,7 +564,7 @@ export const Courses: ICourse[] = [
     name: "Google Kubernetes Engine",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/21c6031d-7c50-4cca-85ea-2fb4ecf28421?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'google'],
     conclusion: new Date('2022-5-12'),
     favorite: false
   },
@@ -572,7 +572,7 @@ export const Courses: ICourse[] = [
     name: "Kubernetes na Digital Ocean: gerenciando aplicações conteinerizadas",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/9c51f887-3410-4bec-9003-9185c3107e20?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'digital ocean'],
     conclusion: new Date('2022-5-11'),
     favorite: false
   },
@@ -580,7 +580,7 @@ export const Courses: ICourse[] = [
     name: "Azure: gerencie Kubernetes com AKS e ACR",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/ca4b1404-eafb-48a3-b4fe-dad28ed9c6e2?lang=pt_BR",
-    tags:['all'],
+    tags:['cloud', 'azure'],
     conclusion: new Date('2022-5-6'),
     favorite: false
   },
@@ -588,7 +588,7 @@ export const Courses: ICourse[] = [
     name: "Kubernetes: Deployments, Volumes e Escalabilidade",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/d6884d23-76b0-41d5-83a8-9d6971da7c39?lang=pt_BR",
-    tags:['all'],
+    tags:['kubernetes', 'container'],
     conclusion: new Date('2022-5-3'),
     favorite: false
   },
@@ -596,7 +596,7 @@ export const Courses: ICourse[] = [
     name: "Kubernetes: Pods, Services e ConfigMaps",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/065f3e48-80b9-4f76-a2b9-081bf28b0f9c?lang=pt_BR",
-    tags:['all'],
+    tags:['kubernetes', 'container'],
     conclusion: new Date('2022-5-2'),
     favorite: false
   },
@@ -628,7 +628,7 @@ export const Courses: ICourse[] = [
     name: "Asp.NET Core: uma webapp usando o padrão MVC",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/38dec12f-dc83-4f70-910d-6a56a9a5bd0d?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2022-1-13'),
     favorite: false
   },
@@ -636,7 +636,7 @@ export const Courses: ICourse[] = [
     name: "Lógica de programação: laços e listas com JavaScript",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1c93a2cb-a409-47a2-bbb7-37f417db1ec4?lang=pt_BR",
-    tags:['all'],
+    tags:['logic', 'javascript'],
     conclusion: new Date('2022-1-13'),
     favorite: false
   },
@@ -644,7 +644,7 @@ export const Courses: ICourse[] = [
     name: "Lógica de programação: comece em lógica com o jogo Pong e JavaScript",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/29ecd196-2c4a-4f67-ba63-a95f8af7b90e?lang=pt_BR",
-    tags:['all'],
+    tags:['logic', 'javascript'],
     conclusion: new Date('2022-1-6'),
     favorite: false
   },
@@ -660,7 +660,7 @@ export const Courses: ICourse[] = [
     name: "Microsserviços: padrões de projeto",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1a8a1419-079c-45ea-a5a1-b085f395d62a?lang=pt_BR",
-    tags:['all'],
+    tags:['development','microservice'],
     conclusion: new Date('2021-9-17'),
     favorite: false
   },
@@ -668,7 +668,7 @@ export const Courses: ICourse[] = [
     name: ".NET 5 e EF Core: relacionando entidades",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/4779bd73-714f-4631-a190-cf77e64b8f72?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-9-10'),
     favorite: false
   },
@@ -676,7 +676,7 @@ export const Courses: ICourse[] = [
     name: "API Rest com .NET 5: operações essenciais com verbos HTTP",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/569e52ad-945f-4436-90ee-24719cec0dc9?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-9-9'),
     favorite: false
   },
@@ -684,7 +684,7 @@ export const Courses: ICourse[] = [
     name: "Python: começando com a linguagem",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/5c274a8f-f2aa-48f5-bf4a-b36daf2d5ed6?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'python'],
     conclusion: new Date('2021-8-20'),
     favorite: false
   },
@@ -692,7 +692,7 @@ export const Courses: ICourse[] = [
     name: ".Net e MongoDB parte 1: integre aplicações .NET",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/cf749f0e-95a4-4654-a1e5-5747e6f23d7e?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net', 'nosql', 'database'],
     conclusion: new Date('2021-8-6'),
     favorite: false
   },
@@ -700,7 +700,7 @@ export const Courses: ICourse[] = [
     name: "DNS: entenda a resolução de nomes na internet",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/66107344-c4a5-420c-b9ae-d42ce1c3455f?lang=pt_BR",
-    tags:['all'],
+    tags:['dns'],
     conclusion: new Date('2021-6-2'),
     favorite: false
   },
@@ -708,7 +708,7 @@ export const Courses: ICourse[] = [
     name: "C#: Eventos, Delegates e Lambda",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/057ba39e-d2c2-4eba-9fe0-a3cc1713767a?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-5-24'),
     favorite: false
   },
@@ -716,7 +716,7 @@ export const Courses: ICourse[] = [
     name: "C#: Paralelismo no mundo real",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/b8bdc2d2-d709-4c03-b905-6669cf22ce41?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-4-28'),
     favorite: false
   },
@@ -724,7 +724,7 @@ export const Courses: ICourse[] = [
     name: "C# Parte 9: entrada e saída (I/O) com streams",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e4ee4e24-6a87-4d43-91b5-c42b39238832?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-4-26'),
     favorite: false
   },
@@ -732,7 +732,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 8: List, lambda, linq",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/5b6328e1-45de-4e7d-b51e-c56ea346bc0c?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-4-23'),
     favorite: false
   },
@@ -740,7 +740,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 7: Array e tipos genéricos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/957cfc38-6039-4d9d-9111-7a67755a4b1a?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-4-21'),
     favorite: false
   },
@@ -748,7 +748,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 6: Strings, expressões regulares e a classe Object",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/aa61efbc-4554-4a27-80cd-88d6bad8e68a?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-4-19'),
     favorite: false
   },
@@ -756,7 +756,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 5: bibliotecas DLLs, documentação e usando o NuGet",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e86e6535-543c-4db0-ae6a-59b02263cb9f?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-4-17'),
     favorite: false
   },
@@ -764,7 +764,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 4: entendendo exceções",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/4e81e86d-d9eb-4dd5-990f-1fbbc4854ed8?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-3-22'),
     favorite: false
   },
@@ -772,7 +772,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 3: entendendo herança e interface",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/eb3d4a38-50ba-4dbb-8082-4f6b75e558be?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-3-21'),
     favorite: false
   },
@@ -780,7 +780,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 2: Entendendo a Orientação a Objetos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f34c4a9f-9084-4a0e-ae2f-a28c88cff0a2?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-3-9'),
     favorite: false
   },
@@ -788,7 +788,7 @@ export const Courses: ICourse[] = [
     name: "Vue.js parte 1: construindo Single Page Applications",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/41a2319c-2a51-4db8-afaa-611b4dd8f595?lang=pt_BR",
-    tags:['all'],
+    tags:['development'],
     conclusion: new Date('2021-2-24'),
     favorite: false
   },
@@ -796,7 +796,7 @@ export const Courses: ICourse[] = [
     name: "C# parte 1: primeiros passos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/e66dac5c-2f3f-4ed3-bb3b-5b784749bc86?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2021-2-9'),
     favorite: false
   },
@@ -836,7 +836,7 @@ export const Courses: ICourse[] = [
     name: "SOLID com C#: princípios da programação orientada a objetos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/7ad17dd8-69dd-47f4-a4b3-a9da4091cd8c?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-10-22'),
     favorite: false
   },
@@ -844,7 +844,7 @@ export const Courses: ICourse[] = [
     name: "C#: Testes de unidade e TDD com xUnit",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/cb374d96-3f26-420b-8d20-9b01f72a7717?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-9-28'),
     favorite: false
   },
@@ -852,7 +852,7 @@ export const Courses: ICourse[] = [
     name: "Azure: Deploy de uma webapp na nuvem da Microsoft",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/25a5539c-faf6-40a5-a58a-19849c9ae8a3?lang=pt_BR",
-    tags:['all'],
+    tags:['azure'],
     conclusion: new Date('2020-9-17'),
     favorite: false
   },
@@ -860,7 +860,7 @@ export const Courses: ICourse[] = [
     name: "Deploy no Amazon EC2: alta disponibilidade e escalabilidade de uma aplicação",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/8541d344-2ff8-4109-ad7a-7b369f7d3f04?lang=pt_BR",
-    tags:['all'],
+    tags:['aws'],
     conclusion: new Date('2020-7-8'),
     favorite: false
   },
@@ -868,7 +868,7 @@ export const Courses: ICourse[] = [
     name: "LGPD: conhecendo e entendendo seus impactos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/7c0cb1cd-87ea-4e0b-8886-75167e46a820?lang=pt_BR",
-    tags:['all'],
+    tags:['lgpd'],
     conclusion: new Date('2020-7-7'),
     favorite: false
   },
@@ -876,7 +876,7 @@ export const Courses: ICourse[] = [
     name: "APIs Rest com Asp.NET Core 2.1 Parte 3: padronizando a API",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/1e96ddd2-3e54-4b36-85fc-a5362c9731bc?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-5-22'),
     favorite: false
   },
@@ -884,7 +884,7 @@ export const Courses: ICourse[] = [
     name: "APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-5-13'),
     favorite: false
   },
@@ -892,7 +892,7 @@ export const Courses: ICourse[] = [
     name: "APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-5-6'),
     favorite: false
   },
@@ -900,7 +900,7 @@ export const Courses: ICourse[] = [
     name: "APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-5-13'),
     favorite: false
   },
@@ -908,7 +908,7 @@ export const Courses: ICourse[] = [
     name: "APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-5-6'),
     favorite: false
   },
@@ -916,7 +916,7 @@ export const Courses: ICourse[] = [
     name: "Entity Framework Core: banco de dados de forma eficiente",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/19f07f01-327f-40cb-b331-b0bf4d3ac26f?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2020-3-3'),
     favorite: false
   },
@@ -932,7 +932,7 @@ export const Courses: ICourse[] = [
     name: "TypeScript parte 2: Mais técnicas e boas práticas",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/7e92f117-f13f-44c1-8dce-529ef65c7c02?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'typescript'],
     conclusion: new Date('2020-1-19'),
     favorite: false
   },
@@ -940,7 +940,7 @@ export const Courses: ICourse[] = [
     name: "TypeScript parte 1: evoluindo seu JavaScript",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/2eaf88e6-e655-4c9d-9803-ade895189378?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'typescript'],
     conclusion: new Date('2020-1-15'),
     favorite: false
   },
@@ -948,7 +948,7 @@ export const Courses: ICourse[] = [
     name: "Node.js Parte 1: Inovando com JavaScript no backend",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/7d24ef92-7bdd-47ee-b630-7311622dfd3e?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'node'],
     conclusion: new Date('2020-1-13'),
     favorite: false
   },
@@ -956,7 +956,7 @@ export const Courses: ICourse[] = [
     name: "JavaScript: aprofundando em MVC, padrão Proxy e Factory",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/b03d047f-017b-4b44-b9c5-9937402b78aa?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'javascript', 'design pattern'],
     conclusion: new Date('2020-1-7'),
     favorite: false
   },
@@ -964,7 +964,7 @@ export const Courses: ICourse[] = [
     name: "JavaScript: conhecendo o Browser e padrões de projeto",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/88d168f0-6a8a-4b42-978f-d49cb9547c39?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'javascript', 'design pattern'],
     conclusion: new Date('2020-1-4'),
     favorite: false
   },
@@ -972,7 +972,7 @@ export const Courses: ICourse[] = [
     name: "JavaScript: programando na linguagem da web",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f3125d22-e542-4101-b8f6-27f12fcc0c07?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'javascript'],
     conclusion: new Date('2019-12-14'),
     favorite: false
   },
@@ -980,7 +980,7 @@ export const Courses: ICourse[] = [
     name: "HTTP: Entendendo a web por baixo dos panos",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/5d54dc3e-3df3-4afb-84dc-159f33cdfb7b?lang=pt_BR",
-    tags:['all'],
+    tags:['http'],
     conclusion: new Date('2019-12-1'),
     favorite: false
   },
@@ -988,7 +988,7 @@ export const Courses: ICourse[] = [
     name: "ASP.NET Identity parte 1: Gerencie contas de usuários",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/37d80b3e-730a-4da2-bcc9-88ad25403458?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'csharp', '.net'],
     conclusion: new Date('2019-11-15'),
     favorite: false
   },
@@ -996,7 +996,7 @@ export const Courses: ICourse[] = [
     name: "Docker: Criando containers sem dor de cabeça",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/333f4ba7-4347-40dc-b835-f6537db07ecc?lang=pt_BR",
-    tags:['all'],
+    tags:['docker', 'container'],
     conclusion: new Date('2019-11-6'),
     favorite: false
   }
