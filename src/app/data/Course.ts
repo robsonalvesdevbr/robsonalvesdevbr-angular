@@ -344,15 +344,382 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2022-7-20'),
     favorite: false
   },
-
-
-
-
-
-
-
-
-
+  {
+    name: "Microsserviços e .NET6: implementando a comunicação",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e51f515b-bb63-4333-9dfe-5961c2eb1da1?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-27'),
+    favorite: false
+  },
+  {
+    name: "Modelagem MongoDB: relacionamentos e cardinalidade",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/1fdb3723-9f1b-4f06-bc90-c268502224f7?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-25'),
+    favorite: false
+  },
+  {
+    name: "MongoDB: modelagem de dados",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/ca5dbfc1-068a-43d7-8759-5134ab1263c4?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-22'),
+    favorite: false
+  },
+  {
+    name: "MongoDB: uma alternativa aos bancos relacionais tradicionais",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/2cdd5a78-4b70-42e8-a4ba-d319cff5776a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-22'),
+    favorite: false
+  },
+  {
+    name: "C#: entendendo exceções",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/31f830a1-a293-4840-9c26-b4fa1f89f655?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-19'),
+    favorite: false
+  },
+  {
+    name: "Estrutura de Dados: computação na prática com Java",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e40feed1-13aa-420c-8747-5e84bf1bb837?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-18'),
+    favorite: false
+  },
+  {
+    name: "Microsoft AZ-900 parte 4: Azure Fundamentals",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/804c23fc-85e8-4bd2-9836-437c74a137a0?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-7'),
+    favorite: false
+  },
+  {
+    name: "Microsoft AZ-900 parte 3: Azure Fundamentals",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/e4157be2-f56f-4559-8bdd-a21a0f012b0a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-5'),
+    favorite: false
+  },
+  {
+    name: "Microsoft AZ-900 parte 2: Azure Fundamentals",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/8e362b2b-9d79-43e8-88a8-36c199413ecf?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-7-1'),
+    favorite: false
+  },
+  {
+    name: "Microsoft AZ-900 parte 1: Azure Fundamentals",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/fd708be3-4db2-4d76-b7fc-712d6cd43210?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-6-29'),
+    favorite: false
+  },
+  {
+    name: "Git e Github: controle e compartilhe seu código",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/4f3c3358-1eae-432c-84b8-4a1fac6ecfcc?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-6-24'),
+    favorite: false
+  },
+  {
+    name: "Go: validações, testes e páginas HTML",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/f57bdcd5-11f7-404e-9aeb-427af45eaca1?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-6-24'),
+    favorite: false
+  },
+  {
+    name: "Go: a linguagem do Google",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/1d0fc6df-f017-41ef-91a3-3b28084cef4f?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-27'),
+    favorite: false
+  },
+  {
+    name: ".NET 5 e Identity: autenticando e autorizando usuários",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/af681830-f65c-4cea-a290-ec0ebe460365?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-25'),
+    favorite: false
+  },
+  {
+    name: ".NET 5 e Identity: implementando controle de usuário",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/0ebecc61-a94d-48a7-8cf3-17840664106c?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-24'),
+    favorite: false
+  },
+  {
+    name: "Delegação de tarefas: obtenha o melhor do seu time",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/dbb9e726-e557-4ec1-bad4-ed92744ae45d?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-24'),
+    favorite: false
+  },
+  {
+    name: "Mindset Digital: técnicas e habilidades para liderança remota",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/cf8c4ebe-4b3c-419a-b30c-6992a675687a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-24'),
+    favorite: false
+  },
+  {
+    name: "Princípios do trabalho em equipe: relações colaborativas",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/23dedc0c-b5d3-4fca-9b05-e42cc6f28e28?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-24'),
+    favorite: false
+  },
+  {
+    name: "Selenium WebDriver e C# parte 2: outros recursos",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/51ec0753-6343-459a-a83b-17afad4e57fe?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-22'),
+    favorite: false
+  },
+  {
+    name: "Selenium WebDriver e C# parte 1: testes da sua web app",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/ab2636e8-4bd9-483e-8a42-8da43b7f65f3?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-21'),
+    favorite: false
+  },
+  {
+    name: "Extreme Programming: metodologia de desenvolvimento ágil de software",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/fc26090e-5e5f-45ee-970b-5b8194e25c1d?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-19'),
+    favorite: false
+  },
+  {
+    name: "Testes em .NET: testes de interface usando Selenium",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/a9b65aba-b6da-47f6-b1f9-b4c5d580ab31?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-17'),
+    favorite: false
+  },
+  {
+    name: "Testes em .NET: integração e entrega contínua com Azure DevOps",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/85310144-c8be-40db-89c6-166a741a315a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-16'),
+    favorite: false
+  },
+  {
+    name: "Testes em .NET: integrando a aplicação com um banco de dados",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/52fada6f-39a9-440c-8462-630f6770fe52?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-15'),
+    favorite: false
+  },
+  {
+    name: "Testes em .NET: testando software",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/b9ba25ed-660f-4b8e-a316-59543cd3373f?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-15'),
+    favorite: false
+  },
+  {
+    name: "Amazon EKS: gerenciando aplicações conteinerizadas com Kubernetes",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/dd427b1b-ae43-4d8e-ae50-66932d9b3228?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-13'),
+    favorite: false
+  },
+  {
+    name: "Google Kubernetes Engine: avançando com GKE",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/38261f2f-775c-4391-a470-2dd4c23b1948?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-13'),
+    favorite: false
+  },
+  {
+    name: "Google Kubernetes Engine",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/21c6031d-7c50-4cca-85ea-2fb4ecf28421?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-12'),
+    favorite: false
+  },
+  {
+    name: "Kubernetes na Digital Ocean: gerenciando aplicações conteinerizadas",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/9c51f887-3410-4bec-9003-9185c3107e20?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-11'),
+    favorite: false
+  },
+  {
+    name: "Azure: gerencie Kubernetes com AKS e ACR",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/ca4b1404-eafb-48a3-b4fe-dad28ed9c6e2?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-6'),
+    favorite: false
+  },
+  {
+    name: "Kubernetes: Deployments, Volumes e Escalabilidade",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/d6884d23-76b0-41d5-83a8-9d6971da7c39?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-3'),
+    favorite: false
+  },
+  {
+    name: "Kubernetes: Pods, Services e ConfigMaps",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/065f3e48-80b9-4f76-a2b9-081bf28b0f9c?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-5-2'),
+    favorite: false
+  },
+  {
+    name: "Hábitos na liderança: boas práticas",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/c4e8ef9b-1db8-4e54-9289-843e6e83f32a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-26'),
+    favorite: false
+  },
+  {
+    name: "Liderança: práticas de gestão e melhorias",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/df8ad090-4e64-4e89-b600-1753030d77f3?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-26'),
+    favorite: false
+  },
+  {
+    name: "Liderança: aprendendo sobre a missão e propósito de liderar pessoas",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/252891f0-9e02-468f-a996-2e6d886dc7a4?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-25'),
+    favorite: false
+  },
+  {
+    name: "Asp.NET Core: uma webapp usando o padrão MVC",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/38dec12f-dc83-4f70-910d-6a56a9a5bd0d?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-13'),
+    favorite: false
+  },
+  {
+    name: "Lógica de programação: laços e listas com JavaScript",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/1c93a2cb-a409-47a2-bbb7-37f417db1ec4?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-13'),
+    favorite: false
+  },
+  {
+    name: "Lógica de programação: comece em lógica com o jogo Pong e JavaScript",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/29ecd196-2c4a-4f67-ba63-a95f8af7b90e?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2022-1-6'),
+    favorite: false
+  },
+  {
+    name: "NGINX: servidor Web, Proxy Reverso e API Gateway",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/8a74ba78-4333-460c-aeea-41bdcc59ac8a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-9-23'),
+    favorite: false
+  },
+  {
+    name: "Microsserviços: padrões de projeto",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/1a8a1419-079c-45ea-a5a1-b085f395d62a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-9-17'),
+    favorite: false
+  },
+  {
+    name: ".NET 5 e EF Core: relacionando entidades",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/4779bd73-714f-4631-a190-cf77e64b8f72?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-9-10'),
+    favorite: false
+  },
+  {
+    name: "API Rest com .NET 5: operações essenciais com verbos HTTP",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/569e52ad-945f-4436-90ee-24719cec0dc9?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-9-9'),
+    favorite: false
+  },
+  {
+    name: "Python: começando com a linguagem",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/5c274a8f-f2aa-48f5-bf4a-b36daf2d5ed6?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-8-20'),
+    favorite: false
+  },
+  {
+    name: ".Net e MongoDB parte 1: integre aplicações .NET",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/cf749f0e-95a4-4654-a1e5-5747e6f23d7e?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-8-6'),
+    favorite: false
+  },
+  {
+    name: "DNS: entenda a resolução de nomes na internet",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/66107344-c4a5-420c-b9ae-d42ce1c3455f?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-6-2'),
+    favorite: false
+  },
+  {
+    name: "C#: Eventos, Delegates e Lambda",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/057ba39e-d2c2-4eba-9fe0-a3cc1713767a?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-5-24'),
+    favorite: false
+  },
+  {
+    name: "C#: Paralelismo no mundo real",
+    institution: "Alura",
+    certificateUrl: "https://cursos.alura.com.br/certificate/b8bdc2d2-d709-4c03-b905-6669cf22ce41?lang=pt_BR",
+    tags:['all'],
+    conclusion: new Date('2021-4-28'),
+    favorite: false
+  },
 
 
 
