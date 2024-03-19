@@ -436,7 +436,7 @@ export const Courses: ICourse[] = [
     name: "Go: validações, testes e páginas HTML",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/f57bdcd5-11f7-404e-9aeb-427af45eaca1?lang=pt_BR",
-    tags:['all'],
+    tags:['development', 'golang', 'google'],
     conclusion: new Date('2022-6-24'),
     favorite: false
   },
@@ -452,7 +452,7 @@ export const Courses: ICourse[] = [
     name: ".NET 5 e Identity: autenticando e autorizando usuários",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/af681830-f65c-4cea-a290-ec0ebe460365?lang=pt_BR",
-    tags:['development', '.net',' csharp'],
+    tags:['development', '.net','csharp'],
     conclusion: new Date('2022-5-25'),
     favorite: false
   },
@@ -468,7 +468,7 @@ export const Courses: ICourse[] = [
     name: "Delegação de tarefas: obtenha o melhor do seu time",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/dbb9e726-e557-4ec1-bad4-ed92744ae45d?lang=pt_BR",
-    tags:['all'],
+    tags:['agil'],
     conclusion: new Date('2022-5-24'),
     favorite: false
   },
@@ -476,7 +476,7 @@ export const Courses: ICourse[] = [
     name: "Mindset Digital: técnicas e habilidades para liderança remota",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/cf8c4ebe-4b3c-419a-b30c-6992a675687a?lang=pt_BR",
-    tags:['all'],
+    tags:['agil'],
     conclusion: new Date('2022-5-24'),
     favorite: false
   },
@@ -484,7 +484,7 @@ export const Courses: ICourse[] = [
     name: "Princípios do trabalho em equipe: relações colaborativas",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/23dedc0c-b5d3-4fca-9b05-e42cc6f28e28?lang=pt_BR",
-    tags:['all'],
+    tags:['agil'],
     conclusion: new Date('2022-5-24'),
     favorite: false
   },
@@ -508,7 +508,7 @@ export const Courses: ICourse[] = [
     name: "Extreme Programming: metodologia de desenvolvimento ágil de software",
     institution: "Alura",
     certificateUrl: "https://cursos.alura.com.br/certificate/fc26090e-5e5f-45ee-970b-5b8194e25c1d?lang=pt_BR",
-    tags:['all'],
+    tags:['agil'],
     conclusion: new Date('2022-5-19'),
     favorite: false
   },
