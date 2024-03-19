@@ -36,5 +36,18 @@
         <pagination-controls (pageChange)="onPageChange($event)" id="coursesPag"></pagination-controls>
       </div>
     </div>
+    <div class="border border-1 rounded ">
+      <div class="text-center bg-light bg-gradient">
+        <div class="has-text-centered border border-botton-1">
+          <b>Filtrar Instituição:</b> <div *ngFor="let institution of institutions;  index as i;" class="fontemenor p-1 d-inline-block"><span style="cursor: pointer;" onclick="" id="institutionid_{{institution}}">{{ institution }}</span></div>
+        </div>
+      </div>
+      <div class="text-center bg-light bg-gradient">
+        <div class="has-text-centered border border-botton-1">
+          <b>Filtrar Tag:</b> <div *ngFor="let tag of tags;  index as i;" class="fontemenor p-1 d-inline-block"><span style="cursor: pointer;" onclick="" id="tagid_{{tag}}">{{ tag }}</span></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
