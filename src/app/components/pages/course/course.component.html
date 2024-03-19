@@ -39,12 +39,12 @@
     <div class="border border-1 rounded ">
       <div class="text-center bg-light bg-gradient">
         <div class="has-text-centered border border-botton-1">
-          <b>Filtrar Instituição:</b> <div *ngFor="let institution of institutions;  index as i;" class="fontemenor p-1 d-inline-block"><span style="cursor: pointer;" onclick="" id="institutionid_{{institution}}">{{ institution }}</span></div>
+          <b>Filtrar Instituição:</b> <div *ngFor="let institution of institutions;  index as i;" class="fontemenor p-1 d-inline-block"><a #courseinstlink href="javascript:void(0);" (click)="onClickEvent($event)" class="click" id="institutionid_{{institution}}">{{institution}}</a></div>
         </div>
       </div>
       <div class="text-center bg-light bg-gradient">
         <div class="has-text-centered border border-botton-1">
-          <b>Filtrar Tag:</b> <div *ngFor="let tag of tags;  index as i;" class="fontemenor p-1 d-inline-block"><span style="cursor: pointer;" onclick="" id="tagid_{{tag}}">{{ tag }}</span></div>
+          <b>Filtrar Tag:</b> <div *ngFor="let tag of tags;  index as i;" class="fontemenor p-1 d-inline-block"><span style="cursor: pointer;" class="click" onclick="" id="tagid_{{tag}}">{{ tag }}</span></div>
         </div>
       </div>
     </div>

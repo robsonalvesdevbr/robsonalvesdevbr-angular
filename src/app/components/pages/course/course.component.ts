@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges, viewChild, ElementRef, ViewChild } from '@angular/core';
 import { ICourse } from '../../../interfaces/ICourse';
 import { PaginationInstance } from 'ngx-pagination';
 
@@ -11,6 +11,7 @@ import { PaginationInstance } from 'ngx-pagination';
 export class CourseComponent implements OnChanges {
   @Input({required: false}) bglight: boolean = false;
   @Input({ required: true }) courses: ICourse[] = [];
+
   institutions: string[] = [];
   tags: string[] = [];
 
@@ -34,5 +35,10 @@ export class CourseComponent implements OnChanges {
 
   onPageChange(number: number) {
     this.config.currentPage = number;
+  }
+
+  onClickEvent(e: MouseEvent){
+    var link = (e.target as HTMLLinkElement);
+    console.log(link.id);
   }
 }
