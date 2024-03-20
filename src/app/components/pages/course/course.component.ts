@@ -50,8 +50,6 @@ export class CourseComponent implements OnChanges {
 
       this.institutionsFilter.has(id) ? this.institutionsFilter.delete(id) : this.institutionsFilter.add(id);
       this.selectInstitutionsFilter = Array.from(this.institutionsFilter.values()).join(',');
-
-      console.log(this.selectInstitutionsFilter);
   }
 
   onClickTagEvent(e: MouseEvent){
@@ -60,8 +58,5 @@ export class CourseComponent implements OnChanges {
 
       this.tagsFilter.has(id) ? this.tagsFilter.delete(id) : this.tagsFilter.add(id);
       this.selectTagFilter = Array.from(this.tagsFilter.values()).join(',');
-
-      console.log(this.selectTagFilter);
-
   }
 }
