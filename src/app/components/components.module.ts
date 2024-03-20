@@ -18,6 +18,7 @@ import { SortbyPipe } from '../pipes/sortby.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BookComponent } from './pages/book/book.component';
 import { FormationoourseComponent } from './pages/formationoourse/formationoourse.component';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FormationoourseComponent } from './pages/formationoourse/formationoours
     MessageDateConclusionPipe,
     SortbyPipe,
     BookComponent,
-    FormationoourseComponent
+    FormationoourseComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ import { FormationoourseComponent } from './pages/formationoourse/formationoours
     MessageDateConclusionPipe,
     SortbyPipe,
     BookComponent,
-    FormationoourseComponent
+    FormationoourseComponent,
+    FilterPipe
   ]
 })
 export class ComponentsModule { }
