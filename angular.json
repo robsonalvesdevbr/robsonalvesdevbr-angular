@@ -35,11 +35,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/css",
               "src/js"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/css/styles.scss"
             ],
             "scripts": []
           },
@@ -97,11 +97,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/css",
               "src/js"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/css/styles.scss"
             ],
             "scripts": []
           }
