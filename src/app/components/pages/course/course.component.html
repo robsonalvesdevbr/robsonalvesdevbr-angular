@@ -4,8 +4,7 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Cursos</h2>
       <h3 class="section-subheading text-muted">
-        Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{
-          courses.length }}</span>
+        Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ courses.length }}</span>
       </h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
@@ -16,9 +15,8 @@
             <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
               <b class="p-1 m-1">Filtrar Instituição:</b>
               <ng-template ngFor [ngForOf]="getInstitutions()" Let-i="index" let-institution>
-                <input type="checkbox" class="btn-check" id="input_course_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)"/>
-                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{ institution
-                  }}</label>
+                <input type="checkbox" class="btn-check" id="input_course_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
+                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{ institution }}</label>
               </ng-template>
             </div>
           </div>
@@ -30,8 +28,8 @@
               <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
                 <b class="p-1 m-1">Filtrar tag:</b>
                 <ng-template ngFor [ngForOf]="getTags()" Let-i="index" let-tag>
-                  <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off"  (click)="onClickTagEvent($event)"/>
-                  <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_tag_{{ tag | lowercase }}" id="label_course_tag_{{ tag | lowercase }}" [ngClass]="{'active': tagsFilter.has(tag)}">{{ tag }}</label>
+                  <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
+                  <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_tag_{{ tag | lowercase }}" id="label_course_tag_{{ tag | lowercase }}" [ngClass]="{ active: tagsFilter.has(tag) }">{{ tag }}</label>
                 </ng-template>
               </div>
             </div>
@@ -39,34 +37,15 @@
         </div>
       </div>
     </div>
-
     <ul class="list-group list-group-light mb-4">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="
-          let item of courses
-            | filter:'string':'institution':selectInstitutionsFilter
-            | filter:'array':'tags':selectTagFilter
-            | sortby : 'conclusion' : 'desc'
-            | paginate : config;
-          index as i
-        ">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of courses | filter : 'string' : 'institution' : selectInstitutionsFilter | filter : 'array' : 'tags' : selectTagFilter | sortby : 'conclusion' : 'desc' | paginate : config; index as i">
         <div class="d-flex align-items-center ms-5">
-          <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px"
-            class="rounded-circle" />
+          <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
           <div class="ms-3">
             <p class="fw-bold mb-0">{{ item.name }}</p>
-            <p class="text-muted fontemenor">
-              <b>Instituição:</b> {{ item.institution }}
-            </p>
-            <p class="text-muted fontemenor">
-              <b>Tags: </b> {{ item.tags | printTags }}
-            </p>
-            <p class="text-muted fontemenor">
-              Concluído em
-              {{
-              item.conclusion | date : "dd/MM/yyyy"
-              }}
-              &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a>
-            </p>
+            <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
+            <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
+            <p class="text-muted fontemenor">Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
           </div>
         </div>
         <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
@@ -80,9 +59,5 @@
         <pagination-controls (pageChange)="onPageChange($event)" id="coursesPag"></pagination-controls>
       </div>
     </div>
-
-
-
-
   </div>
 </section>
