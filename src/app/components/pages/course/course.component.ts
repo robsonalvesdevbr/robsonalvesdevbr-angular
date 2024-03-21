@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core'
 import { ICourse } from '../../../interfaces/ICourse'
 import { PaginationInstance } from 'ngx-pagination'
+
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
@@ -39,6 +40,21 @@ export class CourseComponent implements OnInit {
 
   onPageChange = (number: number) => (this.config.currentPage = number)
 
+  clearFilters() {
+    this.institutionsFilter.forEach((x) => {
+      document.getElementById(`label_course_institution_${x}`)?.click()
+    })
+
+    this.tagsFilter.forEach((x) => {
+      document.getElementById(`label_course_tag_${x}`)?.click()
+    })
+
+    this.institutionsFilter.clear()
+    this.selectInstitutionsFilter = ''
+    this.tagsFilter.clear()
+    this.selectTagFilter = ''
+  }
+
   onClickIntitutionEvent(e: MouseEvent) {
     var link = e.target as HTMLInputElement
     let id = link.id.replace('input_course_institution_', '')
@@ -47,19 +63,6 @@ export class CourseComponent implements OnInit {
     this.selectInstitutionsFilter = Array.from(this.institutionsFilter.values()).join(',')
 
     this.config.currentPage = 1
-
-    //document.getElementById('label_course_tag_development')?.classList.remove('active')
-
-    //this.tagsFilter.forEach(x => document.getElementById(`label_course_tag_${x}`)?.click());
-    //document.querySelector('#label_course_tag_development')?.classList.add('active');
-
-    // this.tags.clear();
-    // this.courses.forEach(course => {
-
-    //   if(this.institutionsFilter.has(course.institution.toLowerCase()) || Array.from(this.institutionsFilter.values()).length == 0)
-    //     course.tags.forEach(tag => this.tags.add(tag.trim()))
-
-    // });
   }
 
   onClickTagEvent(e: MouseEvent) {

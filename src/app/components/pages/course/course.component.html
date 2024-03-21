@@ -12,8 +12,8 @@
       <div>
         <div class="text-center bg-light bg-gradient">
           <div class="has-text-centered">
-            <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
-              <b class="p-1 m-1">Filtrar Instituição:</b>
+            <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_course_institution">
+              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button><b class="p-1 m-1">Filtrar Instituição:</b>
               <ng-template ngFor [ngForOf]="getInstitutions()" Let-i="index" let-institution>
                 <input type="checkbox" class="btn-check" id="input_course_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
                 <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{ institution }}</label>
