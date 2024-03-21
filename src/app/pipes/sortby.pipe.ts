@@ -6,8 +6,8 @@ import { orderBy } from 'lodash';
 })
 export class SortbyPipe implements PipeTransform {
 
-  transform(array: any, campo: any, order: any): any[] {
-    return orderBy(array, campo, order);
+  transform(array: any, campo?: any, order?: any): any[] {
+      return orderBy(array, campo, order);
   }
 
 }
