@@ -33,16 +33,17 @@ export class CourseComponent implements OnInit {
     this.courses.forEach(course => course.tags.forEach(tag => this.tags.add(tag.trim())));
   }
 
-  getInstitutions = () => Array.from(this.institutions.values()).sort((a, b) => (a > b ? 1 : -1));
-  getTags = () => Array.from(this.tags.values()).sort((a, b) => (a > b ? 1 : -1));
+  getInstitutions = () =>
+    Array.from(this.institutions.values()).sort((a, b) => (a > b ? 1 : -1));
 
-  absoluteIndex(indexOnPage: number): number {
-    return this.config.itemsPerPage * (this.config.currentPage - 1) + indexOnPage + 1;
-  }
+  getTags = () =>
+    Array.from(this.tags.values()).sort((a, b) => (a > b ? 1 : -1));
 
-  onPageChange(number: number) {
+  absoluteIndex = (indexOnPage: number): number =>
+    this.config.itemsPerPage * (this.config.currentPage - 1) + indexOnPage + 1;
+
+  onPageChange = (number: number) =>
     this.config.currentPage = number;
-  }
 
   onClickIntitutionEvent(e: MouseEvent) {
     var link = (e.target as HTMLInputElement);
