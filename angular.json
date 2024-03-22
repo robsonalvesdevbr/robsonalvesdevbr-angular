@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/robsonalvesdevbr-angular17",
+            "outputPath": "dist/robsonalves",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
