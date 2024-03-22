@@ -1,34 +1,30 @@
 <!-- About-->
-<section class="page-section" id="formationcourse" [ngClass]="{'bg-light': bglight}">
+<section class="page-section" id="formationcourse" [ngClass]="{ 'bg-light': bglight }">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">
-        Cursos de Formação
-      </h2>
-      <h3 class="section-subheading text-muted">Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{formationCourses.length}}</span></h3>
+      <h2 class="section-heading text-uppercase">Cursos de Formação</h2>
+      <h3 class="section-subheading text-muted mb-3">
+        Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ formationCourses.length }}</span>
+      </h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
-      <ul class="list-group list-group-light mb-4">
-        <li class="list-group-item d-flex justify-content-between align-items-center"
-          *ngFor="let item of formationCourses | sortby:'conclusion':'desc' | paginate: config; index as i;">
-          <div class="d-flex align-items-center ms-5">
-            <img src="assets/img/others/{{item.institution | imgcurso}}" alt="" style="width: 60px; height: 60px"
-              class="rounded-circle" />
-            <div class="ms-3">
-              <p class="fw-bold mb-0">{{ item.name }}</p>
-              <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
-              <p class="text-muted fontemenor"><b>Tags: </b> {{item.tags | printTags}}</p>
-              <p class="text-muted fontemenor">Concluído em {{item.conclusion |
-                date:"dd/MM/yyyy"}} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
-            </div>
-
+    <ul class="list-group list-group-light mb-4">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of formationCourses | sortby : 'conclusion' : 'desc' | paginate : config; index as i">
+        <div class="d-flex align-items-center ms-5">
+          <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
+          <div class="ms-3">
+            <p class="fw-bold mb-0">{{ item.name }}</p>
+            <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
+            <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
+            <p class="text-muted fontemenor">Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
           </div>
-          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
-            {{absoluteIndex(i)}}
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </li>
-      </ul>
+        </div>
+        <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+          {{ absoluteIndex(i) }}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </li>
+    </ul>
     <div class="text-center">
       <div class="has-text-centered">
         <pagination-controls (pageChange)="onPageChange($event)" id="formationCoursesPag"></pagination-controls>
