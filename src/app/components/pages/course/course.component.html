@@ -3,7 +3,7 @@
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Cursos</h2>
-      <h3 class="section-subheading text-muted">
+      <h3 class="section-subheading text-muted mb-3">
         Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ courses.length }}</span>
       </h3>
     </div>
@@ -37,12 +37,13 @@
         </div>
       </div>
     </div>
+    <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
       <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of courses | filter : 'string' : 'institution' : selectInstitutionsFilter | filter : 'array' : 'tags' : selectTagFilter | sortby : 'conclusion' : 'desc' | paginate : config; index as i">
         <div class="d-flex align-items-center ms-5">
           <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
           <div class="ms-3">
-            <p class="fw-bold mb-0">{{ item.name }}</p>
+            <p class="fw-bold mb-0">{{ item.name }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;</p>
             <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
             <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
             <p class="text-muted fontemenor">Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
