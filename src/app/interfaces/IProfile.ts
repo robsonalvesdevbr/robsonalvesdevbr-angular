@@ -5,7 +5,5 @@ export interface IProfile {
   city: string
   email: string
   birthday: Date
-  website: string
-  linkedin: string
-  github: string
+  urlList: Map<string, string>
 }
