@@ -9,6 +9,9 @@ export const Books: IBook[] = [
     publishYear: 2023,
     tags: ['ia'],
     bookUrl: 'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
+    pages: 223,
+    progress: 0,
+    favorite: false
   },
   {
     title: 'JavaScript Assertivo',
@@ -18,6 +21,9 @@ export const Books: IBook[] = [
     publishYear: 2021,
     tags: ['development', 'javascript'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-javascript-assertivo',
+    pages: 366,
+    progress: 0,
+    favorite: true
   },
   {
     title: 'Arquitetura Orientada a Eventos',
@@ -27,6 +33,9 @@ export const Books: IBook[] = [
     publishYear: 2023,
     tags: ['development', 'event'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-eda',
+    pages: 302,
+    progress: 0,
+    favorite: true
   },
   {
     title: 'Rust',
@@ -36,6 +45,9 @@ export const Books: IBook[] = [
     publishYear: 2022,
     tags: ['development', 'rust'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-rust',
+    pages: 268,
+    progress: 0,
+    favorite: true
   },
   {
     title: 'Inteligência Artificial como serviço',
@@ -45,6 +57,9 @@ export const Books: IBook[] = [
     publishYear: 2020,
     tags: ['ia'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-ai-servico',
+    pages: 131,
+    progress: 0,
+    favorite: false
   },
   {
     title: 'MongoDB',
@@ -54,6 +69,9 @@ export const Books: IBook[] = [
     publishYear: 2020,
     tags: ['database', 'nosql', 'mongodb'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-mongodb',
+    pages: 244,
+    progress: 0,
+    favorite: false
   },
   {
     title: 'Modernização de Aplicação no Microsoft Azure',
@@ -63,6 +81,9 @@ export const Books: IBook[] = [
     publishYear: 2021,
     tags: ['development', 'azure', 'microsoft'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-modernizacao-azure',
+    pages: 468,
+    progress: 0,
+    favorite: false
   },
   {
     title: 'Scrum',
@@ -72,6 +93,9 @@ export const Books: IBook[] = [
     publishYear: 2022,
     tags: ['agil', 'scrum'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-scrum',
+    pages: 529,
+    progress: 0,
+    favorite: true
   },
   {
     title: 'Tuning de SQL',
@@ -81,6 +105,9 @@ export const Books: IBook[] = [
     publishYear: 2021,
     tags: ['sql', 'database'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-tuning-sql',
+    pages: 523,
+    progress: 0,
+    favorite: false
   },
   {
     title: 'Orientação a Objetos em C#',
@@ -90,5 +117,152 @@ export const Books: IBook[] = [
     publishYear: 2020,
     tags: ['development', 'csharp', 'microsoft'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-csharp',
+    pages: 236,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Produtividade em C#',
+    subtitle: 'Obtenha mais resultado com menos esforço',
+    author: ['Cláudio Ralha'],
+    publishName: 'Casa do Código',
+    publishYear: 2021,
+    tags: ['development', 'csharp', 'microsoft'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-produtividade-csharp',
+    pages: 461,
+    progress: 0,
+    favorite: false
+  },
+  {
+    title: 'Sistemas reativos',
+    subtitle: 'Não confundir com sistemas radioativos',
+    author: ['Guilherme Virgs Moraes'],
+    publishName: 'Casa do Código',
+    publishYear: 2021,
+    tags: ['development'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-sistemas-reativos',
+    pages: 322,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Cangaceiro JavaScript',
+    subtitle: 'Uma aventura no sertão da programação',
+    author: ['Flávio Almeida'],
+    publishName: 'Casa do Código',
+    publishYear: 2021,
+    tags: ['development', 'javascript'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-cangaceiro-javascript',
+    pages: 502,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Programação Funcional',
+    subtitle: 'Uma introdução em Clojure',
+    author: ['Gregório Melo'],
+    publishName: 'Casa do Código',
+    publishYear: 2019,
+    tags: ['development', 'clojure'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-programacao-funcional-clojure',
+    pages: 214,
+    progress: 0,
+    favorite: false
+  },
+  {
+    title: 'Web Services REST com ASP .NET Web API e Windows Azure',
+    subtitle: 'Web Services REST com ASP .NET Web API e Windows Azure',
+    author: ['Paulo Siécola'],
+    publishName: 'Casa do Código',
+    publishYear: 2016,
+    tags: ['development', 'rest', 'azure'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-web-services-rest',
+    pages: 148,
+    progress: 0,
+    favorite: false
+  },
+  {
+    title: 'Orientação a Objetos',
+    subtitle: 'Aprenda seus conceitos e suas aplicabilidades de forma efetiva',
+    author: ['Thiago Leite'],
+    publishName: 'Casa do Código',
+    publishYear: 2016,
+    tags: ['development', 'oo'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-conceitos',
+    pages: 384,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Desenvolvimento efetivo na plataforma Microsoft',
+    subtitle: 'Como desenvolver e suportar software que funciona',
+    author: ['Time de Suporte Microsoft Modern Apps'],
+    publishName: 'Casa do Código',
+    publishYear: 2016,
+    tags: ['development', 'microsoft'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-plataforma-microsoft',
+    pages: 383,
+    progress: 0,
+    favorite: false
+  },
+  {
+    title: 'Orientação a Objetos e SOLID para Ninjas',
+    subtitle: 'Projetando classes flexíveis',
+    author: ['Mauricio Aniche'],
+    publishName: 'Casa do Código',
+    publishYear: 2015,
+    tags: ['development', 'solid', 'design pattern'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-solid',
+    pages: 155,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Design Patterns com C#',
+    subtitle: 'Aprenda padrões de projeto com os games',
+    author: ['Rodrigo Gonçalves Santana'],
+    publishName: 'Casa do Código',
+    publishYear: 2020,
+    tags: ['development', 'solid', 'design pattern'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-design-paterns-csharp',
+    pages: 163,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Test-Driven Development',
+    subtitle: 'Teste e Design no Mundo Real com .NET',
+    author: ['Mauricio Aniche'],
+    publishName: 'Casa do Código',
+    publishYear: 2020,
+    tags: ['development', 'tdd', '.net', 'csharp'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-tdd-dotnet',
+    pages: 198,
+    progress: 0,
+    favorite: false
+  },
+  {
+    title: 'Programação funcional em .NET',
+    subtitle: 'Explore um novo universo',
+    author: ['Gabriel Schade Cardoso'],
+    publishName: 'Casa do Código',
+    publishYear: 2020,
+    tags: ['development', '.net', 'csharp'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-programacao-funcional-net',
+    pages: 323,
+    progress: 0,
+    favorite: false
+  },
+  {
+    title: 'Apache Cassandra',
+    subtitle: 'Escalabilidade horizontal para aplicações Java',
+    author: ['Otávio Santana'],
+    publishName: 'Casa do Código',
+    publishYear: 2020,
+    tags: ['development', '.database', 'nosql'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-apache-cassandra',
+    pages: 151,
+    progress: 0,
+    favorite: false
   },
 ]
