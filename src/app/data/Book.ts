@@ -265,4 +265,64 @@ export const Books: IBook[] = [
     progress: 0,
     favorite: false
   },
+  {
+    title: 'High-Performance Programming in C# and .NET',
+    subtitle: 'Understand the nuts and bolts of developing robusts, faster, and resilient applications in C# 10.0 and .NET 6',
+    author: ['Jason Alls'],
+    publishName: 'Packts',
+    publishYear: 2022,
+    tags: ['development', 'csharp', '.net'],
+    bookUrl: 'https://www.packtpub.com/product/high-performance-programming-in-c-and-net/9781800564718',
+    pages: 660,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'C# Data Structures and Algorithms - Second Edition',
+    subtitle: 'C# Data Structures and Algorithms - Second Edition',
+    author: ['Marcin Jamro'],
+    publishName: 'Packts',
+    publishYear: 2024,
+    tags: ['development', 'csharp', '.net'],
+    bookUrl: 'https://www.packtpub.com/product/c-data-structures-and-algorithms-second-edition/9781803248271',
+    pages: 372,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
+    subtitle: 'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
+    author: ['Mark J. Price'],
+    publishName: 'Packts',
+    publishYear: 2021,
+    tags: ['development', 'csharp', '.net'],
+    bookUrl: 'https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361',
+    pages: 826,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Redes De Computadores',
+    subtitle: 'Redes De Computadores',
+    author: ['Andrew Stuart Tanenbaum'],
+    publishName: 'Elsevier',
+    publishYear: 2003,
+    tags: ['network'],
+    bookUrl: 'https://www.amazon.com.br/Redes-Computadores-Andrew-Stuart-Tanenbaum/dp/8535211853/ref=sr_1_1?dib=eyJ2IjoiMSJ9._GfQzyNbERSE2cgbUgmbeN5F_rH9yK-7REy6uflTx0o.E6G7vajk-Q8IK5iDBUw2V57wozY87mInr2PGWcGcnTg&dib_tag=se&qid=1711126819&refinements=p_27%3AAndrew+Stuart+Tanenbaum&s=books&sr=1-1&text=Andrew+Stuart+Tanenbaum',
+    pages: 946,
+    progress: 0,
+    favorite: true
+  },
+  {
+    title: 'Sistemas Operacionais Modernos',
+    subtitle: 'Sistemas Operacionais Modernos',
+    author: ['Andrew Stuart Tanenbaum'],
+    publishName: 'Elsevier',
+    publishYear: 2015,
+    tags: ['operational system', 'linux'],
+    bookUrl: 'https://www.amazon.com.br/Sistemas-operacionais-modernos-Andrew-Tanenbaum/dp/8543005671/ref=pd_sbs_d_sccl_2_2/134-5554515-9248818?pd_rd_w=Kstyh&content-id=amzn1.sym.369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_p=369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_r=WXGNXW7G2Z1GRSZQBGAH&pd_rd_wg=wtrf4&pd_rd_r=0a993d3e-9664-4690-aec0-9c0cb9e84650&pd_rd_i=8543005671&psc=1',
+    pages: 946,
+    progress: 0,
+    favorite: true
+  },
 ]
