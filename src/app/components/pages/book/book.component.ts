@@ -13,7 +13,7 @@ export class BookComponent {
 
   config: PaginationInstance = {
     id: 'booksPag',
-    itemsPerPage: 4,
+    itemsPerPage: 5,
     currentPage: 1
   };
 
