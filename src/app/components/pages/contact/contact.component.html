@@ -20,8 +20,13 @@
             <b>Nascimento:</b> {{ profiles.birthday | date : 'dd/MM/yyyy' }}<br />
 
             <ng-template ngFor [ngForOf]="profiles.urlList | keyvalue : asIsOrder" let-item>
-              <b>{{ item.key }}: </b><a [href]="item.value" aria-label="Alura" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a
-              ><br />
+              <div class="d-inline">
+                <b>{{ item.key }}: </b>
+              </div>
+              <div class="d-inline">
+                <a [href]="item.value" aria-label="Alura" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a>
+              </div>
+              <br />
             </ng-template>
 
             <b>--------------------------------------------------------------</b><br />
