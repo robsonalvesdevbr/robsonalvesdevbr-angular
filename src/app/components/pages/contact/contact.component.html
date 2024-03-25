@@ -18,6 +18,7 @@
             <b>Localização:</b> {{ profiles.country }}, {{ profiles.city }} / {{ profiles.state }} <br />
             <b>Email:</b> {{ profiles.email }} <br />
             <b>Nascimento:</b> {{ profiles.birthday | date : 'dd/MM/yyyy' }}<br />
+            <b>Idade:</b> {{ calcularIdade(profiles.birthday) }}<br />
 
             <ng-template ngFor [ngForOf]="profiles.urlList | keyvalue : asIsOrder" let-item>
               <div class="d-inline">
@@ -41,8 +42,6 @@
         </div>
       </div>
 
-      <hr />
-
       <div class="row justify-content-md-center">
         <div class="card text-bg-light" style="">
           <div class="card-header">Sobre esta página</div>
@@ -52,7 +51,7 @@
               Ela envolve o desenvolvimento com Angular atualizada na versão 17, versionada em um repostório no GitHub, o deploy e publicação acontece de forma automática usando o GitHub Actions sendo
               hospedada no Azure Static Web Apps.
             </p>
-            <div class="d-inline" style="font-size: 14px">
+            <div class="d-inline" style="font-size: 14px; color: red">
               <b>Código fonte desta página: </b>
             </div>
             <div class="d-inline" style="font-size: 14px">

@@ -13,4 +13,15 @@ export class ContactComponent {
   asIsOrder(a: any, b: any) {
     return 1
   }
+
+  calcularIdade = function calcularIdade(nascimento: Date) {
+    // Obtém a idade em milissegundos
+    var idadeDifMs = Date.now() - nascimento.getTime();
+
+    // Converte os milissegundos em data e subtrai da era linux
+    var idadeData = new Date(idadeDifMs);
+    var idade = idadeData.getUTCFullYear() - 1970;
+
+    return idade;
+}
 }
