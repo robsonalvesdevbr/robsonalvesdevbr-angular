@@ -4,4 +4,4 @@ semi: false
 singleQuote: true
 bracketSameLine: true
 singleAttributePerLine: false
-printWidth: 500
+printWidth: 200

@@ -19,6 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BookComponent } from './pages/book/book.component';
 import { FormationoourseComponent } from './pages/formationoourse/formationoourse.component';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { AboutthisprojectComponent } from './pages/aboutthisproject/aboutthisproject.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FilterPipe } from '../pipes/filter.pipe';
     SortbyPipe,
     BookComponent,
     FormationoourseComponent,
-    FilterPipe
+    FilterPipe,
+    AboutthisprojectComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import { FilterPipe } from '../pipes/filter.pipe';
     SortbyPipe,
     BookComponent,
     FormationoourseComponent,
-    FilterPipe
+    FilterPipe,
+    AboutthisprojectComponent
   ]
 })
 export class ComponentsModule { }
