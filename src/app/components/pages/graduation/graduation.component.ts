@@ -9,4 +9,8 @@ import { IGraduation } from '../../../interfaces/IGraduation';
 export class GraduationComponent {
   @Input({required: false}) bglight: boolean = false;
   @Input({required: true}) graduations: IGraduation[] = [];
+
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
 }

@@ -12,6 +12,10 @@ export class CourseComponent implements OnInit {
   @Input({ required: false }) bglight: boolean = false
   @Input({ required: true }) courses: ICourse[] = []
 
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
+
   institutions: Set<string> = new Set<string>()
   tags: Set<string> = new Set<string>()
 

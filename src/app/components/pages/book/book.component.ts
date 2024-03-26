@@ -11,6 +11,10 @@ export class BookComponent {
   @Input({required: false}) bglight: boolean = false;
   @Input({ required: true }) books: IBook[] = [];
 
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
+
   config: PaginationInstance = {
     id: 'booksPag',
     itemsPerPage: 5,

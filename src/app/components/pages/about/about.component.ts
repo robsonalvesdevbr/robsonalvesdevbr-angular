@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class AboutComponent {
   @Input({required: false}) bglight: boolean = false;
+
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
 }
