@@ -11,6 +11,10 @@ export class FormationoourseComponent {
   @Input({required: false}) bglight: boolean = false;
   @Input({ required: true }) formationCourses: IFormationCourse[] = [];
 
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
+
   config: PaginationInstance = {
     id: 'formationCoursesPag',
     itemsPerPage: 5,

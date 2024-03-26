@@ -8,4 +8,8 @@ import { BasePageComponent } from '../../base-page/base-page.component';
 })
 export class MasterheadComponent extends BasePageComponent {
   @Input({required: false}) bglight: boolean = false;
+
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
 }

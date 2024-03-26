@@ -1,5 +1,5 @@
 <!-- About-->
-<section class="page-section" id="books" [ngClass]="{ 'bg-light': bglight }">
+<section class="page-section" id="books" [ngClass]="currentClass">
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Leituras</h2>
@@ -10,12 +10,16 @@
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of books | sortby : 'publishYear' : 'asc' | sortby : 'favorite' : 'desc' | paginate : config; index as i">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let item of books | sortby : 'publishYear' : 'asc' | sortby : 'favorite' : 'desc' | paginate : config; index as i">
         <div class="d-flex align-items-center ms-5">
           <img src="assets/img/others/livro.jpg" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
           <div class="ms-3">
             <p class="fw-bold mb-0">
-              {{ item.title }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;<span class="text-muted fontemenor11"> ( Publicado em {{ item.publishYear }} )</span>
+              {{ item.title }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;<span class="text-muted fontemenor11">
+                ( Publicado em {{ item.publishYear }} )</span
+              >
             </p>
             <p class="text-muted fontemenor"><b>Subtitulo:</b> {{ item.subtitle }}</p>
             <p class="text-muted fontemenor"><b>Editora: </b> {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b>Autor: </b> {{ item.author | printTags }}</p>

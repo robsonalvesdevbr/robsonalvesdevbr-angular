@@ -10,6 +10,10 @@ export class ContactComponent {
   @Input({ required: true }) profiles: IProfile = {} as IProfile
   @Input({ required: false }) bglight: boolean = false
 
+  currentClass: Record<string, boolean> = {
+    'bg-light': this.bglight
+  };
+
   asIsOrder(a: any, b: any) {
     return 1
   }
