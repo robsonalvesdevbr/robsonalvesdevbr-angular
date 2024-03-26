@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
+import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { CommonModule } from '@angular/common';
     ComponentsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [
+    GoogleAnalyticsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
