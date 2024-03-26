@@ -13,10 +13,13 @@
         <div class="text-center bg-light bg-gradient">
           <div class="has-text-centered">
             <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_course_institution">
-              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button><b class="p-1 m-1">Filtrar Instituição:</b>
+              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button
+              ><b class="p-1 m-1">Filtrar Instituição:</b>
               <ng-template ngFor [ngForOf]="getInstitutions()" Let-i="index" let-institution>
                 <input type="checkbox" class="btn-check" id="input_course_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
-                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{ institution }}</label>
+                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{
+                  institution
+                }}</label>
               </ng-template>
             </div>
           </div>
@@ -29,7 +32,13 @@
                 <b class="p-1 m-1">Filtrar tag:</b>
                 <ng-template ngFor [ngForOf]="getTags()" Let-i="index" let-tag>
                   <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
-                  <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_tag_{{ tag | lowercase }}" id="label_course_tag_{{ tag | lowercase }}" [ngClass]="{ active: tagsFilter.has(tag) }">{{ tag }}</label>
+                  <label
+                    class="btn btn-light btn-sm fontemenor p-1 ms-0"
+                    for="input_course_tag_{{ tag | lowercase }}"
+                    id="label_course_tag_{{ tag | lowercase }}"
+                    [ngClass]="{ active: tagsFilter.has(tag) }"
+                    >{{ tag }}</label
+                  >
                 </ng-template>
               </div>
             </div>
@@ -39,14 +48,26 @@
     </div>
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of courses | filter : 'string' : 'institution' : selectInstitutionsFilter | filter : 'array' : 'tags' : selectTagFilter | sortby : 'conclusion' : 'desc' | paginate : config; index as i">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="
+          let item of courses | filter : 'string' : 'institution' : selectInstitutionsFilter | filter : 'array' : 'tags' : selectTagFilter | sortby : 'conclusion' : 'desc' | paginate : config;
+          index as i
+        ">
         <div class="d-flex align-items-center ms-5">
           <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
           <div class="ms-3">
             <p class="fw-bold mb-0">{{ item.name }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;</p>
             <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
             <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
-            <p class="text-muted fontemenor">Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
+            <p class="text-muted fontemenor">
+              Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a
+                [href]="item.certificateUrl"
+                target="_blank"
+                [appGoogleAnalytics]="{ event: 'click_course', category: 'link', label: 'course-certificate', value: item.name }"
+                >Certificado</a
+              >
+            </p>
           </div>
         </div>
         <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">

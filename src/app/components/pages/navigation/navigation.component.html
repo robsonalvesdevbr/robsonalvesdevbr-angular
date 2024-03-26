@@ -10,13 +10,34 @@
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
         <!--<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>-->
         <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>-->
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active" fragment="about">Sobre</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="graduation">(Pós)Graduação</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="courses">Cursos</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="formationcourse">Formação</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="books">Leituras</a></li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            fragment="about"
+            [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'about' }"
+            >Sobre</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="graduation" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'graduation' }">(Pós)Graduação</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="courses" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'courses' }">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="formationcourse" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'formationcourse' }"
+            >Formação</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="books" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'books' }">Leituras</a>
+        </li>
         <!--<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>-->
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="contact">Contato</a></li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="contact" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'contact' }">Contato</a>
+        </li>
       </ul>
     </div>
   </div>

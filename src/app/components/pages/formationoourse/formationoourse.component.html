@@ -16,7 +16,14 @@
             <p class="fw-bold mb-0">{{ item.name }}</p>
             <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
             <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
-            <p class="text-muted fontemenor">Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a [href]="item.certificateUrl" target="_blank">Certificado</a></p>
+            <p class="text-muted fontemenor">
+              Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a
+                [href]="item.certificateUrl"
+                target="_blank"
+                [appGoogleAnalytics]="{ event: 'click_formation', category: 'link', label: 'course-certificate', value: item.name }"
+                >Certificado</a
+              >
+            </p>
           </div>
         </div>
         <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">

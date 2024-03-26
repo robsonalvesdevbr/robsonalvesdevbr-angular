@@ -20,6 +20,8 @@ import { BookComponent } from './pages/book/book.component';
 import { FormationoourseComponent } from './pages/formationoourse/formationoourse.component';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { AppRoutingModule } from '../app-routing.module';
+import { BasePageComponent } from './base-page/base-page.component';
+import { GoogleAnalyticsDirective } from './google-analytics.directive';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { AppRoutingModule } from '../app-routing.module';
     SortbyPipe,
     BookComponent,
     FormationoourseComponent,
-    FilterPipe
+    FilterPipe,
+    BasePageComponent,
+    GoogleAnalyticsDirective
   ],
   imports: [
     CommonModule,
@@ -67,7 +71,9 @@ import { AppRoutingModule } from '../app-routing.module';
     BookComponent,
     FormationoourseComponent,
     FilterPipe,
-    AppRoutingModule
+    AppRoutingModule,
+    BasePageComponent,
+    GoogleAnalyticsDirective
   ]
 })
 export class ComponentsModule { }
