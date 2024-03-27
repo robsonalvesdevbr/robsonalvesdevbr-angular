@@ -1,19 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { IFormationCourse } from '../../../interfaces/IFormationCourse';
+import { BasePageComponent } from '../../base-page/base-page.component';
 
 @Component({
   selector: 'app-formationoourse',
   templateUrl: './formationoourse.component.html',
   styleUrl: './formationoourse.component.scss'
 })
-export class FormationoourseComponent {
-  @Input({required: false}) bglight: boolean = false;
+export class FormationoourseComponent extends BasePageComponent  {
   @Input({ required: true }) formationCourses: IFormationCourse[] = [];
-
-  currentClass: Record<string, boolean> = {
-    'bg-light': this.bglight
-  };
 
   config: PaginationInstance = {
     id: 'formationCoursesPag',

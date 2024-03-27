@@ -1,19 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { IBook } from '../../../interfaces/IBook';
 import { PaginationInstance } from 'ngx-pagination';
+import { BasePageComponent } from '../../base-page/base-page.component';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
 })
-export class BookComponent {
-  @Input({required: false}) bglight: boolean = false;
+export class BookComponent extends BasePageComponent  {
   @Input({ required: true }) books: IBook[] = [];
-
-  currentClass: Record<string, boolean> = {
-    'bg-light': this.bglight
-  };
 
   config: PaginationInstance = {
     id: 'booksPag',

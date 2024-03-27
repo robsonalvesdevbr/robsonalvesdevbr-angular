@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core'
 import { ICourse } from '../../../interfaces/ICourse'
 import { PaginationInstance } from 'ngx-pagination'
+import { BasePageComponent } from '../../base-page/base-page.component'
 
 @Component({
   selector: 'app-course',
@@ -8,13 +9,8 @@ import { PaginationInstance } from 'ngx-pagination'
   styleUrl: './course.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CourseComponent implements OnInit {
-  @Input({ required: false }) bglight: boolean = false
+export class CourseComponent extends BasePageComponent implements OnInit {
   @Input({ required: true }) courses: ICourse[] = []
-
-  currentClass: Record<string, boolean> = {
-    'bg-light': this.bglight
-  };
 
   institutions: Set<string> = new Set<string>()
   tags: Set<string> = new Set<string>()
@@ -31,9 +27,10 @@ export class CourseComponent implements OnInit {
     currentPage: 1,
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     this.courses.forEach((course) => this.institutions.add(course.institution.trim()))
     this.courses.forEach((course) => course.tags.forEach((tag) => this.tags.add(tag.trim())))
+    super.ngOnInit();
   }
 
   getInstitutions = () => Array.from(this.institutions.values()).sort((a, b) => (a > b ? 1 : -1))

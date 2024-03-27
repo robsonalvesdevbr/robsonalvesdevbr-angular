@@ -1,18 +1,14 @@
 import { Component, Input } from '@angular/core'
 import { IProfile } from '../../../interfaces/IProfile'
+import { BasePageComponent } from '../../base-page/base-page.component'
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent extends BasePageComponent  {
   @Input({ required: true }) profiles: IProfile = {} as IProfile
-  @Input({ required: false }) bglight: boolean = false
-
-  currentClass: Record<string, boolean> = {
-    'bg-light': this.bglight
-  };
 
   asIsOrder(a: any, b: any) {
     return 1

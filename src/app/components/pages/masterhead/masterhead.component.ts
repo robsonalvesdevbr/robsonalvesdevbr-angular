@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { BasePageComponent } from '../../base-page/base-page.component';
 
 @Component({
@@ -7,9 +7,4 @@ import { BasePageComponent } from '../../base-page/base-page.component';
   styleUrls: ['./masterhead.component.scss']
 })
 export class MasterheadComponent extends BasePageComponent {
-  @Input({required: false}) bglight: boolean = false;
-
-  currentClass: Record<string, boolean> = {
-    'bg-light': this.bglight
-  };
 }
