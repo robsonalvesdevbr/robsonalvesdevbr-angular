@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { BasePageComponent } from '../../base-page/base-page.component';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
-export class ServicesComponent {
-  @Input({required: false}) bglight: boolean = false;
+export class ServicesComponent extends BasePageComponent  {
 }
