@@ -34,9 +34,30 @@
             <p>
               <a aria-label="Email" class="btn" href="mailto:{{ profiles.email }}?subject=Contato website robsonalves.dev.br" style="font-size: 35px"><i class="bi bi-envelope-at-fill"></i></a>
               <a [href]="profiles.urlList.get('WebSite')" aria-label="Website" class="btn" target="_blank"><i class="bi bi-house-fill" style="font-size: 35px"></i></a>
-              <a [href]="profiles.urlList.get('LinkedIn')" aria-label="LinkedIn" class="btn" target="_blank"><i class="bi bi-linkedin" style="font-size: 35px"></i></a>
-              <a [href]="profiles.urlList.get('GitHub')" aria-label="GitHub" class="btn" target="_blank"><i class="bi bi-github" style="font-size: 35px"></i></a>
-              <a href="https://github.com/robsonalvesdev/robsonalvesdevbr-angular17" aria-label="GitHub" class="btn" target="_blank"><i class="bi bi-git" style="font-size: 35px"></i></a>
+              <a
+                [href]="profiles.urlList.get('LinkedIn')"
+                aria-label="LinkedIn"
+                class="btn"
+                target="_blank"
+                [appGoogleAnalytics]="{ event: 'click_linkedin', category: 'link', label: 'click_githubpage', value: 'click_linkedin' }"
+                ><i class="bi bi-linkedin" style="font-size: 35px"></i
+              ></a>
+              <a
+                [href]="profiles.urlList.get('GitHub')"
+                aria-label="GitHub"
+                class="btn"
+                target="_blank"
+                [appGoogleAnalytics]="{ event: 'click_github', category: 'link', label: 'click_githubpage', value: 'click_github' }"
+                ><i class="bi bi-github" style="font-size: 35px"></i
+              ></a>
+              <a
+                href="https://github.com/robsonalvesdev/robsonalvesdevbr-angular17"
+                aria-label="GitHub"
+                class="btn"
+                target="_blank"
+                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link', label: 'click_githubpage', value: 'click_githubpage' }"
+                ><i class="bi bi-git" style="font-size: 35px"></i
+              ></a>
             </p>
           </div>
         </div>
@@ -55,7 +76,12 @@
               <b>Código fonte desta página: </b>
             </div>
             <div class="d-inline" style="font-size: 14px">
-              <a href="https://github.com/robsonalvesdev/robsonalvesdevbr-angular17" aria-label="Alura" class="text-muted text-decoration-none" target="_blank"
+              <a
+                href="https://github.com/robsonalvesdev/robsonalvesdevbr-angular17"
+                aria-label="Alura"
+                class="text-muted text-decoration-none"
+                target="_blank"
+                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link', label: 'click_githubpage', value: 'click_githubpage' }"
                 >https://github.com/robsonalvesdev/robsonalvesdevbr-angular17</a
               >
             </div>
