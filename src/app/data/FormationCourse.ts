@@ -1,69 +1,76 @@
-import { IFormationCourse } from "../interfaces/IFormationCourse";
+import { IFormationCourse } from '../interfaces/IFormationCourse'
 
 export const FormationCourses: IFormationCourse[] = [
   {
-    name: "C# e orientação a objetos",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/2e01d0c3-8f5d-4715-a679-3061632a9298?lang=pt_BR",
-    tags:['development', 'microsoft', 'csharp', '.net'],
+    name: 'C# e orientação a objetos',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/2e01d0c3-8f5d-4715-a679-3061632a9298?lang=pt_BR',
+    tags: ['development', 'microsoft', 'csharp', '.net'],
     conclusion: new Date('2021-4-26'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "Orquestração de containers com Kubernetes",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/ecc51fe7-41c9-4eed-afad-5fd31aa1232a?lang=pt_BR",
-    tags:['kubernetes', 'container', 'cloud'],
+    name: 'Orquestração de containers com Kubernetes',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/ecc51fe7-41c9-4eed-afad-5fd31aa1232a?lang=pt_BR',
+    tags: ['kubernetes', 'container', 'cloud'],
     conclusion: new Date('2022-5-13'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "Testes em .NET",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/ef085642-633e-4daa-bdc8-017fd53bd4af?lang=pt_BR",
-    tags:['development', 'microsoft', 'csharp', '.net', 'test', 'tdd'],
+    name: 'Testes em .NET',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/ef085642-633e-4daa-bdc8-017fd53bd4af?lang=pt_BR',
+    tags: ['development', 'microsoft', 'csharp', '.net', 'test', 'tdd'],
     conclusion: new Date('2022-5-22'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "Minha primeira liderança",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/d4c360e6-b8c5-419e-8938-c7337603a927?lang=pt_BR",
-    tags:['agil', 'scrum'],
+    name: 'Minha primeira liderança',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/d4c360e6-b8c5-419e-8938-c7337603a927?lang=pt_BR',
+    tags: ['agil', 'scrum'],
     conclusion: new Date('2022-5-24'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "ASP.NET Core REST APIs",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/51f1efcb-45f2-4005-b875-6890a5a43fe2?lang=pt_BR",
-    tags:['development', 'microsoft', 'csharp', '.net'],
+    name: 'ASP.NET Core REST APIs',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/51f1efcb-45f2-4005-b875-6890a5a43fe2?lang=pt_BR',
+    tags: ['development', 'microsoft', 'csharp', '.net'],
     conclusion: new Date('2022-5-25'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "Linguagem Go",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/ddaea616-7329-4661-a48a-a79db8bf8841?lang=pt_BR",
-    tags:['development', 'google', 'golang'],
+    name: 'Linguagem Go',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/ddaea616-7329-4661-a48a-a79db8bf8841?lang=pt_BR',
+    tags: ['development', 'google', 'golang'],
     conclusion: new Date('2022-6-9'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "Modelagem de dados",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/c90fc5d1-85bc-4cd9-860f-5b7e1154e8aa?lang=pt_BR",
-    tags:['database'],
+    name: 'Modelagem de dados',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/c90fc5d1-85bc-4cd9-860f-5b7e1154e8aa?lang=pt_BR',
+    tags: ['database'],
     conclusion: new Date('2022-8-3'),
-    favorite: true
+    favorite: true,
   },
   {
-    name: "SQL com Microsoft SQL Server 2017",
-    institution: "Alura",
-    certificateUrl: "https://cursos.alura.com.br/degree/certificate/463982aa-7353-4e1b-a775-cf1d574c17b7?lang=pt_BR",
-    tags:['database'],
+    name: 'SQL com Microsoft SQL Server 2017',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/463982aa-7353-4e1b-a775-cf1d574c17b7?lang=pt_BR',
+    tags: ['database'],
     conclusion: new Date('2022-8-12'),
-    favorite: true
-  }
-
+    favorite: true,
+  },
+  {
+    name: 'Formação DevOps para Desenvolvedores',
+    institution: 'Desenvolvedor.IO',
+    certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/2a0ffa1e-a3cf-44ba-be0c-fbcc37c19903',
+    tags: ['docker', 'container', 'ci/cd', 'devops'],
+    conclusion: new Date('2024-3-28'),
+    favorite: true,
+  },
 ]
