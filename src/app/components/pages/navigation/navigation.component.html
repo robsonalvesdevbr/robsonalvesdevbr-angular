@@ -11,14 +11,7 @@
         <!--<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>-->
         <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>-->
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['/']"
-            routerLinkActive="router-link-active"
-            fragment="about"
-            [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation', value: 'about' }"
-            >Sobre</a
-          >
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active" fragment="about" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation' }">Sobre</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/']" fragment="graduation" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'graduation' }">(Pós)Graduação</a>
