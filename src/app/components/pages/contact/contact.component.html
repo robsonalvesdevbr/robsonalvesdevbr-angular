@@ -39,7 +39,7 @@
                 aria-label="LinkedIn"
                 class="btn"
                 target="_blank"
-                [appGoogleAnalytics]="{ event: 'click_linkedin', category: 'link', label: 'click_githubpage', value: 'click_linkedin' }"
+                [appGoogleAnalytics]="{ event: 'click_linkedin', category: 'link_contact', label: 'linkedin' }"
                 ><i class="bi bi-linkedin" style="font-size: 35px"></i
               ></a>
               <a
@@ -47,15 +47,10 @@
                 aria-label="Instagram"
                 class="btn"
                 target="_blank"
-                [appGoogleAnalytics]="{ event: 'click_instagram', category: 'link', label: 'click_instagram', value: 'click_instagram' }"
+                [appGoogleAnalytics]="{ event: 'click_instagram', category: 'link_contact', label: 'instagram' }"
                 ><i class="bi bi-instagram" style="font-size: 35px"></i
               ></a>
-              <a
-                [href]="profiles.urlList.get('GitHub')"
-                aria-label="GitHub"
-                class="btn"
-                target="_blank"
-                [appGoogleAnalytics]="{ event: 'click_github', category: 'link', label: 'click_githubpage', value: 'click_github' }"
+              <a [href]="profiles.urlList.get('GitHub')" aria-label="GitHub" class="btn" target="_blank" [appGoogleAnalytics]="{ event: 'click_github', category: 'link_contact', label: 'githubpage' }"
                 ><i class="bi bi-github" style="font-size: 35px"></i
               ></a>
               <a
@@ -63,7 +58,7 @@
                 aria-label="GitHub"
                 class="btn"
                 target="_blank"
-                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link', label: 'click_githubpage', value: 'click_githubpage' }"
+                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage' }"
                 ><i class="bi bi-git" style="font-size: 35px"></i
               ></a>
             </p>
@@ -89,7 +84,7 @@
                 aria-label="Alura"
                 class="text-muted text-decoration-none"
                 target="_blank"
-                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link', label: 'click_githubpage', value: 'click_githubpage' }"
+                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage' }"
                 >https://github.com/robsonalvesdev/robsonalvesdevbr-angular17</a
               >
             </div>

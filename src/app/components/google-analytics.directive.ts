@@ -11,7 +11,7 @@ export class GoogleAnalyticsDirective {
   constructor(protected $gaService: GoogleAnalyticsService){}
 
   @HostListener('click', ['$event']) onClick(){
-    this.$gaService.logEvent(this.option.event, this.option.category, this.option.label, this.option.value);
+    this.$gaService.logEvent(this.option.event, this.option.category, this.option.label);
   }
 
 }

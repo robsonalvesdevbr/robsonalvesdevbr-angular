@@ -36,11 +36,10 @@ export class GoogleAnalyticsService {
     document.body.appendChild(gtagEl);
   }
 
-  logEvent(event: string, category: string, label: string, value: any) {
+  logEvent(event: string, category: string, label: string) {
     gtag('event', event, {
       event_category: category,
-      event_label: label,
-      value: value
+      event_label: label
     });
   }
 }
