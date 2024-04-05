@@ -11,6 +11,12 @@ export class GoogleAnalyticsDirective {
 
 
   @HostListener('click', ['$event']) onClick() {
+
     this.$gaService.logEvent(this.option.event, this.option.category, this.option.label)
+
+    if(this.option.logType === 'page_view')
+      this.$gaService.logPagView(this.option.title)
+    else if(this.option.logType === 'set')
+      this.$gaService.logSet('campaign', 'robsonalves', 'azure', 'black_friday_promotion', `${this.option.category}+${this.option.label}` )
   }
 }
