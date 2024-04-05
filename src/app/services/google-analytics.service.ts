@@ -50,8 +50,14 @@ export class GoogleAnalyticsService {
   }
 
   logPagView(title: string){
+    console.log('logPagView')
     gtag('event', 'page_view', {
       page_title: title,
-  });
+    });
+
+    gtag('event', 'screen_view', {
+      'app_name': 'robsonalves',
+      'screen_name' : title
+    });
   }
 }
