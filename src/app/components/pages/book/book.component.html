@@ -25,7 +25,7 @@
             <p class="text-muted fontemenor"><b>Editora: </b> {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b>Autor: </b> {{ item.author | printTags }}</p>
             <p class="text-muted fontemenor">
               <b>Tags: </b> {{ item.tags | printTags }} &nbsp;<span class="text-muted fontemenor11"
-                >&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank" [appGoogleAnalytics]="{ event: 'click_book', category: 'link_book', label: item.name }">Mais detalhes</a></span
+                >&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank" [appGoogleAnalytics]="{ event: 'click_book', category: 'link_book', label: item.title }">Mais detalhes</a></span
               >
             </p>
           </div>
