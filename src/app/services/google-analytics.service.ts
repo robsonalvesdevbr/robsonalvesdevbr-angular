@@ -39,4 +39,19 @@ export class GoogleAnalyticsService {
       event_label: label
     });
   }
+
+  logSet(campaign: string, id: string, source: string, name: string, term: string) {
+    gtag('set', campaign, {
+      id: id,
+      source: source,
+      name: name,
+      term: term,
+    });
+  }
+
+  logPagView(title: string){
+    gtag('event', 'page_view', {
+      page_title: title,
+  });
+  }
 }

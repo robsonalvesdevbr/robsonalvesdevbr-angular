@@ -3,6 +3,8 @@
   <div class="container">
     <div class="masthead-subheading">Bem vindo ao meu Website</div>
     <div class="masthead-heading text-uppercase">Prazer em conhecê-lo</div>
-    <a class="btn btn-primary btn-xl text-uppercase" [routerLink]="['/']" fragment="about" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'about' }">Saiba mais</a>
+    <a class="btn btn-primary btn-xl text-uppercase" [routerLink]="['/']" fragment="about" [appGoogleAnalytics]="{ logType: 'set', event: 'click', category: 'app_navigation', label: 'about' }"
+      >Saiba mais</a
+    >
   </div>
 </header>

@@ -11,23 +11,34 @@
         <!--<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>-->
         <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>-->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active" fragment="about" [appGoogleAnalytics]="{ event: 'click', category: 'link', label: 'app-navigation' }">Sobre</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            fragment="about"
+            [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'link', label: 'app-navigation' }"
+            >Sobre</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="graduation" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'graduation' }">(Pós)Graduação</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="graduation" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'graduation' }"
+            >(Pós)Graduação</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="courses" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'courses' }">Cursos</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="courses" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'courses' }">Cursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="formationcourse" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'formationcourse' }">Formação</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="formationcourse" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'formationcourse' }"
+            >Formação</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="books" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'books' }">Leituras</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="books" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'books' }">Leituras</a>
         </li>
         <!--<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>-->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="contact" [appGoogleAnalytics]="{ event: 'click', category: 'app_navigation', label: 'contact' }">Contato</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="contact" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'contact' }">Contato</a>
         </li>
       </ul>
     </div>
