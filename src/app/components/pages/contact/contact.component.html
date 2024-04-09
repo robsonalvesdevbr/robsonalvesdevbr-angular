@@ -20,16 +20,15 @@
             <b>Nascimento:</b> {{ profiles.birthday | date : 'dd/MM/yyyy' }}<br />
             <b>Idade:</b> {{ calcularIdade(profiles.birthday) }}<br />
 
-            <ng-template ngFor [ngForOf]="profiles.urlList | keyvalue : asIsOrder" let-item>
-              <div class="d-inline">
-                <b>{{ item.key }}: </b>
-              </div>
-              <div class="d-inline">
-                <a [href]="item.value" [attr.aria-label]="item.key" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a>
-              </div>
-              <br />
-            </ng-template>
-
+            @for (item of profiles.urlList | keyvalue : asIsOrder; track item) {
+            <div class="d-inline">
+              <b>{{ item.key }}: </b>
+            </div>
+            <div class="d-inline">
+              <a [href]="item.value" [attr.aria-label]="item.key" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a>
+            </div>
+            <br />
+            }
             <b>--------------------------------------------------------------</b><br />
             <p>
               <a aria-label="Email" class="btn" href="mailto:{{ profiles.email }}?subject=Contato website robsonalves.dev.br"><i class="bi bi-envelope-at-fill" style="font-size: 35px"></i></a>
