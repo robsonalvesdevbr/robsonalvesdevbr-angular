@@ -421,4 +421,16 @@ export const Books: IBook[] = [
     progress: 0,
     favorite: true
   },
+  {
+    title: 'NoSQL',
+    subtitle: 'Um Guia Conciso para o Mundo Emergente da Persistência Poliglota',
+    author: ['Martin Fowler', 'Pramod J. Sadalage'],
+    publishName: 'Novatec',
+    publishYear: 2013,
+    tags: ['database' ,'nosql'],
+    bookUrl: 'https://novatec.com.br/livros/nosql-essencial',
+    pages: 216,
+    progress: 100,
+    favorite: true
+  },
 ]
