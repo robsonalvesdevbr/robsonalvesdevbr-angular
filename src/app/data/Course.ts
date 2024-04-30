@@ -154,6 +154,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2022-11-1'),
     favorite: false,
   },
+  {
+    name: 'JIRA Software Ágil Scrum e Kanban',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-3b46fa6d-4269-4a9e-8b5f-f2dc75e02b8c',
+    tags: ['agil', 'jira', 'scrum'],
+    conclusion: new Date('2024-4-30'),
+    favorite: false,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',

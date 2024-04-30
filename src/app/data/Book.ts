@@ -433,4 +433,16 @@ export const Books: IBook[] = [
     progress: 100,
     favorite: true
   },
+  {
+    title: 'Teoria dos Grafos',
+    subtitle: 'Uma abordagem prática em Java',
+    author: ['João Paulo Maida'],
+    publishName: 'Casa do Código',
+    publishYear: 2020,
+    tags: ['algorithm', 'graph'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-teoria-dos-grafos',
+    pages: 216,
+    progress: 100,
+    favorite: true
+  },
 ]
