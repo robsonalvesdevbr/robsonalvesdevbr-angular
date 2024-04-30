@@ -8,9 +8,50 @@
       </h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
+
+    <div class="border border-1 rounded mb-2">
+      <div>
+        <div class="text-center bg-light bg-gradient">
+          <div class="has-text-centered">
+            <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_book_institution">
+              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button
+              ><b class="p-1 m-1">Filtrar Editora:</b>
+
+              @for(institution of getInstitutions(); track institution) {
+              <input type="checkbox" class="btn-check" id="input_book_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
+              <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ institution | lowercase }}" id="label_book_institution_{{ institution | lowercase }}">{{
+                institution
+              }}</label>
+              }
+            </div>
+          </div>
+        </div>
+        <hr class="p-0 m-1" />
+        <div>
+          <div class="text-center bg-light bg-gradient">
+            <div class="has-text-centered">
+              <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+                <b class="p-1 m-1">Filtrar tag:</b>
+                @for(tag of getTags(); track tag) {
+                <input type="checkbox" class="btn-check" id="input_book_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
+                <label
+                  class="btn btn-light btn-sm fontemenor p-1 ms-0"
+                  for="input_book_tag_{{ tag | lowercase }}"
+                  id="label_book_tag_{{ tag | lowercase }}"
+                  [ngClass]="{ active: tagsFilter.has(tag) }"
+                  >{{ tag }}</label
+                >
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
-      @for(item of books | sortby : 'publishYear' : 'asc' | sortby : 'favorite' : 'desc' | paginate : config; track item; let i = $index) {
+      @for(item of books | filter : 'string' : 'publishName' : selectInstitutionsFilter | filter : 'array' : 'tags' : selectTagFilter | sortby : 'publishYear' : 'asc' | sortby : 'favorite' : 'desc' | paginate : config; track item; let i = $index) {
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center ms-5">
           <img src="assets/img/others/livro.jpg" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
