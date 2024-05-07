@@ -355,7 +355,7 @@ export const Books: IBook[] = [
     author: ['Edécio Fernando Iepsen'],
     publishName: 'Novatec',
     publishYear: 2022,
-    tags: ['development javascript'],
+    tags: ['development', 'javascript'],
     bookUrl: 'https://novatec.com.br/livros/logica-programacao-algoritmos-com-javascript-2ed',
     pages: 352,
     progress: 0,
