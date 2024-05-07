@@ -162,6 +162,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-4-30'),
     favorite: false,
   },
+  {
+    name: 'O Curso completo de NoSQL sem mistérios! MongoDB Neo4J',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-656d5b3c-2d25-4091-9a42-f4c8cbd03eb3',
+    tags: ['database', 'nosql', 'neo4j', 'mongodb', 'database', 'graph'],
+    conclusion: new Date('2024-5-7'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
