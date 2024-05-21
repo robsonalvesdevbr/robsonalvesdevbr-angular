@@ -1,4 +1,4 @@
-import { IProfile } from '../interfaces/IProfile'
+import { IProfile } from '@path-interfaces/IProfile'
 
 export const Profile: IProfile = {
   name: 'Robson Candido dos Santos Alves',

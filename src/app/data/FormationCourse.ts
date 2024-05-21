@@ -1,4 +1,4 @@
-import { IFormationCourse } from '../interfaces/IFormationCourse'
+import { IFormationCourse } from '@path-interfaces/IFormationCourse'
 
 export const FormationCourses: IFormationCourse[] = [
   {

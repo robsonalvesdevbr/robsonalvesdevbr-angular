@@ -1,4 +1,4 @@
-import { BasePageComponent } from './../../base-page/base-page.component';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { Component } from '@angular/core';
 
 @Component({

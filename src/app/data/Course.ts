@@ -1,4 +1,4 @@
-import { ICourse } from '../interfaces/ICourse'
+import { ICourse } from '@path-interfaces/ICourse'
 
 export const Courses: ICourse[] = [
   {

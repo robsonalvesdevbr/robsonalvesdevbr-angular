@@ -1,4 +1,4 @@
-import { IBook } from '../interfaces/IBook'
+import { IBook } from '@path-interfaces/IBook'
 
 export const Books: IBook[] = [
   {

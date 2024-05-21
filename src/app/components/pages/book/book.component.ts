@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IBook } from '../../../interfaces/IBook';
+import { IBook } from '@path-interfaces/IBook';
 import { PaginationInstance } from 'ngx-pagination';
-import { BasePageComponent } from '../../base-page/base-page.component';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
 @Component({
   selector: 'app-book',

@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core'
-import { ICourse } from '../../../interfaces/ICourse'
+import { ICourse } from '@path-interfaces/ICourse'
 import { PaginationInstance } from 'ngx-pagination'
-import { BasePageComponent } from '../../base-page/base-page.component'
+import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
 @Component({
   selector: 'app-course',
