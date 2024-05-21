@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ComponentsModule } from './components/components.module';
+import { AppComponent } from '@path-app/app.component';
+import { ComponentsModule } from '@path-app/components/components.module';
 import { CommonModule } from '@angular/common';
-import { GoogleAnalyticsService } from './services/google-analytics.service';
+import { GoogleAnalyticsService } from '@path-services/google-analytics.service';
 
 @NgModule({
   declarations: [
