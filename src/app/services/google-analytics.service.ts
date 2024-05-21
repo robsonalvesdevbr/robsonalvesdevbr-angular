@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { filter } from 'rxjs/operators'
-import { environment } from '../../environments/environment'
+import { environment } from '@path-environments/environment'
 import { NavigationEnd, Router } from '@angular/router'
 
 declare var gtag: any
