@@ -43,6 +43,9 @@
       "@path-app/*": [
         "./src/app/*"
       ],
+      "@path-environments/*": [
+        "./src/environments/*"
+      ]
     }
   },
   "angularCompilerOptions": {
