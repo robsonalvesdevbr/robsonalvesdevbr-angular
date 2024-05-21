@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { GoogleAnalyticsService } from 'src/app/services/google-analytics.service'
+import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Component({
   template: '',

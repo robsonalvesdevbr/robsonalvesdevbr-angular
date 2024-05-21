@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
-import { IFormationCourse } from '../../../interfaces/IFormationCourse';
-import { BasePageComponent } from '../../base-page/base-page.component';
+import { IFormationCourse } from '@path-interfaces/IFormationCourse';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
 @Component({
   selector: 'app-formationoourse',

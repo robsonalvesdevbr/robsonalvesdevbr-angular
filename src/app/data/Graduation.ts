@@ -1,4 +1,4 @@
-import { IGraduation } from './../interfaces/IGraduation';
+import { IGraduation } from '@path-interfaces/IGraduation';
 
 export const Graduations: IGraduation[] = [
   {

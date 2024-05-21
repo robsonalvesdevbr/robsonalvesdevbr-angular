@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BasePageComponent } from '../../base-page/base-page.component';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
 @Component({
   selector: 'app-portifoliogrid',

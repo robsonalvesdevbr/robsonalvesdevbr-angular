@@ -1,5 +1,5 @@
 import { Directive, HostListener, Input } from '@angular/core'
-import { GoogleAnalyticsService } from '../services/google-analytics.service'
+import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Directive({
   selector: '[appGoogleAnalytics]',
