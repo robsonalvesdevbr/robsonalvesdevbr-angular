@@ -170,6 +170,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-5-7'),
     favorite: true,
   },
+  {
+    name: 'Git e GitHub do básico ao avançado 2024',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-29260e31-edab-4ac5-8698-7b3c4a76a481',
+    tags: ['git', 'github'],
+    conclusion: new Date('2024-5-23'),
+    favorite: false,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
