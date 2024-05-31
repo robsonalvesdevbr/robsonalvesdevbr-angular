@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { ICourse } from '@path-interfaces/ICourse'
 import { Courses } from '@path-data/Course'
 import { IGraduation } from '@path-interfaces/IGraduation'
@@ -15,6 +15,7 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   title = 'Robson Candido dos Santos Alves'
@@ -24,9 +25,9 @@ export class AppComponent implements OnInit {
   books: IBook[] = Books
   formationCourses: IFormationCourse[] = FormationCourses
 
-  constructor(private _$gaService: GoogleAnalyticsService){}
+  constructor(private _$gaService: GoogleAnalyticsService) {}
 
   ngOnInit(): void {
-    this._$gaService.init();
+    this._$gaService.init()
   }
 }

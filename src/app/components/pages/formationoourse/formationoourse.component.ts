@@ -1,27 +1,28 @@
-import { Component, Input } from '@angular/core';
-import { PaginationInstance } from 'ngx-pagination';
-import { IFormationCourse } from '@path-interfaces/IFormationCourse';
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { PaginationInstance } from 'ngx-pagination'
+import { IFormationCourse } from '@path-interfaces/IFormationCourse'
+import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
 @Component({
   selector: 'app-formationoourse',
   templateUrl: './formationoourse.component.html',
-  styleUrl: './formationoourse.component.scss'
+  styleUrl: './formationoourse.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormationoourseComponent extends BasePageComponent  {
-  @Input({ required: true }) formationCourses: IFormationCourse[] = [];
+export class FormationoourseComponent extends BasePageComponent {
+  @Input({ required: true }) formationCourses: IFormationCourse[] = []
 
   config: PaginationInstance = {
     id: 'formationCoursesPag',
     itemsPerPage: 5,
-    currentPage: 1
-  };
+    currentPage: 1,
+  }
 
   absoluteIndex(indexOnPage: number): number {
-    return this.config.itemsPerPage * (this.config.currentPage - 1) + indexOnPage + 1;
+    return this.config.itemsPerPage * (this.config.currentPage - 1) + indexOnPage + 1
   }
 
   onPageChange(number: number) {
-    this.config.currentPage = number;
+    this.config.currentPage = number
   }
 }
