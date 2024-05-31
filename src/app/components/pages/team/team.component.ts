@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss']
+  styleUrls: ['./team.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TeamComponent extends BasePageComponent  {
-}
+export class TeamComponent extends BasePageComponent {}

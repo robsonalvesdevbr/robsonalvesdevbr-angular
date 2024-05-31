@@ -1,15 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IBook } from '@path-interfaces/IBook';
-import { PaginationInstance } from 'ngx-pagination';
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
+import { IBook } from '@path-interfaces/IBook'
+import { PaginationInstance } from 'ngx-pagination'
+import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrl: './book.component.scss'
+  styleUrl: './book.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookComponent extends BasePageComponent implements OnInit  {
-  @Input({ required: true }) books: IBook[] = [];
+export class BookComponent extends BasePageComponent implements OnInit {
+  @Input({ required: true }) books: IBook[] = []
 
   institutions: Set<string> = new Set<string>()
   tags: Set<string> = new Set<string>()
@@ -23,8 +24,8 @@ export class BookComponent extends BasePageComponent implements OnInit  {
   config: PaginationInstance = {
     id: 'booksPag',
     itemsPerPage: 5,
-    currentPage: 1
-  };
+    currentPage: 1,
+  }
 
   override ngOnInit(): void {
     this.books.forEach((book) => this.institutions.add(book.publishName.trim()))
@@ -37,11 +38,11 @@ export class BookComponent extends BasePageComponent implements OnInit  {
   getTags = () => Array.from(this.tags.values()).sort((a, b) => (a > b ? 1 : -1))
 
   absoluteIndex(indexOnPage: number): number {
-    return this.config.itemsPerPage * (this.config.currentPage - 1) + indexOnPage + 1;
+    return this.config.itemsPerPage * (this.config.currentPage - 1) + indexOnPage + 1
   }
 
   onPageChange(number: number) {
-    this.config.currentPage = number;
+    this.config.currentPage = number
   }
 
   clearFilters() {
