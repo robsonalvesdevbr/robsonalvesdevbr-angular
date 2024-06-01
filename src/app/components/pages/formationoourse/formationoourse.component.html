@@ -4,12 +4,12 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Cursos de Formação</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ formationCourses.length }}</span>
+        Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ formationCourses().length }}</span>
       </h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
     <ul class="list-group list-group-light mb-4">
-      @for(item of formationCourses | sortby : 'conclusion' : 'desc' | paginate : config; track item; let i = $index) {
+      @for(item of formationCourses() | sortby : 'conclusion' : 'desc' | paginate : config(); track item; let i = $index) {
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center ms-5">
           <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
