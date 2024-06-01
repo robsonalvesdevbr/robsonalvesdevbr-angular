@@ -4,7 +4,7 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Cursos</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ courses.length }}</span>
+        Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ courses().length }}</span>
       </h3>
     </div>
     <!--<h6 class="bg-body-tertiary p-2 border-top border-bottom">Marketing team</h6>-->
@@ -37,7 +37,7 @@
                   class="btn btn-light btn-sm fontemenor p-1 ms-0"
                   for="input_course_tag_{{ tag | lowercase }}"
                   id="label_course_tag_{{ tag | lowercase }}"
-                  [ngClass]="{ active: tagsFilter.has(tag) }"
+                  [ngClass]="{ active: tagsFilter().has(tag) }"
                   >{{ tag }}</label
                 >
                 }
@@ -49,8 +49,8 @@
     </div>
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
-      @for (item of courses | filter : 'string' : 'institution' : selectInstitutionsFilter | filter : 'array' : 'tags' : selectTagFilter | sortby : 'conclusion' : 'desc' | paginate : config; track
-      item; let i = $index) {
+      @for (item of courses() | filter : 'string' : 'institution' : selectInstitutionsFilter() | filter : 'array' : 'tags' : selectTagFilter() | sortby : 'conclusion' : 'desc' | paginate : config();
+      track item; let i = $index) {
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center ms-5">
           <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
