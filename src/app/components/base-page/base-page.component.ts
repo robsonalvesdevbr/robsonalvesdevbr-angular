@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Component({
@@ -7,14 +7,13 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 })
 export class BasePageComponent implements OnInit {
   @Input({ required: false }) bglight: boolean = false
+  $gaService = inject(GoogleAnalyticsService)
 
   currentClass = () => {
     return {
       'bg-light': this.bglight,
     }
   }
-
-  constructor(protected $gaService: GoogleAnalyticsService) {}
 
   ngOnInit(): void {}
 }
