@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input, input } from '@angular/core'
 import { IGraduation } from '@path-interfaces/IGraduation'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
@@ -9,5 +9,5 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GraduationComponent extends BasePageComponent {
-  @Input({ required: true }) graduations: IGraduation[] = []
+  graduations = input.required<IGraduation[]>({ alias: 'graduations' })
 }

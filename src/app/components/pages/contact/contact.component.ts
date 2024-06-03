@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input, input } from '@angular/core'
 import { IProfile } from '@path-interfaces/IProfile'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
@@ -9,7 +9,7 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent extends BasePageComponent {
-  @Input({ required: true }) profiles: IProfile = {} as IProfile
+  profiles = input.required<IProfile>({ alias: 'profiles' })
 
   asIsOrder(a: any, b: any) {
     return 1

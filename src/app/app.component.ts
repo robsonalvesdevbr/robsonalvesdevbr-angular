@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core'
 import { ICourse } from '@path-interfaces/ICourse'
 import { Courses } from '@path-data/Course'
 import { IGraduation } from '@path-interfaces/IGraduation'
@@ -24,8 +24,7 @@ export class AppComponent implements OnInit {
   graduations: IGraduation[] = Graduations
   books: IBook[] = Books
   formationCourses: IFormationCourse[] = FormationCourses
-
-  constructor(private _$gaService: GoogleAnalyticsService) {}
+  private _$gaService = inject(GoogleAnalyticsService)
 
   ngOnInit(): void {
     this._$gaService.init()
