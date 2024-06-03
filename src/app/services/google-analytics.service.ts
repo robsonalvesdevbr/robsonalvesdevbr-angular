@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { filter } from 'rxjs/operators'
 import { environment } from '@path-environments/environment'
 import { NavigationEnd, Router } from '@angular/router'
@@ -9,7 +9,9 @@ declare var gtag: any
   providedIn: 'root',
 })
 export class GoogleAnalyticsService {
-  constructor(private _router: Router) {
+  private _router = inject(Router)
+
+  constructor() {
     this._router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((e) => {
       if (e instanceof NavigationEnd) {
         gtag('js', new Date())
@@ -36,8 +38,8 @@ export class GoogleAnalyticsService {
   logEvent(event: string, category: string, label: string) {
     gtag('event', event, {
       event_category: category,
-      event_label: label
-    });
+      event_label: label,
+    })
   }
 
   logSet(campaign: string, id: string, source: string, name: string, term: string) {
@@ -46,17 +48,17 @@ export class GoogleAnalyticsService {
       source: source,
       name: name,
       term: term,
-    });
+    })
   }
 
-  logPagView(title: string){
+  logPagView(title: string) {
     gtag('event', 'page_view', {
       page_title: title,
-    });
+    })
 
     gtag('event', 'screen_view', {
-      'app_name': 'robsonalves',
-      'screen_name' : title
-    });
+      app_name: 'robsonalves',
+      screen_name: title,
+    })
   }
 }

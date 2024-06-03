@@ -7,7 +7,7 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 })
 export class BasePageComponent implements OnInit {
   @Input({ required: false }) bglight: boolean = false
-  $gaService = inject(GoogleAnalyticsService)
+  protected $gaService = inject(GoogleAnalyticsService)
 
   currentClass = () => {
     return {
