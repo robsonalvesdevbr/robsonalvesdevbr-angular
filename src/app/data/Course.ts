@@ -178,6 +178,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-5-23'),
     favorite: false,
   },
+  {
+    name: 'Orquestração de Containers com Kubernetes',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-2373b685-9826-465e-8ad5-93587c5339ff',
+    tags: ['kubernetes', 'k8s', 'container'],
+    conclusion: new Date('2022-6-22'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
