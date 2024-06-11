@@ -89,6 +89,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-3-28'),
     favorite: false,
   },
+  {
+    name: 'Git e Github do Zero ao Avançado',
+    institution: 'Desenvolvedor.IO',
+    certificateUrl: 'https://desenvolvedor.io/certificado/9082ea6f-5efd-458f-ba55-55c39f0b3de6',
+    tags: ['git', 'github', 'versioning'],
+    conclusion: new Date('2024-6-11'),
+    favorite: false,
+  },
 
   {
     name: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
