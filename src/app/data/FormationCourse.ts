@@ -68,8 +68,8 @@ export const FormationCourses: IFormationCourse[] = [
   {
     name: 'Formação DevOps para Desenvolvedores',
     institution: 'Desenvolvedor.IO',
-    certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/2a0ffa1e-a3cf-44ba-be0c-fbcc37c19903',
-    tags: ['docker', 'container', 'ci/cd', 'devops'],
+    certificateUrl: 'https://desenvolvedor.io/certificado/2b295178-3cae-43bd-8925-98f17501fc8d',
+    tags: ['docker', 'container', 'ci/cd', 'devops', 'git', 'github', 'azure', 'cloud'],
     conclusion: new Date('2024-3-28'),
     favorite: true,
   },
