@@ -70,7 +70,7 @@ export const FormationCourses: IFormationCourse[] = [
     institution: 'Desenvolvedor.IO',
     certificateUrl: 'https://desenvolvedor.io/certificado/2b295178-3cae-43bd-8925-98f17501fc8d',
     tags: ['docker', 'container', 'ci/cd', 'devops', 'git', 'github', 'azure', 'cloud'],
-    conclusion: new Date('2024-3-28'),
+    conclusion: new Date('2024-6-11'),
     favorite: true,
   },
 ]
