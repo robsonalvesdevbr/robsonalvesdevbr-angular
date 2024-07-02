@@ -97,6 +97,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-6-11'),
     favorite: false,
   },
+  {
+    name: 'Fundamentos do Blazor',
+    institution: 'Desenvolvedor.IO',
+    certificateUrl: 'https://desenvolvedor.io/certificado/c37bb6aa-ca3f-41f8-b623-347bd057c805',
+    tags: ['blazor', 'development', 'microsoft', 'csharp', '.net'],
+    conclusion: new Date('2024-7-2'),
+    favorite: true,
+  },
 
   {
     name: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
