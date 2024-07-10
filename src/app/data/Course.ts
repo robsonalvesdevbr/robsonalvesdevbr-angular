@@ -207,7 +207,7 @@ export const Courses: ICourse[] = [
     institution: 'Udemy',
     certificateUrl: 'https://www.udemy.com/certificate/UC-80a5aef3-08d8-46f5-8c63-ae985159c271',
     tags: ['azure', 'cloud', 'microsoft', 'az-303', 'az-304'],
-    conclusion: new Date('2022-7-10'),
+    conclusion: new Date('2024-7-10'),
     favorite: true,
   },
 
