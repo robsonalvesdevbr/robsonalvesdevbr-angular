@@ -202,6 +202,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2022-6-22'),
     favorite: true,
   },
+  {
+    name: 'Certificação Microsoft Azure Architect AZ-303 e AZ-304',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-80a5aef3-08d8-46f5-8c63-ae985159c271',
+    tags: ['azure', 'cloud', 'microsoft', 'az-303', 'az-304'],
+    conclusion: new Date('2022-7-10'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
