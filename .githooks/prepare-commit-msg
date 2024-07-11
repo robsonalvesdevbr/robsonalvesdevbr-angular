@@ -1,0 +1,16 @@
+#!/bin/bash
+
+COMMIT_MSG_FILE="$1"
+COMMIT_SOURCE="$2"
+SHA1="$3"
+
+REGEX_MSG="^(fix|feat|docs|style|refactor|perf|test|chore|revert|wip|release|hotfix|deploy|revert): .*"
+
+if ! grep -qE "$REGEX_MSG" "$COMMIT_MSG_FILE"; then
+    echo "Start message commit with (fix|feat|docs|style|refactor|perf|test|chore|revert|wip|release|hotfix|deploy|revert): <message>"
+    echo "Example: fix: Fixing a bug"
+    exit 1
+fi
+
+SOB=$(git config user.name)
+grep -qs "^$SOB" "$1" || echo ". Commit by @$SOB" >> "$1"
