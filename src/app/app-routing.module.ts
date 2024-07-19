@@ -1,13 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes, provideRouter, withViewTransitions } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes, provideRouter, withViewTransitions } from '@angular/router'
 
-const routes: Routes = [];
+const routes: Routes = []
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', scrollOffset: [0, 64]})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', scrollOffset: [0, 64] })],
   exports: [RouterModule],
-  providers: [
-    provideRouter(routes, withViewTransitions()),
-  ]
+  providers: [provideRouter(routes, withViewTransitions())],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

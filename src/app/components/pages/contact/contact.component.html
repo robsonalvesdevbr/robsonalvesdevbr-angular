@@ -17,17 +17,17 @@
             <h4 class="alert-heading">{{ profiles().name }}</h4>
             <b>Localização:</b> {{ profiles().country }}, {{ profiles().city }} / {{ profiles().state }} <br />
             <b>Email:</b> {{ profiles().email }} <br />
-            <b>Nascimento:</b> {{ profiles().birthday | date : 'dd/MM/yyyy' }}<br />
+            <b>Nascimento:</b> {{ profiles().birthday | date: 'dd/MM/yyyy' }}<br />
             <b>Idade:</b> {{ calcularIdade(profiles().birthday) }}<br />
 
-            @for (item of profiles().urlList | keyvalue : asIsOrder; track item) {
-            <div class="d-inline">
-              <b>{{ item.key }}: </b>
-            </div>
-            <div class="d-inline">
-              <a [href]="item.value" [attr.aria-label]="item.key" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a>
-            </div>
-            <br />
+            @for (item of profiles().urlList | keyvalue: asIsOrder; track item) {
+              <div class="d-inline">
+                <b>{{ item.key }}: </b>
+              </div>
+              <div class="d-inline">
+                <a [href]="item.value" [attr.aria-label]="item.key" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a>
+              </div>
+              <br />
             }
             <b>--------------------------------------------------------------</b><br />
             <p>

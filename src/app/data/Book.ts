@@ -11,7 +11,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
     pages: 223,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'JavaScript Assertivo',
@@ -23,7 +23,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-javascript-assertivo',
     pages: 366,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Arquitetura Orientada a Eventos',
@@ -35,7 +35,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-eda',
     pages: 302,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Rust',
@@ -47,7 +47,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-rust',
     pages: 268,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Inteligência Artificial como serviço',
@@ -59,7 +59,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-ai-servico',
     pages: 131,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'MongoDB',
@@ -71,7 +71,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-mongodb',
     pages: 244,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Modernização de Aplicação no Microsoft Azure',
@@ -83,7 +83,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-modernizacao-azure',
     pages: 468,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Scrum',
@@ -95,7 +95,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-scrum',
     pages: 529,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Tuning de SQL',
@@ -107,7 +107,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-tuning-sql',
     pages: 523,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Orientação a Objetos em C#',
@@ -119,7 +119,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-csharp',
     pages: 236,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Produtividade em C#',
@@ -131,7 +131,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-produtividade-csharp',
     pages: 461,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Sistemas reativos',
@@ -143,7 +143,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-sistemas-reativos',
     pages: 322,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Cangaceiro JavaScript',
@@ -155,7 +155,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-cangaceiro-javascript',
     pages: 502,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Programação Funcional',
@@ -167,7 +167,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-programacao-funcional-clojure',
     pages: 214,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Web Services REST com ASP .NET Web API e Windows Azure',
@@ -179,7 +179,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-web-services-rest',
     pages: 148,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Orientação a Objetos',
@@ -191,7 +191,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-conceitos',
     pages: 384,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Desenvolvimento efetivo na plataforma Microsoft',
@@ -203,7 +203,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-plataforma-microsoft',
     pages: 383,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Orientação a Objetos e SOLID para Ninjas',
@@ -215,7 +215,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-solid',
     pages: 155,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Design Patterns com C#',
@@ -227,7 +227,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-design-paterns-csharp',
     pages: 163,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Test-Driven Development',
@@ -239,7 +239,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-tdd-dotnet',
     pages: 198,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Programação funcional em .NET',
@@ -251,7 +251,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-programacao-funcional-net',
     pages: 323,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'Apache Cassandra',
@@ -263,7 +263,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-apache-cassandra',
     pages: 151,
     progress: 0,
-    favorite: false
+    favorite: false,
   },
   {
     title: 'High-Performance Programming in C# and .NET',
@@ -275,7 +275,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.packtpub.com/product/high-performance-programming-in-c-and-net/9781800564718',
     pages: 660,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'C# Data Structures and Algorithms',
@@ -287,7 +287,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.packtpub.com/product/c-data-structures-and-algorithms/9781788833738',
     pages: 292,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
@@ -299,7 +299,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361',
     pages: 826,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Parallel Programming and Concurrency with C# 10 and .NET 6',
@@ -311,7 +311,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.packtpub.com/product/parallel-programming-and-concurrency-with-c-10-and-net-6/9781803243672',
     pages: 320,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Keycloak - Identity and Access Management for Modern Applications - Second Edition',
@@ -323,7 +323,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.packtpub.com/product/keycloak-identity-and-access-management-for-modern-applications-second-edition/9781804616444',
     pages: 350,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Redes De Computadores',
@@ -332,10 +332,11 @@ export const Books: IBook[] = [
     publishName: 'Elsevier',
     publishYear: 2003,
     tags: ['network'],
-    bookUrl: 'https://www.amazon.com.br/Redes-Computadores-Andrew-Stuart-Tanenbaum/dp/8535211853/ref=sr_1_1?dib=eyJ2IjoiMSJ9._GfQzyNbERSE2cgbUgmbeN5F_rH9yK-7REy6uflTx0o.E6G7vajk-Q8IK5iDBUw2V57wozY87mInr2PGWcGcnTg&dib_tag=se&qid=1711126819&refinements=p_27%3AAndrew+Stuart+Tanenbaum&s=books&sr=1-1&text=Andrew+Stuart+Tanenbaum',
+    bookUrl:
+      'https://www.amazon.com.br/Redes-Computadores-Andrew-Stuart-Tanenbaum/dp/8535211853/ref=sr_1_1?dib=eyJ2IjoiMSJ9._GfQzyNbERSE2cgbUgmbeN5F_rH9yK-7REy6uflTx0o.E6G7vajk-Q8IK5iDBUw2V57wozY87mInr2PGWcGcnTg&dib_tag=se&qid=1711126819&refinements=p_27%3AAndrew+Stuart+Tanenbaum&s=books&sr=1-1&text=Andrew+Stuart+Tanenbaum',
     pages: 946,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Sistemas Operacionais Modernos',
@@ -344,10 +345,11 @@ export const Books: IBook[] = [
     publishName: 'Elsevier',
     publishYear: 2015,
     tags: ['operational system', 'linux'],
-    bookUrl: 'https://www.amazon.com.br/Sistemas-operacionais-modernos-Andrew-Tanenbaum/dp/8543005671/ref=pd_sbs_d_sccl_2_2/134-5554515-9248818?pd_rd_w=Kstyh&content-id=amzn1.sym.369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_p=369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_r=WXGNXW7G2Z1GRSZQBGAH&pd_rd_wg=wtrf4&pd_rd_r=0a993d3e-9664-4690-aec0-9c0cb9e84650&pd_rd_i=8543005671&psc=1',
+    bookUrl:
+      'https://www.amazon.com.br/Sistemas-operacionais-modernos-Andrew-Tanenbaum/dp/8543005671/ref=pd_sbs_d_sccl_2_2/134-5554515-9248818?pd_rd_w=Kstyh&content-id=amzn1.sym.369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_p=369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_r=WXGNXW7G2Z1GRSZQBGAH&pd_rd_wg=wtrf4&pd_rd_r=0a993d3e-9664-4690-aec0-9c0cb9e84650&pd_rd_i=8543005671&psc=1',
     pages: 946,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Lógica de Programação e Algoritmos com JavaScript – 2ª Edição',
@@ -359,7 +361,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://novatec.com.br/livros/logica-programacao-algoritmos-com-javascript-2ed',
     pages: 352,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Estruturas de dados e algoritmos com JavaScript – 2ª Edição',
@@ -371,7 +373,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed',
     pages: 408,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Refatoração - 2ª Edição',
@@ -383,7 +385,7 @@ export const Books: IBook[] = [
     bookUrl: 'https://novatec.com.br/livros/refatoracao',
     pages: 456,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Domain-Driven Design',
@@ -391,11 +393,11 @@ export const Books: IBook[] = [
     author: ['Eric Evan'],
     publishName: 'Alta Books',
     publishYear: 2016,
-    tags: ['development','ddd'],
+    tags: ['development', 'ddd'],
     bookUrl: 'https://altabooks.com.br/produto/domain-driven-design',
     pages: 528,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Código Limpo',
@@ -403,11 +405,11 @@ export const Books: IBook[] = [
     author: ['Robert C. Martin'],
     publishName: 'Alta Books',
     publishYear: 2016,
-    tags: ['development' ,'clean code'],
+    tags: ['development', 'clean code'],
     bookUrl: 'https://altabooks.com.br/produto/codigo-limpo',
     pages: 440,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Arquitetura Limpa',
@@ -415,11 +417,11 @@ export const Books: IBook[] = [
     author: ['Robert C. Martin'],
     publishName: 'Alta Books',
     publishYear: 2016,
-    tags: ['development' ,'clean code'],
+    tags: ['development', 'clean code'],
     bookUrl: 'https://altabooks.com.br/produto/arquitetura-limpa',
     pages: 432,
     progress: 0,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'NoSQL',
@@ -427,11 +429,11 @@ export const Books: IBook[] = [
     author: ['Martin Fowler', 'Pramod J. Sadalage'],
     publishName: 'Novatec',
     publishYear: 2013,
-    tags: ['database' ,'nosql'],
+    tags: ['database', 'nosql'],
     bookUrl: 'https://novatec.com.br/livros/nosql-essencial',
     pages: 216,
     progress: 100,
-    favorite: true
+    favorite: true,
   },
   {
     title: 'Teoria dos Grafos',
@@ -443,6 +445,6 @@ export const Books: IBook[] = [
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-teoria-dos-grafos',
     pages: 216,
     progress: 100,
-    favorite: true
+    favorite: true,
   },
 ]
