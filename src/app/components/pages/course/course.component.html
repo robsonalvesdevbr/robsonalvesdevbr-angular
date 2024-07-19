@@ -16,11 +16,11 @@
               <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button
               ><b class="p-1 m-1">Filtrar Instituição:</b>
 
-              @for(institution of getInstitutions(); track institution) {
-              <input type="checkbox" class="btn-check" id="input_course_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
-              <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{
-                institution
-              }}</label>
+              @for (institution of getInstitutions(); track institution) {
+                <input type="checkbox" class="btn-check" id="input_course_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
+                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ institution | lowercase }}" id="label_course_institution_{{ institution | lowercase }}">{{
+                  institution
+                }}</label>
               }
             </div>
           </div>
@@ -31,15 +31,15 @@
             <div class="has-text-centered">
               <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
                 <b class="p-1 m-1">Filtrar tag:</b>
-                @for(tag of getTags(); track tag) {
-                <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
-                <label
-                  class="btn btn-light btn-sm fontemenor p-1 ms-0"
-                  for="input_course_tag_{{ tag | lowercase }}"
-                  id="label_course_tag_{{ tag | lowercase }}"
-                  [ngClass]="{ active: tagsFilter().has(tag) }"
-                  >{{ tag }}</label
-                >
+                @for (tag of getTags(); track tag) {
+                  <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
+                  <label
+                    class="btn btn-light btn-sm fontemenor p-1 ms-0"
+                    for="input_course_tag_{{ tag | lowercase }}"
+                    id="label_course_tag_{{ tag | lowercase }}"
+                    [ngClass]="{ active: tagsFilter().has(tag) }"
+                    >{{ tag }}</label
+                  >
                 }
               </div>
             </div>
@@ -49,30 +49,33 @@
     </div>
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
-      @for (item of courses() | filter : 'string' : 'institution' : selectInstitutionsFilter() | filter : 'array' : 'tags' : selectTagFilter() | sortby : 'conclusion' : 'desc' | paginate : config();
-      track item; let i = $index) {
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center ms-5">
-          <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
-          <div class="ms-3">
-            <p class="fw-bold mb-0">{{ item.name }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;</p>
-            <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
-            <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
-            <p class="text-muted fontemenor">
-              Concluído em {{ item.conclusion | date : 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a
-                [href]="item.certificateUrl"
-                target="_blank"
-                [appGoogleAnalytics]="{ event: 'click_course', category: 'link_certificate_course', label: item.name }"
-                >Certificado</a
-              >
-            </p>
+      @for (
+        item of courses() | filter: 'string' : 'institution' : selectInstitutionsFilter() | filter: 'array' : 'tags' : selectTagFilter() | sortby: 'conclusion' : 'desc' | paginate: config();
+        track item;
+        let i = $index
+      ) {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center ms-5">
+            <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
+            <div class="ms-3">
+              <p class="fw-bold mb-0">{{ item.name }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;</p>
+              <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
+              <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
+              <p class="text-muted fontemenor">
+                Concluído em {{ item.conclusion | date: 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a
+                  [href]="item.certificateUrl"
+                  target="_blank"
+                  [appGoogleAnalytics]="{ event: 'click_course', category: 'link_certificate_course', label: item.name }"
+                  >Certificado</a
+                >
+              </p>
+            </div>
           </div>
-        </div>
-        <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
-          {{ absoluteIndex(i) }}
-          <span class="visually-hidden">unread messages</span>
-        </span>
-      </li>
+          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+            {{ absoluteIndex(i) }}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </li>
       }
     </ul>
     <div class="text-center">

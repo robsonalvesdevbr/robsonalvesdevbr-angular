@@ -1,12 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({
-  name: 'messageDateConclusion'
+  name: 'messageDateConclusion',
 })
 export class MessageDateConclusionPipe implements PipeTransform {
-
   transform(conclusion: boolean): string {
-    return conclusion ? 'Concluído' : 'Trancado';
+    return conclusion ? 'Concluído' : 'Trancado'
   }
-
 }

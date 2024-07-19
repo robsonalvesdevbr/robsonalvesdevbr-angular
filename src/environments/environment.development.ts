@@ -1,1 +1,1 @@
-export const environment = { production: false, googleAnalytics: '' };
+export const environment = { production: false, googleAnalytics: '' }
