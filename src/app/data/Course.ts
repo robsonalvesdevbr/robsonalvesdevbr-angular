@@ -1059,4 +1059,12 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2019-11-6'),
     favorite: false,
   },
+  {
+    name: 'Node.js e terminal: dominando o ambiente de desenvolvimento front-end',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/certificate/279a0193-f327-4c54-a000-451aefd818bb?lang=pt_BR',
+    tags: ['development', 'node'],
+    conclusion: new Date('2024-7-20'),
+    favorite: false,
+  },
 ]
