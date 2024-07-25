@@ -1067,4 +1067,12 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-7-20'),
     favorite: false,
   },
+  {
+    name: 'Node.js: criando uma API Rest com Express e MongoDB',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/certificate/b66c4012-ba60-46db-a044-1b2e923c01ed?lang=pt_BR',
+    tags: ['development', 'node'],
+    conclusion: new Date('2024-7-24'),
+    favorite: false,
+  },
 ]
