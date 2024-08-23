@@ -8,9 +8,10 @@ export class ImgcursoPipe implements PipeTransform {
     'Desenvolvedor.IO': 'desenvolvedorio.jpg',
     Alura: 'alura.jpg',
     Udemy: 'udemy.png',
+    'Linkedin Learning': 'linkedin.png',
   }
 
-  transform(curso: 'Alura' | 'Desenvolvedor.IO' | 'Udemy'): string {
+  transform(curso: 'Alura' | 'Desenvolvedor.IO' | 'Udemy' | 'Linkedin Learning'): string {
     return this.imagens[curso]
   }
 }

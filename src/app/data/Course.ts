@@ -2,6 +2,15 @@ import { ICourse } from '@path-interfaces/ICourse'
 
 export const Courses: ICourse[] = [
   {
+    name: 'GitHub Copilot: Formação Básica',
+    institution: 'Linkedin Learning',
+    certificateUrl: 'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
+    tags: ['ai', 'github', 'copilot'],
+    conclusion: new Date('2024-8-22'),
+    favorite: true,
+  },
+
+  {
     name: 'Iniciando com ASP.NET Core',
     institution: 'Desenvolvedor.IO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/74c90a14-45bc-4748-a329-ff76b9f73c8b',
