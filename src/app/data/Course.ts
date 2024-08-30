@@ -4,7 +4,7 @@ export const Courses: ICourse[] = [
   {
     name: 'GitHub Copilot: Formação Básica',
     institution: 'Linkedin Learning',
-    certificateUrl: 'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
+    certificateUrl: 'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
     tags: ['ai', 'github', 'copilot'],
     conclusion: new Date('2024-8-22'),
     favorite: true,
@@ -12,7 +12,7 @@ export const Courses: ICourse[] = [
   {
     name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
     institution: 'Linkedin Learning',
-    certificateUrl: 'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
+    certificateUrl: 'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
     tags: ['communication', 'leadership'],
     conclusion: new Date('2024-8-30'),
     favorite: true,
