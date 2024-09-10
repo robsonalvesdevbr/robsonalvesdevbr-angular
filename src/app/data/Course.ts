@@ -227,6 +227,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-7-10'),
     favorite: true,
   },
+  {
+    name: 'ChatGPT Completo: Domine Chat GPT e Inteligência Artificial',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-4a973d15-299e-4020-8c83-89ec5d25008d',
+    tags: ['ai', 'chatbot', 'gpt', 'chatgpt'],
+    conclusion: new Date('2024-9-10'),
+    favorite: false,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
