@@ -45,7 +45,7 @@ export const FormationCourses: IFormationCourse[] = [
     name: 'Linguagem Go',
     institution: 'Alura',
     certificateUrl: 'https://cursos.alura.com.br/degree/certificate/ddaea616-7329-4661-a48a-a79db8bf8841?lang=pt_BR',
-    tags: ['software-development', 'google-technologies', 'GoLang'],
+    tags: ['software-development', 'google-technologies', 'golang'],
     conclusion: new Date('2022-6-9'),
     favorite: true,
   },
