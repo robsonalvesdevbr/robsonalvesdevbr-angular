@@ -17,6 +17,22 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-8-30'),
     favorite: true,
   },
+  {
+    name: 'Fundamentos da Tecnologia Blockchain',
+    institution: 'Linkedin Learning',
+    certificateUrl: 'https://www.linkedin.com/learning/certificates/0b810fbc20a789b7d3dab7cf63abc26075b2093494a8ee426cad583add7060c3?trk=share_certificate',
+    tags: ['cripto', 'blockchain'],
+    conclusion: new Date('2024-9-14'),
+    favorite: false,
+  },
+  {
+    name: 'IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética',
+    institution: 'Linkedin Learning',
+    certificateUrl: 'https://www.linkedin.com/learning/certificates/f7ce89a6b89cd86f123f07c866c495d32fe879d31f28e7f2f347313c9560626b?trk=share_certificate',
+    tags: ['ia', 'artificial-intelligence'],
+    conclusion: new Date('2024-9-14'),
+    favorite: false,
+  },
 
   {
     name: 'Iniciando com ASP.NET Core',
