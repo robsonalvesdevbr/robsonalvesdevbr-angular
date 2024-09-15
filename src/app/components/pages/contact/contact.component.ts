@@ -11,18 +11,11 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 export class ContactComponent extends BasePageComponent {
   profiles = input.required<IProfile>({ alias: 'profiles' })
 
-  asIsOrder(a: any, b: any) {
-    return 1
-  }
+  asIsOrder = (a: any, b: any): number => 1
 
-  calcularIdade = function calcularIdade(nascimento: Date) {
-    // Obtém a idade em milissegundos
-    var idadeDifMs = Date.now() - nascimento.getTime()
-
-    // Converte os milissegundos em data e subtrai da era linux
-    var idadeData = new Date(idadeDifMs)
-    var idade = idadeData.getUTCFullYear() - 1970
-
-    return idade
+  calcularIdade = (nascimento: Date): number => {
+    const idadeDifMs = Date.now() - nascimento.getTime()
+    const idadeData = new Date(idadeDifMs)
+    return idadeData.getUTCFullYear() - 1970
   }
 }
