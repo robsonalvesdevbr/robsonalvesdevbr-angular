@@ -33,6 +33,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-9-14'),
     favorite: false,
   },
+  {
+    name: 'Como Impulsionar a Sustentabilidade Através da Tecnologia',
+    institution: 'Linkedin Learning',
+    certificateUrl: 'https://www.linkedin.com/learning/certificates/1fe034be3576a625b3f6ceeebe4b4488d1dff545b51acccf20716a20b3e80c58?trk=share_certificate',
+    tags: ['sustainability', 'technology'],
+    conclusion: new Date('2024-9-16'),
+    favorite: false,
+  },
 
   {
     name: 'Iniciando com ASP.NET Core',
