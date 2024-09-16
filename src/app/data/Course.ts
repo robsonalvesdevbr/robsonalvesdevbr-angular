@@ -1124,4 +1124,12 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-7-24'),
     favorite: false,
   },
+  {
+    name: 'Segurança Ofensiva',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/525ab812-85ca-4276-84f2-b3f0f1c09e67?lang=pt_BR',
+    tags: ['security'],
+    conclusion: new Date('2024-9-16'),
+    favorite: false,
+  },
 ]
