@@ -6,7 +6,7 @@ export const Profile: IProfile = {
   state: 'Paraná',
   city: 'Curitiba',
   email: 'contato@robsonalves.dev.br',
-  birthday: new Date('1980-8-29'),
+  birthday: new Date('1980-08-29'),
   urlList: new Map<string, string>([
     ['WebSite', 'https://www.robsonalves.dev.br'],
     ['LinkedIn', 'https://www.linkedin.com/in/robson-curitiba'],
