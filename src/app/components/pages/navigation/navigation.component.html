@@ -17,6 +17,7 @@
             routerLinkActive="router-link-active"
             fragment="about"
             [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'link', label: 'app-navigation' }"
+            aria-label="Sobre"
             >Sobre</a
           >
         </li>
@@ -26,11 +27,17 @@
             [routerLink]="['/']"
             fragment="graduation"
             [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'graduation', title: '(Pós)Graduação' }"
+            aria-label="(Pós)Graduação"
             >(Pós)Graduação</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="courses" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'courses', title: 'Cursos' }"
+          <a
+            class="nav-link"
+            [routerLink]="['/']"
+            fragment="courses"
+            [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'courses', title: 'Cursos' }"
+            aria-label="Cursos"
             >Cursos</a
           >
         </li>
@@ -40,17 +47,28 @@
             [routerLink]="['/']"
             fragment="formationcourse"
             [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'formationcourse', title: 'Formação' }"
+            aria-label="Formação"
             >Formação</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="books" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'books', title: 'Leituras' }"
+          <a
+            class="nav-link"
+            [routerLink]="['/']"
+            fragment="books"
+            [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'books', title: 'Leituras' }"
+            aria-label="Leituras"
             >Leituras</a
           >
         </li>
         <!--<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>-->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" fragment="contact" [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'contact', title: 'Contato' }"
+          <a
+            class="nav-link"
+            [routerLink]="['/']"
+            fragment="contact"
+            [appGoogleAnalytics]="{ logType: 'page_view', event: 'click', category: 'app_navigation', label: 'contact', title: 'Contato' }"
+            aria-label="Contato"
             >Contato</a
           >
         </li>
