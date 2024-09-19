@@ -22,7 +22,12 @@
               </p>
               <p class="text-muted">{{ item.institution }}</p>
               <p class="text-muted">
-                <a [href]="item.websiteInstituition" target="_blank" [appGoogleAnalytics]="{ event: 'click', category: 'link_graduation', label: item.institution }">{{ item.websiteInstituition }}</a>
+                <a
+                  [href]="item.websiteInstituition"
+                  target="_blank"
+                  [appGoogleAnalytics]="{ event: 'click', category: 'link_graduation', label: item.institution }"
+                  [attr.aria-label]="'Visite o site da instituição ' + item.institution"
+                  >{{ item.websiteInstituition }}</a>
               </p>
             </div>
           </div>

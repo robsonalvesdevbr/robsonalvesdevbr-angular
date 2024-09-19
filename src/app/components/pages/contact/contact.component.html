@@ -25,7 +25,11 @@
                 <b>{{ item.key }}: </b>
               </div>
               <div class="d-inline">
-                <a [href]="item.value" [attr.aria-label]="item.key" class="text-muted text-decoration-none" target="_blank">{{ item.value }}</a>
+                <a
+                  [href]="item.value"
+                  [attr.aria-label]="item.key"
+                  class="text-muted text-decoration-none"
+                  target="_blank">{{ item.value }}</a>
               </div>
               <br />
             }
@@ -89,6 +93,7 @@
                 class="text-muted text-decoration-none"
                 target="_blank"
                 [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage' }"
+                aria-label="Visite o repositório do GitHub"
                 >https://github.com/robsonalvesdev/robsonalvesdevbr-angular</a
               >
             </div>
