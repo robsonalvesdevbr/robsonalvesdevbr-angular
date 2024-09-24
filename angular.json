@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "robsonalvesdevbr-angular17": {
+    "robsonalvesdevbr-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "robsonalvesdevbr-angular17:build:production"
+              "buildTarget": "robsonalvesdevbr-angular:build:production"
             },
             "development": {
-              "buildTarget": "robsonalvesdevbr-angular17:build:development"
+              "buildTarget": "robsonalvesdevbr-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "robsonalvesdevbr-angular17:build"
+            "buildTarget": "robsonalvesdevbr-angular:build"
           }
         },
         "test": {
