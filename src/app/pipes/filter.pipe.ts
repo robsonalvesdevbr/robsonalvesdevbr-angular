@@ -1,34 +1,20 @@
-import { Pipe, PipeTransform } from '@angular/core'
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
   transform(data: any[], typeField: 'string' | 'array', filterProperty: any, filter: string): any[] {
-    const filterLowerCase = filter.toLowerCase()
+    const filterLowerCase = filter.toLowerCase().split(',');
 
     const filterField = (field: any) => {
-      let locate = false
-
       if (typeField === 'string') {
-        filterLowerCase.split(',').forEach((x) => {
-          if (x == field.toLowerCase()) {
-            locate = true
-            return
-          }
-        })
+        return filterLowerCase.includes(field.toLowerCase());
       } else {
-        filterLowerCase.split(',').forEach((x) => {
-          if ((field as string[]).findIndex((f) => f.toLowerCase() === x.toLowerCase()) != -1) {
-            locate = true
-            return
-          }
-        })
+        return (field as string[]).some(f => filterLowerCase.includes(f.toLowerCase()));
       }
+    };
 
-      return locate
-    }
-
-    return filterLowerCase ? data.filter((item) => filterField(item[filterProperty])) : data
+    return filter ? data.filter(item => filterField(item[filterProperty])) : data;
   }
 }
