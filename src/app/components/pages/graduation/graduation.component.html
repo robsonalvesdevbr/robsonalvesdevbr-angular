@@ -25,6 +25,7 @@
                 <a
                   [href]="item.websiteInstituition"
                   target="_blank"
+                  rel="noopener noreferrer"
                   [appGoogleAnalytics]="{ event: 'click', category: 'link_graduation', label: item.institution }"
                   [attr.aria-label]="'Visite o site da instituição ' + item.institution"
                   >{{ item.websiteInstituition }}</a>
