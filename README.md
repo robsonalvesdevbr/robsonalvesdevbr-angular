@@ -1,30 +1,47 @@
-# RobsonalvesdevbrAngular18
+# Profile Robson Alves
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+## Descrição
 
-## Development server
+Apresentação do meu currículo como forma de estudos do Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Estrutura do Projeto
 
-## Code scaffolding
+A estrutura do projeto é a seguinte:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Diretórios e Arquivos Importantes
 
-## Running unit tests
+- **.angular/**: Diretório de cache do Angular.
+- **.githooks/**: Scripts de hooks do Git.
+- **.github/**: Workflows do GitHub Actions.
+- **.vscode/**: Configurações do Visual Studio Code.
+- **angular.json**: Configurações do Angular CLI.
+- **package.json**: Dependências e scripts do npm.
+- **src/**: Código-fonte da aplicação.
+  - **app/**: Componentes e módulos da aplicação.
+    - [`app-routing.module.ts`](src/app/app-routing.module.ts): Configurações de rotas.
+    - [`app.component.ts`](src/app/app.component.ts): Componente principal.
+    - [`app.component.html`](src/app/app.component.html): Template do componente principal.
+    - [`app.component.scss`](src/app/app.component.scss): Estilos do componente principal.
+  - **assets/**: Arquivos estáticos.
+  - **css/**: Arquivos CSS globais.
+  - **environments/**: Configurações de ambiente.
+  - [`index.html`](src/index.html): Página principal.
+  - **js/**: Scripts JavaScript.
+  - [`main.ts`](src/main.ts): Arquivo principal do Angular.
+  - [`styles.scss`](src/styles.scss): Estilos globais.
+- **tsconfig.app.json**: Configurações do TypeScript para a aplicação.
+- **tsconfig.json**: Configurações gerais do TypeScript.
+- **tsconfig.spec.json**: Configurações do TypeScript para testes.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Instalação
 
-## Running end-to-end tests
+Para instalar as dependências do projeto, execute:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```sh
+npm install
+```
 
 ## Git config
 
