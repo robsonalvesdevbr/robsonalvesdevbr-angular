@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, WritableSignal, input, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, WritableSignal, input, signal } from '@angular/core'
 import { PaginationInstance } from 'ngx-pagination'
 import { IFormationCourse } from '@path-interfaces/IFormationCourse'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
@@ -6,7 +6,6 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 @Component({
   selector: 'app-formationoourse',
   templateUrl: './formationoourse.component.html',
-  styleUrl: './formationoourse.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormationoourseComponent extends BasePageComponent {

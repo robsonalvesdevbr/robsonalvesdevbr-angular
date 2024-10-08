@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, WritableSignal, input, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit, WritableSignal, input, signal } from '@angular/core'
 import { IBook } from '@path-interfaces/IBook'
 import { PaginationInstance } from 'ngx-pagination'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
@@ -27,10 +27,9 @@ export class BookComponent extends BasePageComponent implements OnInit {
     currentPage: 1,
   })
 
-  override ngOnInit(): void {
+  ngOnInit(): void {
     this.books().forEach((book) => this.institutions().add(book.publishName.trim()))
     this.books().forEach((book) => book.tags.forEach((tag) => this.tags().add(tag.trim())))
-    super.ngOnInit()
   }
 
   getInstitutions = () => Array.from(this.institutions().values()).sort((a, b) => (a > b ? 1 : -1))
@@ -61,7 +60,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   onClickIntitutionEvent(e: MouseEvent) {
-    var link = e.target as HTMLInputElement
+    let link = e.target as HTMLInputElement
     let id = link.id.replace('input_book_institution_', '')
 
     this.institutionsFilter().has(id) ? this.institutionsFilter().delete(id) : this.institutionsFilter().add(id)
@@ -71,7 +70,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   onClickTagEvent(e: MouseEvent) {
-    var link = e.target as HTMLInputElement
+    let link = e.target as HTMLInputElement
     let id = link.id.replace('input_book_tag_', '')
 
     this.tagsFilter().has(id) ? this.tagsFilter().delete(id) : this.tagsFilter().add(id)

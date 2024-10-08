@@ -4,7 +4,6 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamComponent extends BasePageComponent {}

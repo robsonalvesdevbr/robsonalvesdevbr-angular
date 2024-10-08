@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, input } from '@angular/core'
 import { IProfile } from '@path-interfaces/IProfile'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 
