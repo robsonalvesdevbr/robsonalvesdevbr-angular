@@ -4,7 +4,6 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServicesComponent extends BasePageComponent {}

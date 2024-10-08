@@ -27,10 +27,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     currentPage: 1,
   })
 
-  override ngOnInit(): void {
+  ngOnInit(): void {
     this.courses().forEach((course) => this.institutions().add(course.institution.trim()))
     this.courses().forEach((course) => course.tags.forEach((tag) => this.tags().add(tag.trim())))
-    super.ngOnInit()
   }
 
   getInstitutions = () => Array.from(this.institutions().values()).sort((a, b) => (a > b ? 1 : -1))
@@ -57,7 +56,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   onClickIntitutionEvent(e: MouseEvent) {
-    var link = e.target as HTMLInputElement
+    let link = e.target as HTMLInputElement
     let id = link.id.replace('input_course_institution_', '')
 
     this.institutionsFilter().has(id) ? this.institutionsFilter().delete(id) : this.institutionsFilter().add(id)
@@ -67,7 +66,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   onClickTagEvent(e: MouseEvent) {
-    var link = e.target as HTMLInputElement
+    let link = e.target as HTMLInputElement
     let id = link.id.replace('input_course_tag_', '')
 
     this.tagsFilter().has(id) ? this.tagsFilter().delete(id) : this.tagsFilter().add(id)

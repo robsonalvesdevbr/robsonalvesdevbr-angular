@@ -3,7 +3,7 @@ import { filter } from 'rxjs/operators'
 import { environment } from '@path-environments/environment'
 import { NavigationEnd, Router } from '@angular/router'
 
-declare var gtag: any
+declare let gtag: any
 
 @Injectable({
   providedIn: 'root',

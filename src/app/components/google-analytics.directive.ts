@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, inject, input } from '@angular/core'
+import { Directive, HostListener, inject, input } from '@angular/core'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Directive({
