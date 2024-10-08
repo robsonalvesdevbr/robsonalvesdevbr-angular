@@ -54,7 +54,7 @@
         item of books()
           | filter: 'string' : 'publishName' : selectInstitutionsFilter()
           | filter: 'array' : 'tags' : selectTagFilter()
-          | sortby: 'publishYear' : 'asc'
+          | sortby: 'publishYear' : 'desc'
           | sortby: 'favorite' : 'desc'
           | paginate: config();
         track item;
