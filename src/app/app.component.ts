@@ -24,8 +24,8 @@ export class AppComponent implements OnInit {
   graduations: IGraduation[] = Graduations
   books: IBook[] = Books
   formationCourses: IFormationCourse[] = FormationCourses
-  private _$gaService = inject(GoogleAnalyticsService)
-  private meta = inject(Meta)
+  private readonly _$gaService = inject(GoogleAnalyticsService)
+  private readonly meta = inject(Meta)
 
   ngOnInit(): void {
     this._$gaService.init()
