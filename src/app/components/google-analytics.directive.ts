@@ -6,7 +6,7 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 })
 export class GoogleAnalyticsDirective {
   option = input.required<any>({ alias: 'appGoogleAnalytics' })
-  private $gaService = inject(GoogleAnalyticsService)
+  private readonly $gaService = inject(GoogleAnalyticsService)
 
   @HostListener('click', ['$event']) onClick() {
     this.$gaService.logEvent(this.option().event, this.option().category, this.option().label)

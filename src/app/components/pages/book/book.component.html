@@ -12,7 +12,7 @@
       <div>
         <div class="text-center bg-light bg-gradient">
           <div class="has-text-centered">
-            <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_book_institution">
+            <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_book_institution">
               <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button
               ><b class="p-1 m-1">Filtrar Editora:</b>
 
@@ -22,14 +22,14 @@
                   institution
                 }}</label>
               }
-            </div>
+            </fieldset>
           </div>
         </div>
         <hr class="p-0 m-1" />
         <div>
           <div class="text-center bg-light bg-gradient">
             <div class="has-text-centered">
-              <div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+              <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
                 <b class="p-1 m-1">Filtrar tag:</b>
                 @for (tag of getTags(); track tag) {
                   <input type="checkbox" class="btn-check" id="input_book_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
@@ -41,7 +41,7 @@
                     >{{ tag }}</label
                   >
                 }
-              </div>
+              </fieldset>
             </div>
           </div>
         </div>
