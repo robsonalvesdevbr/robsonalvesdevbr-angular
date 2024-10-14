@@ -9,7 +9,7 @@ declare let gtag: any
   providedIn: 'root',
 })
 export class GoogleAnalyticsService {
-  private _router = inject(Router)
+  private readonly _router = inject(Router)
 
   constructor() {
     this._router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((e) => {

@@ -1061,7 +1061,7 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
-    name: 'JavaScript: aprofundando em MVC, padrão Proxy e Factory',
+    name: 'JavaScript aprofundando em MVC, padrão Proxy e Factory',
     institution: 'Alura',
     certificateUrl: 'https://cursos.alura.com.br/certificate/b03d047f-017b-4b44-b9c5-9937402b78aa?lang=pt_BR',
     tags: ['software-development', 'javascript', 'design-pattern'],
@@ -1069,7 +1069,7 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
-    name: 'JavaScript: conhecendo o Browser e padrões de projeto',
+    name: 'JavaScript conhecendo o Browser e padrões de projeto',
     institution: 'Alura',
     certificateUrl: 'https://cursos.alura.com.br/certificate/88d168f0-6a8a-4b42-978f-d49cb9547c39?lang=pt_BR',
     tags: ['software-development', 'javascript', 'design-pattern'],
@@ -1077,7 +1077,7 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
-    name: 'JavaScript: programando na linguagem da web',
+    name: 'JavaScript programando na linguagem da web',
     institution: 'Alura',
     certificateUrl: 'https://cursos.alura.com.br/certificate/f3125d22-e542-4101-b8f6-27f12fcc0c07?lang=pt_BR',
     tags: ['software-development', 'javascript'],
