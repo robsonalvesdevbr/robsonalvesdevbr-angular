@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core'
 import { NavigationComponent } from '@path-components/pages/navigation/navigation.component'
 import { MasterheadComponent } from '@path-components/pages/masterhead/masterhead.component'
-import { ServicesComponent } from '@path-components/pages/services/services.component'
-import { PortifoliogridComponent } from '@path-components/pages/portifoliogrid/portifoliogrid.component'
 import { AboutComponent } from '@path-components/pages/about/about.component'
-import { TeamComponent } from '@path-components/pages/team/team.component'
 import { ClientsComponent } from '@path-components/pages/clients/clients.component'
 import { ContactComponent } from '@path-components/pages/contact/contact.component'
 import { FooterComponent } from '@path-components/pages/footer/footer.component'
@@ -27,10 +24,7 @@ import { GoogleAnalyticsDirective } from '@path-components/google-analytics.dire
   declarations: [
     NavigationComponent,
     MasterheadComponent,
-    ServicesComponent,
-    PortifoliogridComponent,
     AboutComponent,
-    TeamComponent,
     ClientsComponent,
     ContactComponent,
     FooterComponent,
@@ -50,10 +44,7 @@ import { GoogleAnalyticsDirective } from '@path-components/google-analytics.dire
   exports: [
     NavigationComponent,
     MasterheadComponent,
-    ServicesComponent,
-    PortifoliogridComponent,
     AboutComponent,
-    TeamComponent,
     ClientsComponent,
     ContactComponent,
     FooterComponent,
