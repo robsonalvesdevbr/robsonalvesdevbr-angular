@@ -7,7 +7,7 @@ export const Books: IBook[] = [
     author: ['Fabrício Carraro'],
     publishName: 'Casa do Código',
     publishYear: 2023,
-    tags: ['artificial-intelligence'],
+    tags: ['nosql-database'],
     bookUrl: 'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
     pages: 223,
     progress: 0,
