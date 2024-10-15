@@ -15,7 +15,7 @@ export class GoogleAnalyticsService {
     this._router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((e) => {
       if (e instanceof NavigationEnd) {
         gtag('js', new Date())
-        gtag('config', environment.googleAnalytics, { send_page_view: false })
+        gtag('config', environment.googleAnalytics, { send_page_view: false, cookie_flags: 'SameSite=None; Secure' })
       }
     })
   }
