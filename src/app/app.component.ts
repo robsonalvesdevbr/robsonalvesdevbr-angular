@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   private readonly _$gaService = inject(GoogleAnalyticsService)
   private readonly meta = inject(Meta)
 
-  constructor(private dataService: DataService) {}
+  constructor(private readonly dataService: DataService) {}
 
   ngOnInit(): void {
     this._$gaService.init()
