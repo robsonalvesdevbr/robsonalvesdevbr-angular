@@ -16,10 +16,10 @@
               <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button
               ><b class="p-1 m-1">Filtrar Editora:</b>
 
-              @for (institution of getInstitutions(); track institution) {
-                <input type="checkbox" class="btn-check" id="input_book_institution_{{ institution | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)"/>
-                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ institution | lowercase }}" id="label_book_institution_{{ institution | lowercase }}">{{
-                  institution
+              @for (publishName of getPublishNameList(); track publishName) {
+                <input type="checkbox" class="btn-check" id="input_book_institution_{{ publishName | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)"/>
+                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ publishName | lowercase }}" id="label_book_institution_{{ publishName | lowercase }}">{{
+                  publishName
                 }}</label>
               }
             </fieldset>

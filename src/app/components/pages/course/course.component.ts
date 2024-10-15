@@ -12,10 +12,10 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 export class CourseComponent extends BasePageComponent implements OnInit {
   courses = input.required<ICourse[]>({ alias: 'courses' })
 
-  institutions: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
+  courseList: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
   tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
 
-  institutionsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
+  coursesFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
   selectInstitutionsFilter: WritableSignal<string> = signal<string>('')
 
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
@@ -28,11 +28,11 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.courses().forEach((course) => this.institutions().add(course.institution.trim()))
+    this.courses().forEach((course) => this.courseList().add(course.institution.trim()))
     this.courses().forEach((course) => course.tags.forEach((tag) => this.tags().add(tag.trim())))
   }
 
-  getInstitutions = () => Array.from(this.institutions().values()).sort((a, b) => (a > b ? 1 : -1))
+  getCourseList = () => Array.from(this.courseList().values()).sort((a, b) => (a > b ? 1 : -1))
 
   getTags = () => Array.from(this.tags().values()).sort((a, b) => (a > b ? 1 : -1))
 
@@ -41,7 +41,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   onPageChange = (number: number) => (this.config().currentPage = number)
 
   clearFilters() {
-    this.institutionsFilter().forEach((x) => {
+    this.coursesFilter().forEach((x) => {
       document.getElementById(`label_course_institution_${x}`)?.click()
     })
 
@@ -49,7 +49,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       document.getElementById(`label_course_tag_${x}`)?.click()
     })
 
-    this.institutionsFilter().clear()
+    this.coursesFilter().clear()
     this.selectInstitutionsFilter.set('')
     this.tagsFilter().clear()
     this.selectTagFilter.set('')
@@ -59,8 +59,8 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     let link = e.target as HTMLInputElement
     let id = link.id.replace('input_course_institution_', '')
 
-    this.institutionsFilter().has(id) ? this.institutionsFilter().delete(id) : this.institutionsFilter().add(id)
-    this.selectInstitutionsFilter.set(Array.from(this.institutionsFilter().values()).join(','))
+    this.coursesFilter().has(id) ? this.coursesFilter().delete(id) : this.coursesFilter().add(id)
+    this.selectInstitutionsFilter.set(Array.from(this.coursesFilter().values()).join(','))
 
     this.config().currentPage = 1
   }

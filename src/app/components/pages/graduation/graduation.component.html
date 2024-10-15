@@ -8,27 +8,27 @@
       </h3>
     </div>
     <ul class="timeline">
-      @for (item of graduations() | sortby: 'conclusionDate' : 'desc'; track item; let i = $index) {
+      @for (graduation of graduations() | sortby: 'conclusionDate' : 'desc'; track graduation; let i = $index) {
         <li [ngClass]="{ 'timeline-inverted': i % 2 != 0 }" class="mb-5">
           <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/others/formacao.png" alt="..." /></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h5>{{ item.conclusionDate | date: 'yyyy' }}</h5>
-              <h5 class="subheading">{{ item.name }}</h5>
+              <h5>{{ graduation.conclusionDate | date: 'yyyy' }}</h5>
+              <h5 class="subheading">{{ graduation.name }}</h5>
             </div>
             <div class="timeline-body">
               <p class="text-muted">
-                <b>{{ item.conclusion | messageDateConclusion }}</b>
+                <b>{{ graduation.conclusion | messageDateConclusion }}</b>
               </p>
-              <p class="text-muted">{{ item.institution }}</p>
+              <p class="text-muted">{{ graduation.institution }}</p>
               <p class="text-muted">
                 <a
-                  [href]="item.websiteInstituition"
+                  [href]="graduation.websiteInstituition"
                   target="_blank"
                   rel="noopener noreferrer"
-                  [appGoogleAnalytics]="{ event: 'click', category: 'link_graduation', label: item.institution }"
-                  [attr.aria-label]="'Visite o site da instituição ' + item.institution"
-                  >{{ item.websiteInstituition }}</a>
+                  [appGoogleAnalytics]="{ event: 'click', category: 'link_graduation', label: graduation.institution }"
+                  [attr.aria-label]="'Visite o site da instituição ' + graduation.institution"
+                  >{{ graduation.websiteInstituition }}</a>
               </p>
             </div>
           </div>
