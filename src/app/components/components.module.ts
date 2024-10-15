@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { NavigationComponent } from '@path-components/pages/navigation/navigation.component'
 import { MasterheadComponent } from '@path-components/pages/masterhead/masterhead.component'
 import { AboutComponent } from '@path-components/pages/about/about.component'
-import { ClientsComponent } from '@path-components/pages/clients/clients.component'
 import { ContactComponent } from '@path-components/pages/contact/contact.component'
 import { FooterComponent } from '@path-components/pages/footer/footer.component'
 import { GraduationComponent } from '@path-components/pages/graduation/graduation.component'
@@ -25,7 +24,6 @@ import { GoogleAnalyticsDirective } from '@path-components/google-analytics.dire
     NavigationComponent,
     MasterheadComponent,
     AboutComponent,
-    ClientsComponent,
     ContactComponent,
     FooterComponent,
     GraduationComponent,
@@ -45,7 +43,6 @@ import { GoogleAnalyticsDirective } from '@path-components/google-analytics.dire
     NavigationComponent,
     MasterheadComponent,
     AboutComponent,
-    ClientsComponent,
     ContactComponent,
     FooterComponent,
     GraduationComponent,

@@ -8,20 +8,20 @@
       </h3>
     </div>
     <ul class="list-group list-group-light mb-4">
-      @for (item of formationCourses() | sortby: 'conclusion' : 'desc' | paginate: config(); track item; let i = $index) {
+      @for (course of formationCourses() | sortby: 'conclusion' : 'desc' | paginate: config(); track course; let i = $index) {
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center ms-5">
-            <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
+            <img src="assets/img/others/{{ course.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
             <div class="ms-3">
-              <p class="fw-bold mb-0">{{ item.name }}</p>
-              <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
-              <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
+              <p class="fw-bold mb-0">{{ course.name }}</p>
+              <p class="text-muted fontemenor"><b>Instituição:</b> {{ course.institution }}</p>
+              <p class="text-muted fontemenor"><b>Tags: </b> {{ course.tags | printTags }}</p>
               <p class="text-muted fontemenor">
-                Concluído em {{ item.conclusion | date: 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a
-                  [href]="item.certificateUrl"
+                Concluído em {{ course.conclusion | date: 'dd/MM/yyyy' }} &nbsp;&nbsp;&nbsp;&nbsp;<a
+                  [href]="course.certificateUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  [appGoogleAnalytics]="{ event: 'click_formation', category: 'link_certificate_formation', label: item.name }"
+                  [appGoogleAnalytics]="{ event: 'click_formation', category: 'link_certificate_formation', label: course.name }"
                   >Certificado</a
                 >
               </p>
