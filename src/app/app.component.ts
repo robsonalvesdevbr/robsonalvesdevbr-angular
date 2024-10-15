@@ -1,16 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core'
-import { ICourse } from '@path-interfaces/ICourse'
-import { Courses } from '@path-data/Course'
-import { IGraduation } from '@path-interfaces/IGraduation'
-import { Graduations } from '@path-data/Graduation'
-import { IBook } from '@path-interfaces/IBook'
-import { Books } from '@path-data/Book'
-import { IFormationCourse } from '@path-interfaces/IFormationCourse'
-import { FormationCourses } from '@path-data/FormationCourse'
-import { IProfile } from '@path-interfaces/IProfile'
-import { Profile } from '@path-data/Profile'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 import { Meta } from '@angular/platform-browser'
+import { DataService } from '@path-services/data-service'
 
 @Component({
   selector: 'app-root',
@@ -19,13 +10,15 @@ import { Meta } from '@angular/platform-browser'
 })
 export class AppComponent implements OnInit {
   title = 'Robson Candido dos Santos Alves'
-  profile: IProfile = Profile
-  courses: ICourse[] = Courses
-  graduations: IGraduation[] = Graduations
-  books: IBook[] = Books
-  formationCourses: IFormationCourse[] = FormationCourses
+  courses = this.dataService.getCourses()
+  graduations = this.dataService.getGraduations()
+  books = this.dataService.getBooks()
+  formationCourses = this.dataService.getFormationCourses()
+  profile = this.dataService.getProfile()
   private readonly _$gaService = inject(GoogleAnalyticsService)
   private readonly meta = inject(Meta)
+
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this._$gaService.init()
