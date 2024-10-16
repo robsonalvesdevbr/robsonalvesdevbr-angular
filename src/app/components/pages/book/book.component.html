@@ -11,13 +11,13 @@
     <div class="border border-1 rounded mb-2">
       <div>
         <div class="text-center bg-light bg-gradient">
-          <div class="has-text-centered">
+          <div class="s">
             <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_book_institution">
-              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex position-absolute float-left" (click)="clearFilters()">Limpar Filtros</button
-              ><b class="p-1 m-1">Filtrar Editora:</b>
+              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start" (click)="clearFilters()">Limpar Filtros</button>
 
+              <b class="p-1 m-1">Filtrar Editora:</b>
               @for (publishName of getPublishNameList(); track publishName) {
-                <input type="checkbox" class="btn-check" id="input_book_institution_{{ publishName | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)"/>
+                <input type="checkbox" class="btn-check" id="input_book_institution_{{ publishName | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
                 <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ publishName | lowercase }}" id="label_book_institution_{{ publishName | lowercase }}">{{
                   publishName
                 }}</label>
@@ -73,7 +73,9 @@
               <p class="text-muted fontemenor"><b>Editora: </b> {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b>Autor: </b> {{ item.author | printTags }}</p>
               <p class="text-muted fontemenor">
                 <b>Tags: </b> {{ item.tags | printTags }} &nbsp;<span class="text-muted fontemenor11"
-                  >&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank" rel="noopener noreferrer" [appGoogleAnalytics]="{ event: 'click_book', category: 'link_book', label: item.title }">Mais detalhes</a></span
+                  >&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank" rel="noopener noreferrer" [appGoogleAnalytics]="{ event: 'click_book', category: 'link_book', label: item.title }"
+                    >Mais detalhes</a
+                  ></span
                 >
               </p>
             </div>
