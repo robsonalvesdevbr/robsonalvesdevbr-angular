@@ -5,9 +5,13 @@
     <div class="masthead-heading text-uppercase">Prazer em conhecê-lo</div>
     <a
       class="btn btn-primary btn-xl text-uppercase"
-      [routerLink]="['/']"
-      fragment="about"
-      [appGoogleAnalytics]="{ logType: 'set', event: 'click', category: 'app_navigation', label: 'about' }"
+      href="#about"
+      [appGoogleAnalytics]="{
+        logType: 'set',
+        event: 'click',
+        category: 'app_navigation',
+        label: 'about'
+      }"
       aria-label="Saiba mais"
       >Saiba mais</a
     >

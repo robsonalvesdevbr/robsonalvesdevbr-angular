@@ -2,9 +2,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'sortby',
+  standalone: true,
 })
 export class SortbyPipe implements PipeTransform {
-  transform<T>(array: T[], field?: keyof T, order: 'asc' | 'desc' = 'asc'): T[] {
+  transform<T>(
+    array: T[],
+    field?: keyof T,
+    order: 'asc' | 'desc' = 'asc'
+  ): T[] {
     if (!Array.isArray(array)) {
       return array;
     }
@@ -12,7 +17,10 @@ export class SortbyPipe implements PipeTransform {
     return array.sort(this.getSortFn(field, order));
   }
 
-  private getSortFn<T>(field?: keyof T, order: 'asc' | 'desc' = 'asc'): (a: T, b: T) => number {
+  private getSortFn<T>(
+    field?: keyof T,
+    order: 'asc' | 'desc' = 'asc'
+  ): (a: T, b: T) => number {
     return (a: T, b: T): number => {
       const comparison = this.compareValues(a, b, field);
       return order === 'asc' ? comparison : -comparison;
