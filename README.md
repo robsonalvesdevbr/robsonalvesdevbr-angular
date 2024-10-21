@@ -8,8 +8,6 @@ Apresentação do meu currículo como forma de estudos do Angular
 
 A estrutura do projeto é a seguinte:
 
-
-
 ### Diretórios e Arquivos Importantes
 
 - **.angular/**: Diretório de cache do Angular.
