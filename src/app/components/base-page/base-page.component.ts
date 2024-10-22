@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core'
-import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Component({
   template: '',
@@ -10,7 +9,6 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 })
 export class BasePageComponent {
   @Input({ required: false }) bglight: boolean = false
-  protected $gaService = inject(GoogleAnalyticsService)
 
   currentClass = () => {
     return {
