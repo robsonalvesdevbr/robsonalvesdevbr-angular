@@ -1,12 +1,7 @@
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  RouterOutlet,
-  RouterLink,
-  RouterLinkActive,
-  Router,
-} from '@angular/router';
+import { BasePageComponent } from '@path-components/base-page/base-page.component'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'
 
 @Component({
   selector: 'app-about',

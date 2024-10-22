@@ -1,30 +1,40 @@
-import { Directive, HostListener, inject, input } from '@angular/core';
-import { GoogleAnalyticsService } from '@path-services/google-analytics.service';
+import { Directive, HostListener, inject, Input } from '@angular/core'
+import { Title } from '@angular/platform-browser'
+import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
+
+interface AnalyticsOption {
+  event: string
+  category: string
+  label: string
+  logType: 'page_view' | 'set'
+  title?: string
+}
 
 @Directive({
   selector: '[appGoogleAnalytics]',
   standalone: true,
 })
 export class GoogleAnalyticsDirective {
-  option = input.required<any>({ alias: 'appGoogleAnalytics' });
-  private readonly $gaService = inject(GoogleAnalyticsService);
+  @Input('appGoogleAnalytics') option!: AnalyticsOption
 
-  @HostListener('click', ['$event']) onClick() {
-    this.$gaService.logEvent(
-      this.option().event,
-      this.option().category,
-      this.option().label
-    );
+  private readonly _gaService = inject(GoogleAnalyticsService)
+  private readonly _titleService = inject(Title)
 
-    if (this.option().logType === 'page_view')
-      this.$gaService.logPagView(this.option().title);
-    else if (this.option().logType === 'set')
-      this.$gaService.logSet(
-        'campaign',
-        'robsonalves',
-        'azure',
-        'black_friday_promotion',
-        `${this.option().category}+${this.option().label}`
-      );
+  @HostListener('click', ['$event'])
+  onClick(event: Event): void {
+    if (this._titleService.getTitle().toLowerCase() === 'robson alves - desenvolvimento de softwares') return
+
+    const { event: eventName, category, label, logType, title } = this.option
+
+    // Log the event using Google Analytics service
+    this._gaService.logEvent(eventName, category, label)
+
+    // Handle specific log types
+    if (logType === 'page_view' && title) {
+      this._gaService.logPageView(title)
+    } else if (logType === 'set') {
+      const campaignData = `${category}+${label}`
+      this._gaService.logSet('campaign', 'robsonalves', 'azure', 'black_friday_promotion', campaignData)
+    }
   }
 }
