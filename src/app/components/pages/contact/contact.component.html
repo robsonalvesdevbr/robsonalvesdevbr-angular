@@ -25,32 +25,21 @@
                 <b>{{ item.key }}: </b>
               </div>
               <div class="d-inline">
-                <a
-                  [href]="item.value"
-                  [attr.aria-label]="item.key"
-                  class="text-muted text-decoration-none"
-                  target="_blank"
-                  rel="noopener noreferrer">{{ item.value }}</a>
+                <a [href]="item.value" [attr.aria-label]="item.key" class="text-muted text-decoration-none" target="_blank" rel="noopener noreferrer">{{ item.value }}</a>
               </div>
               <br />
             }
             <b>--------------------------------------------------------------</b><br />
             <p>
               <a aria-label="Email" class="btn" href="mailto:{{ profiles().email }}?subject=Contato website robsonalves.dev.br"><i class="bi bi-envelope-at-fill" style="font-size: 35px"></i></a>
-              <a
-                [href]="profiles().urlList.get('WebSite')"
-                aria-label="Website"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><i class="bi bi-house-fill" style="font-size: 35px"></i></a>
+              <a [href]="profiles().urlList.get('WebSite')" aria-label="Website" class="btn" target="_blank" rel="noopener noreferrer"><i class="bi bi-house-fill" style="font-size: 35px"></i></a>
               <a
                 [href]="profiles().urlList.get('LinkedIn')"
                 aria-label="LinkedIn"
                 class="btn"
                 target="_blank"
                 rel="noopener noreferrer"
-                [appGoogleAnalytics]="{ event: 'click_linkedin', category: 'link_contact', label: 'linkedin' }"
+                [appGoogleAnalytics]="{ event: 'click_linkedin', category: 'link_contact', label: 'linkedin', logType: 'link' }"
                 ><i class="bi bi-linkedin" style="font-size: 35px"></i
               ></a>
               <a
@@ -59,7 +48,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener noreferrer"
-                [appGoogleAnalytics]="{ event: 'click_instagram', category: 'link_contact', label: 'instagram' }"
+                [appGoogleAnalytics]="{ event: 'click_instagram', category: 'link_contact', label: 'instagram', logType: 'link' }"
                 ><i class="bi bi-instagram" style="font-size: 35px"></i
               ></a>
               <a
@@ -68,7 +57,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener noreferrer"
-                [appGoogleAnalytics]="{ event: 'click_github', category: 'link_contact', label: 'githubpage' }"
+                [appGoogleAnalytics]="{ event: 'click_github', category: 'link_contact', label: 'githubpage', logType: 'link' }"
                 ><i class="bi bi-github" style="font-size: 35px"></i
               ></a>
               <a
@@ -77,7 +66,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener noreferrer"
-                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage' }"
+                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage', logType: 'link' }"
                 ><i class="bi bi-git" style="font-size: 35px"></i
               ></a>
             </p>
@@ -104,7 +93,7 @@
                 class="text-muted text-decoration-none"
                 target="_blank"
                 rel="noopener noreferrer"
-                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage' }"
+                [appGoogleAnalytics]="{ event: 'click_githubpage', category: 'link_contact', label: 'githubpage', logType: 'link' }"
                 aria-label="Visite o repositório do GitHub"
                 >https://github.com/robsonalvesdev/robsonalvesdevbr-angular</a
               >
