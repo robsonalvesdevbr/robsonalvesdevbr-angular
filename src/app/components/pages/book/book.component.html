@@ -73,7 +73,11 @@
               <p class="text-muted fontemenor"><b>Editora: </b> {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b>Autor: </b> {{ item.author | printTags }}</p>
               <p class="text-muted fontemenor">
                 <b>Tags: </b> {{ item.tags | printTags }} &nbsp;<span class="text-muted fontemenor11"
-                  >&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank" rel="noopener noreferrer" [appGoogleAnalytics]="{ event: 'click_book', category: 'link_book', label: item.title }"
+                  >&nbsp;&nbsp;&nbsp;<a
+                    [href]="item.bookUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [appGoogleAnalytics]="{ event: 'click_book', category: 'link_book', label: item.title, logType: 'link' }"
                     >Mais detalhes</a
                   ></span
                 >

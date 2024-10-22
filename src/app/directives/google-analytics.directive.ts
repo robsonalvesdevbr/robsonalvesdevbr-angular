@@ -1,14 +1,7 @@
 import { Directive, HostListener, inject, Input } from '@angular/core'
 import { Title } from '@angular/platform-browser'
+import { AnalyticsOption } from '@path-interfaces/IAnalyticsOption'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
-
-interface AnalyticsOption {
-  event: string
-  category: string
-  label: string
-  logType: 'page_view' | 'set'
-  title?: string
-}
 
 @Directive({
   selector: '[appGoogleAnalytics]',
