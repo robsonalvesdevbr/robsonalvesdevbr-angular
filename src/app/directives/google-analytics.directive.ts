@@ -1,5 +1,4 @@
 import { Directive, HostListener, inject, Input } from '@angular/core'
-import { Title } from '@angular/platform-browser'
 import { AnalyticsOption } from '@path-interfaces/IAnalyticsOption'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
@@ -11,7 +10,6 @@ export class GoogleAnalyticsDirective {
   @Input('appGoogleAnalytics') option!: AnalyticsOption
 
   private readonly _gaService = inject(GoogleAnalyticsService)
-  private readonly _titleService = inject(Title)
 
   @HostListener('click', ['$event'])
   onClick(event: Event): void {
