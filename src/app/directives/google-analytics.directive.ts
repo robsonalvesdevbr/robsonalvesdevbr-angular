@@ -15,8 +15,6 @@ export class GoogleAnalyticsDirective {
 
   @HostListener('click', ['$event'])
   onClick(event: Event): void {
-    if (this._titleService.getTitle().toLowerCase() === 'robson alves - desenvolvimento de softwares') return
-
     const { event: eventName, category, label, logType, title } = this.option
 
     // Log the event using Google Analytics service
