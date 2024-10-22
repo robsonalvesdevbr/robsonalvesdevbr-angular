@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { DataService } from '@path-services/data-service'
-import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 import { NavigationComponent } from './components/pages/navigation/navigation.component'
 import { MasterheadComponent } from './components/pages/masterhead/masterhead.component'
 import { AboutComponent } from './components/pages/about/about.component'
@@ -17,10 +16,8 @@ import { FooterComponent } from './components/pages/footer/footer.component'
   standalone: true,
   imports: [RouterOutlet, NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationoourseComponent, BookComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  //private readonly _$gaService = inject(GoogleAnalyticsService)
   private readonly dataService = inject(DataService)
 
   title = 'Robson Candido dos Santos Alves'
