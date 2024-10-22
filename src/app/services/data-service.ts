@@ -5,24 +5,29 @@ import { Graduations } from '@path-data/Graduation'
 import { Books } from '@path-data/Book'
 import { FormationCourses } from '@path-data/FormationCourse'
 import { Profile } from '@path-data/Profile'
+import { ICourse } from '@path-interfaces/ICourse'
+import { IGraduation } from '@path-interfaces/IGraduation'
+import { IBook } from '@path-interfaces/IBook'
+import { IFormationCourse } from '@path-interfaces/IFormationCourse'
+import { IProfile } from '@path-interfaces/IProfile'
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  getCourses() {
+  getCourses(): ICourse[] {
     return Courses
   }
-  getGraduations() {
+  getGraduations(): IGraduation[] {
     return Graduations
   }
-  getBooks() {
+  getBooks(): IBook[] {
     return Books
   }
-  getFormationCourses() {
+  getFormationCourses(): IFormationCourse[] {
     return FormationCourses
   }
-  getProfile() {
+  getProfile(): IProfile {
     return Profile
   }
 }
