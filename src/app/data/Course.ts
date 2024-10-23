@@ -944,7 +944,7 @@ export const Courses: ICourse[] = [
     name: 'SOLID com C#: princípios da programação orientada a objetos',
     institution: 'Alura',
     certificateUrl: 'https://cursos.alura.com.br/certificate/7ad17dd8-69dd-47f4-a4b3-a9da4091cd8c?lang=pt_BR',
-    tags: ['software-development', 'csharp', '.net'],
+    tags: ['software-development', 'csharp', '.net', 'solid'],
     conclusion: new Date('2020-10-22'),
     favorite: false,
   },
@@ -1131,5 +1131,13 @@ export const Courses: ICourse[] = [
     tags: ['security'],
     conclusion: new Date('2024-9-16'),
     favorite: false,
+  },
+  {
+    name: 'Formação Boas praticas em C#',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/3314396b-0286-4b16-bb62-636901486dde?lang=pt_BR',
+    tags: ['solid', 'C#', 'design-pattern', 'software-testing'],
+    conclusion: new Date('2024-10-22'),
+    favorite: true,
   },
 ]
