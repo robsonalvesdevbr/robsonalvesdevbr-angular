@@ -1132,12 +1132,4 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-9-16'),
     favorite: false,
   },
-  {
-    name: 'Formação Boas praticas em C#',
-    institution: 'Alura',
-    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/3314396b-0286-4b16-bb62-636901486dde?lang=pt_BR',
-    tags: ['solid', 'csharp', 'design-pattern', 'software-testing'],
-    conclusion: new Date('2024-10-22'),
-    favorite: true,
-  },
 ]

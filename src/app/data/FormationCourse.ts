@@ -66,6 +66,14 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+    name: 'Formação Boas praticas em C#',
+    institution: 'Alura',
+    certificateUrl: 'https://cursos.alura.com.br/degree/certificate/3314396b-0286-4b16-bb62-636901486dde?lang=pt_BR',
+    tags: ['solid', 'csharp', 'design-pattern', 'software-testing'],
+    conclusion: new Date('2024-10-22'),
+    favorite: true,
+  },
+  {
     name: 'Formação DevOps para Desenvolvedores',
     institution: 'Desenvolvedor.IO',
     certificateUrl: 'https://desenvolvedor.io/certificado/2b295178-3cae-43bd-8925-98f17501fc8d',
