@@ -47,4 +47,23 @@ npm install
 git config core.hooksPath .githooks
 docker run --rm --network=host -e SONAR_HOST_URL="http://localhost:9000/"  -v "C:\workspace\Robson\languages\angular\robsonalvesdevbr-angular:/usr/src" sonarsource/sonar-scanner-cli
 docker run --rm --network=host -e SONAR_HOST_URL="http://localhost:9000/"  -v "C:\workspace\Robson\languages\angular\robsonalvesdevbr-angular:/usr/src" sonarsource/sonar-scanner-cli -D"sonar.projectKey=robsonalvesdevbr-angular" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_16a2fa3d4594f20c5758741c74413cb92243dac6"
+npm cache clean --force
+npm outdated
+npm update
+
+# installs fnm (Fast Node Manager)
+winget install Schniz.fnm
+
+# configure fnm environment
+fnm env --use-on-cd | Out-String | Invoke-Expression
+
+# download and install Node.js
+fnm use --install-if-missing 20
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v20.18.0`
+
+# verifies the right npm version is in the environment
+npm -v # should print `10.8.2`
+
 ```
