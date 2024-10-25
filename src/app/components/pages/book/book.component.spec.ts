@@ -14,9 +14,9 @@ describe('BookComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  xit('should render titles', () => {
+  it('should render titles', () => {
     const fixture = TestBed.createComponent(BookComponent)
-    fixture.detectChanges()
+    //fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement
     expect(compiled.querySelector('div.container div.text-center h2.section-heading.text-uppercase')?.textContent).toBe('Leituras')
   })
