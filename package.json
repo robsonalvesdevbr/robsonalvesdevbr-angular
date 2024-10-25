@@ -40,9 +40,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "3.3.3",
     "typescript": "~5.4.5"
-  },
-  "overrides": {
-    "rimraf": "^4.0.0",
-    "glob": "^9.0.0"
   }
 }
