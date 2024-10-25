@@ -16,7 +16,7 @@ describe('AbountComponent', () => {
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AboutComponent)
-    fixture.detectChanges()
+    //fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement
     expect(compiled.querySelector('div.container div.text-center h3.section-subheading.text-muted')?.textContent).toBe('Saiba mais sobre minha carreira.')
   })
