@@ -6,7 +6,7 @@ import { MasterheadComponent } from './components/pages/masterhead/masterhead.co
 import { AboutComponent } from './components/pages/about/about.component'
 import { GraduationComponent } from './components/pages/graduation/graduation.component'
 import { CourseComponent } from './components/pages/course/course.component'
-import { FormationoourseComponent } from './components/pages/formationoourse/formationoourse.component'
+import { FormationCourseComponent } from './components/pages/formationcourse/formationcourse.component'
 import { BookComponent } from './components/pages/book/book.component'
 import { ContactComponent } from './components/pages/contact/contact.component'
 import { FooterComponent } from './components/pages/footer/footer.component'
@@ -14,7 +14,7 @@ import { FooterComponent } from './components/pages/footer/footer.component'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationoourseComponent, BookComponent, ContactComponent, FooterComponent],
+  imports: [RouterOutlet, NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationCourseComponent, BookComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
