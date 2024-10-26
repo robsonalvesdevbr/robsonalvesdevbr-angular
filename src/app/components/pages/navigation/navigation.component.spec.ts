@@ -14,15 +14,15 @@ describe('NavigationComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  xit('should render titles', () => {
+  it('should render titles', () => {
     const fixture = TestBed.createComponent(NavigationComponent)
     //fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('#about')?.textContent).toBe('Sobre')
-    expect(compiled.querySelector('#graduation')?.textContent).toBe('(Pós)Graduação')
-    expect(compiled.querySelector('#courses')?.textContent).toBe('Cursos')
-    expect(compiled.querySelector('#formationcourse')?.textContent).toBe('Formação')
-    expect(compiled.querySelector('#books')?.textContent).toBe('Leituras')
-    expect(compiled.querySelector('#contact')?.textContent).toBe('Contato')
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Sobre')
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('(Pós)Graduação')
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Cursos')
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Formação')
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Leituras')
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Contato')
   })
 })
