@@ -20,4 +20,12 @@ describe('ContactComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement
     expect(compiled.querySelector('div.container div.text-center h2.section-heading.text-uppercase')?.textContent).toBe('Contato')
   })
+
+  it('should calculate age correctly', () => {
+    const fixture = TestBed.createComponent(ContactComponent)
+    const app = fixture.componentInstance
+    const birthDate = new Date(2000, 0, 1) // January 1, 2000
+    const expectedAge = new Date().getFullYear() - 2000
+    expect(app.calcularIdade(birthDate)).toBe(expectedAge)
+  })
 })
