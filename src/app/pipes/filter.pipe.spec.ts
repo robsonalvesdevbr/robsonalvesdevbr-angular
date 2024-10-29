@@ -1,24 +1,4 @@
 import { FilterPipe } from './filter.pipe'
-import { ICourse } from '@path-interfaces/ICourse'
-
-const Courses: ICourse[] = [
-  {
-    name: 'GitHub Copilot: Formação Básica',
-    institution: 'Linkedin Learning',
-    certificateUrl: 'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
-    tags: ['artificial-intelligence', 'github', 'copilot'],
-    conclusion: new Date('2024-8-22'),
-    favorite: true,
-  },
-  {
-    name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
-    institution: 'Linkedin Learning',
-    certificateUrl: 'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
-    tags: ['communication', 'leadership'],
-    conclusion: new Date('2024-8-30'),
-    favorite: true,
-  },
-]
 
 describe('FilterPipe', () => {
   let pipe: FilterPipe
@@ -27,17 +7,75 @@ describe('FilterPipe', () => {
     pipe = new FilterPipe()
   })
 
-  it('create an instance', () => {
+  it('should create an instance', () => {
     expect(pipe).toBeTruthy()
   })
 
-  it('should filter array of strings', () => {
-    const result = pipe.transform(Courses, 'array', 'tags', 'leadership')
-    expect(result[0].tags).toEqual(['communication', 'leadership'])
+  it('should filter array of objects by string field', () => {
+    const data = [
+      { name: 'Book A', category: 'Fiction' },
+      { name: 'Book B', category: 'Science' },
+      { name: 'Book C', category: 'Fiction' },
+    ]
+
+    const result = pipe.transform(data, 'string', 'category', 'fiction')
+    expect(result.length).toBe(2)
+    expect(result).toEqual([
+      { name: 'Book A', category: 'Fiction' },
+      { name: 'Book C', category: 'Fiction' },
+    ])
   })
 
-  it('should filter array of arrays', () => {
-    const result = pipe.transform(Courses, 'array', 'tags', 'copilot')
-    expect(result[0].tags).toEqual(['artificial-intelligence', 'github', 'copilot'])
+  it('should filter array of objects by array field', () => {
+    const data = [
+      { name: 'Book A', tags: ['Fantasy', 'Adventure'] },
+      { name: 'Book B', tags: ['Science', 'Education'] },
+      { name: 'Book C', tags: ['Fiction', 'Drama'] },
+    ]
+
+    const result = pipe.transform(data, 'array', 'tags', 'science,education')
+    expect(result.length).toBe(1)
+    expect(result).toEqual([{ name: 'Book B', tags: ['Science', 'Education'] }])
+  })
+
+  it('should return the original array if filter is empty', () => {
+    const data = [
+      { name: 'Book A', category: 'Fiction' },
+      { name: 'Book B', category: 'Science' },
+    ]
+
+    const result = pipe.transform(data, 'string', 'category', '')
+    expect(result.length).toBe(2)
+    expect(result).toEqual(data)
+  })
+
+  it('should be case insensitive in filtering', () => {
+    const data = [
+      { name: 'Book A', category: 'Fiction' },
+      { name: 'Book B', category: 'Science' },
+      { name: 'Book C', category: 'fiction' },
+    ]
+
+    const result = pipe.transform(data, 'string', 'category', 'FICTION')
+    expect(result.length).toBe(2)
+    expect(result).toEqual([
+      { name: 'Book A', category: 'Fiction' },
+      { name: 'Book C', category: 'fiction' },
+    ])
+  })
+
+  it('should handle multiple comma-separated filter terms', () => {
+    const data = [
+      { name: 'Book A', category: 'Science' },
+      { name: 'Book B', category: 'Fiction' },
+      { name: 'Book C', category: 'Adventure' },
+    ]
+
+    const result = pipe.transform(data, 'string', 'category', 'fiction,adventure')
+    expect(result.length).toBe(2)
+    expect(result).toEqual([
+      { name: 'Book B', category: 'Fiction' },
+      { name: 'Book C', category: 'Adventure' },
+    ])
   })
 })
