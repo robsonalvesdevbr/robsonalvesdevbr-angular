@@ -10,6 +10,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test-nowatch": "ng test --watch=false --browsers=ChromeHeadless",
     "prettier-write": "prettier . --write",
     "prettier-check": "prettier . --check"
   },
