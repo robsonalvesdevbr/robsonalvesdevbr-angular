@@ -1,23 +1,99 @@
-import { TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { CourseComponent } from './course.component'
+import { DataService } from '@path-services/data-service'
+import { provideHttpClient } from '@angular/common/http'
+import { provideRouter } from '@angular/router'
 
 describe('CourseComponent', () => {
+  let component: CourseComponent
+  let fixture: ComponentFixture<CourseComponent>
+  let dataServiceStub: Partial<DataService>
+
   beforeEach(async () => {
+    dataServiceStub = {
+      getCourses: () => [
+        {
+          name: 'GitHub Copilot: Formação Básica',
+          institution: 'Udemy',
+          certificateUrl: 'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
+          tags: ['Tag1', 'Tag2'],
+          conclusion: new Date('2024-8-22'),
+          favorite: true,
+        },
+        {
+          name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
+          institution: 'Alura',
+          certificateUrl: 'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
+          tags: ['Tag2', 'Tag3'],
+          conclusion: new Date('2024-8-30'),
+          favorite: true,
+        },
+      ],
+    }
+
     await TestBed.configureTestingModule({
       imports: [CourseComponent],
+      providers: [{ provide: DataService, useValue: dataServiceStub }, provideHttpClient(), provideRouter([])],
     }).compileComponents()
+
+    fixture = TestBed.createComponent(CourseComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
   })
 
-  it('should create the CourseComponent', () => {
-    const fixture = TestBed.createComponent(CourseComponent)
-    const app = fixture.componentInstance
-    expect(app).toBeTruthy()
+  it('should create', () => {
+    expect(component).toBeTruthy()
   })
 
-  it('should render titles', () => {
-    const fixture = TestBed.createComponent(CourseComponent)
-    //fixture.detectChanges()
-    const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('div.container div.text-center h2.section-heading.text-uppercase')?.textContent).toBe('Cursos')
+  it('should initialize courseList and tags on ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.courseList().size).toBe(2)
+    expect(component.tags().size).toBe(3)
+  })
+
+  it('should return sorted course list', () => {
+    component.ngOnInit()
+    const courseList = component.getCourseList()
+    expect(courseList).toEqual(['Alura', 'Udemy'])
+  })
+
+  it('should return sorted tags', () => {
+    component.ngOnInit()
+    const tags = component.getTags()
+    expect(tags).toEqual(['Tag1', 'Tag2', 'Tag3'])
+  })
+
+  it('should calculate absolute index correctly', () => {
+    component.config().itemsPerPage = 5
+    component.config().currentPage = 2
+    const index = component.absoluteIndex(3)
+    expect(index).toBe(9)
+  })
+
+  it('should change page on onPageChange', () => {
+    component.onPageChange(2)
+    expect(component.config().currentPage).toBe(2)
+  })
+
+  it('should clear filters', () => {
+    component.coursesFilter().add('Udemy')
+    component.tagsFilter().add('Tag1')
+    component.clearFilters()
+    expect(component.coursesFilter().size).toBe(0)
+    expect(component.tagsFilter().size).toBe(0)
+    expect(component.selectInstitutionsFilter()).toBe('')
+    expect(component.selectTagFilter()).toBe('')
+  })
+
+  it('should handle institution click event', () => {
+    const event = { target: { id: 'input_course_institution_Institution 1' } } as unknown as MouseEvent
+    component.onClickIntitutionEvent(event)
+    expect(component.coursesFilter().has('Institution 1')).toBeTrue()
+  })
+
+  it('should handle tag click event', () => {
+    const event = { target: { id: 'input_course_tag_Tag1' } } as unknown as MouseEvent
+    component.onClickTagEvent(event)
+    expect(component.tagsFilter().has('Tag1')).toBeTrue()
   })
 })
