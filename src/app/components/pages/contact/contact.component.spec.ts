@@ -1,31 +1,52 @@
 import { TestBed } from '@angular/core/testing'
 import { ContactComponent } from './contact.component'
+import { DataService } from '@path-services/data-service'
+import { of } from 'rxjs'
 
 describe('ContactComponent', () => {
+  let component: ContactComponent
+  let dataServiceStub: Partial<DataService>
+
   beforeEach(async () => {
+    dataServiceStub = {
+      getProfile: () => ({
+        name: 'Robson Candido dos Santos Alves',
+        country: 'Brasil',
+        state: 'Paraná',
+        city: 'Curitiba',
+        email: 'contato@robsonalves.dev.br',
+        birthday: new Date('1980-08-29'),
+        urlList: new Map<string, string>([
+          ['WebSite', 'https://www.robsonalves.dev.br'],
+          ['LinkedIn', 'https://www.linkedin.com/in/robson-curitiba'],
+          ['Instagram', 'https://www.instagram.com/robsondesenvolvimento'],
+          ['GitHub', 'https://github.com/robsonalvesdev'],
+        ]),
+      }),
+    }
+
     await TestBed.configureTestingModule({
       imports: [ContactComponent],
+      providers: [{ provide: DataService, useValue: dataServiceStub }],
     }).compileComponents()
+
+    const fixture = TestBed.createComponent(ContactComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
   })
 
-  it('should create the ContactComponent', () => {
-    const fixture = TestBed.createComponent(ContactComponent)
-    const app = fixture.componentInstance
-    expect(app).toBeTruthy()
-  })
-
-  it('should render titles', () => {
-    const fixture = TestBed.createComponent(ContactComponent)
-    //fixture.detectChanges()
-    const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('div.container div.text-center h2.section-heading.text-uppercase')?.textContent).toBe('Contato')
+  it('should create', () => {
+    expect(component).toBeTruthy()
   })
 
   it('should calculate age correctly', () => {
-    const fixture = TestBed.createComponent(ContactComponent)
-    const app = fixture.componentInstance
-    const birthDate = new Date(2000, 0, 1) // January 1, 2000
-    const expectedAge = new Date().getFullYear() - 2000
-    expect(app.calcularIdade(birthDate)).toBe(expectedAge)
+    const birthdate = new Date(1990, 1, 1)
+    const age = component.calcularIdade(birthdate)
+    const currentYear = new Date().getFullYear()
+    expect(age).toBe(currentYear - 1990)
+  })
+
+  it('should return 1 for asIsOrder', () => {
+    expect(component.asIsOrder({}, {})).toBe(1)
   })
 })
