@@ -96,4 +96,26 @@ describe('CourseComponent', () => {
     component.onClickTagEvent(event)
     expect(component.tagsFilter().has('Tag1')).toBeTrue()
   })
+
+  it('should delete id from coursesFilter on onClickIntitutionEvent', () => {
+    const id = 'testInstitution'
+    component.coursesFilter().add(id)
+    const event = new MouseEvent('click', { bubbles: true, cancelable: true })
+    Object.defineProperty(event, 'target', { value: { id: `input_course_institution_${id}` } })
+
+    component.onClickIntitutionEvent(event)
+
+    expect(component.coursesFilter().has(id)).toBeFalse()
+  })
+
+  it('should delete id from tagsFilter on onClickTagEvent', () => {
+    const id = 'testTag'
+    component.tagsFilter().add(id)
+    const event = new MouseEvent('click', { bubbles: true, cancelable: true })
+    Object.defineProperty(event, 'target', { value: { id: `input_course_tag_${id}` } })
+
+    component.onClickTagEvent(event)
+
+    expect(component.tagsFilter().has(id)).toBeFalse()
+  })
 })
