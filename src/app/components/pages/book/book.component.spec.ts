@@ -127,4 +127,39 @@ describe('BookComponent', () => {
     expect(component.tagsFilter().has('Tag1')).toBeTrue()
     expect(component.selectTagFilter()).toBe('Tag1')
   })
+
+  it('should delete id from publishNameFilter on onClickIntitutionEvent', () => {
+    const id = 'Test Publisher'
+    component.publishNameFilter().add(id)
+
+    const event = new MouseEvent('click')
+    const inputElement = document.createElement('input')
+    inputElement.id = `input_book_institution_${id}`
+    Object.defineProperty(event, 'target', { value: inputElement })
+
+    component.onClickIntitutionEvent(event)
+
+    expect(component.publishNameFilter().has(id)).toBeFalse()
+  })
+
+  it('should delete id from tagsFilter on onClickTagEvent', () => {
+    const id = 'Test Tag'
+    component.tagsFilter().add(id)
+
+    const event = new MouseEvent('click')
+    const inputElement = document.createElement('input')
+    inputElement.id = `input_book_tag_${id}`
+    Object.defineProperty(event, 'target', { value: inputElement })
+
+    component.onClickTagEvent(event)
+
+    expect(component.tagsFilter().has(id)).toBeFalse()
+  })
+
+  it('should sort publishNameList correctly', () => {
+    const testSet = new Set<string>(['Zebra', 'Apple', 'Mango'])
+    component.publishNameList.set(testSet)
+    const sortedList = component.getPublishNameList()
+    expect(sortedList).toEqual(['Apple', 'Mango', 'Zebra'])
+  })
 })

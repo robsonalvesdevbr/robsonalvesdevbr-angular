@@ -17,29 +17,29 @@ import { FooterComponent } from './components/pages/footer/footer.component'
   imports: [RouterOutlet, NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationCourseComponent, BookComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Robson Candido dos Santos Alves'
 
   //private readonly meta = inject(Meta);
 
-  ngOnInit(): void {
-    //this._$gaService.init()
-    // this.meta.addTag({
-    //   name: 'title',
-    //   content: 'Robson Candido dos Santos Alves',
-    // });
-    // this.meta.addTag({ name: 'description', content: 'My page profile' });
-    // this.meta.addTag({
-    //   name: 'keywords',
-    //   content: 'Robson Candido dos Santos Alves',
-    // });
-    // this.meta.addTag({
-    //   name: 'author',
-    //   content: 'Robson Candido dos Santos Alves',
-    // });
-    // this.meta.addTag({
-    //   name: 'viewport',
-    //   content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-    // });
-  }
+  //ngOnInit(): void {
+  //this._$gaService.init()
+  // this.meta.addTag({
+  //   name: 'title',
+  //   content: 'Robson Candido dos Santos Alves',
+  // });
+  // this.meta.addTag({ name: 'description', content: 'My page profile' });
+  // this.meta.addTag({
+  //   name: 'keywords',
+  //   content: 'Robson Candido dos Santos Alves',
+  // });
+  // this.meta.addTag({
+  //   name: 'author',
+  //   content: 'Robson Candido dos Santos Alves',
+  // });
+  // this.meta.addTag({
+  //   name: 'viewport',
+  //   content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+  // });
+  //}
 }
