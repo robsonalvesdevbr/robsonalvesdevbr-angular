@@ -4,7 +4,7 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Leituras</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre os meus livros&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ books().length }}</span>
+        Saiba mais sobre os meus livros&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ books.length }}</span>
       </h3>
     </div>
 
@@ -51,7 +51,7 @@
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
       @for (
-        item of books()
+        item of books
           | filter: 'string' : 'publishName' : selectInstitutionsFilter()
           | filter: 'array' : 'tags' : selectTagFilter()
           | sortby: 'publishYear' : 'desc'
