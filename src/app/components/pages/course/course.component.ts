@@ -1,5 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, input, signal, WritableSignal, inject } from '@angular/core'
-import { ICourse } from '@path-interfaces/ICourse'
+import { Component, ChangeDetectionStrategy, OnInit, signal, WritableSignal, inject } from '@angular/core'
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 import { CommonModule } from '@angular/common'

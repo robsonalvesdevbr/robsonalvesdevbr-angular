@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, WritableSignal, inject, input, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, WritableSignal, inject, signal } from '@angular/core'
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination'
-import { IFormationCourse } from '@path-interfaces/IFormationCourse'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 import { CommonModule } from '@angular/common'
 import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive'
