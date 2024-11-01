@@ -1,27 +1,32 @@
-import { Profile } from './data/Profile'
-import { FormationCourses } from './data/FormationCourse'
-import { Books } from './data/Book'
-import { Graduations } from './data/Graduation'
-import { Courses } from './data/Course'
 import { TestBed } from '@angular/core/testing'
 import { AppComponent } from './app.component'
-import { DataService } from '@path-services/data-service'
+import { RouterOutlet } from '@angular/router'
+import { NavigationComponent } from './components/pages/navigation/navigation.component'
+import { MasterheadComponent } from './components/pages/masterhead/masterhead.component'
+import { AboutComponent } from './components/pages/about/about.component'
+import { GraduationComponent } from './components/pages/graduation/graduation.component'
+import { CourseComponent } from './components/pages/course/course.component'
+import { FormationCourseComponent } from './components/pages/formationcourse/formationcourse.component'
+import { BookComponent } from './components/pages/book/book.component'
+import { ContactComponent } from './components/pages/contact/contact.component'
+import { FooterComponent } from './components/pages/footer/footer.component'
 
 describe('AppComponent', () => {
-  let dataServiceStub: Partial<DataService>
-
   beforeEach(async () => {
-    dataServiceStub = {
-      getCourses: () => Courses,
-      getGraduations: () => Graduations,
-      getBooks: () => Books,
-      getFormationCourses: () => FormationCourses,
-      getProfile: () => Profile,
-    }
-
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
-      providers: [{ provide: DataService, useValue: dataServiceStub }],
+      imports: [
+        RouterOutlet,
+        NavigationComponent,
+        MasterheadComponent,
+        AboutComponent,
+        GraduationComponent,
+        CourseComponent,
+        FormationCourseComponent,
+        BookComponent,
+        ContactComponent,
+        FooterComponent,
+      ],
+      declarations: [AppComponent],
     }).compileComponents()
   })
 
@@ -31,39 +36,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it(`should have the 'Robson Candido dos Santos Alves' title`, () => {
+  it(`should have as title 'Robson Candido dos Santos Alves'`, () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance
     expect(app.title).toEqual('Robson Candido dos Santos Alves')
   })
 
-  it('should fetch courses from the data service', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.courses).toEqual(Courses)
-  })
-
-  it('should fetch graduations from the data service', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.graduations).toEqual(Graduations)
-  })
-
-  it('should fetch books from the data service', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.books).toEqual(Books)
-  })
-
-  it('should fetch formation courses from the data service', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.formationCourses).toEqual(FormationCourses)
-  })
-
-  it('should fetch profile from the data service', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.profile).toEqual(Profile)
+    fixture.detectChanges()
+    const compiled = fixture.nativeElement as HTMLElement
+    expect(compiled.querySelector('h1')?.textContent).toContain('Robson Candido dos Santos Alves')
   })
 })
