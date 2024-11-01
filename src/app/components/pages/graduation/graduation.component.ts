@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core'
-import { IGraduation } from '@path-interfaces/IGraduation'
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 import { CommonModule } from '@angular/common'
 import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive'
