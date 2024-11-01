@@ -4,7 +4,7 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Cursos</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ courses().length }}</span>
+        Saiba mais sobre meus cursos&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ courses.length }}</span>
       </h3>
     </div>
     <div class="border border-1 rounded mb-2">
@@ -48,7 +48,7 @@
     <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
     <ul class="list-group list-group-light mb-4">
       @for (
-        item of courses() | filter: 'string' : 'institution' : selectInstitutionsFilter() | filter: 'array' : 'tags' : selectTagFilter() | sortby: 'conclusion' : 'desc' | paginate: config();
+        item of courses | filter: 'string' : 'institution' : selectInstitutionsFilter() | filter: 'array' : 'tags' : selectTagFilter() | sortby: 'conclusion' : 'desc' | paginate: config();
         track item;
         let i = $index
       ) {

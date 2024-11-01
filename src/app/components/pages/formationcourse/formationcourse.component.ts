@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, WritableSignal, input, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, WritableSignal, inject, input, signal } from '@angular/core'
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination'
 import { IFormationCourse } from '@path-interfaces/IFormationCourse'
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
@@ -10,6 +10,7 @@ import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.p
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe'
 import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'
+import { DataService } from '@path-services/data-service'
 
 @Component({
   selector: 'app-formationoourse',
@@ -19,9 +20,8 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'
   standalone: true,
 })
 export class FormationCourseComponent extends BasePageComponent {
-  formationCourses = input.required<IFormationCourse[]>({
-    alias: 'formationCourses',
-  })
+  private readonly dataService = inject(DataService)
+  formationCourses = this.dataService.getFormationCourses()
 
   config: WritableSignal<PaginationInstance> = signal<PaginationInstance>({
     id: 'formationCoursesPag',
