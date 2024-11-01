@@ -18,14 +18,7 @@ import { FooterComponent } from './components/pages/footer/footer.component'
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  private readonly dataService = inject(DataService)
-
   title = 'Robson Candido dos Santos Alves'
-  courses = this.dataService.getCourses()
-  graduations = this.dataService.getGraduations()
-  books = this.dataService.getBooks()
-  formationCourses = this.dataService.getFormationCourses()
-  profile = this.dataService.getProfile()
 
   //private readonly meta = inject(Meta);
 
