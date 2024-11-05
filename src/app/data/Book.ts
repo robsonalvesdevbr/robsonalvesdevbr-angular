@@ -2,6 +2,18 @@ import { IBook } from '@path-interfaces/IBook'
 
 export const Books: IBook[] = [
   {
+    title: 'Programando em Go',
+    subtitle: 'Crie aplicações com a linguagem do Google',
+    author: ['Caio Filipini'],
+    publishName: 'Casa do Código',
+    publishYear: 2014,
+    tags: ['software-development', 'golang', 'google', 'go'],
+    bookUrl: 'https://www.casadocodigo.com.br/products/livro-google-go',
+    pages: 119,
+    progress: 0,
+    favorite: false,
+  },
+  {
     title: 'Inteligência Artificial e ChatGPT',
     subtitle: 'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
     author: ['Fabrício Carraro'],
