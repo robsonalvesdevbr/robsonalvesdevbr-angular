@@ -7,11 +7,11 @@ export const Books: IBook[] = [
     author: ['Caio Filipini'],
     publishName: 'Casa do Código',
     publishYear: 2014,
-    tags: ['software-development', 'golang', 'google', 'go'],
+    tags: ['software-development', 'google', 'go'],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-google-go',
     pages: 119,
     progress: 0,
-    favorite: false,
+    favorite: true,
   },
   {
     title: 'Inteligência Artificial e ChatGPT',
