@@ -9,4 +9,4 @@ import { CommonModule, NgOptimizedImage } from '@angular/common'
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class AboutComponent extends BasePageComponent { }
+export class AboutComponent extends BasePageComponent {}

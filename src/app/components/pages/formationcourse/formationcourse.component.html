@@ -11,7 +11,7 @@
       @for (course of formationCourses | sortby: 'conclusion' : 'desc' | paginate: config(); track course; let i = $index) {
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center ms-5">
-            <img ngSrc="assets/img/others/{{ course.institution | imgcurso }}" alt=""  width="60" height="60" class="rounded-circle" priority/>
+            <img ngSrc="assets/img/others/{{ course.institution | imgcurso }}" alt="" width="60" height="60" class="rounded-circle" priority />
             <div class="ms-3">
               <p class="fw-bold mb-0">{{ course.name }}</p>
               <p class="text-muted fontemenor"><b>Instituição:</b> {{ course.institution }}</p>
