@@ -20,20 +20,11 @@
             "outputPath": "dist/robsonalves",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/js"
-            ],
-            "styles": [
-              "src/styles.scss",
-              "src/css/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/js"],
+            "styles": ["src/styles.scss", "src/css/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -84,21 +75,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/js"
-            ],
-            "styles": [
-              "src/styles.scss",
-              "src/css/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/js"],
+            "styles": ["src/styles.scss", "src/css/styles.scss"],
             "scripts": [],
             "karmaConfig": "karma.conf.js"
           }
