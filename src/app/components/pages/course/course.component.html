@@ -54,7 +54,7 @@
       ) {
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center ms-5">
-            <img src="assets/img/others/{{ item.institution | imgcurso }}" alt="" style="width: 60px; height: 60px" class="rounded-circle" />
+            <img ngSrc="assets/img/others/{{ item.institution | imgcurso }}" alt="" height="60" width="60" class="rounded-circle" priority />
             <div class="ms-3">
               <p class="fw-bold mb-0">{{ item.name }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;</p>
               <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
