@@ -11,5 +11,4 @@ import { NgxPaginationModule } from 'ngx-pagination'
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class NavigationComponent extends BasePageComponent {
-}
+export class NavigationComponent extends BasePageComponent {}
