@@ -41,6 +41,13 @@ Para instalar as dependências do projeto, execute:
 npm install
 ```
 
+> [!NOTE]
+> Comandos uteis
+>
+> ```bash
+> npx prettier . --write
+> ```
+
 ## Git config
 
 ```bash
