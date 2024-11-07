@@ -1,13 +1,12 @@
 import { BasePageComponent } from '@path-components/base-page/base-page.component'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'
+import { CommonModule, NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './about.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class AboutComponent extends BasePageComponent {}
+export class AboutComponent extends BasePageComponent { }

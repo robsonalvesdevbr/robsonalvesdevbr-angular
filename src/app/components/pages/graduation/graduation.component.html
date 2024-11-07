@@ -10,7 +10,7 @@
     <ul class="timeline">
       @for (graduation of graduations | sortby: 'conclusionDate' : 'desc'; track graduation; let i = $index) {
         <li [ngClass]="{ 'timeline-inverted': i % 2 != 0 }" class="mb-5">
-          <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/others/formacao.png" alt="..." /></div>
+          <div class="timeline-image"><img class="rounded-circle img-fluid" ngSrc="assets/img/others/formacao.png" alt="..." fill priority /></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h5>{{ graduation.conclusionDate | date: 'yyyy' }}</h5>
