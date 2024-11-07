@@ -259,6 +259,14 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-9-10'),
     favorite: false,
   },
+  {
+    name: 'Go (Golang): Explorando a Linguagem do Google',
+    institution: 'Udemy',
+    certificateUrl: 'https://www.udemy.com/certificate/UC-3680a779-14d8-4d87-9bd4-26c371778346',
+    tags: ['software-development', 'go', 'google'],
+    conclusion: new Date('2024-11-6'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
