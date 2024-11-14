@@ -6,6 +6,7 @@ Apresentação do meu currículo como forma de estudos do [Angular][2]
 
 ## Estrutura do Projeto
 
+
 A estrutura do projeto é a seguinte:
 
 ### Diretórios e Arquivos Importantes
