@@ -2,10 +2,9 @@ import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
 @Component({
-  template: '',
-  imports: [CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    template: '',
+    imports: [CommonModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BasePageComponent {
   @Input({ required: false }) bglight: boolean = false

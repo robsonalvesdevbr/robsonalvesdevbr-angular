@@ -15,10 +15,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "ESNext",
+    "module": "ESNext",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"],
+    "lib": ["ESNext", "dom"],
     "paths": {
       "@path-components/*": ["./src/app/components/*"],
       "@path-services/*": ["./src/app/services/*"],

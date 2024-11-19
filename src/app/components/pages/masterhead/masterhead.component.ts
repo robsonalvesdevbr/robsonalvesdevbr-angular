@@ -5,10 +5,9 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { NgxPaginationModule } from 'ngx-pagination'
 
 @Component({
-  selector: 'app-masterhead',
-  imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
-  templateUrl: './masterhead.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-masterhead',
+    imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
+    templateUrl: './masterhead.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MasterheadComponent extends BasePageComponent {}

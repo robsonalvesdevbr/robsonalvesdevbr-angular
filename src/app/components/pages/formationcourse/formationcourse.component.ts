@@ -9,11 +9,10 @@ import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { DataService } from '@path-services/data-service'
 
 @Component({
-  selector: 'app-formationoourse',
-  imports: [CommonModule, ImgcursoPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
-  templateUrl: './formationcourse.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-formationoourse',
+    imports: [CommonModule, ImgcursoPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
+    templateUrl: './formationcourse.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormationCourseComponent extends BasePageComponent {
   private readonly dataService = inject(DataService)

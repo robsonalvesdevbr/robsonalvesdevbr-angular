@@ -5,10 +5,9 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { NgxPaginationModule } from 'ngx-pagination'
 
 @Component({
-  selector: 'app-navigation',
-  imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
-  templateUrl: './navigation.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-navigation',
+    imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
+    templateUrl: './navigation.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent extends BasePageComponent {}

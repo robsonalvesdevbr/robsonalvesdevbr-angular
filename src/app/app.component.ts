@@ -1,5 +1,4 @@
 import { Component } from '@angular/core'
-import { RouterOutlet } from '@angular/router'
 import { NavigationComponent } from './components/pages/navigation/navigation.component'
 import { MasterheadComponent } from './components/pages/masterhead/masterhead.component'
 import { AboutComponent } from './components/pages/about/about.component'
@@ -12,9 +11,8 @@ import { FooterComponent } from './components/pages/footer/footer.component'
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationCourseComponent, BookComponent, ContactComponent, FooterComponent],
-  templateUrl: './app.component.html',
+  imports: [NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationCourseComponent, BookComponent, ContactComponent, FooterComponent],
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'Robson Candido dos Santos Alves'
