@@ -9,12 +9,11 @@ import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.
 import { DataService } from '@path-services/data-service'
 
 @Component({
-  selector: 'app-book',
-  imports: [CommonModule, FilterPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
-  templateUrl: './book.component.html',
-  styleUrl: './book.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-book',
+    imports: [CommonModule, FilterPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
+    templateUrl: './book.component.html',
+    styleUrl: './book.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService)

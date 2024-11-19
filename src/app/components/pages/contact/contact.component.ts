@@ -6,12 +6,11 @@ import { NgxPaginationModule } from 'ngx-pagination'
 import { DataService } from '@path-services/data-service'
 
 @Component({
-  selector: 'app-contact',
-  imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-contact',
+    imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent extends BasePageComponent {
   private readonly dataService = inject(DataService)

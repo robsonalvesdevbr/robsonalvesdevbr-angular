@@ -6,7 +6,8 @@ import { GoogleAnalyticsDirective } from './google-analytics.directive'
 import { AnalyticsOption } from '@path-interfaces/IAnalyticsOption'
 
 @Component({
-  template: `<button [appGoogleAnalytics]="option">Test Button</button>`,
+    template: `<button [appGoogleAnalytics]="option">Test Button</button>`,
+    standalone: false
 })
 class TestComponent {
   option: AnalyticsOption = {

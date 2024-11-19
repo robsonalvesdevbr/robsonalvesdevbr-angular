@@ -8,11 +8,10 @@ import { NgxPaginationModule } from 'ngx-pagination'
 import { DataService } from '@path-services/data-service'
 
 @Component({
-  selector: 'app-graduation',
-  imports: [CommonModule, MessageDateConclusionPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
-  templateUrl: './graduation.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-graduation',
+    imports: [CommonModule, MessageDateConclusionPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
+    templateUrl: './graduation.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GraduationComponent extends BasePageComponent {
   private readonly dataService = inject(DataService)

@@ -3,10 +3,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { CommonModule, NgOptimizedImage } from '@angular/common'
 
 @Component({
-  selector: 'app-about',
-  imports: [CommonModule, NgOptimizedImage],
-  templateUrl: './about.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-about',
+    imports: [CommonModule, NgOptimizedImage],
+    templateUrl: './about.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutComponent extends BasePageComponent {}
