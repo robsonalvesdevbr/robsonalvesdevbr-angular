@@ -25,11 +25,15 @@ export class GoogleAnalyticsService {
   }
 
   private _sendPageView(): void {
-    gtag('js', new Date())
-    gtag('config', environment.googleAnalytics, {
-      send_page_view: false,
-      cookie_flags: 'SameSite=None; Secure',
-    })
+    if (typeof gtag === 'function') {
+      gtag('js', new Date());
+      gtag('config', environment.googleAnalytics, {
+        send_page_view: false,
+        cookie_flags: 'SameSite=None; Secure',
+      });
+    } else {
+      console.warn('gtag não está definido.');
+    }
   }
 
   private init(): void {
@@ -52,6 +56,12 @@ export class GoogleAnalyticsService {
     `)
     gtagScript.appendChild(gtagBody)
     document.body.appendChild(gtagScript)
+  }
+
+  trackPageView(url: string): void {
+    gtag('event', 'page_view', {
+      page_path: url,
+    });
   }
 
   logEvent(event: string, category: string, label: string): void {

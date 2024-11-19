@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import { NavigationComponent } from './components/pages/navigation/navigation.component'
 import { MasterheadComponent } from './components/pages/masterhead/masterhead.component'
 import { AboutComponent } from './components/pages/about/about.component'
@@ -8,14 +8,29 @@ import { FormationCourseComponent } from './components/pages/formationcourse/for
 import { BookComponent } from './components/pages/book/book.component'
 import { ContactComponent } from './components/pages/contact/contact.component'
 import { FooterComponent } from './components/pages/footer/footer.component'
+import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
+import { NavigationEnd, Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
   imports: [NavigationComponent, MasterheadComponent, AboutComponent, GraduationComponent, CourseComponent, FormationCourseComponent, BookComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+
   title = 'Robson Candido dos Santos Alves'
+  analytics = inject(GoogleAnalyticsService)
+  router = inject(Router)
+
+  ngOnInit(): void {
+    // Rastrear mudanças de rota
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.analytics.trackPageView(event.urlAfterRedirects);
+      }
+    });
+  }
 
   //private readonly meta = inject(Meta);
 
