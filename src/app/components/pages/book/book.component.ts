@@ -7,13 +7,14 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe'
 import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive'
 import { DataService } from '@path-services/data-service'
+import { HighlightDirective } from '@path-app/directives/highlight.directive'
 
 @Component({
-    selector: 'app-book',
-    imports: [CommonModule, FilterPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
-    templateUrl: './book.component.html',
-    styleUrl: './book.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-book',
+  imports: [CommonModule, FilterPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage, HighlightDirective],
+  templateUrl: './book.component.html',
+  styleUrl: './book.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService)
