@@ -1,5 +1,5 @@
 import { Directive, HostListener, inject, Input } from '@angular/core'
-import { AnalyticsOption } from '@path-interfaces/IAnalyticsOption'
+import { IAnalyticsOption } from '@path-interfaces/IAnalyticsOption'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Directive({
@@ -7,13 +7,17 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
   standalone: true,
 })
 export class GoogleAnalyticsDirective {
-  @Input('appGoogleAnalytics') option!: AnalyticsOption
+  @Input('appGoogleAnalytics') option!: IAnalyticsOption
 
   private readonly _gaService = inject(GoogleAnalyticsService)
 
   @HostListener('click', ['$event'])
   onClick(event: Event): void {
-    const { event: eventName, category, label, logType, title } = this.option
+    const eventName = this.option.eventName
+    const category = this.option.category
+    const label = this.option.label
+    const logType = this.option.logType
+    const title = this.option.title
 
     // Log the event using Google Analytics service
     this._gaService.logEvent(eventName, category, label)

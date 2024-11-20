@@ -3,37 +3,25 @@
   <div class="container">
     <a class="navbar-brand" href="#page-top"><img src="assets/img/others/robsonalves.png" alt="..." /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars ms-1"></i>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 nav">
         <li class="nav-item">
-          <a
+          <a 
             class="nav-link"
             href="#about"
-            [appGoogleAnalytics]="{
-              logType: 'page_view',
-              event: 'click',
-              category: 'link',
-              label: 'app-navigation',
-            }"
+            [appGoogleAnalytics]="sobreAnalitics"
             aria-label="Sobre"
-            >Sobre</a
+            >Sobre<span class="sr-only"></span></a
           >
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             href="#graduation"
-            [appGoogleAnalytics]="{
-              logType: 'page_view',
-              event: 'click',
-              category: 'app_navigation',
-              label: 'graduation',
-              title: '(Pós)Graduação',
-            }"
-            aria-label="(Pós)Graduação"
+            [appGoogleAnalytics]="graduationAnalitics"
+            aria-label="(P\u00F3s)Graduação"
             >(Pós)Graduação</a
           >
         </li>
@@ -41,13 +29,7 @@
           <a
             class="nav-link"
             href="#courses"
-            [appGoogleAnalytics]="{
-              logType: 'page_view',
-              event: 'click',
-              category: 'app_navigation',
-              label: 'courses',
-              title: 'Cursos',
-            }"
+            [appGoogleAnalytics]="coursesAnalitics"
             aria-label="Cursos"
             >Cursos</a
           >
@@ -56,13 +38,7 @@
           <a
             class="nav-link"
             href="#formationcourse"
-            [appGoogleAnalytics]="{
-              logType: 'page_view',
-              event: 'click',
-              category: 'app_navigation',
-              label: 'formationcourse',
-              title: 'Formação',
-            }"
+            [appGoogleAnalytics]="formationcourseAnalitics"
             aria-label="Formação"
             >Formação</a
           >
@@ -71,13 +47,7 @@
           <a
             class="nav-link"
             href="#books"
-            [appGoogleAnalytics]="{
-              logType: 'page_view',
-              event: 'click',
-              category: 'app_navigation',
-              label: 'books',
-              title: 'Leituras',
-            }"
+            [appGoogleAnalytics]="booksAnalitics"
             aria-label="Leituras"
             >Leituras</a
           >
@@ -86,13 +56,7 @@
           <a
             class="nav-link"
             href="#contact"
-            [appGoogleAnalytics]="{
-              logType: 'page_view',
-              event: 'click',
-              category: 'app_navigation',
-              label: 'contact',
-              title: 'Contato',
-            }"
+            [appGoogleAnalytics]="contactAnalitics"
             aria-label="Contato"
             >Contato</a
           >

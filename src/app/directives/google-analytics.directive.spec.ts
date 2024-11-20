@@ -3,15 +3,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 import { GoogleAnalyticsDirective } from './google-analytics.directive'
-import { AnalyticsOption } from '@path-interfaces/IAnalyticsOption'
+import { IAnalyticsOption } from '@path-interfaces/IAnalyticsOption'
 
 @Component({
-    template: `<button [appGoogleAnalytics]="option">Test Button</button>`,
-    standalone: false
+  template: `<button [appGoogleAnalytics]="option">Test Button</button>`,
+  standalone: false
 })
 class TestComponent {
-  option: AnalyticsOption = {
-    event: 'click_event',
+  option: IAnalyticsOption = {
+    eventName: 'click_event',
     category: 'button',
     label: 'test_button',
     logType: 'page_view',
