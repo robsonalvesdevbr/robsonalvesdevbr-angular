@@ -17,6 +17,7 @@ export class HighlightDirective {
       this.el.nativeElement.classList.add('btn-light');
     } else {
       this.el.nativeElement.classList.delete('btn-light');
+      this.el.nativeElement.blur();
     }
   }
 }
