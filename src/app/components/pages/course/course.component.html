@@ -16,7 +16,7 @@
 
               @for (course of getCourseList(); track course) {
                 <input type="checkbox" class="btn-check" id="input_course_institution_{{ course | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
-                <label class="btn btn-light btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ course | lowercase }}" id="label_course_institution_{{ course | lowercase }}">{{
+                <label class="btn btn-sm fontemenor p-1 ms-0" for="input_course_institution_{{ course | lowercase }}" id="label_course_institution_{{ course | lowercase }}" appHighlight>{{
                   course
                 }}</label>
               }
@@ -30,13 +30,13 @@
               <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
                 <b class="p-1 m-1">Filtrar tag:</b>
                 @for (tag of getTags(); track tag) {
-                  <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
+                  <input type="checkbox" class="btn-check" id="input_course_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)"/>
                   <label
-                    class="btn btn-light btn-sm fontemenor p-1 ms-0"
+                    class="btn btn-sm fontemenor p-1 ms-0"
                     for="input_course_tag_{{ tag | lowercase }}"
                     id="label_course_tag_{{ tag | lowercase }}"
                     [ngClass]="{ active: tagsFilter().has(tag) }"
-                    >{{ tag }}</label
+                    appHighlight>{{ tag }}</label
                   >
                 }
               </fieldset>

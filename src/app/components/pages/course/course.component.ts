@@ -8,13 +8,14 @@ import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe'
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe'
 import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { DataService } from '@path-services/data-service'
+import { HighlightDirective } from '@path-app/directives/highlight.directive'
 
 @Component({
-    selector: 'app-course',
-    imports: [CommonModule, FilterPipe, ImgcursoPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage],
-    templateUrl: './course.component.html',
-    styleUrl: './course.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-course',
+  imports: [CommonModule, FilterPipe, ImgcursoPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage, HighlightDirective],
+  templateUrl: './course.component.html',
+  styleUrl: './course.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService)
