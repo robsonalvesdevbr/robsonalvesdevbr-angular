@@ -1,7 +1,7 @@
-export interface AnalyticsOption {
-  event: string
+export interface IAnalyticsOption {
+  eventName: string
   category: string
   label: string
-  logType: 'page_view' | 'set' | 'link'
+  logType: string
   title?: string
 }
