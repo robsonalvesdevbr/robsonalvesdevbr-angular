@@ -13,7 +13,9 @@
         <div class="text-center bg-light bg-gradient">
           <div class="s">
             <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_book_institution">
-              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start" (click)="clearFilters()">Limpar Filtros</button>
+              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start" (click)="clearFilters()" aria-label="Limpar Filtros" title="Limpar Filtros">
+                Limpar Filtros
+              </button>
 
               <b class="p-1 m-1">Filtrar Editora:</b>
               @for (publishName of getPublishNameList(); track publishName) {
