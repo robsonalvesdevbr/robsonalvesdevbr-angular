@@ -6,7 +6,6 @@ Apresentação do meu currículo como forma de estudos do [Angular][2]
 
 ## Estrutura do Projeto
 
-
 A estrutura do projeto é a seguinte:
 
 ### Diretórios e Arquivos Importantes
@@ -59,6 +58,9 @@ npm cache clean --force
 npm outdated
 npm update
 
+npx browserslist
+
+
 nvm use 20.18.0
 
 ng update @angular/cli @angular/core
@@ -70,5 +72,5 @@ ncu -u
 
 ```
 
-[1]: https://www.robsonalves.dev.br "Arquiteto de software - Robson Alves<contato@robsonalves.dev.br>"
-[2]: https://angular.dev "Angular"
+[1]: https://www.robsonalves.dev.br 'Arquiteto de software - Robson Alves<contato@robsonalves.dev.br>'
+[2]: https://angular.dev 'Angular'
