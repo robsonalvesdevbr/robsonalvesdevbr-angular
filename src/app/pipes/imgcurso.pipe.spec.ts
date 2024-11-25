@@ -1,3 +1,4 @@
+import { InstitutionEnum } from '@path-app/models/InstitutionEnum'
 import { ImgcursoPipe } from './imgcurso.pipe'
 
 describe('ImgcursoPipe', () => {
@@ -12,7 +13,7 @@ describe('ImgcursoPipe', () => {
   })
 
   it('should return correct image for Alura', () => {
-    const result = pipe.transform('Alura')
+    const result = pipe.transform(InstitutionEnum.Alura)
     expect(result).toBe('alura.jpg')
   })
 
