@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core'
+import { InstitutionEnum } from '@path-app/models/InstitutionEnum'
 
 @Pipe({
   name: 'imgcurso',
@@ -12,7 +13,7 @@ export class ImgcursoPipe implements PipeTransform {
     ['Linkedin Learning', 'linkedin.png'],
   ])
 
-  transform(curso: 'Alura' | 'Desenvolvedor\u002eIO' | 'Udemy' | 'Linkedin Learning'): string {
+  transform(curso: InstitutionEnum): string {
     return this.imagens.get(curso) ?? 'default.jpg'
   }
 }
