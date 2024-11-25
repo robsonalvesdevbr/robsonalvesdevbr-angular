@@ -44,7 +44,7 @@ export const Courses: ICourse[] = [
 
   {
     name: 'Iniciando com ASP.NET Core',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/74c90a14-45bc-4748-a329-ff76b9f73c8b',
     tags: ['software-development', 'microsoft', 'csharp', '.net'],
     conclusion: new Date('2023-12-4'),
@@ -52,7 +52,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Projetando Arquiteturas em Três Camadas',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/348ea229-b2b7-494c-b588-2bd6ed47f697',
     tags: ['software-development', 'microsoft', 'csharp', '.net', 'architecture'],
     conclusion: new Date('2023-11-23'),
@@ -60,7 +60,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Dominando o Kubernetes',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/2339b4a9-588f-4356-93c0-208678c5489b',
     tags: ['kubernetes', 'docker-container'],
     conclusion: new Date('2023-8-8'),
@@ -68,7 +68,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Fundamentos do C#',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/668fdb1c-99e0-4e85-adf4-6b542f71f14e',
     tags: ['software-development', 'microsoft', 'csharp', '.net'],
     conclusion: new Date('2023-1-16'),
@@ -76,7 +76,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Dominando o Apache Kafka',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/5813f9a2-8f15-4682-a239-183a679287ec',
     tags: ['software-development', 'messagerie', 'amqp'],
     conclusion: new Date('2022-8-12'),
@@ -84,7 +84,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Fundamentos de Arquitetura de Software',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/633d37f3-f03f-40d4-a3b6-afd558ccf364',
     tags: ['software-development', 'microsoft', 'csharp', '.net', 'architecture'],
     conclusion: new Date('2022-9-22'),
@@ -92,7 +92,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Introdução ao DevOps',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/bf3a9141-f47e-4d5e-8cca-3e2790245c31',
     tags: ['devops'],
     conclusion: new Date('2022-9-19'),
@@ -100,7 +100,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Desenvolvimento SPA com Angular',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/bbb08bef-cc6a-4af1-ab89-36fc72fd2f70',
     tags: ['software-development', 'angular', 'typescript', 'javascript'],
     conclusion: new Date('2022-8-31'),
@@ -108,7 +108,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Fundamentos de Criptografia e Hashing',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/3f08e65b-3f99-40d2-b2f7-3c92f04228b0',
     tags: ['crypto', 'hash'],
     conclusion: new Date('2022-8-22'),
@@ -116,7 +116,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Iniciando com ASP.NET Core',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/f9a5fc5f-9bcf-4308-bf17-b0bde1e78378',
     tags: ['software-development', 'microsoft', 'csharp', '.net', 'architecture'],
     conclusion: new Date('2021-11-4'),
@@ -124,7 +124,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Docker do Zero ao Avançado',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/curso/baixar-certificado/12546112-619c-4b01-8097-851e3fbbb262',
     tags: ['docker-container', 'docker-container', 'kubernetes'],
     conclusion: new Date('2024-3-28'),
@@ -132,7 +132,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Git e Github do Zero ao Avançado',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/certificado/9082ea6f-5efd-458f-ba55-55c39f0b3de6',
     tags: ['git', 'github', 'versioning'],
     conclusion: new Date('2024-6-11'),
@@ -140,7 +140,7 @@ export const Courses: ICourse[] = [
   },
   {
     name: 'Fundamentos do Blazor',
-    institution: 'Desenvolvedor.IO',
+    institution: 'Desenvolvedor\u002eIO',
     certificateUrl: 'https://desenvolvedor.io/certificado/c37bb6aa-ca3f-41f8-b623-347bd057c805',
     tags: ['blazor', 'software-development', 'microsoft', 'csharp', '.net'],
     conclusion: new Date('2024-7-2'),
