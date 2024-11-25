@@ -11,6 +11,7 @@ import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.p
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe'
 import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'
+import { InstitutionEnum } from '@path-app/models/InstitutionEnum'
 
 describe('FormationCourseComponent', () => {
   let component: FormationCourseComponent
@@ -22,7 +23,7 @@ describe('FormationCourseComponent', () => {
       getFormationCourses: () => [
         {
           name: 'C# e orientação a objetos',
-          institution: 'Alura',
+          institution: InstitutionEnum.Alura,
           certificateUrl: 'https://cursos.alura.com.br/degree/certificate/2e01d0c3-8f5d-4715-a679-3061632a9298?lang=pt_BR',
           tags: ['software-development', 'microsoft-technologies', 'csharp', 'dotnet'],
           conclusion: new Date('2021-4-26'),
@@ -30,7 +31,7 @@ describe('FormationCourseComponent', () => {
         },
         {
           name: 'Orquestração de containers com Kubernetes',
-          institution: 'Alura',
+          institution: InstitutionEnum.Alura,
           certificateUrl: 'https://cursos.alura.com.br/degree/certificate/ecc51fe7-41c9-4eed-afad-5fd31aa1232a?lang=pt_BR',
           tags: ['kubernetes', 'docker-container', 'azure-cloud'],
           conclusion: new Date('2022-5-13'),

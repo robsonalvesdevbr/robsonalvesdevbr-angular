@@ -6,11 +6,11 @@ import { InstitutionEnum } from '@path-app/models/InstitutionEnum'
   standalone: true,
 })
 export class ImgcursoPipe implements PipeTransform {
-  private readonly imagens = new Map<string, string>([
-    ['Desenvolvedor\u002eIO', 'desenvolvedorio.jpg'],
-    ['Alura', 'alura.jpg'],
-    ['Udemy', 'udemy.png'],
-    ['Linkedin Learning', 'linkedin.png'],
+  private readonly imagens = new Map<InstitutionEnum, string>([
+    [InstitutionEnum.DesenvolvedorIO, 'desenvolvedorio.jpg'],
+    [InstitutionEnum.Alura, 'alura.jpg'],
+    [InstitutionEnum.Udemy, 'udemy.png'],
+    [InstitutionEnum.LinkedinLearning, 'linkedin.png'],
   ])
 
   transform(curso: InstitutionEnum): string {
