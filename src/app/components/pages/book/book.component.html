@@ -18,10 +18,10 @@
               </button>
 
               <b class="p-1 m-1">Filtrar Editora:</b>
-              @for (publishName of getPublishNameList(); track publishName) {
-                <input type="checkbox" class="btn-check" id="input_book_institution_{{ publishName | lowercase }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
-                <label class="btn btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ publishName | lowercase }}" id="label_book_institution_{{ publishName | lowercase }}" appHighlight>{{
-                  publishName
+              @for (publishName of publishNameList | enumToArray | sortby: 'value' : 'asc'; track publishName.key) {
+                <input type="checkbox" class="btn-check" id="input_book_institution_{{ publishName.key }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
+                <label class="btn btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ publishName.key }}" id="label_book_institution_{{ publishName.key }}" appHighlight>{{
+                  publishName.value
                 }}</label>
               }
             </fieldset>
@@ -33,7 +33,7 @@
             <div class="has-text-centered">
               <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
                 <b class="p-1 m-1">Filtrar tag:</b>
-                @for (tag of getTags(); track tag) {
+                @for (tag of getTags() | sortby: undefined : 'asc'; track tag) {
                   <input type="checkbox" class="btn-check" id="input_book_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"
