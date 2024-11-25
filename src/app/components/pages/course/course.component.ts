@@ -9,10 +9,12 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe'
 import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { DataService } from '@path-services/data-service'
 import { HighlightDirective } from '@path-app/directives/highlight.directive'
+import { InstitutionEnum } from '@path-app/models/InstitutionEnum'
+import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe'
 
 @Component({
   selector: 'app-course',
-  imports: [CommonModule, FilterPipe, ImgcursoPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage, HighlightDirective],
+  imports: [CommonModule, FilterPipe, ImgcursoPipe, PrintTagsPipe, NgxPaginationModule, GoogleAnalyticsDirective, SortbyPipe, NgOptimizedImage, HighlightDirective, EnumToArrayPipe],
   templateUrl: './course.component.html',
   styleUrl: './course.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,11 +23,12 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService)
   courses = this.dataService.getCourses()
 
-  courseList: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
+  institutionList = InstitutionEnum;
+
   tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
 
-  coursesFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
-  selectInstitutionsFilter: WritableSignal<string> = signal<string>('')
+  coursesFilter: WritableSignal<Set<InstitutionEnum>> = signal<Set<InstitutionEnum>>(new Set<InstitutionEnum>())
+  selectInstitutionsFilter: WritableSignal<string> = signal<string>(InstitutionEnum.All)
 
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>())
   selectTagFilter: WritableSignal<string> = signal<string>('')
@@ -37,13 +40,10 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.courses.forEach((course) => this.courseList().add(course.institution.trim()))
     this.courses.forEach((course) => course.tags.forEach((tag) => this.tags().add(tag.trim())))
   }
 
-  getCourseList = () => Array.from(this.courseList().values()).sort((a, b) => (a > b ? 1 : -1))
-
-  getTags = () => Array.from(this.tags().values()).sort((a, b) => (a > b ? 1 : -1))
+  getTags = () => Array.from(this.tags().values())
 
   absoluteIndex = (indexOnPage: number): number => this.config().itemsPerPage * (this.config().currentPage - 1) + indexOnPage + 1
 
@@ -59,7 +59,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     })
 
     this.coursesFilter().clear()
-    this.selectInstitutionsFilter.set('')
+    this.selectInstitutionsFilter.set(InstitutionEnum.All)
     this.tagsFilter().clear()
     this.selectTagFilter.set('')
   }
@@ -68,7 +68,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     let link = e.target as HTMLInputElement
     let id = link.id.replace('input_course_institution_', '')
 
-    this.coursesFilter().has(id) ? this.coursesFilter().delete(id) : this.coursesFilter().add(id)
+    var institution = InstitutionEnum[id as keyof typeof InstitutionEnum]
+
+    this.coursesFilter().has(institution) ? this.coursesFilter().delete(institution) : this.coursesFilter().add(institution)
     this.selectInstitutionsFilter.set(Array.from(this.coursesFilter().values()).join(','))
 
     this.config().currentPage = 1
@@ -79,6 +81,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     let id = link.id.replace('input_course_tag_', '')
 
     this.tagsFilter().has(id) ? this.tagsFilter().delete(id) : this.tagsFilter().add(id)
-    this.selectTagFilter.set(Array.from(this.tagsFilter().values()).join(','))
+    this.selectTagFilter.set(Array.from(this.tagsFilter().keys()).join(','))
   }
 }

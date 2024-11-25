@@ -1,6 +1,8 @@
+import { InstitutionEnum } from "@path-app/models/InstitutionEnum"
+
 export interface ICourse {
   name: string
-  institution: 'Alura' | 'Desenvolvedor\u002eIO' | 'Udemy' | 'Linkedin Learning'
+  institution: InstitutionEnum
   tags: string[]
   certificateUrl: string | undefined | null
   conclusion: Date | undefined | null
