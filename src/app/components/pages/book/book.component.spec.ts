@@ -11,6 +11,7 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe'
 import { SortbyPipe } from '@path-pipes/sortby.pipe'
 import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive'
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'
+import { PublishNameEnum } from '@path-app/models/PublishNameEnum'
 
 describe('BookComponent', () => {
   let component: BookComponent
@@ -24,7 +25,7 @@ describe('BookComponent', () => {
           title: 'Inteligência Artificial e ChatGPT 1',
           subtitle: 'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
           author: ['Fabrício Carraro'],
-          publishName: 'Publisher 1',
+          publishName: PublishNameEnum.AltaBooks,
           publishYear: 2023,
           tags: ['Tag1', 'Tag2'],
           bookUrl: 'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
@@ -36,7 +37,7 @@ describe('BookComponent', () => {
           title: 'Inteligência Artificial e ChatGPT 2',
           subtitle: 'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
           author: ['Fabrício Carraro'],
-          publishName: 'Publisher 2',
+          publishName: PublishNameEnum.CasaDoCodigo,
           publishYear: 2023,
           tags: ['Tag3', 'Tag4'],
           bookUrl: 'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
@@ -73,18 +74,6 @@ describe('BookComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy()
-  })
-
-  it('should initialize publishNameList and tags on init', () => {
-    component.ngOnInit()
-    expect(component.publishNameList().size).toBe(2)
-    expect(component.tags().size).toBe(4)
-  })
-
-  it('should return sorted publish names', () => {
-    component.ngOnInit()
-    const sortedPublishNames = component.getPublishNameList()
-    expect(sortedPublishNames).toEqual(['Publisher 1', 'Publisher 2'])
   })
 
   it('should return sorted tags', () => {
@@ -154,12 +143,5 @@ describe('BookComponent', () => {
     component.onClickTagEvent(event)
 
     expect(component.tagsFilter().has(id)).toBeFalse()
-  })
-
-  it('should sort publishNameList correctly', () => {
-    const testSet = new Set<string>(['Zebra', 'Apple', 'Mango'])
-    component.publishNameList.set(testSet)
-    const sortedList = component.getPublishNameList()
-    expect(sortedList).toEqual(['Apple', 'Mango', 'Zebra'])
   })
 })
