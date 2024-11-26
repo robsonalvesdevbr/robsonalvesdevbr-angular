@@ -11,6 +11,6 @@ export const Profile: IProfile = {
     ['WebSite', 'https://www.robsonalves.dev.br'],
     ['LinkedIn', 'https://www.linkedin.com/in/robson-curitiba'],
     ['Instagram', 'https://www.instagram.com/robsondesenvolvimento'],
-    ['GitHub', 'https://github.com/robsonalvesdev'],
+    ['GitHub', 'https://github.com/robsonalvesdevbr'],
   ]),
 }
