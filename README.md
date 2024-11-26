@@ -60,7 +60,6 @@ npm update
 
 npx browserslist
 
-
 nvm use 20.18.0
 
 ng update @angular/cli @angular/core
@@ -68,8 +67,6 @@ npm outdated
 npm update
 npm install -g npm-check-updates
 ncu -u
-
-
 ```
 
 [1]: https://www.robsonalves.dev.br 'Arquiteto de software - Robson Alves<contato@robsonalves.dev.br>'
