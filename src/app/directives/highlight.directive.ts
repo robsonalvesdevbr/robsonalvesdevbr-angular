@@ -15,6 +15,7 @@ export class HighlightDirective {
   private highlight(color: string, visibility: boolean = true) {
     if (visibility) {
       this.el.nativeElement.classList.add(color);
+      this.el.nativeElement.blur();
     } else {
       this.el.nativeElement.classList.remove(color);
       this.el.nativeElement.blur();
