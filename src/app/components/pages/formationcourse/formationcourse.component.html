@@ -39,9 +39,7 @@
               </p>
               <p class="text-muted fontemenor">
                 Concluído em
-                {{
-                  course.conclusion | date: 'dd/MM/yyyy'
-                }}
+                {{ course.conclusion | date: 'dd/MM/yyyy' }}
                 &nbsp;&nbsp;&nbsp;&nbsp;<a
                   [href]="course.certificateUrl"
                   target="_blank"

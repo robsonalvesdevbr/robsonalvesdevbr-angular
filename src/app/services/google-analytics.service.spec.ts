@@ -3,16 +3,19 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { GoogleAnalyticsService } from './google-analytics.service';
 
-
 describe('GoogleAnalyticsService', () => {
   let service: GoogleAnalyticsService;
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         {
           provide: Router,
-          useValue: { events: { pipe: () => ({ subscribe: (callback: () => void) => callback() }) } },
+          useValue: {
+            events: {
+              pipe: () => ({ subscribe: (callback: () => void) => callback() }),
+            },
+          },
         },
         { provide: Title, useValue: { getTitle: () => 'Test Title' } },
       ],
