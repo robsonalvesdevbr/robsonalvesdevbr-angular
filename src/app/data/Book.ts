@@ -1,5 +1,5 @@
-import { PublishNameEnum } from '@path-app/models/PublishNameEnum'
-import { IBook } from '@path-interfaces/IBook'
+import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
+import { IBook } from '@path-interfaces/IBook';
 
 export const Books: IBook[] = [
   {
@@ -16,12 +16,14 @@ export const Books: IBook[] = [
   },
   {
     title: 'Inteligência Artificial e ChatGPT',
-    subtitle: 'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
+    subtitle:
+      'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
     author: ['Fabrício Carraro'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2023,
     tags: ['nosql-database'],
-    bookUrl: 'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
+    bookUrl:
+      'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
     pages: 223,
     progress: 0,
     favorite: false,
@@ -40,12 +42,14 @@ export const Books: IBook[] = [
   },
   {
     title: 'Engenharia de Prompt para Devs',
-    subtitle: 'Um guia para aprender a usar a IA antes que a IA aprenda a usar você',
+    subtitle:
+      'Um guia para aprender a usar a IA antes que a IA aprenda a usar você',
     author: ['Ricardo Pupo Larguesa'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2023,
     tags: ['artificial-intelligence'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-engenharia-de-prompt',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-engenharia-de-prompt',
     pages: 248,
     progress: 0,
     favorite: true,
@@ -57,7 +61,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2021,
     tags: ['software-development', 'javascript'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-javascript-assertivo',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-javascript-assertivo',
     pages: 366,
     progress: 0,
     favorite: true,
@@ -117,7 +122,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2021,
     tags: ['software-development', 'azure', 'microsoft'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-modernizacao-azure',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-modernizacao-azure',
     pages: 468,
     progress: 0,
     favorite: false,
@@ -165,7 +171,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2021,
     tags: ['software-development', 'csharp', 'microsoft'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-produtividade-csharp',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-produtividade-csharp',
     pages: 461,
     progress: 0,
     favorite: false,
@@ -189,7 +196,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2021,
     tags: ['software-development', 'javascript'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-cangaceiro-javascript',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-cangaceiro-javascript',
     pages: 502,
     progress: 0,
     favorite: true,
@@ -201,7 +209,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2019,
     tags: ['software-development', 'clojure'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-programacao-funcional-clojure',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-programacao-funcional-clojure',
     pages: 214,
     progress: 0,
     favorite: false,
@@ -237,7 +246,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2016,
     tags: ['software-development', 'microsoft'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-plataforma-microsoft',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-plataforma-microsoft',
     pages: 383,
     progress: 0,
     favorite: false,
@@ -261,7 +271,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
     tags: ['software-development', 'solid', 'design-pattern'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-design-paterns-csharp',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-design-paterns-csharp',
     pages: 163,
     progress: 0,
     favorite: true,
@@ -285,7 +296,8 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
     tags: ['software-development', '.net', 'csharp'],
-    bookUrl: 'https://www.casadocodigo.com.br/products/livro-programacao-funcional-net',
+    bookUrl:
+      'https://www.casadocodigo.com.br/products/livro-programacao-funcional-net',
     pages: 323,
     progress: 0,
     favorite: false,
@@ -304,36 +316,43 @@ export const Books: IBook[] = [
   },
   {
     title: 'High-Performance Programming in C# and .NET',
-    subtitle: 'Understand the nuts and bolts of developing robusts, faster, and resilient applications in C# 10.0 and .NET 6',
+    subtitle:
+      'Understand the nuts and bolts of developing robusts, faster, and resilient applications in C# 10.0 and .NET 6',
     author: ['Jason Alls'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2022,
     tags: ['software-development', 'csharp', '.net'],
-    bookUrl: 'https://www.packtpub.com/product/high-performance-programming-in-c-and-net/9781800564718',
+    bookUrl:
+      'https://www.packtpub.com/product/high-performance-programming-in-c-and-net/9781800564718',
     pages: 660,
     progress: 0,
     favorite: true,
   },
   {
     title: 'C# Data Structures and Algorithms',
-    subtitle: 'Explore the possibilities of C# for development a variety of efficient applications',
+    subtitle:
+      'Explore the possibilities of C# for development a variety of efficient applications',
     author: ['Marcin Jamro'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2018,
     tags: ['software-development', 'csharp', '.net'],
-    bookUrl: 'https://www.packtpub.com/product/c-data-structures-and-algorithms/9781788833738',
+    bookUrl:
+      'https://www.packtpub.com/product/c-data-structures-and-algorithms/9781788833738',
     pages: 292,
     progress: 0,
     favorite: true,
   },
   {
-    title: 'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
-    subtitle: 'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
+    title:
+      'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
+    subtitle:
+      'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
     author: ['Mark J. Price'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2021,
     tags: ['software-development', 'csharp', '.net'],
-    bookUrl: 'https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361',
+    bookUrl:
+      'https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361',
     pages: 826,
     progress: 0,
     favorite: true,
@@ -345,19 +364,23 @@ export const Books: IBook[] = [
     publishName: PublishNameEnum.Packts,
     publishYear: 2022,
     tags: ['software-development', 'csharp', '.net'],
-    bookUrl: 'https://www.packtpub.com/product/parallel-programming-and-concurrency-with-c-10-and-net-6/9781803243672',
+    bookUrl:
+      'https://www.packtpub.com/product/parallel-programming-and-concurrency-with-c-10-and-net-6/9781803243672',
     pages: 320,
     progress: 0,
     favorite: true,
   },
   {
-    title: 'Keycloak - Identity and Access Management for Modern Applications - Second Edition',
-    subtitle: 'Keycloak - Identity and Access Management for Modern Applications - Second Edition',
+    title:
+      'Keycloak - Identity and Access Management for Modern Applications - Second Edition',
+    subtitle:
+      'Keycloak - Identity and Access Management for Modern Applications - Second Edition',
     author: ['Stian Thorgersen', 'Pedro Igor Silva'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2023,
     tags: ['software-development', 'csharp', '.net'],
-    bookUrl: 'https://www.packtpub.com/product/keycloak-identity-and-access-management-for-modern-applications-second-edition/9781804616444',
+    bookUrl:
+      'https://www.packtpub.com/product/keycloak-identity-and-access-management-for-modern-applications-second-edition/9781804616444',
     pages: 350,
     progress: 0,
     favorite: true,
@@ -390,24 +413,28 @@ export const Books: IBook[] = [
   },
   {
     title: 'Lógica de Programação e Algoritmos com JavaScript – 2ª Edição',
-    subtitle: 'Uma introdução à programação de computadores com exemplos e exercícios para iniciantes',
+    subtitle:
+      'Uma introdução à programação de computadores com exemplos e exercícios para iniciantes',
     author: ['Edécio Fernando Iepsen'],
     publishName: PublishNameEnum.Novatec,
     publishYear: 2022,
     tags: ['software-development', 'javascript'],
-    bookUrl: 'https://novatec.com.br/livros/logica-programacao-algoritmos-com-javascript-2ed',
+    bookUrl:
+      'https://novatec.com.br/livros/logica-programacao-algoritmos-com-javascript-2ed',
     pages: 352,
     progress: 0,
     favorite: true,
   },
   {
     title: 'Estruturas de dados e algoritmos com JavaScript – 2ª Edição',
-    subtitle: 'Escreva um código JavaScript complexo e eficaz usando a mais recente ECMAScript',
+    subtitle:
+      'Escreva um código JavaScript complexo e eficaz usando a mais recente ECMAScript',
     author: ['Loiane Groner'],
     publishName: PublishNameEnum.Novatec,
     publishYear: 2019,
     tags: ['software-development', 'javascript'],
-    bookUrl: 'https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed',
+    bookUrl:
+      'https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed',
     pages: 408,
     progress: 0,
     favorite: true,
@@ -462,7 +489,8 @@ export const Books: IBook[] = [
   },
   {
     title: 'NoSQL',
-    subtitle: 'Um Guia Conciso para o Mundo Emergente da Persistência Poliglota',
+    subtitle:
+      'Um Guia Conciso para o Mundo Emergente da Persistência Poliglota',
     author: ['Martin Fowler', 'Pramod J. Sadalage'],
     publishName: PublishNameEnum.Novatec,
     publishYear: 2013,
@@ -484,4 +512,4 @@ export const Books: IBook[] = [
     progress: 100,
     favorite: true,
   },
-]
+];

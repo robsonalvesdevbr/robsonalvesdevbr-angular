@@ -1,45 +1,45 @@
-import { TestBed } from '@angular/core/testing'
-import { Courses } from '@path-data/Course'
-import { Graduations } from '@path-data/Graduation'
-import { Books } from '@path-data/Book'
-import { FormationCourses } from '@path-data/FormationCourse'
-import { Profile } from '@path-data/Profile'
-import { DataService } from './data-service'
+import { TestBed } from '@angular/core/testing';
+import { Courses } from '@path-data/Course';
+import { Graduations } from '@path-data/Graduation';
+import { Books } from '@path-data/Book';
+import { FormationCourses } from '@path-data/FormationCourse';
+import { Profile } from '@path-data/Profile';
+import { DataService } from './data-service';
 
 describe('DataService', () => {
-  let service: DataService
+  let service: DataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({})
-    service = TestBed.inject(DataService)
-  })
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(DataService);
+  });
 
   it('should be created', () => {
-    expect(service).toBeTruthy()
-  })
+    expect(service).toBeTruthy();
+  });
 
   it('should return the correct list of courses', () => {
-    const courses = service.getCourses()
-    expect(courses).toEqual(Courses)
-  })
+    const courses = service.getCourses();
+    expect(courses).toEqual(Courses);
+  });
 
   it('should return the correct list of graduations', () => {
-    const graduations = service.getGraduations()
-    expect(graduations).toEqual(Graduations)
-  })
+    const graduations = service.getGraduations();
+    expect(graduations).toEqual(Graduations);
+  });
 
   it('should return the correct list of books', () => {
-    const books = service.getBooks()
-    expect(books).toEqual(Books)
-  })
+    const books = service.getBooks();
+    expect(books).toEqual(Books);
+  });
 
   it('should return the correct list of formation courses', () => {
-    const formationCourses = service.getFormationCourses()
-    expect(formationCourses).toEqual(FormationCourses)
-  })
+    const formationCourses = service.getFormationCourses();
+    expect(formationCourses).toEqual(FormationCourses);
+  });
 
   it('should return the correct profile', () => {
-    const profile = service.getProfile()
-    expect(profile).toEqual(Profile)
-  })
-})
+    const profile = service.getProfile();
+    expect(profile).toEqual(Profile);
+  });
+});

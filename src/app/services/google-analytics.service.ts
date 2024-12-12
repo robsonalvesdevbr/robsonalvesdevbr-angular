@@ -1,27 +1,34 @@
-import { Injectable, inject } from '@angular/core'
-import { filter } from 'rxjs/operators'
-import { environment } from '@path-environments/environment'
-import { NavigationEnd, Router, Event } from '@angular/router'
-import { Title } from '@angular/platform-browser'
+import { Injectable, inject } from '@angular/core';
+import { filter } from 'rxjs/operators';
+import { environment } from '@path-environments/environment';
+import { NavigationEnd, Router, Event } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
-declare let gtag: any
+declare let gtag: any;
 
 @Injectable({
   providedIn: 'root',
 })
 export class GoogleAnalyticsService {
-  private readonly _router = inject(Router)
-  private readonly _title = inject(Title)
+  private readonly _router = inject(Router);
+  private readonly _title = inject(Title);
 
   constructor() {
-    this._initRouterEvents()
-    this.init()
+    this._initRouterEvents();
+    this.init();
   }
 
   private _initRouterEvents(): void {
-    this._router.events.pipe(filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
-      this._sendPageView()
-    })
+    this._router.events
+      .pipe(
+        filter(
+          (event: Event): event is NavigationEnd =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: NavigationEnd) => {
+        this._sendPageView();
+      });
   }
 
   private _sendPageView(): void {
@@ -37,25 +44,25 @@ export class GoogleAnalyticsService {
   }
 
   private init(): void {
-    this._injectAnalyticsScript()
-    this._injectGtagScript()
+    this._injectAnalyticsScript();
+    this._injectGtagScript();
   }
 
   private _injectAnalyticsScript(): void {
-    const script = document.createElement('script')
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${environment.googleAnalytics}`
-    script.async = true
-    document.getElementsByTagName('head')[0].appendChild(script)
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${environment.googleAnalytics}`;
+    script.async = true;
+    document.getElementsByTagName('head')[0].appendChild(script);
   }
 
   private _injectGtagScript(): void {
-    const gtagScript = document.createElement('script')
+    const gtagScript = document.createElement('script');
     const gtagBody = document.createTextNode(`
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-    `)
-    gtagScript.appendChild(gtagBody)
-    document.body.appendChild(gtagScript)
+    `);
+    gtagScript.appendChild(gtagBody);
+    document.body.appendChild(gtagScript);
   }
 
   trackPageView(url: string): void {
@@ -68,26 +75,32 @@ export class GoogleAnalyticsService {
     gtag('event', event, {
       event_category: category,
       event_label: label,
-    })
+    });
   }
 
-  logSet(campaign: string, id: string, source: string, name: string, term: string): void {
+  logSet(
+    campaign: string,
+    id: string,
+    source: string,
+    name: string,
+    term: string
+  ): void {
     gtag('set', campaign, {
       id: id,
       source: source,
       name: name,
       term: term,
-    })
+    });
   }
 
   logPageView(title: string): void {
     gtag('event', 'page_view', {
       page_title: title,
-    })
+    });
 
     gtag('event', 'screen_view', {
       app_name: 'robsonalves',
       screen_name: title,
-    })
+    });
   }
 }

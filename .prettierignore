@@ -2,3 +2,5 @@
 build
 coverage
 .browserslist
+/dist
+/node_modules

@@ -1,4 +1,4 @@
-import { IProfile } from '@path-interfaces/IProfile'
+import { IProfile } from '@path-interfaces/IProfile';
 
 export const Profile: IProfile = {
   name: 'Robson Candido dos Santos Alves',
@@ -13,4 +13,4 @@ export const Profile: IProfile = {
     ['Instagram', 'https://www.instagram.com/robsondesenvolvimento'],
     ['GitHub', 'https://github.com/robsonalvesdevbr'],
   ]),
-}
+};

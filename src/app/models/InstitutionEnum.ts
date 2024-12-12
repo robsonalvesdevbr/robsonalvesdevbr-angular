@@ -1,7 +1,7 @@
 export enum InstitutionEnum {
-    Alura = 'Alura',
-    DesenvolvedorIO = 'Desenvolvedor\u002eIO',
-    Udemy = 'Udemy',
-    LinkedinLearning = 'Linkedin Learning',
-    All = '',
+  Alura = 'Alura',
+  DesenvolvedorIO = 'Desenvolvedor\u002eIO',
+  Udemy = 'Udemy',
+  LinkedinLearning = 'Linkedin Learning',
+  All = '',
 }

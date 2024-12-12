@@ -4,7 +4,10 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Leituras</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre os meus livros&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-warning fs-7">{{ books.length }}</span>
+        Saiba mais sobre os meus livros&nbsp;&nbsp;&nbsp;&nbsp;<span
+          class="badge rounded-pill bg-warning fs-7"
+          >{{ books.length }}</span
+        >
       </h3>
     </div>
 
@@ -12,17 +15,43 @@
       <div>
         <div class="text-center bg-light bg-gradient">
           <div class="s">
-            <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group" id="group_label_book_institution">
-              <button type="button" class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start" (click)="clearFilters()" aria-label="Limpar Filtros" title="Limpar Filtros">
+            <fieldset
+              class="btn-group-sm"
+              role="group"
+              aria-label="Basic checkbox toggle button group"
+              id="group_label_book_institution"
+            >
+              <button
+                type="button"
+                class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start"
+                (click)="clearFilters()"
+                aria-label="Limpar Filtros"
+                title="Limpar Filtros"
+              >
                 Limpar Filtros
               </button>
 
               <b class="p-1 m-1">Filtrar Editora:</b>
-              @for (publishName of publishNameList | enumToArray | sortby: 'value' : 'asc'; track publishName.key) {
-                <input type="checkbox" class="btn-check" id="input_book_institution_{{ publishName.key }}" autocomplete="off" (click)="onClickIntitutionEvent($event)" />
-                <label class="btn btn-sm fontemenor p-1 ms-0" for="input_book_institution_{{ publishName.key }}" id="label_book_institution_{{ publishName.key }}" appHighlight>{{
-                  publishName.value
-                }}</label>
+              @for (
+                publishName of publishNameList
+                  | enumToArray
+                  | sortby: 'value' : 'asc';
+                track publishName.key
+              ) {
+                <input
+                  type="checkbox"
+                  class="btn-check"
+                  id="input_book_institution_{{ publishName.key }}"
+                  autocomplete="off"
+                  (click)="onClickIntitutionEvent($event)"
+                />
+                <label
+                  class="btn btn-sm fontemenor p-1 ms-0"
+                  for="input_book_institution_{{ publishName.key }}"
+                  id="label_book_institution_{{ publishName.key }}"
+                  appHighlight
+                  >{{ publishName.value }}</label
+                >
               }
             </fieldset>
           </div>
@@ -31,10 +60,20 @@
         <div>
           <div class="text-center bg-light bg-gradient">
             <div class="has-text-centered">
-              <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+              <fieldset
+                class="btn-group-sm"
+                role="group"
+                aria-label="Basic checkbox toggle button group"
+              >
                 <b class="p-1 m-1">Filtrar tag:</b>
                 @for (tag of getTags() | sortby: undefined : 'asc'; track tag) {
-                  <input type="checkbox" class="btn-check" id="input_book_tag_{{ tag | lowercase }}" autocomplete="off" (click)="onClickTagEvent($event)" />
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    id="input_book_tag_{{ tag | lowercase }}"
+                    autocomplete="off"
+                    (click)="onClickTagEvent($event)"
+                  />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"
                     for="input_book_tag_{{ tag | lowercase }}"
@@ -51,7 +90,9 @@
       </div>
     </div>
 
-    <div class="fontemenor12 pb-1" style="margin-left: 140px"><i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito</div>
+    <div class="fontemenor12 pb-1" style="margin-left: 140px">
+      <i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito
+    </div>
     <ul class="list-group list-group-light mb-4">
       @for (
         item of books
@@ -63,31 +104,59 @@
         track item;
         let i = $index
       ) {
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
           <div class="d-flex align-items-center ms-5">
-            <img ngSrc="assets/img/others/livro.jpg" alt="" width="60" height="60" class="rounded-circle" />
+            <img
+              ngSrc="assets/img/others/livro.jpg"
+              alt=""
+              width="60"
+              height="60"
+              class="rounded-circle"
+            />
             <div class="ms-3">
               <p class="fw-bold mb-0">
-                {{ item.title }} <i class="bi bi-star-fill fontemenor12" style="color: #ffc107" [hidden]="!item.favorite"></i>&nbsp;&nbsp;<span class="text-muted fontemenor11">
+                {{ item.title }}
+                <i
+                  class="bi bi-star-fill fontemenor12"
+                  style="color: #ffc107"
+                  [hidden]="!item.favorite"
+                ></i
+                >&nbsp;&nbsp;<span class="text-muted fontemenor11">
                   ( Publicado em {{ item.publishYear }} )</span
                 >
               </p>
-              <p class="text-muted fontemenor"><b>Subtitulo:</b> {{ item.subtitle }}</p>
-              <p class="text-muted fontemenor"><b>Editora: </b> {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b>Autor: </b> {{ item.author | printTags }}</p>
               <p class="text-muted fontemenor">
-                <b>Tags: </b> {{ item.tags | printTags }} &nbsp;<span class="text-muted fontemenor11"
+                <b>Subtitulo:</b> {{ item.subtitle }}
+              </p>
+              <p class="text-muted fontemenor">
+                <b>Editora: </b>
+                {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b>Autor: </b>
+                {{ item.author | printTags }}
+              </p>
+              <p class="text-muted fontemenor">
+                <b>Tags: </b> {{ item.tags | printTags }} &nbsp;<span
+                  class="text-muted fontemenor11"
                   >&nbsp;&nbsp;&nbsp;<a
                     [href]="item.bookUrl"
                     target="_blank"
                     rel="noopener noreferrer"
-                    [appGoogleAnalytics]="{ eventName: 'click_book', category: 'link_book', label: item.title, logType: 'link' }"
+                    [appGoogleAnalytics]="{
+                      eventName: 'click_book',
+                      category: 'link_book',
+                      label: item.title,
+                      logType: 'link',
+                    }"
                     >Mais detalhes</a
                   ></span
                 >
               </p>
             </div>
           </div>
-          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+          <span
+            class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger"
+          >
             {{ absoluteIndex(i) }}
             <span class="visually-hidden">unread messages</span>
           </span>
@@ -96,7 +165,10 @@
     </ul>
     <div class="text-center">
       <div class="has-text-centered">
-        <pagination-controls (pageChange)="onPageChange($event)" id="booksPag"></pagination-controls>
+        <pagination-controls
+          (pageChange)="onPageChange($event)"
+          id="booksPag"
+        ></pagination-controls>
       </div>
     </div>
   </div>
