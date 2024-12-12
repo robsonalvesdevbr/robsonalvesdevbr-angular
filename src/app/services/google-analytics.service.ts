@@ -4,7 +4,7 @@ import { environment } from '@path-environments/environment';
 import { NavigationEnd, Router, Event } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-declare let gtag: any;
+declare let gtag: (command: string, ...args: (string | object)[]) => void;
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class GoogleAnalyticsService {
             event instanceof NavigationEnd
         )
       )
-      .subscribe((event: NavigationEnd) => {
+      .subscribe(() => {
         this._sendPageView();
       });
   }

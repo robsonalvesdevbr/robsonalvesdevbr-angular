@@ -110,7 +110,7 @@ describe('CourseComponent', () => {
 
   it('should delete id from coursesFilter on onClickIntitutionEvent', () => {
     const id = 'Alura';
-    var institutionId = InstitutionEnum[id as keyof typeof InstitutionEnum];
+    const institutionId = InstitutionEnum[id as keyof typeof InstitutionEnum];
     component.coursesFilter().add(institutionId);
     const event = new MouseEvent('click', { bubbles: true, cancelable: true });
     Object.defineProperty(event, 'target', {

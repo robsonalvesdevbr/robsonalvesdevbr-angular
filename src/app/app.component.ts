@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavigationComponent } from './components/pages/navigation/navigation.component';
 import { MasterheadComponent } from './components/pages/masterhead/masterhead.component';
 import { AboutComponent } from './components/pages/about/about.component';

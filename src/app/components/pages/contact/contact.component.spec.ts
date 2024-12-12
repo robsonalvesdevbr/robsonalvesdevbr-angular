@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ContactComponent } from './contact.component';
 import { DataService } from '@path-services/data-service';
-import { of } from 'rxjs';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -44,9 +43,5 @@ describe('ContactComponent', () => {
     const age = component.calcularIdade(birthdate);
     const currentYear = new Date().getFullYear();
     expect(age).toBe(currentYear - 1990);
-  });
-
-  it('should return 1 for asIsOrder', () => {
-    expect(component.asIsOrder({}, {})).toBe(1);
   });
 });

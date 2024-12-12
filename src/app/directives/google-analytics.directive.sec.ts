@@ -7,7 +7,6 @@ import { IAnalyticsOption } from '@path-interfaces/IAnalyticsOption';
 
 @Component({
   template: `<button [appGoogleAnalytics]="option">Test Button</button>`,
-  standalone: false,
 })
 class TestComponent {
   option: IAnalyticsOption = {
@@ -32,8 +31,8 @@ describe('GoogleAnalyticsDirective', () => {
     ]);
 
     TestBed.configureTestingModule({
-      imports: [GoogleAnalyticsDirective], // Mudança para 'imports' ao invés de 'declarations'
-      declarations: [TestComponent],
+      imports: [GoogleAnalyticsDirective], // Adiciona a diretiva standalone em `imports`
+      declarations: [TestComponent], // `TestComponent` não é standalone, portanto permanece em `declarations`
       providers: [{ provide: GoogleAnalyticsService, useValue: gaServiceSpy }],
     });
 

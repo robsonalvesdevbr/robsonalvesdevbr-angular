@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookComponent } from './book.component';
 import { DataService } from '@path-services/data-service';
-import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from '@path-pipes/filter.pipe';
