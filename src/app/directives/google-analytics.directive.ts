@@ -4,7 +4,6 @@ import { GoogleAnalyticsService } from '@path-services/google-analytics.service'
 
 @Directive({
   selector: '[appGoogleAnalytics]',
-  standalone: true,
 })
 export class GoogleAnalyticsDirective {
   @Input('appGoogleAnalytics') option!: IAnalyticsOption;
@@ -12,7 +11,7 @@ export class GoogleAnalyticsDirective {
   private readonly _gaService = inject(GoogleAnalyticsService);
 
   @HostListener('click', ['$event'])
-  onClick(event: Event): void {
+  onClick(): void {
     const eventName = this.option.eventName;
     const category = this.option.category;
     const label = this.option.label;

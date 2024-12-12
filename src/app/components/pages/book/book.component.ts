@@ -98,12 +98,14 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   onClickIntitutionEvent(e: MouseEvent) {
-    let link = e.target as HTMLInputElement;
-    let id = link.id.replace('input_book_institution_', '');
+    const link = e.target as HTMLInputElement;
+    const id = link.id.replace('input_book_institution_', '');
 
-    this.publishNameFilter().has(id)
-      ? this.publishNameFilter().delete(id)
-      : this.publishNameFilter().add(id);
+    if (this.publishNameFilter().has(id)) {
+      this.publishNameFilter().delete(id);
+    } else {
+      this.publishNameFilter().add(id);
+    }
     this.selectInstitutionsFilter.set(
       Array.from(this.publishNameFilter().values()).join(',')
     );
@@ -112,12 +114,14 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   onClickTagEvent(e: MouseEvent) {
-    let link = e.target as HTMLInputElement;
-    let id = link.id.replace('input_book_tag_', '');
+    const link = e.target as HTMLInputElement;
+    const id = link.id.replace('input_book_tag_', '');
 
-    this.tagsFilter().has(id)
-      ? this.tagsFilter().delete(id)
-      : this.tagsFilter().add(id);
+    if (this.tagsFilter().has(id)) {
+      this.tagsFilter().delete(id);
+    } else {
+      this.tagsFilter().add(id);
+    }
     this.selectTagFilter.set(Array.from(this.tagsFilter().values()).join(','));
   }
 }

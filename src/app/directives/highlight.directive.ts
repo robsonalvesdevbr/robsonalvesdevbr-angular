@@ -12,7 +12,7 @@ export class HighlightDirective {
   @HostListener('mouseleave') onMouseLeave() {
     this.highlight('btn-light', false);
   }
-  private highlight(color: string, visibility: boolean = true) {
+  private highlight(color: string, visibility = true) {
     if (visibility) {
       this.el.nativeElement.classList.add(color);
       this.el.nativeElement.addEventListener('keypress', () => {

@@ -18,7 +18,7 @@ describe('ImgcursoPipe', () => {
   });
 
   it('should return default image for unknown course', () => {
-    const result = pipe.transform('Unknown' as any);
+    const result = pipe.transform('Unknown' as InstitutionEnum);
     expect(result).toBe('default.jpg');
   });
 });

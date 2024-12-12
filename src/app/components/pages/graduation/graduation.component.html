@@ -17,7 +17,7 @@
         track graduation;
         let i = $index
       ) {
-        <li [ngClass]="{ 'timeline-inverted': i % 2 != 0 }" class="mb-5">
+        <li [ngClass]="{ 'timeline-inverted': i % 2 !== 0 }" class="mb-5">
           <div class="timeline-image">
             <img
               class="rounded-circle img-fluid"

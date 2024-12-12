@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormationCourseComponent } from './formationcourse.component';
 import { DataService } from '@path-services/data-service';
-import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive';

@@ -94,14 +94,16 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   onClickIntitutionEvent(e: MouseEvent) {
-    let link = e.target as HTMLInputElement;
-    let id = link.id.replace('input_course_institution_', '');
+    const link = e.target as HTMLInputElement;
+    const id = link.id.replace('input_course_institution_', '');
 
-    var institution = InstitutionEnum[id as keyof typeof InstitutionEnum];
+    const institution = InstitutionEnum[id as keyof typeof InstitutionEnum];
 
-    this.coursesFilter().has(institution)
-      ? this.coursesFilter().delete(institution)
-      : this.coursesFilter().add(institution);
+    if (this.coursesFilter().has(institution)) {
+      this.coursesFilter().delete(institution);
+    } else {
+      this.coursesFilter().add(institution);
+    }
     this.selectInstitutionsFilter.set(
       Array.from(this.coursesFilter().values()).join(',')
     );
@@ -110,12 +112,14 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   onClickTagEvent(e: MouseEvent) {
-    let link = e.target as HTMLInputElement;
-    let id = link.id.replace('input_course_tag_', '');
+    const link = e.target as HTMLInputElement;
+    const id = link.id.replace('input_course_tag_', '');
 
-    this.tagsFilter().has(id)
-      ? this.tagsFilter().delete(id)
-      : this.tagsFilter().add(id);
+    if (this.tagsFilter().has(id)) {
+      this.tagsFilter().delete(id);
+    } else {
+      this.tagsFilter().add(id);
+    }
     this.selectTagFilter.set(Array.from(this.tagsFilter().keys()).join(','));
   }
 }

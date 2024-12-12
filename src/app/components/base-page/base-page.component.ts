@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BasePageComponent {
-  @Input({ required: false }) bglight: boolean = false;
+  @Input({ required: false }) bglight = false;
 
   // HACK: This is a workaround for the issue with the `ngClass` directive
   currentClass = () => {

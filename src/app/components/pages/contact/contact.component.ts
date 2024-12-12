@@ -16,7 +16,7 @@ export class ContactComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
   profiles = this.dataService.getProfile();
 
-  asIsOrder = (a: any, b: any): number => 1;
+  asIsOrder = (): number => 1;
 
   calcularIdade = (nascimento: Date): number => {
     const idadeDifMs = Date.now() - nascimento.getTime();
