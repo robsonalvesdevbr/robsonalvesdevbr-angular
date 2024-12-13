@@ -3,7 +3,14 @@ module.exports = {
   ignorePatterns: ['node_modules/*', 'dist/*'],
   overrides: [
     {
-      files: ['src/**/*.ts'],
+      files: [
+        'src/**/*.ts',
+        '.eslintrc.js',
+        'angular.json',
+        'tsconfig.json',
+        '.prettierrc',
+        'karma.conf.js',
+      ],
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
@@ -36,7 +43,10 @@ module.exports = {
     },
     {
       files: ['src/**/*.html'],
-      extends: ['plugin:@angular-eslint/template/recommended', 'plugin:prettier/recommended'],
+      extends: [
+        'plugin:@angular-eslint/template/recommended',
+        'plugin:prettier/recommended',
+      ],
       rules: {
         'prettier/prettier': [
           'error',
