@@ -8,7 +8,7 @@ export class SortbyPipe implements PipeTransform {
   transform<T>(
     array: T[],
     field?: keyof T,
-    order: 'asc' | 'desc' = 'asc'
+    order: 'asc' | 'desc' = 'asc',
   ): T[] {
     if (!Array.isArray(array)) {
       return array;
@@ -23,7 +23,7 @@ export class SortbyPipe implements PipeTransform {
 
   private getSortFn<T>(
     field?: keyof T,
-    order: 'asc' | 'desc' = 'asc'
+    order: 'asc' | 'desc' = 'asc',
   ): (a: T, b: T) => number {
     return (a: T, b: T): number => {
       const comparison = this.compareValues(a, b, field);
@@ -54,7 +54,7 @@ export class SortbyPipe implements PipeTransform {
   // Dica: use o método sort do array
   sortString(array: string[], order: 'asc' | 'desc'): string[] {
     return array.sort((a, b) =>
-      order === 'asc' ? a.localeCompare(b) : b.localeCompare(a)
+      order === 'asc' ? a.localeCompare(b) : b.localeCompare(a),
     );
   }
 }
