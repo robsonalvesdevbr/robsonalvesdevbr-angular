@@ -77,7 +77,7 @@ describe('FilterPipe', () => {
       data,
       'string',
       'category',
-      'fiction,adventure',
+      'fiction,adventure'
     );
     expect(result.length).toBe(2);
     expect(result).toEqual([

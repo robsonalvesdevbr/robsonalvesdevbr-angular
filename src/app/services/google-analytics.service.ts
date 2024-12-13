@@ -23,8 +23,8 @@ export class GoogleAnalyticsService {
       .pipe(
         filter(
           (event: Event): event is NavigationEnd =>
-            event instanceof NavigationEnd,
-        ),
+            event instanceof NavigationEnd
+        )
       )
       .subscribe(() => {
         this._sendPageView();
@@ -83,7 +83,7 @@ export class GoogleAnalyticsService {
     id: string,
     source: string,
     name: string,
-    term: string,
+    term: string
   ): void {
     gtag('set', campaign, {
       id: id,

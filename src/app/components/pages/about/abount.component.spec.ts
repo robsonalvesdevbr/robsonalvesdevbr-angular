@@ -20,8 +20,8 @@ describe('AbountComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
       compiled.querySelector(
-        'div.container div.text-center h3.section-subheading.text-muted',
-      )?.textContent,
+        'div.container div.text-center h3.section-subheading.text-muted'
+      )?.textContent
     ).toBe(' Saiba mais sobre minha carreira. ');
   });
 });

@@ -31,7 +31,7 @@ export class GoogleAnalyticsDirective {
         'robsonalves',
         'azure',
         'black_friday_promotion',
-        campaignData,
+        campaignData
       );
     }
   }

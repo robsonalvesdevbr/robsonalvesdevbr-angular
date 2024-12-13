@@ -44,12 +44,12 @@ export class BookComponent extends BasePageComponent implements OnInit {
   tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
 
   publishNameFilter: WritableSignal<Set<string>> = signal<Set<string>>(
-    new Set<string>(),
+    new Set<string>()
   );
   selectInstitutionsFilter: WritableSignal<string> = signal<string>('');
 
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(
-    new Set<string>(),
+    new Set<string>()
   );
   selectTagFilter: WritableSignal<string> = signal<string>('');
 
@@ -62,7 +62,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   ngOnInit(): void {
     //this.books.forEach((book) => this.publishNameList().add(book.publishName.trim()))
     this.books.forEach((book) =>
-      book.tags.forEach((tag) => this.tags().add(tag.trim())),
+      book.tags.forEach((tag) => this.tags().add(tag.trim()))
     );
   }
 
@@ -107,7 +107,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
       this.publishNameFilter().add(id);
     }
     this.selectInstitutionsFilter.set(
-      Array.from(this.publishNameFilter().values()).join(','),
+      Array.from(this.publishNameFilter().values()).join(',')
     );
 
     this.config().currentPage = 1;
