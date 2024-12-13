@@ -43,10 +43,10 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
 
-  publishNameFilter: WritableSignal<Set<string>> = signal<Set<string>>(
-    new Set<string>()
+  publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<Set<PublishNameEnum>>(
+    new Set<PublishNameEnum>()
   );
-  selectInstitutionsFilter: WritableSignal<string> = signal<string>('');
+  selectPublishNameFilter: WritableSignal<string> = signal<string>('');
 
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(
     new Set<string>()
@@ -92,7 +92,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     });
 
     this.publishNameFilter().clear();
-    this.selectInstitutionsFilter.set('');
+    this.selectPublishNameFilter.set('');
     this.tagsFilter().clear();
     this.selectTagFilter.set('');
   }
@@ -101,12 +101,14 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const link = e.target as HTMLInputElement;
     const id = link.id.replace('input_book_institution_', '');
 
-    if (this.publishNameFilter().has(id)) {
-      this.publishNameFilter().delete(id);
+    const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
+
+    if (this.publishNameFilter().has(publishName)) {
+      this.publishNameFilter().delete(publishName);
     } else {
-      this.publishNameFilter().add(id);
+      this.publishNameFilter().add(publishName);
     }
-    this.selectInstitutionsFilter.set(
+    this.selectPublishNameFilter.set(
       Array.from(this.publishNameFilter().values()).join(',')
     );
 
