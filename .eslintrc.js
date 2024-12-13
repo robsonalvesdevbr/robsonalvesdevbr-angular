@@ -3,7 +3,7 @@ module.exports = {
   ignorePatterns: ['**/*'],
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['src/**/*.ts'],
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
@@ -35,7 +35,7 @@ module.exports = {
       },
     },
     {
-      files: ['*.html'],
+      files: ['src/**/*.html'],
       extends: [
         'plugin:@angular-eslint/template/recommended',
         'plugin:prettier/recommended',
