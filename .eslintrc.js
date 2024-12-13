@@ -38,6 +38,8 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    rules: {},
+    rules: {
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    },
   }
 );
