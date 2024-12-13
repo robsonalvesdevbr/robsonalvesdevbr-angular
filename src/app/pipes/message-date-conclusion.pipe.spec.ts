@@ -25,7 +25,7 @@ describe('MessageDateConclusionPipe', () => {
 
   it('should return "Estado desconhecido" when conclusionStatus is not "completed", "locked" or "inprogress"', () => {
     expect(pipe.transform('unknown' as 'completed')).toBe(
-      'Estado desconhecido',
+      'Estado desconhecido'
     );
   });
 });

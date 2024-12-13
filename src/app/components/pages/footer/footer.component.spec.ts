@@ -19,7 +19,7 @@ describe('FooterComponent', () => {
     //fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('div.container')?.textContent).toContain(
-      'Terms of Use',
+      'Terms of Use'
     );
   });
 });

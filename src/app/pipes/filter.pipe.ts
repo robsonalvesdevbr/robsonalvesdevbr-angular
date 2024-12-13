@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
     data: any[],
     typeField: 'string' | 'array',
     filterProperty: any,
-    filter: string,
+    filter: string
   ): any[] {
     const filterLowerCase = filter.toLowerCase().split(',');
 
@@ -18,7 +18,7 @@ export class FilterPipe implements PipeTransform {
         return filterLowerCase.includes(field.toLowerCase());
       } else {
         return (field as string[]).some((f) =>
-          filterLowerCase.includes(f.toLowerCase()),
+          filterLowerCase.includes(f.toLowerCase())
         );
       }
     };

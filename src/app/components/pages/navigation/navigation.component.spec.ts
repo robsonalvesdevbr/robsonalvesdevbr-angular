@@ -19,22 +19,22 @@ describe('NavigationComponent', () => {
     //fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain(
-      'Sobre',
+      'Sobre'
     );
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain(
-      '(Pós)Graduação',
+      '(Pós)Graduação'
     );
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain(
-      'Cursos',
+      'Cursos'
     );
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain(
-      'Formação',
+      'Formação'
     );
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain(
-      'Leituras',
+      'Leituras'
     );
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain(
-      'Contato',
+      'Contato'
     );
   });
 });

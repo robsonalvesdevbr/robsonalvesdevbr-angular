@@ -49,11 +49,11 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     Set<InstitutionEnum>
   >(new Set<InstitutionEnum>());
   selectInstitutionsFilter: WritableSignal<string> = signal<string>(
-    InstitutionEnum.All,
+    InstitutionEnum.All
   );
 
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(
-    new Set<string>(),
+    new Set<string>()
   );
   selectTagFilter: WritableSignal<string> = signal<string>('');
 
@@ -65,7 +65,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.courses.forEach((course) =>
-      course.tags.forEach((tag) => this.tags().add(tag.trim())),
+      course.tags.forEach((tag) => this.tags().add(tag.trim()))
     );
   }
 
@@ -105,7 +105,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       this.coursesFilter().add(institution);
     }
     this.selectInstitutionsFilter.set(
-      Array.from(this.coursesFilter().values()).join(','),
+      Array.from(this.coursesFilter().values()).join(',')
     );
 
     this.config().currentPage = 1;
