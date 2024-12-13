@@ -1,4 +1,4 @@
-import { IGraduation } from '@path-interfaces/IGraduation'
+import { IGraduation } from '@path-interfaces/IGraduation';
 
 export const Graduations: IGraduation[] = [
   {
@@ -29,4 +29,4 @@ export const Graduations: IGraduation[] = [
     conclusion: 'inprogress',
     websiteInstituition: 'https://fullcycle.com.br/',
   },
-]
+];

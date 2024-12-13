@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-placeholder',
   imports: [],
   templateUrl: './placeholder.component.html',
-  styleUrl: './placeholder.component.scss'
+  styleUrl: './placeholder.component.scss',
 })
-export class PlaceholderComponent {
-
-}
+export class PlaceholderComponent {}

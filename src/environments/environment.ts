@@ -1,1 +1,4 @@
-export const environment = { production: true, googleAnalytics: 'G-C87C8LHVSZ' }
+export const environment = {
+  production: true,
+  googleAnalytics: 'G-C87C8LHVSZ',
+};
