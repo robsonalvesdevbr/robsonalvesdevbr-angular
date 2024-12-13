@@ -50,7 +50,7 @@ describe('GoogleAnalyticsDirective', () => {
     expect(gaService.logEvent).toHaveBeenCalledWith(
       'click_event',
       'button',
-      'test_button'
+      'test_button',
     );
   });
 
@@ -72,7 +72,7 @@ describe('GoogleAnalyticsDirective', () => {
       'robsonalves',
       'azure',
       'black_friday_promotion',
-      'button+test_button'
+      'button+test_button',
     );
   });
 

@@ -20,8 +20,8 @@ describe('GraduationComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
       compiled.querySelector(
-        'div.container div.text-center h2.section-heading.text-uppercase'
-      )?.textContent
+        'div.container div.text-center h2.section-heading.text-uppercase',
+      )?.textContent,
     ).toBe('(Pós)Graduação');
   });
 });

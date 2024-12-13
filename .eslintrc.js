@@ -1,56 +1,56 @@
 module.exports = {
-  "root": true,
-  "overrides": [
+  root: true,
+  ignorePatterns: ['**/*'],
+  overrides: [
     {
-      "files": ["*.ts"],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:prettier/recommended"
+      files: ['*.ts'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@angular-eslint/recommended',
+        'plugin:prettier/recommended',
       ],
-      "parserOptions": {
-        "project": ["tsconfig.json"],
-        "createDefaultProgram": true
+      parserOptions: {
+        project: ['tsconfig.json'],
+        createDefaultProgram: true,
       },
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
+      rules: {
+        '@angular-eslint/directive-selector': [
+          'error',
           {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
+            type: 'attribute',
+            prefix: 'app',
+            style: 'camelCase',
+          },
         ],
-        "@angular-eslint/component-selector": [
-          "error",
+        '@angular-eslint/component-selector': [
+          'error',
           {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          },          
+            type: 'element',
+            prefix: 'app',
+            style: 'kebab-case',
+          },
         ],
-        "prettier/prettier": ["error", { endOfLine: "auto" }],
-      }
+        'prettier/prettier': ['error', { endOfLine: 'auto' }],
+      },
     },
     {
-      "files": ["*.html"],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:prettier/recommended"
+      files: ['*.html'],
+      extends: [
+        'plugin:@angular-eslint/template/recommended',
+        'plugin:prettier/recommended',
       ],
-      "rules": {
-        "prettier/prettier": [
-          "error",
+      rules: {
+        'prettier/prettier': [
+          'error',
           {
-            "parser": "angular"
-          }
-        ]
-      }
-    }
-  ]
+            parser: 'angular',
+          },
+        ],
+      },
+    },
+  ],
 };
-
 
 // // @ts-check
 // const eslint = require("@eslint/js");

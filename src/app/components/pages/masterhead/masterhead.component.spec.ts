@@ -20,7 +20,7 @@ describe('MasterheadComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
       compiled.querySelector('div.container div.masthead-subheading')
-        ?.textContent
+        ?.textContent,
     ).toBe('Bem vindo ao meu Website');
   });
 });
