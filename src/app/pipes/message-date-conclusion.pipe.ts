@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core'
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'messageDateConclusion',
@@ -7,29 +7,29 @@ import { Pipe, PipeTransform } from '@angular/core'
 export class MessageDateConclusionPipe implements PipeTransform {
   transform(conclusionStatus: 'completed' | 'locked' | 'inprogress'): string {
     if (conclusionStatus === 'completed') {
-      return this.getCompletedMessage()
+      return this.getCompletedMessage();
     } else if (conclusionStatus === 'locked') {
-      return this.getLockedMessage()
+      return this.getLockedMessage();
     } else if (conclusionStatus === 'inprogress') {
-      return this.getInProgressMessage()
+      return this.getInProgressMessage();
     } else {
-      return this.getDefaultMessage()
+      return this.getDefaultMessage();
     }
   }
 
   private getCompletedMessage(): string {
-    return 'Concluído'
+    return 'Concluído';
   }
 
   private getLockedMessage(): string {
-    return 'Trancado'
+    return 'Trancado';
   }
 
   private getInProgressMessage(): string {
-    return 'Em andamento'
+    return 'Em andamento';
   }
 
   private getDefaultMessage(): string {
-    return 'Estado desconhecido'
+    return 'Estado desconhecido';
   }
 }
