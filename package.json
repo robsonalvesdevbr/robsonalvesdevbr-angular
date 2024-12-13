@@ -14,8 +14,9 @@
     "test-coverage": "ng test --no-watch --code-coverage",
     "prettier-write": "prettier . --write",
     "prettier-check": "prettier . --check",
-    "lint": "ng lint",
-    "format": "prettier --write \"src/**/*.{ts,html,scss}\""
+    "lint": "ng lint --fix",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "lint_format": "npm run lint && npm run format"
   },
   "private": true,
   "dependencies": {
