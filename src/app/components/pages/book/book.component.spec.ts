@@ -101,7 +101,7 @@ describe('BookComponent', () => {
     component.tagsFilter().add('Tag1');
     component.clearFilters();
     expect(component.publishNameFilter().size).toBe(0);
-    expect(component.selectInstitutionsFilter()).toBe('');
+    expect(component.selectPublishNameFilter()).toBe('');
     expect(component.tagsFilter().size).toBe(0);
     expect(component.selectTagFilter()).toBe('');
   });
@@ -112,7 +112,7 @@ describe('BookComponent', () => {
     } as unknown as MouseEvent;
     component.onClickIntitutionEvent(event);
     expect(component.publishNameFilter().has('Publisher 1')).toBeTrue();
-    expect(component.selectInstitutionsFilter()).toBe('Publisher 1');
+    expect(component.selectPublishNameFilter()).toBe('Publisher 1');
   });
 
   it('should handle tag click event', () => {
