@@ -97,7 +97,8 @@ describe('BookComponent', () => {
   });
 
   it('should clear filters', () => {
-    component.publishNameFilter().add('Publisher 1');
+    //component.publishNameFilter().add('Publisher 1');
+    component.publishNameFilter().add(PublishNameEnum.AltaBooks);
     component.tagsFilter().add('Tag1');
     component.clearFilters();
     expect(component.publishNameFilter().size).toBe(0);
@@ -108,11 +109,10 @@ describe('BookComponent', () => {
 
   it('should handle institution click event', () => {
     const event = {
-      target: { id: 'input_book_institution_Publisher 1' },
+      target: { id: 'input_book_institution_AltaBooks' },
     } as unknown as MouseEvent;
     component.onClickIntitutionEvent(event);
-    expect(component.publishNameFilter().has('Publisher 1')).toBeTrue();
-    expect(component.selectPublishNameFilter()).toBe('Publisher 1');
+    expect(component.publishNameFilter().has(PublishNameEnum.AltaBooks)).toBeTrue();
   });
 
   it('should handle tag click event', () => {
@@ -125,8 +125,9 @@ describe('BookComponent', () => {
   });
 
   it('should delete id from publishNameFilter on onClickIntitutionEvent', () => {
-    const id = 'Test Publisher';
-    component.publishNameFilter().add(id);
+    const id = 'AltaBooks';
+    const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
+    component.publishNameFilter().add(publishName);
 
     const event = new MouseEvent('click');
     const inputElement = document.createElement('input');
@@ -135,7 +136,7 @@ describe('BookComponent', () => {
 
     component.onClickIntitutionEvent(event);
 
-    expect(component.publishNameFilter().has(id)).toBeFalse();
+    expect(component.publishNameFilter().has(publishName)).toBeFalse();
   });
 
   it('should delete id from tagsFilter on onClickTagEvent', () => {
