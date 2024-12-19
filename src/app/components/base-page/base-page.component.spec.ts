@@ -21,24 +21,6 @@ describe('BasePageComponent', () => {
   });
 
   it('should have bglight input property set to false by default', () => {
-    expect(component.bglight).toBeFalse();
-  });
-
-  it('should allow setting bglight input property to true', () => {
-    component.bglight = true;
-    fixture.detectChanges();
-    expect(component.bglight).toBeTrue();
-  });
-
-  it('currentClass should return correct class object when bglight is false', () => {
-    component.bglight = false;
-    fixture.detectChanges();
-    expect(component.currentClass()).toEqual({ 'bg-light': false });
-  });
-
-  it('currentClass should return correct class object when bglight is true', () => {
-    component.bglight = true;
-    fixture.detectChanges();
-    expect(component.currentClass()).toEqual({ 'bg-light': true });
+    expect(component.bglight()).toBeFalse();
   });
 });

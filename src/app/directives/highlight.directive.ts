@@ -9,9 +9,11 @@ export class HighlightDirective {
   @HostListener('mouseenter') onMouseEnter() {
     this.highlight('btn-light');
   }
+  
   @HostListener('mouseleave') onMouseLeave() {
     this.highlight('btn-light', false);
   }
+
   private highlight(color: string, visibility = true) {
     if (visibility) {
       this.el.nativeElement.classList.add(color);
