@@ -18,9 +18,16 @@ export class ContactComponent extends BasePageComponent {
 
   asIsOrder = (): number => 1;
 
-  calcularIdade = (nascimento: Date): number => {
-    const idadeDifMs = Date.now() - nascimento.getTime();
-    const idadeData = new Date(idadeDifMs);
-    return idadeData.getUTCFullYear() - 1970;
+  // Escreva uma funcáo que retorne a idade de uma pessoa com base na data de nascimento
+  calcularIdade = (birthDate: Date): number => {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const month = today.getMonth() - birth.getMonth();
+    if (month < 0 || (month === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
   };
+
 }
