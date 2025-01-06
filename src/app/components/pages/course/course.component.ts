@@ -120,6 +120,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     } else {
       this.tagsFilter().add(id);
     }
-    this.selectTagFilter.set(Array.from(this.tagsFilter().keys()).join(','));
+    this.selectTagFilter.set([...this.tagsFilter().keys()].join(','));
   }
 }

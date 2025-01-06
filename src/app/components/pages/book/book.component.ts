@@ -124,6 +124,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
     } else {
       this.tagsFilter().add(id);
     }
-    this.selectTagFilter.set(Array.from(this.tagsFilter().values()).join(','));
+    this.selectTagFilter.set([...this.tagsFilter().values()].join(','));
   }
 }
