@@ -41,7 +41,12 @@ describe('ContactComponent', () => {
   it('should calculate age correctly', () => {
     const birthdate = new Date(1990, 1, 1);
     const age = component.calcularIdade(birthdate);
-    const currentYear = new Date().getFullYear();
-    expect(age).toBe(currentYear - 1990);
+    const currentYear = new Date();
+    const month = currentYear.getMonth() - birthdate.getMonth();
+    let ageCalc = currentYear.getFullYear() - birthdate.getFullYear();
+    if (month < 0 || (month === 0 && currentYear.getDate() < birthdate.getDate())) {
+      ageCalc--;
+    }
+    expect(age).toBe(ageCalc);
   });
 });
