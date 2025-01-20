@@ -323,6 +323,15 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-11-6'),
     favorite: true,
   },
+  {
+    name: 'Clean Architecture Essencial - ASP .NET Core com C#',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-37e332de-70b6-4294-b953-f747172c4518',
+    tags: ['software-development', 'microsoft', 'csharp', '.net', 'architecture'],
+    conclusion: new Date('2025-1-20'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
