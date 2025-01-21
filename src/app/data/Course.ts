@@ -332,6 +332,15 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2025-1-20'),
     favorite: true,
   },
+  {
+    name: 'Monitoramento de aplicações com Prometheus e Grafana',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-a1e66e01-520e-4c9e-a931-120b75acb7f5',
+    tags: ['software-development', 'monitoring', 'prometheus', 'grafana', 'devops'],
+    conclusion: new Date('2025-1-21'),
+    favorite: false,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
