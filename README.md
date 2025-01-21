@@ -68,6 +68,8 @@ npm update
 npm install -g npm-check-updates
 ncu -u
 
+ng g @angular/core:cleanup-unused-imports
+
 ```
 
 ## Prettier & Eslint
