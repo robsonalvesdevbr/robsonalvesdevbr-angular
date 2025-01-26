@@ -341,6 +341,15 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2025-1-21'),
     favorite: false,
   },
+  {
+    name: 'Modelagem Arquitetural - C4 Model',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-37ac22f0-151d-4cbc-9e95-8199b454a7d6',
+    tags: ['software-development', 'architecture', 'c4model'],
+    conclusion: new Date('2025-1-25'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
