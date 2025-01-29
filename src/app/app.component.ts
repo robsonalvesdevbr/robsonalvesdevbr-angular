@@ -10,6 +10,7 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { FooterComponent } from './components/pages/footer/footer.component';
 import { PlaceholderComponent } from '@path-components/utils/placeholder/placeholder.component';
 import { LoadingComponent } from '@path-components/utils/loading/loading.component';
+import { NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ import { LoadingComponent } from '@path-components/utils/loading/loading.compone
     FooterComponent,
     PlaceholderComponent,
     LoadingComponent,
+    NgxGoogleAnalyticsModule
   ],
   templateUrl: './app.component.html',
 })
