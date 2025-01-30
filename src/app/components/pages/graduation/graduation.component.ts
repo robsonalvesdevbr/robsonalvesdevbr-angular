@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -14,7 +13,6 @@ import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
     CommonModule,
     MessageDateConclusionPipe,
     NgxPaginationModule,
-    GoogleAnalyticsDirective,
     SortbyPipe,
     NgOptimizedImage,
   ],

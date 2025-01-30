@@ -3,7 +3,6 @@ import { FormationCourseComponent } from './formationcourse.component';
 import { DataService } from '@path-services/data-service';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
@@ -54,7 +53,6 @@ describe('FormationCourseComponent', () => {
         MessageDateConclusionPipe,
         PrintTagsPipe,
         NgxPaginationModule,
-        GoogleAnalyticsDirective,
         SortbyPipe,
         RouterOutlet,
         RouterLink,
