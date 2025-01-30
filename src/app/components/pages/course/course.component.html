@@ -46,7 +46,7 @@
                   [appGoogleAnalytics]="{
                     eventName: 'click_institution',
                     category: 'link_institution',
-                    label: '{{institution.value}}',
+                    label: institution.value.toString(),
                     logType: 'link',
                   }"
                 />
@@ -81,7 +81,7 @@
                     [appGoogleAnalytics]="{
                       eventName: 'click_tagcourse',
                       category: 'link_tagcourse',
-                      label: '{{tag}}',
+                      label: tag,
                       logType: 'link',
                     }"
                   />
