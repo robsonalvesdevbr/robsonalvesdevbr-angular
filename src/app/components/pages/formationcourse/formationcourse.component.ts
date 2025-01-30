@@ -13,7 +13,7 @@ import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
-import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
+import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-formationoourse',
@@ -24,6 +24,7 @@ import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
     NgxPaginationModule,
     SortbyPipe,
     NgOptimizedImage,
+    NgxGoogleAnalyticsModule
   ],
   templateUrl: './formationcourse.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
