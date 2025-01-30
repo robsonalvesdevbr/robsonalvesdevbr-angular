@@ -12,7 +12,6 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
-import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive';
 import { DataService } from '@path-services/data-service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
@@ -26,7 +25,6 @@ import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-g
     FilterPipe,
     PrintTagsPipe,
     NgxPaginationModule,
-    GoogleAnalyticsDirective,
     SortbyPipe,
     NgOptimizedImage,
     HighlightDirective,

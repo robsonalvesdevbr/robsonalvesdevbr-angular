@@ -9,7 +9,6 @@ import {
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
@@ -23,7 +22,6 @@ import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
     ImgcursoPipe,
     PrintTagsPipe,
     NgxPaginationModule,
-    GoogleAnalyticsDirective,
     SortbyPipe,
     NgOptimizedImage,
   ],

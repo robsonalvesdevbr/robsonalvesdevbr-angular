@@ -1,14 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule } from '@angular/common';
-import { GoogleAnalyticsDirective } from '@path-app/directives/google-analytics.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from '@path-services/data-service';
 import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, NgxPaginationModule, GoogleAnalyticsDirective],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
