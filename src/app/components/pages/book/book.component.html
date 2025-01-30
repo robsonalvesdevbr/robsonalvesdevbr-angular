@@ -79,6 +79,12 @@
                     id="input_book_tag_{{ tag | lowercase }}"
                     autocomplete="off"
                     (click)="onClickTagEvent($event)"
+                    [appGoogleAnalytics]="{
+                      eventName: 'click_tagbook',
+                      category: 'link_tagbook',
+                      label: '{{tag}}',
+                      logType: 'link',
+                    }"
                   />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"

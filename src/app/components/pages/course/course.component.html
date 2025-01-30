@@ -78,6 +78,12 @@
                     id="input_course_tag_{{ tag | lowercase }}"
                     autocomplete="off"
                     (click)="onClickTagEvent($event)"
+                    [appGoogleAnalytics]="{
+                      eventName: 'click_tagcourse',
+                      category: 'link_tagcourse',
+                      label: '{{tag}}',
+                      logType: 'link',
+                    }"
                   />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"
