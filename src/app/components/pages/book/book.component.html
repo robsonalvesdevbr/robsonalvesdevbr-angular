@@ -44,12 +44,10 @@
                   id="input_book_institution_{{ publishName.key }}"
                   autocomplete="off"
                   (click)="onClickIntitutionEvent($event)"
-                  [appGoogleAnalytics]="{
-                    eventName: 'click_publishname',
-                    category: 'link_publishname',
-                    label: publishName.value.toString(),
-                    logType: 'link',
-                  }"
+                  gaEvent="ga_click_books"
+                  gaCategory="ga_books_category"
+                  gaOn="click"
+                  gaLabel="{{ publishName.value.toString() }}"
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
@@ -79,12 +77,10 @@
                     id="input_book_tag_{{ tag | lowercase }}"
                     autocomplete="off"
                     (click)="onClickTagEvent($event)"
-                    [appGoogleAnalytics]="{
-                      eventName: 'click_tagbook',
-                      category: 'link_tagbook',
-                      label: tag,
-                      logType: 'link',
-                    }"
+                    gaEvent="ga_click_books_tag"
+                    gaCategory="ga_books_tag_category"
+                    gaOn="click"
+                    gaLabel="{{ tag }}"
                   />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"

@@ -18,7 +18,7 @@ import { DataService } from '@path-services/data-service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
-import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
+import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-course',
@@ -33,6 +33,7 @@ import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
+    NgxGoogleAnalyticsModule
   ],
   templateUrl: './course.component.html',
   styleUrl: './course.component.scss',
