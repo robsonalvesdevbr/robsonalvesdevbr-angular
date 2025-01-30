@@ -44,6 +44,12 @@
                   id="input_book_institution_{{ publishName.key }}"
                   autocomplete="off"
                   (click)="onClickIntitutionEvent($event)"
+                  [appGoogleAnalytics]="{
+                    eventName: 'click_publishname',
+                    category: 'link_publishname',
+                    label: '{{publishName.value}}',
+                    logType: 'link',
+                  }"
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
