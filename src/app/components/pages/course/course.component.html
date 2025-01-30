@@ -43,6 +43,12 @@
                   id="input_course_institution_{{ institution.key }}"
                   autocomplete="off"
                   (click)="onClickIntitutionEvent($event)"
+                  [appGoogleAnalytics]="{
+                    eventName: 'click_institution',
+                    category: 'link_institution',
+                    label: '{{institution.value}}',
+                    logType: 'link',
+                  }"
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
