@@ -18,7 +18,7 @@ export class AboutComponent extends BasePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._gaService.pageView('/about', {
+    this._gaService.pageView('/#about', {
             title: 'About'
         });
   }

@@ -62,8 +62,8 @@ export class BookComponent extends BasePageComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this._gaService.pageView('/book', {
-            title: 'Book'
+    this._gaService.pageView('/#books', {
+            title: 'Books'
         });
     //this.books.forEach((book) => this.publishNameList().add(book.publishName.trim()))
     this.books.forEach((book) =>

@@ -18,6 +18,7 @@ import { DataService } from '@path-services/data-service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
+import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-course',
@@ -40,6 +41,7 @@ import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
   courses = this.dataService.getCourses();
+  private readonly _gaService = inject(GoogleAnalyticsService);
 
   institutionList = InstitutionEnum;
 
@@ -64,6 +66,10 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this._gaService.pageView('/#courses', {
+            title: 'Courses'
+        });
+
     this.courses.forEach((course) =>
       course.tags.forEach((tag) => this.tags().add(tag.trim()))
     );

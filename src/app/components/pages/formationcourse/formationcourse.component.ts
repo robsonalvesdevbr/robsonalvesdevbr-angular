@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  OnInit,
   WritableSignal,
   inject,
   signal,
@@ -13,6 +14,7 @@ import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
+import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-formationoourse',
@@ -28,9 +30,15 @@ import { DataService } from '@path-services/data-service';
   templateUrl: './formationcourse.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormationCourseComponent extends BasePageComponent {
+export class FormationCourseComponent extends BasePageComponent implements OnInit {
+  ngOnInit(): void {
+    this._gaService.pageView('/#formationcourse', {
+            title: 'Formation Course'
+        });
+  }
   private readonly dataService = inject(DataService);
   formationCourses = this.dataService.getFormationCourses();
+  private readonly _gaService = inject(GoogleAnalyticsService);
 
   config: WritableSignal<PaginationInstance> = signal<PaginationInstance>({
     id: 'formationCoursesPag',
