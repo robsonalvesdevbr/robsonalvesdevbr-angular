@@ -101,6 +101,18 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+    name: 'Mensageria com Apache Kafka',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/degree/certificate/369add63-2c4a-4949-a6fe-498575a1f773?lang=pt_BR',
+    tags: ['software-development', 'apache-technologies', 'kafka'],
+    conclusion: new Date('2025-2-3'),
+    favorite: true,
+  },
+
+
+
+  {
     name: 'Formação DevOps para Desenvolvedores',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
