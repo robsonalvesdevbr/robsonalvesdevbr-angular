@@ -110,8 +110,6 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
 
-
-
   {
     name: 'Formação DevOps para Desenvolvedores',
     institution: InstitutionEnum.DesenvolvedorIO,

@@ -17,7 +17,10 @@ import { DataService } from '@path-services/data-service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
-import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
+import {
+  GoogleAnalyticsService,
+  NgxGoogleAnalyticsModule,
+} from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-course',
@@ -31,7 +34,7 @@ import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-g
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
-    NgxGoogleAnalyticsModule
+    NgxGoogleAnalyticsModule,
   ],
   templateUrl: './course.component.html',
   styleUrl: './course.component.scss',
@@ -66,8 +69,8 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   ngOnInit(): void {
     this._gaService.pageView('/#courses', {
-            title: 'Courses'
-        });
+      title: 'Courses',
+    });
 
     this.courses.forEach((course) =>
       course.tags.forEach((tag) => this.tags().add(tag.trim()))

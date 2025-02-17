@@ -9,7 +9,7 @@ export class HighlightDirective {
   @HostListener('mouseenter') onMouseEnter() {
     this.highlight('btn-light');
   }
-  
+
   @HostListener('mouseleave') onMouseLeave() {
     this.highlight('btn-light', false);
   }

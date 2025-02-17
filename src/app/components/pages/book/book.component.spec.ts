@@ -110,7 +110,9 @@ describe('BookComponent', () => {
       target: { id: 'input_book_institution_AltaBooks' },
     } as unknown as MouseEvent;
     component.onClickIntitutionEvent(event);
-    expect(component.publishNameFilter().has(PublishNameEnum.AltaBooks)).toBeTrue();
+    expect(
+      component.publishNameFilter().has(PublishNameEnum.AltaBooks)
+    ).toBeTrue();
   });
 
   it('should handle tag click event', () => {

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -15,8 +20,8 @@ import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
 export class ContactComponent extends BasePageComponent implements OnInit {
   ngOnInit(): void {
     this._gaService.pageView('/#contact', {
-            title: 'Contact'
-        });
+      title: 'Contact',
+    });
   }
   private readonly dataService = inject(DataService);
   profiles = this.dataService.getProfile();
@@ -35,5 +40,4 @@ export class ContactComponent extends BasePageComponent implements OnInit {
     }
     return age;
   };
-
 }

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
@@ -22,8 +27,8 @@ import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
 export class GraduationComponent extends BasePageComponent implements OnInit {
   ngOnInit(): void {
     this._gaService.pageView('/#graduation', {
-            title: 'Graduation'
-        });
+      title: 'Graduation',
+    });
   }
   private readonly dataService = inject(DataService);
   graduations = this.dataService.getGraduations();

@@ -1,6 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideGoogleAnalytics, provideGoogleAnalyticsRouter } from '@hakimio/ngx-google-analytics';
+import {
+  provideGoogleAnalytics,
+  provideGoogleAnalyticsRouter,
+} from '@hakimio/ngx-google-analytics';
 
 import { routes } from './app.routes';
 import { provideConfigInitializer } from './initializer/startup';
@@ -12,6 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideConfigInitializer(),
     provideGoogleAnalytics(environment.googleAnalytics),
-    provideGoogleAnalyticsRouter()
+    provideGoogleAnalyticsRouter(),
   ],
 };

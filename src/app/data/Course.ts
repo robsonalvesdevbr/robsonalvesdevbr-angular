@@ -328,7 +328,13 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-37e332de-70b6-4294-b953-f747172c4518',
-    tags: ['software-development', 'microsoft', 'csharp', '.net', 'architecture'],
+    tags: [
+      'software-development',
+      'microsoft',
+      'csharp',
+      '.net',
+      'architecture',
+    ],
     conclusion: new Date('2025-1-20'),
     favorite: true,
   },
@@ -337,7 +343,13 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-a1e66e01-520e-4c9e-a931-120b75acb7f5',
-    tags: ['software-development', 'monitoring', 'prometheus', 'grafana', 'devops'],
+    tags: [
+      'software-development',
+      'monitoring',
+      'prometheus',
+      'grafana',
+      'devops',
+    ],
     conclusion: new Date('2025-1-21'),
     favorite: false,
   },
