@@ -44,7 +44,10 @@ describe('ContactComponent', () => {
     const currentYear = new Date();
     const month = currentYear.getMonth() - birthdate.getMonth();
     let ageCalc = currentYear.getFullYear() - birthdate.getFullYear();
-    if (month < 0 || (month === 0 && currentYear.getDate() < birthdate.getDate())) {
+    if (
+      month < 0 ||
+      (month === 0 && currentYear.getDate() < birthdate.getDate())
+    ) {
       ageCalc--;
     }
     expect(age).toBe(ageCalc);

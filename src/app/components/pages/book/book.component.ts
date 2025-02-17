@@ -16,7 +16,10 @@ import { DataService } from '@path-services/data-service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
-import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
+import {
+  GoogleAnalyticsService,
+  NgxGoogleAnalyticsModule,
+} from '@hakimio/ngx-google-analytics';
 
 @Component({
   selector: 'app-book',
@@ -29,7 +32,7 @@ import { GoogleAnalyticsService, NgxGoogleAnalyticsModule } from '@hakimio/ngx-g
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
-    NgxGoogleAnalyticsModule
+    NgxGoogleAnalyticsModule,
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss',
@@ -44,9 +47,9 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
 
-  publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<Set<PublishNameEnum>>(
-    new Set<PublishNameEnum>()
-  );
+  publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<
+    Set<PublishNameEnum>
+  >(new Set<PublishNameEnum>());
   selectPublishNameFilter: WritableSignal<string> = signal<string>('');
 
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(
@@ -62,8 +65,8 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   ngOnInit(): void {
     this._gaService.pageView('/#books', {
-            title: 'Books'
-        });
+      title: 'Books',
+    });
     //this.books.forEach((book) => this.publishNameList().add(book.publishName.trim()))
     this.books.forEach((book) =>
       book.tags.forEach((tag) => this.tags().add(tag.trim()))

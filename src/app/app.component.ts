@@ -26,7 +26,7 @@ import { NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
     FooterComponent,
     PlaceholderComponent,
     LoadingComponent,
-    NgxGoogleAnalyticsModule
+    NgxGoogleAnalyticsModule,
   ],
   templateUrl: './app.component.html',
 })
