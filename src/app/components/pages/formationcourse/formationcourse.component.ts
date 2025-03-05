@@ -36,20 +36,21 @@ export class FormationCourseComponent
   extends BasePageComponent
   implements OnInit
 {
-  ngOnInit(): void {
-    this._gaService.pageView('/#formationcourse', {
-      title: 'Formation Course',
-    });
-  }
   private readonly dataService = inject(DataService);
-  formationCourses = this.dataService.getFormationCourses();
   private readonly _gaService = inject(GoogleAnalyticsService);
+  formationCourses = signal(this.dataService.getFormationCourses());
 
   config: WritableSignal<PaginationInstance> = signal<PaginationInstance>({
     id: 'formationCoursesPag',
     itemsPerPage: 5,
     currentPage: 1,
   });
+
+  ngOnInit(): void {
+    this._gaService.pageView('/#formationcourse', {
+      title: 'Formation Course',
+    });
+  }
 
   absoluteIndex(indexOnPage: number): number {
     return (

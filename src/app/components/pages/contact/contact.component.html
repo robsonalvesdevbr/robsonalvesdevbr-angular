@@ -18,15 +18,15 @@
             </div>
           </div>
           <div class="col-md-auto mt-3">
-            <h4 class="alert-heading">{{ profiles.name }}</h4>
-            <b>Localização:</b> {{ profiles.country }}, {{ profiles.city }} /
-            {{ profiles.state }} <br />
-            <b>Email:</b> {{ profiles.email }} <br />
-            <b>Nascimento:</b> {{ profiles.birthday | date: 'dd/MM/yyyy'
+            <h4 class="alert-heading">{{ profiles().name }}</h4>
+            <b>Localização:</b> {{ profiles().country }}, {{ profiles().city }} /
+            {{ profiles().state }} <br />
+            <b>Email:</b> {{ profiles().email }} <br />
+            <b>Nascimento:</b> {{ profiles().birthday | date: 'dd/MM/yyyy'
             }}<br />
-            <b>Idade:</b> {{ calcularIdade(profiles.birthday) }}<br />
+            <b>Idade:</b> {{ calcularIdade(profiles().birthday) }}<br />
 
-            @for (item of profiles.urlList | keyvalue: asIsOrder; track item) {
+            @for (item of profiles().urlList | keyvalue: asIsOrder; track item) {
               <div class="d-inline">
                 <b>{{ item.key }}: </b>
               </div>
@@ -49,12 +49,12 @@
                 aria-label="Email"
                 class="btn"
                 href="mailto:{{
-                  profiles.email
+                  profiles().email
                 }}?subject=Contato website robsonalves.dev.br"
                 ><i class="bi bi-envelope-at-fill" style="font-size: 35px"></i
               ></a>
               <a
-                [href]="profiles.urlList.get('WebSite')"
+                [href]="profiles().urlList.get('WebSite')"
                 aria-label="Website"
                 class="btn"
                 target="_blank"
@@ -62,7 +62,7 @@
                 ><i class="bi bi-house-fill" style="font-size: 35px"></i
               ></a>
               <a
-                [href]="profiles.urlList.get('LinkedIn')"
+                [href]="profiles().urlList.get('LinkedIn')"
                 aria-label="LinkedIn"
                 class="btn"
                 target="_blank"
@@ -70,7 +70,7 @@
                 ><i class="bi bi-linkedin" style="font-size: 35px"></i
               ></a>
               <a
-                [href]="profiles.urlList.get('Instagram')"
+                [href]="profiles().urlList.get('Instagram')"
                 aria-label="Instagram"
                 class="btn"
                 target="_blank"
@@ -78,7 +78,7 @@
                 ><i class="bi bi-instagram" style="font-size: 35px"></i
               ></a>
               <a
-                [href]="profiles.urlList.get('GitHub')"
+                [href]="profiles().urlList.get('GitHub')"
                 aria-label="GitHub"
                 class="btn"
                 target="_blank"

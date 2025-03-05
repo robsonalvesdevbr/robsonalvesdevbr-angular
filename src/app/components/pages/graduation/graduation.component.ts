@@ -3,6 +3,7 @@ import {
   Component,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
@@ -31,6 +32,6 @@ export class GraduationComponent extends BasePageComponent implements OnInit {
     });
   }
   private readonly dataService = inject(DataService);
-  graduations = this.dataService.getGraduations();
   private readonly _gaService = inject(GoogleAnalyticsService);
+  graduations = signal(this.dataService.getGraduations());
 }
