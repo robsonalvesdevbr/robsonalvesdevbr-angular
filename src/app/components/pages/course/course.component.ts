@@ -42,8 +42,9 @@ import {
 })
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
-  courses = this.dataService.getCourses();
+
   private readonly _gaService = inject(GoogleAnalyticsService);
+  courses = signal(this.dataService.getCourses());
 
   institutionList = InstitutionEnum;
 
@@ -72,7 +73,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       title: 'Courses',
     });
 
-    this.courses.forEach((course) =>
+    this.courses().forEach((course) =>
       course.tags.forEach((tag) => this.tags().add(tag.trim()))
     );
   }
