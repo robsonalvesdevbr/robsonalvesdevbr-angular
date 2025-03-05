@@ -7,13 +7,13 @@
         Saiba mais sobre minhas graduações e
         pós-graduações.&nbsp;&nbsp;&nbsp;&nbsp;<span
           class="badge rounded-pill bg-warning fs-7 text-dark"
-          >Quantidade: {{ graduations.length }}</span
+          >Quantidade: {{ graduations().length }}</span
         >
       </h3>
     </div>
     <ul class="timeline">
       @for (
-        graduation of graduations | sortby: 'conclusionDate' : 'desc';
+        graduation of graduations() | sortby: 'conclusionDate' : 'desc';
         track graduation;
         let i = $index
       ) {

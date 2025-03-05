@@ -3,6 +3,7 @@ import {
   Component,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { CommonModule } from '@angular/common';
@@ -24,8 +25,9 @@ export class ContactComponent extends BasePageComponent implements OnInit {
     });
   }
   private readonly dataService = inject(DataService);
-  profiles = this.dataService.getProfile();
+
   private readonly _gaService = inject(GoogleAnalyticsService);
+  profiles = signal(this.dataService.getProfile());
 
   asIsOrder = (): number => 1;
 
