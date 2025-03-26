@@ -1,0 +1,48 @@
+{
+  "id": "did:web:www.robsonalves.dev.br",
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    {
+      "@base": "did:web:www.robsonalves.dev.br"
+    }
+  ],
+  "service": [
+    {
+      "id": "#linkeddomains",
+      "type": "LinkedDomains",
+      "serviceEndpoint": {
+        "origins": [
+          "https://www.robsonalves.dev.br/"
+        ]
+      }
+    },
+    {
+      "id": "#hub",
+      "type": "IdentityHub",
+      "serviceEndpoint": {
+        "instances": [
+          "https://hub.did.msidentity.com/v1.0/2ca2e292-93ab-431b-b9a5-8d1f1dfc9cf7"
+        ]
+      }
+    }
+  ],
+  "verificationMethod": [
+    {
+      "id": "#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b",
+      "controller": "did:web:www.robsonalves.dev.br",
+      "type": "JsonWebKey2020",
+      "publicKeyJwk": {
+        "crv": "P-256",
+        "kty": "EC",
+        "x": "oWO_w-_E1XsrbwQmbR_ZUH9anewe7WK0qu5qGOzxeaQ",
+        "y": "_P9RCl1Yjbn-udhaKVlTpECVNpFC3tK6mLENqvnhqOk"
+      }
+    }
+  ],
+  "authentication": [
+    "#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b"
+  ],
+  "assertionMethod": [
+    "#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b"
+  ]
+}
