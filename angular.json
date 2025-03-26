@@ -23,7 +23,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/js", "src/.well_known"],
+            "assets": ["src/favicon.ico", "src/assets", "src/js", "src/.well-known"],
             "styles": ["src/styles.scss", "src/css/styles.scss"],
             "scripts": []
           },
@@ -78,7 +78,7 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/js", "src/.well_known"],
+            "assets": ["src/favicon.ico", "src/assets", "src/js", "src/.well-known"],
             "styles": ["src/styles.scss", "src/css/styles.scss"],
             "scripts": [],
             "karmaConfig": "karma.conf.js"
