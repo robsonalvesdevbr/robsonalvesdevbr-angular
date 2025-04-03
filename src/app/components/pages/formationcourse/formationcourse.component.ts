@@ -1,3 +1,4 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,17 +7,16 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
-import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
-import { SortbyPipe } from '@path-pipes/sortby.pipe';
-import { DataService } from '@path-services/data-service';
 import {
   GoogleAnalyticsService,
   NgxGoogleAnalyticsModule,
 } from '@hakimio/ngx-google-analytics';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
+import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
+import { SortbyPipe } from '@path-pipes/sortby.pipe';
+import { DataService } from '@path-services/data-service';
+import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 
 @Component({
   selector: 'app-formationoourse',

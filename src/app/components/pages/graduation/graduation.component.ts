@@ -1,17 +1,17 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   OnInit,
+  inject,
   signal,
 } from '@angular/core';
+import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from '@path-services/data-service';
-import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-graduation',

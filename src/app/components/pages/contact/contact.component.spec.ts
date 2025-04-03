@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { ContactComponent } from './contact.component';
 import { DataService } from '@path-services/data-service';
+import { ContactComponent } from './contact.component';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;

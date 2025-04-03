@@ -1,15 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BookComponent } from './book.component';
-import { DataService } from '@path-services/data-service';
 import { CommonModule } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
+import { DataService } from '@path-services/data-service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BookComponent } from './book.component';
 
 describe('BookComponent', () => {
   let component: BookComponent;
