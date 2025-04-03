@@ -1,55 +1,75 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false, "ignore": [] },
-	"formatter": {
-		"enabled": true,
-		"useEditorconfig": true,
-		"formatWithErrors": false,
-		"indentStyle": "space",
-		"indentWidth": 2,
-		"lineEnding": "lf",
-		"lineWidth": 80,
-		"attributePosition": "auto",
-		"bracketSpacing": true,
-		"ignore": [
-			"**/build",
-			"**/coverage",
-			"**/.browserslist",
-			"./dist",
-			"./node_modules"
-		]
-	},
-	"organizeImports": { "enabled": true },
-	"linter": {
-		"enabled": true,
-		"rules": { "recommended": false },
-		"ignore": [
-      "node_modules/*",
-      "dist/*",
-      "**/dist/",
-      "**/node_modules/"
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
+  "files": {
+    "include": [
+      "./*.angular.json",
+      "./package.json",
+      "./biome.json",
+      "./karma.conf.js",
+      "./src/**"
+    ],
+    "ignore": [
+      "**/build",
+      "**/coverage",
+      "**/.browserslist",
+      "./dist",
+      "./node_modules",
+      "./.githooks",
+      "./.github",
+      "./.vscode",
+      "./.angular",
+      "./tsconfig*"
     ]
-	},
-	"javascript": {
-		"formatter": {
-			"jsxQuoteStyle": "double",
-			"quoteProperties": "asNeeded",
-			"trailingCommas": "es5",
-			"semicolons": "always",
-			"arrowParentheses": "always",
-			"bracketSameLine": false,
-			"quoteStyle": "single",
-			"attributePosition": "auto",
-			"bracketSpacing": true
-		}
-	},
-	"overrides": [
+  },
+  "formatter": {
+    "enabled": true,
+    "useEditorconfig": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "bracketSpacing": true
+  },
+  "organizeImports": { "enabled": true },
+  "linter": {
+    "enabled": false,
+    "rules": {
+      "suspicious": {
+        "noCommentText": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "bracketSpacing": true
+    }
+  },
+  "overrides": [
     {
       "include": ["*.json"],
       "formatter": {
+        "enabled": true,
         "indentWidth": 2
+      },
+      "linter": {
+        "enabled": false,
+        "rules": {
+          "suspicious": {
+            "noCommentText": "off"
+          }
+        }
       }
     }
-	]
+  ]
 }
