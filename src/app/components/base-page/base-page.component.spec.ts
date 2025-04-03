@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BasePageComponent } from './base-page.component';
-import { CommonModule } from '@angular/common';
 
 describe('BasePageComponent', () => {
   let component: BasePageComponent;

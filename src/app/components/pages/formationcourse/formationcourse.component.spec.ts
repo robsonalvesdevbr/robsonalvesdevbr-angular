@@ -1,15 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormationCourseComponent } from './formationcourse.component';
-import { DataService } from '@path-services/data-service';
 import { CommonModule } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
+import { DataService } from '@path-services/data-service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormationCourseComponent } from './formationcourse.component';
 
 describe('FormationCourseComponent', () => {
   let component: FormationCourseComponent;

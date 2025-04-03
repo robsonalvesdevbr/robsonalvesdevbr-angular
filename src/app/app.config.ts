@@ -5,9 +5,9 @@ import {
   provideGoogleAnalyticsRouter,
 } from '@hakimio/ngx-google-analytics';
 
+import { environment } from '@path-environments/environment.development';
 import { routes } from './app.routes';
 import { provideConfigInitializer } from './initializer/startup';
-import { environment } from '@path-environments/environment.development';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -8,7 +8,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
       'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
-    tags: [CourseTagEnum.ArtificialIntelligence, CourseTagEnum.GitHub, CourseTagEnum.Copilot],
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.GitHub,
+      CourseTagEnum.Copilot,
+    ],
     conclusion: new Date('2024-8-22'),
     favorite: true,
   },
@@ -54,7 +58,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
       'https://desenvolvedor.io/curso/baixar-certificado/74c90a14-45bc-4748-a329-ff76b9f73c8b',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microsoft, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2023-12-4'),
     favorite: false,
   },
@@ -87,7 +96,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
       'https://desenvolvedor.io/curso/baixar-certificado/668fdb1c-99e0-4e85-adf4-6b542f71f14e',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microsoft, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2023-1-16'),
     favorite: false,
   },
@@ -96,7 +110,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
       'https://desenvolvedor.io/curso/baixar-certificado/5813f9a2-8f15-4682-a239-183a679287ec',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Messagerie, CourseTagEnum.Amqp],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Messagerie,
+      CourseTagEnum.Amqp,
+    ],
     conclusion: new Date('2022-8-12'),
     favorite: true,
   },
@@ -129,7 +147,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
       'https://desenvolvedor.io/curso/baixar-certificado/bbb08bef-cc6a-4af1-ab89-36fc72fd2f70',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Angular, CourseTagEnum.TypeScript, CourseTagEnum.JavaScript],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Angular,
+      CourseTagEnum.TypeScript,
+      CourseTagEnum.JavaScript,
+    ],
     conclusion: new Date('2022-8-31'),
     favorite: false,
   },
@@ -162,7 +185,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
       'https://desenvolvedor.io/curso/baixar-certificado/12546112-619c-4b01-8097-851e3fbbb262',
-    tags: [CourseTagEnum.DockerContainer, CourseTagEnum.DockerContainer, CourseTagEnum.Kubernetes],
+    tags: [
+      CourseTagEnum.DockerContainer,
+      CourseTagEnum.DockerContainer,
+      CourseTagEnum.Kubernetes,
+    ],
     conclusion: new Date('2024-3-28'),
     favorite: false,
   },
@@ -180,7 +207,13 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
       'https://desenvolvedor.io/certificado/c37bb6aa-ca3f-41f8-b623-347bd057c805',
-    tags: [CourseTagEnum.Blazor, CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microsoft, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.Blazor,
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2024-7-2'),
     favorite: true,
   },
@@ -189,7 +222,12 @@ export const Courses: ICourse[] = [
     name: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
     institution: InstitutionEnum.Udemy,
     certificateUrl: 'https://www.udemy.com/certificate/UC-26OBZ64N',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microsoft, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2019-5-16'),
     favorite: true,
   },
@@ -198,7 +236,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-70fa6e0e-c9fe-464a-bdbe-7881547c9779',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microsoft, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2022-6-22'),
     favorite: true,
   },
@@ -206,7 +249,13 @@ export const Courses: ICourse[] = [
     name: 'O curso completo de Banco de Dados e SQL, sem mistérios!',
     institution: InstitutionEnum.Udemy,
     certificateUrl: 'https://www.udemy.com/certificate/UC-T3Y1X056',
-    tags: [CourseTagEnum.SQL, CourseTagEnum.Microsoft, CourseTagEnum.Database, CourseTagEnum.SQLServer, CourseTagEnum.Postgres],
+    tags: [
+      CourseTagEnum.SQL,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.Database,
+      CourseTagEnum.SQLServer,
+      CourseTagEnum.Postgres,
+    ],
     conclusion: new Date('2019-6-6'),
     favorite: true,
   },
@@ -230,7 +279,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-b711b1a6-8955-47a1-8b5c-bed43c73d0dd',
-    tags: [CourseTagEnum.Architecture, CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Software],
+    tags: [
+      CourseTagEnum.Architecture,
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Software,
+    ],
     conclusion: new Date('2023-1-10'),
     favorite: false,
   },
@@ -239,7 +292,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-018f706e-7090-4b43-9b99-896142a53241',
-    tags: [CourseTagEnum.Architecture, CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Software, CourseTagEnum.UML],
+    tags: [
+      CourseTagEnum.Architecture,
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Software,
+      CourseTagEnum.UML,
+    ],
     conclusion: new Date('2023-2-3'),
     favorite: false,
   },
@@ -257,7 +315,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-1629d9df-3184-41c5-83a4-943d89bf3910',
-    tags: [CourseTagEnum.Microsoft, CourseTagEnum.Azure, CourseTagEnum.SQLServer, CourseTagEnum.Database],
+    tags: [
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.Azure,
+      CourseTagEnum.SQLServer,
+      CourseTagEnum.Database,
+    ],
     conclusion: new Date('2022-11-1'),
     favorite: false,
   },
@@ -275,7 +338,14 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-656d5b3c-2d25-4091-9a42-f4c8cbd03eb3',
-    tags: [CourseTagEnum.Database, CourseTagEnum.NoSQL, CourseTagEnum.Neo4J, CourseTagEnum.MongoDB, CourseTagEnum.Database, CourseTagEnum.Graph],
+    tags: [
+      CourseTagEnum.Database,
+      CourseTagEnum.NoSQL,
+      CourseTagEnum.Neo4J,
+      CourseTagEnum.MongoDB,
+      CourseTagEnum.Database,
+      CourseTagEnum.Graph,
+    ],
     conclusion: new Date('2024-5-7'),
     favorite: true,
   },
@@ -293,7 +363,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-2373b685-9826-465e-8ad5-93587c5339ff',
-    tags: [CourseTagEnum.Kubernetes, CourseTagEnum.K8S, CourseTagEnum.DockerContainer],
+    tags: [
+      CourseTagEnum.Kubernetes,
+      CourseTagEnum.K8S,
+      CourseTagEnum.DockerContainer,
+    ],
     conclusion: new Date('2022-6-22'),
     favorite: true,
   },
@@ -302,7 +376,13 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-80a5aef3-08d8-46f5-8c63-ae985159c271',
-    tags: [CourseTagEnum.Azure, CourseTagEnum.CloudComputing, CourseTagEnum.Microsoft, CourseTagEnum.AZ303, CourseTagEnum.AZ304],
+    tags: [
+      CourseTagEnum.Azure,
+      CourseTagEnum.CloudComputing,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.AZ303,
+      CourseTagEnum.AZ304,
+    ],
     conclusion: new Date('2024-7-10'),
     favorite: true,
   },
@@ -311,7 +391,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-4a973d15-299e-4020-8c83-89ec5d25008d',
-    tags: [CourseTagEnum.ArtificialIntelligence, CourseTagEnum.Chatbot, CourseTagEnum.GPT, CourseTagEnum.ChatGPT],
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.Chatbot,
+      CourseTagEnum.GPT,
+      CourseTagEnum.ChatGPT,
+    ],
     conclusion: new Date('2024-9-10'),
     favorite: false,
   },
@@ -320,7 +405,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-3680a779-14d8-4d87-9bd4-26c371778346',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Go, CourseTagEnum.Golang, CourseTagEnum.Google],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Go,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
     conclusion: new Date('2024-11-6'),
     favorite: true,
   },
@@ -359,7 +449,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Udemy,
     certificateUrl:
       'https://www.udemy.com/certificate/UC-37ac22f0-151d-4cbc-9e95-8199b454a7d6',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Architecture, CourseTagEnum.C4Model],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Architecture,
+      CourseTagEnum.C4Model,
+    ],
     conclusion: new Date('2025-1-25'),
     favorite: true,
   },
@@ -405,7 +499,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/57764ba5-ebeb-4195-9cdd-67e578bb5b2b?lang=pt_BR',
-    tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure, CourseTagEnum.Database],
+    tags: [
+      CourseTagEnum.CloudComputing,
+      CourseTagEnum.Azure,
+      CourseTagEnum.Database,
+    ],
     conclusion: new Date('2023-8-17'),
     favorite: false,
   },
@@ -414,7 +512,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/1bd12d60-6a2f-438b-b669-03709ca8c734?lang=pt_BR',
-    tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure, CourseTagEnum.Kubernetes, CourseTagEnum.DockerContainer],
+    tags: [
+      CourseTagEnum.CloudComputing,
+      CourseTagEnum.Azure,
+      CourseTagEnum.Kubernetes,
+      CourseTagEnum.DockerContainer,
+    ],
     conclusion: new Date('2023-8-16'),
     favorite: true,
   },
@@ -441,7 +544,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/e5b315fd-973e-45b5-b4a7-44d1d609bc37?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2023-1-12'),
     favorite: false,
   },
@@ -585,7 +692,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/e51f515b-bb63-4333-9dfe-5961c2eb1da1?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2022-7-27'),
     favorite: false,
   },
@@ -621,7 +732,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/31f830a1-a293-4840-9c26-b4fa1f89f655?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2022-7-19'),
     favorite: false,
   },
@@ -630,7 +745,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/e40feed1-13aa-420c-8747-5e84bf1bb837?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Java, CourseTagEnum.Algorithm],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Java,
+      CourseTagEnum.Algorithm,
+    ],
     conclusion: new Date('2022-7-18'),
     favorite: false,
   },
@@ -684,7 +803,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/f57bdcd5-11f7-404e-9aeb-427af45eaca1?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Go, CourseTagEnum.Golang, CourseTagEnum.Google],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Go,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
     conclusion: new Date('2022-6-24'),
     favorite: false,
   },
@@ -693,7 +817,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/1d0fc6df-f017-41ef-91a3-3b28084cef4f?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Go, CourseTagEnum.Golang, CourseTagEnum.Google],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Go,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
     conclusion: new Date('2022-5-27'),
     favorite: false,
   },
@@ -702,7 +831,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/af681830-f65c-4cea-a290-ec0ebe460365?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+    ],
     conclusion: new Date('2022-5-25'),
     favorite: false,
   },
@@ -711,7 +844,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/0ebecc61-a94d-48a7-8cf3-17840664106c?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+    ],
     conclusion: new Date('2022-5-24'),
     favorite: false,
   },
@@ -747,7 +884,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/51ec0753-6343-459a-a83b-17afad4e57fe?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp, CourseTagEnum.SoftwareTesting],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.SoftwareTesting,
+    ],
     conclusion: new Date('2022-5-22'),
     favorite: false,
   },
@@ -756,7 +898,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/ab2636e8-4bd9-483e-8a42-8da43b7f65f3?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp, CourseTagEnum.SoftwareTesting],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.SoftwareTesting,
+    ],
     conclusion: new Date('2022-5-21'),
     favorite: false,
   },
@@ -774,7 +921,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/a9b65aba-b6da-47f6-b1f9-b4c5d580ab31?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp, CourseTagEnum.SoftwareTesting],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.SoftwareTesting,
+    ],
     conclusion: new Date('2022-5-17'),
     favorite: false,
   },
@@ -783,7 +935,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/85310144-c8be-40db-89c6-166a741a315a?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp, CourseTagEnum.SoftwareTesting],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.SoftwareTesting,
+    ],
     conclusion: new Date('2022-5-16'),
     favorite: false,
   },
@@ -792,7 +949,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/52fada6f-39a9-440c-8462-630f6770fe52?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp, CourseTagEnum.SoftwareTesting],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.SoftwareTesting,
+    ],
     conclusion: new Date('2022-5-15'),
     favorite: false,
   },
@@ -801,7 +963,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/b9ba25ed-660f-4b8e-a316-59543cd3373f?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.DotNet, CourseTagEnum.CSharp, CourseTagEnum.SoftwareTesting],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.SoftwareTesting,
+    ],
     conclusion: new Date('2022-5-15'),
     favorite: false,
   },
@@ -900,7 +1067,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/38dec12f-dc83-4f70-910d-6a56a9a5bd0d?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2022-1-13'),
     favorite: false,
   },
@@ -945,7 +1116,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/4779bd73-714f-4631-a190-cf77e64b8f72?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-9-10'),
     favorite: false,
   },
@@ -954,7 +1129,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/569e52ad-945f-4436-90ee-24719cec0dc9?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-9-9'),
     favorite: false,
   },
@@ -972,7 +1151,13 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/cf749f0e-95a4-4654-a1e5-5747e6f23d7e?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet, CourseTagEnum.NoSQL, CourseTagEnum.Database],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.NoSQL,
+      CourseTagEnum.Database,
+    ],
     conclusion: new Date('2021-8-6'),
     favorite: false,
   },
@@ -990,7 +1175,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/057ba39e-d2c2-4eba-9fe0-a3cc1713767a?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-5-24'),
     favorite: false,
   },
@@ -999,7 +1188,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/b8bdc2d2-d709-4c03-b905-6669cf22ce41?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-4-28'),
     favorite: false,
   },
@@ -1008,7 +1201,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/e4ee4e24-6a87-4d43-91b5-c42b39238832?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-4-26'),
     favorite: false,
   },
@@ -1017,7 +1214,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/5b6328e1-45de-4e7d-b51e-c56ea346bc0c?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-4-23'),
     favorite: false,
   },
@@ -1026,7 +1227,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/957cfc38-6039-4d9d-9111-7a67755a4b1a?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-4-21'),
     favorite: false,
   },
@@ -1035,7 +1240,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/aa61efbc-4554-4a27-80cd-88d6bad8e68a?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-4-19'),
     favorite: false,
   },
@@ -1044,7 +1253,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/e86e6535-543c-4db0-ae6a-59b02263cb9f?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-4-17'),
     favorite: false,
   },
@@ -1053,7 +1266,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/4e81e86d-d9eb-4dd5-990f-1fbbc4854ed8?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-3-22'),
     favorite: false,
   },
@@ -1062,7 +1279,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/eb3d4a38-50ba-4dbb-8082-4f6b75e558be?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-3-21'),
     favorite: false,
   },
@@ -1071,7 +1292,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/f34c4a9f-9084-4a0e-ae2f-a28c88cff0a2?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-3-9'),
     favorite: false,
   },
@@ -1089,7 +1314,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/e66dac5c-2f3f-4ed3-bb3b-5b784749bc86?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2021-2-9'),
     favorite: false,
   },
@@ -1134,7 +1363,12 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/7ad17dd8-69dd-47f4-a4b3-a9da4091cd8c?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet, CourseTagEnum.Solid],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.Solid,
+    ],
     conclusion: new Date('2020-10-22'),
     favorite: false,
   },
@@ -1143,7 +1377,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/cb374d96-3f26-420b-8d20-9b01f72a7717?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-9-28'),
     favorite: false,
   },
@@ -1179,7 +1417,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/1e96ddd2-3e54-4b36-85fc-a5362c9731bc?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-5-22'),
     favorite: false,
   },
@@ -1188,7 +1430,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-5-13'),
     favorite: false,
   },
@@ -1197,7 +1443,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-5-6'),
     favorite: false,
   },
@@ -1206,7 +1456,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/896c510e-9d59-4000-9fb8-49035f5d5fb9?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-5-13'),
     favorite: false,
   },
@@ -1215,7 +1469,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/806f4576-1de0-4173-8310-a3fd9a95b562?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-5-6'),
     favorite: false,
   },
@@ -1224,7 +1482,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/19f07f01-327f-40cb-b331-b0bf4d3ac26f?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2020-3-3'),
     favorite: false,
   },
@@ -1269,7 +1531,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/b03d047f-017b-4b44-b9c5-9937402b78aa?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.JavaScript, CourseTagEnum.DesignPattern],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.JavaScript,
+      CourseTagEnum.DesignPattern,
+    ],
     conclusion: new Date('2020-1-7'),
     favorite: false,
   },
@@ -1278,7 +1544,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/88d168f0-6a8a-4b42-978f-d49cb9547c39?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.JavaScript, CourseTagEnum.DesignPattern],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.JavaScript,
+      CourseTagEnum.DesignPattern,
+    ],
     conclusion: new Date('2020-1-4'),
     favorite: false,
   },
@@ -1305,7 +1575,11 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/37d80b3e-730a-4da2-bcc9-88ad25403458?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
     conclusion: new Date('2019-11-15'),
     favorite: false,
   },
