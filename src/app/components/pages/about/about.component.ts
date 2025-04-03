@@ -1,12 +1,12 @@
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   OnInit,
+  inject,
 } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
 @Component({
   selector: 'app-about',

@@ -11,9 +11,7 @@
       "id": "#linkeddomains",
       "type": "LinkedDomains",
       "serviceEndpoint": {
-        "origins": [
-          "https://www.robsonalves.dev.br/"
-        ]
+        "origins": ["https://www.robsonalves.dev.br/"]
       }
     },
     {
@@ -39,10 +37,6 @@
       }
     }
   ],
-  "authentication": [
-    "#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b"
-  ],
-  "assertionMethod": [
-    "#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b"
-  ]
+  "authentication": ["#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b"],
+  "assertionMethod": ["#e4d4c4528b1b4eed8556b80415e1e10evcSigningKey-41a8b"]
 }

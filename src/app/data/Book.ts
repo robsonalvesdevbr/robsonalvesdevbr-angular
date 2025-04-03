@@ -1,6 +1,6 @@
+import { BookTagEnum } from '@path-app/models/BookTagEnum';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { IBook } from '@path-interfaces/IBook';
-import { BookTagEnum } from '@path-app/models/BookTagEnum';
 
 export const Books: IBook[] = [
   {
@@ -74,7 +74,10 @@ export const Books: IBook[] = [
     author: ['Roberto Picanço'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2023,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.EventDrivenArchitecture],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.EventDrivenArchitecture,
+    ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-eda',
     pages: 302,
     progress: 0,
@@ -122,7 +125,11 @@ export const Books: IBook[] = [
     author: ['Time de Customer Engineers da Microsoft'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2021,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Azure, BookTagEnum.Microsoft],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.Azure,
+      BookTagEnum.Microsoft,
+    ],
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-modernizacao-azure',
     pages: 468,
@@ -159,7 +166,11 @@ export const Books: IBook[] = [
     author: ['Everton Coimbra de Araújo'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.Microsoft],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.Microsoft,
+    ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-csharp',
     pages: 236,
     progress: 0,
@@ -171,7 +182,11 @@ export const Books: IBook[] = [
     author: ['Cláudio Ralha'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2021,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.Microsoft],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.Microsoft,
+    ],
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-produtividade-csharp',
     pages: 461,
@@ -259,7 +274,11 @@ export const Books: IBook[] = [
     author: ['Mauricio Aniche'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2015,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Solid, BookTagEnum.DesignPattern],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.Solid,
+      BookTagEnum.DesignPattern,
+    ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-solid',
     pages: 155,
     progress: 0,
@@ -271,7 +290,11 @@ export const Books: IBook[] = [
     author: ['Rodrigo Gonçalves Santana'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Solid, BookTagEnum.DesignPattern],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.Solid,
+      BookTagEnum.DesignPattern,
+    ],
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-design-paterns-csharp',
     pages: 163,
@@ -284,7 +307,12 @@ export const Books: IBook[] = [
     author: ['Mauricio Aniche'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.TDD, BookTagEnum.DotNet, BookTagEnum.CSharp],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.TDD,
+      BookTagEnum.DotNet,
+      BookTagEnum.CSharp,
+    ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-tdd-dotnet',
     pages: 198,
     progress: 0,
@@ -296,7 +324,11 @@ export const Books: IBook[] = [
     author: ['Gabriel Schade Cardoso'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.DotNet, BookTagEnum.CSharp],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.DotNet,
+      BookTagEnum.CSharp,
+    ],
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-programacao-funcional-net',
     pages: 323,
@@ -309,7 +341,11 @@ export const Books: IBook[] = [
     author: ['Otávio Santana'],
     publishName: PublishNameEnum.CasaDoCodigo,
     publishYear: 2020,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Database, BookTagEnum.NoSQL],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.Database,
+      BookTagEnum.NoSQL,
+    ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-apache-cassandra',
     pages: 151,
     progress: 0,
@@ -322,7 +358,11 @@ export const Books: IBook[] = [
     author: ['Jason Alls'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2022,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.DotNet],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.DotNet,
+    ],
     bookUrl:
       'https://www.packtpub.com/product/high-performance-programming-in-c-and-net/9781800564718',
     pages: 660,
@@ -336,7 +376,11 @@ export const Books: IBook[] = [
     author: ['Marcin Jamro'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2018,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.DotNet],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.DotNet,
+    ],
     bookUrl:
       'https://www.packtpub.com/product/c-data-structures-and-algorithms/9781788833738',
     pages: 292,
@@ -351,7 +395,11 @@ export const Books: IBook[] = [
     author: ['Mark J. Price'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2021,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.DotNet],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.DotNet,
+    ],
     bookUrl:
       'https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361',
     pages: 826,
@@ -364,7 +412,11 @@ export const Books: IBook[] = [
     author: ['Alvin Ashcraft'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2022,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.DotNet],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.DotNet,
+    ],
     bookUrl:
       'https://www.packtpub.com/product/parallel-programming-and-concurrency-with-c-10-and-net-6/9781803243672',
     pages: 320,
@@ -379,7 +431,11 @@ export const Books: IBook[] = [
     author: ['Stian Thorgersen', 'Pedro Igor Silva'],
     publishName: PublishNameEnum.Packts,
     publishYear: 2023,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp, BookTagEnum.DotNet],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.CSharp,
+      BookTagEnum.DotNet,
+    ],
     bookUrl:
       'https://www.packtpub.com/product/keycloak-identity-and-access-management-for-modern-applications-second-edition/9781804616444',
     pages: 350,
@@ -446,7 +502,11 @@ export const Books: IBook[] = [
     author: ['Martin Fowler'],
     publishName: PublishNameEnum.Novatec,
     publishYear: 2020,
-    tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.JavaScript, BookTagEnum.Refactor],
+    tags: [
+      BookTagEnum.SoftwareDevelopment,
+      BookTagEnum.JavaScript,
+      BookTagEnum.Refactor,
+    ],
     bookUrl: 'https://novatec.com.br/livros/refatoracao',
     pages: 456,
     progress: 0,

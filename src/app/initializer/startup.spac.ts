@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { provideConfigInitializer } from './startup';
 import { ConfigService } from '@path-services/config.service';
+import { provideConfigInitializer } from './startup';
 
 describe('provideConfigInitializer', () => {
   it('deve recurperar as configurações', async () => {
