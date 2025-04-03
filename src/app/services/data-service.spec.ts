@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { Courses } from '@path-data/Course';
-import { Graduations } from '@path-data/Graduation';
 import { Books } from '@path-data/Book';
+import { Courses } from '@path-data/Course';
 import { FormationCourses } from '@path-data/FormationCourse';
+import { Graduations } from '@path-data/Graduation';
 import { Profile } from '@path-data/Profile';
 import { DataService } from './data-service';
 

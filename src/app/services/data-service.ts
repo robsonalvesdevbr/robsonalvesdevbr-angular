@@ -1,14 +1,14 @@
 // src/app/services/data.service.ts
 import { Injectable } from '@angular/core';
-import { Courses } from '@path-data/Course';
-import { Graduations } from '@path-data/Graduation';
 import { Books } from '@path-data/Book';
+import { Courses } from '@path-data/Course';
 import { FormationCourses } from '@path-data/FormationCourse';
+import { Graduations } from '@path-data/Graduation';
 import { Profile } from '@path-data/Profile';
-import { ICourse } from '@path-interfaces/ICourse';
-import { IGraduation } from '@path-interfaces/IGraduation';
 import { IBook } from '@path-interfaces/IBook';
+import { ICourse } from '@path-interfaces/ICourse';
 import { IFormationCourse } from '@path-interfaces/IFormationCourse';
+import { IGraduation } from '@path-interfaces/IGraduation';
 import { IProfile } from '@path-interfaces/IProfile';
 
 @Injectable({

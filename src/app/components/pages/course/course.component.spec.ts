@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CourseComponent } from './course.component';
-import { DataService } from '@path-services/data-service';
 import { provideHttpClient } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
+import { DataService } from '@path-services/data-service';
+import { CourseComponent } from './course.component';
 
 describe('CourseComponent', () => {
   let component: CourseComponent;

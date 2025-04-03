@@ -1,4 +1,4 @@
-import { GraduationTagEnum } from "@path-app/models/GraduationTagEnum";
+import { GraduationTagEnum } from '@path-app/models/GraduationTagEnum';
 
 export interface IGraduation {
   name: string;

@@ -1,15 +1,15 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   OnInit,
+  inject,
   signal,
 } from '@angular/core';
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { CommonModule } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { DataService } from '@path-services/data-service';
 import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { DataService } from '@path-services/data-service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-contact',

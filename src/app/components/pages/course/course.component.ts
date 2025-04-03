@@ -1,26 +1,26 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
-  Component,
   ChangeDetectionStrategy,
+  Component,
   OnInit,
-  signal,
   WritableSignal,
   inject,
+  signal,
 } from '@angular/core';
-import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
+import {
+  GoogleAnalyticsService,
+  NgxGoogleAnalyticsModule,
+} from '@hakimio/ngx-google-analytics';
+import { HighlightDirective } from '@path-app/directives/highlight.directive';
+import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
-import { HighlightDirective } from '@path-app/directives/highlight.directive';
-import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
-import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
-import {
-  GoogleAnalyticsService,
-  NgxGoogleAnalyticsModule,
-} from '@hakimio/ngx-google-analytics';
+import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 
 @Component({
   selector: 'app-course',

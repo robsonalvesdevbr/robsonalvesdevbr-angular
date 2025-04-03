@@ -1,3 +1,4 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,20 +7,19 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
-import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { FilterPipe } from '@path-pipes/filter.pipe';
-import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
-import { SortbyPipe } from '@path-pipes/sortby.pipe';
-import { DataService } from '@path-services/data-service';
-import { HighlightDirective } from '@path-app/directives/highlight.directive';
-import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
-import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 import {
   GoogleAnalyticsService,
   NgxGoogleAnalyticsModule,
 } from '@hakimio/ngx-google-analytics';
+import { HighlightDirective } from '@path-app/directives/highlight.directive';
+import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { FilterPipe } from '@path-pipes/filter.pipe';
+import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
+import { SortbyPipe } from '@path-pipes/sortby.pipe';
+import { DataService } from '@path-services/data-service';
+import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
+import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 
 @Component({
   selector: 'app-book',

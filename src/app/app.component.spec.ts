@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { RouterOutlet } from '@angular/router';
-import { NavigationComponent } from './components/pages/navigation/navigation.component';
-import { MasterheadComponent } from './components/pages/masterhead/masterhead.component';
+import { AppComponent } from './app.component';
 import { AboutComponent } from './components/pages/about/about.component';
-import { GraduationComponent } from './components/pages/graduation/graduation.component';
-import { CourseComponent } from './components/pages/course/course.component';
-import { FormationCourseComponent } from './components/pages/formationcourse/formationcourse.component';
 import { BookComponent } from './components/pages/book/book.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
+import { CourseComponent } from './components/pages/course/course.component';
 import { FooterComponent } from './components/pages/footer/footer.component';
+import { FormationCourseComponent } from './components/pages/formationcourse/formationcourse.component';
+import { GraduationComponent } from './components/pages/graduation/graduation.component';
+import { MasterheadComponent } from './components/pages/masterhead/masterhead.component';
+import { NavigationComponent } from './components/pages/navigation/navigation.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
