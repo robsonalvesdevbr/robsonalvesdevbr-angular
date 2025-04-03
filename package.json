@@ -14,7 +14,7 @@
     "test-coverage": "ng test --no-watch --code-coverage",
     "prettier-write": "prettier . --write",
     "prettier-check": "prettier . --check",
-    "biome": "npx @biomejs/biome check --write ./src"
+    "biome": "npx @biomejs/biome check --write ."
   },
   "private": true,
   "dependencies": {
