@@ -24,7 +24,12 @@
 	"linter": {
 		"enabled": true,
 		"rules": { "recommended": false },
-		"ignore": ["node_modules/*", "dist/*", "**/dist/", "**/node_modules/"]
+		"ignore": [
+      "node_modules/*",
+      "dist/*",
+      "**/dist/",
+      "**/node_modules/"
+    ]
 	},
 	"javascript": {
 		"formatter": {
@@ -40,17 +45,11 @@
 		}
 	},
 	"overrides": [
-		{
-			"include": [
-				"src/**/*.ts",
-				".eslintrc.js",
-				"angular.json",
-				"tsconfig.json",
-				".prettierrc",
-				"karma.conf.js"
-			],
-			"linter": { "rules": {} }
-		},
-		{ "include": ["src/**/*.html"], "linter": { "rules": {} } }
+    {
+      "include": ["*.json"],
+      "formatter": {
+        "indentWidth": 2
+      }
+    }
 	]
 }
