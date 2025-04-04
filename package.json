@@ -12,8 +12,8 @@
     "test": "ng test",
     "test-nowatch": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
     "test-coverage": "ng test --no-watch --code-coverage",
-    "prettier-write": "prettier . --write",
-    "prettier-check": "prettier . --check",
+    "prettier-write": "npx prettier ./src --write",
+    "prettier-check": "npx prettier ./src --check",
     "biome": "npx @biomejs/biome check --write ."
   },
   "private": true,
@@ -43,6 +43,7 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "3.5.3",
     "typescript": "^5.7.3"
   }
 }

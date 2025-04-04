@@ -1,0 +1,8 @@
+**/*.js
+**/*.ts
+**/*.json
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
