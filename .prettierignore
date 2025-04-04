@@ -10,3 +10,4 @@
 **/.githooks
 **/.github
 **/.dist
+**/.husky
