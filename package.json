@@ -5,7 +5,7 @@
     "node": ">20.0.0"
   },
   "lint-staged": {
-    "**/*": "prettier ./src --write"
+    "**/*": "prettier --write ./src"
   },
   "scripts": {
     "ng": "ng",
