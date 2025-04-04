@@ -1,173 +1,156 @@
 <!-- About-->
 <section class="page-section" id="courses" [ngClass]="currentClass()">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="section-heading text-uppercase">Cursos</h2>
-      <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre meus cursos.&nbsp;&nbsp;&nbsp;&nbsp;<span
-          class="badge rounded-pill bg-warning fs-7 text-dark"
-          >Quantidade: {{ courses().length }}</span
-        >
-      </h3>
-    </div>
-    <div class="border border-1 rounded mb-2">
-      <div>
-        <div class="text-center bg-light bg-gradient">
-          <div class="has-text-centered">
-            <fieldset
-              class="btn-group-sm"
-              role="group"
-              aria-label="Basic checkbox toggle button group"
-              id="group_label_course_institution"
-            >
-              <button
-                type="button"
-                class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start"
-                (click)="clearFilters()"
-                aria-label="Limpar Filtros"
-                title="Limpar Filtros"
-              >
-                Limpar Filtros
-              </button>
-              <b class="p-1 m-1">Filtrar Instituição:</b>
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Cursos</h2>
+            <h3 class="section-subheading text-muted mb-3">
+                Saiba mais sobre meus cursos.&nbsp;&nbsp;&nbsp;&nbsp;<span
+                    class="badge rounded-pill bg-warning fs-7 text-dark"
+                    >Quantidade: {{ courses().length }}</span
+                >
+            </h3>
+        </div>
+        <div class="border border-1 rounded mb-2">
+            <div>
+                <div class="text-center bg-light bg-gradient">
+                    <div class="has-text-centered">
+                        <fieldset
+                            class="btn-group-sm"
+                            role="group"
+                            aria-label="Basic checkbox toggle button group"
+                            id="group_label_course_institution"
+                        >
+                            <button
+                                type="button"
+                                class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start"
+                                (click)="clearFilters()"
+                                aria-label="Limpar Filtros"
+                                title="Limpar Filtros"
+                            >
+                                Limpar Filtros
+                            </button>
+                            <b class="p-1 m-1">Filtrar Instituição:</b>
 
-              @for (
-                institution of institutionList
-                  | enumToArray
-                  | sortby: 'value' : 'asc';
-                track institution.key
-              ) {
-                <input
-                  type="checkbox"
-                  class="btn-check"
-                  id="input_course_institution_{{ institution.key }}"
-                  autocomplete="off"
-                  (click)="onClickIntitutionEvent($event)"
-                  gaEvent="ga_click_institution"
-                  gaCategory="ga_institution_category"
-                  gaOn="click"
-                  gaLabel="{{ institution.value }}"
-                />
-                <label
-                  class="btn btn-sm fontemenor p-1 ms-0"
-                  for="input_course_institution_{{ institution.key }}"
-                  id="label_course_institution_{{ institution.key }}"
-                  appHighlight
-                  >{{ institution.value }}</label
-                >
-              }
-            </fieldset>
-          </div>
+                            @for (
+                                institution of institutionList | enumToArray | sortby: 'value' : 'asc';
+                                track institution.key
+                            ) {
+                                <input
+                                    type="checkbox"
+                                    class="btn-check"
+                                    id="input_course_institution_{{ institution.key }}"
+                                    autocomplete="off"
+                                    (click)="onClickIntitutionEvent($event)"
+                                    gaEvent="ga_click_institution"
+                                    gaCategory="ga_institution_category"
+                                    gaOn="click"
+                                    gaLabel="{{ institution.value }}"
+                                />
+                                <label
+                                    class="btn btn-sm fontemenor p-1 ms-0"
+                                    for="input_course_institution_{{ institution.key }}"
+                                    id="label_course_institution_{{ institution.key }}"
+                                    appHighlight
+                                    >{{ institution.value }}</label
+                                >
+                            }
+                        </fieldset>
+                    </div>
+                </div>
+                <hr class="p-0 m-1" />
+                <div>
+                    <div class="text-center bg-light bg-gradient">
+                        <div class="has-text-centered">
+                            <fieldset class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+                                <b class="p-1 m-1">Filtrar tag:</b>
+                                @for (tag of getTags() | sortby: undefined : 'asc'; track tag) {
+                                    <input
+                                        type="checkbox"
+                                        class="btn-check"
+                                        id="input_course_tag_{{ tag | lowercase }}"
+                                        autocomplete="off"
+                                        (click)="onClickTagEvent($event)"
+                                        gaEvent="ga_click_course_tag"
+                                        gaCategory="ga_course_tag_category"
+                                        gaOn="click"
+                                        gaLabel="{{ tag }}"
+                                    />
+                                    <label
+                                        class="btn btn-sm fontemenor p-1 ms-0"
+                                        for="input_course_tag_{{ tag | lowercase }}"
+                                        id="label_course_tag_{{ tag | lowercase }}"
+                                        [ngClass]="{ active: tagsFilter().has(tag) }"
+                                        appHighlight
+                                        >{{ tag }}</label
+                                    >
+                                }
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <hr class="p-0 m-1" />
-        <div>
-          <div class="text-center bg-light bg-gradient">
+        <div class="fontemenor12 pb-1" style="margin-left: 140px">
+            <i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito
+        </div>
+        <ul class="list-group list-group-light mb-4">
+            @for (
+                item of courses()
+                    | filter: 'string' : 'institution' : selectInstitutionsFilter()
+                    | filter: 'array' : 'tags' : selectTagFilter()
+                    | sortby: 'conclusion' : 'desc'
+                    | paginate: config();
+                track item;
+                let i = $index
+            ) {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center ms-5">
+                        <img
+                            ngSrc="assets/img/others/{{ item.institution | imgcurso }}"
+                            alt=""
+                            height="60"
+                            width="60"
+                            class="rounded-circle"
+                        />
+                        <div class="ms-3">
+                            <p class="fw-bold mb-0">
+                                {{ item.name }}
+                                <i
+                                    class="bi bi-star-fill fontemenor12"
+                                    style="color: #ffc107"
+                                    [hidden]="!item.favorite"
+                                ></i
+                                >&nbsp;&nbsp;
+                            </p>
+                            <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
+                            <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
+                            <p class="text-muted fontemenor">
+                                Concluído em
+                                {{ item.conclusion | date: 'dd/MM/yyyy' }}
+                                &nbsp;&nbsp;&nbsp;&nbsp;<a
+                                    [href]="item.certificateUrl"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    gaEvent="ga_click_course_certificate"
+                                    gaCategory="ga_course_certificate_category"
+                                    gaOn="click"
+                                    gaLabel="{{ item.name }}"
+                                    >Certificado</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+                        {{ absoluteIndex(i) }}
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </li>
+            }
+        </ul>
+        <div class="text-center">
             <div class="has-text-centered">
-              <fieldset
-                class="btn-group-sm"
-                role="group"
-                aria-label="Basic checkbox toggle button group"
-              >
-                <b class="p-1 m-1">Filtrar tag:</b>
-                @for (tag of getTags() | sortby: undefined : 'asc'; track tag) {
-                  <input
-                    type="checkbox"
-                    class="btn-check"
-                    id="input_course_tag_{{ tag | lowercase }}"
-                    autocomplete="off"
-                    (click)="onClickTagEvent($event)"
-                    gaEvent="ga_click_course_tag"
-                    gaCategory="ga_course_tag_category"
-                    gaOn="click"
-                    gaLabel="{{ tag }}"
-                  />
-                  <label
-                    class="btn btn-sm fontemenor p-1 ms-0"
-                    for="input_course_tag_{{ tag | lowercase }}"
-                    id="label_course_tag_{{ tag | lowercase }}"
-                    [ngClass]="{ active: tagsFilter().has(tag) }"
-                    appHighlight
-                    >{{ tag }}</label
-                  >
-                }
-              </fieldset>
+                <pagination-controls (pageChange)="onPageChange($event)" id="coursesPag"></pagination-controls>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <div class="fontemenor12 pb-1" style="margin-left: 140px">
-      <i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito
-    </div>
-    <ul class="list-group list-group-light mb-4">
-      @for (
-        item of courses()
-          | filter: 'string' : 'institution' : selectInstitutionsFilter()
-          | filter: 'array' : 'tags' : selectTagFilter()
-          | sortby: 'conclusion' : 'desc'
-          | paginate: config();
-        track item;
-        let i = $index
-      ) {
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center ms-5">
-            <img
-              ngSrc="assets/img/others/{{ item.institution | imgcurso }}"
-              alt=""
-              height="60"
-              width="60"
-              class="rounded-circle"
-            />
-            <div class="ms-3">
-              <p class="fw-bold mb-0">
-                {{ item.name }}
-                <i
-                  class="bi bi-star-fill fontemenor12"
-                  style="color: #ffc107"
-                  [hidden]="!item.favorite"
-                ></i
-                >&nbsp;&nbsp;
-              </p>
-              <p class="text-muted fontemenor">
-                <b>Instituição:</b> {{ item.institution }}
-              </p>
-              <p class="text-muted fontemenor">
-                <b>Tags: </b> {{ item.tags | printTags }}
-              </p>
-              <p class="text-muted fontemenor">
-                Concluído em
-                {{ item.conclusion | date: 'dd/MM/yyyy' }}
-                &nbsp;&nbsp;&nbsp;&nbsp;<a
-                  [href]="item.certificateUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  gaEvent="ga_click_course_certificate"
-                  gaCategory="ga_course_certificate_category"
-                  gaOn="click"
-                  gaLabel="{{ item.name }}"
-                  >Certificado</a
-                >
-              </p>
-            </div>
-          </div>
-          <span
-            class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger"
-          >
-            {{ absoluteIndex(i) }}
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </li>
-      }
-    </ul>
-    <div class="text-center">
-      <div class="has-text-centered">
-        <pagination-controls
-          (pageChange)="onPageChange($event)"
-          id="coursesPag"
-        ></pagination-controls>
-      </div>
-    </div>
-  </div>
 </section>
