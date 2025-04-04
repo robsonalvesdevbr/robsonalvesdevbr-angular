@@ -5,10 +5,7 @@
     "node": ">20.0.0"
   },
   "lint-staged": {
-    "./src": [
-      "npx @biomejs/biome check --write",
-      "prettier --write"
-    ]
+    "./src": ["prettier --write", "biome check --write"]
   },
   "scripts": {
     "ng": "ng",
