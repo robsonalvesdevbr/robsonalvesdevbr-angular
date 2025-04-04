@@ -17,18 +17,18 @@ A estrutura do projeto é a seguinte:
 - **angular.json**: Configurações do Angular CLI.
 - **package.json**: Dependências e scripts do npm.
 - **src/**: Código-fonte da aplicação.
-  - **app/**: Componentes e módulos da aplicação.
-    - [`app-routing.module.ts`](src/app/app-routing.module.ts): Configurações de rotas.
-    - [`app.component.ts`](src/app/app.component.ts): Componente principal.
-    - [`app.component.html`](src/app/app.component.html): Template do componente principal.
-    - [`app.component.scss`](src/app/app.component.scss): Estilos do componente principal.
-  - **assets/**: Arquivos estáticos.
-  - **css/**: Arquivos CSS globais.
-  - **environments/**: Configurações de ambiente.
-  - [`index.html`](src/index.html): Página principal.
-  - **js/**: Scripts JavaScript.
-  - [`main.ts`](src/main.ts): Arquivo principal do Angular.
-  - [`styles.scss`](src/styles.scss): Estilos globais.
+    - **app/**: Componentes e módulos da aplicação.
+        - [`app-routing.module.ts`](src/app/app-routing.module.ts): Configurações de rotas.
+        - [`app.component.ts`](src/app/app.component.ts): Componente principal.
+        - [`app.component.html`](src/app/app.component.html): Template do componente principal.
+        - [`app.component.scss`](src/app/app.component.scss): Estilos do componente principal.
+    - **assets/**: Arquivos estáticos.
+    - **css/**: Arquivos CSS globais.
+    - **environments/**: Configurações de ambiente.
+    - [`index.html`](src/index.html): Página principal.
+    - **js/**: Scripts JavaScript.
+    - [`main.ts`](src/main.ts): Arquivo principal do Angular.
+    - [`styles.scss`](src/styles.scss): Estilos globais.
 - **tsconfig.app.json**: Configurações do TypeScript para a aplicação.
 - **tsconfig.json**: Configurações gerais do TypeScript.
 - **tsconfig.spec.json**: Configurações do TypeScript para testes.
