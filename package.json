@@ -6,7 +6,7 @@
   },
   "lint-staged": {
     "./src": [
-      "npx @biomejs/biome check --write .",
+      "npx @biomejs/biome check --write",
       "npx prettier --write"
     ]
   },
