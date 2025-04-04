@@ -4,6 +4,9 @@
   "engines": {
     "node": ">20.0.0"
   },
+  "lint-staged": {
+    "**/*": "prettier ./src --write"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +17,8 @@
     "test-coverage": "ng test --no-watch --code-coverage",
     "prettier-write": "npx prettier ./src --write",
     "prettier-check": "npx prettier ./src --check",
-    "biome": "npx @biomejs/biome check --write ."
+    "biome": "npx @biomejs/biome check --write .",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -37,12 +41,14 @@
     "@angular/compiler-cli": "^19.2.5",
     "@biomejs/biome": "^1.9.4",
     "@types/jasmine": "~5.1.7",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.5.0",
     "prettier": "3.5.3",
     "typescript": "^5.7.3"
   }
