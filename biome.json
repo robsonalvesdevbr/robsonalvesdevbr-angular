@@ -1,14 +1,12 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
   "files": {
-    "include": [
-      "./*.angular.json",
-      "./package.json",
-      "./biome.json",
-      "./karma.conf.js",
-      "./src/**"
-    ],
+    "ignoreUnknown": true,
     "ignore": [
       "**/build",
       "**/coverage",
@@ -18,9 +16,13 @@
       "./.githooks",
       "./.github",
       "./.vscode",
-      "./.angular",
-      "./tsconfig*"
+      "./.angular"
     ]
+  },
+  "json": {
+    "parser": {
+      "allowComments": true
+    }
   },
   "formatter": {
     "enabled": true,
