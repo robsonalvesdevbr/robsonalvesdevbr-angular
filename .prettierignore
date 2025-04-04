@@ -6,3 +6,7 @@
 **/.svn
 **/.hg
 **/node_modules
+**/.angular
+**/.githooks
+**/.github
+**/.dist
