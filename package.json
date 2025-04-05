@@ -5,7 +5,11 @@
     "node": ">20.0.0"
   },
   "lint-staged": {
-    "**/*": ["prettier --write", "biome check --write"]
+    "**/*": [
+      "ng test --watch=false --no-progress --browsers=ChromeHeadless",
+      "prettier --write",
+      "biome check --write"
+    ]
   },
   "scripts": {
     "ng": "ng",
