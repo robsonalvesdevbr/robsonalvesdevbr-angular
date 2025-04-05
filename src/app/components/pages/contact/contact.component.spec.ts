@@ -13,13 +13,13 @@ describe('ContactComponent', () => {
         country: 'Brasil',
         state: 'Paraná',
         city: 'Curitiba',
-        email: 'contato@robsonalves.dev.br',
+        email: 'robson.curitibapr@gmail.com',
         birthday: new Date('1980-08-29'),
         urlList: new Map<string, string>([
           ['WebSite', 'https://www.robsonalves.dev.br'],
           ['LinkedIn', 'https://www.linkedin.com/in/robson-curitiba'],
           ['Instagram', 'https://www.instagram.com/robsondesenvolvimento'],
-          ['GitHub', 'https://github.com/robsonalvesdev'],
+          ['GitHub', 'https://github.com/robsonalvesdevbr'],
         ]),
       }),
     };
