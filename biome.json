@@ -11,12 +11,12 @@
       "**/build",
       "**/coverage",
       "**/.browserslist",
-      "./dist",
-      "./node_modules",
-      "./.githooks",
-      "./.github",
-      "./.vscode",
-      "./.angular"
+      "**/dist",
+      "**/node_modules",
+      "**/.githooks",
+      "**/.github",
+      "**/.vscode",
+      "**/.angular"
     ]
   },
   "json": {
@@ -35,7 +35,9 @@
     "attributePosition": "auto",
     "bracketSpacing": true
   },
-  "organizeImports": { "enabled": true },
+  "organizeImports": {
+    "enabled": true
+  },
   "linter": {
     "enabled": false,
     "rules": {
