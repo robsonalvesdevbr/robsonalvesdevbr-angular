@@ -1,50 +1,56 @@
 <!-- About-->
 <section class="page-section" id="graduation" [ngClass]="currentClass()">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="section-heading text-uppercase">(Pós)Graduação</h2>
-      <h3 class="section-subheading text-muted">
-        Saiba mais sobre minhas graduações e pós-graduações.&nbsp;&nbsp;&nbsp;&nbsp;<span
-          class="badge rounded-pill bg-warning fs-7 text-dark">Quantidade: {{ graduations().length }}</span>
-      </h3>
-    </div>
-    <ul class="timeline">
-      @for (graduation of graduations() | sortby: 'conclusionDate' : 'desc'; track graduation; let i = $index) {
-      <li [ngClass]="{ 'timeline-inverted': i % 2 !== 0 }" class="mb-5">
-        <div class="timeline-image">
-          <img class="rounded-circle img-fluid" ngSrc="assets/img/others/formacao.png" alt="..." fill />
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">(Pós)Graduação</h2>
+            <h3 class="section-subheading text-muted">
+                Saiba mais sobre minhas graduações e pós-graduações.&nbsp;&nbsp;&nbsp;&nbsp;<span
+                    class="badge rounded-pill bg-warning fs-7 text-dark"
+                    >Quantidade: {{ graduations().length }}</span
+                >
+            </h3>
         </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h5>{{ graduation.conclusionDate | date: 'yyyy' }}</h5>
-            <h5 class="subheading">{{ graduation.name }}</h5>
-          </div>
-          <div class="timeline-body">
-            <p class="text-muted">
-              <b>{{ graduation.conclusion | messageDateConclusion }}</b>
-            </p>
-            <p class="text-muted">{{ graduation.institution }}</p>
-            <p class="text-muted">
-              <a [href]="graduation.websiteInstituition" target="_blank" rel="noopener"
-                [attr.aria-label]="'Visite o site da instituição ' + graduation.institution">{{
-                graduation.websiteInstituition }}</a>
-            </p>
-          </div>
-        </div>
-      </li>
-      }
+        <ul class="timeline">
+            @for (graduation of graduations() | sortby: 'conclusionDate' : 'desc'; track graduation; let i = $index) {
+                <li [ngClass]="{ 'timeline-inverted': i % 2 !== 0 }" class="mb-5">
+                    <div class="timeline-image">
+                        <img class="rounded-circle img-fluid" ngSrc="assets/img/others/formacao.png" alt="..." fill />
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h5>{{ graduation.conclusionDate | date: 'yyyy' }}</h5>
+                            <h5 class="subheading">{{ graduation.name }}</h5>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">
+                                <b>{{ graduation.conclusion | messageDateConclusion }}</b>
+                            </p>
+                            <p class="text-muted">{{ graduation.institution }}</p>
+                            <p class="text-muted">
+                                <a
+                                    [href]="graduation.websiteInstituition"
+                                    target="_blank"
+                                    rel="noopener"
+                                    [attr.aria-label]="'Visite o site da instituição ' + graduation.institution"
+                                    >{{ graduation.websiteInstituition }}</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            }
 
-      <li class="timeline-inverted">
-        <div class="timeline-image">
-          <h4>
-            Esta é parte
-            <br />
-            Da minha
-            <br />
-            Formação!
-          </h4>
-        </div>
-      </li>
-    </ul>
-  </div>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        Esta é parte
+                        <br />
+                        Da minha
+                        <br />
+                        Formação!
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
 </section>
