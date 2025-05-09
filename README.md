@@ -77,7 +77,6 @@ ng g @angular/core:cleanup-unused-imports
 ```bash
 npm install --save-dev prettier eslint eslint-config-prettier eslint-plugin-prettier
 ng add @angular-eslint/schematics
-
 ```
 
 [1]: https://www.robsonalves.dev.br 'Arquiteto de software - Robson Alves<robson.curitibapr@gmail.com>'
