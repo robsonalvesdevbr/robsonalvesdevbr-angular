@@ -15,22 +15,29 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          submodules: true
-          lfs: false
+          node-version: 22
+      - run: npm install
+      - run: npm run test-nowatch
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '>=22.9'
+      #- name: Checkout Repository
+      #  uses: actions/checkout@v4
+      #  with:
+      #    submodules: true
+      #    lfs: false
 
-      - name: Install Dependencies
-        run: npm install
+      #- name: Set up Node.js
+      #  uses: actions/setup-node@v4
+      #  with:
+      #    node-version: '>=22.9'
 
-      - name: Run Unit Tests
-        run: npm run test-nowatch #-- --watch=false --browsers=ChromeHeadless
+      #- name: Install Dependencies
+      #  run: npm install
+
+      #- name: Run Unit Tests
+      #  run: npm run test-nowatch #-- --watch=false --browsers=ChromeHeadless
 
       - name: Build And Deploy
         id: builddeploy
