@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   template: '',
-  imports: [CommonModule],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BasePageComponent {

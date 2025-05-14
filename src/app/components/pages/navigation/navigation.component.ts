@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
@@ -7,7 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-navigation',
-  imports: [CommonModule, NgxPaginationModule, NgxGoogleAnalyticsModule],
+  imports: [NgxPaginationModule, NgxGoogleAnalyticsModule],
   templateUrl: './navigation.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
