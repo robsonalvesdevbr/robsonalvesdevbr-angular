@@ -154,6 +154,6 @@ Adicione o seguinte script ao seu `package.json`:
   "lint": "ng lint",
   "lint:fix": "ng lint --fix",
   "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
-  "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\""
+  "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\"",
 }
 ```
