@@ -16,6 +16,7 @@
         "plugin:prettier/recommended" // Adiciona Prettier como uma regra ESLint e desabilita conflitos
       ],
       "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
         // Suas regras customizadas do ESLint aqui (opcional)
         // Exemplo:
         // "@angular-eslint/directive-selector": [
