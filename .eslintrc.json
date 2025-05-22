@@ -39,16 +39,36 @@
     },
     {
       "files": [
-        "*.html"
+        "index.html"
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:prettier/recommended" // Garante que o Prettier também formate HTML
       ],
       "rules": {
-        "prettier/prettier": "off"
+        //"prettier/prettier": "off"
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
         // Suas regras customizadas para templates HTML aqui (opcional)
       }
+
+    },
+    {
+      "files": [
+        "src/app/**/*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended" // Garante que o Prettier também formate HTML
+      ],
+      "rules": {
+        // Suas regras customizadas para templates HTML aqui (opcional)
+      }
+
     }
   ]
 }
