@@ -5,7 +5,10 @@
     "node": ">=22.9"
   },
   "lint-staged": {
-    "**/*": ["prettier --write", "biome check --write"]
+    "**/*": [
+      "prettier --write",
+      "biome check --write"
+    ]
   },
   "scripts": {
     "ng": "ng",
@@ -18,7 +21,12 @@
     "prettier-write": "npx prettier ./src --write",
     "prettier-check": "npx prettier ./src --check",
     "biome": "npx @biomejs/biome check --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\""
   },
   "private": true,
   "dependencies": {
@@ -37,10 +45,17 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "19.2.13",
+    "@angular-eslint/builder": "^19.4.0",
+    "@angular-eslint/eslint-plugin": "^19.4.0",
+    "@angular-eslint/eslint-plugin-template": "^19.4.0",
+    "@angular-eslint/template-parser": "^19.4.0",
     "@angular/cli": "19.2.13",
     "@angular/compiler-cli": "19.2.12",
     "@biomejs/biome": "1.9.4",
     "@types/jasmine": "5.1.8",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
     "husky": "9.1.7",
     "jasmine-core": "5.7.1",
     "karma": "6.4.4",
@@ -49,7 +64,8 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "lint-staged": "16.0.0",
-    "prettier": "3.5.3",
-    "typescript": "5.8.3"
+    "prettier": "^3.5.3",
+    "typescript": "5.8.3",
+    "typescript-eslint": "^8.32.1"
   }
 }
