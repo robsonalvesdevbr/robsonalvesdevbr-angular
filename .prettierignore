@@ -11,3 +11,7 @@
 **/.github
 **/.dist
 **/.husky
+**/coverage
+**/package-lock.json
+**/yarn.lock
+**/angular.json

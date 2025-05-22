@@ -1,61 +1,64 @@
 <!-- About-->
 <section class="page-section" id="formationcourse" [ngClass]="currentClass()">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Cursos de Formação</h2>
-            <h3 class="section-subheading text-muted mb-3">
-                Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span
-                    class="badge rounded-pill bg-warning fs-7 text-dark"
-                    >Quantidade: {{ formationCourses().length }}</span
-                >
-            </h3>
-        </div>
-        <ul class="list-group list-group-light mb-4">
-            @for (
-                course of formationCourses() | sortby: 'conclusion' : 'desc' | paginate: config();
-                track course;
-                let i = $index
-            ) {
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center ms-5">
-                        <img
-                            ngSrc="assets/img/others/{{ course.institution | imgcurso }}"
-                            alt=""
-                            width="60"
-                            height="60"
-                            class="rounded-circle"
-                        />
-                        <div class="ms-3">
-                            <p class="fw-bold mb-0">{{ course.name }}</p>
-                            <p class="text-muted fontemenor"><b>Instituição:</b> {{ course.institution }}</p>
-                            <p class="text-muted fontemenor"><b>Tags: </b> {{ course.tags | printTags }}</p>
-                            <p class="text-muted fontemenor">
-                                Concluído em
-                                {{ course.conclusion | date: 'dd/MM/yyyy' }}
-                                &nbsp;&nbsp;&nbsp;&nbsp;<a
-                                    [href]="course.certificateUrl"
-                                    target="_blank"
-                                    rel="noopener"
-                                    gaEvent="ga_click_course_certificate"
-                                    gaCategory="ga_course_certificate_category"
-                                    gaOn="click"
-                                    gaLabel="{{ course.name }}"
-                                    >Certificado</a
-                                >
-                            </p>
-                        </div>
-                    </div>
-                    <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
-                        {{ absoluteIndex(i) }}
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
-                </li>
-            }
-        </ul>
-        <div class="text-center">
-            <div class="has-text-centered">
-                <pagination-controls (pageChange)="onPageChange($event)" id="formationCoursesPag"></pagination-controls>
-            </div>
-        </div>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Cursos de Formação</h2>
+      <h3 class="section-subheading text-muted mb-3">
+        Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span
+          class="badge rounded-pill bg-warning fs-7 text-dark"
+          >Quantidade: {{ formationCourses().length }}</span
+        >
+      </h3>
     </div>
+    <ul class="list-group list-group-light mb-4">
+      @for (
+        course of formationCourses() | sortby: 'conclusion' : 'desc' | paginate: config();
+        track course;
+        let i = $index
+      ) {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center ms-5">
+            <img
+              ngSrc="assets/img/others/{{ course.institution | imgcurso }}"
+              alt=""
+              width="60"
+              height="60"
+              class="rounded-circle"
+            />
+            <div class="ms-3">
+              <p class="fw-bold mb-0">{{ course.name }}</p>
+              <p class="text-muted fontemenor"><b>Instituição:</b> {{ course.institution }}</p>
+              <p class="text-muted fontemenor"><b>Tags: </b> {{ course.tags | printTags }}</p>
+              <p class="text-muted fontemenor">
+                Concluído em
+                {{ course.conclusion | date: 'dd/MM/yyyy' }}
+                &nbsp;&nbsp;&nbsp;&nbsp;<a
+                  [href]="course.certificateUrl"
+                  target="_blank"
+                  rel="noopener"
+                  gaEvent="ga_click_course_certificate"
+                  gaCategory="ga_course_certificate_category"
+                  gaOn="click"
+                  gaLabel="{{ course.name }}"
+                  >Certificado</a
+                >
+              </p>
+            </div>
+          </div>
+          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+            {{ absoluteIndex(i) }}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </li>
+      }
+    </ul>
+    <div class="text-center">
+      <div class="has-text-centered">
+        <pagination-controls
+          (pageChange)="onPageChange($event)"
+          id="formationCoursesPag"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
 </section>
