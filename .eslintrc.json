@@ -46,6 +46,7 @@
         "plugin:prettier/recommended" // Garante que o Prettier também formate HTML
       ],
       "rules": {
+        "prettier/prettier": "off"
         // Suas regras customizadas para templates HTML aqui (opcional)
       }
     }
