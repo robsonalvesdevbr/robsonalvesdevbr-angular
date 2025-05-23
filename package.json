@@ -6,13 +6,13 @@
   },
   "lint-staged": {
     "**/*": [
-      "prettier --write",
-      "biome check --write"
+      "eslint --fix",
+      "prettier --write \"src/**/*.{ts,html,scss,json}\""
     ]
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --no-hmr",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
