@@ -22,7 +22,6 @@
     "prettier-check": "npx prettier ./src --check",
     "biome": "npx @biomejs/biome check --write .",
     "prepare": "husky",
-
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
@@ -39,6 +38,9 @@
     "@angular/platform-browser-dynamic": "19.2.12",
     "@angular/router": "19.2.12",
     "@hakimio/ngx-google-analytics": "15.0.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1",
     "ngx-pagination": "6.0.3",
     "rxjs": "7.8.2",
     "tslib": "2.8.1"
