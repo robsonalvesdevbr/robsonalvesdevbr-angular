@@ -97,8 +97,16 @@
               "src/js",
               "src/.well-known"
             ],
-            "styles": ["src/styles.scss", "src/css/styles.scss"],
-            "scripts": [],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.scss",
+              "src/css/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./node_modules/@popperjs/core/dist/umd/popper.min.js"
+            ],
             "karmaConfig": "karma.conf.js"
           }
         },
