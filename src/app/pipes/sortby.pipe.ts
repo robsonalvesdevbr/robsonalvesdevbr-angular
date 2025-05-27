@@ -18,7 +18,7 @@ export class SortbyPipe implements PipeTransform {
       return this.sortString(array as string[], order) as T[];
     }
 
-    return array.sort(this.getSortFn(field, order));
+    return [...array].sort(this.getSortFn(field, order));
   }
 
   private getSortFn<T>(
