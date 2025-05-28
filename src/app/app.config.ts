@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import {
   provideGoogleAnalytics,
@@ -12,6 +12,7 @@ import { provideConfigInitializer } from './initializer/startup';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
+    provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideConfigInitializer(),
     provideGoogleAnalytics(environment.googleAnalytics),
