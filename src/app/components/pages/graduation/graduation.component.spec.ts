@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { GraduationComponent } from './graduation.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('GraduationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [GraduationComponent],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
   });
 

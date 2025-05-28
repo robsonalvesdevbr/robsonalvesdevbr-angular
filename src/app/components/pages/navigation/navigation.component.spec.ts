@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { NavigationComponent } from './navigation.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('NavigationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NavigationComponent],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
   });
 

@@ -10,6 +10,7 @@ import { FormationCourseComponent } from './components/pages/formationcourse/for
 import { GraduationComponent } from './components/pages/graduation/graduation.component';
 import { MasterheadComponent } from './components/pages/masterhead/masterhead.component';
 import { NavigationComponent } from './components/pages/navigation/navigation.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -26,6 +27,7 @@ describe('AppComponent', () => {
         ContactComponent,
         FooterComponent, // Change from declarations to imports
       ],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
   });
 

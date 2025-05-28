@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { AboutComponent } from './about.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('AbountComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AboutComponent],
+      providers: [provideZonelessChangeDetection()]
     }).compileComponents();
   });
 

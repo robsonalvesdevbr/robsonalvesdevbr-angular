@@ -10,6 +10,7 @@ import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormationCourseComponent } from './formationcourse.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('FormationCourseComponent', () => {
   let component: FormationCourseComponent;
@@ -59,7 +60,10 @@ describe('FormationCourseComponent', () => {
         RouterLinkActive,
         FormationCourseComponent, // Import the standalone component
       ],
-      providers: [{ provide: DataService, useValue: dataServiceStub }],
+      providers: [
+        { provide: DataService, useValue: dataServiceStub },
+        provideZonelessChangeDetection(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormationCourseComponent);

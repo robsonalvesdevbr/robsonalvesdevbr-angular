@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { DataService } from '@path-services/data-service';
 import { ContactComponent } from './contact.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -26,7 +27,10 @@ describe('ContactComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [ContactComponent],
-      providers: [{ provide: DataService, useValue: dataServiceStub }],
+      providers: [
+        { provide: DataService, useValue: dataServiceStub },
+        provideZonelessChangeDetection()
+      ],
     }).compileComponents();
 
     const fixture = TestBed.createComponent(ContactComponent);
