@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { DataService } from '@path-services/data-service';
 import { CourseComponent } from './course.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('CourseComponent', () => {
   let component: CourseComponent;
@@ -40,6 +41,7 @@ describe('CourseComponent', () => {
         { provide: DataService, useValue: dataServiceStub },
         provideHttpClient(),
         provideRouter([]),
+        provideZonelessChangeDetection(),
       ],
     }).compileComponents();
 

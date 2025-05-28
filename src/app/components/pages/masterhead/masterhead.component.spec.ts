@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { MasterheadComponent } from './masterhead.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('MasterheadComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MasterheadComponent],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
   });
 

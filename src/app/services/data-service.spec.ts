@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { Books } from '@path-data/Book';
 import { Courses } from '@path-data/Course';
 import { FormationCourses } from '@path-data/FormationCourse';
@@ -10,7 +11,9 @@ describe('DataService', () => {
   let service: DataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideZonelessChangeDetection()],
+    });
     service = TestBed.inject(DataService);
   });
 

@@ -10,6 +10,7 @@ import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BookComponent } from './book.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -65,7 +66,7 @@ describe('BookComponent', () => {
         BookComponent, // Moved from declarations to imports
       ],
       // Removed BookComponent from declarations
-      providers: [{ provide: DataService, useValue: dataServiceStub }],
+      providers: [{ provide: DataService, useValue: dataServiceStub }, provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BookComponent);
