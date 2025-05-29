@@ -23,6 +23,6 @@ describe('MasterheadComponent', () => {
     expect(
       compiled.querySelector('div.container div.masthead-subheading')
         ?.textContent
-    ).toBe('Bem vindo ao meu Website');
+    ).toBe('Bem-vindo ao meu portfólio!');
   });
 });
