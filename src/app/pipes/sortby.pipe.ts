@@ -53,7 +53,7 @@ export class SortbyPipe implements PipeTransform {
   // A função deve ser chamada sortString
   // Dica: use o método sort do array
   sortString(array: string[], order: 'asc' | 'desc'): string[] {
-    return array.sort((a, b) =>
+    return [...array].sort((a, b) =>
       order === 'asc' ? a.localeCompare(b) : b.localeCompare(a)
     );
   }

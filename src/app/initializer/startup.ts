@@ -1,15 +1,13 @@
 import { inject, provideAppInitializer } from '@angular/core';
 import { ConfigService } from '@path-services/config.service';
 
-// essa função será registrada em app.config.ts
+// This function will be registered in app.config.ts
 export function provideConfigInitializer() {
-  // essa função registra um initializer de forma transparente
+  // Registers an app initializer transparently
   return provideAppInitializer(() => {
-    // faz a injeção do service que permite recuperar as configurações do servidor
+    // Injects the service to retrieve server configurations
     const configService = inject(ConfigService);
-
-    // faz a requisição HTTP e mantém as configurações em memória
+    // Performs HTTP request and keeps configurations in memory
     return configService.getData();
-    console.log('Configurações carregadas no startup...');
   });
 }
