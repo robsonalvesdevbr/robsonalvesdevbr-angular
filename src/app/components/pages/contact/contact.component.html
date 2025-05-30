@@ -41,14 +41,16 @@
             <b>--------------------------------------------------------------</b><br />
             <p>
               <a
-                aria-label="Email"
+                [href]="
+                  'mailto:' + profiles().email + '?subject=Contato website robsonalves.dev.br'
+                "
+                [attr.aria-label]="'Enviar email para ' + profiles().email"
                 class="btn"
-                href="mailto:{{ profiles().email }}?subject=Contato website robsonalves.dev.br"
                 ><i class="bi bi-envelope-at-fill" style="font-size: 35px"></i
               ></a>
               <a
                 [href]="profiles().urlList.get('WebSite')"
-                aria-label="Website"
+                [attr.aria-label]="'Acessar website pessoal de ' + profiles().name"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -56,7 +58,7 @@
               ></a>
               <a
                 [href]="profiles().urlList.get('LinkedIn')"
-                aria-label="LinkedIn"
+                [attr.aria-label]="'Acessar perfil LinkedIn de ' + profiles().name"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -64,7 +66,7 @@
               ></a>
               <a
                 [href]="profiles().urlList.get('Instagram')"
-                aria-label="Instagram"
+                [attr.aria-label]="'Acessar perfil Instagram de ' + profiles().name"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -72,7 +74,7 @@
               ></a>
               <a
                 [href]="profiles().urlList.get('GitHub')"
-                aria-label="GitHub"
+                [attr.aria-label]="'Acessar perfil GitHub de ' + profiles().name"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -80,7 +82,7 @@
               ></a>
               <a
                 href="https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular"
-                aria-label="GitHub"
+                [attr.aria-label]="'Acessar repositório do projeto no GitHub'"
                 class="btn"
                 target="_blank"
                 rel="noopener"

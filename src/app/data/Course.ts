@@ -187,7 +187,6 @@ export const Courses: ICourse[] = [
       'https://desenvolvedor.io/curso/baixar-certificado/12546112-619c-4b01-8097-851e3fbbb262',
     tags: [
       CourseTagEnum.DockerContainer,
-      CourseTagEnum.DockerContainer,
       CourseTagEnum.Kubernetes,
     ],
     conclusion: new Date('2024-3-28'),
@@ -268,7 +267,6 @@ export const Courses: ICourse[] = [
       CourseTagEnum.DevOps,
       CourseTagEnum.Microsoft,
       CourseTagEnum.Kubernetes,
-      CourseTagEnum.DockerContainer,
       CourseTagEnum.DockerContainer,
     ],
     conclusion: new Date('2021-8-19'),
