@@ -1,39 +1,27 @@
 // Example .vscode/mcp.json
 {
-  // 💡 Inputs will be prompted on first server start,
-  //    then stored securely by VS Code.
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "perplexity-key",
-      "description": "Perplexity API Key",
-      "password": true
-    },
-    {
-      "id": "main_directory",
-      "type": "promptString",
-      "description": "Enter the path to the main directory"
-    }
-  ],
   "servers": {
-
-    "my-remote-server": {
-      "type": "sse",
-      "url": "http://api.contoso.com/sse",
-      "headers": { "VERSION": "1.2" }
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
     },
     "filesystem": {
-      "command": "docker",
+      "command": "npx",
       "args": [
-        "run",
-        "-i",
-        "--rm",
-        "--mount", "type=bind,src=/Users/username/Desktop,dst=/projects/Desktop",
-        "--mount", "type=bind,src=/path/to/other/allowed/dir,dst=/projects/other/allowed/dir,ro",
-        "--mount", "type=bind,src=/path/to/file.txt,dst=/projects/path/to/file.txt",
-        "mcp/filesystem",
-        "/projects"
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
       ]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
     }
   }
 }
