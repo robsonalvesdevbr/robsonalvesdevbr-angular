@@ -75,4 +75,6 @@ export enum CourseTagEnum {
   Solid = 'solid',
   SoftwareTesting = 'software-testing',
   DigitalOcean = 'digital-ocean',
+  Dapper = "dapper",
+  Orm = "orm",
 }
