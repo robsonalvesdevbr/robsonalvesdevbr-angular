@@ -467,7 +467,7 @@ export const Courses: ICourse[] = [
       CourseTagEnum.Dapper,
       CourseTagEnum.Orm
     ],
-    conclusion: new Date('2026-6-25'),
+    conclusion: new Date('2025-6-25'),
     favorite: false,
   },
 
