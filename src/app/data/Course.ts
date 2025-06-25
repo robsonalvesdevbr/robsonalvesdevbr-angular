@@ -455,6 +455,21 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2025-1-25'),
     favorite: true,
   },
+  {
+    name: 'Dapper - Aprenda a usar o micro-ORM mais popular do .NET',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-dfd5c526-af15-4002-a59e-b3da491bbb0a',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Architecture,
+      CourseTagEnum.Database,
+      CourseTagEnum.Dapper,
+      CourseTagEnum.Orm
+    ],
+    conclusion: new Date('2026-6-25'),
+    favorite: false,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
