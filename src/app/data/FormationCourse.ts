@@ -127,6 +127,17 @@ export const FormationCourses: IFormationCourse[] = [
     conclusion: new Date('2025-2-3'),
     favorite: true,
   },
+  {
+    name: 'Começando em Linux',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/degree/certificate/01e67168-a479-41c7-978b-3c1c66d1d743?lang=pt_BR',
+    tags: [
+      FormationCourseTagEnum.Linux
+    ],
+    conclusion: new Date('2026-7-14'),
+    favorite: true,
+  },
 
   {
     name: 'Formação DevOps para Desenvolvedores',
