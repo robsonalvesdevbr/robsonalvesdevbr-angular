@@ -20,4 +20,5 @@ export enum FormationCourseTagEnum {
   CICD = 'ci/cd',
   DevOps = 'devops',
   GitGithub = 'git-github',
+  Linux = "linux",
 }
