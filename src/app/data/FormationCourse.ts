@@ -135,7 +135,7 @@ export const FormationCourses: IFormationCourse[] = [
     tags: [
       FormationCourseTagEnum.Linux
     ],
-    conclusion: new Date('2026-7-14'),
+    conclusion: new Date('2025-7-14'),
     favorite: true,
   },
 
