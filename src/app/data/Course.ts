@@ -470,6 +470,18 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2025-6-25'),
     favorite: false,
   },
+  {
+    name: 'Java COMPLETO Programação Orientada a Objetos + Projetos',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-d0a7da02-6de7-43be-883e-9cfb5c33fe34',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Java
+    ],
+    conclusion: new Date('2025-7-21'),
+    favorite: false,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
