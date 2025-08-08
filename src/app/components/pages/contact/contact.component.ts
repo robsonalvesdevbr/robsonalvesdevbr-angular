@@ -6,7 +6,6 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { AnalyticsService } from '@path-app/services/analytics.service';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -19,15 +18,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent extends BasePageComponent implements OnInit {
-  ngOnInit(): void {
-    this._gaService.event('page_view', {
-      page_title: 'Contact',
-      page_path: '/#contact',
-    });
-  }
+  ngOnInit(): void {}
   private readonly dataService = inject(DataService);
 
-  private readonly _gaService = inject(AnalyticsService);
   profiles = signal(this.dataService.getProfile());
 
   asIsOrder = (): number => 1;

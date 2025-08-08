@@ -7,7 +7,6 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { AnalyticsService } from '@path-app/services/analytics.service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
@@ -39,7 +38,6 @@ import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
 
-  private readonly _gaService = inject(AnalyticsService);
   courses = signal(this.dataService.getCourses());
 
   institutionList = InstitutionEnum;
@@ -65,11 +63,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this._gaService.event('page_view', {
-      page_title: 'Courses',
-      page_path: '/#courses',
-    });
-
     this.courses().forEach((course) =>
       course.tags.forEach((tag) => this.tags().add(tag.trim()))
     );

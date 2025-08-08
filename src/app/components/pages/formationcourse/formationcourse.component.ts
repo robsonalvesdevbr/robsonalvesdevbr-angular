@@ -7,12 +7,12 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { AnalyticsService } from '@path-app/services/analytics.service';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 
 @Component({
@@ -33,7 +33,7 @@ export class FormationCourseComponent
   implements OnInit
 {
   private readonly dataService = inject(DataService);
-  private readonly _gaService = inject(AnalyticsService);
+  private readonly _gaService = inject(GoogleAnalyticsService);
   formationCourses = signal(this.dataService.getFormationCourses());
 
   config: WritableSignal<PaginationInstance> = signal<PaginationInstance>({
@@ -43,10 +43,6 @@ export class FormationCourseComponent
   });
 
   ngOnInit(): void {
-    this._gaService.event('page_view', {
-      page_title: 'Formation Course',
-      page_path: '/#formationcourse',
-    });
   }
 
   absoluteIndex(indexOnPage: number): number {
