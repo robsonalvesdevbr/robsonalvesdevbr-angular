@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AnalyticsService } from '@path-app/services/analytics.service';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-navigation',
@@ -10,53 +10,29 @@ import { NgxPaginationModule } from 'ngx-pagination';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent extends BasePageComponent {
-  private readonly _gaService = inject(AnalyticsService);
+  private readonly _gaService = inject(GoogleAnalyticsService);
 
   sobreAnalitics() {
-    this._gaService.event('click', {
-      category: 'link',
-      label: 'app-navigation',
-      page_title: 'Sobre',
-    });
+    this._gaService.event('click', 'app_navigation', 'app-navigation');
   }
 
   graduationAnalitics() {
-    this._gaService.event('click', {
-      category: 'app_navigation',
-      label: 'graduation',
-      page_title: '(Pós)Graduação',
-    });
+    this._gaService.event('click', 'app_navigation', 'graduation');
   }
 
   coursesAnalitics() {
-    this._gaService.event('click', {
-      category: 'app_navigation',
-      label: 'courses',
-      page_title: 'Cursos',
-    });
+    this._gaService.event('click', 'app_navigation', 'courses');
   }
 
   formationcourseAnalitics() {
-    this._gaService.event('click', {
-      category: 'app_navigation',
-      label: 'formationcourse',
-      page_title: 'Formação',
-    });
+    this._gaService.event('click', 'app_navigation', 'formationcourse');
   }
 
   booksAnalitics() {
-    this._gaService.event('click', {
-      category: 'app_navigation',
-      label: 'books',
-      page_title: 'Leituras',
-    });
+    this._gaService.event('click', 'app_navigation', 'books');
   }
 
   contactAnalitics() {
-    this._gaService.event('click', {
-      category: 'app_navigation',
-      label: 'contact',
-      page_title: 'Contato',
-    });
+    this._gaService.event('click', 'app_navigation', 'contact');
   }
 }

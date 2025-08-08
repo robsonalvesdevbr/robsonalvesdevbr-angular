@@ -7,7 +7,6 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { AnalyticsService } from '@path-app/services/analytics.service';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
@@ -37,7 +36,6 @@ import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
   books = this.dataService.getBooks();
-  private readonly _gaService = inject(AnalyticsService);
 
   publishNameList = PublishNameEnum;
 
@@ -60,10 +58,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this._gaService.event('page_view', {
-      page_title: 'Books',
-      page_path: '/#books',
-    });
     //this.books.forEach((book) => this.publishNameList().add(book.publishName.trim()))
     this.books.forEach((book) =>
       book.tags.forEach((tag) => this.tags().add(tag.trim()))
