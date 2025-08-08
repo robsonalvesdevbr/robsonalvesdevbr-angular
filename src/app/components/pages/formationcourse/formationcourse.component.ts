@@ -7,10 +7,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import {
-  GoogleAnalyticsService,
-  NgxGoogleAnalyticsModule,
-} from '@hakimio/ngx-google-analytics';
+import { AnalyticsService } from '@path-app/services/analytics.service';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
@@ -27,7 +24,6 @@ import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
     NgxPaginationModule,
     SortbyPipe,
     NgOptimizedImage,
-    NgxGoogleAnalyticsModule,
   ],
   templateUrl: './formationcourse.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,7 +33,7 @@ export class FormationCourseComponent
   implements OnInit
 {
   private readonly dataService = inject(DataService);
-  private readonly _gaService = inject(GoogleAnalyticsService);
+  private readonly _gaService = inject(AnalyticsService);
   formationCourses = signal(this.dataService.getFormationCourses());
 
   config: WritableSignal<PaginationInstance> = signal<PaginationInstance>({
@@ -47,8 +43,9 @@ export class FormationCourseComponent
   });
 
   ngOnInit(): void {
-    this._gaService.pageView('/#formationcourse', {
-      title: 'Formation Course',
+    this._gaService.event('page_view', {
+      page_title: 'Formation Course',
+      page_path: '/#formationcourse',
     });
   }
 

@@ -41,10 +41,7 @@
                   id="input_course_institution_{{ institution.key }}"
                   autocomplete="off"
                   (click)="onClickIntitutionEvent($event)"
-                  gaEvent="ga_click_institution"
-                  gaCategory="ga_institution_category"
-                  gaOn="click"
-                  gaLabel="{{ institution.value }}"
+                  
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
@@ -74,10 +71,7 @@
                     id="input_course_tag_{{ tag | lowercase }}"
                     autocomplete="off"
                     (click)="onClickTagEvent($event)"
-                    gaEvent="ga_click_course_tag"
-                    gaCategory="ga_course_tag_category"
-                    gaOn="click"
-                    gaLabel="{{ tag }}"
+                    
                   />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"
@@ -136,10 +130,7 @@
                   [href]="item.certificateUrl"
                   target="_blank"
                   rel="noopener"
-                  gaEvent="ga_click_course_certificate"
-                  gaCategory="ga_course_certificate_category"
-                  gaOn="click"
-                  gaLabel="{{ item.name }}"
+                  
                   >Certificado</a
                 >
               </p>

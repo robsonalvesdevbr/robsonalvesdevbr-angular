@@ -5,7 +5,7 @@ import {
   OnInit,
   inject,
 } from '@angular/core';
-import { GoogleAnalyticsService } from '@hakimio/ngx-google-analytics';
+import { AnalyticsService } from '@path-app/services/analytics.service';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
 @Component({
@@ -15,15 +15,16 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent extends BasePageComponent implements OnInit {
-  private readonly _gaService = inject(GoogleAnalyticsService);
+  private readonly _gaService = inject(AnalyticsService);
 
   constructor() {
     super();
   }
 
   ngOnInit() {
-    this._gaService.pageView('/#about', {
-      title: 'About',
+    this._gaService.event('page_view', {
+      page_title: 'About',
+      page_path: '/#about',
     });
   }
 }
