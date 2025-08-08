@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgxGoogleAnalyticsModule } from '@hakimio/ngx-google-analytics';
 import { LoadingComponent } from '@path-components/utils/loading/loading.component';
 import { PlaceholderComponent } from '@path-components/utils/placeholder/placeholder.component';
 import { AboutComponent } from './components/pages/about/about.component';
@@ -26,7 +25,6 @@ import { NavigationComponent } from './components/pages/navigation/navigation.co
     FooterComponent,
     PlaceholderComponent,
     LoadingComponent,
-    NgxGoogleAnalyticsModule,
   ],
   templateUrl: './app.component.html',
 })

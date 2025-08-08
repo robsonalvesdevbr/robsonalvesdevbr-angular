@@ -42,10 +42,7 @@
                   id="input_book_institution_{{ publishName.key }}"
                   autocomplete="off"
                   (click)="onClickIntitutionEvent($event)"
-                  gaEvent="ga_click_books"
-                  gaCategory="ga_books_category"
-                  gaOn="click"
-                  gaLabel="{{ publishName.value.toString() }}"
+                  
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
@@ -75,10 +72,7 @@
                     id="input_book_tag_{{ tag | lowercase }}"
                     autocomplete="off"
                     (click)="onClickTagEvent($event)"
-                    gaEvent="ga_click_books_tag"
-                    gaCategory="ga_books_tag_category"
-                    gaOn="click"
-                    gaLabel="{{ tag }}"
+                    
                   />
                   <label
                     class="btn btn-sm fontemenor p-1 ms-0"
