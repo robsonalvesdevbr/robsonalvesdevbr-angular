@@ -482,6 +482,19 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2025-7-21'),
     favorite: false,
   },
+  {
+    name: 'Curso completo de Git e GitHub - Básico ao Avançado',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-781881a3-c4bb-43ef-ac43-cfc4c54acdbd',
+    tags: [
+      CourseTagEnum.Versioning,
+      CourseTagEnum.Git,
+      CourseTagEnum.GitHub
+    ],
+    conclusion: new Date('2025-8-20'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
