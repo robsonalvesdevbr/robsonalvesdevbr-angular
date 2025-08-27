@@ -2,7 +2,6 @@ import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListen
 import { provideRouter } from '@angular/router';
 import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
-import { environment } from '@path-environments/environment';
 import { routes } from './app.routes';
 import { provideConfigInitializer } from './initializer/startup';
 

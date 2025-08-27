@@ -6,6 +6,7 @@ import {
   WritableSignal,
   inject,
   signal,
+  computed,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
@@ -68,7 +69,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     );
   }
 
-  getTags = () => Array.from(this.tags().values());
+  tagsArray = computed(() => Array.from(this.tags().values()));
 
   absoluteIndex = (indexOnPage: number): number =>
     this.config().itemsPerPage * (this.config().currentPage - 1) +
@@ -78,25 +79,21 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   onPageChange = (number: number) => (this.config().currentPage = number);
 
   clearFilters() {
-    this.coursesFilter().forEach((x) => {
-      document.getElementById(`label_course_institution_${x}`)?.click();
-    });
-
-    this.tagsFilter().forEach((x) => {
-      document.getElementById(`label_course_tag_${x}`)?.click();
-    });
-
     this.coursesFilter().clear();
     this.selectInstitutionsFilter.set(InstitutionEnum.All);
     this.tagsFilter().clear();
     this.selectTagFilter.set('');
+    this.config().currentPage = 1;
   }
 
-  onClickIntitutionEvent(e: MouseEvent) {
-    const link = e.target as HTMLInputElement;
-    const id = link.id.replace('input_course_institution_', '');
-
+  onClickIntitutionEvent(e: Event) {
+    const input = e.target as HTMLInputElement;
+    if (!input || !input.id) return;
+    
+    const id = input.id.replace('input_course_institution_', '');
     const institution = InstitutionEnum[id as keyof typeof InstitutionEnum];
+    
+    if (!institution) return;
 
     if (this.coursesFilter().has(institution)) {
       this.coursesFilter().delete(institution);
@@ -110,9 +107,11 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     this.config().currentPage = 1;
   }
 
-  onClickTagEvent(e: MouseEvent) {
-    const link = e.target as HTMLInputElement;
-    const id = link.id.replace('input_course_tag_', '');
+  onClickTagEvent(e: Event) {
+    const input = e.target as HTMLInputElement;
+    if (!input || !input.id) return;
+    
+    const id = input.id.replace('input_course_tag_', '');
 
     if (this.tagsFilter().has(id)) {
       this.tagsFilter().delete(id);
@@ -120,5 +119,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       this.tagsFilter().add(id);
     }
     this.selectTagFilter.set([...this.tagsFilter().keys()].join(','));
+    this.config().currentPage = 1;
   }
 }
