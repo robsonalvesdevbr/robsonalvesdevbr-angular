@@ -7,5 +7,18 @@
       "Bash(pkill:*)"
     ],
     "deny": []
+  },
+  "hooks": {
+    "PostTooUser": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"Tarefa executada com sucesso\""
+          }
+        ]
+      }
+    ]
   }
 }
