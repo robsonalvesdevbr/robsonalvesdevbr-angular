@@ -1,31 +1,33 @@
 # 🚀 Robson Alves - Portfolio Angular
 
-[![Angular](https://img.shields.io/badge/Angular-19-red?logo=angular)](https://angular.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Material](https://img.shields.io/badge/Angular_Material-19-673ab7?logo=material-design)](https://material.angular.io/)
-[![Node.js](https://img.shields.io/badge/Node.js-20.18.0-green?logo=node.js)](https://nodejs.org/)
+[![Angular](https://img.shields.io/badge/Angular-20.2-red?logo=angular)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.7-purple?logo=bootstrap)](https://getbootstrap.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.9+-green?logo=node.js)](https://nodejs.org/)
 [![Build Status](https://img.shields.io/github/workflow/status/robsonalvesdevbr/robsonalvesdevbr-angular/CI)](https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular/actions)
 [![License](https://img.shields.io/github/license/robsonalvesdevbr/robsonalvesdevbr-angular)](LICENSE)
 
-> 💼 Portfolio pessoal desenvolvido com **Angular 19**, **Signals**, **Standalone Components** e **Angular Material** para demonstrar habilidades em desenvolvimento frontend moderno.
+> 💼 Portfolio pessoal desenvolvido com **Angular 20.2**, **Signals**, **Standalone Components** e **Bootstrap 5** para demonstrar habilidades em desenvolvimento frontend moderno.
 
 ## 📖 Sobre o Projeto
 
-Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático das mais recentes funcionalidades do Angular 19, incluindo:
+Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático das mais recentes funcionalidades do Angular 20, incluindo:
 
 - ✨ **Signals** para gerenciamento de estado reativo
 - 🎯 **Standalone Components** para arquitetura moderna
-- 🎨 **Angular Material** para UI/UX profissional
-- 🚀 **Lazy Loading** para performance otimizada
+- 🎨 **Bootstrap 5** com Bootstrap Icons para UI/UX profissional
+- 🚀 **Detecção de Mudanças Zoneless** (experimental)
+- 🔧 **Path Aliases personalizados** para melhor organização
 - 📱 **Design Responsivo** para todos os dispositivos
+- 📊 **Google Analytics** integrado via ngx-google-analytics
 
 ## ⚡ Quick Start
 
 ### Pré-requisitos
 
-- **Node.js** 20.18.0+ ([Download](https://nodejs.org/))
+- **Node.js** 22.9+ ([Download](https://nodejs.org/))
 - **npm** 10.0.0+ (incluído com Node.js)
-- **Angular CLI** 19+ (será instalado automaticamente)
+- **Angular CLI** 20+ (será instalado automaticamente)
 
 ### 🚀 Instalação e Execução
 
@@ -38,7 +40,7 @@ cd robsonalvesdevbr-angular
 git config core.hooksPath .githooks
 
 # 3. Use a versão correta do Node.js (se usar nvm)
-nvm use 20.18.0
+nvm use 22.9
 
 # 4. Instale as dependências
 npm install
@@ -59,14 +61,23 @@ ng serve
 ```
 src/
 ├── app/
-│   ├── core/                 # Serviços essenciais, guards, interceptors
-│   ├── shared/               # Componentes, pipes e diretivas compartilhados
-│   ├── features/             # Módulos de funcionalidades (lazy-loaded)
-│   ├── layout/               # Componentes de layout (header, footer)
+│   ├── components/
+│   │   ├── base-page/        # Componente base para páginas
+│   │   ├── pages/            # Componentes de páginas
+│   │   └── utils/            # Componentes utilitários
+│   ├── data/                 # Dados estáticos da aplicação
+│   ├── directives/           # Diretivas personalizadas
+│   ├── initializer/          # Inicializadores da aplicação
+│   ├── interfaces/           # Interfaces TypeScript
+│   ├── models/               # Enums e modelos de dados
+│   ├── pipes/                # Pipes personalizados
+│   ├── services/             # Serviços da aplicação
 │   ├── app.component.ts      # Componente raiz (standalone)
+│   ├── app.config.ts         # Configuração da aplicação
 │   ├── app.routes.ts         # Configuração de rotas
 │   └── main.ts              # Bootstrap da aplicação
 ├── assets/                   # Arquivos estáticos (imagens, fonts, etc.)
+├── css/                      # Estilos SCSS personalizados
 ├── environments/             # Configurações de ambiente
 └── styles.scss              # Estilos globais SCSS
 ```
@@ -77,9 +88,11 @@ src/
 | ---------------- | ---------------------------- |
 | `angular.json`   | Configurações do Angular CLI |
 | `package.json`   | Dependências e scripts npm   |
-| `tsconfig.json`  | Configurações TypeScript     |
-| `.eslintrc.json` | Regras do ESLint             |
+| `tsconfig.json`  | Configurações TypeScript com path aliases |
+| `eslint.config.js` | Regras do ESLint           |
 | `.prettierrc`    | Configurações do Prettier    |
+| `biome.json`     | Configurações do Biome       |
+| `CLAUDE.md`      | Instruções para Claude Code  |
 
 ## 🔧 Comandos Úteis
 
@@ -111,12 +124,12 @@ ng update @angular/material @angular/cdk   # Atualiza Material
 
 ```bash
 # Formatação
-npx prettier . --write            # Formata todos os arquivos
-npx prettier . --check            # Verifica formatação
+npm run format                   # Formata arquivos TS/HTML/SCSS/JSON
+npm run format:check             # Verifica formatação
 
 # Linting
-ng lint                          # ESLint verificação
-ng lint --fix                   # ESLint com correção automática
+npm run lint                     # ESLint verificação
+npm run lint:fix                 # ESLint com correção automática
 
 # Análise de dependências
 npx browserslist                 # Browsers suportados
@@ -195,17 +208,13 @@ docker run --rm --network=host \
 
 ```bash
 # Testes unitários
-ng test                          # Executa testes com watch
-ng test --watch=false            # Executa uma vez
-ng test --browsers=ChromeHeadless # Headless para CI/CD
-ng test --code-coverage          # Com cobertura de código
-
-# Testes e2e
-ng e2e                          # Testes end-to-end
+npm test                         # Executa testes com watch (Karma + Jasmine)
+npm run test-nowatch             # Executa uma vez (Chrome headless)
+npm run test-coverage            # Com cobertura de código
 
 # Coverage report
-ng test --code-coverage --watch=false
-open coverage/index.html        # Visualiza relatório de cobertura
+npm run test-coverage
+open coverage/index.html         # Visualiza relatório de cobertura
 ```
 
 ## 📦 Build & Deploy
@@ -214,10 +223,14 @@ open coverage/index.html        # Visualiza relatório de cobertura
 
 ```bash
 # Build otimizado
+npm run build:prod               # Build para produção
 ng build --configuration=production
 
 # Build com análise
 ng build --configuration=production --stats-json
+
+# Build com watch para desenvolvimento
+npm run watch                    # Build com modo watch
 
 # Build para GitHub Pages
 ng build --base-href="/robsonalvesdevbr-angular/"
@@ -262,26 +275,33 @@ ng build --configuration=production --named-chunks
 - ✅ **TypeScript** rigoroso (sem `any`)
 - ✅ **Signals** para gerenciamento de estado
 - ✅ **Standalone Components** quando possível
-- ✅ **Angular Material** para UI
+- ✅ **Bootstrap 5** com Bootstrap Icons para UI
+- ✅ **Path Aliases** para importações organizadas
+- ✅ **OnPush Change Detection** para performance
+- ✅ **Detecção de Mudanças Zoneless** (experimental)
 - ✅ **RxJS** para operações assíncronas
 - ✅ **Async/await** preferível a `.then()`
 - ✅ **Testes unitários** obrigatórios
-- ✅ **ESLint + Prettier** configurados
+- ✅ **ESLint + Prettier + Biome** configurados
 
 ### 🔄 Workflow
 
 ```bash
 # 1. Desenvolvimento
 npm start                        # Inicia servidor dev
-ng lint                         # Verifica código
-ng test                         # Executa testes
-npm run build                   # Testa build
+npm run lint                     # Verifica código
+npm test                         # Executa testes
+npm run build:prod               # Testa build de produção
 
-# 2. Commit
+# 2. Qualidade de código
+npm run format                   # Formata código
+npm run lint:fix                 # Corrige problemas ESLint
+
+# 3. Commit
 git add .
 git commit -m "feat: descrição da funcionalidade"
 
-# 3. Push e PR
+# 4. Push e PR
 git push origin feature/nova-funcionalidade
 # Abra Pull Request no GitHub
 ```

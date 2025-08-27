@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm start)",
+      "Bash(pkill:*)",
+      "Edit(docs/**)",
+      "Edit(src/**)"
+    ]
+  },
+  "hooks": {
+    "PostTooUser": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"Tarefa executada com sucesso\""
+          }
+        ]
+      }
+    ]
+  }
+}
