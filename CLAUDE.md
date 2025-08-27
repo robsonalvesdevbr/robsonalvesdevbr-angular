@@ -1,56 +1,67 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Este arquivo fornece orientações para Claude Code (claude.ai/code) ao trabalhar com código neste repositório.
 
-## Development Commands
+## Comandos de Desenvolvimento
 
-### Build and Serve
-- `npm start` - Start development server (equivalent to `ng serve --no-hmr`)
-- `ng build` - Build for development
-- `ng build --configuration production` or `npm run build:prod` - Build for production
-- `ng build --watch --configuration development` or `npm run watch` - Build with watch mode
+### Build e Servir
 
-### Testing
-- `npm test` - Run tests with watch mode (Karma + Jasmine)
-- `npm run test-nowatch` - Run tests once without watch mode (headless Chrome)
-- `npm run test-coverage` - Run tests with coverage report
+- `npm start` - Iniciar servidor de desenvolvimento (equivalente a `ng serve --no-hmr`)
+- `ng build` - Build para desenvolvimento
+- `ng build --configuration production` ou `npm run build:prod` - Build para produção
+- `ng build --watch --configuration development` ou `npm run watch` - Build com modo watch
 
-### Code Quality
-- `npm run lint` - Run ESLint on TypeScript and HTML files
-- `npm run lint:fix` - Run ESLint with auto-fix
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check code formatting
+### Testes
 
-### Requirements
-- Node.js >= 22.9 (specified in package.json engines)
+- `npm test` - Executar testes com modo watch (Karma + Jasmine)
+- `npm run test-nowatch` - Executar testes uma vez sem modo watch (Chrome headless)
+- `npm run test-coverage` - Executar testes com relatório de cobertura
 
-## Architecture Overview
+### Qualidade de Código
 
-### Technology Stack
-- **Angular 20.2** with standalone components (no modules)
-- **TypeScript** with strict mode enabled
-- **Bootstrap 5.3.7** for styling with Bootstrap Icons
-- **SCSS** for component styles
-- **Zoneless Change Detection** (Angular's new experimental feature)
-- **Google Analytics** integration via `ngx-google-analytics`
-- **ESLint + Prettier** for code quality
+- `npm run lint` - Executar ESLint em arquivos TypeScript e HTML
+- `npm run lint:fix` - Executar ESLint com correção automática
+- `npm run format` - Formatar código com Prettier
+- `npm run format:check` - Verificar formatação do código
 
-### Project Structure
-This is a personal portfolio/resume website with the following key architectural patterns:
+### Requisitos
 
-#### Component Architecture
-- **Standalone Components**: All components use Angular's standalone API (no NgModules)
-- **Base Component Pattern**: `BasePageComponent` provides common functionality for pages
-- **Signal-based Inputs**: Uses Angular's new signal-based input API
-- **OnPush Change Detection**: Components use `ChangeDetectionStrategy.OnPush`
+- Node.js >= 22.9 (especificado em package.json engines)
 
-#### Data Management
-- **Centralized Data Service**: `DataService` provides static data for courses, books, graduations, etc.
-- **Static Data Pattern**: All content is stored in TypeScript data files in `src/app/data/`
-- **Interface-driven**: Strong typing with interfaces in `src/app/interfaces/`
+## Visão Geral da Arquitetura
+
+### Stack Tecnológica
+
+- **Angular 20.2** com componentes standalone (sem módulos)
+- **TypeScript 5.9.2** com modo strict habilitado
+- **Bootstrap 5.3.7** para estilização com Bootstrap Icons
+- **SCSS** para estilos de componentes
+- **Detecção de Mudanças Zoneless** (recurso experimental do Angular)
+- **Google Analytics** integração via `ngx-google-analytics`
+- **ESLint + Prettier** para qualidade de código
+- **Biome** como ferramenta de linting adicional
+
+### Estrutura do Projeto
+
+Este é um site de portfólio/currículo pessoal com os seguintes padrões arquiteturais principais:
+
+#### Arquitetura de Componentes
+
+- **Componentes Standalone**: Todos os componentes usam a API standalone do Angular (sem NgModules)
+- **Padrão de Componente Base**: `BasePageComponent` fornece funcionalidade comum para páginas
+- **Inputs baseados em Signals**: Usa a nova API de input baseada em signals do Angular
+- **Detecção de Mudanças OnPush**: Componentes usam `ChangeDetectionStrategy.OnPush`
+
+#### Gerenciamento de Dados
+
+- **Serviço de Dados Centralizado**: `DataService` fornece dados estáticos para cursos, livros, graduações, etc.
+- **Padrão de Dados Estáticos**: Todo conteúdo é armazenado em arquivos TypeScript em `src/app/data/`
+- **Orientado por Interfaces**: Tipagem forte com interfaces em `src/app/interfaces/`
 
 #### Path Aliases (TypeScript)
-The project uses custom path aliases defined in `tsconfig.json`:
+
+O projeto usa aliases de caminho personalizados definidos em `tsconfig.json`:
+
 - `@path-components/*` → `./src/app/components/*`
 - `@path-services/*` → `./src/app/services/*`
 - `@path-data/*` → `./src/app/data/*`
@@ -59,38 +70,83 @@ The project uses custom path aliases defined in `tsconfig.json`:
 - `@path-app/*` → `./src/app/*`
 - `@path-environments/*` → `./src/environments/*`
 
-#### Custom Pipes
-The project includes several custom pipes for data transformation:
-- `EnumToArrayPipe` - Convert enums to arrays
-- `FilterPipe` - Filter arrays
-- `ImgcursoPipe` - Handle course images
-- `MessageDateConclusionPipe` - Format completion dates
-- `PrintTagsPipe` - Display tags
-- `SortbyPipe` - Sort arrays
+#### Pipes Personalizados
 
-#### Routing
-- Uses Angular Router with lazy-loaded components
-- Single-page application with wildcard route redirecting to home
+O projeto inclui vários pipes personalizados para transformação de dados:
 
-### Build Configuration
-- **Development**: Source maps enabled, no optimization
-- **Production**: Bundle size budgets (1MB initial, 4kB component styles)
-- **Assets**: Includes Bootstrap CSS/JS, custom SCSS, and static assets
-- **Output**: Built to `dist/robsonalves/`
+- `EnumToArrayPipe` - Converter enums para arrays
+- `FilterPipe` - Filtrar arrays
+- `ImgcursoPipe` - Manipular imagens de cursos
+- `MessageDateConclusionPipe` - Formatar datas de conclusão
+- `PrintTagsPipe` - Exibir tags
+- `SortbyPipe` - Ordenar arrays
 
-### Code Quality Setup
-- **ESLint**: Configured with Angular-specific rules
-- **Prettier**: Code formatting with consistent style
-- **TypeScript**: Strict mode with additional compiler options
-- **Angular Compiler**: Strict templates and injection parameters
+#### Roteamento
 
-### Component Naming Convention
-- Use kebab-case for component selectors
-- Prefix components with `app-`
-- Components are organized by feature in subdirectories
+- Usa Angular Router com componentes lazy-loaded
+- Aplicação de página única com rota wildcard redirecionando para home
 
-### Styling
-- Uses SCSS for component and global styles
-- Bootstrap 5 integrated globally
-- Bootstrap Icons available throughout the application
-- Custom styles in `src/css/styles.scss` and `src/styles.scss`
+### Configuração de Build
+
+- **Desenvolvimento**: Source maps habilitados, sem otimização
+- **Produção**: Orçamentos de tamanho de bundle (1MB inicial, 4kB estilos de componente)
+- **Assets**: Inclui CSS/JS do Bootstrap, SCSS personalizado e assets estáticos
+- **Output**: Build para `dist/robsonalves/`
+
+### Configuração de Qualidade de Código
+
+- **ESLint**: Configurado com regras específicas do Angular
+- **Prettier**: Formatação de código com estilo consistente
+- **TypeScript**: Modo strict com opções adicionais do compilador
+- **Angular Compiler**: Templates strict e parâmetros de injeção
+
+### Convenção de Nomenclatura de Componentes
+
+- Use kebab-case para seletores de componentes
+- Prefixe componentes com `app-`
+- Componentes são organizados por funcionalidade em subdiretórios
+
+### Estilização
+
+- Usa SCSS para estilos de componentes e globais
+- Bootstrap 5 integrado globalmente
+- Bootstrap Icons disponível em toda a aplicação
+- Estilos personalizados em `src/css/styles.scss` e `src/styles.scss`
+
+## Práticas Recomendadas Angular 19+
+
+### Signals e Reatividade
+
+- **Utilize Signals**: Para gerenciar mudanças de estado de forma reativa (introduzido no Angular 16)
+- **Standalone Components**: Configure quando apropriado para reduzir sobrecarga de módulos
+- **Zone.js**: Use apenas quando necessário, priorizando reatividade baseada em observáveis
+- **Lazy Loading**: Prefira para módulos ou componentes não críticos no carregamento inicial
+
+### Desenvolvimento Seguro e Moderno
+
+- **Angular Material**: Sugira criação de componentes quando aplicável
+- **Evite `any`**: Não use tipo `any` ou manipulação direta do DOM
+- **RxJS**: Priorize soluções que utilizem observáveis para dados assíncronos
+- **Pacotes Atualizados**: Não use pacotes depreciados como `inflight` ou `rimraf`
+- **Segurança XSS**: Evite interpolação direta de dados de entrada no HTML
+
+### Padrões de Qualidade
+
+- **TypeScript**: Use para todos os arquivos de lógica de aplicação
+- **Async/Await**: Prefira para operações assíncronas
+- **Abordagem Declarativa**: Use ao invés de imperativa em templates HTML e observáveis
+- **Angular CLI**: Siga o estilo para estruturação de arquivos e módulos
+
+### Estratégias de Teste
+
+- **Testes Unitários**: Escreva utilizando Karma
+- **Mocks**: Priorize para serviços e evite dependências diretas em APIs externas
+- **Testing Libraries**: Utilize `Spectator` ou `Testing Library` para simplificar componentes de teste
+
+### Project Guidelines
+
+- **Estrutura de Pastas**: Mantenha uma estrutura de pastas organizada e consistente
+- **Nomenclatura**: Siga convenções de nomenclatura para arquivos e pastas
+- **Documentação**: Documente componentes e serviços de forma clara e concisa
+- **Revisões de Código**: Realize revisões de código regulares para garantir a qualidade
+- **Emojis**: Nunca utilize emojis para melhorar a comunicação e a compreensão nos comentários e mensagens de commit, logs, outputs, etc.
