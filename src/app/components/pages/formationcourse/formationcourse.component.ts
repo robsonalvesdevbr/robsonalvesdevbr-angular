@@ -2,7 +2,6 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   WritableSignal,
   inject,
   signal,
@@ -30,7 +29,6 @@ import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 })
 export class FormationCourseComponent
   extends BasePageComponent
-  implements OnInit
 {
   private readonly dataService = inject(DataService);
   private readonly _gaService = inject(GoogleAnalyticsService);
@@ -42,8 +40,6 @@ export class FormationCourseComponent
     currentPage: 1,
   });
 
-  ngOnInit(): void {
-  }
 
   absoluteIndex(indexOnPage: number): number {
     return (

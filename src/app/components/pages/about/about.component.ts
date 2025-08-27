@@ -2,7 +2,6 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
 } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
@@ -12,12 +11,8 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
   templateUrl: './about.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent extends BasePageComponent implements OnInit {
-
+export class AboutComponent extends BasePageComponent {
   constructor() {
     super();
-  }
-
-  ngOnInit() {
   }
 }
