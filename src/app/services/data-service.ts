@@ -1,4 +1,3 @@
-// src/app/services/data.service.ts
 import { Injectable } from '@angular/core';
 import { Books } from '@path-data/Book';
 import { Courses } from '@path-data/Course';
@@ -15,19 +14,29 @@ import { IProfile } from '@path-interfaces/IProfile';
   providedIn: 'root',
 })
 export class DataService {
+  private readonly _courses = Courses;
+  private readonly _graduations = Graduations;
+  private readonly _books = Books;
+  private readonly _formationCourses = FormationCourses;
+  private readonly _profile = Profile;
+
   getCourses(): ICourse[] {
-    return Courses;
+    return [...this._courses];
   }
+
   getGraduations(): IGraduation[] {
-    return Graduations;
+    return [...this._graduations];
   }
+
   getBooks(): IBook[] {
-    return Books;
+    return [...this._books];
   }
+
   getFormationCourses(): IFormationCourse[] {
-    return FormationCourses;
+    return [...this._formationCourses];
   }
+
   getProfile(): IProfile {
-    return Profile;
+    return this._profile;
   }
 }
