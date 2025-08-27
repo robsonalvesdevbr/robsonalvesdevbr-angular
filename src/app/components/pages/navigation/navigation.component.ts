@@ -13,26 +13,26 @@ export class NavigationComponent extends BasePageComponent {
   private readonly _gaService = inject(GoogleAnalyticsService);
 
   sobreAnalitics() {
-    this._gaService.event('click', 'app_navigation', 'app-navigation');
+    this._gaService?.event('click', 'app_navigation', 'app-navigation');
   }
 
   graduationAnalitics() {
-    this._gaService.event('click', 'app_navigation', 'graduation');
+    this._gaService?.event('click', 'app_navigation', 'graduation');
   }
 
   coursesAnalitics() {
-    this._gaService.event('click', 'app_navigation', 'courses');
+    this._gaService?.event('click', 'app_navigation', 'courses');
   }
 
   formationcourseAnalitics() {
-    this._gaService.event('click', 'app_navigation', 'formationcourse');
+    this._gaService?.event('click', 'app_navigation', 'formationcourse');
   }
 
   booksAnalitics() {
-    this._gaService.event('click', 'app_navigation', 'books');
+    this._gaService?.event('click', 'app_navigation', 'books');
   }
 
   contactAnalitics() {
-    this._gaService.event('click', 'app_navigation', 'contact');
+    this._gaService?.event('click', 'app_navigation', 'contact');
   }
 }
