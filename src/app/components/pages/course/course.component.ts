@@ -18,6 +18,7 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-course',
@@ -38,6 +39,7 @@ import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 })
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
+  private readonly gaService = inject(GoogleAnalyticsService);
 
   courses = signal(this.dataService.getCourses());
 
@@ -79,6 +81,8 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   onPageChange = (number: number) => (this.config().currentPage = number);
 
   clearFilters() {
+    this.gaService?.event('clear_filters', 'courses', 'filters_cleared');
+    
     this.coursesFilter().clear();
     this.selectInstitutionsFilter.set(InstitutionEnum.All);
     this.tagsFilter().clear();
@@ -94,6 +98,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     const institution = InstitutionEnum[id as keyof typeof InstitutionEnum];
     
     if (!institution) return;
+
+    const action = this.coursesFilter().has(institution) ? 'remove' : 'add';
+    this.gaService?.event('filter_institution', 'courses', `${action}_${institution}`);
 
     if (this.coursesFilter().has(institution)) {
       this.coursesFilter().delete(institution);
@@ -112,6 +119,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     if (!input || !input.id) return;
     
     const id = input.id.replace('input_course_tag_', '');
+    
+    const action = this.tagsFilter().has(id) ? 'remove' : 'add';
+    this.gaService?.event('filter_tag', 'courses', `${action}_${id}`);
 
     if (this.tagsFilter().has(id)) {
       this.tagsFilter().delete(id);
@@ -120,5 +130,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     }
     this.selectTagFilter.set([...this.tagsFilter().keys()].join(','));
     this.config().currentPage = 1;
+  }
+
+  onCertificateClick(courseName: string, institution: string) {
+    this.gaService?.event('certificate_click', 'courses', `${courseName}_${institution}`);
   }
 }
