@@ -1,9 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run:*)",
-      "Bash(npm run dev:*)",
-      "Bash(npm start)",
+      "Bash(npx:*)",
+      "Bash(npm:*)",
+      "Bash(ng:*)",
       "Bash(pkill:*)",
       "Edit(docs/**)",
       "Edit(src/**)"
