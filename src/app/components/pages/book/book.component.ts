@@ -15,6 +15,7 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 
 @Component({
@@ -35,6 +36,7 @@ import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 })
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
+  private readonly gaService = inject(GoogleAnalyticsService);
   books = this.dataService.getBooks();
 
   publishNameList = PublishNameEnum;
@@ -81,6 +83,8 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   clearFilters() {
+    this.gaService?.event('clear_filters', 'books', 'filters_cleared');
+    
     this.publishNameFilter().forEach((x) => {
       document.getElementById(`label_book_institution_${x}`)?.click();
     });
@@ -100,6 +104,9 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const id = link.id.replace('input_book_institution_', '');
 
     const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
+    
+    const action = this.publishNameFilter().has(publishName) ? 'remove' : 'add';
+    this.gaService?.event('filter_publisher', 'books', `${action}_${publishName}`);
 
     if (this.publishNameFilter().has(publishName)) {
       this.publishNameFilter().delete(publishName);
@@ -117,11 +124,18 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const link = e.target as HTMLInputElement;
     const id = link.id.replace('input_book_tag_', '');
 
+    const action = this.tagsFilter().has(id) ? 'remove' : 'add';
+    this.gaService?.event('filter_tag', 'books', `${action}_${id}`);
+
     if (this.tagsFilter().has(id)) {
       this.tagsFilter().delete(id);
     } else {
       this.tagsFilter().add(id);
     }
     this.selectTagFilter.set([...this.tagsFilter().values()].join(','));
+  }
+  
+  onBookUrlClick(bookTitle: string, publishName: string) {
+    this.gaService?.event('book_url_click', 'books', `${bookTitle}_${publishName}`);
   }
 }

@@ -495,6 +495,19 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2025-8-20'),
     favorite: true,
   },
+  {
+    name: 'Go (Golang) - Do zero ao avançado (com teste de unidade)',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-29b72ef1-0859-4d81-a837-febcf15df376',
+    tags: [
+      CourseTagEnum.Go,
+      CourseTagEnum.Golang,
+      CourseTagEnum.SoftwareDevelopment
+    ],
+    conclusion: new Date('2025-8-28'),
+    favorite: true,
+  },
 
   {
     name: 'Lógica de programação: explore funções e listas',
