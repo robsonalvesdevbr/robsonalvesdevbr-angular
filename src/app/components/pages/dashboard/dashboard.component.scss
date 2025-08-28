@@ -1,0 +1,45 @@
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+.display-4, .display-6 {
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+}
+
+.card-header {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.text-truncate {
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  
+  .display-6 {
+    font-size: 1.5rem;
+  }
+}
