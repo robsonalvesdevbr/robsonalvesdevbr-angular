@@ -1,225 +1,158 @@
-<!-- About-->
+<!-- About -->
 <section class="page-section" id="about" [ngClass]="currentClass()">
   <div class="container">
-    <div class="text-center">
+    <div class="text-center mb-5">
       <h2 class="section-heading text-uppercase">Sobre</h2>
-      <h3 class="section-subheading text-muted">Saiba mais sobre minha carreira.</h3>
+      <h3 class="section-subheading text-muted">
+        Conheça minha trajetória profissional de 23+ anos
+      </h3>
     </div>
 
-    <!-- Personal Statistics Section -->
-    @if (personalStats()) {
-      <div class="row mb-5" (click)="onPersonalStatsView()">
-        <div class="col-12">
-          <div class="bg-light rounded p-4 shadow-sm">
-            <h4 class="text-center mb-4 text-primary">Estatísticas Pessoais</h4>
-            <div class="row text-center">
-              <div class="col-lg-2 col-md-4 col-6 mb-3">
-                <div class="stat-item">
-                  <app-animated-counter
-                    [targetValue]="personalStats()?.totalCourses || 0"
-                    cssClass="h2 fw-bold text-primary mb-1"
-                    [duration]="1500"
-                  >
-                  </app-animated-counter>
-                  <small class="text-muted"> Cursos</small>
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-6 mb-3">
-                <div class="stat-item">
-                  <app-animated-counter
-                    [targetValue]="personalStats()?.totalBooks || 0"
-                    cssClass="h2 fw-bold text-success mb-1"
-                    [duration]="1700"
-                  >
-                  </app-animated-counter>
-                  <small class="text-muted"> Livros</small>
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-6 mb-3">
-                <div class="stat-item">
-                  <app-animated-counter
-                    [targetValue]="personalStats()?.totalFormations || 0"
-                    cssClass="h2 fw-bold text-info mb-1"
-                    [duration]="1900"
-                  >
-                  </app-animated-counter>
-                  <small class="text-muted"> Formações</small>
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-6 mb-3">
-                <div class="stat-item">
-                  <app-animated-counter
-                    [targetValue]="personalStats()?.completedGraduations || 0"
-                    cssClass="h2 fw-bold text-warning mb-1"
-                    [duration]="2100"
-                  >
-                  </app-animated-counter>
-                  <small class="text-muted"> Graduações</small>
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-6 mb-3">
-                <div class="stat-item">
-                  <app-animated-counter
-                    [targetValue]="personalStats()?.favoriteCourses || 0"
-                    cssClass="h2 fw-bold text-purple mb-1"
-                    [duration]="2300"
-                  >
-                  </app-animated-counter>
-                  <small class="text-muted"> Favoritos</small>
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-6 mb-3">
-                <div class="stat-item">
-                  <app-animated-counter
-                    [targetValue]="25"
-                    cssClass="h2 fw-bold text-secondary mb-1"
-                    [duration]="2500"
-                  >
-                  </app-animated-counter>
-                  <small class="text-muted"> Anos Exp.</small>
-                </div>
-              </div>
-            </div>
-            <div class="text-center mt-3">
-              <small class="text-muted">
-                🚀 Em constante aprendizado e evolução profissional
-              </small>
-            </div>
-          </div>
-        </div>
-      </div>
-    }
+    <!-- Career Timeline -->
     <ul class="timeline">
       <li class="mb-5">
         <div class="timeline-image">
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="..."
+            alt="Início da carreira"
             decoding="async"
             fill
           />
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2000</h4>
-            <h4 class="subheading">Início de carreira</h4>
+            <h4>2001-2006</h4>
+            <h4 class="subheading">Início como Instrutor</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Possuo 25 anos de experiência em desenvolvimento de software. Iniciei minha trajetória
-              em 2000 como instrutor, lecionando programação em Delphi, hardware, design de websites
-              e informática básica, incluindo aulas particulares. Permaneci nessa função por cinco
-              anos.<br />
-              Em seguida, atuei como desenvolvedor de sistemas financeiros, focado em
-              contas-correntes, documentos e leasing, utilizando Delphi, Visual Studio, Oracle e SQL
-              Server. Posteriormente, trabalhei com sistemas notariais e automação industrial,
-              empregando tecnologias como .NET Core, Kubernetes, Go, Rust, além de plataformas em
-              nuvem como Azure e GCP.
+              Iniciei minha trajetória profissional como instrutor na Alpha Tech, lecionando
+              programação em Delphi, hardware, design de websites e informática básica. Durante cinco
+              anos, desenvolvi habilidades didáticas e aprofundei conhecimentos técnicos, incluindo
+              aulas particulares e treinamentos corporativos.
             </span>
           </div>
         </div>
       </li>
+
       <li class="timeline-inverted mb-5">
         <div class="timeline-image">
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="..."
+            alt="Transição para desenvolvimento"
             decoding="async"
             fill
           />
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2000</h4>
-            <h4 class="subheading">Conhecimentos Técnicos</h4>
+            <h4>2006-2008</h4>
+            <h4 class="subheading">Transição para Desenvolvimento</h4>
           </div>
           <div class="timeline-body">
-            <div class="text-muted">Minhas principais competências técnicas incluem:</div>
-            <ul>
-              <li>.NET (C#)</li>
-              <li>Cloud (Azure, AWS)</li>
-              <li>JavaScript</li>
-              <li>Rust, Go</li>
-              <li>RabbitMQ, Kafka, Docker, Kubernetes</li>
-              <li>
-                SQL Server, Oracle, MySQL, MongoDB, <br />
-                PostgreSQL, Cassandra
-              </li>
-              <li>CI/CD (Azure DevOps, GitHub Actions)</li>
-              <li>
-                Ferramentas de desenvolvimento <br />
-                (Visual Studio, Rider, ReSharper, SonarQube, VS Code)
-              </li>
-              <li>DataDog, Grafana, Kibana</li>
-              <li>Metodologias ágeis (Scrum, Kanban)</li>
-              <li>Arquitetura de software</li>
-              <li>Revisão de código</li>
-              <li>Gerenciamento de aplicações e infraestrutura em nuvem</li>
-              <li>Organização de processos de desenvolvimento</li>
-            </ul>
+            <span class="text-muted">
+              Transicionei do ensino para o desenvolvimento de software, trabalhando na Softpar.
+              Apliquei minha experiência técnica em projetos de sistemas empresariais, consolidando
+              conhecimentos em Delphi e bancos de dados. Período fundamental para compreender regras
+              de negócio complexas e desenvolvimento de sistemas críticos.
+            </span>
           </div>
         </div>
       </li>
+
       <li class="mb-5">
         <div class="timeline-image">
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="..."
+            alt="Sistemas financeiros"
             decoding="async"
             fill
           />
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2019</h4>
-            <h4 class="subheading">Evolução da carreira</h4>
+            <h4>2008-2019</h4>
+            <h4 class="subheading">11 Anos em Sistemas Financeiros</h4>
           </div>
           <div class="timeline-body">
-            <p class="text-muted">
-              Desde 2019, atuo como Arquiteto de Software, Líder Técnico e Desenvolvedor.
-            </p>
+            <span class="text-muted">
+              Período mais longo e transformador na View Financial Systems. Desenvolvi sistemas
+              financeiros críticos focados em contas-correntes, documentos e operações de leasing.
+              Durante estes 11 anos, liderei a migração de sistemas Delphi para .NET, utilizando
+              tecnologias como C#, Visual Studio, Oracle e SQL Server. Experiência essencial que
+              moldou minha expertise em sistemas de alta disponibilidade.
+            </span>
           </div>
         </div>
       </li>
+
       <li class="timeline-inverted mb-5">
         <div class="timeline-image">
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="..."
+            alt="Evolução tecnológica"
             decoding="async"
             fill
           />
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2024</h4>
-            <h4 class="subheading">Atualmente</h4>
+            <h4>2019-2021</h4>
+            <h4 class="subheading">Modernização e Novas Tecnologias</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Trabalho como desenvolvedor e consultor em tecnologia, com foco em revisão de código,
-              gerenciamento de aplicações e infraestrutura em nuvem, organização de processos de
-              desenvolvimento e arquitetura de software.<br />
-              Desenvolvo soluções para o setor financeiro, incluindo gateways de pagamento e
-              fintechs, utilizando tecnologias como Azure, AWS, .NET 7, RabbitMQ, Azure DevOps,
-              CI/CD, Visual Studio, Rider, ReSharper, SonarQube, VS Code, Kubernetes e DataDog.
+              Período de grande evolução técnica na Zylix, trabalhando com sistemas de automação
+              industrial e adotando tecnologias modernas. Implementei soluções com .NET Core,
+              microsserviços, Docker, Kubernetes e plataformas em nuvem como Azure. Fase crucial
+              para minha transição definitiva para arquitetura de software.
             </span>
           </div>
         </div>
       </li>
+
+      <li class="mb-5">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            ngSrc="assets/img/about/4.jpg"
+            alt="Arquiteto de software"
+            decoding="async"
+            fill
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>2021-Atual</h4>
+            <h4 class="subheading">Arquiteto de Software na Consilux</h4>
+          </div>
+          <div class="timeline-body">
+            <span class="text-muted">
+              Atualmente atuo como Arquiteto de Software e consultor na Consilux, com foco em
+              revisão de código, gerenciamento de aplicações em nuvem e arquitetura de sistemas para
+              o setor financeiro. Desenvolvo soluções para fintechs e gateways de pagamento,
+              utilizando tecnologias como Azure, AWS, .NET, RabbitMQ, Kubernetes e ferramentas de
+              observabilidade como DataDog e Grafana. Especializado em modernização de sistemas
+              legados e implementação de práticas DevOps.
+            </span>
+          </div>
+        </div>
+      </li>
+
       <li class="timeline-inverted">
         <div class="timeline-image">
           <h4>
-            Esta é parte<br />
-            da minha<br />
-            história!
+            23+ Anos<br />
+            de<br />
+            Experiência!
           </h4>
         </div>
       </li>
     </ul>
+
   </div>
 </section>
