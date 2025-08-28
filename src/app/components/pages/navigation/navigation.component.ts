@@ -35,4 +35,8 @@ export class NavigationComponent extends BasePageComponent {
   contactAnalitics() {
     this._gaService?.event('click', 'app_navigation', 'contact');
   }
+
+  dashboardAnalitics() {
+    this._gaService?.event('click', 'app_navigation', 'dashboard');
+  }
 }

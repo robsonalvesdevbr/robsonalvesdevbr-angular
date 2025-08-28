@@ -5,6 +5,90 @@
       <h2 class="section-heading text-uppercase">Sobre</h2>
       <h3 class="section-subheading text-muted">Saiba mais sobre minha carreira.</h3>
     </div>
+
+    <!-- Personal Statistics Section -->
+    @if (personalStats()) {
+      <div class="row mb-5" (click)="onPersonalStatsView()">
+        <div class="col-12">
+          <div class="bg-light rounded p-4 shadow-sm">
+            <h4 class="text-center mb-4 text-primary">📊 Estatísticas Pessoais</h4>
+            <div class="row text-center">
+              <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <div class="stat-item">
+                  <app-animated-counter
+                    [targetValue]="personalStats()?.totalCourses || 0"
+                    cssClass="h2 fw-bold text-primary mb-1"
+                    [duration]="1500"
+                  >
+                  </app-animated-counter>
+                  <small class="text-muted">Cursos</small>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <div class="stat-item">
+                  <app-animated-counter
+                    [targetValue]="personalStats()?.totalBooks || 0"
+                    cssClass="h2 fw-bold text-success mb-1"
+                    [duration]="1700"
+                  >
+                  </app-animated-counter>
+                  <small class="text-muted">Livros</small>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <div class="stat-item">
+                  <app-animated-counter
+                    [targetValue]="personalStats()?.totalFormations || 0"
+                    cssClass="h2 fw-bold text-info mb-1"
+                    [duration]="1900"
+                  >
+                  </app-animated-counter>
+                  <small class="text-muted">Formações</small>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <div class="stat-item">
+                  <app-animated-counter
+                    [targetValue]="personalStats()?.completedGraduations || 0"
+                    cssClass="h2 fw-bold text-warning mb-1"
+                    [duration]="2100"
+                  >
+                  </app-animated-counter>
+                  <small class="text-muted">Graduações</small>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <div class="stat-item">
+                  <app-animated-counter
+                    [targetValue]="personalStats()?.favoriteCourses || 0"
+                    cssClass="h2 fw-bold text-purple mb-1"
+                    [duration]="2300"
+                  >
+                  </app-animated-counter>
+                  <small class="text-muted">Favoritos</small>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <div class="stat-item">
+                  <app-animated-counter
+                    [targetValue]="25"
+                    cssClass="h2 fw-bold text-secondary mb-1"
+                    [duration]="2500"
+                  >
+                  </app-animated-counter>
+                  <small class="text-muted">Anos Exp.</small>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <small class="text-muted">
+                🚀 Em constante aprendizado e evolução profissional
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
     <ul class="timeline">
       <li class="mb-5">
         <div class="timeline-image">
