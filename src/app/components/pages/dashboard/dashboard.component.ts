@@ -9,6 +9,7 @@ import {
 import { StatisticsService, DashboardStats } from '@path-services/statistics-service';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { AnimatedCounterComponent } from '@path-components/utils/animated-counter/animated-counter.component';
+import { BasePageComponent } from '@path-components/base-page/base-page.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,7 @@ import { AnimatedCounterComponent } from '@path-components/utils/animated-counte
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent extends BasePageComponent implements OnInit {
   private readonly statisticsService = inject(StatisticsService);
   private readonly gaService = inject(GoogleAnalyticsService);
 
