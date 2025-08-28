@@ -24,6 +24,6 @@ describe('AbountComponent', () => {
       compiled.querySelector(
         'div.container div.text-center h3.section-subheading.text-muted'
       )?.textContent
-    ).toBe('Saiba mais sobre minha carreira.');
+    ).toBe(' Conheça minha trajetória profissional de 23+ anos ');
   });
 });
