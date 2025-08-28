@@ -10,6 +10,7 @@ import { StatisticsService, DashboardStats } from '@path-services/statistics-ser
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { AnimatedCounterComponent } from '@path-components/utils/animated-counter/animated-counter.component';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { DataService } from '@path-services/data-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +22,7 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 export class DashboardComponent extends BasePageComponent implements OnInit {
   private readonly statisticsService = inject(StatisticsService);
   private readonly gaService = inject(GoogleAnalyticsService);
+  private readonly dataService = inject(DataService);
 
   stats = signal<DashboardStats | null>(null);
   yearlyStats = signal(this.statisticsService.getYearlyStats());
@@ -40,5 +42,10 @@ export class DashboardComponent extends BasePageComponent implements OnInit {
 
   onStatsCardClick(cardType: string): void {
     this.gaService?.event('stats_card_click', 'dashboard', cardType);
+  }
+
+  getInProgressGraduations(): number {
+    const graduations = this.dataService.getGraduations();
+    return graduations.filter(g => g.conclusion === 'inprogress').length;
   }
 }
