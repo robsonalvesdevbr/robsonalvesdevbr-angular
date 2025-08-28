@@ -98,9 +98,23 @@
             <div class="card-header bg-success text-white">
               <h5 class="mb-0"><i class="bi bi-mortarboard me-2"></i>Graduações</h5>
             </div>
-            <div class="card-body text-center">
-              <div class="display-6 fw-bold">{{ stats()?.completedGraduations }}</div>
-              <small class="text-muted">de {{ stats()?.totalGraduations }} graduações</small>
+            <div class="card-body">
+              <div class="row text-center">
+                <div class="col-6">
+                  <div class="display-6 fw-bold text-success">{{ stats()?.completedGraduations }}</div>
+                  <small class="text-muted">Concluídas</small>
+                </div>
+                <div class="col-6">
+                  <div class="display-6 fw-bold text-warning">{{ getInProgressGraduations() }}</div>
+                  <small class="text-muted">Em Andamento</small>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="text-center">
+                <small class="text-muted">
+                  Total: {{ stats()?.totalGraduations }} graduações
+                </small>
+              </div>
             </div>
           </div>
         </div>
@@ -161,32 +175,6 @@
         </div>
       </div>
 
-      <!-- Recent Courses -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div class="card shadow-sm">
-            <div class="card-header bg-warning text-dark">
-              <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i>Cursos Recentes</h5>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                @for (course of stats()?.recentCourses; track course.name) {
-                  <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="border rounded p-3 h-100 bg-light">
-                      <h6 class="fw-bold text-truncate" [title]="course.name">{{ course.name }}</h6>
-                      <small class="text-muted d-block">{{ course.institution }}</small>
-                      <small class="text-muted">{{ course.conclusion | date: 'dd/MM/yyyy' }}</small>
-                      @if (course.favorite) {
-                        <i class="bi bi-star-fill text-warning float-end"></i>
-                      }
-                    </div>
-                  </div>
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     }
   </div>
 </section>
