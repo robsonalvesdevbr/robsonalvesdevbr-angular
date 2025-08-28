@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   inject,
   signal,
 } from '@angular/core';
@@ -17,8 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrls: ['./contact.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent extends BasePageComponent implements OnInit {
-  ngOnInit(): void {}
+export class ContactComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
 
   profiles = signal(this.dataService.getProfile());

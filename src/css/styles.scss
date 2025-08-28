@@ -2,6 +2,45 @@ html {
   scroll-padding-top: 4.5rem;
 }
 
+/* Skip Link para acessibilidade */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 9999;
+  font-size: 14px;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Melhor contraste para links */
+.text-muted a,
+a.text-muted {
+  color: #495057 !important;
+}
+
+.text-muted a:hover,
+a.text-muted:hover {
+  color: #212529 !important;
+}
+
+/* Estados de foco mais visíveis */
+.btn:focus,
+.nav-link:focus,
+a:focus {
+  outline: 3px solid #ffc800;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(255, 200, 0, 0.25);
+}
+
 body {
   position: relative;
   -webkit-text-size-adjust: 100%;
@@ -41,6 +80,26 @@ p {
   margin-bottom: 2rem;
 }
 
+/* Ajustes de seção para mobile */
+@media (max-width: 576px) {
+  section {
+    padding: 4rem 0;
+  }
+  .page-section {
+    padding: 3rem 0;
+  }
+  .page-section h2.section-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  section {
+    padding: 6rem 0;
+  }
+}
+
 @media (min-width: 768px) {
   section {
     padding: 9rem 0;
@@ -63,6 +122,18 @@ p {
     'Noto Color Emoji';
   font-size: 1.125rem;
   font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-xl:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 200, 0, 0.3);
+}
+
+.btn-xl:active {
+  transform: translateY(0);
 }
 
 .btn-social {
@@ -73,6 +144,42 @@ p {
   justify-content: center;
   padding: 0;
   border-radius: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0.25rem;
+}
+
+.btn-social:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-social:hover i {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  80% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Melhor espaçamento em mobile */
+@media (max-width: 576px) {
+  .btn-social {
+    height: 3rem;
+    width: 3rem;
+    margin: 0.5rem 0.25rem;
+  }
+  .btn-social i {
+    font-size: 1.5rem !important;
+  }
 }
 
 #mainNav {
@@ -142,6 +249,13 @@ p {
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: #ffc800;
+  transition: color 0.3s ease;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:focus {
+  color: #ffc800;
+  outline: 2px solid #ffc800;
+  outline-offset: 2px;
 }
 
 @media (min-width: 992px) {
@@ -191,6 +305,23 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  position: relative;
+}
+
+header.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+header.masthead > * {
+  position: relative;
+  z-index: 2;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -231,6 +362,44 @@ header.masthead .masthead-heading {
     'Noto Color Emoji';
 }
 
+/* Mobile responsividade melhorada */
+@media (max-width: 576px) {
+  header.masthead {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+  header.masthead .masthead-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  header.masthead .masthead-heading {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .btn-xl {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 10px 0 80px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+  }
+  header.masthead .masthead-subheading {
+    font-size: 1.75rem;
+  }
+  header.masthead .masthead-heading {
+    font-size: 3.5rem;
+    line-height: 3.8rem;
+  }
+}
+
 @media (min-width: 768px) {
   header.masthead {
     padding-top: 17rem;
@@ -268,7 +437,13 @@ header.masthead .masthead-heading {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity ease-in-out 0.25s;
+  transition: all 0.4s ease;
+  transform: scale(0.8);
+}
+
+#portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
+  opacity: 1;
+  transform: scale(1);
 }
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
   font-size: 1.25rem;
@@ -429,6 +604,13 @@ header.masthead .masthead-heading {
   border: 7px solid #e9ecef;
   border-radius: 100%;
   background-color: #ffc800;
+  transition: all 0.3s ease;
+}
+
+.timeline > li .timeline-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 200, 0, 0.4);
+  border-color: #ffc800;
 }
 .timeline > li .timeline-image h4,
 .timeline > li .timeline-image .h4 {
@@ -681,4 +863,63 @@ section#contact form#contactForm :-ms-input-placeholder {
     'Segoe UI Emoji',
     'Segoe UI Symbol',
     'Noto Color Emoji';
+}
+
+/* Performance e loading otimizações */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Lazy loading placeholder */
+.img-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmerImg 1.5s infinite;
+}
+
+@keyframes shimmerImg {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Preload states */
+.preload * {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
 }
