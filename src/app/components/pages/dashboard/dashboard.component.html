@@ -1,0 +1,192 @@
+<!-- Dashboard Section -->
+<section class="page-section bg-light" id="dashboard">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Dashboard Pessoal</h2>
+      <h3 class="section-subheading text-muted">
+        Estatísticas e métricas da minha jornada de aprendizado
+      </h3>
+    </div>
+
+    @if (isLoading()) {
+      <div class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+    } @else {
+      <!-- Main Stats Cards -->
+      <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm border-0" (click)="onStatsCardClick('total_courses')">
+            <div class="card-body text-center">
+              <app-animated-counter
+                [targetValue]="stats()?.totalCourses || 0"
+                cssClass="display-4 text-primary fw-bold"
+                [duration]="2000"
+              >
+              </app-animated-counter>
+              <h5 class="card-title text-muted">Cursos Concluídos</h5>
+              <i class="bi bi-mortarboard fs-1 text-primary opacity-25"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm border-0" (click)="onStatsCardClick('total_books')">
+            <div class="card-body text-center">
+              <app-animated-counter
+                [targetValue]="stats()?.totalBooks || 0"
+                cssClass="display-4 text-success fw-bold"
+                [duration]="2200"
+              >
+              </app-animated-counter>
+              <h5 class="card-title text-muted">Livros Técnicos</h5>
+              <i class="bi bi-book fs-1 text-success opacity-25"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm border-0" (click)="onStatsCardClick('total_formations')">
+            <div class="card-body text-center">
+              <app-animated-counter
+                [targetValue]="stats()?.totalFormations || 0"
+                cssClass="display-4 text-info fw-bold"
+                [duration]="2400"
+              >
+              </app-animated-counter>
+              <h5 class="card-title text-muted">Formações</h5>
+              <i class="bi bi-award fs-1 text-info opacity-25"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm border-0" (click)="onStatsCardClick('books_progress')">
+            <div class="card-body text-center">
+              <app-animated-counter
+                [targetValue]="stats()?.booksProgress || 0"
+                cssClass="display-4 text-warning fw-bold"
+                suffix="%"
+                [duration]="2600"
+              >
+              </app-animated-counter>
+              <h5 class="card-title text-muted">Progresso Livros</h5>
+              <i class="bi bi-graph-up fs-1 text-warning opacity-25"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Stats -->
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0"><i class="bi bi-star-fill me-2"></i>Cursos Favoritos</h5>
+            </div>
+            <div class="card-body text-center">
+              <div class="display-6 fw-bold">{{ stats()?.favoriteCourses }}</div>
+              <small class="text-muted">de {{ stats()?.totalCourses }} cursos</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header bg-success text-white">
+              <h5 class="mb-0"><i class="bi bi-mortarboard me-2"></i>Graduações</h5>
+            </div>
+            <div class="card-body text-center">
+              <div class="display-6 fw-bold">{{ stats()?.completedGraduations }}</div>
+              <small class="text-muted">de {{ stats()?.totalGraduations }} graduações</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header bg-info text-white">
+              <h5 class="mb-0"><i class="bi bi-calendar3 me-2"></i>Evolução Anual</h5>
+            </div>
+            <div class="card-body">
+              @if (yearlyStats().length > 0) {
+                <div class="row">
+                  @for (year of yearlyStats().slice(-3); track year.year) {
+                    <div class="col-4 text-center border-end">
+                      <div class="fw-bold text-primary">{{ year.year }}</div>
+                      <small class="text-muted">{{ year.courses + year.formations }}</small>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Technologies & Institutions -->
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header bg-dark text-white">
+              <h5 class="mb-0"><i class="bi bi-code-slash me-2"></i>Top Tecnologias</h5>
+            </div>
+            <div class="card-body">
+              @for (tech of stats()?.topTechnologies?.slice(0, 5); track tech.name) {
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-medium">{{ tech.name }}</span>
+                  <span class="badge bg-primary rounded-pill">{{ tech.count }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header bg-secondary text-white">
+              <h5 class="mb-0"><i class="bi bi-building me-2"></i>Principais Instituições</h5>
+            </div>
+            <div class="card-body">
+              @for (institution of stats()?.topInstitutions; track institution.name) {
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-medium">{{ institution.name }}</span>
+                  <span class="badge bg-secondary rounded-pill">{{ institution.count }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Courses -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark">
+              <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i>Cursos Recentes</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                @for (course of stats()?.recentCourses; track course.name) {
+                  <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="border rounded p-3 h-100 bg-light">
+                      <h6 class="fw-bold text-truncate" [title]="course.name">{{ course.name }}</h6>
+                      <small class="text-muted d-block">{{ course.institution }}</small>
+                      <small class="text-muted">{{ course.conclusion | date: 'dd/MM/yyyy' }}</small>
+                      @if (course.favorite) {
+                        <i class="bi bi-star-fill text-warning float-end"></i>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

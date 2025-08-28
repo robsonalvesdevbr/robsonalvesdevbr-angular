@@ -133,7 +133,11 @@
               <p class="text-muted fontemenor">
                 <b>Tags: </b> {{ item.tags | printTags }} &nbsp;<span
                   class="text-muted fontemenor11"
-                  >&nbsp;&nbsp;&nbsp;<a [href]="item.bookUrl" target="_blank" rel="noopener"
+                  >&nbsp;&nbsp;&nbsp;<a
+                    [href]="item.bookUrl"
+                    target="_blank"
+                    rel="noopener"
+                    (click)="onBookUrlClick(item.title, item.publishName)"
                     >Mais detalhes</a
                   ></span
                 >
