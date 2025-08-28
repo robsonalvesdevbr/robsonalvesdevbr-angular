@@ -2,7 +2,6 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   inject,
   signal,
 } from '@angular/core';
@@ -24,8 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   templateUrl: './graduation.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GraduationComponent extends BasePageComponent implements OnInit {
-  ngOnInit(): void {}
+export class GraduationComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
   graduations = signal(this.dataService.getGraduations());
 }

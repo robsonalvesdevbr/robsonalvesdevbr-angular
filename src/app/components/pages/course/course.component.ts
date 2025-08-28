@@ -6,6 +6,7 @@ import {
   WritableSignal,
   inject,
   signal,
+  computed,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
@@ -17,6 +18,7 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-course',
@@ -37,6 +39,7 @@ import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 })
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
+  private readonly gaService = inject(GoogleAnalyticsService);
 
   courses = signal(this.dataService.getCourses());
 
@@ -68,7 +71,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     );
   }
 
-  getTags = () => Array.from(this.tags().values());
+  tagsArray = computed(() => Array.from(this.tags().values()));
 
   absoluteIndex = (indexOnPage: number): number =>
     this.config().itemsPerPage * (this.config().currentPage - 1) +
@@ -78,25 +81,26 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   onPageChange = (number: number) => (this.config().currentPage = number);
 
   clearFilters() {
-    this.coursesFilter().forEach((x) => {
-      document.getElementById(`label_course_institution_${x}`)?.click();
-    });
-
-    this.tagsFilter().forEach((x) => {
-      document.getElementById(`label_course_tag_${x}`)?.click();
-    });
-
+    this.gaService?.event('clear_filters', 'courses', 'filters_cleared');
+    
     this.coursesFilter().clear();
     this.selectInstitutionsFilter.set(InstitutionEnum.All);
     this.tagsFilter().clear();
     this.selectTagFilter.set('');
+    this.config().currentPage = 1;
   }
 
-  onClickIntitutionEvent(e: MouseEvent) {
-    const link = e.target as HTMLInputElement;
-    const id = link.id.replace('input_course_institution_', '');
-
+  onClickIntitutionEvent(e: Event) {
+    const input = e.target as HTMLInputElement;
+    if (!input || !input.id) return;
+    
+    const id = input.id.replace('input_course_institution_', '');
     const institution = InstitutionEnum[id as keyof typeof InstitutionEnum];
+    
+    if (!institution) return;
+
+    const action = this.coursesFilter().has(institution) ? 'remove' : 'add';
+    this.gaService?.event('filter_institution', 'courses', `${action}_${institution}`);
 
     if (this.coursesFilter().has(institution)) {
       this.coursesFilter().delete(institution);
@@ -110,9 +114,14 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     this.config().currentPage = 1;
   }
 
-  onClickTagEvent(e: MouseEvent) {
-    const link = e.target as HTMLInputElement;
-    const id = link.id.replace('input_course_tag_', '');
+  onClickTagEvent(e: Event) {
+    const input = e.target as HTMLInputElement;
+    if (!input || !input.id) return;
+    
+    const id = input.id.replace('input_course_tag_', '');
+    
+    const action = this.tagsFilter().has(id) ? 'remove' : 'add';
+    this.gaService?.event('filter_tag', 'courses', `${action}_${id}`);
 
     if (this.tagsFilter().has(id)) {
       this.tagsFilter().delete(id);
@@ -120,5 +129,10 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       this.tagsFilter().add(id);
     }
     this.selectTagFilter.set([...this.tagsFilter().keys()].join(','));
+    this.config().currentPage = 1;
+  }
+
+  onCertificateClick(courseName: string, institution: string) {
+    this.gaService?.event('certificate_click', 'courses', `${courseName}_${institution}`);
   }
 }

@@ -68,7 +68,7 @@ describe('CourseComponent', () => {
 
   it('should return sorted tags', () => {
     component.ngOnInit();
-    const tags = component.getTags();
+    const tags = component.tagsArray();
     expect(tags).toEqual(['Tag1', 'Tag2', 'Tag3']);
   });
 

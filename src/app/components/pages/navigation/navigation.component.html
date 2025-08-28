@@ -1,5 +1,13 @@
+<!-- Skip Navigation Link -->
+<a class="skip-link" href="#about">Pular para conteúdo principal</a>
+
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+<nav
+  class="navbar navbar-expand-lg navbar-dark fixed-top"
+  id="mainNav"
+  role="navigation"
+  aria-label="Navegação principal"
+>
   <div class="container">
     <a class="navbar-brand" href="#page-top"
       ><img src="assets/img/others/robsonalves.png" alt="..."
@@ -18,12 +26,17 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 nav">
         <li class="nav-item">
+          <a class="nav-link" href="#about" aria-label="Sobre" (click)="sobreAnalitics()"
+            >Sobre<span class="sr-only"></span
+          ></a>
+        </li>
+        <li class="nav-item">
           <a
             class="nav-link"
-            href="#about"
-            aria-label="Sobre"
-            (click)="sobreAnalitics()"
-            >Sobre<span class="sr-only"></span
+            href="#dashboard"
+            aria-label="Dashboard"
+            (click)="dashboardAnalitics()"
+            >Dashboard<span class="sr-only"></span
           ></a>
         </li>
         <li class="nav-item">
@@ -36,11 +49,7 @@
           >
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#courses"
-            aria-label="Cursos"
-            (click)="coursesAnalitics()"
+          <a class="nav-link" href="#courses" aria-label="Cursos" (click)="coursesAnalitics()"
             >Cursos</a
           >
         </li>
@@ -54,20 +63,12 @@
           >
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#books"
-            aria-label="Leituras"
-            (click)="booksAnalitics()"
+          <a class="nav-link" href="#books" aria-label="Leituras" (click)="booksAnalitics()"
             >Leituras</a
           >
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#contact"
-            aria-label="Contato"
-            (click)="contactAnalitics()"
+          <a class="nav-link" href="#contact" aria-label="Contato" (click)="contactAnalitics()"
             >Contato</a
           >
         </li>
