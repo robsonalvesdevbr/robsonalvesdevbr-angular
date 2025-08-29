@@ -39,7 +39,6 @@ Este arquivo fornece orientações para Claude Code (claude.ai/code) ao trabalha
 - **Detecção de Mudanças Zoneless** (recurso experimental do Angular)
 - **Google Analytics** integração via `ngx-google-analytics`
 - **ESLint + Prettier** para qualidade de código
-- **Biome** como ferramenta de linting adicional
 
 ### Estrutura do Projeto
 
