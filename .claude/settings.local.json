@@ -1,13 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx:*)",
-      "Bash(npm:*)",
       "Bash(ng:*)",
+      "Bash(npm:*)",
+      "Edit",
+      "Read",
+      "Write",
+      "Bash(npx:*)",
       "Bash(pkill:*)",
       "Edit(docs/**)",
       "Edit(src/**)"
-    ]
+    ],
+    "deny": [],
+    "ask": []
   },
   "hooks": {
     "PostTooUser": [
