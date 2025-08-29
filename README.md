@@ -91,7 +91,6 @@ src/
 | `tsconfig.json`  | Configurações TypeScript com path aliases |
 | `eslint.config.js` | Regras do ESLint           |
 | `.prettierrc`    | Configurações do Prettier    |
-| `biome.json`     | Configurações do Biome       |
 | `CLAUDE.md`      | Instruções para Claude Code  |
 
 ## 🔧 Comandos Úteis
@@ -282,7 +281,7 @@ ng build --configuration=production --named-chunks
 - ✅ **RxJS** para operações assíncronas
 - ✅ **Async/await** preferível a `.then()`
 - ✅ **Testes unitários** obrigatórios
-- ✅ **ESLint + Prettier + Biome** configurados
+- ✅ **ESLint + Prettier** configurados
 
 ### 🔄 Workflow
 
