@@ -82,7 +82,17 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   clearFilters() {
     this.gaService?.event('clear_filters', 'courses', 'filters_cleared');
-    
+
+    // Desmarcar todos os checkboxes de instituição diretamente no DOM
+    document.querySelectorAll('input[id^="input_course_institution_"]').forEach(checkbox => {
+      (checkbox as HTMLInputElement).checked = false;
+    });
+
+    // Desmarcar todos os checkboxes de tags diretamente no DOM  
+    document.querySelectorAll('input[id^="input_course_tag_"]').forEach(checkbox => {
+      (checkbox as HTMLInputElement).checked = false;
+    });
+
     this.coursesFilter().clear();
     this.selectInstitutionsFilter.set(InstitutionEnum.All);
     this.tagsFilter().clear();
