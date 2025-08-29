@@ -41,12 +41,14 @@
                   class="btn-check"
                   id="input_book_institution_{{ publishName.key }}"
                   autocomplete="off"
+                  [checked]="isPublisherSelected(publishName.key)"
                   (click)="onClickIntitutionEvent($event)"
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
                   for="input_book_institution_{{ publishName.key }}"
                   id="label_book_institution_{{ publishName.key }}"
+                  [ngClass]="{ active: isPublisherSelected(publishName.key) }"
                   appHighlight
                   >{{ publishName.value }}</label
                 >
@@ -70,6 +72,7 @@
                     class="btn-check"
                     id="input_book_tag_{{ tag | lowercase }}"
                     autocomplete="off"
+                    [checked]="tagsFilter().has(tag)"
                     (click)="onClickTagEvent($event)"
                   />
                   <label
