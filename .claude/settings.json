@@ -9,7 +9,7 @@
       "Edit(src/**)",
       "Edit",
       "Read",
-      "Write",
+      "Write"
     ],
     "deny": [],
     "ask": []
