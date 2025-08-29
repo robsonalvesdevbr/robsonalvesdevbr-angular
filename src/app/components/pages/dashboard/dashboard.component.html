@@ -101,7 +101,9 @@
             <div class="card-body">
               <div class="row text-center">
                 <div class="col-6">
-                  <div class="display-6 fw-bold text-success">{{ stats()?.completedGraduations }}</div>
+                  <div class="display-6 fw-bold text-success">
+                    {{ stats()?.completedGraduations }}
+                  </div>
                   <small class="text-muted">Concluídas</small>
                 </div>
                 <div class="col-6">
@@ -109,7 +111,7 @@
                   <small class="text-muted">Em Andamento</small>
                 </div>
               </div>
-              <hr class="my-2">
+              <hr class="my-2" />
               <div class="text-center">
                 <small class="text-muted">
                   Total: {{ stats()?.totalGraduations }} graduações
@@ -174,7 +176,6 @@
           </div>
         </div>
       </div>
-
     }
   </div>
 </section>
