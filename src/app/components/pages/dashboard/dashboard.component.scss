@@ -1,5 +1,7 @@
 .card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
@@ -8,7 +10,8 @@
   }
 }
 
-.display-4, .display-6 {
+.display-4,
+.display-6 {
   font-family: 'Arial', sans-serif;
   font-weight: 700;
 }
@@ -38,7 +41,7 @@
   .display-4 {
     font-size: 2rem;
   }
-  
+
   .display-6 {
     font-size: 1.5rem;
   }
