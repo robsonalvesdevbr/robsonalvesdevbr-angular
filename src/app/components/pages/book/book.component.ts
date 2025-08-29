@@ -3,9 +3,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
-  WritableSignal,
   inject,
+  computed,
   signal,
+  WritableSignal,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
@@ -14,7 +15,8 @@ import { FilterPipe } from '@path-pipes/filter.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
-import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
+import { PaginationService } from '@path-services/pagination.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 
@@ -37,39 +39,30 @@ import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
   private readonly gaService = inject(GoogleAnalyticsService);
-  books = this.dataService.getBooks();
+  private readonly paginationService = inject(PaginationService);
 
+  books = this.dataService.getBooks();
   publishNameList = PublishNameEnum;
+  PublishNameEnum = PublishNameEnum;
 
   tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
-
-  publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<
-    Set<PublishNameEnum>
-  >(new Set<PublishNameEnum>());
+  
+  publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<Set<PublishNameEnum>>(new Set<PublishNameEnum>());
   selectPublishNameFilter: WritableSignal<string> = signal<string>('');
 
-  tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(
-    new Set<string>()
-  );
+  tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   selectTagFilter: WritableSignal<string> = signal<string>('');
 
-  config: WritableSignal<PaginationInstance> = signal<PaginationInstance>({
-    id: 'booksPag',
-    itemsPerPage: 5,
-    currentPage: 1,
-  });
+  config = this.paginationService.createPaginationConfig('booksPag', 5);
 
   ngOnInit(): void {
-    //this.books.forEach((book) => this.publishNameList().add(book.publishName.trim()))
     this.books.forEach((book) =>
       book.tags.forEach((tag) => this.tags().add(tag.trim()))
     );
   }
 
-  //getPublishNameList = () => Array.from(this.publishNameList().values()).sort((a, b) => (a > b ? 1 : -1))
-
-  getTags = () => Array.from(this.tags().values());
-
+  getTags = computed(() => Array.from(this.tags().values()));
+  
   absoluteIndex(indexOnPage: number): number {
     return (
       this.config().itemsPerPage * (this.config().currentPage - 1) +
@@ -84,21 +77,12 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   clearFilters() {
     this.gaService?.event('clear_filters', 'books', 'filters_cleared');
-    
-    // Desmarcar todos os checkboxes de editoras diretamente no DOM
-    document.querySelectorAll('input[id^="input_book_institution_"]').forEach(checkbox => {
-      (checkbox as HTMLInputElement).checked = false;
-    });
 
-    // Desmarcar todos os checkboxes de tags diretamente no DOM
-    document.querySelectorAll('input[id^="input_book_tag_"]').forEach(checkbox => {
-      (checkbox as HTMLInputElement).checked = false;
-    });
-
-    this.publishNameFilter().clear();
+    this.publishNameFilter.set(new Set<PublishNameEnum>());
     this.selectPublishNameFilter.set('');
-    this.tagsFilter().clear();
+    this.tagsFilter.set(new Set<string>());
     this.selectTagFilter.set('');
+    this.config().currentPage = 1;
   }
 
   onClickIntitutionEvent(e: MouseEvent) {
@@ -110,11 +94,13 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const action = this.publishNameFilter().has(publishName) ? 'remove' : 'add';
     this.gaService?.event('filter_publisher', 'books', `${action}_${publishName}`);
 
-    if (this.publishNameFilter().has(publishName)) {
-      this.publishNameFilter().delete(publishName);
+    const currentFilters = new Set(this.publishNameFilter());
+    if (currentFilters.has(publishName)) {
+      currentFilters.delete(publishName);
     } else {
-      this.publishNameFilter().add(publishName);
+      currentFilters.add(publishName);
     }
+    this.publishNameFilter.set(currentFilters);
     this.selectPublishNameFilter.set(
       Array.from(this.publishNameFilter().values()).join(',')
     );
@@ -129,15 +115,23 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const action = this.tagsFilter().has(id) ? 'remove' : 'add';
     this.gaService?.event('filter_tag', 'books', `${action}_${id}`);
 
-    if (this.tagsFilter().has(id)) {
-      this.tagsFilter().delete(id);
+    const currentTags = new Set(this.tagsFilter());
+    if (currentTags.has(id)) {
+      currentTags.delete(id);
     } else {
-      this.tagsFilter().add(id);
+      currentTags.add(id);
     }
+    this.tagsFilter.set(currentTags);
     this.selectTagFilter.set([...this.tagsFilter().values()].join(','));
+    this.config().currentPage = 1;
   }
   
   onBookUrlClick(bookTitle: string, publishName: string) {
     this.gaService?.event('book_url_click', 'books', `${bookTitle}_${publishName}`);
+  }
+
+  isPublisherSelected(publisherKey: string): boolean {
+    const publisher = PublishNameEnum[publisherKey as keyof typeof PublishNameEnum];
+    return this.publishNameFilter().has(publisher);
   }
 }
