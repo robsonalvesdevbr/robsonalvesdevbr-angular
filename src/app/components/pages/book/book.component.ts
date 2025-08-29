@@ -85,12 +85,14 @@ export class BookComponent extends BasePageComponent implements OnInit {
   clearFilters() {
     this.gaService?.event('clear_filters', 'books', 'filters_cleared');
     
-    this.publishNameFilter().forEach((x) => {
-      document.getElementById(`label_book_institution_${x}`)?.click();
+    // Desmarcar todos os checkboxes de editoras diretamente no DOM
+    document.querySelectorAll('input[id^="input_book_institution_"]').forEach(checkbox => {
+      (checkbox as HTMLInputElement).checked = false;
     });
 
-    this.tagsFilter().forEach((x) => {
-      document.getElementById(`label_book_tag_${x}`)?.click();
+    // Desmarcar todos os checkboxes de tags diretamente no DOM
+    document.querySelectorAll('input[id^="input_book_tag_"]').forEach(checkbox => {
+      (checkbox as HTMLInputElement).checked = false;
     });
 
     this.publishNameFilter().clear();
