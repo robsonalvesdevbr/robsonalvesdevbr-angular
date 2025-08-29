@@ -40,12 +40,14 @@
                   class="btn-check"
                   id="input_course_institution_{{ institution.key }}"
                   autocomplete="off"
+                  [checked]="isInstitutionSelected(institution.key)"
                   (click)="onClickIntitutionEvent($event)"
                 />
                 <label
                   class="btn btn-sm fontemenor p-1 ms-0"
                   for="input_course_institution_{{ institution.key }}"
                   id="label_course_institution_{{ institution.key }}"
+                  [ngClass]="{ active: isInstitutionSelected(institution.key) }"
                   appHighlight
                   >{{ institution.value }}</label
                 >
@@ -69,6 +71,7 @@
                     class="btn-check"
                     id="input_course_tag_{{ tag | lowercase }}"
                     autocomplete="off"
+                    [checked]="tagsFilter().has(tag)"
                     (click)="onClickTagEvent($event)"
                   />
                   <label

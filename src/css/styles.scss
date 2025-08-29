@@ -159,7 +159,10 @@ p {
 }
 
 @keyframes bounce {
-  0%, 20%, 60%, 100% {
+  0%,
+  20%,
+  60%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -961,7 +964,7 @@ html {
 
   .social-links .btn {
     transition: all 0.2s ease;
-    
+
     &:hover {
       transform: translateY(-1px);
     }
