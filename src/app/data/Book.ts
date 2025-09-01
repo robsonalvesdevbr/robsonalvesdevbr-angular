@@ -12,7 +12,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Go, BookTagEnum.Golang],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-google-go',
     pages: 119,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -26,7 +26,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
     pages: 223,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -52,7 +52,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-engenharia-de-prompt',
     pages: 248,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -65,7 +65,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-javascript-assertivo',
     pages: 366,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -80,7 +80,7 @@ export const Books: IBook[] = [
     ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-eda',
     pages: 302,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -92,7 +92,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Rust],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-rust',
     pages: 268,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -104,7 +104,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.ArtificialIntelligence],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-ai-servico',
     pages: 131,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -116,7 +116,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.NoSQL, BookTagEnum.MongoDB],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-mongodb',
     pages: 244,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -133,7 +133,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-modernizacao-azure',
     pages: 468,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -145,7 +145,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.Agile, BookTagEnum.Scrum],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-scrum',
     pages: 529,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -157,7 +157,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SQL, BookTagEnum.NoSQL],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-tuning-sql',
     pages: 523,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -173,7 +173,7 @@ export const Books: IBook[] = [
     ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-csharp',
     pages: 236,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -190,7 +190,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-produtividade-csharp',
     pages: 461,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -202,7 +202,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-sistemas-reativos',
     pages: 322,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -215,7 +215,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-cangaceiro-javascript',
     pages: 502,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -228,7 +228,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-programacao-funcional-clojure',
     pages: 214,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -240,7 +240,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.Azure],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-web-services-rest',
     pages: 148,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -252,7 +252,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.OO],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-conceitos',
     pages: 384,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -265,7 +265,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-plataforma-microsoft',
     pages: 383,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -281,7 +281,7 @@ export const Books: IBook[] = [
     ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-oo-solid',
     pages: 155,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -298,7 +298,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-design-paterns-csharp',
     pages: 163,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -315,7 +315,7 @@ export const Books: IBook[] = [
     ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-tdd-dotnet',
     pages: 198,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -332,7 +332,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.casadocodigo.com.br/products/livro-programacao-funcional-net',
     pages: 323,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -348,7 +348,7 @@ export const Books: IBook[] = [
     ],
     bookUrl: 'https://www.casadocodigo.com.br/products/livro-apache-cassandra',
     pages: 151,
-    progress: 0,
+    progress: 100,
     favorite: false,
   },
   {
@@ -366,7 +366,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.packtpub.com/product/high-performance-programming-in-c-and-net/9781800564718',
     pages: 660,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -384,7 +384,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.packtpub.com/product/c-data-structures-and-algorithms/9781788833738',
     pages: 292,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -403,7 +403,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361',
     pages: 826,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -420,7 +420,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.packtpub.com/product/parallel-programming-and-concurrency-with-c-10-and-net-6/9781803243672',
     pages: 320,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -439,7 +439,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.packtpub.com/product/keycloak-identity-and-access-management-for-modern-applications-second-edition/9781804616444',
     pages: 350,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -452,7 +452,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.amazon.com.br/Redes-Computadores-Andrew-Stuart-Tanenbaum/dp/8535211853/ref=sr_1_1?dib=eyJ2IjoiMSJ9._GfQzyNbERSE2cgbUgmbeN5F_rH9yK-7REy6uflTx0o.E6G7vajk-Q8IK5iDBUw2V57wozY87mInr2PGWcGcnTg&dib_tag=se&qid=1711126819&refinements=p_27%3AAndrew+Stuart+Tanenbaum&s=books&sr=1-1&text=Andrew+Stuart+Tanenbaum',
     pages: 946,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -465,7 +465,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://www.amazon.com.br/Sistemas-operacionais-modernos-Andrew-Tanenbaum/dp/8543005671/ref=pd_sbs_d_sccl_2_2/134-5554515-9248818?pd_rd_w=Kstyh&content-id=amzn1.sym.369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_p=369c7e6c-be97-41e7-a405-bca26488259c&pf_rd_r=WXGNXW7G2Z1GRSZQBGAH&pd_rd_wg=wtrf4&pd_rd_r=0a993d3e-9664-4690-aec0-9c0cb9e84650&pd_rd_i=8543005671&psc=1',
     pages: 946,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -479,7 +479,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://novatec.com.br/livros/logica-programacao-algoritmos-com-javascript-2ed',
     pages: 352,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -493,7 +493,7 @@ export const Books: IBook[] = [
     bookUrl:
       'https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed',
     pages: 408,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -509,7 +509,7 @@ export const Books: IBook[] = [
     ],
     bookUrl: 'https://novatec.com.br/livros/refatoracao',
     pages: 456,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -521,7 +521,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.DomainDrivenDesign],
     bookUrl: 'https://altabooks.com.br/produto/domain-driven-design',
     pages: 528,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -533,7 +533,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CleanCode],
     bookUrl: 'https://altabooks.com.br/produto/codigo-limpo',
     pages: 440,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
@@ -545,7 +545,7 @@ export const Books: IBook[] = [
     tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CleanCode],
     bookUrl: 'https://altabooks.com.br/produto/arquitetura-limpa',
     pages: 432,
-    progress: 0,
+    progress: 100,
     favorite: true,
   },
   {
