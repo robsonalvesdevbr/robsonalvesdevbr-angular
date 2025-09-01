@@ -1,5 +1,10 @@
 name: Azure Static Web Apps CI/CD
 
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
 on:
   push:
     branches:
@@ -14,30 +19,19 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '22.9'
       - run: npm install
       - run: npm run test-nowatch
 
-      #- name: Checkout Repository
-      #  uses: actions/checkout@v4
-      #  with:
-      #    submodules: true
-      #    lfs: false
-
-      #- name: Set up Node.js
-      #  uses: actions/setup-node@v4
-      #  with:
-      #    node-version: '>=22.9'
-
-      #- name: Install Dependencies
-      #  run: npm install
-
-      #- name: Run Unit Tests
-      #  run: npm run test-nowatch #-- --watch=false --browsers=ChromeHeadless
+      - name: Fix Git Permissions
+        run: chmod -R u+w .git
 
       - name: Build And Deploy
         id: builddeploy
@@ -52,14 +46,16 @@ jobs:
           #deployment_environment: 'Production'
           app_build_command: 'npm run build:prod'
 
-  # close_pull_request_job:
-  #   if: github.event_name == 'pull_request' && github.event.action == 'closed'
-  #   runs-on: ubuntu-latest
-  #   name: Close Pull Request Job
-  #   steps:
-  #     - name: Close Pull Request
-  #       id: closepullrequest
-  #       uses: Azure/static-web-apps-deploy@v1
-  #       with:
-  #         azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_SKY_078D43C0F }}
-  #         action: 'close'
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    timeout-minutes: 10
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_SKY_078D43C0F }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'close'
