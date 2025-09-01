@@ -31,7 +31,7 @@ describe('BookComponent', () => {
           bookUrl:
             'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
           pages: 223,
-          progress: 0,
+          progress: 100,
           favorite: false,
         },
         {
@@ -45,7 +45,7 @@ describe('BookComponent', () => {
           bookUrl:
             'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
           pages: 223,
-          progress: 0,
+          progress: 100,
           favorite: false,
         },
       ],
