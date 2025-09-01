@@ -1,11 +1,13 @@
 import { Injectable, inject } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { VirtualPageTrackingService } from './virtual-page-tracking.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EngagementTrackingService {
   private gaService = inject(GoogleAnalyticsService);
+  private virtualPageService = inject(VirtualPageTrackingService);
   private scrollDepthTracked = new Set<number>();
   private sectionTimeTracking = new Map<string, number>();
   private isTrackingTime = false;
@@ -54,6 +56,24 @@ export class EngagementTrackingService {
 
   trackSectionView(sectionId: string): void {
     this.gaService?.event('section_view', 'engagement', sectionId);
+    
+    // Simular mudança de página virtual para cada seção
+    const sectionTitles: { [key: string]: string } = {
+      'about': 'Sobre - Robson Alves',
+      'dashboard': 'Dashboard - Robson Alves', 
+      'graduation': '(Pós)Graduação - Robson Alves',
+      'courses': 'Cursos - Robson Alves',
+      'formationcourse': 'Formação - Robson Alves',
+      'books': 'Leituras - Robson Alves',
+      'contact': 'Contato - Robson Alves'
+    };
+
+    if (sectionTitles[sectionId]) {
+      this.gaService?.gtag('config', 'G-4VZHRRWLF8', {
+        page_title: sectionTitles[sectionId],
+        page_location: `${window.location.origin}/#${sectionId}`
+      });
+    }
   }
 
   trackInteraction(action: string, section: string): void {
@@ -81,6 +101,9 @@ export class EngagementTrackingService {
     });
   }
 
+  private currentSection: string | null = null;
+  private previousSection: string | null = null;
+
   setupIntersectionObserver(): void {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
 
@@ -88,22 +111,53 @@ export class EngagementTrackingService {
       (entries) => {
         entries.forEach((entry) => {
           const sectionId = entry.target.id;
-          if (entry.isIntersecting) {
-            this.trackSectionView(sectionId);
-            this.startTimeTracking(sectionId);
-          } else {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            // Só trackear se mudou de seção
+            if (this.currentSection !== sectionId) {
+              this.previousSection = this.currentSection;
+              this.currentSection = sectionId;
+              
+              // Track section view and virtual page
+              this.trackSectionView(sectionId);
+              this.virtualPageService.sendVirtualPageView(sectionId, 'scroll');
+              this.startTimeTracking(sectionId);
+              
+              // Track navigation pattern
+              if (this.previousSection) {
+                this.virtualPageService.trackNavigationPattern(
+                  this.previousSection, 
+                  sectionId, 
+                  'scroll'
+                );
+              }
+              
+              // Atualizar URL hash sem recarregar página
+              if (sectionId && window.history.replaceState) {
+                window.history.replaceState(null, '', `#${sectionId}`);
+              }
+            }
+          } else if (!entry.isIntersecting) {
             this.endTimeTracking(sectionId);
           }
         });
       },
       { 
-        threshold: 0.5, // Track when 50% of section is visible
-        rootMargin: '0px 0px -20% 0px' // Start tracking a bit before the section is fully visible
+        threshold: [0.3, 0.5, 0.7], // Múltiplos thresholds para melhor detecção
+        rootMargin: '0px 0px -20% 0px'
       }
     );
 
     // Observe all major sections
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((section) => observer.observe(section));
+    
+    // Track hash changes (navegação por âncoras diretas)
+    window.addEventListener('hashchange', () => {
+      const newSection = window.location.hash.substring(1);
+      if (newSection && this.currentSection !== newSection) {
+        this.currentSection = newSection;
+        this.gaService?.event('hash_navigation', 'navigation', newSection);
+      }
+    });
   }
 }
