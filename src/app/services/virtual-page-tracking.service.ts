@@ -60,13 +60,13 @@ export class VirtualPageTrackingService {
     }
   }
 
-  trackNavigationPattern(fromSection: string | null, toSection: string, method: string): void {
+  trackNavigationPattern(fromSection: string | null, toSection: string): void {
     if (fromSection) {
       this.gaService?.event('navigation_flow', 'user_journey', `${fromSection}_to_${toSection}`);
     }
   }
 
-  trackSectionEngagement(sectionId: string, timeSpent: number, scrollDepth: number): void {
+  trackSectionEngagement(sectionId: string, timeSpent: number): void {
     this.gaService?.event('section_engagement', 'engagement', sectionId, timeSpent);
   }
 
