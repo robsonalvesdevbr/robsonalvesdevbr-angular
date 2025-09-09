@@ -3,6 +3,349 @@ import { ICourse } from '@path-interfaces/ICourse';
 import { CourseTagEnum } from '../models/CourseTagEnum';
 
 export const Courses: ICourse[] = [
+  // ===== UDEMY =====
+  {
+    name: 'GitHub Copilot: Do Zero à Produtividade Máxima com GenAI',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-09ec6882-75b9-4d3a-9e2f-3686b65974c6/',
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.GitHub,
+      CourseTagEnum.Copilot,
+    ],
+    conclusion: new Date('2025-9-9'),
+    favorite: true,
+  },
+  {
+    name: 'Go (Golang) - Do zero ao avançado (com teste de unidade)',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-29b72ef1-0859-4d81-a837-febcf15df376',
+    tags: [
+      CourseTagEnum.Go,
+      CourseTagEnum.Golang,
+      CourseTagEnum.SoftwareDevelopment
+    ],
+    conclusion: new Date('2025-8-28'),
+    favorite: true,
+  },
+  {
+    name: 'Curso completo de Git e GitHub - Básico ao Avançado',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-781881a3-c4bb-43ef-ac43-cfc4c54acdbd',
+    tags: [
+      CourseTagEnum.Versioning,
+      CourseTagEnum.Git,
+      CourseTagEnum.GitHub
+    ],
+    conclusion: new Date('2025-8-20'),
+    favorite: true,
+  },
+  {
+    name: 'Java COMPLETO Programação Orientada a Objetos + Projetos',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-d0a7da02-6de7-43be-883e-9cfb5c33fe34',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Java
+    ],
+    conclusion: new Date('2025-7-21'),
+    favorite: false,
+  },
+  {
+    name: 'Dapper - Aprenda a usar o micro-ORM mais popular do .NET',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-dfd5c526-af15-4002-a59e-b3da491bbb0a',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Architecture,
+      CourseTagEnum.Database,
+      CourseTagEnum.Dapper,
+      CourseTagEnum.Orm
+    ],
+    conclusion: new Date('2025-6-25'),
+    favorite: false,
+  },
+  {
+    name: 'Modelagem Arquitetural - C4 Model',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-37ac22f0-151d-4cbc-9e95-8199b454a7d6',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Architecture,
+      CourseTagEnum.C4Model,
+    ],
+    conclusion: new Date('2025-1-25'),
+    favorite: true,
+  },
+  {
+    name: 'Monitoramento de aplicações com Prometheus e Grafana',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-a1e66e01-520e-4c9e-a931-120b75acb7f5',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Monitoring,
+      CourseTagEnum.Prometheus,
+      CourseTagEnum.Grafana,
+      CourseTagEnum.DevOps,
+    ],
+    conclusion: new Date('2025-1-21'),
+    favorite: false,
+  },
+  {
+    name: 'Clean Architecture Essencial - ASP .NET Core com C#',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-37e332de-70b6-4294-b953-f747172c4518',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.Architecture,
+    ],
+    conclusion: new Date('2025-1-20'),
+    favorite: true,
+  },
+  {
+    name: 'Go (Golang): Explorando a Linguagem do Google',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-3680a779-14d8-4d87-9bd4-26c371778346',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Go,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
+    conclusion: new Date('2024-11-6'),
+    favorite: true,
+  },
+  {
+    name: 'ChatGPT Completo: Domine Chat GPT e Inteligência Artificial',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-4a973d15-299e-4020-8c83-89ec5d25008d',
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.Chatbot,
+      CourseTagEnum.GPT,
+      CourseTagEnum.ChatGPT,
+    ],
+    conclusion: new Date('2024-9-10'),
+    favorite: false,
+  },
+  {
+    name: 'Certificação Microsoft Azure Architect AZ-303 e AZ-304',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-80a5aef3-08d8-46f5-8c63-ae985159c271',
+    tags: [
+      CourseTagEnum.Azure,
+      CourseTagEnum.CloudComputing,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.AZ303,
+      CourseTagEnum.AZ304,
+    ],
+    conclusion: new Date('2024-7-10'),
+    favorite: true,
+  },
+  {
+    name: 'Git e GitHub do básico ao avançado 2024',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-29260e31-edab-4ac5-8698-7b3c4a76a481',
+    tags: [CourseTagEnum.Git, CourseTagEnum.GitHub],
+    conclusion: new Date('2024-5-23'),
+    favorite: false,
+  },
+  {
+    name: 'O Curso completo de NoSQL sem mistérios! MongoDB Neo4J',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-656d5b3c-2d25-4091-9a42-f4c8cbd03eb3',
+    tags: [
+      CourseTagEnum.Database,
+      CourseTagEnum.NoSQL,
+      CourseTagEnum.Neo4J,
+      CourseTagEnum.MongoDB,
+      CourseTagEnum.Database,
+      CourseTagEnum.Graph,
+    ],
+    conclusion: new Date('2024-5-7'),
+    favorite: true,
+  },
+  {
+    name: 'JIRA Software Ágil Scrum e Kanban',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-3b46fa6d-4269-4a9e-8b5f-f2dc75e02b8c',
+    tags: [CourseTagEnum.Agile, CourseTagEnum.Jira, CourseTagEnum.Scrum],
+    conclusion: new Date('2024-4-30'),
+    favorite: false,
+  },
+  {
+    name: 'Event Driven Architecture - The Complete Guide',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-b711b1a6-8955-47a1-8b5c-bed43c73d0dd',
+    tags: [
+      CourseTagEnum.Architecture,
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Software,
+    ],
+    conclusion: new Date('2023-1-10'),
+    favorite: false,
+  },
+  {
+    name: 'Modelagem de Dados UML (Análise&Projeto Orientado a Objetos)',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-018f706e-7090-4b43-9b99-896142a53241',
+    tags: [
+      CourseTagEnum.Architecture,
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Software,
+      CourseTagEnum.UML,
+    ],
+    conclusion: new Date('2023-2-3'),
+    favorite: false,
+  },
+  {
+    name: 'Microsoft Azure Active Directory',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-72cf91c3-4f64-4674-b560-c4d20570733a',
+    tags: [CourseTagEnum.Microsoft, CourseTagEnum.Azure, CourseTagEnum.EntraID],
+    conclusion: new Date('2022-11-3'),
+    favorite: false,
+  },
+  {
+    name: 'Azure Databases para Iniciantes',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-1629d9df-3184-41c5-83a4-943d89bf3910',
+    tags: [
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.Azure,
+      CourseTagEnum.SQLServer,
+      CourseTagEnum.Database,
+    ],
+    conclusion: new Date('2022-11-1'),
+    favorite: false,
+  },
+  {
+    name: 'C# - Aplicando Princípios SOLID na prática',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-70fa6e0e-c9fe-464a-bdbe-7881547c9779',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
+    conclusion: new Date('2022-6-22'),
+    favorite: true,
+  },
+  {
+    name: 'Orquestração de Containers com Kubernetes',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-2373b685-9826-465e-8ad5-93587c5339ff',
+    tags: [
+      CourseTagEnum.Kubernetes,
+      CourseTagEnum.K8S,
+      CourseTagEnum.DockerContainer,
+    ],
+    conclusion: new Date('2022-6-22'),
+    favorite: true,
+  },
+  {
+    name: 'Azure Pipelines - CI/CD, Docker e Kubernetes no Azure DevOps',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-ca99013d-a26a-4121-bdde-dc6c44cc7663',
+    tags: [
+      CourseTagEnum.DevOps,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.Kubernetes,
+      CourseTagEnum.DockerContainer,
+    ],
+    conclusion: new Date('2021-8-19'),
+    favorite: true,
+  },
+  {
+    name: 'O curso completo de Banco de Dados e SQL, sem mistérios!',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl: 'https://www.udemy.com/certificate/UC-T3Y1X056',
+    tags: [
+      CourseTagEnum.SQL,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.Database,
+      CourseTagEnum.SQLServer,
+      CourseTagEnum.Postgres,
+    ],
+    conclusion: new Date('2019-6-6'),
+    favorite: true,
+  },
+  {
+    name: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl: 'https://www.udemy.com/certificate/UC-26OBZ64N',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
+    conclusion: new Date('2019-5-16'),
+    favorite: true,
+  },
+
+  // ===== LINKEDIN LEARNING =====
+  {
+    name: 'Como Impulsionar a Sustentabilidade Através da Tecnologia',
+    institution: InstitutionEnum.LinkedinLearning,
+    certificateUrl:
+      'https://www.linkedin.com/learning/certificates/1fe034be3576a625b3f6ceeebe4b4488d1dff545b51acccf20716a20b3e80c58?trk=share_certificate',
+    tags: [CourseTagEnum.Sustainability, CourseTagEnum.Technology],
+    conclusion: new Date('2024-9-16'),
+    favorite: false,
+  },
+  {
+    name: 'IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética',
+    institution: InstitutionEnum.LinkedinLearning,
+    certificateUrl:
+      'https://www.linkedin.com/learning/certificates/f7ce89a6b89cd86f123f07c866c495d32fe879d31f28e7f2f347313c9560626b?trk=share_certificate',
+    tags: [CourseTagEnum.ArtificialIntelligence],
+    conclusion: new Date('2024-9-14'),
+    favorite: false,
+  },
+  {
+    name: 'Fundamentos da Tecnologia Blockchain',
+    institution: InstitutionEnum.LinkedinLearning,
+    certificateUrl:
+      'https://www.linkedin.com/learning/certificates/0b810fbc20a789b7d3dab7cf63abc26075b2093494a8ee426cad583add7060c3?trk=share_certificate',
+    tags: [CourseTagEnum.Cripto, CourseTagEnum.Blockchain],
+    conclusion: new Date('2024-9-14'),
+    favorite: false,
+  },
+  {
+    name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
+    institution: InstitutionEnum.LinkedinLearning,
+    certificateUrl:
+      'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
+    tags: [CourseTagEnum.Communication, CourseTagEnum.Leadership],
+    conclusion: new Date('2024-8-30'),
+    favorite: true,
+  },
   {
     name: 'GitHub Copilot: Formação Básica',
     institution: InstitutionEnum.LinkedinLearning,
@@ -16,43 +359,44 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2024-8-22'),
     favorite: true,
   },
+
+  // ===== DESENVOLVEDOR.IO =====
   {
-    name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
-    institution: InstitutionEnum.LinkedinLearning,
+    name: 'Fundamentos do Blazor',
+    institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
-      'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
-    tags: [CourseTagEnum.Communication, CourseTagEnum.Leadership],
-    conclusion: new Date('2024-8-30'),
+      'https://desenvolvedor.io/certificado/c37bb6aa-ca3f-41f8-b623-347bd057c805',
+    tags: [
+      CourseTagEnum.Blazor,
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Microsoft,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+    ],
+    conclusion: new Date('2024-7-2'),
     favorite: true,
   },
   {
-    name: 'Fundamentos da Tecnologia Blockchain',
-    institution: InstitutionEnum.LinkedinLearning,
+    name: 'Git e Github do Zero ao Avançado',
+    institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
-      'https://www.linkedin.com/learning/certificates/0b810fbc20a789b7d3dab7cf63abc26075b2093494a8ee426cad583add7060c3?trk=share_certificate',
-    tags: [CourseTagEnum.Cripto, CourseTagEnum.Blockchain],
-    conclusion: new Date('2024-9-14'),
+      'https://desenvolvedor.io/certificado/9082ea6f-5efd-458f-ba55-55c39f0b3de6',
+    tags: [CourseTagEnum.Git, CourseTagEnum.GitHub, CourseTagEnum.Versioning],
+    conclusion: new Date('2024-6-11'),
     favorite: false,
   },
   {
-    name: 'IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética',
-    institution: InstitutionEnum.LinkedinLearning,
+    name: 'Docker do Zero ao Avançado',
+    institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
-      'https://www.linkedin.com/learning/certificates/f7ce89a6b89cd86f123f07c866c495d32fe879d31f28e7f2f347313c9560626b?trk=share_certificate',
-    tags: [CourseTagEnum.ArtificialIntelligence],
-    conclusion: new Date('2024-9-14'),
+      'https://desenvolvedor.io/curso/baixar-certificado/12546112-619c-4b01-8097-851e3fbbb262',
+    tags: [
+      CourseTagEnum.DockerContainer,
+      CourseTagEnum.Kubernetes,
+    ],
+    conclusion: new Date('2024-3-28'),
     favorite: false,
   },
-  {
-    name: 'Como Impulsionar a Sustentabilidade Através da Tecnologia',
-    institution: InstitutionEnum.LinkedinLearning,
-    certificateUrl:
-      'https://www.linkedin.com/learning/certificates/1fe034be3576a625b3f6ceeebe4b4488d1dff545b51acccf20716a20b3e80c58?trk=share_certificate',
-    tags: [CourseTagEnum.Sustainability, CourseTagEnum.Technology],
-    conclusion: new Date('2024-9-16'),
-    favorite: false,
-  },
-
   {
     name: 'Iniciando com ASP.NET Core',
     institution: InstitutionEnum.DesenvolvedorIO,
@@ -106,19 +450,6 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
-    name: 'Dominando o Apache Kafka',
-    institution: InstitutionEnum.DesenvolvedorIO,
-    certificateUrl:
-      'https://desenvolvedor.io/curso/baixar-certificado/5813f9a2-8f15-4682-a239-183a679287ec',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Messagerie,
-      CourseTagEnum.Amqp,
-    ],
-    conclusion: new Date('2022-8-12'),
-    favorite: true,
-  },
-  {
     name: 'Fundamentos de Arquitetura de Software',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -166,6 +497,19 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+    name: 'Dominando o Apache Kafka',
+    institution: InstitutionEnum.DesenvolvedorIO,
+    certificateUrl:
+      'https://desenvolvedor.io/curso/baixar-certificado/5813f9a2-8f15-4682-a239-183a679287ec',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Messagerie,
+      CourseTagEnum.Amqp,
+    ],
+    conclusion: new Date('2022-8-12'),
+    favorite: true,
+  },
+  {
     name: 'Iniciando com ASP.NET Core',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -180,335 +524,35 @@ export const Courses: ICourse[] = [
     conclusion: new Date('2021-11-4'),
     favorite: false,
   },
-  {
-    name: 'Docker do Zero ao Avançado',
-    institution: InstitutionEnum.DesenvolvedorIO,
-    certificateUrl:
-      'https://desenvolvedor.io/curso/baixar-certificado/12546112-619c-4b01-8097-851e3fbbb262',
-    tags: [
-      CourseTagEnum.DockerContainer,
-      CourseTagEnum.Kubernetes,
-    ],
-    conclusion: new Date('2024-3-28'),
-    favorite: false,
-  },
-  {
-    name: 'Git e Github do Zero ao Avançado',
-    institution: InstitutionEnum.DesenvolvedorIO,
-    certificateUrl:
-      'https://desenvolvedor.io/certificado/9082ea6f-5efd-458f-ba55-55c39f0b3de6',
-    tags: [CourseTagEnum.Git, CourseTagEnum.GitHub, CourseTagEnum.Versioning],
-    conclusion: new Date('2024-6-11'),
-    favorite: false,
-  },
-  {
-    name: 'Fundamentos do Blazor',
-    institution: InstitutionEnum.DesenvolvedorIO,
-    certificateUrl:
-      'https://desenvolvedor.io/certificado/c37bb6aa-ca3f-41f8-b623-347bd057c805',
-    tags: [
-      CourseTagEnum.Blazor,
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.CSharp,
-      CourseTagEnum.DotNet,
-    ],
-    conclusion: new Date('2024-7-2'),
-    favorite: true,
-  },
 
+  // ===== ALURA =====
   {
-    name: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl: 'https://www.udemy.com/certificate/UC-26OBZ64N',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.CSharp,
-      CourseTagEnum.DotNet,
-    ],
-    conclusion: new Date('2019-5-16'),
-    favorite: true,
-  },
-  {
-    name: 'C# - Aplicando Princípios SOLID na prática',
-    institution: InstitutionEnum.Udemy,
+    name: 'Segurança Ofensiva',
+    institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://www.udemy.com/certificate/UC-70fa6e0e-c9fe-464a-bdbe-7881547c9779',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.CSharp,
-      CourseTagEnum.DotNet,
-    ],
-    conclusion: new Date('2022-6-22'),
-    favorite: true,
-  },
-  {
-    name: 'O curso completo de Banco de Dados e SQL, sem mistérios!',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl: 'https://www.udemy.com/certificate/UC-T3Y1X056',
-    tags: [
-      CourseTagEnum.SQL,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.Database,
-      CourseTagEnum.SQLServer,
-      CourseTagEnum.Postgres,
-    ],
-    conclusion: new Date('2019-6-6'),
-    favorite: true,
-  },
-  {
-    name: 'Azure Pipelines - CI/CD, Docker e Kubernetes no Azure DevOps',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-ca99013d-a26a-4121-bdde-dc6c44cc7663',
-    tags: [
-      CourseTagEnum.DevOps,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.Kubernetes,
-      CourseTagEnum.DockerContainer,
-    ],
-    conclusion: new Date('2021-8-19'),
-    favorite: true,
-  },
-  {
-    name: 'Event Driven Architecture - The Complete Guide',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-b711b1a6-8955-47a1-8b5c-bed43c73d0dd',
-    tags: [
-      CourseTagEnum.Architecture,
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Software,
-    ],
-    conclusion: new Date('2023-1-10'),
+      'https://cursos.alura.com.br/degree/certificate/525ab812-85ca-4276-84f2-b3f0f1c09e67?lang=pt_BR',
+    tags: [CourseTagEnum.Security],
+    conclusion: new Date('2024-9-16'),
     favorite: false,
   },
   {
-    name: 'Modelagem de Dados UML (Análise&Projeto Orientado a Objetos)',
-    institution: InstitutionEnum.Udemy,
+    name: 'Node.js: criando uma API Rest com Express e MongoDB',
+    institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://www.udemy.com/certificate/UC-018f706e-7090-4b43-9b99-896142a53241',
-    tags: [
-      CourseTagEnum.Architecture,
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Software,
-      CourseTagEnum.UML,
-    ],
-    conclusion: new Date('2023-2-3'),
+      'https://cursos.alura.com.br/certificate/b66c4012-ba60-46db-a044-1b2e923c01ed?lang=pt_BR',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Node],
+    conclusion: new Date('2024-7-24'),
     favorite: false,
   },
   {
-    name: 'Microsoft Azure Active Directory',
-    institution: InstitutionEnum.Udemy,
+    name: 'Node.js e terminal: dominando o ambiente de desenvolvimento front-end',
+    institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://www.udemy.com/certificate/UC-72cf91c3-4f64-4674-b560-c4d20570733a',
-    tags: [CourseTagEnum.Microsoft, CourseTagEnum.Azure, CourseTagEnum.EntraID],
-    conclusion: new Date('2022-11-3'),
+      'https://cursos.alura.com.br/certificate/279a0193-f327-4c54-a000-451aefd818bb?lang=pt_BR',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Node],
+    conclusion: new Date('2024-7-20'),
     favorite: false,
   },
-  {
-    name: 'Azure Databases para Iniciantes',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-1629d9df-3184-41c5-83a4-943d89bf3910',
-    tags: [
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.Azure,
-      CourseTagEnum.SQLServer,
-      CourseTagEnum.Database,
-    ],
-    conclusion: new Date('2022-11-1'),
-    favorite: false,
-  },
-  {
-    name: 'JIRA Software Ágil Scrum e Kanban',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-3b46fa6d-4269-4a9e-8b5f-f2dc75e02b8c',
-    tags: [CourseTagEnum.Agile, CourseTagEnum.Jira, CourseTagEnum.Scrum],
-    conclusion: new Date('2024-4-30'),
-    favorite: false,
-  },
-  {
-    name: 'O Curso completo de NoSQL sem mistérios! MongoDB Neo4J',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-656d5b3c-2d25-4091-9a42-f4c8cbd03eb3',
-    tags: [
-      CourseTagEnum.Database,
-      CourseTagEnum.NoSQL,
-      CourseTagEnum.Neo4J,
-      CourseTagEnum.MongoDB,
-      CourseTagEnum.Database,
-      CourseTagEnum.Graph,
-    ],
-    conclusion: new Date('2024-5-7'),
-    favorite: true,
-  },
-  {
-    name: 'Git e GitHub do básico ao avançado 2024',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-29260e31-edab-4ac5-8698-7b3c4a76a481',
-    tags: [CourseTagEnum.Git, CourseTagEnum.GitHub],
-    conclusion: new Date('2024-5-23'),
-    favorite: false,
-  },
-  {
-    name: 'Orquestração de Containers com Kubernetes',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-2373b685-9826-465e-8ad5-93587c5339ff',
-    tags: [
-      CourseTagEnum.Kubernetes,
-      CourseTagEnum.K8S,
-      CourseTagEnum.DockerContainer,
-    ],
-    conclusion: new Date('2022-6-22'),
-    favorite: true,
-  },
-  {
-    name: 'Certificação Microsoft Azure Architect AZ-303 e AZ-304',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-80a5aef3-08d8-46f5-8c63-ae985159c271',
-    tags: [
-      CourseTagEnum.Azure,
-      CourseTagEnum.CloudComputing,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.AZ303,
-      CourseTagEnum.AZ304,
-    ],
-    conclusion: new Date('2024-7-10'),
-    favorite: true,
-  },
-  {
-    name: 'ChatGPT Completo: Domine Chat GPT e Inteligência Artificial',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-4a973d15-299e-4020-8c83-89ec5d25008d',
-    tags: [
-      CourseTagEnum.ArtificialIntelligence,
-      CourseTagEnum.Chatbot,
-      CourseTagEnum.GPT,
-      CourseTagEnum.ChatGPT,
-    ],
-    conclusion: new Date('2024-9-10'),
-    favorite: false,
-  },
-  {
-    name: 'Go (Golang): Explorando a Linguagem do Google',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-3680a779-14d8-4d87-9bd4-26c371778346',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Go,
-      CourseTagEnum.Golang,
-      CourseTagEnum.Google,
-    ],
-    conclusion: new Date('2024-11-6'),
-    favorite: true,
-  },
-  {
-    name: 'Clean Architecture Essencial - ASP .NET Core com C#',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-37e332de-70b6-4294-b953-f747172c4518',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Microsoft,
-      CourseTagEnum.CSharp,
-      CourseTagEnum.DotNet,
-      CourseTagEnum.Architecture,
-    ],
-    conclusion: new Date('2025-1-20'),
-    favorite: true,
-  },
-  {
-    name: 'Monitoramento de aplicações com Prometheus e Grafana',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-a1e66e01-520e-4c9e-a931-120b75acb7f5',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Monitoring,
-      CourseTagEnum.Prometheus,
-      CourseTagEnum.Grafana,
-      CourseTagEnum.DevOps,
-    ],
-    conclusion: new Date('2025-1-21'),
-    favorite: false,
-  },
-  {
-    name: 'Modelagem Arquitetural - C4 Model',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-37ac22f0-151d-4cbc-9e95-8199b454a7d6',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Architecture,
-      CourseTagEnum.C4Model,
-    ],
-    conclusion: new Date('2025-1-25'),
-    favorite: true,
-  },
-  {
-    name: 'Dapper - Aprenda a usar o micro-ORM mais popular do .NET',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-dfd5c526-af15-4002-a59e-b3da491bbb0a',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Architecture,
-      CourseTagEnum.Database,
-      CourseTagEnum.Dapper,
-      CourseTagEnum.Orm
-    ],
-    conclusion: new Date('2025-6-25'),
-    favorite: false,
-  },
-  {
-    name: 'Java COMPLETO Programação Orientada a Objetos + Projetos',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-d0a7da02-6de7-43be-883e-9cfb5c33fe34',
-    tags: [
-      CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Java
-    ],
-    conclusion: new Date('2025-7-21'),
-    favorite: false,
-  },
-  {
-    name: 'Curso completo de Git e GitHub - Básico ao Avançado',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-781881a3-c4bb-43ef-ac43-cfc4c54acdbd',
-    tags: [
-      CourseTagEnum.Versioning,
-      CourseTagEnum.Git,
-      CourseTagEnum.GitHub
-    ],
-    conclusion: new Date('2025-8-20'),
-    favorite: true,
-  },
-  {
-    name: 'Go (Golang) - Do zero ao avançado (com teste de unidade)',
-    institution: InstitutionEnum.Udemy,
-    certificateUrl:
-      'https://www.udemy.com/certificate/UC-29b72ef1-0859-4d81-a837-febcf15df376',
-    tags: [
-      CourseTagEnum.Go,
-      CourseTagEnum.Golang,
-      CourseTagEnum.SoftwareDevelopment
-    ],
-    conclusion: new Date('2025-8-28'),
-    favorite: true,
-  },
-
   {
     name: 'Lógica de programação: explore funções e listas',
     institution: InstitutionEnum.Alura,
