@@ -126,8 +126,7 @@ export class EngagementTrackingService {
               if (this.previousSection) {
                 this.virtualPageService.trackNavigationPattern(
                   this.previousSection, 
-                  sectionId, 
-                  'scroll'
+                  sectionId
                 );
               }
               
