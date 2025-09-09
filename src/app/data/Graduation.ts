@@ -2,6 +2,16 @@ import { IGraduation } from '@path-interfaces/IGraduation';
 import { GraduationTagEnum } from '../models/GraduationTagEnum';
 
 export const Graduations: IGraduation[] = [
+  // ===== EM ANDAMENTO =====
+  {
+    name: 'MBA - ARQUITETURA FULLCYCLE',
+    institution: 'FullCycle',
+    conclusionDate: new Date(2024, 1),
+    conclusion: 'inprogress',
+    websiteInstituition: 'https://fullcycle.com.br/',
+  },
+
+  // ===== CONCLUÍDAS =====
   {
     name: 'PÓS GRADUAÇÃO FULLSTACK JAVASCRIPT',
     institution: 'Faculdade Cruzeiro Do Sul',
@@ -18,18 +28,13 @@ export const Graduations: IGraduation[] = [
     websiteInstituition: 'https://tuiuti.edu.br',
     tags: [GraduationTagEnum.Networking],
   },
+
+  // ===== TRANCADAS =====
   {
     name: 'GRADUAÇÃO DESENVOLVIMENTO WEB',
     institution: 'Faculdade De Tecnologia Opet',
     conclusionDate: new Date(2000, 1),
     conclusion: 'locked',
     websiteInstituition: 'https://www.opet.com.br',
-  },
-  {
-    name: 'MBA - ARQUITETURA FULLCYCLE',
-    institution: 'FullCycle',
-    conclusionDate: new Date(2024, 1),
-    conclusion: 'inprogress',
-    websiteInstituition: 'https://fullcycle.com.br/',
   },
 ];
