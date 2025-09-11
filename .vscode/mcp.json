@@ -1,4 +1,3 @@
-// Example .vscode/mcp.json
 {
   "servers": {
     "MCP_DOCKER": {
