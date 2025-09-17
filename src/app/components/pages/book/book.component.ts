@@ -2,11 +2,11 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   inject,
   computed,
   signal,
   WritableSignal,
+  effect,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
@@ -36,12 +36,12 @@ import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
   styleUrl: './book.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookComponent extends BasePageComponent implements OnInit {
+export class BookComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
   private readonly gaService = inject(GoogleAnalyticsService);
   private readonly paginationService = inject(PaginationService);
 
-  books = this.dataService.getBooks();
+  books = signal(this.dataService.getBooks());
   publishNameList = PublishNameEnum;
   PublishNameEnum = PublishNameEnum;
 
@@ -55,11 +55,16 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   config = this.paginationService.createPaginationConfig('booksPag', 5);
 
-  ngOnInit(): void {
-    this.books.forEach((book) =>
-      book.tags.forEach((tag) => this.tags().add(tag.trim()))
-    );
+  constructor() {
+    super();
+
+    effect(() => {
+      this.books().forEach((book) =>
+        book.tags.forEach((tag) => this.tags().add(tag.trim()))
+      );
+    });
   }
+
 
   getTags = computed(() => Array.from(this.tags().values()));
   
