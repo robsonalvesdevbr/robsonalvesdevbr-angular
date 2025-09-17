@@ -14,7 +14,7 @@ import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
-  selector: 'app-formationoourse',
+  selector: 'app-formationcourse',
   imports: [
     CommonModule,
     ImgcursoPipe,

@@ -79,7 +79,6 @@ describe('BookComponent', () => {
   });
 
   it('should return sorted tags', () => {
-    component.ngOnInit();
     const sortedTags = component.getTags();
     expect(sortedTags).toEqual(['Tag1', 'Tag2', 'Tag3', 'Tag4']);
   });
