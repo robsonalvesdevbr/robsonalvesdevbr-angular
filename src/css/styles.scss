@@ -1,5 +1,14 @@
 html {
-  scroll-padding-top: 4.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Solução híbrida para navbar fixo */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+.page-section {
+  scroll-margin-top: 96px;
 }
 
 /* Skip Link para acessibilidade */
