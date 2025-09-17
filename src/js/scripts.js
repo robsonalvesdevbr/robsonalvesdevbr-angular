@@ -9,8 +9,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     if (window.scrollY === 0) {
       navbarCollapsible.classList.remove('navbar-shrink');
+      document.body.classList.remove('navbar-shrink-active'); // Remove classe do body
     } else {
       navbarCollapsible.classList.add('navbar-shrink');
+      document.body.classList.add('navbar-shrink-active'); // Adiciona classe ao body
     }
   };
 

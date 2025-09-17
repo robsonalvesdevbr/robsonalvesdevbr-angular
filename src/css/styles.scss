@@ -2,13 +2,49 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Solução híbrida para navbar fixo */
+/* Solução para navbar fixo - usando CSS custom properties para flexibilidade */
+:root {
+  --navbar-height-normal: 126px; /* Navbar normal (desktop) + padding */
+  --navbar-height-shrink: 106px; /* Navbar shrink + padding */
+  --navbar-height-mobile: 110px; /* Navbar mobile + padding */
+}
+
+/* Scroll margin padrão para seções - funciona nativamente com âncoras */
 section[id] {
-  scroll-margin-top: 96px;
+  scroll-margin-top: var(--navbar-height-normal);
 }
 
 .page-section {
-  scroll-margin-top: 96px;
+  scroll-margin-top: var(--navbar-height-normal);
+}
+
+/* Ajuste dinâmico baseado no estado do navbar para desktop */
+@media (min-width: 992px) {
+  /* Aplicar scroll margin reduzido quando o navbar está shrink */
+  body:has(.navbar-shrink) section[id],
+  body:has(.navbar-shrink) .page-section {
+    scroll-margin-top: var(--navbar-height-shrink);
+  }
+
+  /* Fallback para navegadores que não suportam :has() */
+  .navbar-shrink-active section[id],
+  .navbar-shrink-active .page-section {
+    scroll-margin-top: var(--navbar-height-shrink);
+  }
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 991.98px) {
+  section[id],
+  .page-section {
+    scroll-margin-top: var(--navbar-height-mobile);
+  }
+}
+
+/* Melhoria adicional: transição suave para mudanças de scroll-margin */
+section[id],
+.page-section {
+  transition: scroll-margin-top 0.3s ease;
 }
 
 /* Skip Link para acessibilidade */
