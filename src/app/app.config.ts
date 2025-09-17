@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 import { routes } from './app.routes';
@@ -9,7 +9,13 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top',
+        anchorScrolling: 'enabled'
+      })
+    ),
     provideConfigInitializer(),
     importProvidersFrom(NgxGoogleAnalyticsModule.forRoot('G-4VZHRRWLF8')),
     importProvidersFrom(NgxGoogleAnalyticsRouterModule.forRoot()),

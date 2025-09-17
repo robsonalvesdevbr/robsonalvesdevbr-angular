@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" #navbarCollapse>
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 nav">
         <li class="nav-item">
-          <a class="nav-link" href="#about" aria-label="Sobre" (click)="sobreAnalitics()"
+          <a class="nav-link" href="#about" aria-label="Sobre" (click)="sobreAnalitics($event)"
             >Sobre<span class="sr-only"></span
           ></a>
         </li>
@@ -35,7 +35,7 @@
             class="nav-link"
             href="#dashboard"
             aria-label="Dashboard"
-            (click)="dashboardAnalitics()"
+            (click)="dashboardAnalitics($event)"
             >Dashboard<span class="sr-only"></span
           ></a>
         </li>
@@ -44,12 +44,12 @@
             class="nav-link"
             href="#graduation"
             aria-label="(P\u00F3s)Graduação"
-            (click)="graduationAnalitics()"
+            (click)="graduationAnalitics($event)"
             >(Pós)Graduação</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#courses" aria-label="Cursos" (click)="coursesAnalitics()"
+          <a class="nav-link" href="#courses" aria-label="Cursos" (click)="coursesAnalitics($event)"
             >Cursos</a
           >
         </li>
@@ -58,17 +58,17 @@
             class="nav-link"
             href="#formationcourse"
             aria-label="Formação"
-            (click)="formationcourseAnalitics()"
+            (click)="formationcourseAnalitics($event)"
             >Formação</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#books" aria-label="Leituras" (click)="booksAnalitics()"
+          <a class="nav-link" href="#books" aria-label="Leituras" (click)="booksAnalitics($event)"
             >Leituras</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact" aria-label="Contato" (click)="contactAnalitics()"
+          <a class="nav-link" href="#contact" aria-label="Contato" (click)="contactAnalitics($event)"
             >Contato</a
           >
         </li>
