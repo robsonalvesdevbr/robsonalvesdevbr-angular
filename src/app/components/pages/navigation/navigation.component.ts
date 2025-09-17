@@ -31,14 +31,33 @@ export class NavigationComponent extends BasePageComponent {
       const element = document.getElementById(sectionId);
       if (element) {
         const navbar = document.getElementById('mainNav');
-        const navbarHeight = navbar ? navbar.offsetHeight : 76;
-        const additionalOffset = 20;
-        const totalOffset = navbarHeight + additionalOffset;
+        if (!navbar) return;
 
-        const y = element.getBoundingClientRect().top + window.pageYOffset - totalOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+        // Determina se o navbar está no estado shrink ou normal
+        const isNavbarShrink = navbar.classList.contains('navbar-shrink');
+        const isMobile = window.innerWidth < 992;
+
+        let totalOffset: number;
+
+        // Usa os mesmos valores definidos no CSS para consistência
+        if (isMobile) {
+          totalOffset = 110; // --navbar-height-mobile
+        } else if (isNavbarShrink) {
+          totalOffset = 106; // --navbar-height-shrink
+        } else {
+          totalOffset = 126; // --navbar-height-normal
+        }
+
+        // Calcula a posição final considerando o offset
+        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+        const finalPosition = elementTop - totalOffset;
+
+        window.scrollTo({
+          top: Math.max(0, finalPosition), // Previne scroll negativo
+          behavior: 'smooth'
+        });
       }
-    }, 100);
+    }, 200); // Timeout adequado para permitir a transição do navbar
   }
 
   sobreAnalitics(event?: Event) {
