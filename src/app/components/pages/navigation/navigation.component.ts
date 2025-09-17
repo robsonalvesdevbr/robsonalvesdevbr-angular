@@ -26,45 +26,74 @@ export class NavigationComponent extends BasePageComponent {
     }
   }
 
-  sobreAnalitics() {
+  private scrollToSectionWithOffset(sectionId: string) {
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbar = document.getElementById('mainNav');
+        const navbarHeight = navbar ? navbar.offsetHeight : 76;
+        const additionalOffset = 20;
+        const totalOffset = navbarHeight + additionalOffset;
+
+        const y = element.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
+  }
+
+  sobreAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'about');
     this._virtualPageService.sendVirtualPageView('about', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('about');
   }
 
-  graduationAnalitics() {
+  graduationAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'graduation');
     this._virtualPageService.sendVirtualPageView('graduation', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('graduation');
   }
 
-  coursesAnalitics() {
+  coursesAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'courses');
     this._virtualPageService.sendVirtualPageView('courses', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('courses');
   }
 
-  formationcourseAnalitics() {
+  formationcourseAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'formationcourse');
     this._virtualPageService.sendVirtualPageView('formationcourse', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('formationcourse');
   }
 
-  booksAnalitics() {
+  booksAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'books');
     this._virtualPageService.sendVirtualPageView('books', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('books');
   }
 
-  contactAnalitics() {
+  contactAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'contact');
     this._virtualPageService.sendVirtualPageView('contact', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('contact');
   }
 
-  dashboardAnalitics() {
+  dashboardAnalitics(event?: Event) {
+    event?.preventDefault();
     this._gaService?.event('menu_click', 'navigation', 'dashboard');
     this._virtualPageService.sendVirtualPageView('dashboard', 'click');
     this.closeNavbar();
+    this.scrollToSectionWithOffset('dashboard');
   }
 }
