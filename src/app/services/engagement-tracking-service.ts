@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from './virtual-page-tracking.service';
+import { debounce, ElementCache, BatchProcessor, scheduleIdleWork } from '../utils/performance.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -12,55 +13,113 @@ export class EngagementTrackingService {
   private sectionTimeTracking = new Map<string, number>();
   private isTrackingTime = false;
 
-  initializeScrollTracking(): void {
-    if (typeof window === 'undefined') return;
+  // Performance optimizations
+  private isInitialized = false;
+  private resizeObserver?: ResizeObserver;
+  private analyticsBatcher: BatchProcessor<{ action: string; category: string; label?: string }>;
 
-    window.addEventListener('scroll', () => {
+  constructor() {
+    this.analyticsBatcher = new BatchProcessor(
+      (items) => this.flushAnalytics(items),
+      5, // batch size
+      200 // delay in ms
+    );
+  }
+
+  initializeScrollTracking(): void {
+    if (typeof window === 'undefined' || this.isInitialized) return;
+    this.isInitialized = true;
+
+    // Use debounced scroll handler
+    const debouncedScrollHandler = debounce(() => {
       this.trackScrollDepth();
-    }, { passive: true });
+    }, 100);
+
+    window.addEventListener('scroll', debouncedScrollHandler, {
+      passive: true,
+      capture: false
+    });
+
+    // Setup resize observer for cache invalidation
+    this.setupResizeObserver();
   }
 
   private trackScrollDepth(): void {
+    // Cache DOM measurements
+    const documentHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+
+    if (documentHeight <= windowHeight) return; // No scroll needed
+
     const scrollPercent = Math.round(
-      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+      (scrollY / (documentHeight - windowHeight)) * 100
     );
 
     const milestones = [25, 50, 75, 90, 100];
-    
-    for (const milestone of milestones) {
-      if (scrollPercent >= milestone && !this.scrollDepthTracked.has(milestone)) {
-        this.scrollDepthTracked.add(milestone);
-        this.gaService?.event('scroll_depth', 'engagement', `${milestone}%`);
-        break;
-      }
+
+    // Find first untracked milestone
+    const milestone = milestones.find(m =>
+      scrollPercent >= m && !this.scrollDepthTracked.has(m)
+    );
+
+    if (milestone) {
+      this.scrollDepthTracked.add(milestone);
+      this.batchAnalyticsCall('scroll_depth', 'engagement', `${milestone}%`);
     }
   }
 
+  private setupResizeObserver(): void {
+    if ('ResizeObserver' in window) {
+      this.resizeObserver = new ResizeObserver((entries) => {
+        scheduleIdleWork(() => {
+          const entry = entries[0];
+          if (entry.contentRect.height < 100) {
+            this.scrollDepthTracked.clear();
+            ElementCache.clear();
+          }
+        });
+      });
+
+      this.resizeObserver.observe(document.body);
+    }
+  }
+
+  private batchAnalyticsCall(action: string, category: string, label?: string): void {
+    this.analyticsBatcher.add({ action, category, label });
+  }
+
+  private flushAnalytics(items: Array<{ action: string; category: string; label?: string }>): void {
+    items.forEach(({ action, category, label }) => {
+      this.gaService?.event(action, category, label);
+    });
+  }
+
   startTimeTracking(sectionId: string): void {
-    if (this.sectionTimeTracking.has(sectionId)) return;
-    
-    this.sectionTimeTracking.set(sectionId, Date.now());
+    if (!this.sectionTimeTracking.has(sectionId)) {
+      this.sectionTimeTracking.set(sectionId, performance.now());
+    }
   }
 
   endTimeTracking(sectionId: string): void {
     const startTime = this.sectionTimeTracking.get(sectionId);
     if (!startTime) return;
 
-    const timeSpent = Math.round((Date.now() - startTime) / 1000);
+    const timeSpent = Math.round((performance.now() - startTime) / 1000);
     this.sectionTimeTracking.delete(sectionId);
 
-    if (timeSpent > 5) { // Only track if spent more than 5 seconds
-      this.gaService?.event('time_on_section', 'engagement', sectionId, timeSpent);
+    if (timeSpent > 3) { // Reduced threshold from 5 to 3 seconds
+      this.batchAnalyticsCall('time_on_section', 'engagement', `${sectionId}_${timeSpent}s`);
     }
   }
 
   trackSectionView(sectionId: string): void {
-    this.gaService?.event('section_view', 'engagement', sectionId);
-    
+    this.batchAnalyticsCall('section_view', 'engagement', sectionId);
+
     // Simular mudança de página virtual para cada seção
     const sectionTitles: { [key: string]: string } = {
       'about': 'Sobre - Robson Alves',
-      'dashboard': 'Dashboard - Robson Alves', 
+      'dashboard': 'Dashboard - Robson Alves',
       'graduation': '(Pós)Graduação - Robson Alves',
       'courses': 'Cursos - Robson Alves',
       'formationcourse': 'Formação - Robson Alves',
@@ -69,9 +128,12 @@ export class EngagementTrackingService {
     };
 
     if (sectionTitles[sectionId]) {
-      this.gaService?.gtag('config', 'G-4VZHRRWLF8', {
-        page_title: sectionTitles[sectionId],
-        page_location: `${window.location.origin}/#${sectionId}`
+      // Use requestIdleCallback for non-critical gtag calls
+      scheduleIdleWork(() => {
+        this.gaService?.gtag('config', 'G-4VZHRRWLF8', {
+          page_title: sectionTitles[sectionId],
+          page_location: `${window.location.origin}/#${sectionId}`
+        });
       });
     }
   }
@@ -83,22 +145,34 @@ export class EngagementTrackingService {
   trackPageEngagement(): void {
     if (typeof window === 'undefined') return;
 
-    // Track page visibility
-    document.addEventListener('visibilitychange', () => {
+    // Track page visibility with debouncing
+    const handleVisibilityChange = debounce(() => {
       if (document.hidden) {
-        this.gaService?.event('page_hidden', 'engagement', 'page_visibility');
+        this.batchAnalyticsCall('page_hidden', 'engagement', 'page_visibility');
       } else {
-        this.gaService?.event('page_visible', 'engagement', 'page_visibility');
+        this.batchAnalyticsCall('page_visible', 'engagement', 'page_visibility');
       }
-    });
+    }, 100);
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // Track time on page before leaving
     window.addEventListener('beforeunload', () => {
-      const timeOnPage = Math.round((Date.now() - performance.now()) / 1000);
+      this.analyticsBatcher.flush(); // Flush pending analytics
+      const timeOnPage = Math.round((performance.now()) / 1000);
       if (timeOnPage > 10) { // Only track if spent more than 10 seconds
         this.gaService?.event('time_on_page', 'engagement', 'page_duration', timeOnPage);
       }
     });
+  }
+
+  // Cleanup method for better memory management
+  destroy(): void {
+    this.analyticsBatcher.destroy();
+    this.resizeObserver?.disconnect();
+    this.scrollDepthTracked.clear();
+    this.sectionTimeTracking.clear();
+    ElementCache.clear();
   }
 
   private currentSection: string | null = null;
@@ -109,54 +183,66 @@ export class EngagementTrackingService {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          const sectionId = entry.target.id;
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-            // Só trackear se mudou de seção
-            if (this.currentSection !== sectionId) {
-              this.previousSection = this.currentSection;
-              this.currentSection = sectionId;
-              
-              // Track section view and virtual page
-              this.trackSectionView(sectionId);
-              this.virtualPageService.sendVirtualPageView(sectionId, 'scroll');
-              this.startTimeTracking(sectionId);
-              
-              // Track navigation pattern
-              if (this.previousSection) {
-                this.virtualPageService.trackNavigationPattern(
-                  this.previousSection, 
-                  sectionId
-                );
-              }
-              
-              // Atualizar URL hash sem recarregar página
-              if (sectionId && window.history.replaceState) {
-                window.history.replaceState(null, '', `#${sectionId}`);
-              }
-            }
-          } else if (!entry.isIntersecting) {
-            this.endTimeTracking(sectionId);
-          }
+        // Use RequestIdleCallback for non-critical updates
+        scheduleIdleWork(() => {
+          this.processSectionChanges(entries);
         });
       },
-      { 
-        threshold: [0.3, 0.5, 0.7], // Múltiplos thresholds para melhor detecção
-        rootMargin: '0px 0px -20% 0px'
+      {
+        threshold: 0.5, // Single threshold for better performance
+        rootMargin: '-10% 0px -10% 0px' // Simpler margin
       }
     );
 
-    // Observe all major sections
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((section) => observer.observe(section));
-    
+    // Cache section queries
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    sections.forEach(section => observer.observe(section));
+
     // Track hash changes (navegação por âncoras diretas)
     window.addEventListener('hashchange', () => {
       const newSection = window.location.hash.substring(1);
       if (newSection && this.currentSection !== newSection) {
         this.currentSection = newSection;
-        this.gaService?.event('hash_navigation', 'navigation', newSection);
+        this.batchAnalyticsCall('hash_navigation', 'navigation', newSection);
       }
     });
+  }
+
+  private processSectionChanges(entries: IntersectionObserverEntry[]): void {
+    const visibleSections = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => ({ id: entry.target.id, ratio: entry.intersectionRatio }))
+      .sort((a, b) => b.ratio - a.ratio);
+
+    if (visibleSections.length > 0) {
+      const primarySection = visibleSections[0];
+      this.handleSectionChange(primarySection.id);
+    }
+  }
+
+  private handleSectionChange(sectionId: string): void {
+    if (this.currentSection === sectionId) return;
+
+    const previousSection = this.currentSection;
+    this.currentSection = sectionId;
+
+    // Batch analytics calls
+    this.trackSectionView(sectionId);
+    this.virtualPageService.sendVirtualPageView(sectionId, 'scroll');
+    this.startTimeTracking(sectionId);
+
+    // Track navigation pattern
+    if (previousSection) {
+      this.endTimeTracking(previousSection);
+      this.virtualPageService.trackNavigationPattern(
+        previousSection,
+        sectionId
+      );
+    }
+
+    // Update URL hash without reloading page
+    if (sectionId && window.history.replaceState) {
+      window.history.replaceState(null, '', `#${sectionId}`);
+    }
   }
 }

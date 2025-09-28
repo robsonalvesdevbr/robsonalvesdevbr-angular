@@ -20,7 +20,7 @@ export interface DashboardStats {
 @Injectable({
   providedIn: 'root'
 })
-export class StatisticsService {
+export class OptimizedStatisticsService {
   private dataService = inject(DataService);
 
   // Cache for expensive calculations
@@ -47,7 +47,7 @@ export class StatisticsService {
       const formations = this.dataService.getFormationCourses();
       const graduations = this.dataService.getGraduations();
 
-      // Parallel processing of statistics
+      // Use Promise.all equivalent for parallel processing
       const [
         booksProgress,
         favoriteCourses,
