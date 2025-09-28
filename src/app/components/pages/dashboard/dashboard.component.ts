@@ -11,6 +11,7 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { AnimatedCounterComponent } from '@path-components/utils/animated-counter/animated-counter.component';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { DataService } from '@path-services/data-service';
+import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +24,7 @@ export class DashboardComponent extends BasePageComponent implements OnInit {
   private readonly statisticsService = inject(StatisticsService);
   private readonly gaService = inject(GoogleAnalyticsService);
   private readonly dataService = inject(DataService);
+  private readonly performanceService = inject(PerformanceMonitorService);
 
   stats = signal<DashboardStats | null>(null);
   yearlyStats = signal(this.statisticsService.getYearlyStats());
@@ -34,10 +36,19 @@ export class DashboardComponent extends BasePageComponent implements OnInit {
   }
 
   private loadStats(): void {
+    const measure = this.performanceService?.measureComponent('dashboard-stats-load');
+    measure?.start();
+
+    // Reduced delay for better perceived performance
     setTimeout(() => {
       this.stats.set(this.statisticsService.getDashboardStats());
       this.isLoading.set(false);
-    }, 500); // Simulate loading delay for better UX
+
+      const duration = measure?.end();
+      if (duration && duration > 100) {
+        console.warn(`Dashboard stats loading took ${duration.toFixed(2)}ms - consider optimization`);
+      }
+    }, 300); // Reduced from 500ms
   }
 
   onStatsCardClick(cardType: string): void {

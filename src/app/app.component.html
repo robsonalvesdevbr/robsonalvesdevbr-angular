@@ -1,4 +1,4 @@
-@defer {
+@defer (on viewport; prefetch on idle) {
   <app-navigation />
   <app-masterhead [bglight]="true" />
   <app-about />
@@ -9,8 +9,8 @@
   <app-book [bglight]="true" />
   <app-contact />
   <app-footer />
-} @loading {
+} @loading (minimum 100ms) {
   <app-loading />
-} @placeholder {
+} @placeholder (minimum 300ms) {
   <app-placeholder />
 }

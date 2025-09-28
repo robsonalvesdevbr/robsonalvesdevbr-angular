@@ -8,8 +8,11 @@
     "ng": "ng",
     "start": "ng serve",
     "start:no-hmr": "ng serve --no-hmr",
+    "start:perf": "ng serve --optimization --named-chunks",
     "build": "ng build",
     "build:prod": "ng build --configuration production",
+    "build:stats": "ng build --configuration production --stats-json",
+    "build:analyze": "ng build --configuration production --stats-json && npx webpack-bundle-analyzer dist/robsonalvesdevbr-angular/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test-nowatch": "ng test --watch=false --no-progress --browsers=ChromeHeadless",
@@ -17,7 +20,9 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\""
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\"",
+    "perf:audit": "ng build --configuration production && npx lighthouse http://localhost:4200 --only-categories=performance --chrome-flags=\"--headless\"",
+    "perf:monitor": "ng serve --optimization && node scripts/performance-monitor.js"
   },
   "private": true,
   "dependencies": {

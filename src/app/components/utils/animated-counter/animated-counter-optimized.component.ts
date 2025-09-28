@@ -13,14 +13,14 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-animated-counter',
+  selector: 'app-animated-counter-optimized',
   imports: [CommonModule],
   template: `
     <span [class]="cssClass()">{{ formattedValue() }}</span>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AnimatedCounterComponent implements OnInit, OnDestroy {
+export class OptimizedAnimatedCounterComponent implements OnInit, OnDestroy {
   targetValue = input.required<number>();
   duration = input(2000);
   cssClass = input('');
@@ -44,6 +44,7 @@ export class AnimatedCounterComponent implements OnInit, OnDestroy {
     effect(() => {
       const target = this.targetValue();
       if (this.animateOnVisible()) {
+        // Only animate when visible
         this.setupVisibilityObserver();
       } else {
         this.animateToValue(target);
