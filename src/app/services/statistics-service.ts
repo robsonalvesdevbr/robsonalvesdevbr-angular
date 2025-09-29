@@ -82,7 +82,7 @@ export class StatisticsService {
     });
   }
 
-  private calculateBooksProgress(books: IBook[]): number {
+  private calculateBooksProgress(books: readonly IBook[]): number {
     if (books.length === 0) return 0;
 
     let totalPages = 0;
@@ -97,15 +97,15 @@ export class StatisticsService {
     return totalPages > 0 ? Math.round((readPages / totalPages) * 100) : 0;
   }
 
-  private countFavoriteCourses(courses: ICourse[]): number {
+  private countFavoriteCourses(courses: readonly ICourse[]): number {
     return courses.reduce((count, course) => count + (course.favorite ? 1 : 0), 0);
   }
 
-  private countCompletedGraduations(graduations: any[]): number {
+  private countCompletedGraduations(graduations: readonly any[]): number {
     return graduations.reduce((count, g) => count + (g.conclusion === 'completed' ? 1 : 0), 0);
   }
 
-  private getTopInstitutions(courses: ICourse[]): Array<{ name: string; count: number }> {
+  private getTopInstitutions(courses: readonly ICourse[]): Array<{ name: string; count: number }> {
     return this.getCachedOrCompute('top-institutions', () => {
       const institutionCounts = new Map<string, number>();
 
@@ -124,7 +124,7 @@ export class StatisticsService {
     });
   }
 
-  private getTopTechnologies(courses: ICourse[]): Array<{ name: string; count: number }> {
+  private getTopTechnologies(courses: readonly ICourse[]): Array<{ name: string; count: number }> {
     return this.getCachedOrCompute('top-technologies', () => {
       const techCounts = new Map<string, number>();
 
@@ -141,7 +141,7 @@ export class StatisticsService {
     });
   }
 
-  private getRecentCourses(courses: ICourse[], limit: number): ICourse[] {
+  private getRecentCourses(courses: readonly ICourse[], limit: number): ICourse[] {
     return this.getCachedOrCompute(`recent-courses-${limit}`, () => {
       // Pre-filter courses with conclusion dates to avoid sorting nulls
       const completedCourses = courses.filter(course => course.conclusion);
@@ -152,7 +152,7 @@ export class StatisticsService {
     });
   }
 
-  private getMonthlyProgress(courses: ICourse[]): Array<{ month: string; courses: number }> {
+  private getMonthlyProgress(courses: readonly ICourse[]): Array<{ month: string; courses: number }> {
     return this.getCachedOrCompute('monthly-progress', () => {
       const monthCounts = new Map<string, number>();
 

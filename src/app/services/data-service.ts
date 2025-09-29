@@ -20,23 +20,61 @@ export class DataService {
   private readonly _formationCourses = FormationCourses;
   private readonly _profile = Profile;
 
-  getCourses(): ICourse[] {
-    return [...this._courses];
+  // Create read-only proxies to avoid unnecessary cloning
+  private readonly _coursesProxy = new Proxy(this._courses, {
+    get: (target, prop) => target[prop as keyof typeof target],
+    set: () => false // Make it read-only
+  });
+
+  private readonly _graduationsProxy = new Proxy(this._graduations, {
+    get: (target, prop) => target[prop as keyof typeof target],
+    set: () => false
+  });
+
+  private readonly _booksProxy = new Proxy(this._books, {
+    get: (target, prop) => target[prop as keyof typeof target],
+    set: () => false
+  });
+
+  private readonly _formationCoursesProxy = new Proxy(this._formationCourses, {
+    get: (target, prop) => target[prop as keyof typeof target],
+    set: () => false
+  });
+
+  getCourses(): readonly ICourse[] {
+    return this._coursesProxy;
   }
 
-  getGraduations(): IGraduation[] {
-    return [...this._graduations];
+  getGraduations(): readonly IGraduation[] {
+    return this._graduationsProxy;
   }
 
-  getBooks(): IBook[] {
-    return [...this._books];
+  getBooks(): readonly IBook[] {
+    return this._booksProxy;
   }
 
-  getFormationCourses(): IFormationCourse[] {
-    return [...this._formationCourses];
+  getFormationCourses(): readonly IFormationCourse[] {
+    return this._formationCoursesProxy;
   }
 
   getProfile(): IProfile {
     return this._profile;
+  }
+
+  // Keep methods for cases that need mutability
+  getCoursesCopy(): ICourse[] {
+    return [...this._courses];
+  }
+
+  getGraduationsCopy(): IGraduation[] {
+    return [...this._graduations];
+  }
+
+  getBooksCopy(): IBook[] {
+    return [...this._books];
+  }
+
+  getFormationCoursesCopy(): IFormationCourse[] {
+    return [...this._formationCourses];
   }
 }

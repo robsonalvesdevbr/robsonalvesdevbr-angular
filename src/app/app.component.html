@@ -1,4 +1,4 @@
-@defer (on viewport; prefetch on idle) {
+@defer (on idle; prefetch on interaction) {
   <app-navigation />
   <app-masterhead [bglight]="true" />
   <app-about />
@@ -9,8 +9,13 @@
   <app-book [bglight]="true" />
   <app-contact />
   <app-footer />
-} @loading (minimum 100ms) {
+} @loading (minimum 100ms; after 500ms) {
   <app-loading />
 } @placeholder (minimum 300ms) {
   <app-placeholder />
+} @error {
+  <div class="error-fallback alert alert-warning text-center">
+    <i class="bi bi-exclamation-triangle"></i>
+    Erro ao carregar conteúdo. Tente recarregar a página.
+  </div>
 }

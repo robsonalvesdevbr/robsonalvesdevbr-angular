@@ -21,8 +21,9 @@ export class EngagementTrackingService {
   constructor() {
     this.analyticsBatcher = new BatchProcessor(
       (items) => this.flushAnalytics(items),
-      5, // batch size
-      200 // delay in ms
+      8, // Reduced batch size for more frequent but smaller batches
+      400, // Increased delay for better batching
+      'normal' // Add priority parameter
     );
   }
 
@@ -181,20 +182,22 @@ export class EngagementTrackingService {
   setupIntersectionObserver(): void {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
 
+    // Debounce the intersection observer callback for better performance
+    const debouncedProcessor = debounce((entries: IntersectionObserverEntry[]) => {
+      scheduleIdleWork(() => {
+        this.processSectionChanges(entries);
+      });
+    }, 150); // Add debouncing to reduce processing frequency
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        // Use RequestIdleCallback for non-critical updates
-        scheduleIdleWork(() => {
-          this.processSectionChanges(entries);
-        });
-      },
+      debouncedProcessor,
       {
-        threshold: 0.5, // Single threshold for better performance
-        rootMargin: '-10% 0px -10% 0px' // Simpler margin
+        threshold: [0.3, 0.7], // Multiple specific thresholds for better accuracy
+        rootMargin: '-5% 0px -5% 0px' // Reduced margin for more precise detection
       }
     );
 
-    // Cache section queries
+    // Cache section queries for better performance
     const sections = Array.from(document.querySelectorAll('section[id]'));
     sections.forEach(section => observer.observe(section));
 

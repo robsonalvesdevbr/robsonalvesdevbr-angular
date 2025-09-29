@@ -37,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private engagementService = inject(EngagementTrackingService);
   private performanceService = inject(PerformanceMonitorService);
+  private performanceInterval?: number;
 
   ngOnInit(): void {
     this.setupPerformanceMonitoring();
@@ -48,10 +49,10 @@ export class AppComponent implements OnInit, OnDestroy {
     if (!this.isProduction()) {
       this.performanceService.startMonitoring();
 
-      // Log performance report every 30 seconds in development
-      setInterval(() => {
+      // Log performance report every 60 seconds in development (increased from 30s)
+      this.performanceInterval = window.setInterval(() => {
         this.performanceService.logPerformanceReport();
-      }, 30000);
+      }, 60000);
     }
   }
 
@@ -79,6 +80,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.performanceInterval) {
+      clearInterval(this.performanceInterval);
+    }
     this.engagementService.destroy();
     this.performanceService.destroy();
   }
