@@ -21,14 +21,20 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/16x16.ico" sizes="16x16" />
     <link rel="icon" type="image/x-icon" href="assets/32x32.ico" sizes="32x32" />
-    <!-- Google fonts-->
+
+    <!-- Performance Optimization: Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google fonts with font-display: swap for performance -->
     <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
       rel="stylesheet"
       type="text/css"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&display=swap"
       rel="stylesheet"
       type="text/css"
     />
@@ -36,7 +42,7 @@
 
   <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav">
     <app-root></app-root>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <!-- Core theme JS with defer for better performance -->
+    <script src="js/scripts.js" defer></script>
   </body>
 </html>

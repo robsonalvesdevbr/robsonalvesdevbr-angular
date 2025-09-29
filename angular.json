@@ -10,13 +10,27 @@
           "style": "scss",
           "type": "component"
         },
-        "@schematics/angular:directive": { "type": "directive" },
-        "@schematics/angular:service": { "type": "service" },
-        "@schematics/angular:guard": { "typeSeparator": "." },
-        "@schematics/angular:interceptor": { "typeSeparator": "." },
-        "@schematics/angular:module": { "typeSeparator": "." },
-        "@schematics/angular:pipe": { "typeSeparator": "." },
-        "@schematics/angular:resolver": { "typeSeparator": "." }
+        "@schematics/angular:directive": {
+          "type": "directive"
+        },
+        "@schematics/angular:service": {
+          "type": "service"
+        },
+        "@schematics/angular:guard": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:interceptor": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:module": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:pipe": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:resolver": {
+          "typeSeparator": "."
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -53,8 +67,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.5MB",
-                  "maximumError": "2MB"
+                  "maximumWarning": "800kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -62,7 +76,13 @@
                   "maximumError": "6kB"
                 }
               ],
-              "outputHashing": "all"
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "namedChunks": false
             },
             "development": {
               "optimization": false,
@@ -121,7 +141,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
@@ -129,6 +152,8 @@
   },
   "cli": {
     "analytics": false,
-    "schematicCollections": ["angular-eslint"]
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
