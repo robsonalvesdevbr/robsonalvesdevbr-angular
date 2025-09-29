@@ -30,11 +30,20 @@ export function throttle<T extends (...args: any[]) => any>(
 export class ElementCache {
   private static cache = new Map<string, HTMLElement>();
   private static observer?: MutationObserver;
+  private static readonly MAX_CACHE_SIZE = 50; // Limit cache size
 
   static get(id: string): HTMLElement | null {
     if (!this.cache.has(id)) {
       const element = document.getElementById(id);
       if (element) {
+        // If cache is at limit, remove oldest entry
+        if (this.cache.size >= this.MAX_CACHE_SIZE) {
+          const firstKey = this.cache.keys().next().value;
+          if (firstKey) {
+            this.cache.delete(firstKey);
+          }
+        }
+        
         this.cache.set(id, element);
         this.setupMutationObserver();
       }
@@ -73,6 +82,10 @@ export class ElementCache {
 
   static size(): number {
     return this.cache.size;
+  }
+
+  static getMaxSize(): number {
+    return this.MAX_CACHE_SIZE;
   }
 }
 
@@ -127,12 +140,16 @@ export function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
 export class BatchProcessor<T> {
   private queue: T[] = [];
   private timeout: number | null = null;
+  private priority: 'high' | 'normal' | 'low';
 
   constructor(
     private processor: (items: T[]) => void,
     private batchSize = 10,
-    private delay = 100
-  ) {}
+    private delay = 500, // Increased default delay from 100ms to 500ms
+    priority: 'high' | 'normal' | 'low' = 'normal'
+  ) {
+    this.priority = priority;
+  }
 
   add(item: T): void {
     this.queue.push(item);
@@ -144,10 +161,23 @@ export class BatchProcessor<T> {
     if (this.queue.length >= this.batchSize) {
       this.flush();
     } else {
-      this.timeout = window.setTimeout(() => {
-        this.flush();
-      }, this.delay);
+      const effectiveDelay = this.getEffectiveDelay();
+      this.scheduleFlush(effectiveDelay);
     }
+  }
+
+  private getEffectiveDelay(): number {
+    switch (this.priority) {
+      case 'high': return Math.max(this.delay / 2, 50); // Minimum 50ms
+      case 'low': return this.delay * 2;
+      default: return this.delay;
+    }
+  }
+
+  private scheduleFlush(delay: number): void {
+    this.timeout = window.setTimeout(() => {
+      this.flush();
+    }, delay);
   }
 
   flush(): void {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PerformanceMonitor } from '../utils/performance.utils';
+import { PerformanceMonitor, scheduleIdleWork } from '../utils/performance.utils';
 
 interface PerformanceMetric {
   name: string;
@@ -15,6 +15,7 @@ export class PerformanceMonitorService {
   private metrics: PerformanceMetric[] = [];
   private observer?: PerformanceObserver;
   private isMonitoring = false;
+  private memoryTrackingInterval?: number;
 
   startMonitoring(): void {
     if (this.isMonitoring || typeof window === 'undefined') return;
@@ -76,22 +77,39 @@ export class PerformanceMonitorService {
 
   private trackMemoryUsage(): void {
     if ('memory' in performance) {
-      setInterval(() => {
+      const trackMemory = () => {
         const memory = (performance as any).memory;
-        this.addMetric({
-          name: 'heap-used',
-          value: memory.usedJSHeapSize / 1024 / 1024, // MB
-          timestamp: Date.now(),
-          category: 'memory'
-        });
+        const usedMB = memory.usedJSHeapSize / 1024 / 1024;
+        const totalMB = memory.totalJSHeapSize / 1024 / 1024;
+        
+        // Only track if significant change (>5MB) to reduce noise
+        const lastUsedMetric = this.getLastMetric('heap-used');
+        const lastUsed = lastUsedMetric?.value || 0;
+        
+        if (Math.abs(usedMB - lastUsed) > 5) {
+          this.addMetric({
+            name: 'heap-used',
+            value: usedMB,
+            timestamp: Date.now(),
+            category: 'memory'
+          });
 
-        this.addMetric({
-          name: 'heap-total',
-          value: memory.totalJSHeapSize / 1024 / 1024, // MB
-          timestamp: Date.now(),
-          category: 'memory'
-        });
-      }, 30000); // Every 30 seconds
+          this.addMetric({
+            name: 'heap-total',
+            value: totalMB,
+            timestamp: Date.now(),
+            category: 'memory'
+          });
+        }
+      };
+
+      // Use scheduleIdleWork for better performance
+      const scheduleTracking = () => {
+        scheduleIdleWork(trackMemory, 5000);
+        this.memoryTrackingInterval = window.setTimeout(scheduleTracking, 60000); // Every minute instead of 30s
+      };
+
+      scheduleTracking();
     }
   }
 
@@ -116,6 +134,15 @@ export class PerformanceMonitorService {
     if (this.metrics.length > 1000) {
       this.metrics = this.metrics.slice(-500);
     }
+  }
+
+  private getLastMetric(name: string): PerformanceMetric | undefined {
+    for (let i = this.metrics.length - 1; i >= 0; i--) {
+      if (this.metrics[i].name === name) {
+        return this.metrics[i];
+      }
+    }
+    return undefined;
   }
 
   // Public API methods
@@ -196,6 +223,10 @@ export class PerformanceMonitorService {
   stopMonitoring(): void {
     this.isMonitoring = false;
     this.observer?.disconnect();
+    if (this.memoryTrackingInterval) {
+      clearTimeout(this.memoryTrackingInterval);
+      this.memoryTrackingInterval = undefined;
+    }
   }
 
   destroy(): void {

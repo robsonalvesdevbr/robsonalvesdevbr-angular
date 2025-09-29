@@ -6,11 +6,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
   transform(
-    data: any[],
+    data: readonly any[] | any[] | null | undefined,
     typeField: 'string' | 'array',
     filterProperty: any,
     filter: string
   ): any[] {
+    if (!data) return [];
+    
     const filterLowerCase = filter.toLowerCase().split(',');
 
     const filterField = (field: any) => {
@@ -24,7 +26,7 @@ export class FilterPipe implements PipeTransform {
     };
 
     return filter
-      ? data.filter((item) => filterField(item[filterProperty]))
-      : data;
+      ? [...data].filter((item) => filterField(item[filterProperty]))
+      : [...data];
   }
 }

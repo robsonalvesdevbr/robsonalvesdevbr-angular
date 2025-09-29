@@ -6,16 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortbyPipe implements PipeTransform {
   transform<T>(
-    array: T[],
+    array: readonly T[] | T[] | null | undefined,
     field?: keyof T,
     order: 'asc' | 'desc' = 'asc'
   ): T[] {
     if (!Array.isArray(array)) {
-      return array;
+      return [];
     }
 
     if (field === undefined) {
-      return this.sortString(array as string[], order) as T[];
+      return this.sortString([...array] as string[], order) as T[];
     }
 
     return [...array].sort(this.getSortFn(field, order));
