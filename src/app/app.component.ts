@@ -36,17 +36,13 @@ export class AppComponent implements OnInit, OnDestroy {
     const measure = this.performanceService.measureComponent('engagement-setup');
     measure.start();
 
-    // Initialize scroll tracking
     this.engagementService.initializeScrollTracking();
-
-    // Track general page engagement
     this.engagementService.trackPageEngagement();
 
-    // Setup intersection observer with reduced delay for better performance
-    setTimeout(() => {
+    requestIdleCallback(() => {
       this.engagementService.setupIntersectionObserver();
       measure.end();
-    }, 500); // Reduced from 1000ms
+    }, { timeout: 2000 });
   }
 
   private isProduction(): boolean {

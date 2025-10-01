@@ -6,7 +6,7 @@
       <h3 class="section-subheading text-muted mb-3">
         Saiba mais sobre os meus livros&nbsp;&nbsp;&nbsp;&nbsp;<span
           class="badge rounded-pill bg-warning fs-7 text-dark"
-          >Quantidade: {{ books().length }}</span
+          >Quantidade: {{ filteredAndSortedBooks().length }}</span
         >
       </h3>
     </div>
@@ -66,7 +66,7 @@
                 aria-label="Basic checkbox toggle button group"
               >
                 <b class="p-1 m-1">Filtrar tag:</b>
-                @for (tag of getTags() | sortby: undefined : 'asc'; track trackByTag($index, tag)) {
+                @for (tag of tagsArray(); track trackByTag($index, tag)) {
                   <input
                     type="checkbox"
                     class="btn-check"
@@ -96,12 +96,7 @@
     </div>
     <ul class="list-group list-group-light mb-4">
       @for (
-        item of books()
-          | filter: 'string' : 'publishName' : selectPublishNameFilter()
-          | filter: 'array' : 'tags' : selectTagFilter()
-          | sortby: 'publishYear' : 'desc'
-          | sortby: 'favorite' : 'desc'
-          | paginate: config();
+        item of filteredAndSortedBooks() | paginate: config();
         track trackByBook($index, item);
         let i = $index
       ) {
