@@ -26,4 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class GraduationComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
   graduations = signal(this.dataService.getGraduations());
+
+  trackByGraduation(index: number, item: any): string {
+    return item.name + item.institution;
+  }
 }

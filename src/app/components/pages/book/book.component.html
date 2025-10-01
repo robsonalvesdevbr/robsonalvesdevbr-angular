@@ -34,7 +34,7 @@
               <b class="p-1 m-1">Filtrar Editora:</b>
               @for (
                 publishName of publishNameList | enumToArray | sortby: 'value' : 'asc';
-                track publishName.key
+                track trackByPublisher($index, publishName)
               ) {
                 <input
                   type="checkbox"
@@ -66,7 +66,7 @@
                 aria-label="Basic checkbox toggle button group"
               >
                 <b class="p-1 m-1">Filtrar tag:</b>
-                @for (tag of getTags() | sortby: undefined : 'asc'; track tag) {
+                @for (tag of getTags() | sortby: undefined : 'asc'; track trackByTag($index, tag)) {
                   <input
                     type="checkbox"
                     class="btn-check"
@@ -102,7 +102,7 @@
           | sortby: 'publishYear' : 'desc'
           | sortby: 'favorite' : 'desc'
           | paginate: config();
-        track item;
+        track trackByBook($index, item);
         let i = $index
       ) {
         <li class="list-group-item d-flex justify-content-between align-items-center">

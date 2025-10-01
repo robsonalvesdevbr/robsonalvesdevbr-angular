@@ -139,4 +139,16 @@ export class BookComponent extends BasePageComponent {
     const publisher = PublishNameEnum[publisherKey as keyof typeof PublishNameEnum];
     return this.publishNameFilter().has(publisher);
   }
+
+  trackByBook(index: number, item: any): string {
+    return item.title + item.publishName;
+  }
+
+  trackByPublisher(index: number, item: any): string {
+    return item.key;
+  }
+
+  trackByTag(index: number, tag: string): string {
+    return tag;
+  }
 }

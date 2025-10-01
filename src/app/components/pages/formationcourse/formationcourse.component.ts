@@ -44,4 +44,8 @@ export class FormationCourseComponent extends BasePageComponent {
   onPageChange(number: number) {
     this.config().currentPage = number;
   }
+
+  trackByFormationCourse(index: number, item: any): string {
+    return item.name + item.institution;
+  }
 }
