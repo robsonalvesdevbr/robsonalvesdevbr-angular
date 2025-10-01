@@ -39,16 +39,13 @@ export class DashboardComponent extends BasePageComponent implements OnInit {
     const measure = this.performanceService?.measureComponent('dashboard-stats-load');
     measure?.start();
 
-    // Reduced delay for better perceived performance
-    setTimeout(() => {
-      this.stats.set(this.statisticsService.getDashboardStats());
-      this.isLoading.set(false);
+    this.stats.set(this.statisticsService.getDashboardStats());
+    this.isLoading.set(false);
 
-      const duration = measure?.end();
-      if (duration && duration > 100) {
-        console.warn(`Dashboard stats loading took ${duration.toFixed(2)}ms - consider optimization`);
-      }
-    }, 300); // Reduced from 500ms
+    const duration = measure?.end();
+    if (duration && duration > 100) {
+      console.warn(`Dashboard stats loading took ${duration.toFixed(2)}ms - consider optimization`);
+    }
   }
 
   onStatsCardClick(cardType: string): void {

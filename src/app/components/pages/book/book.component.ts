@@ -2,16 +2,15 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  OnInit,
   inject,
   computed,
   signal,
   WritableSignal,
-  effect,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { FilterPipe } from '@path-pipes/filter.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
@@ -24,10 +23,9 @@ import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
   selector: 'app-book',
   imports: [
     CommonModule,
-    FilterPipe,
     PrintTagsPipe,
-    NgxPaginationModule,
     SortbyPipe,
+    NgxPaginationModule,
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
@@ -36,37 +34,55 @@ import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
   styleUrl: './book.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookComponent extends BasePageComponent {
+export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
   private readonly gaService = inject(GoogleAnalyticsService);
   private readonly paginationService = inject(PaginationService);
 
-  books = signal(this.dataService.getBooks());
+  private readonly allBooks = signal(this.dataService.getBooks());
   publishNameList = PublishNameEnum;
   PublishNameEnum = PublishNameEnum;
 
-  tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
-  
+  private readonly _tagsArray = signal<string[]>([]);
   publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<Set<PublishNameEnum>>(new Set<PublishNameEnum>());
-  selectPublishNameFilter: WritableSignal<string> = signal<string>('');
-
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
-  selectTagFilter: WritableSignal<string> = signal<string>('');
 
   config = this.paginationService.createPaginationConfig('booksPag', 5);
 
-  constructor() {
-    super();
-
-    effect(() => {
-      this.books().forEach((book) =>
-        book.tags.forEach((tag) => this.tags().add(tag.trim()))
-      );
-    });
+  ngOnInit(): void {
+    const uniqueTags = new Set<string>();
+    this.allBooks().forEach((book) =>
+      book.tags.forEach((tag) => uniqueTags.add(tag.trim()))
+    );
+    this._tagsArray.set(Array.from(uniqueTags).sort());
   }
 
+  tagsArray = this._tagsArray.asReadonly();
 
-  getTags = computed(() => Array.from(this.tags().values()));
+  filteredAndSortedBooks = computed(() => {
+    let result = [...this.allBooks()];
+
+    const publisherFilters = this.publishNameFilter();
+    if (publisherFilters.size > 0) {
+      result = result.filter(book => publisherFilters.has(book.publishName as PublishNameEnum));
+    }
+
+    const tagFilters = this.tagsFilter();
+    if (tagFilters.size > 0) {
+      result = result.filter(book =>
+        book.tags.some(tag => tagFilters.has(tag))
+      );
+    }
+
+    return result.sort((a, b) => {
+      if (a.favorite !== b.favorite) {
+        return b.favorite ? 1 : -1;
+      }
+      const yearA = a.publishYear || 0;
+      const yearB = b.publishYear || 0;
+      return yearB - yearA;
+    });
+  });
   
   absoluteIndex(indexOnPage: number): number {
     return (
@@ -84,9 +100,7 @@ export class BookComponent extends BasePageComponent {
     this.gaService?.event('clear_filters', 'books', 'filters_cleared');
 
     this.publishNameFilter.set(new Set<PublishNameEnum>());
-    this.selectPublishNameFilter.set('');
     this.tagsFilter.set(new Set<string>());
-    this.selectTagFilter.set('');
     this.config().currentPage = 1;
   }
 
@@ -106,10 +120,6 @@ export class BookComponent extends BasePageComponent {
       currentFilters.add(publishName);
     }
     this.publishNameFilter.set(currentFilters);
-    this.selectPublishNameFilter.set(
-      Array.from(this.publishNameFilter().values()).join(',')
-    );
-
     this.config().currentPage = 1;
   }
 
@@ -127,7 +137,6 @@ export class BookComponent extends BasePageComponent {
       currentTags.add(id);
     }
     this.tagsFilter.set(currentTags);
-    this.selectTagFilter.set([...this.tagsFilter().values()].join(','));
     this.config().currentPage = 1;
   }
   
