@@ -1,6 +1,11 @@
 // Navigation Component Styles
 // Custom animations for menu collapse/expand
 
+// Fix aspect ratio for logo image
+.navbar-brand img {
+  height: auto !important;
+}
+
 .navbar-collapse {
   // Smooth transition for collapse
   transition: height 0.35s ease;

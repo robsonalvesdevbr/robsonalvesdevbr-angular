@@ -20,10 +20,11 @@
           <div class="d-flex align-items-center ms-5">
             <img
               ngSrc="assets/img/others/{{ course.institution | imgcurso }}"
-              alt=""
+              alt="Logo da instituição {{ course.institution }}"
               width="60"
               height="60"
               class="rounded-circle"
+              decoding="async"
             />
             <div class="ms-3">
               <p class="fw-bold mb-0">{{ course.name }}</p>
