@@ -18,6 +18,7 @@ import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { ICourse } from '@path-interfaces/ICourse';
 
 @Component({
   selector: 'app-course',
@@ -61,26 +62,40 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   tagsArray = this._tagsArray.asReadonly();
 
   filteredAndSortedCourses = computed(() => {
-    let result = [...this.allCourses()];
-
+    const courses = this.allCourses();
     const institutionFilters = this.coursesFilter();
-    if (institutionFilters.size > 0) {
-      result = result.filter(course => institutionFilters.has(course.institution as InstitutionEnum));
-    }
-
     const tagFilters = this.tagsFilter();
-    if (tagFilters.size > 0) {
-      result = result.filter(course =>
-        course.tags.some(tag => tagFilters.has(tag))
-      );
+
+    // Early return if no filters
+    if (institutionFilters.size === 0 && tagFilters.size === 0) {
+      return this.sortCourses(courses);
     }
 
-    return result.sort((a, b) => {
+    // Apply filters efficiently
+    const result = courses.filter(course => {
+      // Check institution filter
+      if (institutionFilters.size > 0 && !institutionFilters.has(course.institution as InstitutionEnum)) {
+        return false;
+      }
+
+      // Check tag filter
+      if (tagFilters.size > 0 && !course.tags.some(tag => tagFilters.has(tag))) {
+        return false;
+      }
+
+      return true;
+    });
+
+    return this.sortCourses(result);
+  });
+
+  private sortCourses(courses: readonly ICourse[]): ICourse[] {
+    return [...courses].sort((a, b) => {
       const dateA = a.conclusion ? new Date(a.conclusion).getTime() : 0;
       const dateB = b.conclusion ? new Date(b.conclusion).getTime() : 0;
       return dateB - dateA;
     });
-  });
+  }
 
   absoluteIndex = (indexOnPage: number): number =>
     this.config().itemsPerPage * (this.config().currentPage - 1) +

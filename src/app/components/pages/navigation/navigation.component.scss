@@ -1,0 +1,90 @@
+// Navigation Component Styles
+// Custom animations for menu collapse/expand
+
+.navbar-collapse {
+  // Smooth transition for collapse
+  transition: height 0.35s ease;
+
+  // Mobile specific styles
+  @media (max-width: 991.98px) {
+    // When collapsed
+    &:not(.show) {
+      display: none;
+    }
+
+    // When expanded
+    &.show {
+      display: block;
+      animation: slideDown 0.35s ease-out;
+    }
+  }
+}
+
+// Slide down animation for mobile menu
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Navbar toggler button states
+.navbar-toggler {
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 200, 0, 0.25);
+    outline: 0;
+  }
+
+  // Icon animation
+  .navbar-toggler-icon {
+    transition: transform 0.3s ease;
+  }
+
+  // Rotate icon when menu is open (optional enhancement)
+  &[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(90deg);
+  }
+}
+
+// Nav items fade in animation
+.navbar-collapse.show .nav-item {
+  animation: fadeInUp 0.4s ease-out backwards;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Accessibility: respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .navbar-collapse,
+  .navbar-toggler,
+  .navbar-toggler-icon,
+  .nav-item {
+    animation: none !important;
+    transition: none !important;
+  }
+}

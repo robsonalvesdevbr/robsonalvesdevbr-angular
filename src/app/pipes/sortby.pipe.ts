@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'sortby',
   standalone: true,
+  pure: true,
 })
 export class SortbyPipe implements PipeTransform {
   transform<T>(

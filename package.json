@@ -21,7 +21,8 @@
     "lint:fix": "ng lint --fix",
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\"",
-    "clean": "rm -rf dist node_modules/.cache .angular"
+    "clean": "rm -rf dist node_modules/.cache .angular",
+    "analyze": "npm run build:stats && npx webpack-bundle-analyzer dist/robsonalves/stats.json --port 8888"
   },
   "private": true,
   "dependencies": {

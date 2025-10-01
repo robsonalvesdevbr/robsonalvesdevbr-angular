@@ -40,17 +40,22 @@
   margin-bottom: 0.375rem;
 }
 
-/* Deprecated - manter para compatibilidade */
+/* Performance: CSS Containment for isolated components */
+.page-section {
+  contain: layout style paint;
+}
+
+.list-group {
+  contain: layout style;
+}
+
+/* Deprecated classes - Use .text-sm, .text-xs instead */
 .fontemenor {
   @extend .text-sm;
   margin: 0;
 }
 
-.fontemenor11 {
-  @extend .text-xs;
-  margin: 0;
-}
-
+.fontemenor11,
 .fontemenor12 {
   @extend .text-xs;
   margin: 0;

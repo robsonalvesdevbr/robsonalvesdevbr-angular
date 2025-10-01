@@ -18,6 +18,7 @@ import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
+import { IBook } from '@path-interfaces/IBook';
 
 @Component({
   selector: 'app-book',
@@ -60,21 +61,35 @@ export class BookComponent extends BasePageComponent implements OnInit {
   tagsArray = this._tagsArray.asReadonly();
 
   filteredAndSortedBooks = computed(() => {
-    let result = [...this.allBooks()];
-
+    const books = this.allBooks();
     const publisherFilters = this.publishNameFilter();
-    if (publisherFilters.size > 0) {
-      result = result.filter(book => publisherFilters.has(book.publishName as PublishNameEnum));
-    }
-
     const tagFilters = this.tagsFilter();
-    if (tagFilters.size > 0) {
-      result = result.filter(book =>
-        book.tags.some(tag => tagFilters.has(tag))
-      );
+
+    // Early return if no filters
+    if (publisherFilters.size === 0 && tagFilters.size === 0) {
+      return this.sortBooks(books);
     }
 
-    return result.sort((a, b) => {
+    // Apply filters efficiently
+    const result = books.filter(book => {
+      // Check publisher filter
+      if (publisherFilters.size > 0 && !publisherFilters.has(book.publishName as PublishNameEnum)) {
+        return false;
+      }
+
+      // Check tag filter
+      if (tagFilters.size > 0 && !book.tags.some(tag => tagFilters.has(tag))) {
+        return false;
+      }
+
+      return true;
+    });
+
+    return this.sortBooks(result);
+  });
+
+  private sortBooks(books: readonly IBook[]): IBook[] {
+    return [...books].sort((a, b) => {
       if (a.favorite !== b.favorite) {
         return b.favorite ? 1 : -1;
       }
@@ -82,7 +97,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
       const yearB = b.publishYear || 0;
       return yearB - yearA;
     });
-  });
+  }
   
   absoluteIndex(indexOnPage: number): number {
     return (

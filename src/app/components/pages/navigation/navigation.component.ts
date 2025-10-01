@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy, signal } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
@@ -9,12 +9,16 @@ import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '../../.
   selector: 'app-navigation',
   imports: [NgxPaginationModule],
   templateUrl: './navigation.component.html',
+  styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent extends BasePageComponent implements OnDestroy {
   @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
   private readonly _gaService = inject(GoogleAnalyticsService);
   private readonly _virtualPageService = inject(VirtualPageTrackingService);
+
+  // Menu state management
+  isMenuOpen = signal(false);
 
   // Cache navbar heights for performance
   private readonly navbarHeights = {
@@ -42,21 +46,20 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
     }, 50);
   }
 
-  private closeNavbar() {
-    const navbarCollapse = this.navbarCollapse?.nativeElement;
-    if (!navbarCollapse?.classList.contains('show')) return;
+  /**
+   * Toggle menu open/closed state
+   */
+  toggleMenu(): void {
+    this.isMenuOpen.update(value => !value);
+    this._gaService?.event('menu_toggle', 'navigation', this.isMenuOpen() ? 'opened' : 'closed');
+  }
 
-    // Use modern Bootstrap API with error handling
-    try {
-      const Bootstrap = (window as any).bootstrap;
-      if (Bootstrap?.Collapse) {
-        const collapse = Bootstrap.Collapse.getInstance(navbarCollapse) ||
-                        new Bootstrap.Collapse(navbarCollapse, { toggle: false });
-        collapse.hide();
-      }
-    } catch {
-      // Fallback to class manipulation
-      navbarCollapse.classList.remove('show');
+  /**
+   * Close menu (used when clicking navigation links)
+   */
+  closeMenu(): void {
+    if (this.isMenuOpen()) {
+      this.isMenuOpen.set(false);
     }
   }
 
@@ -103,7 +106,7 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
         this._virtualPageService.sendVirtualPageView(section, 'click');
       });
 
-      this.closeNavbar();
+      this.closeMenu();
       this.scrollToSectionWithOffset(section);
     };
   }
