@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
@@ -7,7 +8,7 @@ import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '../../.
 
 @Component({
   selector: 'app-navigation',
-  imports: [NgxPaginationModule],
+  imports: [NgxPaginationModule, NgOptimizedImage],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
