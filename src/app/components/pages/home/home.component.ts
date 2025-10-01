@@ -29,9 +29,12 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     LoadingComponent,
   ],
   template: `
-    @defer (on idle; prefetch on interaction) {
-      <app-navigation />
-      <app-masterhead [bglight]="true" />
+    <!-- Navigation and Header load immediately (critical) -->
+    <app-navigation />
+    <app-masterhead [bglight]="true" />
+
+    <!-- Main content with viewport-based lazy loading -->
+    @defer (on viewport; prefetch on idle) {
       <app-about />
       <app-dashboard [bglight]="true" />
       <app-graduation />

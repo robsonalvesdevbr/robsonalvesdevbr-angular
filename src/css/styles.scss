@@ -1,3 +1,7 @@
+// Import custom Bootstrap build (only necessary modules)
+// Note: @import is deprecated but required for Bootstrap 5.x compatibility
+@import '../scss/bootstrap-custom';
+
 html {
   scroll-behavior: smooth;
 }
@@ -957,11 +961,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   100% {
     background-position: 200% 0;
   }
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Preload states */

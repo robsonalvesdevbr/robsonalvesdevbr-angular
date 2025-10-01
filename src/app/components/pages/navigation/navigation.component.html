@@ -15,15 +15,19 @@
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarResponsive"
+      (click)="toggleMenu()"
       aria-controls="navbarResponsive"
-      aria-expanded="false"
+      [attr.aria-expanded]="isMenuOpen()"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive" #navbarCollapse>
+    <div
+      class="collapse navbar-collapse"
+      [class.show]="isMenuOpen()"
+      id="navbarResponsive"
+      #navbarCollapse
+    >
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 nav">
         <li class="nav-item">
           <a class="nav-link" href="#about" aria-label="Sobre" (click)="sobreAnalitics($event)"
