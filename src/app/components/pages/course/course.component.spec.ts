@@ -85,13 +85,17 @@ describe('CourseComponent', () => {
   });
 
   it('should clear filters', () => {
-    component.coursesFilter().add(InstitutionEnum.Udemy);
-    component.tagsFilter().add('Tag1');
+    const currentInstitutions = new Set(component.coursesFilter());
+    currentInstitutions.add(InstitutionEnum.Udemy);
+    component.coursesFilter.set(currentInstitutions);
+
+    const currentTags = new Set(component.tagsFilter());
+    currentTags.add('Tag1');
+    component.tagsFilter.set(currentTags);
+
     component.clearFilters();
     expect(component.coursesFilter().size).toBe(0);
     expect(component.tagsFilter().size).toBe(0);
-    expect(component.selectInstitutionsFilter()).toBe('');
-    expect(component.selectTagFilter()).toBe('');
   });
 
   it('should handle institution click event', () => {
@@ -113,7 +117,11 @@ describe('CourseComponent', () => {
   it('should delete id from coursesFilter on onClickIntitutionEvent', () => {
     const id = 'Alura';
     const institutionId = InstitutionEnum[id as keyof typeof InstitutionEnum];
-    component.coursesFilter().add(institutionId);
+
+    const currentFilters = new Set(component.coursesFilter());
+    currentFilters.add(institutionId);
+    component.coursesFilter.set(currentFilters);
+
     const event = new MouseEvent('click', { bubbles: true, cancelable: true });
     Object.defineProperty(event, 'target', {
       value: { id: `input_course_institution_${id}` },
@@ -126,7 +134,11 @@ describe('CourseComponent', () => {
 
   it('should delete id from tagsFilter on onClickTagEvent', () => {
     const id = 'testTag';
-    component.tagsFilter().add(id);
+
+    const currentTags = new Set(component.tagsFilter());
+    currentTags.add(id);
+    component.tagsFilter.set(currentTags);
+
     const event = new MouseEvent('click', { bubbles: true, cancelable: true });
     Object.defineProperty(event, 'target', {
       value: { id: `input_course_tag_${id}` },

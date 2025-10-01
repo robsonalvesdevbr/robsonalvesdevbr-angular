@@ -79,7 +79,7 @@ describe('BookComponent', () => {
   });
 
   it('should return sorted tags', () => {
-    const sortedTags = component.getTags();
+    const sortedTags = component.tagsArray();
     expect(sortedTags).toEqual(['Tag1', 'Tag2', 'Tag3', 'Tag4']);
   });
 
@@ -95,14 +95,17 @@ describe('BookComponent', () => {
   });
 
   it('should clear filters', () => {
-    //component.publishNameFilter().add('Publisher 1');
-    component.publishNameFilter().add(PublishNameEnum.AltaBooks);
-    component.tagsFilter().add('Tag1');
+    const currentPublishers = new Set(component.publishNameFilter());
+    currentPublishers.add(PublishNameEnum.AltaBooks);
+    component.publishNameFilter.set(currentPublishers);
+
+    const currentTags = new Set(component.tagsFilter());
+    currentTags.add('Tag1');
+    component.tagsFilter.set(currentTags);
+
     component.clearFilters();
     expect(component.publishNameFilter().size).toBe(0);
-    expect(component.selectPublishNameFilter()).toBe('');
     expect(component.tagsFilter().size).toBe(0);
-    expect(component.selectTagFilter()).toBe('');
   });
 
   it('should handle institution click event', () => {
@@ -121,13 +124,15 @@ describe('BookComponent', () => {
     } as unknown as MouseEvent;
     component.onClickTagEvent(event);
     expect(component.tagsFilter().has('Tag1')).toBeTrue();
-    expect(component.selectTagFilter()).toBe('Tag1');
   });
 
   it('should delete id from publishNameFilter on onClickIntitutionEvent', () => {
     const id = 'AltaBooks';
     const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
-    component.publishNameFilter().add(publishName);
+
+    const currentFilters = new Set(component.publishNameFilter());
+    currentFilters.add(publishName);
+    component.publishNameFilter.set(currentFilters);
 
     const event = new MouseEvent('click');
     const inputElement = document.createElement('input');
@@ -141,7 +146,10 @@ describe('BookComponent', () => {
 
   it('should delete id from tagsFilter on onClickTagEvent', () => {
     const id = 'Test Tag';
-    component.tagsFilter().add(id);
+
+    const currentTags = new Set(component.tagsFilter());
+    currentTags.add(id);
+    component.tagsFilter.set(currentTags);
 
     const event = new MouseEvent('click');
     const inputElement = document.createElement('input');
