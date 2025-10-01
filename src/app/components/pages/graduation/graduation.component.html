@@ -13,7 +13,7 @@
     <ul class="timeline">
       @for (
         graduation of graduations() | sortby: 'conclusionDate' : 'desc';
-        track graduation;
+        track trackByGraduation($index, graduation);
         let i = $index
       ) {
         <li [ngClass]="{ 'timeline-inverted': i % 2 !== 0 }" class="mb-5">

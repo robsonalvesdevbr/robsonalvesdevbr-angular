@@ -13,7 +13,7 @@
     <ul class="list-group list-group-light mb-4">
       @for (
         course of formationCourses() | sortby: 'conclusion' : 'desc' | paginate: config();
-        track course;
+        track trackByFormationCourse($index, course);
         let i = $index
       ) {
         <li class="list-group-item d-flex justify-content-between align-items-center">

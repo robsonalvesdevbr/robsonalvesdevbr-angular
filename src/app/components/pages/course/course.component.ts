@@ -12,10 +12,8 @@ import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
-import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
-import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -25,11 +23,9 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
   selector: 'app-course',
   imports: [
     CommonModule,
-    FilterPipe,
     ImgcursoPipe,
     PrintTagsPipe,
     NgxPaginationModule,
-    SortbyPipe,
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
@@ -43,27 +39,48 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly gaService = inject(GoogleAnalyticsService);
   private readonly paginationService = inject(PaginationService);
 
-  courses = signal(this.dataService.getCourses());
+  private readonly allCourses = signal(this.dataService.getCourses());
+
   institutionList = InstitutionEnum;
   InstitutionEnum = InstitutionEnum;
 
-  tags: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
-
+  private readonly _tagsArray = signal<string[]>([]);
   coursesFilter: WritableSignal<Set<InstitutionEnum>> = signal<Set<InstitutionEnum>>(new Set<InstitutionEnum>());
-  selectInstitutionsFilter: WritableSignal<string> = signal<string>(InstitutionEnum.All);
-
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
-  selectTagFilter: WritableSignal<string> = signal<string>('');
 
   config = this.paginationService.createPaginationConfig('coursesPag', 5);
 
   ngOnInit(): void {
-    this.courses().forEach((course) =>
-      course.tags.forEach((tag) => this.tags().add(tag.trim()))
+    const uniqueTags = new Set<string>();
+    this.allCourses().forEach((course) =>
+      course.tags.forEach((tag) => uniqueTags.add(tag.trim()))
     );
+    this._tagsArray.set(Array.from(uniqueTags).sort());
   }
 
-  tagsArray = computed(() => Array.from(this.tags().values()));
+  tagsArray = this._tagsArray.asReadonly();
+
+  filteredAndSortedCourses = computed(() => {
+    let result = [...this.allCourses()];
+
+    const institutionFilters = this.coursesFilter();
+    if (institutionFilters.size > 0) {
+      result = result.filter(course => institutionFilters.has(course.institution as InstitutionEnum));
+    }
+
+    const tagFilters = this.tagsFilter();
+    if (tagFilters.size > 0) {
+      result = result.filter(course =>
+        course.tags.some(tag => tagFilters.has(tag))
+      );
+    }
+
+    return result.sort((a, b) => {
+      const dateA = a.conclusion ? new Date(a.conclusion).getTime() : 0;
+      const dateB = b.conclusion ? new Date(b.conclusion).getTime() : 0;
+      return dateB - dateA;
+    });
+  });
 
   absoluteIndex = (indexOnPage: number): number =>
     this.config().itemsPerPage * (this.config().currentPage - 1) +
@@ -76,10 +93,20 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     this.gaService?.event('clear_filters', 'courses', 'filters_cleared');
 
     this.coursesFilter.set(new Set<InstitutionEnum>());
-    this.selectInstitutionsFilter.set(InstitutionEnum.All);
     this.tagsFilter.set(new Set<string>());
-    this.selectTagFilter.set('');
     this.config().currentPage = 1;
+  }
+
+  trackByCourse(index: number, item: any): string {
+    return item.name + item.institution;
+  }
+
+  trackByInstitution(index: number, item: any): string {
+    return item.key;
+  }
+
+  trackByTag(index: number, tag: string): string {
+    return tag;
   }
 
   onClickIntitutionEvent(e: Event) {
@@ -101,10 +128,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       currentFilters.add(institution);
     }
     this.coursesFilter.set(currentFilters);
-    this.selectInstitutionsFilter.set(
-      Array.from(this.coursesFilter().values()).join(',')
-    );
-
     this.config().currentPage = 1;
   }
 
@@ -124,7 +147,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       currentTags.add(id);
     }
     this.tagsFilter.set(currentTags);
-    this.selectTagFilter.set([...this.tagsFilter().keys()].join(','));
     this.config().currentPage = 1;
   }
 
