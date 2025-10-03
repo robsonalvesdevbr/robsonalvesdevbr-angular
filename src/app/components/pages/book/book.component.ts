@@ -98,7 +98,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
       return yearB - yearA;
     });
   }
-  
+
   absoluteIndex(indexOnPage: number): number {
     return (
       this.config().itemsPerPage * (this.config().currentPage - 1) +
@@ -124,7 +124,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const id = link.id.replace('input_book_institution_', '');
 
     const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
-    
+
     const action = this.publishNameFilter().has(publishName) ? 'remove' : 'add';
     this.gaService?.event('filter_publisher', 'books', `${action}_${publishName}`);
 
@@ -154,7 +154,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     this.tagsFilter.set(currentTags);
     this.config().currentPage = 1;
   }
-  
+
   onBookUrlClick(bookTitle: string, publishName: string) {
     this.gaService?.event('book_url_click', 'books', `${bookTitle}_${publishName}`);
   }
@@ -174,5 +174,17 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   trackByTag(index: number, tag: string): string {
     return tag;
+  }
+
+  getPublisherLogo(publishName: PublishNameEnum): string {
+    const logoMap: Record<PublishNameEnum, string> = {
+      [PublishNameEnum.CasaDoCodigo]: 'assets/img/publishers/casa_do_cdigo_logo.jpeg',
+      [PublishNameEnum.Novatec]: 'assets/img/publishers/novatec_editora_logo.jpeg',
+      [PublishNameEnum.Packts]: 'assets/img/publishers/packt_publishing_logo.jpeg',
+      [PublishNameEnum.Elsevier]: 'assets/img/publishers/elsevier_logo.jpeg',
+      [PublishNameEnum.AltaBooks]: 'assets/img/publishers/editora_alta_books_logo.jpeg',
+    };
+
+    return logoMap[publishName] || 'assets/img/others/livro.jpg';
   }
 }
