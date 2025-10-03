@@ -61,6 +61,23 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   tagsArray = this._tagsArray.asReadonly();
 
+  availableTags = computed(() => {
+    const institutionFilters = this.coursesFilter();
+
+    // If no institution filter, show all tags
+    if (institutionFilters.size === 0) {
+      return this.tagsArray();
+    }
+
+    // Filter courses by selected institutions and accumulate their tags
+    const uniqueTags = new Set<string>();
+    this.allCourses()
+      .filter(course => institutionFilters.has(course.institution as InstitutionEnum))
+      .forEach(course => course.tags.forEach(tag => uniqueTags.add(tag.trim())));
+
+    return Array.from(uniqueTags).sort();
+  });
+
   filteredAndSortedCourses = computed(() => {
     const courses = this.allCourses();
     const institutionFilters = this.coursesFilter();
@@ -127,10 +144,10 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   onClickIntitutionEvent(e: Event) {
     const input = e.target as HTMLInputElement;
     if (!input || !input.id) return;
-    
+
     const id = input.id.replace('input_course_institution_', '');
     const institution = InstitutionEnum[id as keyof typeof InstitutionEnum];
-    
+
     if (!institution) return;
 
     const action = this.coursesFilter().has(institution) ? 'remove' : 'add';
@@ -143,6 +160,16 @@ export class CourseComponent extends BasePageComponent implements OnInit {
       currentFilters.add(institution);
     }
     this.coursesFilter.set(currentFilters);
+
+    // Clean up invalid tags after filter change
+    const availableTags = new Set(this.availableTags());
+    const currentTags = new Set(this.tagsFilter());
+    const validTags = new Set([...currentTags].filter(tag => availableTags.has(tag)));
+
+    if (validTags.size !== currentTags.size) {
+      this.tagsFilter.set(validTags);
+    }
+
     this.config().currentPage = 1;
   }
 

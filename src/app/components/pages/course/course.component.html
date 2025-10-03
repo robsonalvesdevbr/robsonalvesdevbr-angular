@@ -65,7 +65,7 @@
                 aria-label="Basic checkbox toggle button group"
               >
                 <b class="p-1 m-1">Filtrar tag:</b>
-                @for (tag of tagsArray(); track trackByTag($index, tag)) {
+                @for (tag of availableTags(); track trackByTag($index, tag)) {
                   <input
                     type="checkbox"
                     class="btn-check"

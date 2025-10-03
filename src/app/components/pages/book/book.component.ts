@@ -60,6 +60,23 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   tagsArray = this._tagsArray.asReadonly();
 
+  availableTags = computed(() => {
+    const publisherFilters = this.publishNameFilter();
+
+    // If no publisher filter, show all tags
+    if (publisherFilters.size === 0) {
+      return this.tagsArray();
+    }
+
+    // Filter books by selected publishers and accumulate their tags
+    const uniqueTags = new Set<string>();
+    this.allBooks()
+      .filter(book => publisherFilters.has(book.publishName as PublishNameEnum))
+      .forEach(book => book.tags.forEach(tag => uniqueTags.add(tag.trim())));
+
+    return Array.from(uniqueTags).sort();
+  });
+
   filteredAndSortedBooks = computed(() => {
     const books = this.allBooks();
     const publisherFilters = this.publishNameFilter();
@@ -135,6 +152,16 @@ export class BookComponent extends BasePageComponent implements OnInit {
       currentFilters.add(publishName);
     }
     this.publishNameFilter.set(currentFilters);
+
+    // Clean up invalid tags after filter change
+    const availableTags = new Set(this.availableTags());
+    const currentTags = new Set(this.tagsFilter());
+    const validTags = new Set([...currentTags].filter(tag => availableTags.has(tag)));
+
+    if (validTags.size !== currentTags.size) {
+      this.tagsFilter.set(validTags);
+    }
+
     this.config().currentPage = 1;
   }
 
