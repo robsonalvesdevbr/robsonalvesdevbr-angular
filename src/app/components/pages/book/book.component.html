@@ -103,11 +103,11 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center ms-5">
             <img
-              ngSrc="assets/img/others/livro.jpg"
-              alt="Capa do livro"
+              [ngSrc]="getPublisherLogo(item.publishName)"
+              [alt]="'Logo da editora ' + item.publishName"
               width="60"
               height="60"
-              class="rounded-circle"
+              class="rounded-circle publisher-logo"
               decoding="async"
             />
             <div class="ms-3">
