@@ -22,7 +22,11 @@
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\"",
     "clean": "rm -rf dist node_modules/.cache .angular",
-    "analyze": "npm run build:stats && npx webpack-bundle-analyzer dist/robsonalves/stats.json --port 8888"
+    "analyze": "npm run build:stats && npx webpack-bundle-analyzer dist/robsonalves/stats.json --port 8888",
+    "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
+    "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > sbom/sbom-cyclonedx.json",
+    "sbom:spdx": "npm sbom --sbom-format=spdx > sbom/sbom-spdx.json",
+    "security:check": "npm audit && npm run sbom:generate"
   },
   "private": true,
   "dependencies": {
