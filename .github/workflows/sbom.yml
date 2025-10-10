@@ -1,0 +1,125 @@
+name: Generate and Publish SBOM
+
+on:
+  push:
+    branches: [main, chore/update-npm]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Generate SBOM weekly on Mondays at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-sbom:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.9'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create SBOM directory
+        run: mkdir -p sbom
+
+      - name: Generate SBOM (CycloneDX)
+        run: npm run sbom:cyclonedx
+
+      - name: Generate SBOM (SPDX)
+        run: npm run sbom:spdx
+
+      - name: Generate SBOM metadata
+        run: |
+          cat > sbom/METADATA.md << 'EOF'
+          # SBOM Generation Metadata
+
+          **Generated**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
+          **Branch**: ${{ github.ref_name }}
+          **Commit**: ${{ github.sha }}
+          **Workflow**: ${{ github.workflow }}
+          **Run ID**: ${{ github.run_id }}
+
+          ## Files
+
+          - `sbom-cyclonedx.json`: CycloneDX format (via npm sbom)
+          - `sbom-spdx.json`: SPDX format (via npm sbom)
+
+          ## Verification
+
+          ```bash
+          # Verify file integrity
+          sha256sum sbom/*.json
+          ```
+          EOF
+
+      - name: List SBOM files
+        run: |
+          echo "SBOM files generated:"
+          ls -lh sbom/
+
+      - name: Upload SBOM as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ github.sha }}
+          path: sbom/
+          retention-days: 90
+
+      - name: Commit and Push SBOM (main branch only)
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add sbom/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(sbom): update SBOM [skip ci]" && git push)
+
+  analyze-vulnerabilities:
+    runs-on: ubuntu-latest
+    needs: generate-sbom
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.9'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download SBOM
+        uses: actions/download-artifact@v4
+        with:
+          name: sbom-${{ github.sha }}
+          path: sbom/
+
+      - name: Run npm audit
+        continue-on-error: true
+        run: npm audit --json > sbom/audit-report.json || true
+
+      - name: Display audit summary
+        run: |
+          if [ -f sbom/audit-report.json ]; then
+            echo "Audit Report Summary:"
+            jq '.metadata.vulnerabilities' sbom/audit-report.json || echo "No vulnerabilities section found"
+          fi
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report-${{ github.sha }}
+          path: sbom/audit-report.json
+          retention-days: 30
