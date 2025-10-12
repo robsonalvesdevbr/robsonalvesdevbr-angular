@@ -1,5 +1,5 @@
 <!-- About-->
-<section class="page-section" id="books" [ngClass]="currentClass()">
+<section class="page-section" id="books" data-testid="books-section" [ngClass]="currentClass()">
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Leituras</h2>
@@ -100,7 +100,7 @@
         track trackByBook($index, item);
         let i = $index
       ) {
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-testid="book-card">
           <div class="d-flex align-items-center ms-5">
             <img
               [ngSrc]="getPublisherLogo(item.publishName)"
