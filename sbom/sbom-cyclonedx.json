@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:253d95be-40ec-43af-b95b-11f2d39d5cd5",
+  "serialNumber": "urn:uuid:e426b097-8ef6-4ded-aea7-36bc8b26033f",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-10-10T20:00:14.663Z",
+    "timestamp": "2025-10-12T02:20:35.706Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -15,7 +15,7 @@
       {
         "vendor": "npm",
         "name": "cli",
-        "version": "10.8.3"
+        "version": "10.9.0"
       }
     ],
     "component": {
@@ -11999,6 +11999,57 @@
         {
           "license": {
             "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@playwright/test@1.56.0",
+      "type": "library",
+      "name": "@playwright/test",
+      "version": "1.56.0",
+      "scope": "optional",
+      "author": "Microsoft Corporation",
+      "description": "A high-level API to automate web browsers",
+      "purl": "pkg:npm/%40playwright/test@1.56.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@playwright/test"
+        },
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@playwright/test/-/test-1.56.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/microsoft/playwright.git"
+        },
+        {
+          "type": "website",
+          "url": "https://playwright.dev"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/microsoft/playwright/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4f387de53c2283b854c3035edfcd7f2b73e08190596e52947b6c2fdb9a08a7358bafa6749b82a05756552239d1e8633d00d12a8d90fb5ec6446ba24bffb60482"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
           }
         }
       ]
@@ -41368,6 +41419,108 @@
       ]
     },
     {
+      "bom-ref": "playwright@1.56.0",
+      "type": "library",
+      "name": "playwright",
+      "version": "1.56.0",
+      "scope": "optional",
+      "author": "Microsoft Corporation",
+      "description": "A high-level API to automate web browsers",
+      "purl": "pkg:npm/playwright@1.56.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/playwright"
+        },
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/playwright/-/playwright-1.56.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/microsoft/playwright.git"
+        },
+        {
+          "type": "website",
+          "url": "https://playwright.dev"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/microsoft/playwright/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5f94356fc94e756204e0a0281e95b7484f07bd407e659b14a0deb86618e737c74e6f5529ba3c41b44346899144fbd17fca1cc9c186be71adeee3715e2db6e81c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "playwright-core@1.56.0",
+      "type": "library",
+      "name": "playwright-core",
+      "version": "1.56.0",
+      "scope": "optional",
+      "author": "Microsoft Corporation",
+      "description": "A high-level API to automate web browsers",
+      "purl": "pkg:npm/playwright-core@1.56.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/playwright-core"
+        },
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.56.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/microsoft/playwright.git"
+        },
+        {
+          "type": "website",
+          "url": "https://playwright.dev"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/microsoft/playwright/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "d525e5ee931f7a600c4839f9ae43de6658f13826009909d82c14c4c6e87a13c5121d71925f7771ea561937fc4fa53cf5be299798f03d0839c82ef989681f1a49"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
       "bom-ref": "portfinder@1.0.38",
       "type": "library",
       "name": "portfinder",
@@ -55096,6 +55249,7 @@
         "@angular-eslint/template-parser@20.3.0",
         "@angular/cli@20.3.5",
         "@angular/compiler-cli@20.3.4",
+        "@playwright/test@1.56.0",
         "@types/jasmine@5.1.9",
         "bootstrap@5.3.8",
         "cross-env@10.1.0",
@@ -57018,6 +57172,12 @@
     {
       "ref": "@pkgr/core@0.2.9",
       "dependsOn": []
+    },
+    {
+      "ref": "@playwright/test@1.56.0",
+      "dependsOn": [
+        "playwright@1.56.0"
+      ]
     },
     {
       "ref": "@polka/url@1.0.0-next.29",
@@ -60537,6 +60697,16 @@
     },
     {
       "ref": "pkce-challenge@5.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "playwright@1.56.0",
+      "dependsOn": [
+        "playwright-core@1.56.0"
+      ]
+    },
+    {
+      "ref": "playwright-core@1.56.0",
       "dependsOn": []
     },
     {
