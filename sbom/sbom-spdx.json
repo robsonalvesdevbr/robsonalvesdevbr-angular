@@ -3,11 +3,11 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "robsonalvesdevbr-angular@0.0.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/robsonalvesdevbr-angular-0.0.0-07b8a3f7-c812-40a5-97cf-8825f9aa31d2",
+  "documentNamespace": "http://spdx.org/spdxdocs/robsonalvesdevbr-angular-0.0.0-3ce2b5c2-d764-40ff-961c-630ff50d57dd",
   "creationInfo": {
-    "created": "2025-10-10T20:00:16.234Z",
+    "created": "2025-10-12T02:20:37.371Z",
     "creators": [
-      "Tool: npm/cli-10.8.3"
+      "Tool: npm/cli-10.9.0"
     ]
   },
   "documentDescribes": [
@@ -5690,6 +5690,30 @@
         {
           "algorithm": "SHA512",
           "checksumValue": "40da97c9f552db09bd870792603d8eec5d06d3abaeae3f6467de9345013963d854efeb60759c0891b00a73939ccb51f1118da4b8341ae9c435591b3f3b92c528"
+        }
+      ]
+    },
+    {
+      "name": "@playwright/test",
+      "SPDXID": "SPDXRef-Package-playwright.test-1.56.0",
+      "versionInfo": "1.56.0",
+      "packageFileName": "node_modules/@playwright/test",
+      "description": "A high-level API to automate web browsers",
+      "downloadLocation": "https://registry.npmjs.org/@playwright/test/-/test-1.56.0.tgz",
+      "filesAnalyzed": false,
+      "homepage": "https://playwright.dev",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40playwright/test@1.56.0"
+        }
+      ],
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "4f387de53c2283b854c3035edfcd7f2b73e08190596e52947b6c2fdb9a08a7358bafa6749b82a05756552239d1e8633d00d12a8d90fb5ec6446ba24bffb60482"
         }
       ]
     },
@@ -19580,6 +19604,54 @@
       ]
     },
     {
+      "name": "playwright",
+      "SPDXID": "SPDXRef-Package-playwright-1.56.0",
+      "versionInfo": "1.56.0",
+      "packageFileName": "node_modules/playwright",
+      "description": "A high-level API to automate web browsers",
+      "downloadLocation": "https://registry.npmjs.org/playwright/-/playwright-1.56.0.tgz",
+      "filesAnalyzed": false,
+      "homepage": "https://playwright.dev",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/playwright@1.56.0"
+        }
+      ],
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "5f94356fc94e756204e0a0281e95b7484f07bd407e659b14a0deb86618e737c74e6f5529ba3c41b44346899144fbd17fca1cc9c186be71adeee3715e2db6e81c"
+        }
+      ]
+    },
+    {
+      "name": "playwright-core",
+      "SPDXID": "SPDXRef-Package-playwright-core-1.56.0",
+      "versionInfo": "1.56.0",
+      "packageFileName": "node_modules/playwright-core",
+      "description": "A high-level API to automate web browsers",
+      "downloadLocation": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.56.0.tgz",
+      "filesAnalyzed": false,
+      "homepage": "https://playwright.dev",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/playwright-core@1.56.0"
+        }
+      ],
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "d525e5ee931f7a600c4839f9ae43de6658f13826009909d82c14c4c6e87a13c5121d71925f7771ea561937fc4fa53cf5be299798f03d0839c82ef989681f1a49"
+        }
+      ]
+    },
+    {
       "name": "portfinder",
       "SPDXID": "SPDXRef-Package-portfinder-1.0.38",
       "versionInfo": "1.0.38",
@@ -26168,6 +26240,11 @@
       "relationshipType": "DEV_DEPENDENCY_OF"
     },
     {
+      "spdxElementId": "SPDXRef-Package-playwright.test-1.56.0",
+      "relatedSpdxElement": "SPDXRef-Package-robsonalvesdevbr-angular-0.0.0",
+      "relationshipType": "DEV_DEPENDENCY_OF"
+    },
+    {
       "spdxElementId": "SPDXRef-Package-types.jasmine-5.1.9",
       "relatedSpdxElement": "SPDXRef-Package-robsonalvesdevbr-angular-0.0.0",
       "relationshipType": "DEV_DEPENDENCY_OF"
@@ -30151,6 +30228,11 @@
       "spdxElementId": "SPDXRef-Package-parcel.watcher-linux-x64-musl-2.5.1",
       "relatedSpdxElement": "SPDXRef-Package-parcel.watcher-2.5.1",
       "relationshipType": "OPTIONAL_DEPENDENCY_OF"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-playwright-1.56.0",
+      "relatedSpdxElement": "SPDXRef-Package-playwright.test-1.56.0",
+      "relationshipType": "DEPENDENCY_OF"
     },
     {
       "spdxElementId": "SPDXRef-Package-angular-devkit.core-20.3.5",
@@ -34686,6 +34768,11 @@
       "spdxElementId": "SPDXRef-Package-napi-rs.nice-1.1.1",
       "relatedSpdxElement": "SPDXRef-Package-piscina-5.1.3",
       "relationshipType": "OPTIONAL_DEPENDENCY_OF"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-playwright-core-1.56.0",
+      "relatedSpdxElement": "SPDXRef-Package-playwright-1.56.0",
+      "relationshipType": "DEPENDENCY_OF"
     },
     {
       "spdxElementId": "SPDXRef-Package-async-3.2.6",
