@@ -26,9 +26,19 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '>=22'
+          node-version: '22.12'
       - run: npm install
-      - run: npm run test:nowatch
+
+      - name: Run unit tests
+        run: npm run test:nowatch
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+        env:
+          CI: true
 
       - name: Fix Git Permissions
         run: chmod -R u+w .git
