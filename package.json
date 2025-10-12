@@ -2,7 +2,7 @@
   "name": "robsonalvesdevbr-angular",
   "version": "0.0.0",
   "engines": {
-    "node": ">=22.9"
+    "node": ">=22.12"
   },
   "scripts": {
     "ng": "ng",
@@ -26,7 +26,16 @@
     "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
     "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > sbom/sbom-cyclonedx.json",
     "sbom:spdx": "npm sbom --sbom-format=spdx > sbom/sbom-spdx.json",
-    "security:check": "npm audit && npm run sbom:generate"
+    "security:check": "npm audit && npm run sbom:generate",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:chromium": "playwright test --project=chromium",
+    "test:e2e:firefox": "playwright test --project=firefox",
+    "test:e2e:webkit": "playwright test --project=webkit",
+    "test:e2e:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "test:e2e:report": "playwright show-report"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +62,7 @@
     "@angular-eslint/template-parser": "^20.3.0",
     "@angular/cli": "^20.3.3",
     "@angular/compiler-cli": "^20.3.2",
+    "@playwright/test": "^1.56.0",
     "@types/jasmine": "5.1.9",
     "bootstrap": "^5.3.8",
     "cross-env": "^10.1.0",
