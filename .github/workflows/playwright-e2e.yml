@@ -36,7 +36,12 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps ${{ matrix.browser }}
+        run: |
+          if [ "${{ matrix.browser }}" = "mobile-chrome" ]; then
+            npx playwright install --with-deps chromium
+          else
+            npx playwright install --with-deps ${{ matrix.browser }}
+          fi
 
       - name: Run Playwright tests
         run: npm run test:e2e -- --project=${{ matrix.browser }}
