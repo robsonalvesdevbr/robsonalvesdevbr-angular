@@ -3,7 +3,7 @@
 [![Angular](https://img.shields.io/badge/Angular-20.2-red?logo=angular)](https://angular.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.7-purple?logo=bootstrap)](https://getbootstrap.com/)
-[![Node.js](https://img.shields.io/badge/Node.js-22.9+-green?logo=node.js)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.12+-green?logo=node.js)](https://nodejs.org/)
 [![Build Status](https://img.shields.io/github/workflow/status/robsonalvesdevbr/robsonalvesdevbr-angular/CI)](https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular/actions)
 [![License](https://img.shields.io/github/license/robsonalvesdevbr/robsonalvesdevbr-angular)](LICENSE)
 
@@ -25,7 +25,7 @@ Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático
 
 ### Pré-requisitos
 
-- **Node.js** 22.9+ ([Download](https://nodejs.org/))
+- **Node.js** 22.12+ ([Download](https://nodejs.org/))
 - **npm** 10.0.0+ (incluído com Node.js)
 - **Angular CLI** 20+ (será instalado automaticamente)
 
@@ -40,7 +40,7 @@ cd robsonalvesdevbr-angular
 git config core.hooksPath .githooks
 
 # 3. Use a versão correta do Node.js (se usar nvm)
-nvm use 22.9
+nvm use 22.12
 
 # 4. Instale as dependências
 npm install
