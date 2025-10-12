@@ -2,7 +2,7 @@
   "name": "robsonalvesdevbr-angular",
   "version": "0.0.0",
   "engines": {
-    "node": ">=22.9"
+    "node": ">=22.12"
   },
   "scripts": {
     "ng": "ng",

@@ -40,7 +40,7 @@ Este arquivo fornece orientações para Claude Code (claude.ai/code) ao trabalha
 
 ### Requisitos
 
-- Node.js >= 22.9 (especificado em package.json engines)
+- Node.js >= 22.12 (especificado em package.json engines)
 
 ## Visão Geral da Arquitetura
 
