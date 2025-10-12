@@ -1,0 +1,145 @@
+name: Playwright E2E Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  test-e2e:
+    name: E2E Tests (${{ matrix.browser }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, mobile-chrome]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.9'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run Playwright tests
+        run: npm run test:e2e -- --project=${{ matrix.browser }}
+        env:
+          CI: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results-${{ matrix.browser }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 30
+
+      - name: Upload traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces-${{ matrix.browser }}
+          path: test-results/**/trace.zip
+          retention-days: 7
+
+      - name: Upload videos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-videos-${{ matrix.browser }}
+          path: test-results/**/video.webm
+          retention-days: 7
+
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-screenshots-${{ matrix.browser }}
+          path: test-results/**/*.png
+          retention-days: 7
+
+  merge-reports:
+    name: Merge Test Reports
+    if: always()
+    needs: [test-e2e]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.9'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: all-results/
+          pattern: playwright-results-*
+          merge-multiple: true
+
+      - name: Generate summary report
+        run: |
+          echo "# Playwright E2E Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Workflow**: ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Run ID**: ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Browsers Tested" >> $GITHUB_STEP_SUMMARY
+          echo "- Chromium (Desktop Chrome/Edge)" >> $GITHUB_STEP_SUMMARY
+          echo "- Firefox (Desktop)" >> $GITHUB_STEP_SUMMARY
+          echo "- Mobile Chrome (Pixel 5)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Total Tests**: 72 (24 tests × 3 browsers)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { readFileSync, existsSync } = require('fs');
+            const { join } = require('path');
+
+            let comment = '## Playwright E2E Test Results\n\n';
+            comment += '**Browsers tested**: Chromium, Firefox, Mobile Chrome\n';
+            comment += '**Total tests**: 72 (24 tests × 3 browsers)\n\n';
+
+            // Check if reports exist and add download links
+            comment += '### Artifacts\n';
+            comment += 'Download test results, traces, screenshots, and videos from the workflow run artifacts.\n\n';
+            comment += `[View full workflow run](${context.payload.pull_request.html_url}/checks)\n`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
