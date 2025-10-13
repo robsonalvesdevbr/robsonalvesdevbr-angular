@@ -2,9 +2,9 @@
 
 **Generated**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
 **Branch**: main
-**Commit**: 71c39c6b2f391e717594c347b94ef56ce0de11eb
+**Commit**: 6b25766d2a13ecab1c334a0c072fde22c2eafb18
 **Workflow**: Generate and Publish SBOM
-**Run ID**: 18437837482
+**Run ID**: 18452932028
 
 ## Files
 
