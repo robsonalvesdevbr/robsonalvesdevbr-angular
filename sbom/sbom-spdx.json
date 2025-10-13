@@ -3,9 +3,9 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "robsonalvesdevbr-angular@0.0.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/robsonalvesdevbr-angular-0.0.0-3ce2b5c2-d764-40ff-961c-630ff50d57dd",
+  "documentNamespace": "http://spdx.org/spdxdocs/robsonalvesdevbr-angular-0.0.0-0866986c-9299-4696-a91e-6f9910c6cda5",
   "creationInfo": {
-    "created": "2025-10-12T02:20:37.371Z",
+    "created": "2025-10-13T01:57:49.218Z",
     "creators": [
       "Tool: npm/cli-10.9.0"
     ]
