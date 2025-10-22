@@ -30,7 +30,7 @@ export function memoize<T, R>(fn: (arg: T) => R): (arg: T) => R {
  * Memoization for functions with multiple arguments
  * Uses JSON.stringify for cache key (be cautious with large objects)
  */
-export function memoizeMulti<T extends any[], R>(fn: (...args: T) => R): (...args: T) => R {
+export function memoizeMulti<T extends unknown[], R>(fn: (...args: T) => R): (...args: T) => R {
   const cache = new Map<string, R>();
 
   return (...args: T): R => {
@@ -58,7 +58,7 @@ export function memoizeMulti<T extends any[], R>(fn: (...args: T) => R): (...arg
 /**
  * Memoization with custom key generator
  */
-export function memoizeWithKey<T extends any[], R>(
+export function memoizeWithKey<T extends unknown[], R>(
   fn: (...args: T) => R,
   keyGenerator: (...args: T) => string
 ): (...args: T) => R {

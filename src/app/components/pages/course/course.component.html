@@ -98,7 +98,10 @@
         track trackByCourse($index, item);
         let i = $index
       ) {
-        <li class="list-group-item d-flex justify-content-between align-items-center" data-testid="course-card">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          data-testid="course-card"
+        >
           <div class="d-flex align-items-center ms-5">
             <img
               ngSrc="assets/img/others/{{ item.institution | imgcurso }}"

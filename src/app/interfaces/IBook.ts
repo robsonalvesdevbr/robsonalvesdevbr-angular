@@ -1,6 +1,7 @@
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 
 export interface IBook {
+  id: string;
   title: string;
   subtitle: string;
   author: string[];

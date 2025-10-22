@@ -21,6 +21,7 @@ describe('FormationCourseComponent', () => {
     dataServiceStub = {
       getFormationCourses: () => [
         {
+          id: 'formacao-csharp-orientacao-objetos-alura-2021-04',
           name: 'C# e orientação a objetos',
           institution: InstitutionEnum.Alura,
           certificateUrl:
@@ -35,6 +36,7 @@ describe('FormationCourseComponent', () => {
           favorite: true,
         },
         {
+          id: 'formacao-orquestracao-containers-kubernetes-alura-2022-05',
           name: 'Orquestração de containers com Kubernetes',
           institution: InstitutionEnum.Alura,
           certificateUrl:

@@ -43,7 +43,7 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
 
     // Use modern Bootstrap API with error handling
     try {
-      const Bootstrap = (window as any).bootstrap;
+      const Bootstrap = (window as Window & { bootstrap?: { Collapse: { getInstance: (el: Element) => { hide: () => void } | null; getOrCreateInstance: (el: Element) => { hide: () => void } } } }).bootstrap;
       if (Bootstrap?.Collapse) {
         const collapse = Bootstrap.Collapse.getInstance(navbarCollapse) ||
                         new Bootstrap.Collapse(navbarCollapse, { toggle: false });

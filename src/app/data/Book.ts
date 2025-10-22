@@ -5,6 +5,8 @@ import { IBook } from '@path-interfaces/IBook';
 export const Books: IBook[] = [
   // ===== CASA DO CÓDIGO =====
   {
+
+    id: 'livro-inteligencia-artificial-e-chatgpt-casadocodigo-2023',
     title: 'Inteligência Artificial e ChatGPT',
     subtitle:
       'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
@@ -19,6 +21,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-chatgpt-para-o-dia-a-dia-casadocodigo-2023',
     title: 'ChatGPT para o dia a dia',
     subtitle: 'Explore o poder da Inteligência Artificial agora mesmo',
     author: ['Bruna Escudelario'],
@@ -31,6 +35,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-engenharia-de-prompt-para-devs-casadocodigo-2023',
     title: 'Engenharia de Prompt para Devs',
     subtitle:
       'Um guia para aprender a usar a IA antes que a IA aprenda a usar você',
@@ -45,6 +51,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-arquitetura-orientada-a-eventos-casadocodigo-2023',
     title: 'Arquitetura Orientada a Eventos',
     subtitle: 'Soluções escaláveis e em tempo real com EDA',
     author: ['Roberto Picanço'],
@@ -60,6 +68,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-rust-casadocodigo-2022',
     title: 'Rust',
     subtitle: 'Concorrência e alta performance com segurança',
     author: ['Marcelo Castellani', 'Willian Molinari'],
@@ -72,6 +82,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-scrum-casadocodigo-2022',
     title: 'Scrum',
     subtitle: 'Gestão ágil para produtos de sucesso',
     author: ['Rafael Sabbagh'],
@@ -84,6 +96,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-javascript-assertivo-casadocodigo-2021',
     title: 'JavaScript Assertivo',
     subtitle: 'Testes e qualidade de código em todas as camadas da aplicação',
     author: ['Gabriel Ramos'],
@@ -97,6 +111,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-modernizacao-de-aplicacao-no-microsoft-a-casadocodigo-2021',
     title: 'Modernização de Aplicação no Microsoft Azure',
     subtitle: 'Explorando o potencial da nuvem',
     author: ['Time de Customer Engineers da Microsoft'],
@@ -114,6 +130,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-tuning-de-sql-casadocodigo-2021',
     title: 'Tuning de SQL',
     subtitle: 'Melhore a performance de suas aplicações Oracle',
     author: ['Eduardo Gonçalves'],
@@ -126,6 +144,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-produtividade-em-c-casadocodigo-2021',
     title: 'Produtividade em C#',
     subtitle: 'Obtenha mais resultado com menos esforço',
     author: ['Cláudio Ralha'],
@@ -143,6 +163,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-sistemas-reativos-casadocodigo-2021',
     title: 'Sistemas reativos',
     subtitle: 'Não confundir com sistemas radioativos',
     author: ['Guilherme Virgs Moraes'],
@@ -155,6 +177,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-cangaceiro-javascript-casadocodigo-2021',
     title: 'Cangaceiro JavaScript',
     subtitle: 'Uma aventura no sertão da programação',
     author: ['Flávio Almeida'],
@@ -168,6 +192,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-inteligencia-artificial-como-servico-casadocodigo-2020',
     title: 'Inteligência Artificial como serviço',
     subtitle: 'Uma introdução aos Serviços Cognitivos da Microsoft Azure',
     author: ['Thiago Custódio'],
@@ -180,6 +206,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-mongodb-casadocodigo-2020',
     title: 'MongoDB',
     subtitle: 'Construa novas aplicações com novas tecnologias',
     author: ['Fernando Boaglio'],
@@ -192,6 +220,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-orientacao-a-objetos-em-c-casadocodigo-2020',
     title: 'Orientação a Objetos em C#',
     subtitle: 'MConceitos e implementações em .NET',
     author: ['Everton Coimbra de Araújo'],
@@ -208,6 +238,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-design-patterns-com-c-casadocodigo-2020',
     title: 'design-patterns com C#',
     subtitle: 'Aprenda padrões de projeto com os games',
     author: ['Rodrigo Gonçalves Santana'],
@@ -225,6 +257,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-test-driven-development-casadocodigo-2020',
     title: 'Test-Driven Development',
     subtitle: 'Teste e Design no Mundo Real com .NET',
     author: ['Mauricio Aniche'],
@@ -242,6 +276,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-programacao-funcional-em-net-casadocodigo-2020',
     title: 'Programação funcional em .NET',
     subtitle: 'Explore um novo universo',
     author: ['Gabriel Schade Cardoso'],
@@ -259,6 +295,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-apache-cassandra-casadocodigo-2020',
     title: 'Apache Cassandra',
     subtitle: 'Escalabilidade horizontal para aplicações Java',
     author: ['Otávio Santana'],
@@ -275,6 +313,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-teoria-dos-grafos-casadocodigo-2020',
     title: 'Teoria dos Grafos',
     subtitle: 'Uma abordagem prática em Java',
     author: ['João Paulo Maida'],
@@ -287,6 +327,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-programacao-funcional-casadocodigo-2019',
     title: 'Programação Funcional',
     subtitle: 'Uma introdução em Clojure',
     author: ['Gregório Melo'],
@@ -300,6 +342,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-web-services-rest-com-asp-net-web-api-e--casadocodigo-2016',
     title: 'Web Services REST com ASP .NET Web API e Windows Azure',
     subtitle: 'Web Services REST com ASP .NET Web API e Windows Azure',
     author: ['Paulo Siécola'],
@@ -312,6 +356,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-orientacao-a-objetos-casadocodigo-2016',
     title: 'Orientação a Objetos',
     subtitle: 'Aprenda seus conceitos e suas aplicabilidades de forma efetiva',
     author: ['Thiago Leite'],
@@ -324,6 +370,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-desenvolvimento-efetivo-na-plataforma-mi-casadocodigo-2016',
     title: 'Desenvolvimento efetivo na plataforma Microsoft',
     subtitle: 'Como desenvolver e suportar software que funciona',
     author: ['Time de Suporte Microsoft Modern Apps'],
@@ -337,6 +385,8 @@ export const Books: IBook[] = [
     favorite: false,
   },
   {
+
+    id: 'livro-orientacao-a-objetos-e-solid-para-ninjas-casadocodigo-2015',
     title: 'Orientação a Objetos e SOLID para Ninjas',
     subtitle: 'Projetando classes flexíveis',
     author: ['Mauricio Aniche'],
@@ -353,6 +403,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-programando-em-go-casadocodigo-2014',
     title: 'Programando em Go',
     subtitle: 'Crie aplicações com a linguagem do Google',
     author: ['Caio Filipini'],
@@ -367,6 +419,8 @@ export const Books: IBook[] = [
 
   // ===== PACKT PUBLISHING =====
   {
+
+    id: 'livro-keycloak-identity-and-access-management--packts-2023',
     title:
       'Keycloak - Identity and Access Management for Modern Applications - Second Edition',
     subtitle:
@@ -386,6 +440,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-high-performance-programming-in-c-and-ne-packts-2022',
     title: 'High-Performance Programming in C# and .NET',
     subtitle:
       'Understand the nuts and bolts of developing robusts, faster, and resilient applications in C# 10.0 and .NET 6',
@@ -404,6 +460,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-parallel-programming-and-concurrency-wit-packts-2022',
     title: 'Parallel Programming and Concurrency with C# 10 and .NET 6',
     subtitle: 'Parallel Programming and Concurrency with C# 10 and .NET 6',
     author: ['Alvin Ashcraft'],
@@ -421,6 +479,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-c-10-and-net-6-modern-cross-platform-dev-packts-2021',
     title:
       'C# 10 and .NET 6 – Modern Cross-Platform Development - Sixth Edition',
     subtitle:
@@ -440,6 +500,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-c-data-structures-and-algorithms-packts-2018',
     title: 'C# Data Structures and Algorithms',
     subtitle:
       'Explore the possibilities of C# for development a variety of efficient applications',
@@ -460,6 +522,8 @@ export const Books: IBook[] = [
 
   // ===== NOVATEC =====
   {
+
+    id: 'livro-logica-de-programacao-e-algoritmos-com-j-novatec-2022',
     title: 'Lógica de Programação e Algoritmos com JavaScript – 2ª Edição',
     subtitle:
       'Uma introdução à programação de computadores com exemplos e exercícios para iniciantes',
@@ -474,6 +538,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-refatoracao-2-edicao-novatec-2020',
     title: 'Refatoração - 2ª Edição',
     subtitle: 'Aperfeiçoando o design de códigos existentes',
     author: ['Martin Fowler'],
@@ -490,6 +556,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-estruturas-de-dados-e-algoritmos-com-jav-novatec-2019',
     title: 'Estruturas de dados e algoritmos com JavaScript – 2ª Edição',
     subtitle:
       'Escreva um código JavaScript complexo e eficaz usando a mais recente ECMAScript',
@@ -504,6 +572,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-nosql-novatec-2013',
     title: 'NoSQL',
     subtitle:
       'Um Guia Conciso para o Mundo Emergente da Persistência Poliglota',
@@ -519,6 +589,8 @@ export const Books: IBook[] = [
 
   // ===== ALTA BOOKS =====
   {
+
+    id: 'livro-domain-driven-design-altabooks-2016',
     title: 'Domain-Driven Design',
     subtitle: 'Atacando As Complexidades No Coração Do Software',
     author: ['Eric Evan'],
@@ -531,6 +603,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-codigo-limpo-altabooks-2016',
     title: 'Código Limpo',
     subtitle: 'Habilidades Práticas do Agile Software',
     author: ['Robert C. Martin'],
@@ -543,6 +617,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-arquitetura-limpa-altabooks-2016',
     title: 'Arquitetura Limpa',
     subtitle: 'O guia do artesão para estrutura e design de software',
     author: ['Robert C. Martin'],
@@ -557,6 +633,8 @@ export const Books: IBook[] = [
 
   // ===== ELSEVIER =====
   {
+
+    id: 'livro-sistemas-operacionais-modernos-elsevier-2015',
     title: 'Sistemas Operacionais Modernos',
     subtitle: 'Sistemas Operacionais Modernos',
     author: ['Andrew Stuart Tanenbaum'],
@@ -570,6 +648,8 @@ export const Books: IBook[] = [
     favorite: true,
   },
   {
+
+    id: 'livro-redes-de-computadores-elsevier-2003',
     title: 'Redes De Computadores',
     subtitle: 'Redes De Computadores',
     author: ['Andrew Stuart Tanenbaum'],
