@@ -21,6 +21,7 @@ describe('BookComponent', () => {
     dataServiceStub = {
       getBooks: () => [
         {
+          id: 'livro-inteligencia-artificial-chatgpt-1-altabooks-2023',
           title: 'Inteligência Artificial e ChatGPT 1',
           subtitle:
             'Da revolução dos modelos de IA generativa à Engenharia de Prompt',
@@ -35,6 +36,7 @@ describe('BookComponent', () => {
           favorite: false,
         },
         {
+          id: 'livro-inteligencia-artificial-chatgpt-2-casadocodigo-2023',
           title: 'Inteligência Artificial e ChatGPT 2',
           subtitle:
             'Da revolução dos modelos de IA generativa à Engenharia de Prompt',

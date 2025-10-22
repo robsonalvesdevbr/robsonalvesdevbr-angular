@@ -5,6 +5,8 @@ import { CourseTagEnum } from '../models/CourseTagEnum';
 export const Courses: ICourse[] = [
   // ===== UDEMY =====
   {
+
+    id: 'curso-github-copilot-do-zero-a-produtividade-m-udemy-2025-09',
     name: 'GitHub Copilot: Do Zero à Produtividade Máxima com GenAI',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -18,6 +20,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-go-golang-do-zero-ao-avancado-com-teste--udemy-2025-08',
     name: 'Go (Golang) - Do zero ao avançado (com teste de unidade)',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -31,6 +35,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-curso-completo-de-git-e-github-basico-ao-udemy-2025-08',
     name: 'Curso completo de Git e GitHub - Básico ao Avançado',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -44,6 +50,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-java-completo-programacao-orientada-a-ob-udemy-2025-07',
     name: 'Java COMPLETO Programação Orientada a Objetos + Projetos',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -56,6 +64,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-dapper-aprenda-a-usar-o-micro-orm-mais-p-udemy-2025-06',
     name: 'Dapper - Aprenda a usar o micro-ORM mais popular do .NET',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -71,6 +81,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-arquitetural-c4-model-udemy-2025-01',
     name: 'Modelagem Arquitetural - C4 Model',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -84,6 +96,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-monitoramento-de-aplicacoes-com-promethe-udemy-2025-01',
     name: 'Monitoramento de aplicações com Prometheus e Grafana',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -99,6 +113,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-clean-architecture-essencial-asp-net-cor-udemy-2025-01',
     name: 'Clean Architecture Essencial - ASP .NET Core com C#',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -114,6 +130,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-go-golang-explorando-a-linguagem-do-goog-udemy-2024-11',
     name: 'Go (Golang): Explorando a Linguagem do Google',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -128,6 +146,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-chatgpt-completo-domine-chat-gpt-e-intel-udemy-2024-09',
     name: 'ChatGPT Completo: Domine Chat GPT e Inteligência Artificial',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -142,6 +162,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-certificacao-microsoft-azure-architect-a-udemy-2024-07',
     name: 'Certificação Microsoft Azure Architect AZ-303 e AZ-304',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -157,6 +179,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-git-e-github-do-basico-ao-avancado-2024-udemy-2024-05',
     name: 'Git e GitHub do básico ao avançado 2024',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -166,6 +190,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-o-curso-completo-de-nosql-sem-misterios--udemy-2024-05',
     name: 'O Curso completo de NoSQL sem mistérios! MongoDB Neo4J',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -182,6 +208,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-jira-software-agil-scrum-e-kanban-udemy-2024-04',
     name: 'JIRA Software Ágil Scrum e Kanban',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -191,6 +219,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-event-driven-architecture-the-complete-g-udemy-2023-01',
     name: 'Event Driven Architecture - The Complete Guide',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -204,6 +234,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-de-dados-uml-analiseprojeto-or-udemy-2023-02',
     name: 'Modelagem de Dados UML (Análise&Projeto Orientado a Objetos)',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -218,6 +250,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsoft-azure-active-directory-udemy-2022-11',
     name: 'Microsoft Azure Active Directory',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -227,6 +261,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-azure-databases-para-iniciantes-udemy-2022-11',
     name: 'Azure Databases para Iniciantes',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -241,6 +277,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-aplicando-principios-solid-na-pratica-udemy-2022-06',
     name: 'C# - Aplicando Princípios SOLID na prática',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -255,6 +293,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-orquestracao-de-containers-com-kubernete-udemy-2022-06',
     name: 'Orquestração de Containers com Kubernetes',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -268,6 +308,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-azure-pipelines-cicd-docker-e-kubernetes-udemy-2021-08',
     name: 'Azure Pipelines - CI/CD, Docker e Kubernetes no Azure DevOps',
     institution: InstitutionEnum.Udemy,
     certificateUrl:
@@ -282,6 +324,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-o-curso-completo-de-banco-de-dados-e-sql-udemy-2019-06',
     name: 'O curso completo de Banco de Dados e SQL, sem mistérios!',
     institution: InstitutionEnum.Udemy,
     certificateUrl: 'https://www.udemy.com/certificate/UC-T3Y1X056',
@@ -296,6 +340,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-c-completo-programacao-orientada-a-objet-udemy-2019-05',
     name: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
     institution: InstitutionEnum.Udemy,
     certificateUrl: 'https://www.udemy.com/certificate/UC-26OBZ64N',
@@ -311,6 +357,8 @@ export const Courses: ICourse[] = [
 
   // ===== LINKEDIN LEARNING =====
   {
+
+    id: 'curso-como-impulsionar-a-sustentabilidade-atra-linkedinlearnin-2024-09',
     name: 'Como Impulsionar a Sustentabilidade Através da Tecnologia',
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
@@ -320,6 +368,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-ia-generativa-para-profissionais-criativ-linkedinlearnin-2024-09',
     name: 'IA Generativa para Profissionais Criativos: Oportunidades, Desafios e Ética',
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
@@ -329,6 +379,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-fundamentos-da-tecnologia-blockchain-linkedinlearnin-2024-09',
     name: 'Fundamentos da Tecnologia Blockchain',
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
@@ -338,6 +390,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-comunicacao-assertiva-para-gestores-de-a-linkedinlearnin-2024-08',
     name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
@@ -347,6 +401,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-github-copilot-formacao-basica-linkedinlearnin-2024-08',
     name: 'GitHub Copilot: Formação Básica',
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
@@ -362,6 +418,8 @@ export const Courses: ICourse[] = [
 
   // ===== DESENVOLVEDOR.IO =====
   {
+
+    id: 'curso-fundamentos-do-blazor-desenvolvedorio-2024-07',
     name: 'Fundamentos do Blazor',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -377,6 +435,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-git-e-github-do-zero-ao-avancado-desenvolvedorio-2024-06',
     name: 'Git e Github do Zero ao Avançado',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -386,6 +446,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-docker-do-zero-ao-avancado-desenvolvedorio-2024-03',
     name: 'Docker do Zero ao Avançado',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -398,6 +460,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-iniciando-com-aspnet-core-desenvolvedorio-2023-12',
     name: 'Iniciando com ASP.NET Core',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -412,6 +476,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-projetando-arquiteturas-em-tres-camadas-desenvolvedorio-2023-11',
     name: 'Projetando Arquiteturas em Três Camadas',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -427,6 +493,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-dominando-o-kubernetes-desenvolvedorio-2023-08',
     name: 'Dominando o Kubernetes',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -436,6 +504,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-fundamentos-do-c-desenvolvedorio-2023-01',
     name: 'Fundamentos do C#',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -450,6 +520,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-fundamentos-de-arquitetura-de-software-desenvolvedorio-2022-09',
     name: 'Fundamentos de Arquitetura de Software',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -465,6 +537,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-introducao-ao-devops-desenvolvedorio-2022-09',
     name: 'Introdução ao DevOps',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -474,6 +548,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-desenvolvimento-spa-com-angular-desenvolvedorio-2022-08',
     name: 'Desenvolvimento SPA com Angular',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -488,6 +564,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-fundamentos-de-criptografia-e-hashing-desenvolvedorio-2022-08',
     name: 'Fundamentos de Criptografia e Hashing',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -497,6 +575,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-dominando-o-apache-kafka-desenvolvedorio-2022-08',
     name: 'Dominando o Apache Kafka',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -510,6 +590,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-iniciando-com-aspnet-core-desenvolvedorio-2021-11',
     name: 'Iniciando com ASP.NET Core',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:
@@ -527,6 +609,8 @@ export const Courses: ICourse[] = [
 
   // ===== ALURA =====
   {
+
+    id: 'curso-seguranca-ofensiva-alura-2024-09',
     name: 'Segurança Ofensiva',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -536,6 +620,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-nodejs-criando-uma-api-rest-com-express--alura-2024-07',
     name: 'Node.js: criando uma API Rest com Express e MongoDB',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -545,6 +631,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-nodejs-e-terminal-dominando-o-ambiente-d-alura-2024-07',
     name: 'Node.js e terminal: dominando o ambiente de desenvolvimento front-end',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -554,6 +642,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-logica-de-programacao-explore-funcoes-e--alura-2024-02',
     name: 'Lógica de programação: explore funções e listas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -563,6 +653,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-logica-de-programacao-mergulhe-em-progra-alura-2024-01',
     name: 'Lógica de programação: mergulhe em programação com JavaScript',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -572,6 +664,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsoft-sql-server-2022-conhecendo-sql-alura-2023-09',
     name: 'Microsoft SQL Server 2022: conhecendo SQL',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -581,6 +675,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-azure-cloud-seguranca-e-recursos-avancad-alura-2023-08',
     name: 'Azure Cloud: segurança e recursos avançados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -590,6 +686,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-azure-cloud-criando-um-servidor-com-banc-alura-2023-08',
     name: 'Azure Cloud: criando um servidor com banco de dados para receber uma aplicação',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -603,6 +701,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-kubernetes-pratica-helm-e-cloud-alura-2023-08',
     name: 'Kubernetes: prática, Helm e Cloud',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -617,6 +717,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-dart-criando-e-manipulando-variaveis-e-l-alura-2023-03',
     name: 'Dart: criando e manipulando variáveis e listas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -626,6 +728,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-owasp-top-10-de-injections-a-broken-acce-alura-2023-01',
     name: 'OWASP Top 10: de Injections a Broken Access Control',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -635,6 +739,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-net-6-criando-uma-web-api-alura-2023-01',
     name: '.NET 6: criando uma web API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -648,6 +754,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-vue3-explorando-o-framework-alura-2022-08',
     name: 'Vue3: explorando o framework',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -657,6 +765,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-rust-a-linguagem-de-programacao-performa-alura-2022-08',
     name: 'Rust: a linguagem de programação performática e segura',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -666,6 +776,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-rust-aprenda-mais-sobre-tipos-alura-2022-08',
     name: 'Rust: aprenda mais sobre tipos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -675,6 +787,8 @@ export const Courses: ICourse[] = [
     favorite: true,
   },
   {
+
+    id: 'curso-sql-server-administracao-do-microsoft-sq-alura-2022-08',
     name: 'SQL Server: administração do Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -684,6 +798,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-sql-server-t-sql-com-microsoft-sql-serve-alura-2022-08',
     name: 'SQL Server: T-SQL com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -693,6 +809,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-sql-server-manipulacao-de-dados-com-micr-alura-2022-08',
     name: 'SQL Server: Manipulação de dados com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -702,6 +820,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-sql-server-consultas-avancadas-com-micro-alura-2022-08',
     name: 'SQL Server: consultas avançadas com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -711,6 +831,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-sql-server-introducao-ao-sql-com-microso-alura-2022-08',
     name: 'SQL Server: Introdução ao SQL com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -720,6 +842,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-de-banco-de-dados-relacional-a-alura-2022-08',
     name: 'Modelagem de banco de dados relacional: Álgebra Relacional',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -729,6 +853,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-de-banco-de-dados-relacional-e-alura-2022-08',
     name: 'Modelagem de banco de dados relacional: entendendo SQL',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -738,6 +864,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-de-banco-de-dados-relacional-n-alura-2022-08',
     name: 'Modelagem de banco de dados relacional: normalização',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -747,6 +875,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-de-banco-de-dados-relacional-m-alura-2022-08',
     name: 'Modelagem de banco de dados relacional: modelagem lógica e física',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -756,6 +886,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-de-banco-de-dados-entidades-re-alura-2022-08',
     name: 'Modelagem de banco de dados: entidades, relacionamentos e atributos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -765,6 +897,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-redis-ii-estruturas-e-recursos-na-sua-ba-alura-2022-07',
     name: 'Redis II: estruturas e recursos na sua base NoSQL',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -774,6 +908,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-redis-i-armazenando-chaves-e-valores-alura-2022-07',
     name: 'Redis I: armazenando chaves e valores',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -783,6 +919,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsservicos-e-net6-implementando-a-co-alura-2022-07',
     name: 'Microsserviços e .NET6: implementando a comunicação',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -796,6 +934,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-modelagem-mongodb-relacionamentos-e-card-alura-2022-07',
     name: 'Modelagem MongoDB: relacionamentos e cardinalidade',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -805,6 +945,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-mongodb-modelagem-de-dados-alura-2022-07',
     name: 'MongoDB: modelagem de dados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -814,6 +956,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-mongodb-uma-alternativa-aos-bancos-relac-alura-2022-07',
     name: 'MongoDB: uma alternativa aos bancos relacionais tradicionais',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -823,6 +967,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-entendendo-excecoes-alura-2022-07',
     name: 'C#: entendendo exceções',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -836,6 +982,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-estrutura-de-dados-computacao-na-pratica-alura-2022-07',
     name: 'Estrutura de Dados: computação na prática com Java',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -849,6 +997,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsoft-az-900-parte-4-azure-fundament-alura-2022-07',
     name: 'Microsoft AZ-900 parte 4: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -858,6 +1008,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsoft-az-900-parte-3-azure-fundament-alura-2022-07',
     name: 'Microsoft AZ-900 parte 3: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -867,6 +1019,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsoft-az-900-parte-2-azure-fundament-alura-2022-07',
     name: 'Microsoft AZ-900 parte 2: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -876,6 +1030,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsoft-az-900-parte-1-azure-fundament-alura-2022-06',
     name: 'Microsoft AZ-900 parte 1: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -885,6 +1041,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-git-e-github-controle-e-compartilhe-seu--alura-2022-06',
     name: 'Git e Github: controle e compartilhe seu código',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -894,6 +1052,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-go-validacoes-testes-e-paginas-html-alura-2022-06',
     name: 'Go: validações, testes e páginas HTML',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -908,6 +1068,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-go-a-linguagem-do-google-alura-2022-05',
     name: 'Go: a linguagem do Google',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -922,6 +1084,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-net-5-e-identity-autenticando-e-autoriza-alura-2022-05',
     name: '.NET 5 e Identity: autenticando e autorizando usuários',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -935,6 +1099,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-net-5-e-identity-implementando-controle--alura-2022-05',
     name: '.NET 5 e Identity: implementando controle de usuário',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -948,6 +1114,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-delegacao-de-tarefas-obtenha-o-melhor-do-alura-2022-05',
     name: 'Delegação de tarefas: obtenha o melhor do seu time',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -957,6 +1125,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-mindset-digital-tecnicas-e-habilidades-p-alura-2022-05',
     name: 'Mindset Digital: técnicas e habilidades para liderança remota',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -966,6 +1136,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-principios-do-trabalho-em-equipe-relacoe-alura-2022-05',
     name: 'Princípios do trabalho em equipe: relações colaborativas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -975,6 +1147,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-selenium-webdriver-e-c-parte-2-outros-re-alura-2022-05',
     name: 'Selenium WebDriver e C# parte 2: outros recursos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -989,6 +1163,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-selenium-webdriver-e-c-parte-1-testes-da-alura-2022-05',
     name: 'Selenium WebDriver e C# parte 1: testes da sua web app',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1003,6 +1179,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-extreme-programming-metodologia-de-desen-alura-2022-05',
     name: 'Extreme Programming: metodologia de desenvolvimento ágil de software',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1012,6 +1190,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-testes-em-net-testes-de-interface-usando-alura-2022-05',
     name: 'Testes em .NET: testes de interface usando Selenium',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1026,6 +1206,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-testes-em-net-integracao-e-entrega-conti-alura-2022-05',
     name: 'Testes em .NET: integração e entrega contínua com Azure DevOps',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1040,6 +1222,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-testes-em-net-integrando-a-aplicacao-com-alura-2022-05',
     name: 'Testes em .NET: integrando a aplicação com um banco de dados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1054,6 +1238,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-testes-em-net-testando-software-alura-2022-05',
     name: 'Testes em .NET: testando software',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1068,6 +1254,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-amazon-eks-gerenciando-aplicacoes-contei-alura-2022-05',
     name: 'Amazon EKS: gerenciando aplicações conteinerizadas com Kubernetes',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1077,6 +1265,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-google-kubernetes-engine-avancando-com-g-alura-2022-05',
     name: 'Google Kubernetes Engine: avançando com GKE',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1086,6 +1276,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-google-kubernetes-engine-alura-2022-05',
     name: 'Google Kubernetes Engine',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1095,6 +1287,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-kubernetes-na-digital-ocean-gerenciando--alura-2022-05',
     name: 'Kubernetes na digital-ocean: gerenciando aplicações conteinerizadas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1104,6 +1298,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-azure-gerencie-kubernetes-com-aks-e-acr-alura-2022-05',
     name: 'Azure: gerencie Kubernetes com AKS e ACR',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1113,6 +1309,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-kubernetes-deployments-volumes-e-escalab-alura-2022-05',
     name: 'Kubernetes: Deployments, Volumes e Escalabilidade',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1122,6 +1320,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-kubernetes-pods-services-e-configmaps-alura-2022-05',
     name: 'Kubernetes: Pods, Services e ConfigMaps',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1131,6 +1331,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-habitos-na-lideranca-boas-praticas-alura-2022-01',
     name: 'Hábitos na liderança: boas práticas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1140,6 +1342,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-lideranca-praticas-de-gestao-e-melhorias-alura-2022-01',
     name: 'Liderança: práticas de gestão e melhorias',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1149,6 +1353,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-lideranca-aprendendo-sobre-a-missao-e-pr-alura-2022-01',
     name: 'Liderança: aprendendo sobre a missão e propósito de liderar pessoas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1158,6 +1364,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-aspnet-core-uma-webapp-usando-o-padrao-m-alura-2022-01',
     name: 'Asp.NET Core: uma webapp usando o padrão MVC',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1171,6 +1379,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-logica-de-programacao-lacos-e-listas-com-alura-2022-01',
     name: 'Lógica de programação: laços e listas com JavaScript',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1180,6 +1390,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-logica-de-programacao-comece-em-logica-c-alura-2022-01',
     name: 'Lógica de programação: comece em lógica com o jogo Pong e JavaScript',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1189,6 +1401,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-nginx-servidor-web-proxy-reverso-e-api-g-alura-2021-09',
     name: 'NGINX: servidor Web, Proxy Reverso e API Gateway',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1198,6 +1412,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-microsservicos-padroes-de-projeto-alura-2021-09',
     name: 'Microsserviços: padrões de projeto',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1207,6 +1423,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-net-5-e-ef-core-relacionando-entidades-alura-2021-09',
     name: '.NET 5 e EF Core: relacionando entidades',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1220,6 +1438,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-api-rest-com-net-5-operacoes-essenciais--alura-2021-09',
     name: 'API Rest com .NET 5: operações essenciais com verbos HTTP',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1233,6 +1453,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-python-comecando-com-a-linguagem-alura-2021-08',
     name: 'Python: começando com a linguagem',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1242,6 +1464,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-net-e-mongodb-parte-1-integre-aplicacoes-alura-2021-08',
     name: '.Net e MongoDB parte 1: integre aplicações .NET',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1257,6 +1481,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-dns-entenda-a-resolucao-de-nomes-na-inte-alura-2021-06',
     name: 'DNS: entenda a resolução de nomes na internet',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1266,6 +1492,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-eventos-delegates-e-lambda-alura-2021-05',
     name: 'C#: Eventos, Delegates e Lambda',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1279,6 +1507,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-paralelismo-no-mundo-real-alura-2021-04',
     name: 'C#: Paralelismo no mundo real',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1292,6 +1522,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-9-entrada-e-saida-io-com-streams-alura-2021-04',
     name: 'C# Parte 9: entrada e saída (I/O) com streams',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1305,6 +1537,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-8-list-lambda-linq-alura-2021-04',
     name: 'C# parte 8: List, lambda, linq',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1318,6 +1552,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-7-array-e-tipos-genericos-alura-2021-04',
     name: 'C# parte 7: Array e tipos genéricos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1331,6 +1567,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-6-strings-expressoes-regulares-e-alura-2021-04',
     name: 'C# parte 6: Strings, expressões regulares e a classe Object',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1344,6 +1582,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-5-bibliotecas-dlls-documentacao--alura-2021-04',
     name: 'C# parte 5: bibliotecas DLLs, documentação e usando o NuGet',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1357,6 +1597,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-4-entendendo-excecoes-alura-2021-03',
     name: 'C# parte 4: entendendo exceções',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1370,6 +1612,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-3-entendendo-heranca-e-interface-alura-2021-03',
     name: 'C# parte 3: entendendo herança e interface',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1383,6 +1627,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-2-entendendo-a-orientacao-a-obje-alura-2021-03',
     name: 'C# parte 2: Entendendo a Orientação a Objetos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1396,6 +1642,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-vuejs-parte-1-construindo-single-page-ap-alura-2021-02',
     name: 'Vue.js parte 1: construindo Single Page Applications',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1405,6 +1653,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-parte-1-primeiros-passos-alura-2021-02',
     name: 'C# parte 1: primeiros passos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1418,6 +1668,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-kafka-produtores-consumidores-e-streams-alura-2021-02',
     name: 'Kafka: produtores, consumidores e streams',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1427,6 +1679,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-mocks-em-c-testes-de-integracao-com-xuni-alura-2020-12',
     name: 'Mocks em C#: testes de Integração com xUnit e Moq',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1436,6 +1690,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-scrum-agileidade-em-seu-projeto-alura-2020-11',
     name: 'Scrum: agileidade em seu projeto',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1445,6 +1701,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-agilidade-promovendo-a-transformacao-agi-alura-2020-11',
     name: 'Agilidade: promovendo a transformação ágil',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1454,6 +1712,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-solid-com-c-principios-da-programacao-or-alura-2020-10',
     name: 'SOLID com C#: princípios da programação orientada a objetos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1468,6 +1728,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-c-testes-de-unidade-e-tdd-com-xunit-alura-2020-09',
     name: 'C#: Testes de unidade e TDD com xUnit',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1481,6 +1743,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-azure-deploy-de-uma-webapp-na-nuvem-da-m-alura-2020-09',
     name: 'Azure: Deploy de uma webapp na nuvem da Microsoft',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1490,6 +1754,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-deploy-no-amazon-ec2-alta-disponibilidad-alura-2020-07',
     name: 'Deploy no Amazon EC2: alta disponibilidade e escalabilidade de uma aplicação',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1499,6 +1765,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-lgpd-conhecendo-e-entendendo-seus-impact-alura-2020-07',
     name: 'LGPD: conhecendo e entendendo seus impactos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1508,6 +1776,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-apis-rest-com-aspnet-core-21-parte-3-pad-alura-2020-05',
     name: 'APIs Rest com Asp.NET Core 2.1 Parte 3: padronizando a API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1521,6 +1791,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-apis-rest-com-aspnet-core-21-parte-2-con-alura-2020-05',
     name: 'APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1534,6 +1806,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-apis-rest-com-aspnet-core-21-parte-1-da--alura-2020-05',
     name: 'APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1547,6 +1821,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-apis-rest-com-aspnet-core-21-parte-2-con-alura-2020-05-2',
     name: 'APIs Rest com Asp.NET Core 2.1 Parte 2: Consumindo nossa API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1560,6 +1836,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-apis-rest-com-aspnet-core-21-parte-1-da--alura-2020-05-2',
     name: 'APIs Rest com Asp.NET Core 2.1 Parte 1: Da app MVC para API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1573,6 +1851,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-entity-framework-core-banco-de-dados-de--alura-2020-03',
     name: 'Entity Framework Core: banco de dados de forma eficiente',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1586,6 +1866,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-webpack-manipulando-modulos-na-sua-webap-alura-2020-01',
     name: 'Webpack: Manipulando módulos na sua webapp',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1595,6 +1877,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-typescript-parte-2-mais-tecnicas-e-boas--alura-2020-01',
     name: 'TypeScript parte 2: Mais técnicas e boas práticas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1604,6 +1888,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-typescript-parte-1-evoluindo-seu-javascr-alura-2020-01',
     name: 'TypeScript parte 1: evoluindo seu JavaScript',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1613,6 +1899,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-nodejs-parte-1-inovando-com-javascript-n-alura-2020-01',
     name: 'Node.js Parte 1: Inovando com JavaScript no backend',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1622,6 +1910,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-javascript-aprofundando-em-mvc-padrao-pr-alura-2020-01',
     name: 'JavaScript aprofundando em MVC, padrão Proxy e Factory',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1635,6 +1925,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-javascript-conhecendo-o-browser-e-padroe-alura-2020-01',
     name: 'JavaScript conhecendo o Browser e padrões de projeto',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1648,6 +1940,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-javascript-programando-na-linguagem-da-w-alura-2019-12',
     name: 'JavaScript programando na linguagem da web',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1657,6 +1951,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-http-entendendo-a-web-por-baixo-dos-pano-alura-2019-12',
     name: 'HTTP: Entendendo a web por baixo dos panos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1666,6 +1962,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-aspnet-identity-parte-1-gerencie-contas--alura-2019-11',
     name: 'ASP.NET Identity parte 1: Gerencie contas de usuários',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1679,6 +1977,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-docker-criando-containers-sem-dor-de-cab-alura-2019-11',
     name: 'Docker: Criando containers sem dor de cabeça',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1688,6 +1988,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-nodejs-e-terminal-dominando-o-ambiente-d-alura-2024-07-2',
     name: 'Node.js e terminal: dominando o ambiente de desenvolvimento front-end',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1697,6 +1999,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-nodejs-criando-uma-api-rest-com-express--alura-2024-07-2',
     name: 'Node.js: criando uma API Rest com Express e MongoDB',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -1706,6 +2010,8 @@ export const Courses: ICourse[] = [
     favorite: false,
   },
   {
+
+    id: 'curso-seguranca-ofensiva-alura-2024-09-2',
     name: 'Segurança Ofensiva',
     institution: InstitutionEnum.Alura,
     certificateUrl:

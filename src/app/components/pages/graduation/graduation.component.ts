@@ -10,6 +10,7 @@ import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.p
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { IGraduation } from '@path-interfaces/IGraduation';
 
 @Component({
   selector: 'app-graduation',
@@ -27,7 +28,7 @@ export class GraduationComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
   graduations = signal(this.dataService.getGraduations());
 
-  trackByGraduation(index: number, item: any): string {
-    return item.name + item.institution;
+  trackByGraduation(index: number, item: IGraduation): string {
+    return item.id;
   }
 }

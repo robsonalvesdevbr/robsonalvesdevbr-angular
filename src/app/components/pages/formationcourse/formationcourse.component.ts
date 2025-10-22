@@ -12,6 +12,7 @@ import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { IFormationCourse } from '@path-interfaces/IFormationCourse';
 
 @Component({
   selector: 'app-formationcourse',
@@ -45,7 +46,7 @@ export class FormationCourseComponent extends BasePageComponent {
     this.config().currentPage = number;
   }
 
-  trackByFormationCourse(index: number, item: any): string {
-    return item.name + item.institution;
+  trackByFormationCourse(index: number, item: IFormationCourse): string {
+    return item.id;
   }
 }

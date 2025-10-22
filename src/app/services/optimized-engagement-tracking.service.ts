@@ -106,7 +106,7 @@ export class OptimizedEngagementTrackingService {
 
   private scheduleIdleWork(callback: () => void): void {
     if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(callback, { timeout: 1000 });
+      (window as Window & { requestIdleCallback: (callback: () => void, options?: { timeout: number }) => void }).requestIdleCallback(callback, { timeout: 1000 });
     } else {
       setTimeout(callback, 0);
     }

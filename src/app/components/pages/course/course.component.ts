@@ -129,11 +129,11 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     this.config().currentPage = 1;
   }
 
-  trackByCourse(index: number, item: any): string {
-    return item.name + item.institution;
+  trackByCourse(index: number, item: ICourse): string {
+    return item.id;
   }
 
-  trackByInstitution(index: number, item: any): string {
+  trackByInstitution(index: number, item: { key: string; value: string | number }): string {
     return item.key;
   }
 

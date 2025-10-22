@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { DataService } from '@path-services/data-service';
 import { ICourse } from '@path-interfaces/ICourse';
 import { IBook } from '@path-interfaces/IBook';
+import { IGraduation } from '@path-interfaces/IGraduation';
 
 export interface DashboardStats {
   totalCourses: number;
@@ -24,7 +25,7 @@ export class StatisticsService {
   private dataService = inject(DataService);
 
   // Cache for expensive calculations
-  private statsCache = new Map<string, { data: any; timestamp: number }>();
+  private statsCache = new Map<string, { data: unknown; timestamp: number }>();
   private readonly CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
   private getCachedOrCompute<T>(key: string, computeFn: () => T): T {
@@ -32,7 +33,7 @@ export class StatisticsService {
     const now = Date.now();
 
     if (cached && (now - cached.timestamp) < this.CACHE_TTL) {
-      return cached.data;
+      return cached.data as T;
     }
 
     const result = computeFn();
@@ -101,7 +102,7 @@ export class StatisticsService {
     return courses.reduce((count, course) => count + (course.favorite ? 1 : 0), 0);
   }
 
-  private countCompletedGraduations(graduations: readonly any[]): number {
+  private countCompletedGraduations(graduations: readonly IGraduation[]): number {
     return graduations.reduce((count, g) => count + (g.conclusion === 'completed' ? 1 : 0), 0);
   }
 
