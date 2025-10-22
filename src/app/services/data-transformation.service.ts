@@ -20,14 +20,14 @@ export class DataTransformationService {
       
       if (!options.key) return items;
       
-      return [...items].sort((a: any, b: any) => {
+      return [...items].sort((a: T, b: T) => {
         const aValue = this.getNestedProperty(a, options.key);
         const bValue = this.getNestedProperty(b, options.key);
-        
+
         let comparison = 0;
         if (aValue > bValue) comparison = 1;
         if (aValue < bValue) comparison = -1;
-        
+
         return options.direction === 'desc' ? -comparison : comparison;
       });
     });
@@ -81,7 +81,7 @@ export class DataTransformationService {
     });
   }
 
-  createEnumToArraySignal<T extends Record<string, any>>(
+  createEnumToArraySignal<T extends Record<string, string | number>>(
     enumObject: T
   ): Signal<Array<{ key: keyof T; value: T[keyof T] }>> {
     return computed(() => {
@@ -102,8 +102,13 @@ export class DataTransformationService {
     });
   }
 
-  private getNestedProperty(obj: any, path: string): any {
-    return path.split('.').reduce((current, prop) => current?.[prop], obj);
+  private getNestedProperty(obj: unknown, path: string): unknown {
+    return path.split('.').reduce((current: unknown, prop: string) => {
+      if (current && typeof current === 'object' && prop in current) {
+        return (current as Record<string, unknown>)[prop];
+      }
+      return undefined;
+    }, obj);
   }
 
   formatDate(date: string | Date, format: 'short' | 'medium' | 'long' = 'medium'): string {

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { PerformanceMonitor, scheduleIdleWork } from '../utils/performance.utils';
+import { LoggerService } from './logger.service';
 
 interface PerformanceMetric {
   name: string;
@@ -12,6 +13,7 @@ interface PerformanceMetric {
   providedIn: 'root'
 })
 export class PerformanceMonitorService {
+  private readonly logger = inject(LoggerService);
   private metrics: PerformanceMetric[] = [];
   private observer?: PerformanceObserver;
   private isMonitoring = false;
@@ -43,7 +45,7 @@ export class PerformanceMonitorService {
       try {
         this.observer.observe({ entryTypes: ['measure', 'navigation', 'resource', 'paint'] });
       } catch (error) {
-        console.warn('Performance Observer not fully supported:', error);
+        this.logger.warn('Performance Observer not fully supported:', error);
       }
     }
   }
@@ -78,7 +80,7 @@ export class PerformanceMonitorService {
   private trackMemoryUsage(): void {
     if ('memory' in performance) {
       const trackMemory = () => {
-        const memory = (performance as any).memory;
+        const memory = (performance as unknown as { memory: { usedJSHeapSize: number; totalJSHeapSize: number } }).memory;
         const usedMB = memory.usedJSHeapSize / 1024 / 1024;
         const totalMB = memory.totalJSHeapSize / 1024 / 1024;
         
@@ -123,7 +125,7 @@ export class PerformanceMonitorService {
         category: 'timing'
       });
     } catch (error) {
-      console.warn(`Failed to track metric ${name}:`, error);
+      this.logger.warn(`Failed to track metric ${name}:`, error);
     }
   }
 
@@ -199,10 +201,10 @@ export class PerformanceMonitorService {
 
   logPerformanceReport(): void {
     const summary = this.getMetricsSummary();
-    console.group('🚀 Performance Report');
+    this.logger.group('🚀 Performance Report');
 
     Object.entries(summary).forEach(([name, stats]) => {
-      console.log(`📊 ${name}:`, {
+      this.logger.log(`📊 ${name}:`, {
         average: `${stats.avg.toFixed(2)}ms`,
         min: `${stats.min.toFixed(2)}ms`,
         max: `${stats.max.toFixed(2)}ms`,
@@ -214,10 +216,10 @@ export class PerformanceMonitorService {
     const memoryMetrics = this.getMetrics('memory');
     if (memoryMetrics.length > 0) {
       const latestMemory = memoryMetrics[memoryMetrics.length - 1];
-      console.log('💾 Memory Usage:', `${latestMemory.value.toFixed(2)} MB`);
+      this.logger.log('💾 Memory Usage:', `${latestMemory.value.toFixed(2)} MB`);
     }
 
-    console.groupEnd();
+    this.logger.groupEnd();
   }
 
   stopMonitoring(): void {

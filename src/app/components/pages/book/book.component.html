@@ -100,7 +100,10 @@
         track trackByBook($index, item);
         let i = $index
       ) {
-        <li class="list-group-item d-flex justify-content-between align-items-center" data-testid="book-card">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          data-testid="book-card"
+        >
           <div class="d-flex align-items-center ms-5">
             <img
               [ngSrc]="getPublisherLogo(item.publishName)"
