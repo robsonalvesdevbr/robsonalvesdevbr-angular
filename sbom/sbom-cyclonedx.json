@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:d7001c22-440b-42d0-8ed6-df864ecf6dba",
+  "serialNumber": "urn:uuid:699e3828-47b1-4d2d-9f1c-048262779b71",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-10-22T11:48:42.071Z",
+    "timestamp": "2025-10-22T11:55:58.226Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -19,12 +19,12 @@
       }
     ],
     "component": {
-      "bom-ref": "robsonalvesdevbr-angular@0.0.0",
+      "bom-ref": "robsonalvesdevbr-angular@2.0.0",
       "type": "library",
       "name": "robsonalvesdevbr-angular",
-      "version": "0.0.0",
+      "version": "2.0.0",
       "scope": "required",
-      "purl": "pkg:npm/robsonalvesdevbr-angular@0.0.0",
+      "purl": "pkg:npm/robsonalvesdevbr-angular@2.0.0",
       "properties": [
         {
           "name": "cdx:npm:package:path",
@@ -55226,7 +55226,7 @@
   ],
   "dependencies": [
     {
-      "ref": "robsonalvesdevbr-angular@0.0.0",
+      "ref": "robsonalvesdevbr-angular@2.0.0",
       "dependsOn": [
         "@angular/animations@20.3.4",
         "@angular/common@20.3.4",
