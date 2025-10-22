@@ -191,11 +191,11 @@ export class BookComponent extends BasePageComponent implements OnInit {
     return this.publishNameFilter().has(publisher);
   }
 
-  trackByBook(index: number, item: any): string {
-    return item.title + item.publishName;
+  trackByBook(index: number, item: IBook): string {
+    return item.id;
   }
 
-  trackByPublisher(index: number, item: any): string {
+  trackByPublisher(index: number, item: { key: string; value: string | number }): string {
     return item.key;
   }
 

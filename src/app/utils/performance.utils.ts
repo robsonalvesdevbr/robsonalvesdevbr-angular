@@ -2,7 +2,7 @@
  * Performance utility functions for optimizing Angular application
  */
 
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: never[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -13,7 +13,7 @@ export function debounce<T extends (...args: any[]) => any>(
   };
 }
 
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: never[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -120,7 +120,7 @@ export class PerformanceMonitor {
 
 export function scheduleIdleWork(callback: () => void, timeout = 1000): void {
   if ('requestIdleCallback' in window) {
-    (window as any).requestIdleCallback(callback, { timeout });
+    (window as Window & { requestIdleCallback: (callback: () => void, options?: { timeout: number }) => void }).requestIdleCallback(callback, { timeout });
   } else {
     setTimeout(callback, 0);
   }

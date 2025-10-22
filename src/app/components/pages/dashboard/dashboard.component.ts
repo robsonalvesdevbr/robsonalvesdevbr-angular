@@ -12,6 +12,7 @@ import { AnimatedCounterComponent } from '@path-components/utils/animated-counte
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { DataService } from '@path-services/data-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
+import { LoggerService } from '@path-services/logger.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +26,7 @@ export class DashboardComponent extends BasePageComponent implements OnInit {
   private readonly gaService = inject(GoogleAnalyticsService);
   private readonly dataService = inject(DataService);
   private readonly performanceService = inject(PerformanceMonitorService);
+  private readonly logger = inject(LoggerService);
 
   stats = signal<DashboardStats | null>(null);
   yearlyStats = signal(this.statisticsService.getYearlyStats());
@@ -44,7 +46,7 @@ export class DashboardComponent extends BasePageComponent implements OnInit {
 
     const duration = measure?.end();
     if (duration && duration > 100) {
-      console.warn(`Dashboard stats loading took ${duration.toFixed(2)}ms - consider optimization`);
+      this.logger.warn(`Dashboard stats loading took ${duration.toFixed(2)}ms - consider optimization`);
     }
   }
 

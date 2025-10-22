@@ -1,6 +1,7 @@
 import { GraduationTagEnum } from '@path-app/models/GraduationTagEnum';
 
 export interface IGraduation {
+  id: string;
   name: string;
   institution: string;
   conclusionDate: Date | undefined | null;

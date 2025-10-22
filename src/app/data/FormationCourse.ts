@@ -5,6 +5,8 @@ import { FormationCourseTagEnum } from '../models/FormationCourseTagEnum';
 export const FormationCourses: IFormationCourse[] = [
   // ===== ALURA =====
   {
+
+    id: 'formacao-comecando-em-linux-alura-2025-07',
     name: 'Começando em Linux',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -16,6 +18,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-mensageria-com-apache-kafka-alura-2025-02',
     name: 'Mensageria com Apache Kafka',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -29,6 +33,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-formacao-boas-praticas-em-c-alura-2024-10',
     name: 'Formação Boas praticas em C#',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -43,6 +49,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-sql-com-microsoft-sql-server-2017-alura-2022-08',
     name: 'SQL com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -52,6 +60,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-modelagem-de-dados-alura-2022-08',
     name: 'Modelagem de dados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -61,6 +71,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-linguagem-go-alura-2022-06',
     name: 'Linguagem Go',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -74,6 +86,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-aspnet-core-rest-apis-alura-2022-05',
     name: 'ASP.NET Core REST APIs',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -88,6 +102,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-minha-primeira-lideranca-alura-2022-05',
     name: 'Minha primeira liderança',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -97,6 +113,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-testes-em-net-alura-2022-05',
     name: 'Testes em .NET',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -113,6 +131,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-orquestracao-de-containers-com-kubernete-alura-2022-05',
     name: 'Orquestração de containers com Kubernetes',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -126,6 +146,8 @@ export const FormationCourses: IFormationCourse[] = [
     favorite: true,
   },
   {
+
+    id: 'formacao-c-e-orientacao-a-objetos-alura-2021-04',
     name: 'C# e orientação a objetos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
@@ -142,6 +164,8 @@ export const FormationCourses: IFormationCourse[] = [
 
   // ===== DESENVOLVEDOR.IO =====
   {
+
+    id: 'formacao-formacao-devops-para-desenvolvedores-desenvolvedorio-2024-06',
     name: 'Formação DevOps para Desenvolvedores',
     institution: InstitutionEnum.DesenvolvedorIO,
     certificateUrl:

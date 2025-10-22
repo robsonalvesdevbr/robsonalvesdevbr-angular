@@ -15,6 +15,7 @@ describe('CourseComponent', () => {
     dataServiceStub = {
       getCourses: () => [
         {
+          id: 'curso-github-copilot-formacao-basica-udemy-2024-08',
           name: 'GitHub Copilot: Formação Básica',
           institution: InstitutionEnum.Udemy,
           certificateUrl:
@@ -24,6 +25,7 @@ describe('CourseComponent', () => {
           favorite: true,
         },
         {
+          id: 'curso-comunicacao-assertiva-gestores-alto-desempenho-alura-2024-08',
           name: 'Comunicação Assertiva para Gestores de Alto Desempenho',
           institution: InstitutionEnum.Alura,
           certificateUrl:
