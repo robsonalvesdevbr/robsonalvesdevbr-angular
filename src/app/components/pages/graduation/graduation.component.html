@@ -2,11 +2,11 @@
 <section class="page-section" id="graduation" [ngClass]="currentClass()">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">(Pós)Graduação</h2>
+      <h2 class="section-heading text-uppercase">{{ 'graduation.title' | translate }}</h2>
       <h3 class="section-subheading text-muted">
-        Saiba mais sobre minhas graduações e pós-graduações.&nbsp;&nbsp;&nbsp;&nbsp;<span
+        {{ 'graduation.subtitle' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;<span
           class="badge rounded-pill bg-warning fs-7 text-dark"
-          >Quantidade: {{ graduations().length }}</span
+          >{{ 'graduation.quantity' | translate: { count: graduations().length.toString() } }}</span
         >
       </h3>
     </div>
@@ -21,7 +21,7 @@
             <img
               class="rounded-circle img-fluid"
               ngSrc="assets/img/others/formacao.png"
-              alt="Ícone de graduação"
+              [alt]="'graduation.iconAlt' | translate"
               fill
               decoding="async"
               sizes="(max-width: 768px) 30vw, 20vw"
@@ -42,7 +42,9 @@
                   [href]="graduation.websiteInstituition"
                   target="_blank"
                   rel="noopener"
-                  [attr.aria-label]="'Visite o site da instituição ' + graduation.institution"
+                  [attr.aria-label]="
+                    'graduation.visitWebsite' | translate: { name: graduation.institution }
+                  "
                   >{{ graduation.websiteInstituition }}</a
                 >
               </p>
@@ -54,11 +56,11 @@
       <li class="timeline-inverted">
         <div class="timeline-image">
           <h4>
-            Esta é parte
+            {{ 'graduation.finalMessage.line1' | translate }}
             <br />
-            Da minha
+            {{ 'graduation.finalMessage.line2' | translate }}
             <br />
-            Formação!
+            {{ 'graduation.finalMessage.line3' | translate }}
           </h4>
         </div>
       </li>

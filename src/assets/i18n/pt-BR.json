@@ -1,0 +1,177 @@
+{
+  "navigation": {
+    "skipToContent": "Pular para conteúdo principal",
+    "ariaLabel": "Navegação principal",
+    "toggleNavigation": "Toggle navigation",
+    "about": "Sobre",
+    "dashboard": "Dashboard",
+    "graduation": "(Pós)Graduação",
+    "courses": "Cursos",
+    "formations": "Formação",
+    "books": "Leituras",
+    "contact": "Contato"
+  },
+  "masterhead": {
+    "welcome": "Bem-vindo ao meu portfólio!",
+    "subtitle": "É um prazer compartilhar minha trajetória e projetos com você.",
+    "learnMore": "Saiba mais"
+  },
+  "dashboard": {
+    "title": "Dashboard Pessoal",
+    "subtitle": "Estatísticas e métricas da minha jornada de aprendizado",
+    "loading": "Carregando...",
+    "stats": {
+      "coursesCompleted": "Cursos Concluídos",
+      "technicalBooks": "Livros Técnicos",
+      "formations": "Formações",
+      "booksProgress": "Progresso Livros",
+      "favoriteCourses": "Cursos Favoritos",
+      "ofCourses": "de {{total}} cursos",
+      "graduations": "Graduações",
+      "completed": "Concluídas",
+      "inProgress": "Em Andamento",
+      "total": "Total: {{count}} graduações",
+      "yearlyEvolution": "Evolução Anual",
+      "topTechnologies": "Top Tecnologias",
+      "topInstitutions": "Principais Instituições"
+    }
+  },
+  "about": {
+    "title": "Sobre",
+    "subtitle": "Conheça minha trajetória profissional de 23+ anos",
+    "timeline": {
+      "instructor": {
+        "period": "2001-2006",
+        "title": "Início como Instrutor",
+        "description": "Iniciei minha trajetória profissional como instrutor na Alpha Tech, lecionando programação em Delphi, hardware, design de websites e informática básica. Durante cinco anos, desenvolvi habilidades didáticas e aprofundei conhecimentos técnicos, incluindo aulas particulares e treinamentos corporativos.",
+        "imageAlt": "Início da carreira"
+      },
+      "transition": {
+        "period": "2006-2008",
+        "title": "Transição para Desenvolvimento",
+        "description": "Transicionei do ensino para o desenvolvimento de software, trabalhando na Softpar. Apliquei minha experiência técnica em projetos de sistemas empresariais, consolidando conhecimentos em Delphi e bancos de dados. Período fundamental para compreender regras de negócio complexas e desenvolvimento de sistemas críticos.",
+        "imageAlt": "Transição para desenvolvimento"
+      },
+      "financial": {
+        "period": "2008-2019",
+        "title": "11 Anos em Sistemas Financeiros",
+        "description": "Período mais longo e transformador na View Financial Systems. Desenvolvi sistemas financeiros críticos focados em contas-correntes, documentos e operações de leasing. Durante estes 11 anos, liderei a migração de sistemas Delphi para .NET, utilizando tecnologias como C#, Visual Studio, Oracle e SQL Server. Experiência essencial que moldou minha expertise em sistemas de alta disponibilidade.",
+        "imageAlt": "Sistemas financeiros"
+      },
+      "modernization": {
+        "period": "2019-2021",
+        "title": "Modernização e Novas Tecnologias",
+        "description": "Período de grande evolução técnica na Zylix, trabalhando com sistemas de automação industrial e adotando tecnologias modernas. Implementei soluções com .NET Core, microsserviços, Docker, Kubernetes e plataformas em nuvem como Azure. Fase crucial para minha transição definitiva para arquitetura de software.",
+        "imageAlt": "Evolução tecnológica"
+      },
+      "architect": {
+        "period": "2021-Atual",
+        "title": "Arquiteto de Software na Consilux",
+        "description": "Atualmente atuo como Arquiteto de Software e consultor na Consilux, com foco em revisão de código, gerenciamento de aplicações em nuvem e arquitetura de sistemas para o setor financeiro. Desenvolvo soluções para fintechs e gateways de pagamento, utilizando tecnologias como Azure, AWS, .NET, RabbitMQ, Kubernetes e ferramentas de observabilidade como DataDog e Grafana. Especializado em modernização de sistemas legados e implementação de práticas DevOps.",
+        "imageAlt": "Arquiteto de software"
+      },
+      "experience": {
+        "line1": "23+ Anos",
+        "line2": "de",
+        "line3": "Experiência!"
+      }
+    }
+  },
+  "courses": {
+    "title": "Cursos",
+    "subtitle": "Saiba mais sobre meus cursos.",
+    "quantity": "Quantidade: {{count}}",
+    "clearFilters": "Limpar Filtros",
+    "filterInstitution": "Filtrar Instituição",
+    "filterTag": "Filtrar tag",
+    "ariaClearFilters": "Limpar Filtros",
+    "favorite": "Favorito",
+    "institution": "Instituição",
+    "tags": "Tags",
+    "completedOn": "Concluído em",
+    "certificate": "Certificado",
+    "logoAlt": "Logo da instituição {{name}}",
+    "unreadMessages": "unread messages",
+    "sortBy": "Ordenar por",
+    "sortOptions": {
+      "name": "Nome",
+      "conclusionDate": "Data de Conclusão",
+      "institution": "Instituição"
+    }
+  },
+  "books": {
+    "title": "Leituras",
+    "subtitle": "Saiba mais sobre os meus livros",
+    "quantity": "Quantidade: {{count}}",
+    "clearFilters": "Limpar Filtros",
+    "filterPublisher": "Filtrar Editora",
+    "filterTag": "Filtrar tag",
+    "ariaClearFilters": "Limpar Filtros",
+    "favorite": "Favorito",
+    "publishedIn": "Publicado em",
+    "subtitle_label": "Subtitulo",
+    "publisher": "Editora",
+    "author": "Autor",
+    "tags": "Tags",
+    "moreDetails": "Mais detalhes",
+    "logoAlt": "Logo da editora {{name}}",
+    "unreadMessages": "unread messages"
+  },
+  "graduation": {
+    "title": "(Pós)Graduação",
+    "subtitle": "Saiba mais sobre minhas graduações e pós-graduações.",
+    "quantity": "Quantidade: {{count}}",
+    "iconAlt": "Ícone de graduação",
+    "visitWebsite": "Visite o site da instituição {{name}}",
+    "finalMessage": {
+      "line1": "Esta é parte",
+      "line2": "Da minha",
+      "line3": "Formação!"
+    }
+  },
+  "formationCourse": {
+    "title": "Cursos de Formação",
+    "subtitle": "Saiba mais sobre meus cursos de formação",
+    "quantity": "Quantidade: {{count}}",
+    "institution": "Instituição",
+    "tags": "Tags",
+    "completedOn": "Concluído em",
+    "certificate": "Certificado",
+    "logoAlt": "Logo da instituição {{name}}",
+    "unreadMessages": "unread messages"
+  },
+  "contact": {
+    "title": "Contato",
+    "photoAlt": "Foto de perfil de Robson Alves",
+    "location": "Localização",
+    "email": "Email",
+    "birthday": "Nascimento",
+    "age": "Idade",
+    "separator": "--------------------------------------------------------------",
+    "downloadResume": "Currículo em Inglês",
+    "downloadResumeLink": "Clique aqui para download",
+    "sendEmail": "Enviar email para {{email}}",
+    "visitWebsite": "Acessar website pessoal de {{name}}",
+    "visitLinkedIn": "Acessar perfil LinkedIn de {{name}}",
+    "visitInstagram": "Acessar perfil Instagram de {{name}}",
+    "visitGitHub": "Acessar perfil GitHub de {{name}}",
+    "visitRepository": "Acessar repositório do projeto no GitHub",
+    "aboutThisPage": {
+      "title": "Sobre esta página",
+      "description": "Esta página foi criada para apresentar minha carreira e conhecimentos, além de servir como prática em Angular e TypeScript. O projeto utiliza Angular (atualmente na versão 20), está versionado no GitHub e o deploy é realizado automaticamente via GitHub Actions, sendo hospedado no Azure Static Web Apps.",
+      "sourceCode": "Código-fonte desta página:",
+      "visitRepo": "Visite o repositório do GitHub",
+      "thanks": "Obrigado por visitar!"
+    }
+  },
+  "footer": {
+    "copyright": "Robson Alves 2000-2025 · Todos os direitos reservados.",
+    "pageTemplate": "Template da página",
+    "termsOfUse": "Termos de Uso"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro ao carregar dados",
+    "noData": "Nenhum dado disponível"
+  }
+}

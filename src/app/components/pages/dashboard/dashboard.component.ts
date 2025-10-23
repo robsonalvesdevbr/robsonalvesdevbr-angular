@@ -13,10 +13,11 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { DataService } from '@path-services/data-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
 import { LoggerService } from '@path-services/logger.service';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, AnimatedCounterComponent],
+  imports: [CommonModule, AnimatedCounterComponent, TranslatePipe],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

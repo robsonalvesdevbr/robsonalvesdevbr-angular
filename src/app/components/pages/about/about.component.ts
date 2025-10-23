@@ -8,10 +8,11 @@ import {
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { SeoService } from '@path-services/seo.service';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
   templateUrl: './about.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
