@@ -2,9 +2,11 @@
 <section class="page-section" id="about" [ngClass]="currentClass()">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="section-heading text-uppercase">Sobre</h2>
-      <h3 class="section-subheading text-muted">
-        Conheça minha trajetória profissional de 23+ anos
+      <h2 class="section-heading text-uppercase" data-testid="about-title">
+        {{ 'about.title' | translate }}
+      </h2>
+      <h3 class="section-subheading text-muted" data-testid="about-subtitle">
+        {{ 'about.subtitle' | translate }}
       </h3>
     </div>
 
@@ -15,7 +17,7 @@
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="Início da carreira"
+            [alt]="'about.timeline.instructor.imageAlt' | translate"
             decoding="async"
             fill
             sizes="(max-width: 768px) 30vw, 20vw"
@@ -23,15 +25,12 @@
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2001-2006</h4>
-            <h4 class="subheading">Início como Instrutor</h4>
+            <h4>{{ 'about.timeline.instructor.period' | translate }}</h4>
+            <h4 class="subheading">{{ 'about.timeline.instructor.title' | translate }}</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Iniciei minha trajetória profissional como instrutor na Alpha Tech, lecionando
-              programação em Delphi, hardware, design de websites e informática básica. Durante
-              cinco anos, desenvolvi habilidades didáticas e aprofundei conhecimentos técnicos,
-              incluindo aulas particulares e treinamentos corporativos.
+              {{ 'about.timeline.instructor.description' | translate }}
             </span>
           </div>
         </div>
@@ -42,7 +41,7 @@
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="Transição para desenvolvimento"
+            [alt]="'about.timeline.transition.imageAlt' | translate"
             decoding="async"
             fill
             sizes="(max-width: 768px) 30vw, 20vw"
@@ -50,15 +49,12 @@
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2006-2008</h4>
-            <h4 class="subheading">Transição para Desenvolvimento</h4>
+            <h4>{{ 'about.timeline.transition.period' | translate }}</h4>
+            <h4 class="subheading">{{ 'about.timeline.transition.title' | translate }}</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Transicionei do ensino para o desenvolvimento de software, trabalhando na Softpar.
-              Apliquei minha experiência técnica em projetos de sistemas empresariais, consolidando
-              conhecimentos em Delphi e bancos de dados. Período fundamental para compreender regras
-              de negócio complexas e desenvolvimento de sistemas críticos.
+              {{ 'about.timeline.transition.description' | translate }}
             </span>
           </div>
         </div>
@@ -69,7 +65,7 @@
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="Sistemas financeiros"
+            [alt]="'about.timeline.financial.imageAlt' | translate"
             decoding="async"
             fill
             sizes="(max-width: 768px) 30vw, 20vw"
@@ -77,16 +73,12 @@
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2008-2019</h4>
-            <h4 class="subheading">11 Anos em Sistemas Financeiros</h4>
+            <h4>{{ 'about.timeline.financial.period' | translate }}</h4>
+            <h4 class="subheading">{{ 'about.timeline.financial.title' | translate }}</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Período mais longo e transformador na View Financial Systems. Desenvolvi sistemas
-              financeiros críticos focados em contas-correntes, documentos e operações de leasing.
-              Durante estes 11 anos, liderei a migração de sistemas Delphi para .NET, utilizando
-              tecnologias como C#, Visual Studio, Oracle e SQL Server. Experiência essencial que
-              moldou minha expertise em sistemas de alta disponibilidade.
+              {{ 'about.timeline.financial.description' | translate }}
             </span>
           </div>
         </div>
@@ -97,7 +89,7 @@
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="Evolução tecnológica"
+            [alt]="'about.timeline.modernization.imageAlt' | translate"
             decoding="async"
             fill
             sizes="(max-width: 768px) 30vw, 20vw"
@@ -105,15 +97,12 @@
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2019-2021</h4>
-            <h4 class="subheading">Modernização e Novas Tecnologias</h4>
+            <h4>{{ 'about.timeline.modernization.period' | translate }}</h4>
+            <h4 class="subheading">{{ 'about.timeline.modernization.title' | translate }}</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Período de grande evolução técnica na Zylix, trabalhando com sistemas de automação
-              industrial e adotando tecnologias modernas. Implementei soluções com .NET Core,
-              microsserviços, Docker, Kubernetes e plataformas em nuvem como Azure. Fase crucial
-              para minha transição definitiva para arquitetura de software.
+              {{ 'about.timeline.modernization.description' | translate }}
             </span>
           </div>
         </div>
@@ -124,7 +113,7 @@
           <img
             class="rounded-circle img-fluid"
             ngSrc="assets/img/about/4.jpg"
-            alt="Arquiteto de software"
+            [alt]="'about.timeline.architect.imageAlt' | translate"
             decoding="async"
             fill
             sizes="(max-width: 768px) 30vw, 20vw"
@@ -132,17 +121,12 @@
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4>2021-Atual</h4>
-            <h4 class="subheading">Arquiteto de Software na Consilux</h4>
+            <h4>{{ 'about.timeline.architect.period' | translate }}</h4>
+            <h4 class="subheading">{{ 'about.timeline.architect.title' | translate }}</h4>
           </div>
           <div class="timeline-body">
             <span class="text-muted">
-              Atualmente atuo como Arquiteto de Software e consultor na Consilux, com foco em
-              revisão de código, gerenciamento de aplicações em nuvem e arquitetura de sistemas para
-              o setor financeiro. Desenvolvo soluções para fintechs e gateways de pagamento,
-              utilizando tecnologias como Azure, AWS, .NET, RabbitMQ, Kubernetes e ferramentas de
-              observabilidade como DataDog e Grafana. Especializado em modernização de sistemas
-              legados e implementação de práticas DevOps.
+              {{ 'about.timeline.architect.description' | translate }}
             </span>
           </div>
         </div>
@@ -151,9 +135,9 @@
       <li class="timeline-inverted">
         <div class="timeline-image">
           <h4>
-            23+ Anos<br />
-            de<br />
-            Experiência!
+            {{ 'about.timeline.experience.line1' | translate }}<br />
+            {{ 'about.timeline.experience.line2' | translate }}<br />
+            {{ 'about.timeline.experience.line3' | translate }}
           </h4>
         </div>
       </li>

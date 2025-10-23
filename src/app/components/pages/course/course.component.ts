@@ -14,6 +14,7 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -26,6 +27,7 @@ import { ICourse } from '@path-interfaces/ICourse';
     CommonModule,
     ImgcursoPipe,
     PrintTagsPipe,
+    TranslatePipe,
     NgxPaginationModule,
     NgOptimizedImage,
     HighlightDirective,

@@ -1,12 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
+import { LanguageSwitcherComponent } from '@path-components/language-switcher/language-switcher.component';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-navigation-optimized',
-  imports: [NgxPaginationModule],
+  imports: [NgxPaginationModule, NgOptimizedImage, LanguageSwitcherComponent, TranslatePipe],
   templateUrl: './navigation.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -24,6 +27,19 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
     normal: 126
   };
   private scrollTimeout: number | null = null;
+
+  // Estado do menu (compatível com template compartilhado)
+  isMenuOpen = signal(false);
+
+  // Alterna o menu (compatível com template compartilhado)
+  toggleMenu(): void {
+    this.isMenuOpen.update(v => !v);
+    try {
+      this._gaService?.event('menu_toggle', 'navigation_optimized', this.isMenuOpen() ? 'opened' : 'closed');
+    } catch {
+      // noop
+    }
+  }
 
   // Cache DOM queries
   private getElement(id: string): HTMLElement | null {
@@ -43,15 +59,27 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
 
     // Use modern Bootstrap API with error handling
     try {
-      const Bootstrap = (window as Window & { bootstrap?: { Collapse: { getInstance: (el: Element) => { hide: () => void } | null; getOrCreateInstance: (el: Element) => { hide: () => void } } } }).bootstrap;
+      const Bootstrap = (window as Window & { bootstrap?: { Collapse: { getInstance: (el: Element) => { hide: () => void } | null; getOrCreateInstance: (el: Element, options?: { toggle?: boolean }) => { hide: () => void } } } }).bootstrap;
       if (Bootstrap?.Collapse) {
         const collapse = Bootstrap.Collapse.getInstance(navbarCollapse) ||
-                        new Bootstrap.Collapse(navbarCollapse, { toggle: false });
+                         Bootstrap.Collapse.getOrCreateInstance(navbarCollapse, { toggle: false });
         collapse.hide();
       }
     } catch {
       // Fallback to class manipulation
       navbarCollapse.classList.remove('show');
+    }
+  }
+
+  // Método público usado pelo template compartilhado para fechar o menu
+  public closeMenu(): void {
+    try {
+      this.closeNavbar();
+    } catch {
+      const navbarCollapse = this.navbarCollapse?.nativeElement;
+      if (navbarCollapse?.classList.contains('show')) {
+        navbarCollapse.classList.remove('show');
+      }
     }
   }
 

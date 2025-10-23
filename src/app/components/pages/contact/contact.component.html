@@ -2,7 +2,7 @@
 <section class="page-section" id="contact" data-testid="contact-section" [ngClass]="currentClass()">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Contato</h2>
+      <h2 class="section-heading text-uppercase">{{ 'contact.title' | translate }}</h2>
     </div>
 
     <div class="alert alert-light" role="alert">
@@ -12,7 +12,7 @@
             <div class="team-member align-self-center">
               <img
                 ngSrc="/assets/img/myimage.jpg"
-                alt="Foto de perfil de Robson Alves"
+                [alt]="'contact.photoAlt' | translate"
                 class="mx-auto rounded-circle"
                 width="480"
                 height="480"
@@ -22,12 +22,14 @@
           </div>
           <div class="col-md-auto mt-3">
             <h4 class="alert-heading">{{ profiles().name }}</h4>
-            <b>Localização:</b> {{ profiles().country }}, {{ profiles().city }} /
+            <b>{{ 'contact.location' | translate }}:</b> {{ profiles().country }},
+            {{ profiles().city }} /
             {{ profiles().state }}
             <br />
-            <b>Email:</b> {{ profiles().email }} <br />
-            <b>Nascimento:</b> {{ profiles().birthday | date: 'dd/MM/yyyy' }}<br />
-            <b>Idade:</b> {{ calcularIdade(profiles().birthday) }}<br />
+            <b>{{ 'contact.email' | translate }}:</b> {{ profiles().email }} <br />
+            <b>{{ 'contact.birthday' | translate }}:</b>
+            {{ profiles().birthday | date: 'dd/MM/yyyy' }}<br />
+            <b>{{ 'contact.age' | translate }}:</b> {{ calcularIdade(profiles().birthday) }}<br />
 
             @for (item of profiles().urlList | keyvalue: asIsOrder; track item) {
               <div class="d-inline">
@@ -45,19 +47,20 @@
               </div>
               <br />
             }
-            <b>--------------------------------------------------------------</b><br />
+            <b>{{ 'contact.separator' | translate }}</b
+            ><br />
             <p>
               <a
                 [href]="
                   'mailto:' + profiles().email + '?subject=Contato website robsonalves.dev.br'
                 "
-                [attr.aria-label]="'Enviar email para ' + profiles().email"
+                [attr.aria-label]="'contact.sendEmail' | translate: { email: profiles().email }"
                 class="btn"
                 ><i class="bi bi-envelope-at-fill" style="font-size: 35px"></i
               ></a>
               <a
                 [href]="profiles().urlList.get('WebSite')"
-                [attr.aria-label]="'Acessar website pessoal de ' + profiles().name"
+                [attr.aria-label]="'contact.visitWebsite' | translate: { name: profiles().name }"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -65,7 +68,7 @@
               ></a>
               <a
                 [href]="profiles().urlList.get('LinkedIn')"
-                [attr.aria-label]="'Acessar perfil LinkedIn de ' + profiles().name"
+                [attr.aria-label]="'contact.visitLinkedIn' | translate: { name: profiles().name }"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -73,7 +76,7 @@
               ></a>
               <a
                 [href]="profiles().urlList.get('Instagram')"
-                [attr.aria-label]="'Acessar perfil Instagram de ' + profiles().name"
+                [attr.aria-label]="'contact.visitInstagram' | translate: { name: profiles().name }"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -81,7 +84,7 @@
               ></a>
               <a
                 [href]="profiles().urlList.get('GitHub')"
-                [attr.aria-label]="'Acessar perfil GitHub de ' + profiles().name"
+                [attr.aria-label]="'contact.visitGitHub' | translate: { name: profiles().name }"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -89,7 +92,7 @@
               ></a>
               <a
                 href="https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular"
-                [attr.aria-label]="'Acessar repositório do projeto no GitHub'"
+                [attr.aria-label]="'contact.visitRepository' | translate"
                 class="btn"
                 target="_blank"
                 rel="noopener"
@@ -102,29 +105,25 @@
 
       <div class="row justify-content-md-center">
         <div class="card text-bg-light">
-          <div class="card-header">Sobre esta página</div>
+          <div class="card-header">{{ 'contact.aboutThisPage.title' | translate }}</div>
           <div class="card-body">
             <p class="card-text text-sm">
-              Esta página foi criada para apresentar minha carreira e conhecimentos, além de servir
-              como prática em Angular e TypeScript.<br />
-              O projeto utiliza Angular (atualmente na versão 20), está versionado no GitHub e o
-              deploy é realizado automaticamente via GitHub Actions, sendo hospedado no Azure Static
-              Web Apps.
+              {{ 'contact.aboutThisPage.description' | translate }}
             </p>
             <div class="d-inline text-sm text-danger">
-              <b>Código-fonte desta página: </b>
+              <b>{{ 'contact.aboutThisPage.sourceCode' | translate }} </b>
             </div>
             <div class="d-inline text-sm">
               <a
                 href="https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular"
-                aria-label="Visite o repositório do GitHub"
+                [attr.aria-label]="'contact.aboutThisPage.visitRepo' | translate"
                 class="text-muted text-decoration-none d-block d-sm-inline mt-1 mt-sm-0"
                 target="_blank"
                 rel="noopener"
                 >github.com/robsonalvesdevbr/robsonalvesdevbr-angular</a
               >
             </div>
-            <p class="text-sm mt-2">Obrigado por visitar!</p>
+            <p class="text-sm mt-2">{{ 'contact.aboutThisPage.thanks' | translate }}</p>
           </div>
         </div>
       </div>
