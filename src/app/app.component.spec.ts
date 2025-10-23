@@ -11,6 +11,7 @@ import { GraduationComponent } from './components/pages/graduation/graduation.co
 import { MasterheadComponent } from './components/pages/masterhead/masterhead.component';
 import { NavigationComponent } from './components/pages/navigation/navigation.component';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { provideHttpClientTesting, HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -26,8 +27,9 @@ describe('AppComponent', () => {
         BookComponent,
         ContactComponent,
         FooterComponent, // Change from declarations to imports
+        HttpClientTestingModule,
       ],
-      providers: [provideZonelessChangeDetection()],
+      providers: [provideZonelessChangeDetection(), provideHttpClientTesting()],
     }).compileComponents();
   });
 

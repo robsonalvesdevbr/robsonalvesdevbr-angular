@@ -1,8 +1,9 @@
-import { Injectable, signal, computed, effect } from '@angular/core';
+import { Injectable, signal, computed, effect, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export type Language = 'pt-BR' | 'en-US';
-export type TranslationKeys = Record<string, string | Record<string, any>>;
+export type NestedTranslations = { [key: string]: string | NestedTranslations };
+export type TranslationKeys = NestedTranslations;
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
@@ -24,7 +25,9 @@ export class LanguageService {
       : this.enUSTranslations();
   });
 
-  constructor(private http: HttpClient) {
+  private readonly http = inject(HttpClient);
+
+  constructor() {
     this.loadTranslations();
 
     // Effect para persistir mudanças
@@ -65,6 +68,13 @@ export class LanguageService {
   setLanguage(lang: Language): void {
     if (this.isValidLanguage(lang)) {
       this.currentLanguage.set(lang);
+      // Persist immediately to ensure deterministic behavior (tests and runtime)
+      try {
+        localStorage.setItem(this.STORAGE_KEY, lang);
+      } catch {
+        // ignore storage errors (e.g., storage disabled)
+      }
+      document.documentElement.lang = lang;
     }
   }
 
@@ -92,8 +102,17 @@ export class LanguageService {
     return value;
   }
 
-  private getNestedValue(obj: any, path: string): string {
-    return path.split('.').reduce((current, key) => current?.[key], obj) || '';
+  private getNestedValue(obj: NestedTranslations, path: string): string {
+    const parts = path.split('.');
+    let current: string | NestedTranslations | undefined = obj;
+    for (const p of parts) {
+      if (current && typeof current === 'object' && p in current) {
+        current = (current as NestedTranslations)[p];
+      } else {
+        return '';
+      }
+    }
+    return typeof current === 'string' ? current : '';
   }
 
   private isValidLanguage(lang: string): lang is Language {

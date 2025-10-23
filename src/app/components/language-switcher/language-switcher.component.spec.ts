@@ -123,4 +123,35 @@ describe('LanguageSwitcherComponent', () => {
     const ptBrOption = fixture.debugElement.query(By.css('[data-testid="lang-pt-br"]'));
     expect(ptBrOption.nativeElement.classList.contains('active')).toBe(true);
   });
+
+  it('should emit languageSelected when a language is chosen', () => {
+    spyOn(component.languageSelected, 'emit');
+    component.isOpen.set(true);
+    fixture.detectChanges();
+
+    const enUsButton = fixture.debugElement.query(By.css('[data-testid="lang-en-us"]'));
+    enUsButton.nativeElement.click();
+
+    expect(component.languageSelected.emit).toHaveBeenCalled();
+  });
+
+  it('should update aria-expanded when toggling dropdown', () => {
+    const button = fixture.debugElement.query(By.css('[data-testid="language-switcher-button"]'));
+    expect(button.nativeElement.getAttribute('aria-expanded')).toBe('false');
+
+    button.nativeElement.click();
+    fixture.detectChanges();
+    expect(button.nativeElement.getAttribute('aria-expanded')).toBe('true');
+  });
+
+  it('should close when clicking outside', () => {
+    component.isOpen.set(true);
+    fixture.detectChanges();
+
+    // Dispara um click no document simulando clique fora do componente
+    document.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+
+    expect(component.isOpen()).toBe(false);
+  });
 });

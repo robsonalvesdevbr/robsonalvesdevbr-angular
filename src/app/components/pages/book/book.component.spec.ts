@@ -11,6 +11,9 @@ import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BookComponent } from './book.component';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { LanguageService } from '@path-services/language.service';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -66,13 +69,33 @@ describe('BookComponent', () => {
         RouterLink,
         RouterLinkActive,
         BookComponent, // Moved from declarations to imports
+        HttpClientTestingModule,
       ],
       // Removed BookComponent from declarations
-      providers: [{ provide: DataService, useValue: dataServiceStub }, provideZonelessChangeDetection()],
+      providers: [
+        { provide: DataService, useValue: dataServiceStub },
+        provideZonelessChangeDetection(),
+        provideHttpClientTesting(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
+    // Flush i18n translation requests minimally so TranslatePipe renders
+    const httpMock = TestBed.inject(HttpTestingController);
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
+      books: {
+        title: 'Leituras', subtitle: 'Subtítulo', quantity: '{{count}} livros',
+        ariaClearFilters: 'Limpar filtros', clearFilters: 'Limpar filtros',
+        filterPublisher: 'Editora', filterTag: 'Tag', favorite: 'Favorito',
+        logoAlt: 'Logo {{name}}', publishedIn: 'publicado em', subtitle_label: 'Subtítulo',
+        publisher: 'Editora', author: 'Autor', tags: 'Tags', moreDetails: 'Mais detalhes',
+        unreadMessages: 'Não lidas'
+      }
+    });
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({ books: { title: 'Books' } });
+    const lang = TestBed.inject(LanguageService);
+    lang.setLanguage('pt-BR');
     fixture.detectChanges(); // Ensure ngOnInit is called
   });
 

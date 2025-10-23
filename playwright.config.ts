@@ -65,6 +65,9 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox'],
         viewport: { width: 1920, height: 1080 },
+        // Aumentar timeouts para Firefox que pode ser mais lento
+        navigationTimeout: 20 * 1000,
+        actionTimeout: 10 * 1000,
       },
     },
 
