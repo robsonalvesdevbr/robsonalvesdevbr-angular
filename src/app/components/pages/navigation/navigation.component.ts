@@ -5,10 +5,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
 import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '../../../utils/performance.utils';
+import { LanguageSwitcherComponent } from '@path-components/language-switcher/language-switcher.component';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-navigation',
-  imports: [NgxPaginationModule, NgOptimizedImage],
+  imports: [NgxPaginationModule, NgOptimizedImage, LanguageSwitcherComponent, TranslatePipe],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

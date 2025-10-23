@@ -2,16 +2,18 @@
 <section class="page-section" [ngClass]="currentClass()" id="dashboard">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Dashboard Pessoal</h2>
-      <h3 class="section-subheading text-muted">
-        Estatísticas e métricas da minha jornada de aprendizado
+      <h2 class="section-heading text-uppercase" data-testid="dashboard-title">
+        {{ 'dashboard.title' | translate }}
+      </h2>
+      <h3 class="section-subheading text-muted" data-testid="dashboard-subtitle">
+        {{ 'dashboard.subtitle' | translate }}
       </h3>
     </div>
 
     @if (isLoading()) {
       <div class="text-center">
         <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Carregando...</span>
+          <span class="visually-hidden">{{ 'dashboard.loading' | translate }}</span>
         </div>
       </div>
     } @else {
@@ -26,7 +28,9 @@
                 [duration]="2000"
               >
               </app-animated-counter>
-              <h5 class="card-title text-muted">Cursos Concluídos</h5>
+              <h5 class="card-title text-muted">
+                {{ 'dashboard.stats.coursesCompleted' | translate }}
+              </h5>
               <i class="bi bi-mortarboard fs-1 text-primary opacity-25"></i>
             </div>
           </div>
@@ -41,7 +45,9 @@
                 [duration]="2200"
               >
               </app-animated-counter>
-              <h5 class="card-title text-muted">Livros Técnicos</h5>
+              <h5 class="card-title text-muted">
+                {{ 'dashboard.stats.technicalBooks' | translate }}
+              </h5>
               <i class="bi bi-book fs-1 text-success opacity-25"></i>
             </div>
           </div>
@@ -56,7 +62,7 @@
                 [duration]="2400"
               >
               </app-animated-counter>
-              <h5 class="card-title text-muted">Formações</h5>
+              <h5 class="card-title text-muted">{{ 'dashboard.stats.formations' | translate }}</h5>
               <i class="bi bi-award fs-1 text-info opacity-25"></i>
             </div>
           </div>
@@ -72,7 +78,9 @@
                 [duration]="2600"
               >
               </app-animated-counter>
-              <h5 class="card-title text-muted">Progresso Livros</h5>
+              <h5 class="card-title text-muted">
+                {{ 'dashboard.stats.booksProgress' | translate }}
+              </h5>
               <i class="bi bi-graph-up fs-1 text-warning opacity-25"></i>
             </div>
           </div>
@@ -84,11 +92,17 @@
         <div class="col-lg-4 col-md-6">
           <div class="card h-100 shadow-sm">
             <div class="card-header bg-primary text-white">
-              <h5 class="mb-0"><i class="bi bi-star-fill me-2"></i>Cursos Favoritos</h5>
+              <h5 class="mb-0">
+                <i class="bi bi-star-fill me-2"></i
+                >{{ 'dashboard.stats.favoriteCourses' | translate }}
+              </h5>
             </div>
             <div class="card-body text-center">
               <div class="display-6 fw-bold">{{ stats()?.favoriteCourses }}</div>
-              <small class="text-muted">de {{ stats()?.totalCourses }} cursos</small>
+              <small class="text-muted">{{
+                'dashboard.stats.ofCourses'
+                  | translate: { total: (stats()?.totalCourses || 0).toString() }
+              }}</small>
             </div>
           </div>
         </div>
@@ -96,7 +110,10 @@
         <div class="col-lg-4 col-md-6">
           <div class="card h-100 shadow-sm">
             <div class="card-header bg-success text-white">
-              <h5 class="mb-0"><i class="bi bi-mortarboard me-2"></i>Graduações</h5>
+              <h5 class="mb-0">
+                <i class="bi bi-mortarboard me-2"></i
+                >{{ 'dashboard.stats.graduations' | translate }}
+              </h5>
             </div>
             <div class="card-body">
               <div class="row text-center">
@@ -104,17 +121,20 @@
                   <div class="display-6 fw-bold text-success">
                     {{ stats()?.completedGraduations }}
                   </div>
-                  <small class="text-muted">Concluídas</small>
+                  <small class="text-muted">{{ 'dashboard.stats.completed' | translate }}</small>
                 </div>
                 <div class="col-6">
                   <div class="display-6 fw-bold text-warning">{{ getInProgressGraduations() }}</div>
-                  <small class="text-muted">Em Andamento</small>
+                  <small class="text-muted">{{ 'dashboard.stats.inProgress' | translate }}</small>
                 </div>
               </div>
               <hr class="my-2" />
               <div class="text-center">
                 <small class="text-muted">
-                  Total: {{ stats()?.totalGraduations }} graduações
+                  {{
+                    'dashboard.stats.total'
+                      | translate: { count: (stats()?.totalGraduations || 0).toString() }
+                  }}
                 </small>
               </div>
             </div>
@@ -124,7 +144,10 @@
         <div class="col-lg-4 col-md-12">
           <div class="card h-100 shadow-sm">
             <div class="card-header bg-info text-white">
-              <h5 class="mb-0"><i class="bi bi-calendar3 me-2"></i>Evolução Anual</h5>
+              <h5 class="mb-0">
+                <i class="bi bi-calendar3 me-2"></i
+                >{{ 'dashboard.stats.yearlyEvolution' | translate }}
+              </h5>
             </div>
             <div class="card-body">
               @if (yearlyStats().length > 0) {
@@ -147,7 +170,10 @@
         <div class="col-lg-6">
           <div class="card h-100 shadow-sm">
             <div class="card-header bg-dark text-white">
-              <h5 class="mb-0"><i class="bi bi-code-slash me-2"></i>Top Tecnologias</h5>
+              <h5 class="mb-0">
+                <i class="bi bi-code-slash me-2"></i
+                >{{ 'dashboard.stats.topTechnologies' | translate }}
+              </h5>
             </div>
             <div class="card-body">
               @for (tech of stats()?.topTechnologies?.slice(0, 5); track tech.name) {
@@ -163,7 +189,10 @@
         <div class="col-lg-6">
           <div class="card h-100 shadow-sm">
             <div class="card-header bg-secondary text-white">
-              <h5 class="mb-0"><i class="bi bi-building me-2"></i>Principais Instituições</h5>
+              <h5 class="mb-0">
+                <i class="bi bi-building me-2"></i
+                >{{ 'dashboard.stats.topInstitutions' | translate }}
+              </h5>
             </div>
             <div class="card-body">
               @for (institution of stats()?.topInstitutions; track institution.name) {

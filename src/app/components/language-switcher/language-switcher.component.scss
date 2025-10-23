@@ -1,0 +1,66 @@
+.language-switcher {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:focus {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  .flag {
+    font-size: 1.25rem;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .language-code {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--bs-white);
+  }
+
+  // Em telas pequenas, mostrar só a bandeira para economizar espaço
+  @media (max-width: 576px) {
+    .language-code {
+      display: none;
+    }
+  }
+}
+
+.dropdown-menu {
+  min-width: 180px;
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    .flag-icon {
+      font-size: 1.25rem;
+    }
+
+    &.active {
+      background-color: var(--bs-primary);
+      color: var(--bs-white);
+      font-weight: 600;
+    }
+
+    &:hover:not(.active) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}

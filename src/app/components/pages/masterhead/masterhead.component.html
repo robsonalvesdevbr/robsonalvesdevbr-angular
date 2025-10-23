@@ -1,12 +1,15 @@
 <!-- Masthead-->
 <header class="masthead">
   <div class="container">
-    <div class="masthead-subheading">Bem-vindo ao meu portfólio!</div>
+    <div class="masthead-subheading">{{ 'masterhead.welcome' | translate }}</div>
     <div class="masthead-heading text-uppercase">
-      É um prazer compartilhar minha trajetória e projetos com você.
+      {{ 'masterhead.subtitle' | translate }}
     </div>
-    <a class="btn btn-primary btn-xl text-uppercase" href="#about" aria-label="Saiba mais"
-      >Saiba mais</a
+    <a
+      class="btn btn-primary btn-xl text-uppercase"
+      href="#about"
+      [attr.aria-label]="'masterhead.learnMore' | translate"
+      >{{ 'masterhead.learnMore' | translate }}</a
     >
   </div>
 </header>

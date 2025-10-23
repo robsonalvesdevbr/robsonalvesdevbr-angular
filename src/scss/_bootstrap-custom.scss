@@ -3,36 +3,37 @@
 // The deprecation warnings will be resolved when Bootstrap 6 is released with full @use/@forward support
 
 // 1. Include functions first (always required)
-@import "bootstrap/scss/functions";
+@import 'bootstrap/scss/functions';
 
 // 2. Include any default variable overrides here (optional)
 
 // 3. Include required Bootstrap files
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
 
 // 4. Include optional Bootstrap components
-@import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
 
 // Components used in the application
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/nav";
-@import "bootstrap/scss/navbar";
-@import "bootstrap/scss/badge";
-@import "bootstrap/scss/alert";
-@import "bootstrap/scss/list-group";
-@import "bootstrap/scss/forms";
-@import "bootstrap/scss/card";
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/badge';
+@import 'bootstrap/scss/alert';
+@import 'bootstrap/scss/list-group';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/card';
 
 // Helpers
-@import "bootstrap/scss/helpers";
+@import 'bootstrap/scss/helpers';
 
 // 5. Include utilities API
-@import "bootstrap/scss/utilities/api";
+@import 'bootstrap/scss/utilities/api';

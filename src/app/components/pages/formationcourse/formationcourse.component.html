@@ -2,11 +2,13 @@
 <section class="page-section" id="formationcourse" [ngClass]="currentClass()">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Cursos de Formação</h2>
+      <h2 class="section-heading text-uppercase">{{ 'formationCourse.title' | translate }}</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre meus cursos de formação&nbsp;&nbsp;&nbsp;&nbsp;<span
+        {{ 'formationCourse.subtitle' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;<span
           class="badge rounded-pill bg-warning fs-7 text-dark"
-          >Quantidade: {{ formationCourses().length }}</span
+          >{{
+            'formationCourse.quantity' | translate: { count: formationCourses().length.toString() }
+          }}</span
         >
       </h3>
     </div>
@@ -20,7 +22,7 @@
           <div class="d-flex align-items-center ms-5">
             <img
               ngSrc="assets/img/others/{{ course.institution | imgcurso }}"
-              alt="Logo da instituição {{ course.institution }}"
+              [alt]="'formationCourse.logoAlt' | translate: { name: course.institution }"
               width="60"
               height="60"
               class="rounded-circle"
@@ -28,23 +30,27 @@
             />
             <div class="ms-3">
               <p class="fw-bold mb-0">{{ course.name }}</p>
-              <p class="text-muted fontemenor"><b>Instituição:</b> {{ course.institution }}</p>
-              <p class="text-muted fontemenor"><b>Tags: </b> {{ course.tags | printTags }}</p>
               <p class="text-muted fontemenor">
-                Concluído em
+                <b>{{ 'formationCourse.institution' | translate }}:</b> {{ course.institution }}
+              </p>
+              <p class="text-muted fontemenor">
+                <b>{{ 'formationCourse.tags' | translate }}: </b> {{ course.tags | printTags }}
+              </p>
+              <p class="text-muted fontemenor">
+                {{ 'formationCourse.completedOn' | translate }}
                 {{ course.conclusion | date: 'dd/MM/yyyy' }}
                 &nbsp;&nbsp;&nbsp;&nbsp;<a
                   [href]="course.certificateUrl"
                   target="_blank"
                   rel="noopener"
-                  >Certificado</a
+                  >{{ 'formationCourse.certificate' | translate }}</a
                 >
               </p>
             </div>
           </div>
           <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
             {{ absoluteIndex(i) }}
-            <span class="visually-hidden">unread messages</span>
+            <span class="visually-hidden">{{ 'formationCourse.unreadMessages' | translate }}</span>
           </span>
         </li>
       }

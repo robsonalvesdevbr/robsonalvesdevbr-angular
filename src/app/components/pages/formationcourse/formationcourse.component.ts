@@ -9,6 +9,7 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -20,6 +21,7 @@ import { IFormationCourse } from '@path-interfaces/IFormationCourse';
     CommonModule,
     ImgcursoPipe,
     PrintTagsPipe,
+    TranslatePipe,
     NgxPaginationModule,
     SortbyPipe,
     NgOptimizedImage,

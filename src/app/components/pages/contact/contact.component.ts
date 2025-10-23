@@ -6,12 +6,13 @@ import {
   signal,
 } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, NgxPaginationModule, NgOptimizedImage],
+  imports: [CommonModule, NgxPaginationModule, NgOptimizedImage, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
