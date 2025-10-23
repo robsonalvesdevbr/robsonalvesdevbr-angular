@@ -45,8 +45,11 @@ export class LanguageSwitcherComponent {
       return;
     }
 
-    const target = event.target as HTMLElement;
-    const clickedInside = target.closest('[data-testid="language-switcher"]');
+    const target = event.target as EventTarget | null;
+    let clickedInside = false;
+    if (target && target instanceof Element) {
+      clickedInside = !!target.closest('[data-testid="language-switcher"]');
+    }
 
     // Se clicou fora E o dropdown está aberto, fecha
     if (!clickedInside) {

@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { LanguageService, Language, TranslationKeys } from './language.service';
 
 describe('LanguageService', () => {
@@ -21,17 +22,26 @@ describe('LanguageService', () => {
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [LanguageService]
+      providers: [LanguageService, provideZonelessChangeDetection()]
     });
 
     service = TestBed.inject(LanguageService);
     httpMock = TestBed.inject(HttpTestingController);
 
-    // Flush initial requests
-    const reqPtBR = httpMock.expectOne('/assets/i18n/pt-BR.json');
-    const reqEnUS = httpMock.expectOne('/assets/i18n/en-US.json');
-    reqPtBR.flush(mockPtBR);
-    reqEnUS.flush(mockEnUS);
+    // Helper to flush both translation requests
+    const flushTranslations = () => {
+      const initialReqs = httpMock.match(req => req.url.includes('/assets/i18n/'));
+      expect(initialReqs.length).toBe(2);
+      for (const req of initialReqs) {
+        if (req.request.url.endsWith('pt-BR.json')) {
+          req.flush(mockPtBR);
+        } else if (req.request.url.endsWith('en-US.json')) {
+          req.flush(mockEnUS);
+        }
+      }
+    };
+
+    flushTranslations();
   });
 
   afterEach(() => {
@@ -91,17 +101,25 @@ describe('LanguageService', () => {
   });
 
   it('should interpolate parameters', () => {
-    // Add a mock translation with parameters
-    const mockTranslations: TranslationKeys = {
-      greeting: 'Olá, {{name}}!'
-    };
-
-    service.setLanguage('pt-BR');
-    const reqPtBR = httpMock.expectOne('/assets/i18n/pt-BR.json');
-    reqPtBR.flush(mockTranslations);
-
-    const result = service.translate('greeting', { name: 'Robson' });
-    expect(result).toContain('Robson');
+    // Reset and create a fresh testing module for this scenario
+    TestBed.resetTestingModule();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [LanguageService, provideZonelessChangeDetection()]
+    });
+    const freshService = TestBed.inject(LanguageService);
+    const freshHttpMock = TestBed.inject(HttpTestingController);
+    const reqs = freshHttpMock.match(req => req.url.includes('/assets/i18n/'));
+    expect(reqs.length).toBe(2);
+    for (const req of reqs) {
+      if (req.request.url.endsWith('pt-BR.json')) {
+        req.flush({ greeting: 'Olá, {{name}}!' });
+      } else if (req.request.url.endsWith('en-US.json')) {
+        req.flush({});
+      }
+    }
+    const result = freshService.translate('greeting', { name: 'Robson' });
+    expect(result).toBe('Olá, Robson!');
   });
 
   it('should not change language for invalid language code', () => {
@@ -113,30 +131,38 @@ describe('LanguageService', () => {
   it('should load language from localStorage on init', () => {
     localStorage.setItem('app-language', 'en-US');
 
-    // Create new service instance to test initialization
-    const newService = new LanguageService(TestBed.inject(HttpClientTestingModule) as any);
-
-    // Flush HTTP requests
-    const reqPtBR = httpMock.expectOne('/assets/i18n/pt-BR.json');
-    const reqEnUS = httpMock.expectOne('/assets/i18n/en-US.json');
-    reqPtBR.flush(mockPtBR);
-    reqEnUS.flush(mockEnUS);
-
-    expect(newService.currentLanguage()).toBe('en-US');
+    TestBed.resetTestingModule();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [LanguageService, provideZonelessChangeDetection()]
+    });
+    const svc = TestBed.inject(LanguageService);
+    const freshHttp = TestBed.inject(HttpTestingController);
+    const initReqs = freshHttp.match(req => req.url.includes('/assets/i18n/'));
+    expect(initReqs.length).toBe(2);
+    for (const req of initReqs) {
+      if (req.request.url.endsWith('pt-BR.json')) {
+        req.flush(mockPtBR);
+      } else if (req.request.url.endsWith('en-US.json')) {
+        req.flush(mockEnUS);
+      }
+    }
+    expect(svc.currentLanguage()).toBe('en-US');
   });
 
   it('should handle HTTP errors gracefully', () => {
-    // Create a new service to test error handling
-    const errorService = new LanguageService(TestBed.inject(HttpClientTestingModule) as any);
-
-    const reqPtBR = httpMock.expectOne('/assets/i18n/pt-BR.json');
-    const reqEnUS = httpMock.expectOne('/assets/i18n/en-US.json');
-
-    // Simulate error
-    reqPtBR.error(new ErrorEvent('Network error'));
-    reqEnUS.error(new ErrorEvent('Network error'));
-
-    // Service should still be functional
-    expect(errorService).toBeTruthy();
+    TestBed.resetTestingModule();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [LanguageService, provideZonelessChangeDetection()]
+    });
+    const errSvc = TestBed.inject(LanguageService);
+    const freshHttp = TestBed.inject(HttpTestingController);
+    const errReqs = freshHttp.match(req => req.url.includes('/assets/i18n/'));
+    expect(errReqs.length).toBe(2);
+    for (const req of errReqs) {
+      req.error(new ErrorEvent('Network error'));
+    }
+    expect(errSvc).toBeTruthy();
   });
 });

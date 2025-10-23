@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { TranslatePipe } from './translate.pipe';
 import { LanguageService } from '@path-services/language.service';
-import { signal } from '@angular/core';
+import { provideZonelessChangeDetection, signal } from '@angular/core';
 
 describe('TranslatePipe', () => {
   let pipe: TranslatePipe;
@@ -16,7 +16,8 @@ describe('TranslatePipe', () => {
     TestBed.configureTestingModule({
       providers: [
         TranslatePipe,
-        { provide: LanguageService, useValue: spy }
+        { provide: LanguageService, useValue: spy },
+        provideZonelessChangeDetection()
       ]
     });
 

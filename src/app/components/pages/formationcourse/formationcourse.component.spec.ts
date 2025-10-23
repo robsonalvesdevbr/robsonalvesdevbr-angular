@@ -11,6 +11,7 @@ import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormationCourseComponent } from './formationcourse.component';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { provideHttpClientTesting, HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('FormationCourseComponent', () => {
   let component: FormationCourseComponent;
@@ -60,15 +61,45 @@ describe('FormationCourseComponent', () => {
         RouterOutlet,
         RouterLink,
         RouterLinkActive,
-        FormationCourseComponent, // Import the standalone component
+  FormationCourseComponent, // Import the standalone component
+  HttpClientTestingModule,
       ],
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
+        provideHttpClientTesting(),
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormationCourseComponent);
+    const httpMock = TestBed.inject(HttpTestingController);
+    // Minimal translation keys used in the template
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
+      formationCourse: {
+        title: 'Formações',
+        subtitle: 'Minhas formações',
+        quantity: 'Quantidade',
+        logoAlt: 'Logo',
+        institution: 'Instituição',
+        tags: 'Tags',
+        completedOn: 'Concluído em',
+        certificate: 'Certificado',
+        unreadMessages: 'Mensagens não lidas'
+      }
+    });
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({
+      formationCourse: {
+        title: 'Formations',
+        subtitle: 'My formations',
+        quantity: 'Quantity',
+        logoAlt: 'Logo',
+        institution: 'Institution',
+        tags: 'Tags',
+        completedOn: 'Completed on',
+        certificate: 'Certificate',
+        unreadMessages: 'Unread messages'
+      }
+    });
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

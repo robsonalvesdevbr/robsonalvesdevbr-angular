@@ -1,4 +1,5 @@
 import { provideHttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
@@ -38,10 +39,11 @@ describe('CourseComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [CourseComponent],
+      imports: [CourseComponent, HttpClientTestingModule],
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideHttpClient(),
+        provideHttpClientTesting(),
         provideRouter([]),
         provideZonelessChangeDetection(),
       ],
@@ -49,6 +51,31 @@ describe('CourseComponent', () => {
 
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;
+    // Flush i18n translations minimally to avoid warnings
+    const httpMock = TestBed.inject(HttpTestingController);
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
+      courses: {
+        title: 'Cursos',
+        subtitle: 'Meus cursos',
+        quantity: '{{count}} cursos',
+        ariaClearFilters: 'Limpar filtros',
+        clearFilters: 'Limpar filtros',
+        filterInstitution: 'Instituição',
+        filterTag: 'Tag',
+        favorite: 'Favorito',
+        logoAlt: 'Logo {{name}}',
+        institution: 'Instituição',
+        tags: 'Tags',
+        completedOn: 'Concluído em',
+        certificate: 'Certificado',
+        unreadMessages: 'Não lidas'
+      }
+    });
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({ courses: { title: 'Courses' } });
+    // Set language and detect changes
+    const { LanguageService } = await import('@path-services/language.service');
+    const lang = TestBed.inject(LanguageService);
+    lang.setLanguage('pt-BR');
     fixture.detectChanges();
   });
 

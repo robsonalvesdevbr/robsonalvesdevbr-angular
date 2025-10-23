@@ -31,11 +31,13 @@ test.describe('Language Switching', () => {
     let aboutLink = page.locator('[data-testid="nav-about"]');
     await expect(aboutLink).toContainText('Sobre');
 
-    // Click language switcher
+    // Click language switcher button to open dropdown
     await page.click('[data-testid="language-switcher-button"]');
-
-    // Wait for language to change
     await page.waitForTimeout(100);
+
+    // Click EN-US option in dropdown
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Verify language changed to EN-US
     aboutLink = page.locator('[data-testid="nav-about"]');
@@ -56,6 +58,8 @@ test.describe('Language Switching', () => {
     // Switch to English
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Verify in English
     let aboutLink = page.locator('[data-testid="nav-about"]');
@@ -64,6 +68,8 @@ test.describe('Language Switching', () => {
     // Switch back to Portuguese
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-pt-br"]');
+    await page.waitForTimeout(200);
 
     // Verify back in Portuguese
     aboutLink = page.locator('[data-testid="nav-about"]');
@@ -77,6 +83,8 @@ test.describe('Language Switching', () => {
     // Switch to English
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Verify in English
     let aboutLink = page.locator('[data-testid="nav-about"]');
@@ -111,6 +119,8 @@ test.describe('Language Switching', () => {
     // Switch to EN-US
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Verify EN-US
     for (const element of elementsToCheck) {
@@ -119,8 +129,10 @@ test.describe('Language Switching', () => {
   });
 
   test('should translate dashboard section', async ({ page }) => {
-    // Navigate to dashboard section
-    await page.click('[data-testid="nav-dashboard"]');
+    // Navigate to dashboard section (scroll into view)
+    await page.evaluate(() => {
+      document.querySelector('#dashboard')?.scrollIntoView({ behavior: 'smooth' });
+    });
     await page.waitForTimeout(500);
 
     // Check dashboard title in Portuguese
@@ -130,6 +142,8 @@ test.describe('Language Switching', () => {
     // Switch to English
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Check dashboard title in English
     await expect(dashboardTitle).toContainText('Personal Dashboard');
@@ -139,8 +153,10 @@ test.describe('Language Switching', () => {
   });
 
   test('should translate about section', async ({ page }) => {
-    // Navigate to about section
-    await page.click('[data-testid="nav-about"]');
+    // Navigate to about section (scroll into view)
+    await page.evaluate(() => {
+      document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+    });
     await page.waitForTimeout(500);
 
     // Check about title in Portuguese
@@ -150,6 +166,8 @@ test.describe('Language Switching', () => {
     // Switch to English
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Check about title in English
     await expect(aboutTitle).toContainText('About');
@@ -169,9 +187,13 @@ test.describe('Language Switching', () => {
     const switcher = page.locator('[data-testid="language-switcher"]');
     await expect(switcher).toBeVisible();
 
-    // Click language switcher
+    // Click language switcher button to open dropdown
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+
+    // Click EN-US option
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Verify language changed
     const aboutLink = page.locator('[data-testid="nav-about"]');
@@ -187,6 +209,8 @@ test.describe('Language Switching', () => {
     // Switch language
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Check aria-label changed
     const newAriaLabel = await button.getAttribute('aria-label');
@@ -201,6 +225,8 @@ test.describe('Language Switching', () => {
     // Switch language
     await page.click('[data-testid="language-switcher-button"]');
     await page.waitForTimeout(100);
+    await page.click('[data-testid="lang-en-us"]');
+    await page.waitForTimeout(200);
 
     // Check lang attribute changed
     htmlLang = await page.evaluate(() => document.documentElement.lang);
