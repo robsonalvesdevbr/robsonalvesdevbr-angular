@@ -249,12 +249,6 @@ O projeto possui três workflows automatizados:
 
 **Se os testes E2E falharem, o deploy é cancelado.**
 
-#### 3. SBOM Generation (`.github/workflows/sbom.yml`)
-
-- Gera Software Bill of Materials (CycloneDX e SPDX)
-- Executa `npm audit` para análise de vulnerabilidades
-- Agenda semanal (segundas às 00:00 UTC)
-
 ### Boas Práticas de CI/CD
 
 **Ao criar novos workflows:**
