@@ -18,16 +18,21 @@ export default defineConfig({
 
   // Configuração de execução
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  forbidOnly: !!process.env['CI'],
+  retries: process.env['CI'] ? 2 : 0,
+  workers: process.env['CI'] ? 1 : undefined,
 
   // Configuração de relatórios
-  reporter: [
-    ['html', { outputFolder: 'playwright-report' }],
-    ['list'],
-    process.env.CI ? ['github'] : ['null'],
-  ].filter((r) => r[0] !== 'null'),
+  reporter: process.env['CI']
+    ? [
+        ['html', { outputFolder: 'playwright-report' }],
+        ['list'],
+        ['github'],
+      ]
+    : [
+        ['html', { outputFolder: 'playwright-report' }],
+        ['list'],
+      ],
 
   // Configurações compartilhadas para todos os projetos
   use: {
@@ -103,7 +108,7 @@ export default defineConfig({
   webServer: {
     command: 'npm start',
     url: 'http://localhost:4200',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env['CI'],
     timeout: 120 * 1000,
     stdout: 'pipe',
     stderr: 'pipe',
