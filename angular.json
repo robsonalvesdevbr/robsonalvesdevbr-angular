@@ -132,7 +132,9 @@
               "src/styles.scss",
               "src/css/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/test-setup-i18n-logging.js"
+            ],
             "karmaConfig": "karma.conf.js"
           }
         },

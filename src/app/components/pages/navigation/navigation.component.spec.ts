@@ -3,6 +3,9 @@ import { NavigationComponent } from './navigation.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { LanguageService } from '@path-services/language.service';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -15,17 +18,56 @@ describe('NavigationComponent', () => {
     mockVirtualPageService = jasmine.createSpyObj('VirtualPageTrackingService', ['sendVirtualPageView']);
 
     await TestBed.configureTestingModule({
-      imports: [NavigationComponent],
+  imports: [NavigationComponent, HttpClientTestingModule],
       providers: [
         provideZonelessChangeDetection(),
+        provideHttpClientTesting(),
         { provide: GoogleAnalyticsService, useValue: mockGoogleAnalyticsService },
         { provide: VirtualPageTrackingService, useValue: mockVirtualPageService }
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NavigationComponent);
+  fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // Flush i18n translation requests to enable TranslatePipe with PT-BR labels
+    const httpMock = TestBed.inject(HttpTestingController);
+
+    const ptReq = httpMock.expectOne('/assets/i18n/pt-BR.json');
+    ptReq.flush({
+      navigation: {
+        ariaLabel: 'Navegação principal',
+        toggleNavigation: 'Alternar navegação',
+        about: 'Sobre',
+        dashboard: 'Dashboard',
+        graduation: '(Pós)Graduação',
+        courses: 'Cursos',
+        formations: 'Formação',
+        books: 'Leituras',
+        contact: 'Contato',
+        skipToContent: 'Ir para o conteúdo'
+      }
+    });
+
+    const enReq = httpMock.expectOne('/assets/i18n/en-US.json');
+    enReq.flush({
+      navigation: {
+        ariaLabel: 'Main navigation',
+        toggleNavigation: 'Toggle navigation',
+        about: 'About',
+        dashboard: 'Dashboard',
+        graduation: 'Graduation',
+        courses: 'Courses',
+        formations: 'Formations',
+        books: 'Books',
+        contact: 'Contact',
+        skipToContent: 'Skip to content'
+      }
+    });
+
+  // Ensure PT-BR language for assertions
+  const lang = TestBed.inject(LanguageService);
+  lang.setLanguage('pt-BR');
+  fixture.detectChanges();
   });
 
   it('should create the NavigationComponent', () => {

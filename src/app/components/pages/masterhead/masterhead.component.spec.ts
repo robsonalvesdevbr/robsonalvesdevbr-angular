@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { MasterheadComponent } from './masterhead.component';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { provideHttpClientTesting, HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { LanguageService } from '@path-services/language.service';
 
 describe('MasterheadComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MasterheadComponent],
-      providers: [provideZonelessChangeDetection()],
+      imports: [MasterheadComponent, HttpClientTestingModule],
+      providers: [provideZonelessChangeDetection(), provideHttpClientTesting()],
     }).compileComponents();
   });
 
@@ -18,11 +20,31 @@ describe('MasterheadComponent', () => {
 
   it('should render titles', () => {
     const fixture = TestBed.createComponent(MasterheadComponent);
-    //fixture.detectChanges()
+    const httpMock = TestBed.inject(HttpTestingController);
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
+      masterhead: {
+        welcome: 'Bem-vindo',
+        subtitle: 'Bem-vindo ao meu portfólio!',
+        learnMore: 'Saiba mais'
+      }
+    });
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({
+      masterhead: {
+        welcome: 'Welcome',
+        subtitle: 'Welcome to my portfolio!',
+        learnMore: 'Learn more'
+      }
+    });
+    // Ensure PT-BR selected
+    const lang = TestBed.inject(LanguageService);
+    lang.setLanguage('pt-BR');
+    fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
       compiled.querySelector('div.container div.masthead-subheading')
         ?.textContent
-    ).toBe('Bem-vindo ao meu portfólio!');
+    ).toBe('Bem-vindo');
+    const headingText = compiled.querySelector('div.container div.masthead-heading')?.textContent?.trim();
+    expect(headingText).toBe('Bem-vindo ao meu portfólio!');
   });
 });
