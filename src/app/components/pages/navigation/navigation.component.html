@@ -1,5 +1,7 @@
 <!-- Skip Navigation Link -->
-<a class="skip-link" href="#about">Pular para conteúdo principal</a>
+<a class="skip-link" href="#about" data-testid="skip-link">{{
+  'navigation.skipToContent' | translate
+}}</a>
 
 <!-- Navigation-->
 <nav
@@ -7,7 +9,7 @@
   id="mainNav"
   data-testid="main-navigation"
   role="navigation"
-  aria-label="Navegação principal"
+  [attr.aria-label]="'navigation.ariaLabel' | translate"
 >
   <div class="container">
     <a class="navbar-brand" href="#page-top">
@@ -20,13 +22,17 @@
         sizes="(max-width: 768px) 50vw, 20vw"
       />
     </a>
+    <!-- Language switcher à esquerda do menu -->
+    <div class="d-flex align-items-center me-2">
+      <app-language-switcher (languageSelected)="closeMenu()"></app-language-switcher>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
       (click)="toggleMenu()"
       aria-controls="navbarResponsive"
       [attr.aria-expanded]="isMenuOpen()"
-      aria-label="Toggle navigation"
+      [attr.aria-label]="'navigation.toggleNavigation' | translate"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,54 +44,73 @@
     >
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 nav">
         <li class="nav-item">
-          <a class="nav-link" href="#about" aria-label="Sobre" (click)="sobreAnalitics($event)"
-            >Sobre<span class="sr-only"></span
+          <a
+            class="nav-link"
+            href="#about"
+            [attr.aria-label]="'navigation.about' | translate"
+            (click)="sobreAnalitics($event)"
+            data-testid="nav-about"
+            >{{ 'navigation.about' | translate }}<span class="sr-only"></span
           ></a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             href="#dashboard"
-            aria-label="Dashboard"
+            [attr.aria-label]="'navigation.dashboard' | translate"
             (click)="dashboardAnalitics($event)"
-            >Dashboard<span class="sr-only"></span
+            data-testid="nav-dashboard"
+            >{{ 'navigation.dashboard' | translate }}<span class="sr-only"></span
           ></a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             href="#graduation"
-            aria-label="(P\u00F3s)Graduação"
+            [attr.aria-label]="'navigation.graduation' | translate"
             (click)="graduationAnalitics($event)"
-            >(Pós)Graduação</a
+            data-testid="nav-graduation"
+            >{{ 'navigation.graduation' | translate }}</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#courses" aria-label="Cursos" (click)="coursesAnalitics($event)"
-            >Cursos</a
+          <a
+            class="nav-link"
+            href="#courses"
+            [attr.aria-label]="'navigation.courses' | translate"
+            (click)="coursesAnalitics($event)"
+            data-testid="nav-courses"
+            >{{ 'navigation.courses' | translate }}</a
           >
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             href="#formationcourse"
-            aria-label="Formação"
+            [attr.aria-label]="'navigation.formations' | translate"
             (click)="formationcourseAnalitics($event)"
-            >Formação</a
+            data-testid="nav-formations"
+            >{{ 'navigation.formations' | translate }}</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#books" aria-label="Leituras" (click)="booksAnalitics($event)"
-            >Leituras</a
+          <a
+            class="nav-link"
+            href="#books"
+            [attr.aria-label]="'navigation.books' | translate"
+            (click)="booksAnalitics($event)"
+            data-testid="nav-books"
+            >{{ 'navigation.books' | translate }}</a
           >
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             href="#contact"
-            aria-label="Contato"
+            [attr.aria-label]="'navigation.contact' | translate"
             (click)="contactAnalitics($event)"
-            >Contato</a
+            data-testid="nav-contact"
+            >{{ 'navigation.contact' | translate }}</a
           >
         </li>
       </ul>

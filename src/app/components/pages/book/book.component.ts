@@ -13,6 +13,7 @@ import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -26,6 +27,7 @@ import { IBook } from '@path-interfaces/IBook';
     CommonModule,
     PrintTagsPipe,
     SortbyPipe,
+    TranslatePipe,
     NgxPaginationModule,
     NgOptimizedImage,
     HighlightDirective,

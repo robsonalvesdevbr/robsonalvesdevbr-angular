@@ -56,7 +56,7 @@
   }
 
   // Rotate icon when menu is open (optional enhancement)
-  &[aria-expanded="true"] .navbar-toggler-icon {
+  &[aria-expanded='true'] .navbar-toggler-icon {
     transform: rotate(90deg);
   }
 }

@@ -2,11 +2,13 @@
 <section class="page-section" id="courses" data-testid="courses-section" [ngClass]="currentClass()">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Cursos</h2>
+      <h2 class="section-heading text-uppercase">{{ 'courses.title' | translate }}</h2>
       <h3 class="section-subheading text-muted mb-3">
-        Saiba mais sobre meus cursos.&nbsp;&nbsp;&nbsp;&nbsp;<span
+        {{ 'courses.subtitle' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;<span
           class="badge rounded-pill bg-warning fs-7 text-dark"
-          >Quantidade: {{ filteredAndSortedCourses().length }}</span
+          >{{
+            'courses.quantity' | translate: { count: filteredAndSortedCourses().length.toString() }
+          }}</span
         >
       </h3>
     </div>
@@ -24,12 +26,12 @@
                 type="button"
                 class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start"
                 (click)="clearFilters()"
-                aria-label="Limpar Filtros"
-                title="Limpar Filtros"
+                [attr.aria-label]="'courses.ariaClearFilters' | translate"
+                [attr.title]="'courses.clearFilters' | translate"
               >
-                Limpar Filtros
+                {{ 'courses.clearFilters' | translate }}
               </button>
-              <b class="p-1 m-1">Filtrar Instituição:</b>
+              <b class="p-1 m-1">{{ 'courses.filterInstitution' | translate }}:</b>
 
               @for (
                 institution of institutionList | enumToArray;
@@ -64,7 +66,7 @@
                 role="group"
                 aria-label="Basic checkbox toggle button group"
               >
-                <b class="p-1 m-1">Filtrar tag:</b>
+                <b class="p-1 m-1">{{ 'courses.filterTag' | translate }}:</b>
                 @for (tag of availableTags(); track trackByTag($index, tag)) {
                   <input
                     type="checkbox"
@@ -90,7 +92,7 @@
       </div>
     </div>
     <div class="fontemenor12 pb-1" style="margin-left: 140px">
-      <i class="bi bi-star-fill" style="color: #ffc107"></i> Favorito
+      <i class="bi bi-star-fill" style="color: #ffc107"></i> {{ 'courses.favorite' | translate }}
     </div>
     <ul class="list-group list-group-light mb-4">
       @for (
@@ -105,7 +107,7 @@
           <div class="d-flex align-items-center ms-5">
             <img
               ngSrc="assets/img/others/{{ item.institution | imgcurso }}"
-              alt="Logo da instituição {{ item.institution }}"
+              [alt]="'courses.logoAlt' | translate: { name: item.institution }"
               height="60"
               width="60"
               class="rounded-circle"
@@ -121,24 +123,28 @@
                 ></i
                 >&nbsp;&nbsp;
               </p>
-              <p class="text-muted fontemenor"><b>Instituição:</b> {{ item.institution }}</p>
-              <p class="text-muted fontemenor"><b>Tags: </b> {{ item.tags | printTags }}</p>
               <p class="text-muted fontemenor">
-                Concluído em
+                <b>{{ 'courses.institution' | translate }}:</b> {{ item.institution }}
+              </p>
+              <p class="text-muted fontemenor">
+                <b>{{ 'courses.tags' | translate }}: </b> {{ item.tags | printTags }}
+              </p>
+              <p class="text-muted fontemenor">
+                {{ 'courses.completedOn' | translate }}
                 {{ item.conclusion | date: 'dd/MM/yyyy' }}
                 &nbsp;&nbsp;&nbsp;&nbsp;<a
                   [href]="item.certificateUrl"
                   target="_blank"
                   rel="noopener"
                   (click)="onCertificateClick(item.name, item.institution)"
-                  >Certificado</a
+                  >{{ 'courses.certificate' | translate }}</a
                 >
               </p>
             </div>
           </div>
           <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
             {{ absoluteIndex(i) }}
-            <span class="visually-hidden">unread messages</span>
+            <span class="visually-hidden">{{ 'courses.unreadMessages' | translate }}</span>
           </span>
         </li>
       }

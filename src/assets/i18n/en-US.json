@@ -1,0 +1,177 @@
+{
+  "navigation": {
+    "skipToContent": "Skip to main content",
+    "ariaLabel": "Main navigation",
+    "toggleNavigation": "Toggle navigation",
+    "about": "About",
+    "dashboard": "Dashboard",
+    "graduation": "(Post)Graduation",
+    "courses": "Courses",
+    "formations": "Formations",
+    "books": "Readings",
+    "contact": "Contact"
+  },
+  "masterhead": {
+    "welcome": "Welcome to my portfolio!",
+    "subtitle": "It's a pleasure to share my journey and projects with you.",
+    "learnMore": "Learn more"
+  },
+  "dashboard": {
+    "title": "Personal Dashboard",
+    "subtitle": "Statistics and metrics from my learning journey",
+    "loading": "Loading...",
+    "stats": {
+      "coursesCompleted": "Completed Courses",
+      "technicalBooks": "Technical Books",
+      "formations": "Formations",
+      "booksProgress": "Books Progress",
+      "favoriteCourses": "Favorite Courses",
+      "ofCourses": "of {{total}} courses",
+      "graduations": "Graduations",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "total": "Total: {{count}} graduations",
+      "yearlyEvolution": "Yearly Evolution",
+      "topTechnologies": "Top Technologies",
+      "topInstitutions": "Top Institutions"
+    }
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Learn about my 23+ years professional journey",
+    "timeline": {
+      "instructor": {
+        "period": "2001-2006",
+        "title": "Starting as an Instructor",
+        "description": "I began my professional journey as an instructor at Alpha Tech, teaching Delphi programming, hardware, website design, and basic computing. For five years, I developed teaching skills and deepened my technical knowledge, including private lessons and corporate training.",
+        "imageAlt": "Career start"
+      },
+      "transition": {
+        "period": "2006-2008",
+        "title": "Transition to Development",
+        "description": "I transitioned from teaching to software development, working at Softpar. I applied my technical experience to enterprise system projects, consolidating knowledge in Delphi and databases. A fundamental period for understanding complex business rules and critical system development.",
+        "imageAlt": "Transition to development"
+      },
+      "financial": {
+        "period": "2008-2019",
+        "title": "11 Years in Financial Systems",
+        "description": "The longest and most transformative period at View Financial Systems. I developed critical financial systems focused on checking accounts, documents, and leasing operations. During these 11 years, I led the migration of Delphi systems to .NET, using technologies like C#, Visual Studio, Oracle, and SQL Server. Essential experience that shaped my expertise in high-availability systems.",
+        "imageAlt": "Financial systems"
+      },
+      "modernization": {
+        "period": "2019-2021",
+        "title": "Modernization and New Technologies",
+        "description": "A period of great technical evolution at Zylix, working with industrial automation systems and adopting modern technologies. I implemented solutions with .NET Core, microservices, Docker, Kubernetes, and cloud platforms like Azure. A crucial phase for my definitive transition to software architecture.",
+        "imageAlt": "Technological evolution"
+      },
+      "architect": {
+        "period": "2021-Present",
+        "title": "Software Architect at Consilux",
+        "description": "Currently working as Software Architect and consultant at Consilux, focusing on code review, cloud application management, and system architecture for the financial sector. I develop solutions for fintechs and payment gateways, using technologies like Azure, AWS, .NET, RabbitMQ, Kubernetes, and observability tools like DataDog and Grafana. Specialized in legacy system modernization and DevOps practices implementation.",
+        "imageAlt": "Software architect"
+      },
+      "experience": {
+        "line1": "23+ Years",
+        "line2": "of",
+        "line3": "Experience!"
+      }
+    }
+  },
+  "courses": {
+    "title": "Courses",
+    "subtitle": "Learn more about my courses.",
+    "quantity": "Quantity: {{count}}",
+    "clearFilters": "Clear Filters",
+    "filterInstitution": "Filter Institution",
+    "filterTag": "Filter tag",
+    "ariaClearFilters": "Clear Filters",
+    "favorite": "Favorite",
+    "institution": "Institution",
+    "tags": "Tags",
+    "completedOn": "Completed on",
+    "certificate": "Certificate",
+    "logoAlt": "Institution logo {{name}}",
+    "unreadMessages": "unread messages",
+    "sortBy": "Sort by",
+    "sortOptions": {
+      "name": "Name",
+      "conclusionDate": "Completion Date",
+      "institution": "Institution"
+    }
+  },
+  "books": {
+    "title": "Readings",
+    "subtitle": "Learn more about my books",
+    "quantity": "Quantity: {{count}}",
+    "clearFilters": "Clear Filters",
+    "filterPublisher": "Filter Publisher",
+    "filterTag": "Filter tag",
+    "ariaClearFilters": "Clear Filters",
+    "favorite": "Favorite",
+    "publishedIn": "Published in",
+    "subtitle_label": "Subtitle",
+    "publisher": "Publisher",
+    "author": "Author",
+    "tags": "Tags",
+    "moreDetails": "More details",
+    "logoAlt": "Publisher logo {{name}}",
+    "unreadMessages": "unread messages"
+  },
+  "graduation": {
+    "title": "(Post)Graduation",
+    "subtitle": "Learn more about my graduations and postgraduations.",
+    "quantity": "Quantity: {{count}}",
+    "iconAlt": "Graduation icon",
+    "visitWebsite": "Visit the institution's website {{name}}",
+    "finalMessage": {
+      "line1": "This is part",
+      "line2": "Of my",
+      "line3": "Education!"
+    }
+  },
+  "formationCourse": {
+    "title": "Formation Courses",
+    "subtitle": "Learn more about my formation courses",
+    "quantity": "Quantity: {{count}}",
+    "institution": "Institution",
+    "tags": "Tags",
+    "completedOn": "Completed on",
+    "certificate": "Certificate",
+    "logoAlt": "Institution logo {{name}}",
+    "unreadMessages": "unread messages"
+  },
+  "contact": {
+    "title": "Contact",
+    "photoAlt": "Robson Alves profile photo",
+    "location": "Location",
+    "email": "Email",
+    "birthday": "Birthday",
+    "age": "Age",
+    "separator": "--------------------------------------------------------------",
+    "downloadResume": "Resume in English",
+    "downloadResumeLink": "Click here to download",
+    "sendEmail": "Send email to {{email}}",
+    "visitWebsite": "Visit {{name}}'s personal website",
+    "visitLinkedIn": "Visit {{name}}'s LinkedIn profile",
+    "visitInstagram": "Visit {{name}}'s Instagram profile",
+    "visitGitHub": "Visit {{name}}'s GitHub profile",
+    "visitRepository": "Visit project repository on GitHub",
+    "aboutThisPage": {
+      "title": "About this page",
+      "description": "This page was created to showcase my career and knowledge, as well as to practice Angular and TypeScript. The project uses Angular (currently version 20), is versioned on GitHub, and deployment is automatically performed via GitHub Actions, being hosted on Azure Static Web Apps.",
+      "sourceCode": "Source code of this page:",
+      "visitRepo": "Visit the GitHub repository",
+      "thanks": "Thank you for visiting!"
+    }
+  },
+  "footer": {
+    "copyright": "Robson Alves 2000-2025 · All rights reserved.",
+    "pageTemplate": "Page Template",
+    "termsOfUse": "Terms of Use"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error loading data",
+    "noData": "No data available"
+  }
+}
