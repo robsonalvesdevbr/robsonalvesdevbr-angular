@@ -14,10 +14,13 @@
     <span class="language-code">{{ languageInfo().code }}</span>
   </button>
   <ul
-    class="dropdown-menu dropdown-menu-end"
+    class="dropdown-menu"
     *ngIf="isOpen()"
     [class.show]="isOpen()"
+    [class.dropdown-menu-end]="dropdownAlignRight()"
+    [class.dropdown-menu-start]="!dropdownAlignRight()"
     [style.display]="isOpen() ? 'block' : null"
+    [style.top]="dropdownTop()"
     aria-labelledby="languageDropdown"
     (click)="$event.stopPropagation()"
   >
