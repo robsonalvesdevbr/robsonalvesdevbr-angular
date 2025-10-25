@@ -1,4 +1,4 @@
-import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, Output, EventEmitter, ViewChild, ElementRef, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService, Language } from '@path-services/language.service';
 
@@ -13,8 +13,15 @@ import { LanguageService, Language } from '@path-services/language.service';
 export class LanguageSwitcherComponent {
   private languageService = inject(LanguageService);
 
+  // ViewChild para acessar o botão e calcular posição do dropdown
+  @ViewChild('dropdownButton', { read: ElementRef }) dropdownButton?: ElementRef<HTMLButtonElement>;
+
   // Signal para controlar o estado aberto/fechado do dropdown
   isOpen = signal(false);
+
+  // Signals para controlar a posição e alinhamento do dropdown
+  dropdownAlignRight = signal<boolean>(true);
+  dropdownTop = signal<string>('100%');
 
   // Evita toggle duplo quando mousedown e click disparam em sequência
   private lastToggleAt: number | null = null;
@@ -23,6 +30,42 @@ export class LanguageSwitcherComponent {
   @Output() languageSelected = new EventEmitter<void>();
 
   currentLanguage = this.languageService.currentLanguage;
+
+  constructor() {
+    // Atualiza o alinhamento do dropdown quando ele abre
+    effect(() => {
+      if (this.isOpen() && this.dropdownButton) {
+        this.updateDropdownPosition();
+      }
+    });
+  }
+
+  private updateDropdownPosition(): void {
+    if (!this.dropdownButton) return;
+
+    const buttonRect = this.dropdownButton.nativeElement.getBoundingClientRect();
+    const dropdownWidth = 180;
+    const viewportWidth = window.innerWidth;
+
+    // Em telas muito estreitas (<400px), usa position fixed
+    if (viewportWidth < 400) {
+      // Calcula a posição top logo abaixo do botão
+      const topPosition = buttonRect.bottom + 2;
+      this.dropdownTop.set(`${topPosition}px`);
+      // Não importa o alinhamento, pois vai ocupar quase toda a largura
+      this.dropdownAlignRight.set(false);
+    } else {
+      // Comportamento normal: verifica espaço à direita
+      this.dropdownTop.set('100%'); // Posição relativa padrão
+      const spaceOnRight = viewportWidth - buttonRect.right;
+
+      if (spaceOnRight < dropdownWidth + 16) {
+        this.dropdownAlignRight.set(false);
+      } else {
+        this.dropdownAlignRight.set(true);
+      }
+    }
+  }
 
   // Computed para informações do idioma
   languageInfo = computed(() => {

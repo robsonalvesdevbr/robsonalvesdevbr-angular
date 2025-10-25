@@ -40,17 +40,46 @@
   }
 }
 
+.dropdown {
+  position: relative;
+}
+
 .dropdown-menu {
+  // Position absolute: posiciona relativo ao container .dropdown
+  position: absolute;
   min-width: 180px;
+  max-width: calc(100vw - 2rem);
+  z-index: 1050;
+
+  // Reduz largura em telas muito pequenas
+  @media (max-width: 576px) {
+    min-width: 150px;
+    max-width: calc(100vw - 1rem);
+  }
+
+  // Em telas extremamente estreitas (<400px), usa estratégia diferente
+  @media (max-width: 400px) {
+    // Usa position fixed para posicionar em relação à viewport
+    position: fixed;
+
+    // Ocupa quase toda a largura da tela com margem mínima
+    left: 0.5rem !important;
+    right: 0.5rem !important;
+    min-width: auto;
+    width: auto;
+    max-width: none;
+  }
 
   .dropdown-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
+    white-space: nowrap;
 
     .flag-icon {
       font-size: 1.25rem;
+      flex-shrink: 0;
     }
 
     &.active {
