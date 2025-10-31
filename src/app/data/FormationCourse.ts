@@ -6,6 +6,20 @@ export const FormationCourses: IFormationCourse[] = [
   // ===== ALURA =====
   {
 
+    id: 'formacao-aprenda-programar-python-oo-alura-2025-07',
+    name: 'Aprenda a programar em Python com Orientação a Objetos',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/degree/certificate/e884d0c7-8deb-4e14-8e20-566427890ac9?lang=pt_BR',
+    tags: [
+      FormationCourseTagEnum.SoftwareDevelopment,
+      FormationCourseTagEnum.Python
+    ],
+    conclusion: new Date('2025-10-31'),
+    favorite: false,
+  },
+  {
+
     id: 'formacao-comecando-em-linux-alura-2025-07',
     name: 'Começando em Linux',
     institution: InstitutionEnum.Alura,
