@@ -610,6 +610,17 @@ export const Courses: ICourse[] = [
   // ===== ALURA =====
   {
 
+    id: 'curso-liamaindex-analisando-dados-panda-alura-2025-10',
+    name: 'LlamaIndex: analisando dados com Pandas',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/certificate/72fbbc57-79ad-42ea-9475-8f39a4fc9b0a?lang=pt_BR',
+    tags: [CourseTagEnum.ArtificialIntelligence, CourseTagEnum.Python],
+    conclusion: new Date('2025-10-29'),
+    favorite: false,
+  },
+  {
+
     id: 'curso-seguranca-ofensiva-alura-2024-09',
     name: 'Segurança Ofensiva',
     institution: InstitutionEnum.Alura,
