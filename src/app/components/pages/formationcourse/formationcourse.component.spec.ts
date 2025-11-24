@@ -11,7 +11,8 @@ import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormationCourseComponent } from './formationcourse.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { provideHttpClientTesting, HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('FormationCourseComponent', () => {
   let component: FormationCourseComponent;
@@ -62,11 +63,11 @@ describe('FormationCourseComponent', () => {
         RouterLink,
         RouterLinkActive,
   FormationCourseComponent, // Import the standalone component
-  HttpClientTestingModule,
       ],
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
+        provideHttpClient(),
         provideHttpClientTesting(),
       ],
     }).compileComponents();

@@ -2,7 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { DataService } from '@path-services/data-service';
 import { ContactComponent } from './contact.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { provideHttpClientTesting, HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { flushI18n } from '@path-app/../testing/i18n-test.utils';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -27,10 +29,11 @@ describe('ContactComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-  imports: [ContactComponent, HttpClientTestingModule],
+  imports: [ContactComponent],
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
+        provideHttpClient(),
         provideHttpClientTesting()
       ],
     }).compileComponents();

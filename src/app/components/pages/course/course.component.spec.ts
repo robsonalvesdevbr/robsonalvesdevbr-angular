@@ -1,5 +1,5 @@
 import { provideHttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
@@ -39,7 +39,7 @@ describe('CourseComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [CourseComponent, HttpClientTestingModule],
+      imports: [CourseComponent],
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideHttpClient(),

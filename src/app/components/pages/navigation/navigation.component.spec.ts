@@ -4,7 +4,8 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 
 describe('NavigationComponent', () => {
@@ -18,9 +19,10 @@ describe('NavigationComponent', () => {
     mockVirtualPageService = jasmine.createSpyObj('VirtualPageTrackingService', ['sendVirtualPageView']);
 
     await TestBed.configureTestingModule({
-  imports: [NavigationComponent, HttpClientTestingModule],
+  imports: [NavigationComponent],
       providers: [
         provideZonelessChangeDetection(),
+        provideHttpClient(),
         provideHttpClientTesting(),
         { provide: GoogleAnalyticsService, useValue: mockGoogleAnalyticsService },
         { provide: VirtualPageTrackingService, useValue: mockVirtualPageService }

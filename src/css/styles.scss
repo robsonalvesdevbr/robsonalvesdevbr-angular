@@ -1,5 +1,5 @@
 // Import custom Bootstrap build (only necessary modules)
-// Note: @import is deprecated but required for Bootstrap 5.x compatibility
+// Note: @import is required for Bootstrap 5.x compatibility (Bootstrap 6 will use @use/@forward)
 @import '../scss/bootstrap-custom';
 
 html {

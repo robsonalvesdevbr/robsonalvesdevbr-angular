@@ -2,7 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { provideHttpClientTesting, HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { EngagementTrackingService } from '@path-services/engagement-tracking-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
 
@@ -33,10 +34,10 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppComponent,
-        HttpClientTestingModule,
       ],
       providers: [
         provideZonelessChangeDetection(),
+        provideHttpClient(),
         provideHttpClientTesting(),
         provideRouter([]),
         { provide: EngagementTrackingService, useValue: mockEngagementService },

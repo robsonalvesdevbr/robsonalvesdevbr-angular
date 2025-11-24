@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { AboutComponent } from './about.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 import { flushI18n } from '@path-app/../testing/i18n-test.utils';
 
 describe('AbountComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutComponent, HttpClientTestingModule],
-      providers: [provideZonelessChangeDetection(), provideHttpClientTesting()]
+      imports: [AboutComponent],
+      providers: [provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()]
     }).compileComponents();
   });
 

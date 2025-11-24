@@ -1,14 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { MasterheadComponent } from './masterhead.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { provideHttpClientTesting, HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 
 describe('MasterheadComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MasterheadComponent, HttpClientTestingModule],
-      providers: [provideZonelessChangeDetection(), provideHttpClientTesting()],
+      imports: [MasterheadComponent],
+      providers: [provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
   });
 

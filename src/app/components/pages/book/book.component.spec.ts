@@ -11,8 +11,8 @@ import { DataService } from '@path-services/data-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BookComponent } from './book.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 
 describe('BookComponent', () => {
@@ -69,12 +69,12 @@ describe('BookComponent', () => {
         RouterLink,
         RouterLinkActive,
         BookComponent, // Moved from declarations to imports
-        HttpClientTestingModule,
       ],
       // Removed BookComponent from declarations
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
+        provideHttpClient(),
         provideHttpClientTesting(),
       ],
     }).compileComponents();
