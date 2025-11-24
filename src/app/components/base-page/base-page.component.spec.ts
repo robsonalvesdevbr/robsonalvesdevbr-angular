@@ -23,6 +23,6 @@ describe('BasePageComponent', () => {
   });
 
   it('should have bglight input property set to false by default', () => {
-    expect(component.bglight()).toBeFalse();
+    expect(component.bglight()).toBeFalsy();
   });
 });

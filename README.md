@@ -206,13 +206,22 @@ docker run --rm --network=host \
 ## 🧪 Testes
 
 ```bash
-# Testes unitários
-npm test                         # Executa testes com watch (Karma + Jasmine)
-npm run test-nowatch             # Executa uma vez (Chrome headless)
-npm run test-coverage            # Com cobertura de código
+# Testes unitários (Vitest)
+npm test                         # Executa testes com watch
+npm run test:nowatch             # Executa uma vez sem watch
+npm run test:coverage            # Com cobertura de código
+npm run test:ui                  # Interface UI interativa do Vitest
+
+# Testes E2E (Playwright)
+npm run test:e2e                 # Executa testes E2E (headless)
+npm run test:e2e:ui              # Interface UI interativa
+npm run test:e2e:headed          # Com browser visível
+npm run test:e2e:chromium        # Apenas Chromium
+npm run test:e2e:firefox         # Apenas Firefox
+npm run test:e2e:webkit          # Apenas WebKit
 
 # Coverage report
-npm run test-coverage
+npm run test:coverage
 open coverage/index.html         # Visualiza relatório de cobertura
 ```
 
