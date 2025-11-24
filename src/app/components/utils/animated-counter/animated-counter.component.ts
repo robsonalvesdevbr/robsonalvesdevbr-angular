@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   Component,
@@ -14,7 +14,7 @@ import {
 
 @Component({
   selector: 'app-animated-counter',
-  imports: [CommonModule],
+  imports: [],
   template: `
     <span [class]="cssClass()">{{ formattedValue() }}</span>
   `,
