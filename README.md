@@ -1,22 +1,22 @@
 # 🚀 Robson Alves - Portfolio Angular
 
-[![Angular](https://img.shields.io/badge/Angular-20.2-red?logo=angular)](https://angular.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.7-purple?logo=bootstrap)](https://getbootstrap.com/)
+[![Angular](https://img.shields.io/badge/Angular-21.0-red?logo=angular)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.8-purple?logo=bootstrap)](https://getbootstrap.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-22.12+-green?logo=node.js)](https://nodejs.org/)
 [![Build Status](https://img.shields.io/github/workflow/status/robsonalvesdevbr/robsonalvesdevbr-angular/CI)](https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular/actions)
 [![License](https://img.shields.io/github/license/robsonalvesdevbr/robsonalvesdevbr-angular)](LICENSE)
 
-> 💼 Portfolio pessoal desenvolvido com **Angular 20.2**, **Signals**, **Standalone Components** e **Bootstrap 5** para demonstrar habilidades em desenvolvimento frontend moderno.
+> 💼 Portfolio pessoal desenvolvido com **Angular 21.0**, **Signals**, **Standalone Components** e **Bootstrap 5** para demonstrar habilidades em desenvolvimento frontend moderno.
 
 ## 📖 Sobre o Projeto
 
-Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático das mais recentes funcionalidades do Angular 20, incluindo:
+Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático das mais recentes funcionalidades do Angular 21, incluindo:
 
 - ✨ **Signals** para gerenciamento de estado reativo
 - 🎯 **Standalone Components** para arquitetura moderna
 - 🎨 **Bootstrap 5** com Bootstrap Icons para UI/UX profissional
-- 🚀 **Detecção de Mudanças Zoneless** (experimental)
+- 🚀 **Detecção de Mudanças Zoneless** (production-ready no Angular 21)
 - 🔧 **Path Aliases personalizados** para melhor organização
 - 📱 **Design Responsivo** para todos os dispositivos
 - 📊 **Google Analytics** integrado via ngx-google-analytics
@@ -27,7 +27,7 @@ Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático
 
 - **Node.js** 22.12+ ([Download](https://nodejs.org/))
 - **npm** 10.0.0+ (incluído com Node.js)
-- **Angular CLI** 20+ (será instalado automaticamente)
+- **Angular CLI** 21+ (será instalado automaticamente)
 
 ### 🚀 Instalação e Execução
 
@@ -277,7 +277,7 @@ ng build --configuration=production --named-chunks
 - ✅ **Bootstrap 5** com Bootstrap Icons para UI
 - ✅ **Path Aliases** para importações organizadas
 - ✅ **OnPush Change Detection** para performance
-- ✅ **Detecção de Mudanças Zoneless** (experimental)
+- ✅ **Detecção de Mudanças Zoneless** (production-ready)
 - ✅ **RxJS** para operações assíncronas
 - ✅ **Async/await** preferível a `.then()`
 - ✅ **Testes unitários** obrigatórios

@@ -46,11 +46,11 @@ Este arquivo fornece orientações para Claude Code (claude.ai/code) ao trabalha
 
 ### Stack Tecnológica
 
-- **Angular 20.2** com componentes standalone (sem módulos)
-- **TypeScript 5.9.2** com modo strict habilitado
-- **Bootstrap 5.3.7** para estilização com Bootstrap Icons
+- **Angular 21.0** com componentes standalone (sem módulos)
+- **TypeScript 5.9.3** com modo strict habilitado
+- **Bootstrap 5.3.8** para estilização com Bootstrap Icons
 - **SCSS** para estilos de componentes
-- **Detecção de Mudanças Zoneless** (recurso experimental do Angular)
+- **Detecção de Mudanças Zoneless** (production-ready desde Angular 21)
 - **Google Analytics** integração via `ngx-google-analytics`
 - **ESLint + Prettier** para qualidade de código
 
