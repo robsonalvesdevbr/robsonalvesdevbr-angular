@@ -9,7 +9,7 @@
     [attr.aria-expanded]="isOpen()"
     data-testid="language-switcher-button"
     [attr.aria-label]="languageInfo().ariaLabel"
-    >
+  >
     <span class="flag" role="img" data-testid="language-flag">{{ languageInfo().flag }}</span>
     <span class="language-code">{{ languageInfo().code }}</span>
   </button>
@@ -23,7 +23,7 @@
       [style.top]="dropdownTop()"
       aria-labelledby="languageDropdown"
       (click)="$event.stopPropagation()"
-      >
+    >
       <li>
         <button
           class="dropdown-item"
@@ -31,7 +31,7 @@
           (click)="selectLanguage('pt-BR'); $event.stopPropagation()"
           [class.active]="currentLanguage() === 'pt-BR'"
           data-testid="lang-pt-br"
-          >
+        >
           <span class="flag-icon">🇧🇷</span> Português (BR)
         </button>
       </li>
@@ -42,7 +42,7 @@
           (click)="selectLanguage('en-US'); $event.stopPropagation()"
           [class.active]="currentLanguage() === 'en-US'"
           data-testid="lang-en-us"
-          >
+        >
           <span class="flag-icon">🇺🇸</span> English (US)
         </button>
       </li>
