@@ -7,6 +7,47 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+## [3.1.0] - 2025-11-24
+
+### Added
+- Migração completa de Karma para Vitest 4.0.13
+- Plugin Vite customizado para resolver templates e estilos Angular
+- Jasmine compatibility shim para manter sintaxe de testes
+- Matchers customizados: `toBeTrue()`, `toBeFalse()`
+- Interface UI interativa para testes (Vitest UI)
+- Suporte a path aliases TypeScript no Vitest
+
+### Changed
+- **BREAKING CHANGE**: Removido Karma e todas suas dependências
+- Testes unitários agora executam com Vitest ao invés de Karma
+- Configuração de testes movida de `karma.conf.js` para `vite.config.ts`
+- LoadingComponent e PlaceholderComponent convertidos para templates inline
+
+### Removed
+- karma (6.4.4)
+- karma-chrome-launcher (3.2.0)
+- karma-coverage (2.2.1)
+- karma-jasmine (5.1.0)
+- karma-jasmine-html-reporter (2.1.0)
+- jasmine-core (5.11.0)
+- karma.conf.js
+
+### Fixed
+- Compatibilidade de spies Jasmine com Vitest (`spy.and.returnValue`, `spy.and.callFake`)
+- Resolução de templates HTML externos em componentes
+- app.component.spec.ts com mocks de serviços de injeção
+
+### Performance
+- Testes unitários ~40% mais rápidos com Vitest
+- Execução paralela de testes por padrão
+- Menor consumo de memória comparado ao Karma
+
+### Documentation
+- Atualizado CLAUDE.md com estratégias de teste Vitest
+- Documentado compatibilidade Jasmine e melhores práticas
+
+---
+
 ## [3.0.0] - 2025-11-24
 
 ### Added

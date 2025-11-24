@@ -13,11 +13,12 @@ Este arquivo fornece orientações para Claude Code (claude.ai/code) ao trabalha
 
 ### Testes
 
-#### Testes Unitários (Karma + Jasmine)
+#### Testes Unitários (Vitest)
 
 - `npm test` - Executar testes unitários com modo watch
-- `npm run test:nowatch` - Executar testes unitários uma vez sem modo watch (Chrome headless)
+- `npm run test:nowatch` - Executar testes unitários uma vez sem modo watch
 - `npm run test:coverage` - Executar testes unitários com relatório de cobertura
+- `npm run test:ui` - Executar testes com interface UI interativa do Vitest
 
 #### Testes E2E (Playwright)
 
@@ -154,21 +155,23 @@ O projeto inclui vários pipes personalizados para transformação de dados:
 
 Este projeto implementa uma **abordagem híbrida de testes**, seguindo as melhores práticas da pirâmide de testes:
 
-#### Testes Unitários (Karma + Jasmine)
+#### Testes Unitários (Vitest)
 
 - **Propósito**: Validar lógica isolada de componentes, serviços, pipes e diretivas
 - **Localização**: `src/**/*.spec.ts`
-- **Framework**: Karma + Jasmine (configuração padrão Angular)
+- **Framework**: Vitest 4.0 com compatibilidade Jasmine
+- **Configuração**: `vite.config.ts` com plugin customizado para resolver templates Angular
 - **Quando usar**:
   - Testar lógica de negócio em serviços
   - Validar transformações de dados em pipes
   - Verificar comportamento de componentes isolados
   - Testar diretivas e guards
 - **Boas práticas**:
-  - Use mocks para dependências externas
+  - Use mocks para dependências externas via `jasmine.createSpyObj`
   - Mantenha testes rápidos e focados
   - Utilize TestBed para componentes Angular
-  - Prefira `Spectator` ou `Testing Library` para simplificar testes
+  - Use matchers Jasmine compatíveis: `toBeTrue()`, `toBeFalse()`, `toEqual()`, etc
+  - Spies Jasmine funcionam via shim: `spy.and.returnValue()`, `spy.and.callFake()`
 
 #### Testes E2E (Playwright)
 
@@ -195,7 +198,7 @@ Este projeto implementa uma **abordagem híbrida de testes**, seguindo as melhor
 #### Separação de Responsabilidades
 
 ```
-Testes Unitários (Karma/Jasmine)
+Testes Unitários (Vitest)
   ↓
   - Lógica isolada
   - Execução rápida (milissegundos)

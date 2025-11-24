@@ -169,81 +169,67 @@ describe('NavigationComponent', () => {
   });
 
   describe('Navigation Link Clicks', () => {
-    it('should close menu when "Sobre" link is clicked', (done) => {
+    it('should close menu when "Sobre" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.sobreAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Dashboard" link is clicked', (done) => {
+    it('should close menu when "Dashboard" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.dashboardAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Graduação" link is clicked', (done) => {
+    it('should close menu when "Graduação" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.graduationAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Cursos" link is clicked', (done) => {
+    it('should close menu when "Cursos" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.coursesAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Formação" link is clicked', (done) => {
+    it('should close menu when "Formação" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.formationcourseAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Leituras" link is clicked', (done) => {
+    it('should close menu when "Leituras" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.booksAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Contato" link is clicked', (done) => {
+    it('should close menu when "Contato" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.contactAnalitics(event);
 
-      setTimeout(() => {
-        expect(component.isMenuOpen()).toBe(false);
-        done();
-      }, 0);
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component.isMenuOpen()).toBe(false);
     });
   });
 
