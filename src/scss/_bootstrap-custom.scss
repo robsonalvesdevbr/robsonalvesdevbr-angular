@@ -1,6 +1,7 @@
 // Custom Bootstrap import - only necessary modules for better performance
-// Note: Bootstrap 5.x still uses @import internally, so we must use it too
-// The deprecation warnings will be resolved when Bootstrap 6 is released with full @use/@forward support
+// Note: Using @import because Bootstrap 5.3.x is not yet compatible with Sass @use/@forward
+// Bootstrap 6 will migrate to the modern module system
+// The deprecation warnings are expected and will be resolved when upgrading to Bootstrap 6
 
 // 1. Include functions first (always required)
 @import 'bootstrap/scss/functions';

@@ -2,13 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { FooterComponent } from './footer.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { LanguageService } from '@path-services/language.service';
-import { provideHttpClientTesting, HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('FooterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [provideZonelessChangeDetection(), provideHttpClientTesting()],
-      imports: [FooterComponent, HttpClientTestingModule],
+      imports: [FooterComponent],
+      providers: [provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
   });
 
