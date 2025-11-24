@@ -1,11 +1,11 @@
 import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, Output, EventEmitter, ViewChild, ElementRef, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { LanguageService, Language } from '@path-services/language.service';
 
 @Component({
   selector: 'app-language-switcher',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './language-switcher.component.html',
   styleUrls: ['./language-switcher.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
