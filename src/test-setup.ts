@@ -9,7 +9,7 @@ import {
 
 // Suprimir warning NG0914 (esperado em testes com Zone.js + zoneless)
 const originalConsoleWarn = console.warn;
-console.warn = (...args: any[]) => {
+console.warn = (...args: unknown[]) => {
   if (typeof args[0] === 'string' && args[0].includes('NG0914')) {
     return; // Ignora warning NG0914
   }

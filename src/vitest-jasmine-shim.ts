@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { vi, expect } from 'vitest';
 
 // Shimspara compatibilidade entre Jasmine e Vitest

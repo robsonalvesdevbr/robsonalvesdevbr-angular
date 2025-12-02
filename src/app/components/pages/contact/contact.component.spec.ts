@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { DataService } from '@path-services/data-service';
 import { ContactComponent } from './contact.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { flushI18n } from '@path-app/../testing/i18n-test.utils';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
