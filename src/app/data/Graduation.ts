@@ -11,6 +11,7 @@ export const Graduations: IGraduation[] = [
     conclusionDate: new Date(2025, 12),
     conclusion: 'inprogress',
     websiteInstituition: 'https://fullcycle.com.br/',
+    institutionLogo: 'assets/img/logos/fullcycle.jpeg',
   },
   {
 
@@ -20,6 +21,7 @@ export const Graduations: IGraduation[] = [
     conclusionDate: new Date(2024, 1),
     conclusion: 'inprogress',
     websiteInstituition: 'https://fullcycle.com.br/',
+    institutionLogo: 'assets/img/logos/fullcycle.jpeg',
   },
 
   // ===== CONCLUÍDAS =====
@@ -32,6 +34,7 @@ export const Graduations: IGraduation[] = [
     conclusion: 'completed',
     websiteInstituition: 'https://www.cruzeirodosulvirtual.com.br',
     tags: [GraduationTagEnum.FullStack, GraduationTagEnum.JavaScript],
+    institutionLogo: 'assets/img/logos/positivo.jpeg',
   },
   {
 
@@ -42,6 +45,7 @@ export const Graduations: IGraduation[] = [
     conclusion: 'completed',
     websiteInstituition: 'https://tuiuti.edu.br',
     tags: [GraduationTagEnum.Networking],
+    institutionLogo: 'assets/img/logos/tuiuti.jpeg',
   },
 
   // ===== TRANCADAS =====
@@ -53,5 +57,6 @@ export const Graduations: IGraduation[] = [
     conclusionDate: new Date(2000, 1),
     conclusion: 'locked',
     websiteInstituition: 'https://www.opet.com.br',
+    institutionLogo: 'assets/img/logos/opet.png',
   },
 ];

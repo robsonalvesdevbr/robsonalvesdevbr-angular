@@ -20,7 +20,7 @@
           <div class="timeline-image">
             <img
               class="rounded-circle img-fluid"
-              ngSrc="assets/img/others/formacao.png"
+              [ngSrc]="graduation.institutionLogo || 'assets/img/others/formacao.png'"
               [alt]="'graduation.iconAlt' | translate"
               fill
               decoding="async"
