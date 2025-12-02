@@ -8,4 +8,5 @@ export interface IGraduation {
   conclusion: 'completed' | 'locked' | 'inprogress';
   websiteInstituition: string | undefined | null;
   tags?: GraduationTagEnum[];
+  institutionLogo?: string;
 }
