@@ -5,6 +5,15 @@ export const Graduations: IGraduation[] = [
   // ===== EM ANDAMENTO =====
   {
 
+    id: 'graduacao-pos-goexpert-fullcycle',
+    name: 'PÓS - GO EXPERT',
+    institution: 'FullCycle',
+    conclusionDate: new Date(2025, 12),
+    conclusion: 'inprogress',
+    websiteInstituition: 'https://fullcycle.com.br/',
+  },
+  {
+
     id: 'graduacao-mba-arquitetura-fullcycle-fullcycle',
     name: 'MBA - ARQUITETURA FULLCYCLE',
     institution: 'FullCycle',
