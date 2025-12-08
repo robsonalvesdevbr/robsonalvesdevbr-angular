@@ -1,4 +1,6 @@
 import { Injectable, inject } from '@angular/core';
+import { Subject, interval } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { PerformanceMonitor, scheduleIdleWork } from '../utils/performance.utils';
 import { LoggerService } from './logger.service';
 
@@ -17,7 +19,7 @@ export class PerformanceMonitorService {
   private metrics: PerformanceMetric[] = [];
   private observer?: PerformanceObserver;
   private isMonitoring = false;
-  private memoryTrackingInterval?: number;
+  private readonly destroy$ = new Subject<void>();
 
   startMonitoring(): void {
     if (this.isMonitoring || typeof window === 'undefined') return;
@@ -83,11 +85,11 @@ export class PerformanceMonitorService {
         const memory = (performance as unknown as { memory: { usedJSHeapSize: number; totalJSHeapSize: number } }).memory;
         const usedMB = memory.usedJSHeapSize / 1024 / 1024;
         const totalMB = memory.totalJSHeapSize / 1024 / 1024;
-        
+
         // Only track if significant change (>5MB) to reduce noise
         const lastUsedMetric = this.getLastMetric('heap-used');
         const lastUsed = lastUsedMetric?.value || 0;
-        
+
         if (Math.abs(usedMB - lastUsed) > 5) {
           this.addMetric({
             name: 'heap-used',
@@ -105,13 +107,12 @@ export class PerformanceMonitorService {
         }
       };
 
-      // Use scheduleIdleWork for better performance
-      const scheduleTracking = () => {
-        scheduleIdleWork(trackMemory, 5000);
-        this.memoryTrackingInterval = window.setTimeout(scheduleTracking, 60000); // Every minute instead of 30s
-      };
-
-      scheduleTracking();
+      // Use RxJS interval with scheduleIdleWork for better performance
+      interval(60000) // Every minute
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          scheduleIdleWork(trackMemory, 5000);
+        });
     }
   }
 
@@ -225,14 +226,12 @@ export class PerformanceMonitorService {
   stopMonitoring(): void {
     this.isMonitoring = false;
     this.observer?.disconnect();
-    if (this.memoryTrackingInterval) {
-      clearTimeout(this.memoryTrackingInterval);
-      this.memoryTrackingInterval = undefined;
-    }
+    this.destroy$.next();
   }
 
   destroy(): void {
     this.stopMonitoring();
     this.clearMetrics();
+    this.destroy$.complete();
   }
 }

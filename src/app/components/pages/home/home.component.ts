@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LoadingComponent } from '@path-components/utils/loading/loading.component';
 import { PlaceholderComponent } from '@path-components/utils/placeholder/placeholder.component';
 import { AboutComponent } from '@path-components/pages/about/about.component';
@@ -14,6 +14,7 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
 
 @Component({
   selector: 'app-home',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NavigationComponent,
     MasterheadComponent,
