@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
@@ -20,16 +22,34 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
   private readonly _virtualPageService = inject(VirtualPageTrackingService);
 
   // Cache DOM elements and calculations
-  private cachedElements = new Map<string, HTMLElement>();
-  private navbarHeights = {
+  private readonly cachedElements = new Map<string, HTMLElement>();
+  private readonly navbarHeights = {
     mobile: 110,
     shrink: 106,
     normal: 126
   };
-  private scrollTimeout: number | null = null;
+
+  // RxJS Subjects for debouncing
+  private readonly scrollSubject$ = new Subject<string>();
+  private readonly analyticsSubject$ = new Subject<() => void>();
+  private readonly destroy$ = new Subject<void>();
 
   // Estado do menu (compatível com template compartilhado)
   isMenuOpen = signal(false);
+
+  constructor() {
+    super();
+
+    // Setup scroll debouncing with RxJS
+    this.scrollSubject$
+      .pipe(debounceTime(50))
+      .subscribe(sectionId => this.performScroll(sectionId));
+
+    // Setup analytics batching with RxJS
+    this.analyticsSubject$
+      .pipe(debounceTime(100))
+      .subscribe(action => action());
+  }
 
   // Alterna o menu (compatível com template compartilhado)
   toggleMenu(): void {
@@ -84,14 +104,8 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
   }
 
   private optimizedScrollToSection(sectionId: string): void {
-    // Debounce scroll requests
-    if (this.scrollTimeout) {
-      clearTimeout(this.scrollTimeout);
-    }
-
-    this.scrollTimeout = window.setTimeout(() => {
-      this.performScroll(sectionId);
-    }, 50);
+    // Use RxJS Subject for debouncing
+    this.scrollSubject$.next(sectionId);
   }
 
   private performScroll(sectionId: string): void {
@@ -135,22 +149,9 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
     return this.navbarHeights.normal;
   }
 
-  // Optimized analytics methods with batching
-  private pendingAnalytics: Array<() => void> = [];
-  private analyticsTimeout: number | null = null;
-
   private batchAnalytics(action: () => void): void {
-    this.pendingAnalytics.push(action);
-
-    if (this.analyticsTimeout) {
-      clearTimeout(this.analyticsTimeout);
-    }
-
-    this.analyticsTimeout = window.setTimeout(() => {
-      this.pendingAnalytics.forEach(fn => fn());
-      this.pendingAnalytics = [];
-      this.analyticsTimeout = null;
-    }, 100);
+    // Use RxJS Subject for batching
+    this.analyticsSubject$.next(action);
   }
 
   private createNavigationHandler(section: string) {
@@ -178,17 +179,13 @@ export class OptimizedNavigationComponent extends BasePageComponent implements O
   readonly dashboardAnalitics = this.createNavigationHandler('dashboard');
 
   ngOnDestroy(): void {
-    // Clean up timeouts and cached elements
-    if (this.scrollTimeout) {
-      clearTimeout(this.scrollTimeout);
-    }
+    // Complete RxJS subjects
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.scrollSubject$.complete();
+    this.analyticsSubject$.complete();
 
-    if (this.analyticsTimeout) {
-      clearTimeout(this.analyticsTimeout);
-      // Flush remaining analytics
-      this.pendingAnalytics.forEach(fn => fn());
-    }
-
+    // Clean up cached elements
     this.cachedElements.clear();
   }
 }

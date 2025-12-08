@@ -9,7 +9,8 @@ import {
   effect,
   computed,
   ElementRef,
-  inject
+  inject,
+  afterNextRender
 } from '@angular/core';
 
 @Component({
@@ -33,7 +34,7 @@ export class OptimizedAnimatedCounterComponent implements OnInit, OnDestroy {
   displayValue = signal(0);
   private animationId: number | null = null;
   private intersectionObserver?: IntersectionObserver;
-  private elementRef = inject(ElementRef);
+  private readonly elementRef = inject(ElementRef);
   private hasStartedAnimation = false;
 
   formattedValue = computed(() =>
@@ -54,9 +55,9 @@ export class OptimizedAnimatedCounterComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (!this.animateOnVisible()) {
-      setTimeout(() => {
+      afterNextRender(() => {
         this.animateToValue(this.targetValue());
-      }, 100);
+      });
     }
   }
 

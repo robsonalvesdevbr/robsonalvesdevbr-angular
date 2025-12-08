@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Subject, interval } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { EngagementTrackingService } from '@path-services/engagement-tracking-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
 
@@ -7,13 +9,14 @@ import { PerformanceMonitorService } from '@path-services/performance-monitor.se
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'Robson Candido dos Santos Alves';
 
-  private engagementService = inject(EngagementTrackingService);
-  private performanceService = inject(PerformanceMonitorService);
-  private performanceInterval?: number;
+  private readonly engagementService = inject(EngagementTrackingService);
+  private readonly performanceService = inject(PerformanceMonitorService);
+  private readonly destroy$ = new Subject<void>();
 
   ngOnInit(): void {
     this.setupPerformanceMonitoring();
@@ -26,9 +29,11 @@ export class AppComponent implements OnInit, OnDestroy {
       this.performanceService.startMonitoring();
 
       // Log performance report every 60 seconds in development (increased from 30s)
-      this.performanceInterval = window.setInterval(() => {
-        this.performanceService.logPerformanceReport();
-      }, 60000);
+      interval(60000)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          this.performanceService.logPerformanceReport();
+        });
     }
   }
 
@@ -46,15 +51,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private isProduction(): boolean {
-    return typeof window !== 'undefined' &&
-           window.location.hostname !== 'localhost' &&
-           !window.location.hostname.includes('127.0.0.1');
+    return globalThis.window !== undefined &&
+           globalThis.location.hostname !== 'localhost' &&
+           !globalThis.location.hostname.includes('127.0.0.1');
   }
 
   ngOnDestroy(): void {
-    if (this.performanceInterval) {
-      clearInterval(this.performanceInterval);
-    }
+    this.destroy$.next();
+    this.destroy$.complete();
     this.engagementService.destroy();
     this.performanceService.destroy();
   }
