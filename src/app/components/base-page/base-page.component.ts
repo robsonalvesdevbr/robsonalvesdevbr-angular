@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   template: '',
@@ -8,10 +8,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 export class BasePageComponent {
   readonly bglight = input(false);
 
-  // HACK: This is a workaround for the issue with the `ngClass` directive
-  currentClass = () => {
-    return {
-      'bg-light': this.bglight(),
-    };
-  };
+  currentClass = computed(() => ({
+    'bg-light': this.bglight(),
+  }));
 }
