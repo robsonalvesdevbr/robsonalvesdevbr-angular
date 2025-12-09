@@ -85,6 +85,24 @@ npm run clean          # remove dist, cache, .angular
 - Interfaces em `src/app/interfaces/*`
 - Enums para tags e categorias em `src/app/models/*`
 
+### Serviços Especializados
+
+#### Performance & Tracking
+- **PerformanceMonitorService**: Monitora métricas de performance da aplicação
+- **EngagementTrackingService**: Rastreia engajamento do usuário
+- **OptimizedEngagementTrackingService**: Versão otimizada com memoization
+- **VirtualPageTrackingService**: Tracking de visualizações virtuais para analytics
+
+#### Estatísticas & Analytics
+- **StatisticsService**: Agrega dados estatísticos do portfolio (cursos, livros, graduações)
+- **OptimizedStatisticsService**: Versão otimizada com cache e computed signals
+
+#### Utilitários
+- **DataTransformationService**: Transformações de dados complexas
+- **PaginationService**: Lógica de paginação centralizada
+- **SEOService**: Gerenciamento de meta tags e otimizações SEO
+- **LanguageService**: Gerenciamento de internacionalização (i18n)
+
 ### Path Aliases (tsconfig.json & vite.config.ts)
 ```typescript
 @path-components/*   → ./src/app/components/*
@@ -129,7 +147,29 @@ npm run clean          # remove dist, cache, .angular
 ## Code Conventions
 
 - **Components:** ChangeDetectionStrategy.OnPush por padrão
-- **Signals:** usar input() para inputs de componentes
+- **Signals:** usar input() para inputs de componentes (implementado em BasePageComponent, AnimatedCounterComponent)
 - **Pipes:** standalone, pure quando possível
 - **Services:** providedIn: 'root'
 - **File naming:** dot-separated (ex: `data-service.ts`, `base-page.component.ts`)
+
+## Known Issues
+
+### SCSS @import Deprecation Warnings ⚠️
+
+**Status**: Esperado e documentado
+**Quantidade**: 23 warnings durante build
+**Root Cause**: Bootstrap 5.3.8 usa `@import` (deprecated em Dart Sass)
+**Impacto**: Nenhum (apenas informativo até Dart Sass 3.0)
+**Resolução Planejada**: Migração para Bootstrap 6 + @use/@forward
+**Timeline**: Quando Bootstrap 6 stable for lançado (estimativa: 2026)
+
+**Por que não corrigir agora?**
+- Bootstrap 5.3 não é compatível com @use/@forward
+- Migração manual não é viável (conflitos internos do Bootstrap)
+- Bootstrap 6 terá suporte nativo para o sistema modular do Sass
+- Investimento de tempo será feito uma única vez após Bootstrap 6
+
+**Referências**:
+- [Sass @import deprecation](https://sass-lang.com/documentation/at-rules/import)
+- [Bootstrap 6 roadmap](https://github.com/twbs/bootstrap/discussions)
+- Arquivos afetados: `src/scss/_bootstrap-custom.scss`, `src/css/styles.scss`

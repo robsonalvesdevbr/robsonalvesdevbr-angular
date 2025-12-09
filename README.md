@@ -204,6 +204,8 @@ O projeto utiliza aliases para imports mais limpos:
 @path-data/*         → ./src/app/data/*
 @path-interfaces/*   → ./src/app/interfaces/*
 @path-pipes/*        → ./src/app/pipes/*
+@path-app/*          → ./src/app/*
+@path-environments/* → ./src/environments/*
 ```
 
 ### Performance
@@ -237,6 +239,16 @@ Limites configurados para produção:
 - **Services:** `providedIn: 'root'`
 - **Naming:** dot-separated (ex: `data.service.ts`)
 - **Prettier:** single quotes, trailing commas, 100 chars line width
+
+## 📌 Development Notes
+
+### Build Warnings
+
+O projeto atualmente gera warnings de deprecação do Sass `@import`. Estas são **esperadas e não indicam problema**:
+
+- Bootstrap 5.3 usa `@import` internamente
+- Migração para `@use/@forward` será feita com Bootstrap 6
+- Veja `CLAUDE.md` para detalhes completos
 
 ## 🤝 Contribuição
 
