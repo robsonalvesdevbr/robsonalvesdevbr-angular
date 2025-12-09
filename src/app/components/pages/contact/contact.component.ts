@@ -22,10 +22,12 @@ export class ContactComponent extends BasePageComponent {
 
   profiles = signal(this.dataService.getProfile());
 
-  asIsOrder = (): number => 1;
+  asIsOrder(): number {
+    return 1;
+  }
 
   // Escreva uma funcáo que retorne a idade de uma pessoa com base na data de nascimento
-  calcularIdade = (birthDate: Date): number => {
+  calcularIdade(birthDate: Date): number {
     const today = new Date();
     const birth = new Date(birthDate);
     let age = today.getFullYear() - birth.getFullYear();
@@ -34,5 +36,5 @@ export class ContactComponent extends BasePageComponent {
       age--;
     }
     return age;
-  };
+  }
 }

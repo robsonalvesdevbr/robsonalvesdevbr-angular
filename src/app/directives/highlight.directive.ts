@@ -2,6 +2,7 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]',
+  standalone: true,
 })
 export class HighlightDirective {
   private readonly el = inject(ElementRef);
@@ -17,16 +18,8 @@ export class HighlightDirective {
   private highlight(color: string, visibility = true) {
     if (visibility) {
       this.el.nativeElement.classList.add(color);
-      this.el.nativeElement.addEventListener('keypress', () => {
-        this.el.nativeElement.blur();
-        window.focus();
-      });
     } else {
       this.el.nativeElement.classList.remove(color);
-      this.el.nativeElement.addEventListener('keypress', () => {
-        this.el.nativeElement.blur();
-        window.focus();
-      });
     }
   }
 }
