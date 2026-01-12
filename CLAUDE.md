@@ -156,7 +156,7 @@ npm run clean          # remove dist, cache, .angular
 
 ### SCSS @import Deprecation Warnings ⚠️
 
-**Status**: Esperado e documentado
+**Status**: Esperado, documentado e **não silenciável** no Angular CLI atual
 **Quantidade**: 23 warnings durante build
 **Root Cause**: Bootstrap 5.3.8 usa `@import` (deprecated em Dart Sass)
 **Impacto**: Nenhum (apenas informativo até Dart Sass 3.0)
@@ -169,7 +169,22 @@ npm run clean          # remove dist, cache, .angular
 - Bootstrap 6 terá suporte nativo para o sistema modular do Sass
 - Investimento de tempo será feito uma única vez após Bootstrap 6
 
+**Por que não é possível silenciar os warnings?**
+- ✅ `.sassrc.json` existe no projeto mas **não é lido pelo Angular CLI**
+- ❌ `angular.json` com `stylePreprocessorOptions` não aceita `quietDeps` ou `silenceDeprecations`
+- ⚠️ Variável `SASS_QUIET_DEPS=1` reduz parcialmente (23 → 16) mas não elimina todos
+- 🔒 Angular CLI usa implementação embedded do Sass que não processa `.sassrc.json`
+
+**Alternativas testadas e descartadas:**
+1. Arquivo `.sassrc.json` - Existe mas ignorado pelo Angular CLI
+2. Configuração em `angular.json` - Schema validation não permite as propriedades necessárias
+3. Variáveis de ambiente - Reduz mas não elimina completamente
+4. Migração manual Bootstrap → @use/@forward - Quebraria funcionalidades do Bootstrap 5
+
+**Conclusão**: Warnings são **informativos** e devem ser aceitos até Bootstrap 6. Não afetam funcionalidade, build ou produção.
+
 **Referências**:
 - [Sass @import deprecation](https://sass-lang.com/documentation/at-rules/import)
 - [Bootstrap 6 roadmap](https://github.com/twbs/bootstrap/discussions)
 - Arquivos afetados: `src/scss/_bootstrap-custom.scss`, `src/css/styles.scss`
+- Arquivo de configuração (não lido): `.sassrc.json`
