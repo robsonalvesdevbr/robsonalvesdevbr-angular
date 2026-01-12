@@ -47,3 +47,23 @@ Thumbs.db
 /test-results
 /playwright-report
 /playwright/.cache
+
+# Shell configuration files
+.bash_profile
+.bashrc
+.zshrc
+.zprofile
+.profile
+
+# Git configuration
+.gitconfig
+.gitmodules
+
+# MCP configuration
+.mcp.json
+
+# Ripgrep configuration
+.ripgreprc
+
+# Claude Code configuration
+.claude/
