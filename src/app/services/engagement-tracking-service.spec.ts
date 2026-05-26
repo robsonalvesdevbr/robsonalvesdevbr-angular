@@ -7,7 +7,7 @@ import { VirtualPageTrackingService } from './virtual-page-tracking.service';
 describe('EngagementTrackingService', () => {
   let service: EngagementTrackingService;
   let gaService: jasmine.SpyObj<GoogleAnalyticsService>;
-  let virtualPageService: jasmine.SpyObj<VirtualPageTrackingService>;
+  let _virtualPageService: jasmine.SpyObj<VirtualPageTrackingService>;
 
   beforeEach(() => {
     const gaSpy = jasmine.createSpyObj('GoogleAnalyticsService', ['event', 'gtag']);
@@ -27,7 +27,7 @@ describe('EngagementTrackingService', () => {
 
     service = TestBed.inject(EngagementTrackingService);
     gaService = TestBed.inject(GoogleAnalyticsService) as jasmine.SpyObj<GoogleAnalyticsService>;
-    virtualPageService = TestBed.inject(VirtualPageTrackingService) as jasmine.SpyObj<VirtualPageTrackingService>;
+    _virtualPageService = TestBed.inject(VirtualPageTrackingService) as jasmine.SpyObj<VirtualPageTrackingService>;
   });
 
   afterEach(() => {

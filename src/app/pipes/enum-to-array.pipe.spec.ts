@@ -227,7 +227,7 @@ describe('EnumToArrayPipe', () => {
       const result = pipe.transform(TestStringEnum);
 
       // Verifica que o resultado pode ser usado com *ngFor
-      result.forEach((item, index) => {
+      result.forEach((item, _index) => {
         expect(item.key).toBeTruthy();
         expect(item.value).toBeDefined();
       });
@@ -288,7 +288,7 @@ describe('EnumToArrayPipe', () => {
     });
 
     it('should not mutate original enum object', () => {
-      const originalEnum = { ...TestStringEnum };
+      const _originalEnum = { ...TestStringEnum };
       const originalKeys = Object.keys(TestStringEnum);
 
       pipe.transform(TestStringEnum);

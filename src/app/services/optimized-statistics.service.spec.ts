@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { OptimizedStatisticsService, DashboardStats } from './optimized-statistics.service';
+import { OptimizedStatisticsService } from './optimized-statistics.service';
 import { DataService } from './data-service';
 import { ICourse } from '@path-interfaces/ICourse';
 import { IBook } from '@path-interfaces/IBook';
@@ -267,12 +267,12 @@ describe('OptimizedStatisticsService', () => {
     it('should invalidate cache after TTL', () => {
       vi.useFakeTimers();
 
-      const stats1 = service.getDashboardStats();
+      const _stats1 = service.getDashboardStats();
 
       // Advance time beyond cache TTL (5 minutes)
       vi.advanceTimersByTime(6 * 60 * 1000);
 
-      const stats2 = service.getDashboardStats();
+      const _stats2 = service.getDashboardStats();
 
       // Should fetch fresh data
       expect(dataService.getCourses).toHaveBeenCalledTimes(2);

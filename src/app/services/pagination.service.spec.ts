@@ -191,7 +191,7 @@ describe('PaginationService', () => {
     });
 
     it('should calculate correct absolute index on page 2', () => {
-      const config = service.createPaginationConfig('test-pagination', 5);
+      const _config = service.createPaginationConfig('test-pagination', 5);
       service.setCurrentPage('test-pagination', 2);
 
       expect(service.getAbsoluteIndex('test-pagination', 0)).toBe(6);
@@ -200,7 +200,7 @@ describe('PaginationService', () => {
     });
 
     it('should calculate correct absolute index on page 3', () => {
-      const config = service.createPaginationConfig('test-pagination', 10);
+      const _config = service.createPaginationConfig('test-pagination', 10);
       service.setCurrentPage('test-pagination', 3);
 
       expect(service.getAbsoluteIndex('test-pagination', 0)).toBe(21);
@@ -215,8 +215,8 @@ describe('PaginationService', () => {
     });
 
     it('should handle different itemsPerPage values', () => {
-      const config1 = service.createPaginationConfig('pagination-1', 10);
-      const config2 = service.createPaginationConfig('pagination-2', 20);
+      const _config1 = service.createPaginationConfig('pagination-1', 10);
+      const _config2 = service.createPaginationConfig('pagination-2', 20);
 
       service.setCurrentPage('pagination-1', 2);
       service.setCurrentPage('pagination-2', 2);
@@ -226,7 +226,7 @@ describe('PaginationService', () => {
     });
 
     it('should work with page 0 (edge case)', () => {
-      const config = service.createPaginationConfig('test-pagination', 5);
+      const _config = service.createPaginationConfig('test-pagination', 5);
       service.setCurrentPage('test-pagination', 0);
 
       // Page 0 with 5 items per page: (5 * (0 - 1)) + indexOnPage + 1

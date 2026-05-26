@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-05-26
+
+### Changed
+
+#### Framework
+- Upgrade Angular 21.0.8 → 21.2.14 (latest stable)
+- Upgrade @angular/cli 21.0.5 → 21.2.12
+- Upgrade @angular-devkit/build-angular 21.0.5 → 21.2.12
+- Upgrade @angular-eslint/* 21.1.0 → 21.4.0
+- Upgrade @playwright/test 1.57.0 → 1.60.0
+- Upgrade typescript-eslint 8.53.0 → 8.60.0
+- Upgrade eslint 9.39.1 → 9.39.4
+
+#### Linting
+- Migrado de `.eslintrc.json` (legacy) para `eslint.config.js` (flat config ESLint 9)
+- Adicionado override para `*.spec.ts`: `@typescript-eslint/no-explicit-any` desativado, `no-unused-vars` com suporte a prefixo `_`
+
+#### Tests
+- Corrigido suporte a `localStorage` no ambiente de testes jsdom + Angular 21.2.x
+- Adicionado mock funcional de `localStorage` no `test-setup.ts` após `initTestEnvironment`
+- Corrigidas variáveis não utilizadas em 4 arquivos de spec (prefixo `_`)
+- 497/497 testes unitários passando
+
+### Removed
+- Artefatos de tentativa anterior de upgrade: `package-lock.json.backup`, `dependency-report-before.txt`, `stats-before.json`, `test-results-before.txt`
+
 ## [2.1.0] - 2026-01-12
 
 ### Security
