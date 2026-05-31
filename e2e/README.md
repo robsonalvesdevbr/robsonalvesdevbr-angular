@@ -26,40 +26,42 @@ e2e/
 ### Todos os browsers
 
 ```bash
-npm run test:e2e
+pnpm run test:e2e
 ```
 
 ### Browsers específicos
 
 ```bash
-npm run test:e2e:chromium   # Apenas Chromium (mais rápido)
-npm run test:e2e:firefox    # Apenas Firefox
-npm run test:e2e:webkit     # Apenas WebKit (Safari)
-npm run test:e2e:mobile     # Mobile Chrome (Pixel 5)
+pnpm run test:e2e:chromium   # Apenas Chromium (mais rápido)
+pnpm run test:e2e:firefox    # Apenas Firefox
+pnpm run test:e2e:webkit     # Apenas WebKit (Safari)
+pnpm run test:e2e:mobile     # Mobile Chrome (Pixel 5)
 ```
 
 ### Modo interativo
 
 ```bash
-npm run test:e2e:ui         # Interface UI do Playwright
-npm run test:e2e:headed     # Browser visível
-npm run test:e2e:debug      # Modo debug passo a passo
+pnpm run test:e2e:ui         # Interface UI do Playwright
+pnpm run test:e2e:headed     # Browser visível
+pnpm run test:e2e:debug      # Modo debug passo a passo
 ```
 
 ### Relatórios
 
 ```bash
-npm run test:e2e:report     # Visualizar último relatório HTML
+pnpm run test:e2e:report     # Visualizar último relatório HTML
 ```
 
 ## Browsers Suportados
 
 ### Desktop
+
 - ✅ Chromium (Chrome/Edge) - 24 testes
 - ✅ Firefox - 24 testes
 - ⚠️ ~~WebKit (Safari)~~ - Desabilitado no Linux devido a dependências
 
 ### Mobile
+
 - ✅ Mobile Chrome (Pixel 5) - 24 testes
 - ⚠️ ~~Mobile Safari (iPhone 12)~~ - Desabilitado no Linux devido a dependências
 
@@ -72,6 +74,7 @@ O WebKit (Safari) e Mobile Safari requerem dependências adicionais do sistema n
 **Para habilitar WebKit/Safari (opcional):**
 
 1. Instale as dependências do sistema:
+
 ```bash
 sudo npx playwright install-deps
 ```
@@ -81,6 +84,7 @@ sudo npx playwright install-deps
    - Linhas 87-94 para Mobile Safari
 
 **Alternativa sem sudo:**
+
 ```bash
 sudo apt-get install libicu74 libxml2 libavif16 libmanette-0.2-0
 ```
@@ -90,6 +94,7 @@ sudo apt-get install libicu74 libxml2 libavif16 libmanette-0.2-0
 ## Cobertura de Testes
 
 ### Home Page (6 testes)
+
 - Carregamento da página
 - Exibição das seções principais
 - Lazy loading de seções
@@ -97,11 +102,13 @@ sudo apt-get install libicu74 libxml2 libavif16 libmanette-0.2-0
 - Ordem correta das seções
 
 ### Navegação (3 testes)
+
 - Exibição da barra de navegação
 - Navegação persistente no scroll
 - Navegação entre seções
 
 ### Livros (5 testes)
+
 - Exibição da seção
 - Listagem de livros
 - Cards com conteúdo
@@ -109,6 +116,7 @@ sudo apt-get install libicu74 libxml2 libavif16 libmanette-0.2-0
 - Busca de livros
 
 ### Cursos (5 testes)
+
 - Exibição da seção
 - Listagem de cursos
 - Cards com conteúdo
@@ -116,6 +124,7 @@ sudo apt-get install libicu74 libxml2 libavif16 libmanette-0.2-0
 - Busca de cursos
 
 ### Contato (5 testes)
+
 - Exibição da seção
 - Informações de contato
 - Links de email válidos
@@ -125,6 +134,7 @@ sudo apt-get install libicu74 libxml2 libavif16 libmanette-0.2-0
 ## Page Object Model
 
 Os testes utilizam o padrão Page Object Model (POM) para:
+
 - Encapsular lógica de interação com páginas
 - Reutilizar código entre testes
 - Facilitar manutenção quando o HTML muda
@@ -146,17 +156,20 @@ test('exemplo de teste', async ({ page }) => {
 ## Boas Práticas
 
 ### Seletores
+
 1. Prefira `data-testid` quando possível
 2. Use IDs semânticos como fallback
 3. Evite seletores CSS frágeis
 
 ### Testes
+
 1. Um teste deve testar apenas uma coisa
 2. Use `beforeEach` para setup comum
 3. Testes devem ser independentes
 4. Use Page Objects ao invés de seletores diretos
 
 ### Performance
+
 1. Execute testes em paralelo (padrão)
 2. Use `test.describe.configure({ mode: 'parallel' })` quando apropriado
 3. Minimize timeouts fixos, use auto-wait do Playwright
@@ -164,18 +177,23 @@ test('exemplo de teste', async ({ page }) => {
 ## Solução de Problemas
 
 ### Testes falhando
-1. Verifique se o servidor dev está rodando (`npm start`)
+
+1. Verifique se o servidor dev está rodando (`pnpm start`)
 2. Limpe o cache: `rm -rf test-results playwright-report`
-3. Execute com UI mode: `npm run test:e2e:ui`
+3. Execute com UI mode: `pnpm run test:e2e:ui`
 
 ### Dependências faltando (Linux)
+
 Se vir erros sobre bibliotecas faltando:
+
 ```bash
 sudo npx playwright install-deps
 ```
 
 ### Timeout
+
 Se testes estiverem dando timeout:
+
 1. Aumente o timeout em `playwright.config.ts`
 2. Verifique se a aplicação está demorando para carregar
 3. Use `--debug` para investigar
@@ -189,11 +207,13 @@ O projeto possui dois workflows automatizados para testes E2E:
 #### 1. Workflow Dedicado E2E (`.github/workflows/playwright-e2e.yml`)
 
 Executa em:
+
 - Push para `main` e `develop`
 - Pull requests para `main` e `develop`
 - Manualmente via `workflow_dispatch`
 
 **Recursos:**
+
 - Testa 3 browsers em paralelo (Chromium, Firefox, Mobile Chrome)
 - Upload automático de artefatos em caso de falha:
   - Traces (depuração interativa)
@@ -206,6 +226,7 @@ Executa em:
 #### 2. Workflow de Deploy Azure (`.github/workflows/azure-static-web-apps-*.yml`)
 
 Executa testes E2E **antes do deploy** para garantir qualidade:
+
 1. Testes unitários (Karma/Jasmine)
 2. Testes E2E (Playwright) - **gate de qualidade**
 3. Build de produção
@@ -223,18 +244,19 @@ export CI=true
 npx playwright install --with-deps chromium firefox
 
 # Executar testes como no CI
-npm run test:e2e
+pnpm run test:e2e
 ```
 
 ### Configuração para outros ambientes CI
 
 **GitLab CI/CD:**
+
 ```yaml
 test:e2e:
   image: mcr.microsoft.com/playwright:v1.56.0-jammy
   script:
-    - npm ci
-    - npm run test:e2e
+    - pnpm install --frozen-lockfile
+    - pnpm run test:e2e
   artifacts:
     when: always
     paths:
@@ -244,6 +266,7 @@ test:e2e:
 ```
 
 **Jenkins:**
+
 ```groovy
 stage('E2E Tests') {
   agent {
@@ -252,8 +275,8 @@ stage('E2E Tests') {
     }
   }
   steps {
-    sh 'npm ci'
-    sh 'npm run test:e2e'
+    sh 'pnpm install --frozen-lockfile'
+    sh 'pnpm run test:e2e'
   }
   post {
     always {
@@ -268,6 +291,7 @@ stage('E2E Tests') {
 ```
 
 **CircleCI:**
+
 ```yaml
 jobs:
   test-e2e:
@@ -275,8 +299,8 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.56.0-jammy
     steps:
       - checkout
-      - run: npm ci
-      - run: npm run test:e2e
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run test:e2e
       - store_artifacts:
           path: playwright-report
           destination: playwright-report
@@ -299,14 +323,16 @@ jobs:
 ### Monitoramento e Alertas
 
 **Visualizar resultados:**
+
 - GitHub Actions: aba "Actions" > workflow run > artefatos
 - Azure: logs do build job
 - Playwright Report HTML: baixar artefato e abrir `index.html`
 
 **Em caso de falha:**
+
 1. Baixe os traces: `playwright show-trace trace.zip`
 2. Analise screenshots e vídeos dos artefatos
-3. Execute localmente: `npm run test:e2e:debug`
+3. Execute localmente: `pnpm run test:e2e:debug`
 
 ## Recursos
 

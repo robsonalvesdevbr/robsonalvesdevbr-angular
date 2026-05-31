@@ -22,29 +22,35 @@ Aplicação single-page moderna que apresenta:
 ## 🚀 Tecnologias
 
 ### Core
+
 - **Angular 21+** - Framework principal com standalone components
 - **TypeScript 5.9** - Linguagem de programação
 - **RxJS 7.8** - Programação reativa
 
 ### UI/UX
+
 - **Bootstrap 5.3** - Framework CSS
 - **Bootstrap Icons** - Biblioteca de ícones
 - **SCSS** - Pré-processador CSS
 
 ### Testing
+
 - **Vitest 4.0** - Framework de testes unitários
 - **Playwright 1.56** - Testes E2E multi-browser
 - **@vitest/coverage-v8** - Cobertura de código
 
 ### Qualidade de Código
+
 - **ESLint 9** - Linting de código
 - **Prettier 3.6** - Formatação de código
 - **Angular ESLint** - Regras específicas do Angular
 
 ### Analytics
+
 - **Google Analytics** - Rastreamento de uso via ngx-google-analytics
 
 ### Build & Dev Tools
+
 - **Angular CLI 21** - Ferramentas de desenvolvimento
 - **Vite 7.2** - Build tool para testes
 - **esbuild** - Bundler rápido (via Angular CLI)
@@ -52,7 +58,7 @@ Aplicação single-page moderna que apresenta:
 ## 📦 Pré-requisitos
 
 - Node.js >= 22.12
-- npm (incluído com Node.js)
+- pnpm 11.5+ (via Corepack)
 
 ## 🔧 Instalação
 
@@ -64,7 +70,7 @@ git clone https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular.git
 cd robsonalvesdevbr-angular
 
 # Instale as dependências
-npm install
+pnpm install
 ```
 
 ## 🎯 Comandos Disponíveis
@@ -73,29 +79,29 @@ npm install
 
 ```bash
 # Iniciar servidor de desenvolvimento (porta 4200)
-npm start
+pnpm start
 
 # Iniciar e abrir automaticamente no browser
-npm run dev
+pnpm run dev
 
 # Iniciar em modo de produção localmente
-npm run start:prod
+pnpm run start:prod
 ```
 
 ### Build
 
 ```bash
 # Build de desenvolvimento
-npm run build
+pnpm run build
 
 # Build de produção otimizado
-npm run build:prod
+pnpm run build:prod
 
 # Analisar tamanho do bundle
-npm run build:analyze
+pnpm run build:analyze
 
 # Build com watch mode
-npm run watch
+pnpm run watch
 ```
 
 ### Testes
@@ -104,62 +110,62 @@ npm run watch
 
 ```bash
 # Executar testes em modo watch
-npm test
+pnpm test
 
 # Executar testes uma vez
-npm run test:nowatch
+pnpm run test:nowatch
 
 # Gerar relatório de cobertura
-npm run test:coverage
+pnpm run test:coverage
 
 # Interface visual do Vitest
-npm run test:ui
+pnpm run test:ui
 ```
 
 #### Testes E2E (Playwright)
 
 ```bash
 # Executar todos os testes E2E
-npm run test:e2e
+pnpm run test:e2e
 
 # Modo interativo com UI
-npm run test:e2e:ui
+pnpm run test:e2e:ui
 
 # Modo debug
-npm run test:e2e:debug
+pnpm run test:e2e:debug
 
 # Executar em browser específico
-npm run test:e2e:chromium
-npm run test:e2e:firefox
+pnpm run test:e2e:chromium
+pnpm run test:e2e:firefox
 
 # Ver último relatório
-npm run test:e2e:report
+pnpm run test:e2e:report
 ```
 
 ### Qualidade de Código
 
 ```bash
 # Executar linter
-npm run lint
+pnpm run lint
 
 # Corrigir problemas automaticamente
-npm run lint:fix
+pnpm run lint:fix
 
 # Formatar código
-npm run format
+pnpm run format
 
 # Verificar formatação
-npm run format:check
+pnpm run format:check
 
 # Auditoria de segurança
-npm run security:check
+pnpm run security:check
 ```
 
 ### Utilitários
 
 ```bash
 # Limpar arquivos gerados
-npm run clean
+pnpm run clean
 ```
 
 ## 📁 Estrutura do Projeto

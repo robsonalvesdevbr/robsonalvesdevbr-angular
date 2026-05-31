@@ -1,6 +1,7 @@
 {
   "name": "robsonalvesdevbr-angular",
   "version": "2.2.0",
+  "packageManager": "pnpm@11.5.0",
   "engines": {
     "node": ">=22.12"
   },
@@ -12,7 +13,7 @@
     "build": "ng build --configuration development",
     "build:prod": "ng build --configuration production --optimization",
     "build:stats": "ng build --configuration production --stats-json",
-    "build:analyze": "npm run build:stats && npx webpack-bundle-analyzer dist/robsonalves/stats.json",
+    "build:analyze": "pnpm run build:stats && pnpm exec webpack-bundle-analyzer dist/robsonalves/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "vitest",
     "test:nowatch": "vitest run",
@@ -23,8 +24,8 @@
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\"",
     "clean": "rm -rf dist node_modules/.cache .angular",
-    "analyze": "npm run build:stats && npx webpack-bundle-analyzer dist/robsonalves/stats.json --port 8888",
-    "security:check": "npm audit",
+    "analyze": "pnpm run build:stats && pnpm exec webpack-bundle-analyzer dist/robsonalves/stats.json --port 8888",
+    "security:check": "pnpm audit",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",

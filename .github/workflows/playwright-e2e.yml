@@ -26,25 +26,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.5.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22.12"
-          cache: "npm"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Install Playwright Browsers
         run: |
           if [ "${{ matrix.browser }}" = "mobile-chrome" ]; then
-            npx playwright install --with-deps chromium
+            pnpm exec playwright install --with-deps chromium
           else
-            npx playwright install --with-deps ${{ matrix.browser }}
+            pnpm exec playwright install --with-deps ${{ matrix.browser }}
           fi
 
       - name: Run Playwright tests
-        run: npm run test:e2e -- --project=${{ matrix.browser }}
+        run: pnpm run test:e2e -- --project=${{ matrix.browser }}
         env:
           CI: true
 
@@ -93,14 +99,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.5.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22.12"
-          cache: "npm"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
