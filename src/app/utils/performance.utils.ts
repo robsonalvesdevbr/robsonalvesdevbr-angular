@@ -13,7 +13,7 @@ export function debounce<T extends (...args: never[]) => unknown>(
   };
 }
 
-export function throttle<T extends (...args: never[]) => unknown>(
+function throttle<T extends (...args: never[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -130,7 +130,7 @@ export function isReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-export function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
+function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
   const width = window.innerWidth;
   if (width < 768) return 'mobile';
   if (width < 1024) return 'tablet';
