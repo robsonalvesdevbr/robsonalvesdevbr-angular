@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "packageManager": "pnpm@11.5.0",
   "engines": {
-    "node": ">=22.12"
+    "node": ">=24.16.0"
   },
   "scripts": {
     "ng": "ng",
