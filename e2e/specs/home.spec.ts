@@ -18,11 +18,10 @@ test.describe('Home Page', () => {
     expect(mainSectionsVisible).toBeTruthy();
   });
 
-  test('deve carregar seções com lazy loading', async ({ page }) => {
+  test('deve carregar seções com lazy loading', async () => {
     await homePage.waitForLazyLoadedSections();
 
     await expect(homePage.aboutSection).toBeVisible();
-    await expect(homePage.dashboardSection).toBeVisible();
     await expect(homePage.graduationSection).toBeVisible();
     await expect(homePage.courseSection).toBeVisible();
     await expect(homePage.formationCourseSection).toBeVisible();
@@ -51,7 +50,6 @@ test.describe('Home Page', () => {
       homePage.navigationSection,
       homePage.masterheadSection,
       homePage.aboutSection,
-      homePage.dashboardSection,
       homePage.graduationSection,
       homePage.courseSection,
       homePage.formationCourseSection,

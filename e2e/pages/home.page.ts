@@ -9,7 +9,6 @@ export class HomePage extends BasePage {
   readonly navigationSection: Locator;
   readonly masterheadSection: Locator;
   readonly aboutSection: Locator;
-  readonly dashboardSection: Locator;
   readonly graduationSection: Locator;
   readonly courseSection: Locator;
   readonly formationCourseSection: Locator;
@@ -19,7 +18,6 @@ export class HomePage extends BasePage {
 
   // Navigation links
   readonly navAboutLink: Locator;
-  readonly navDashboardLink: Locator;
   readonly navGraduationLink: Locator;
   readonly navCourseLink: Locator;
   readonly navFormationLink: Locator;
@@ -33,7 +31,6 @@ export class HomePage extends BasePage {
     this.navigationSection = page.locator('[data-testid="main-navigation"]');
     this.masterheadSection = page.locator('#page-top');
     this.aboutSection = page.locator('#about');
-    this.dashboardSection = page.locator('#dashboard');
     this.graduationSection = page.locator('#graduation');
     this.courseSection = page.locator('[data-testid="courses-section"]');
     this.formationCourseSection = page.locator('#formationcourse');
@@ -43,7 +40,6 @@ export class HomePage extends BasePage {
 
     // Links de navegação (usando href como fallback caso não tenha data-testid)
     this.navAboutLink = page.locator('a[href*="about"], a[href*="#about"]').first();
-    this.navDashboardLink = page.locator('a[href*="dashboard"], a[href*="#dashboard"]').first();
     this.navGraduationLink = page.locator('a[href*="graduation"], a[href*="#graduation"]').first();
     this.navCourseLink = page.locator('a[href*="course"], a[href*="#course"]').first();
     this.navFormationLink = page.locator('a[href*="formation"], a[href*="#formationcourse"]').first();
@@ -80,7 +76,7 @@ export class HomePage extends BasePage {
   /**
    * Navega para uma seção específica através do scroll
    */
-  async navigateToSection(section: 'about' | 'dashboard' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<void> {
+  async navigateToSection(section: 'about' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<void> {
     const sectionLocator = this.getSectionLocator(section);
     await sectionLocator.scrollIntoViewIfNeeded();
     await this.page.waitForTimeout(500); // Aguarda animação de scroll
@@ -89,7 +85,7 @@ export class HomePage extends BasePage {
   /**
    * Clica em um link de navegação
    */
-  async clickNavLink(section: 'about' | 'dashboard' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<void> {
+  async clickNavLink(section: 'about' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<void> {
     const link = this.getNavLink(section);
     await link.click();
     await this.page.waitForTimeout(500); // Aguarda scroll suave
@@ -101,7 +97,6 @@ export class HomePage extends BasePage {
   private getSectionLocator(section: string): Locator {
     const sections: Record<string, Locator> = {
       about: this.aboutSection,
-      dashboard: this.dashboardSection,
       graduation: this.graduationSection,
       course: this.courseSection,
       formation: this.formationCourseSection,
@@ -117,7 +112,6 @@ export class HomePage extends BasePage {
   private getNavLink(section: string): Locator {
     const links: Record<string, Locator> = {
       about: this.navAboutLink,
-      dashboard: this.navDashboardLink,
       graduation: this.navGraduationLink,
       course: this.navCourseLink,
       formation: this.navFormationLink,
@@ -130,7 +124,7 @@ export class HomePage extends BasePage {
   /**
    * Verifica se uma seção específica está visível na viewport
    */
-  async isSectionInViewport(section: 'about' | 'dashboard' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<boolean> {
+  async isSectionInViewport(section: 'about' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<boolean> {
     const sectionLocator = this.getSectionLocator(section);
     return await sectionLocator.isVisible();
   }

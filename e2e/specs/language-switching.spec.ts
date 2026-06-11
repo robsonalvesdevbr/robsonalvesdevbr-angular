@@ -18,8 +18,8 @@ test.describe('Language Switching', () => {
     const aboutLink = page.locator('[data-testid="nav-about"]');
     await expect(aboutLink).toContainText('Sobre');
 
-    const dashboardLink = page.locator('[data-testid="nav-dashboard"]');
-    await expect(dashboardLink).toContainText('Dashboard');
+    const graduationLink = page.locator('[data-testid="nav-graduation"]');
+    await expect(graduationLink).toContainText('(Pós)Graduação');
 
     // Check language flag
     const flag = page.locator('[data-testid="language-flag"]');
@@ -42,9 +42,6 @@ test.describe('Language Switching', () => {
     // Verify language changed to EN-US
     aboutLink = page.locator('[data-testid="nav-about"]');
     await expect(aboutLink).toContainText('About');
-
-    const dashboardLink = page.locator('[data-testid="nav-dashboard"]');
-    await expect(dashboardLink).toContainText('Dashboard');
 
     const graduationLink = page.locator('[data-testid="nav-graduation"]');
     await expect(graduationLink).toContainText('(Post)Graduation');
@@ -126,30 +123,6 @@ test.describe('Language Switching', () => {
     for (const element of elementsToCheck) {
       await expect(page.locator(element.selector)).toContainText(element.enText);
     }
-  });
-
-  test('should translate dashboard section', async ({ page }) => {
-    // Navigate to dashboard section (scroll into view)
-    await page.evaluate(() => {
-      document.querySelector('#dashboard')?.scrollIntoView({ behavior: 'smooth' });
-    });
-    await page.waitForTimeout(500);
-
-    // Check dashboard title in Portuguese
-    const dashboardTitle = page.locator('[data-testid="dashboard-title"]');
-    await expect(dashboardTitle).toContainText('Dashboard Pessoal');
-
-    // Switch to English
-    await page.click('[data-testid="language-switcher-button"]');
-    await page.waitForTimeout(100);
-    await page.click('[data-testid="lang-en-us"]');
-    await page.waitForTimeout(200);
-
-    // Check dashboard title in English
-    await expect(dashboardTitle).toContainText('Personal Dashboard');
-
-    const dashboardSubtitle = page.locator('[data-testid="dashboard-subtitle"]');
-    await expect(dashboardSubtitle).toContainText('Statistics and metrics from my learning journey');
   });
 
   test('should translate about section', async ({ page }) => {
