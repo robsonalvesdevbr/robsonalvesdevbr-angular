@@ -3,7 +3,7 @@ import { DataService } from '@path-services/data-service';
 import { ContactComponent } from './contact.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -32,7 +32,7 @@ describe('ContactComponent', () => {
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting()
       ],
     }).compileComponents();

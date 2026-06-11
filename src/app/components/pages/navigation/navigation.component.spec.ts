@@ -5,7 +5,7 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 
 describe('NavigationComponent', () => {
@@ -22,7 +22,7 @@ describe('NavigationComponent', () => {
   imports: [NavigationComponent],
       providers: [
         provideZonelessChangeDetection(),
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
         { provide: GoogleAnalyticsService, useValue: mockGoogleAnalyticsService },
         { provide: VirtualPageTrackingService, useValue: mockVirtualPageService }

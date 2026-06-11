@@ -12,7 +12,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormationCourseComponent } from './formationcourse.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 
 describe('FormationCourseComponent', () => {
   let component: FormationCourseComponent;
@@ -67,7 +67,7 @@ describe('FormationCourseComponent', () => {
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
       ],
     }).compileComponents();

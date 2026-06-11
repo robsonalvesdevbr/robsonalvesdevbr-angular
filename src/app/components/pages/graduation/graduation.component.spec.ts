@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { GraduationComponent } from './graduation.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 import { flushI18n } from '@path-app/../testing/i18n-test.utils';
 
@@ -10,7 +10,7 @@ describe('GraduationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [GraduationComponent],
-      providers: [provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()],
     }).compileComponents();
   });
 

@@ -12,7 +12,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BookComponent } from './book.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 
 describe('BookComponent', () => {
@@ -74,7 +74,7 @@ describe('BookComponent', () => {
       providers: [
         { provide: DataService, useValue: dataServiceStub },
         provideZonelessChangeDetection(),
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
       ],
     }).compileComponents();

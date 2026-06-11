@@ -1,4 +1,4 @@
-import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, Output, EventEmitter, ViewChild, ElementRef, effect } from '@angular/core';
+import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, output, viewChild, ElementRef, effect } from '@angular/core';
 
 import { LanguageService, Language } from '@path-services/language.service';
 
@@ -13,8 +13,8 @@ import { LanguageService, Language } from '@path-services/language.service';
 export class LanguageSwitcherComponent {
   private languageService = inject(LanguageService);
 
-  // ViewChild para acessar o botão e calcular posição do dropdown
-  @ViewChild('dropdownButton', { read: ElementRef }) dropdownButton?: ElementRef<HTMLButtonElement>;
+  // Referência ao botão para calcular posição do dropdown
+  dropdownButton = viewChild('dropdownButton', { read: ElementRef });
 
   // Signal para controlar o estado aberto/fechado do dropdown
   isOpen = signal(false);
@@ -27,23 +27,24 @@ export class LanguageSwitcherComponent {
   private lastToggleAt: number | null = null;
 
   // Emite quando um idioma é selecionado (para o pai poder reagir, ex.: fechar navbar)
-  @Output() languageSelected = new EventEmitter<void>();
+  languageSelected = output<void>();
 
   currentLanguage = this.languageService.currentLanguage;
 
   constructor() {
     // Atualiza o alinhamento do dropdown quando ele abre
     effect(() => {
-      if (this.isOpen() && this.dropdownButton) {
+      if (this.isOpen() && this.dropdownButton()) {
         this.updateDropdownPosition();
       }
     });
   }
 
   private updateDropdownPosition(): void {
-    if (!this.dropdownButton) return;
+    const button = this.dropdownButton();
+    if (!button) return;
 
-    const buttonRect = this.dropdownButton.nativeElement.getBoundingClientRect();
+    const buttonRect = button.nativeElement.getBoundingClientRect();
     const dropdownWidth = 180;
     const viewportWidth = window.innerWidth;
 

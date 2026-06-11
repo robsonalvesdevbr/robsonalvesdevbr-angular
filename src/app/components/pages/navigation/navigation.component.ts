@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, ElementRef, ViewChild, OnDestroy, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -16,7 +16,6 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent extends BasePageComponent implements OnDestroy {
-  @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
   private readonly _gaService = inject(GoogleAnalyticsService);
   private readonly _virtualPageService = inject(VirtualPageTrackingService);
 

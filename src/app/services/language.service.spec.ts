@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { LanguageService, Language, TranslationKeys } from './language.service';
 
@@ -22,7 +22,7 @@ describe('LanguageService', () => {
     localStorage.clear();
 
     TestBed.configureTestingModule({
-      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()],
+      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
 
     service = TestBed.inject(LanguageService);
@@ -104,7 +104,7 @@ describe('LanguageService', () => {
     // Reset and create a fresh testing module for this scenario
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()]
+      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()]
     });
     const freshService = TestBed.inject(LanguageService);
     const freshHttpMock = TestBed.inject(HttpTestingController);
@@ -132,7 +132,7 @@ describe('LanguageService', () => {
 
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()]
+      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()]
     });
     const svc = TestBed.inject(LanguageService);
     const freshHttp = TestBed.inject(HttpTestingController);
@@ -151,7 +151,7 @@ describe('LanguageService', () => {
   it('should handle HTTP errors gracefully', () => {
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(), provideHttpClientTesting()]
+      providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()]
     });
     const errSvc = TestBed.inject(LanguageService);
     const freshHttp = TestBed.inject(HttpTestingController);

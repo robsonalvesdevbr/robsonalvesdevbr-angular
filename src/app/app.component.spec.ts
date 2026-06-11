@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { EngagementTrackingService } from '@path-services/engagement-tracking-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
 
@@ -37,7 +37,7 @@ describe('AppComponent', () => {
       ],
       providers: [
         provideZonelessChangeDetection(),
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
         provideRouter([]),
         { provide: EngagementTrackingService, useValue: mockEngagementService },

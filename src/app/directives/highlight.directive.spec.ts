@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { HighlightDirective } from './highlight.directive';
@@ -6,6 +6,7 @@ import { HighlightDirective } from './highlight.directive';
 @Component({
   standalone: true,
   imports: [HighlightDirective],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <button appHighlight>Test Button</button>
     <div appHighlight>Test Div</div>
