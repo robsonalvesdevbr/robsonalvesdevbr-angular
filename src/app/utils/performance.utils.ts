@@ -13,20 +13,6 @@ export function debounce<T extends (...args: never[]) => unknown>(
   };
 }
 
-function throttle<T extends (...args: never[]) => unknown>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let inThrottle: boolean;
-  return (...args: Parameters<T>) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, wait);
-    }
-  };
-}
-
 export class ElementCache {
   private static cache = new Map<string, HTMLElement>();
   private static observer?: MutationObserver;
@@ -128,13 +114,6 @@ export function scheduleIdleWork(callback: () => void, timeout = 1000): void {
 
 export function isReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
-function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
-  const width = window.innerWidth;
-  if (width < 768) return 'mobile';
-  if (width < 1024) return 'tablet';
-  return 'desktop';
 }
 
 export class BatchProcessor<T> {
