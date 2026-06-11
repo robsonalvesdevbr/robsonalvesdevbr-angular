@@ -1,7 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection, DOCUMENT } from '@angular/core';
+import { provideHttpClient, withXhr } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from './seo.service';
+import { LanguageService } from './language.service';
+import { flushI18n } from '../../testing/i18n-test.utils';
 
 describe('SeoService', () => {
   let service: SeoService;
@@ -13,6 +17,8 @@ describe('SeoService', () => {
     TestBed.configureTestingModule({
       providers: [
         provideZonelessChangeDetection(),
+        provideHttpClient(withXhr()),
+        provideHttpClientTesting(),
         SeoService,
         Meta,
         Title
@@ -109,7 +115,7 @@ describe('SeoService', () => {
 
       expect(updateTagSpy).toHaveBeenCalledWith({
         name: 'twitter:card',
-        content: 'summary_large_image'
+        content: 'summary'
       });
       expect(updateTagSpy).toHaveBeenCalledWith({
         name: 'twitter:title',
@@ -323,6 +329,80 @@ describe('SeoService', () => {
 
       const personScripts = document.querySelectorAll('#structured-data-person');
       expect(personScripts.length).toBe(1);
+    });
+  });
+
+  describe('Localized meta tags', () => {
+    const metaTranslations = {
+      pt: {
+        meta: {
+          title: 'Título PT',
+          description: 'Descrição PT',
+          keywords: 'palavras, chave',
+          ogTitle: 'OG Título PT',
+          ogDescription: 'OG Descrição PT',
+          ogLocale: 'pt_BR',
+          twitterTitle: 'Twitter PT',
+          twitterDescription: 'Twitter Descrição PT'
+        }
+      },
+      en: {
+        meta: {
+          title: 'Title EN',
+          description: 'Description EN',
+          keywords: 'key, words',
+          ogTitle: 'OG Title EN',
+          ogDescription: 'OG Description EN',
+          ogLocale: 'en_US',
+          twitterTitle: 'Twitter EN',
+          twitterDescription: 'Twitter Description EN'
+        }
+      }
+    };
+
+    it('should apply translated meta tags after translations load', () => {
+      const httpMock = TestBed.inject(HttpTestingController);
+      const setTitleSpy = vi.spyOn(titleService, 'setTitle');
+
+      service.setAboutPageSeo();
+      flushI18n(httpMock, metaTranslations.pt, metaTranslations.en);
+      TestBed.tick();
+
+      expect(setTitleSpy).toHaveBeenCalledWith('Título PT');
+    });
+
+    it('should update meta tags when language changes', () => {
+      const httpMock = TestBed.inject(HttpTestingController);
+      const languageService = TestBed.inject(LanguageService);
+      const setTitleSpy = vi.spyOn(titleService, 'setTitle');
+      const updateTagSpy = vi.spyOn(metaService, 'updateTag');
+
+      service.setAboutPageSeo();
+      flushI18n(httpMock, metaTranslations.pt, metaTranslations.en);
+      TestBed.tick();
+
+      languageService.setLanguage('en-US');
+      TestBed.tick();
+
+      expect(setTitleSpy).toHaveBeenCalledWith('Title EN');
+      expect(updateTagSpy).toHaveBeenCalledWith({
+        name: 'description',
+        content: 'Description EN'
+      });
+      expect(updateTagSpy).toHaveBeenCalledWith({
+        property: 'og:locale',
+        content: 'en_US'
+      });
+    });
+
+    it('should not touch meta tags before setAboutPageSeo is called', () => {
+      const httpMock = TestBed.inject(HttpTestingController);
+      const setTitleSpy = vi.spyOn(titleService, 'setTitle');
+
+      flushI18n(httpMock, metaTranslations.pt, metaTranslations.en);
+      TestBed.tick();
+
+      expect(setTitleSpy).not.toHaveBeenCalled();
     });
   });
 

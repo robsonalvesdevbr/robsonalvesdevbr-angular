@@ -1,6 +1,17 @@
 {
+  "meta": {
+    "title": "Robson Alves - Software Architect | 23+ Years of Experience",
+    "description": "Meet Robson Alves: Software Architect with 23+ years of experience, specialist in .NET, Cloud (Azure/AWS), and financial systems modernization. A unique journey from instructor to architect.",
+    "keywords": "Robson Alves, Software Architect, .NET, Azure, AWS, Cloud Computing, C#, Senior Developer, Tech Lead, Financial Systems, Curitiba",
+    "ogTitle": "Robson Alves - Software Architect | 23+ Years of Experience",
+    "ogDescription": "Software Architect with 23+ years of experience, specialist in system modernization and cloud architecture.",
+    "ogLocale": "en_US",
+    "twitterTitle": "Robson Alves - Software Architect",
+    "twitterDescription": "Software Architect with 23+ years of experience, specialist in system modernization and cloud architecture."
+  },
   "navigation": {
     "skipToContent": "Skip to main content",
+    "logoAlt": "Robson Alves - Logo",
     "ariaLabel": "Main navigation",
     "toggleNavigation": "Toggle navigation",
     "about": "About",
@@ -121,7 +132,7 @@
     "title": "(Post)Graduation",
     "subtitle": "Learn more about my graduations and postgraduations.",
     "quantity": "Quantity: {{count}}",
-    "iconAlt": "Graduation icon",
+    "logoAlt": "Institution logo {{name}}",
     "visitWebsite": "Visit the institution's website {{name}}",
     "finalMessage": {
       "line1": "This is part",

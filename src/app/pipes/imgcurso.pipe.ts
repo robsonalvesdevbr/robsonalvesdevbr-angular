@@ -14,6 +14,6 @@ export class ImgcursoPipe implements PipeTransform {
   ]);
 
   transform(curso: InstitutionEnum): string {
-    return this.imagens.get(curso) ?? 'default.jpg';
+    return this.imagens.get(curso) ?? 'formacao.png';
   }
 }

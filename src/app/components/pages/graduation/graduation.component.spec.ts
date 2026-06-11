@@ -23,7 +23,7 @@ describe('GraduationComponent', () => {
         title: '(Pós)Graduação',
         subtitle: 'Minha formação acadêmica',
         quantity: '{{count}} cursos',
-        iconAlt: 'Ícone de formação',
+        logoAlt: 'Logo da instituição {{name}}',
         visitWebsite: 'Visitar o site de {{name}}',
         finalMessage: { line1: 'Seja', line2: 'Bem-vindo', line3: 'Sempre' }
       }
@@ -32,7 +32,7 @@ describe('GraduationComponent', () => {
         title: 'Graduation',
         subtitle: 'My academic background',
         quantity: '{{count}} courses',
-        iconAlt: 'Graduation icon',
+        logoAlt: 'Institution logo {{name}}',
         visitWebsite: 'Visit {{name}} website',
         finalMessage: { line1: 'Be', line2: 'Welcome', line3: 'Always' }
       }

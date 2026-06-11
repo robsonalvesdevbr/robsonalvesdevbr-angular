@@ -1,6 +1,18 @@
-import { Injectable, inject, DOCUMENT } from '@angular/core';
+import { Injectable, inject, effect, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Profile } from '@path-data/Profile';
+import { LanguageService } from '@path-services/language.service';
+
+interface LocalizedMeta {
+  title: string;
+  description: string;
+  keywords: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogLocale: string;
+  twitterTitle: string;
+  twitterDescription: string;
+}
 
 interface StructuredDataPerson {
   '@context': string;
@@ -52,36 +64,79 @@ export class SeoService {
   private readonly document = inject(DOCUMENT);
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
+  private readonly languageService = inject(LanguageService);
+
+  // Fallback usado até as traduções carregarem (mesmo conteúdo do index.html)
+  private readonly defaultMeta: LocalizedMeta = {
+    title: 'Sobre - Robson Alves | Arquiteto de Software com 23+ Anos de Experiência',
+    description: 'Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em .NET, Cloud (Azure/AWS), e modernização de sistemas financeiros. Trajetória única de instrutor a arquiteto.',
+    keywords: 'Robson Alves, Arquiteto de Software, .NET, Azure, AWS, Cloud Computing, C#, Desenvolvedor Senior, Líder Técnico, Sistemas Financeiros, Curitiba',
+    ogTitle: 'Robson Alves - Arquiteto de Software | 23+ Anos de Experiência',
+    ogDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.',
+    ogLocale: 'pt_BR',
+    twitterTitle: 'Robson Alves - Arquiteto de Software',
+    twitterDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.'
+  };
+
+  private seoInitialized = false;
+
+  constructor() {
+    // Reaplica as meta tags localizadas quando o idioma (ou o carregamento
+    // das traduções) muda, mas só depois do primeiro setAboutPageSeo()
+    effect(() => {
+      this.languageService.currentTranslations();
+      if (this.seoInitialized) {
+        this.applyLocalizedMeta();
+      }
+    });
+  }
+
+  private resolveLocalizedMeta(): LocalizedMeta {
+    const translations = this.languageService.currentTranslations();
+    if (Object.keys(translations).length === 0) {
+      return this.defaultMeta;
+    }
+
+    const t = (key: keyof LocalizedMeta) => this.languageService.translate(`meta.${key}`);
+    return {
+      title: t('title'),
+      description: t('description'),
+      keywords: t('keywords'),
+      ogTitle: t('ogTitle'),
+      ogDescription: t('ogDescription'),
+      ogLocale: t('ogLocale'),
+      twitterTitle: t('twitterTitle'),
+      twitterDescription: t('twitterDescription')
+    };
+  }
+
+  private applyLocalizedMeta(): void {
+    const localized = this.resolveLocalizedMeta();
+
+    this.title.setTitle(localized.title);
+    this.meta.updateTag({ name: 'description', content: localized.description });
+    this.meta.updateTag({ name: 'keywords', content: localized.keywords });
+    this.meta.updateTag({ property: 'og:title', content: localized.ogTitle });
+    this.meta.updateTag({ property: 'og:description', content: localized.ogDescription });
+    this.meta.updateTag({ property: 'og:locale', content: localized.ogLocale });
+    this.meta.updateTag({ name: 'twitter:title', content: localized.twitterTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: localized.twitterDescription });
+  }
 
   setAboutPageSeo(): void {
-    // Set page title
-    this.title.setTitle('Sobre - Robson Alves | Arquiteto de Software com 23+ Anos de Experiência');
+    this.seoInitialized = true;
 
-    // Set meta description
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em .NET, Cloud (Azure/AWS), e modernização de sistemas financeiros. Trajetória única de instrutor a arquiteto.'
-    });
+    // Título, description, keywords e tags og/twitter localizadas
+    this.applyLocalizedMeta();
 
-    // Set meta keywords
-    this.meta.updateTag({
-      name: 'keywords',
-      content: 'Robson Alves, Arquiteto de Software, .NET, Azure, AWS, Cloud Computing, C#, Desenvolvedor Senior, Líder Técnico, Sistemas Financeiros, Curitiba'
-    });
-
-    // Open Graph tags
-    this.meta.updateTag({ property: 'og:title', content: 'Robson Alves - Arquiteto de Software | 23+ Anos de Experiência' });
-    this.meta.updateTag({ property: 'og:description', content: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.' });
+    // Open Graph tags independentes de idioma
     this.meta.updateTag({ property: 'og:type', content: 'profile' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.robsonalves.dev.br' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.robsonalves.dev.br/assets/img/robson-alves-og.jpg' });
-    this.meta.updateTag({ property: 'og:locale', content: 'pt_BR' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.robsonalves.dev.br/assets/img/myimage.jpg' });
 
-    // Twitter Card tags
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:title', content: 'Robson Alves - Arquiteto de Software' });
-    this.meta.updateTag({ name: 'twitter:description', content: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.' });
-    this.meta.updateTag({ name: 'twitter:image', content: 'https://www.robsonalves.dev.br/assets/img/robson-alves-twitter.jpg' });
+    // Twitter Card tags independentes de idioma
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this.meta.updateTag({ name: 'twitter:image', content: 'https://www.robsonalves.dev.br/assets/img/myimage.jpg' });
 
     // Additional professional meta tags
     this.meta.updateTag({ name: 'author', content: Profile.name });
@@ -102,7 +157,7 @@ export class SeoService {
       alternateName: 'Robson Alves',
       description: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.',
       url: 'https://www.robsonalves.dev.br',
-      image: 'https://www.robsonalves.dev.br/assets/img/profile.jpg',
+      image: 'https://www.robsonalves.dev.br/assets/img/myimage.jpg',
       jobTitle: 'Arquiteto de Software & Líder Técnico',
       worksFor: {
         '@type': 'Organization',

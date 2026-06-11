@@ -21,7 +21,7 @@
             <img
               class="rounded-circle img-fluid"
               [ngSrc]="graduation.institutionLogo || 'assets/img/others/formacao.png'"
-              [alt]="'graduation.iconAlt' | translate"
+              [alt]="'graduation.logoAlt' | translate: { name: graduation.institution }"
               fill
               decoding="async"
               sizes="(max-width: 768px) 30vw, 20vw"

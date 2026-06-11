@@ -1,6 +1,17 @@
 {
+  "meta": {
+    "title": "Robson Alves - Arquiteto de Software | 23+ Anos de Experiência",
+    "description": "Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em .NET, Cloud (Azure/AWS), e modernização de sistemas financeiros. Trajetória única de instrutor a arquiteto.",
+    "keywords": "Robson Alves, Arquiteto de Software, .NET, Azure, AWS, Cloud Computing, C#, Desenvolvedor Senior, Líder Técnico, Sistemas Financeiros, Curitiba",
+    "ogTitle": "Robson Alves - Arquiteto de Software | 23+ Anos de Experiência",
+    "ogDescription": "Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.",
+    "ogLocale": "pt_BR",
+    "twitterTitle": "Robson Alves - Arquiteto de Software",
+    "twitterDescription": "Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud."
+  },
   "navigation": {
     "skipToContent": "Pular para conteúdo principal",
+    "logoAlt": "Robson Alves - Logo",
     "ariaLabel": "Navegação principal",
     "toggleNavigation": "Toggle navigation",
     "about": "Sobre",
@@ -121,7 +132,7 @@
     "title": "(Pós)Graduação",
     "subtitle": "Saiba mais sobre minhas graduações e pós-graduações.",
     "quantity": "Quantidade: {{count}}",
-    "iconAlt": "Ícone de graduação",
+    "logoAlt": "Logo da instituição {{name}}",
     "visitWebsite": "Visite o site da instituição {{name}}",
     "finalMessage": {
       "line1": "Esta é parte",
