@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-      <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
+      <div class="spinner-border" style="width: 6rem; height: 6rem" role="status" aria-live="polite">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
