@@ -12,6 +12,8 @@
   "navigation": {
     "skipToContent": "Skip to main content",
     "logoAlt": "Robson Alves - Logo",
+    "themeToggleToDark": "Switch to dark theme",
+    "themeToggleToLight": "Switch to light theme",
     "ariaLabel": "Main navigation",
     "toggleNavigation": "Toggle navigation",
     "about": "About",

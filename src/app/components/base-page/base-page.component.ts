@@ -9,6 +9,6 @@ export class BasePageComponent {
   readonly bglight = input(false);
 
   currentClass = computed(() => ({
-    'bg-light': this.bglight(),
+    'bg-body-tertiary': this.bglight(),
   }));
 }

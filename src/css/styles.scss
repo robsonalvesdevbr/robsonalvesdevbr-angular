@@ -73,12 +73,12 @@ section[id],
 /* Melhor contraste para links */
 .text-muted a,
 a.text-muted {
-  color: #495057 !important;
+  color: var(--bs-secondary-color) !important;
 }
 
 .text-muted a:hover,
 a.text-muted:hover {
-  color: #212529 !important;
+  color: var(--bs-body-color) !important;
 }
 
 /* Estados de foco mais visíveis */
@@ -507,7 +507,7 @@ header.masthead .masthead-heading {
 #portfolio .portfolio-item .portfolio-caption {
   padding: 1.5rem;
   text-align: center;
-  background-color: #fff;
+  background-color: var(--bs-body-bg);
 }
 #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
   font-size: 1.5rem;
@@ -610,7 +610,7 @@ header.masthead .masthead-heading {
   width: 2px;
   margin-left: -1.5px;
   content: '';
-  background-color: #e9ecef;
+  background-color: var(--bs-tertiary-bg);
 }
 .timeline > li {
   position: relative;
@@ -653,7 +653,7 @@ header.masthead .masthead-heading {
   margin-left: 0;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 7px solid var(--bs-border-color);
   border-radius: 100%;
   background-color: #ffc800;
   transition: all 0.3s ease;
@@ -949,7 +949,12 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 /* Lazy loading placeholder */
 .img-loading {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(
+    90deg,
+    var(--bs-secondary-bg) 25%,
+    var(--bs-tertiary-bg) 50%,
+    var(--bs-secondary-bg) 75%
+  );
   background-size: 200% 100%;
   animation: shimmerImg 1.5s infinite;
 }

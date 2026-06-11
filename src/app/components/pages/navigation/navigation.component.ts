@@ -6,11 +6,12 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
 import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '../../../utils/performance.utils';
 import { LanguageSwitcherComponent } from '@path-components/language-switcher/language-switcher.component';
+import { ThemeToggleComponent } from '@path-components/theme-toggle/theme-toggle.component';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-navigation',
-  imports: [NgxPaginationModule, NgOptimizedImage, LanguageSwitcherComponent, TranslatePipe],
+  imports: [NgxPaginationModule, NgOptimizedImage, LanguageSwitcherComponent, ThemeToggleComponent, TranslatePipe],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

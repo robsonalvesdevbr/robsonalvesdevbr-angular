@@ -16,6 +16,20 @@
                form-action 'self';"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script>
+      // Aplica o tema antes do boot do Angular para evitar flash de tema incorreto (FOUC)
+      (function () {
+        try {
+          var theme = localStorage.getItem('app-theme');
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-bs-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+        }
+      })();
+    </script>
     <meta name="description" content="Robson Alves - Arquiteto e Desenvolvedor de softwares" />
     <meta
       name="keywords"

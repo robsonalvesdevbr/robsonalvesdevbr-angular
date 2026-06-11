@@ -22,9 +22,10 @@
         sizes="(max-width: 768px) 50vw, 20vw"
       />
     </a>
-    <!-- Language switcher à esquerda do menu -->
+    <!-- Language switcher e theme toggle à esquerda do menu -->
     <div class="d-flex align-items-center me-2">
       <app-language-switcher (languageSelected)="closeMenu()"></app-language-switcher>
+      <app-theme-toggle />
     </div>
     <button
       class="navbar-toggler"
