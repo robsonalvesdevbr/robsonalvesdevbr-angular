@@ -93,8 +93,8 @@
       </div>
     </div>
 
-    <div class="fontemenor12 pb-1" style="margin-left: 140px">
-      <i class="bi bi-star-fill" style="color: #ffc107"></i> {{ 'books.favorite' | translate }}
+    <div class="fontemenor12 pb-1 badge-offset">
+      <i class="bi bi-star-fill icon-favorite"></i> {{ 'books.favorite' | translate }}
     </div>
     <ul class="list-group list-group-light mb-4">
       @for (
@@ -118,11 +118,7 @@
             <div class="ms-3">
               <p class="fw-bold mb-0">
                 {{ item.title }}
-                <i
-                  class="bi bi-star-fill fontemenor12"
-                  style="color: #ffc107"
-                  [hidden]="!item.favorite"
-                ></i
+                <i class="bi bi-star-fill fontemenor12 icon-favorite" [hidden]="!item.favorite"></i
                 >&nbsp;&nbsp;<span class="text-muted fontemenor11">
                   ( {{ 'books.publishedIn' | translate }} {{ item.publishYear }} )</span
                 >

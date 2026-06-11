@@ -91,8 +91,8 @@
         </div>
       </div>
     </div>
-    <div class="fontemenor12 pb-1" style="margin-left: 140px">
-      <i class="bi bi-star-fill" style="color: #ffc107"></i> {{ 'courses.favorite' | translate }}
+    <div class="fontemenor12 pb-1 badge-offset">
+      <i class="bi bi-star-fill icon-favorite"></i> {{ 'courses.favorite' | translate }}
     </div>
     <ul class="list-group list-group-light mb-4">
       @for (
@@ -116,11 +116,7 @@
             <div class="ms-3">
               <p class="fw-bold mb-0">
                 {{ item.name }}
-                <i
-                  class="bi bi-star-fill fontemenor12"
-                  style="color: #ffc107"
-                  [hidden]="!item.favorite"
-                ></i
+                <i class="bi bi-star-fill fontemenor12 icon-favorite" [hidden]="!item.favorite"></i
                 >&nbsp;&nbsp;
               </p>
               <p class="text-muted fontemenor">
