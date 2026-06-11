@@ -15,7 +15,6 @@ Aplicação single-page moderna que apresenta:
 - 🎓 Formação acadêmica e cursos
 - 📚 Livros e publicações
 - 💼 Experiência profissional
-- 📊 Dashboard com estatísticas
 - 🌐 Suporte a múltiplos idiomas
 - 📱 Design responsivo
 

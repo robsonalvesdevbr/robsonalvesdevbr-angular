@@ -40,7 +40,6 @@ describe('NavigationComponent', () => {
         ariaLabel: 'Navegação principal',
         toggleNavigation: 'Alternar navegação',
         about: 'Sobre',
-        dashboard: 'Dashboard',
         graduation: '(Pós)Graduação',
         courses: 'Cursos',
         formations: 'Formação',
@@ -56,7 +55,6 @@ describe('NavigationComponent', () => {
         ariaLabel: 'Main navigation',
         toggleNavigation: 'Toggle navigation',
         about: 'About',
-        dashboard: 'Dashboard',
         graduation: 'Graduation',
         courses: 'Courses',
         formations: 'Formations',
@@ -79,7 +77,6 @@ describe('NavigationComponent', () => {
   it('should render navigation titles', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Sobre');
-    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Dashboard');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('(Pós)Graduação');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Cursos');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Formação');
@@ -175,15 +172,6 @@ describe('NavigationComponent', () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
       component.sobreAnalitics(event);
-
-      await new Promise(resolve => setTimeout(resolve, 0));
-      expect(component.isMenuOpen()).toBe(false);
-    });
-
-    it('should close menu when "Dashboard" link is clicked', async () => {
-      component.isMenuOpen.set(true);
-      const event = new Event('click');
-      component.dashboardAnalitics(event);
 
       await new Promise(resolve => setTimeout(resolve, 0));
       expect(component.isMenuOpen()).toBe(false);

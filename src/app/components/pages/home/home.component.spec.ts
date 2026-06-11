@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import { NavigationComponent } from '@path-components/pages/navigation/navigation.component';
 import { MasterheadComponent } from '@path-components/pages/masterhead/masterhead.component';
 import { AboutComponent } from '@path-components/pages/about/about.component';
-import { DashboardComponent } from '@path-components/pages/dashboard/dashboard.component';
 import { GraduationComponent } from '@path-components/pages/graduation/graduation.component';
 import { CourseComponent } from '@path-components/pages/course/course.component';
 import { FormationCourseComponent } from '@path-components/pages/formationcourse/formationcourse.component';
@@ -26,7 +25,6 @@ describe('HomeComponent', () => {
         NavigationComponent,
         MasterheadComponent,
         AboutComponent,
-        DashboardComponent,
         GraduationComponent,
         CourseComponent,
         FormationCourseComponent,
@@ -109,12 +107,10 @@ describe('HomeComponent', () => {
       fixture.detectChanges();
 
       const aboutElement = fixture.nativeElement.querySelector('app-about');
-      const dashboardElement = fixture.nativeElement.querySelector('app-dashboard');
 
       // Componentes deferred não devem estar presentes imediatamente
       // (eles são carregados pelo @defer on viewport)
       expect(aboutElement).toBeFalsy();
-      expect(dashboardElement).toBeFalsy();
     });
 
     it('should not show loading component before minimum time', () => {
@@ -184,7 +180,6 @@ describe('HomeComponent', () => {
       // Verificar que componentes deferred não estão no DOM inicialmente
       const deferredComponents = [
         'app-about',
-        'app-dashboard',
         'app-graduation',
         'app-course',
         'app-formationcourse',
@@ -231,7 +226,7 @@ describe('HomeComponent', () => {
     it('should pass bglight to components that support it', () => {
       fixture.detectChanges();
 
-      // Dashboard, Course e Book recebem [bglight]="true" no template
+      // Course e Book recebem [bglight]="true" no template
       // Verificamos que os componentes existem
       expect(component).toBeTruthy();
     });

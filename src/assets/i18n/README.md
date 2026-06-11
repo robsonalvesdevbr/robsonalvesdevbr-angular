@@ -29,10 +29,12 @@ Os arquivos de tradução seguem uma estrutura hierárquica em JSON:
     "about": "Sobre",
     "contact": "Contato"
   },
-  "dashboard": {
-    "title": "Dashboard Pessoal",
-    "stats": {
-      "coursesCompleted": "Cursos Concluídos"
+  "about": {
+    "title": "Sobre",
+    "timeline": {
+      "instructor": {
+        "title": "Início como Instrutor"
+      }
     }
   }
 }
@@ -88,13 +90,12 @@ Para incluir variáveis dinâmicas nas traduções, use `{{variableName}}`:
 2. **Estrutura recomendada**: `feature.section.element`
 3. **Exemplos válidos**:
    - `navigation.about`
-   - `dashboard.stats.coursesCompleted`
+   - `about.timeline.instructor.title`
    - `common.loading`
 
 ## Organização
 
 - **navigation**: Links de navegação e menu
-- **dashboard**: Seção de dashboard e estatísticas
 - **about**: Seção sobre e timeline de carreira
 - **common**: Strings compartilhadas (loading, errors, buttons, etc.)
 

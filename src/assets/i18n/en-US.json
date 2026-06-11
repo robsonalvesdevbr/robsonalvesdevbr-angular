@@ -17,7 +17,6 @@
     "ariaLabel": "Main navigation",
     "toggleNavigation": "Toggle navigation",
     "about": "About",
-    "dashboard": "Dashboard",
     "graduation": "(Post)Graduation",
     "courses": "Courses",
     "formations": "Formations",
@@ -28,26 +27,6 @@
     "welcome": "Welcome to my portfolio!",
     "subtitle": "It's a pleasure to share my journey and projects with you.",
     "learnMore": "Learn more"
-  },
-  "dashboard": {
-    "title": "Personal Dashboard",
-    "subtitle": "Statistics and metrics from my learning journey",
-    "loading": "Loading...",
-    "stats": {
-      "coursesCompleted": "Completed Courses",
-      "technicalBooks": "Technical Books",
-      "formations": "Formations",
-      "booksProgress": "Books Progress",
-      "favoriteCourses": "Favorite Courses",
-      "ofCourses": "of {{total}} courses",
-      "graduations": "Graduations",
-      "completed": "Completed",
-      "inProgress": "In Progress",
-      "total": "Total: {{count}} graduations",
-      "yearlyEvolution": "Yearly Evolution",
-      "topTechnologies": "Top Technologies",
-      "topInstitutions": "Top Institutions"
-    }
   },
   "about": {
     "title": "About",

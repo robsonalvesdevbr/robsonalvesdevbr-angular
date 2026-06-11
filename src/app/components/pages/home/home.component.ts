@@ -5,7 +5,6 @@ import { AboutComponent } from '@path-components/pages/about/about.component';
 import { BookComponent } from '@path-components/pages/book/book.component';
 import { ContactComponent } from '@path-components/pages/contact/contact.component';
 import { CourseComponent } from '@path-components/pages/course/course.component';
-import { DashboardComponent } from '@path-components/pages/dashboard/dashboard.component';
 import { FooterComponent } from '@path-components/pages/footer/footer.component';
 import { FormationCourseComponent } from '@path-components/pages/formationcourse/formationcourse.component';
 import { GraduationComponent } from '@path-components/pages/graduation/graduation.component';
@@ -19,7 +18,6 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     NavigationComponent,
     MasterheadComponent,
     AboutComponent,
-    DashboardComponent,
     GraduationComponent,
     CourseComponent,
     FormationCourseComponent,
@@ -37,7 +35,6 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     <!-- Main content with viewport-based lazy loading -->
     @defer (on viewport; prefetch on idle) {
       <app-about />
-      <app-dashboard [bglight]="true" />
       <app-graduation />
       <app-course [bglight]="true" />
       <app-formationcourse />

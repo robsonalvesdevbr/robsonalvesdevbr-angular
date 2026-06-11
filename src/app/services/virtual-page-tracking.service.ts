@@ -12,10 +12,6 @@ export class VirtualPageTrackingService {
       title: 'Sobre - Robson Alves',
       description: 'Conheça minha trajetória profissional de 23+ anos'
     },
-    'dashboard': {
-      title: 'Dashboard - Robson Alves',
-      description: 'Visão geral das minhas competências e experiências'
-    },
     'graduation': {
       title: '(Pós)Graduação - Robson Alves',
       description: 'Minha formação acadêmica e certificações'

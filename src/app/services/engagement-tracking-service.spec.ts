@@ -106,7 +106,7 @@ describe('EngagementTrackingService', () => {
     });
 
     it('should track all section types', (done) => {
-      const sections = ['about', 'dashboard', 'graduation', 'courses', 'formationcourse', 'books', 'contact'];
+      const sections = ['about', 'graduation', 'courses', 'formationcourse', 'books', 'contact'];
 
       sections.forEach(section => {
         service.trackSectionView(section);

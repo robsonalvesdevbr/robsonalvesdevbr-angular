@@ -121,7 +121,6 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   formationcourseAnalitics = this.createNavigationHandler('formationcourse');
   booksAnalitics = this.createNavigationHandler('books');
   contactAnalitics = this.createNavigationHandler('contact');
-  dashboardAnalitics = this.createNavigationHandler('dashboard');
 
   ngOnDestroy(): void {
     this.analyticsBatcher.destroy();

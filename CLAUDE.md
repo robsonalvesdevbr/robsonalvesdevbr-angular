@@ -93,10 +93,6 @@ npm run clean          # remove dist, cache, .angular
 - **OptimizedEngagementTrackingService**: Versão otimizada com memoization
 - **VirtualPageTrackingService**: Tracking de visualizações virtuais para analytics
 
-#### Estatísticas & Analytics
-- **StatisticsService**: Agrega dados estatísticos do portfolio (cursos, livros, graduações)
-- **OptimizedStatisticsService**: Versão otimizada com cache e computed signals
-
 #### Utilitários
 - **DataTransformationService**: Transformações de dados complexas
 - **PaginationService**: Lógica de paginação centralizada
@@ -147,7 +143,7 @@ npm run clean          # remove dist, cache, .angular
 ## Code Conventions
 
 - **Components:** ChangeDetectionStrategy.OnPush por padrão
-- **Signals:** usar input() para inputs de componentes (implementado em BasePageComponent, AnimatedCounterComponent)
+- **Signals:** usar input() para inputs de componentes (implementado em BasePageComponent)
 - **Pipes:** standalone, pure quando possível
 - **Services:** providedIn: 'root'
 - **File naming:** dot-separated (ex: `data-service.ts`, `base-page.component.ts`)

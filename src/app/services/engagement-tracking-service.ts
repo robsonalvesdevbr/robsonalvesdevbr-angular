@@ -120,7 +120,6 @@ export class EngagementTrackingService {
     // Simular mudança de página virtual para cada seção
     const sectionTitles: { [key: string]: string } = {
       'about': 'Sobre - Robson Alves',
-      'dashboard': 'Dashboard - Robson Alves',
       'graduation': '(Pós)Graduação - Robson Alves',
       'courses': 'Cursos - Robson Alves',
       'formationcourse': 'Formação - Robson Alves',
