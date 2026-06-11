@@ -1,8 +1,6 @@
 // @ts-check
 const tseslint = require('typescript-eslint');
-const angular = require('@angular-eslint/eslint-plugin');
-const angularTemplate = require('@angular-eslint/eslint-plugin-template');
-const angularTemplateParser = require('@angular-eslint/template-parser');
+const angular = require('angular-eslint');
 const prettierPlugin = require('eslint-plugin-prettier');
 const prettierConfig = require('eslint-config-prettier');
 
@@ -12,15 +10,12 @@ module.exports = tseslint.config(
   },
   {
     files: ['**/*.ts'],
-    extends: [...tseslint.configs.recommended],
+    extends: [...tseslint.configs.recommended, ...angular.configs.tsRecommended],
     plugins: {
-      '@angular-eslint': angular,
-      '@angular-eslint/template': angularTemplate,
       prettier: prettierPlugin,
     },
-    processor: angularTemplate.processors['extract-inline-html'],
+    processor: angular.processInlineTemplates,
     rules: {
-      ...angular.configs.recommended.rules,
       '@typescript-eslint/no-explicit-any': 'error',
       '@angular-eslint/directive-selector': [
         'error',
@@ -39,19 +34,17 @@ module.exports = tseslint.config(
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
+      // Componentes host de teste podem optar por estratégias diferentes de OnPush
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
     },
   },
   {
     files: ['**/*.html'],
+    extends: [...angular.configs.templateRecommended],
     plugins: {
-      '@angular-eslint/template': angularTemplate,
       prettier: prettierPlugin,
     },
-    languageOptions: {
-      parser: angularTemplateParser,
-    },
     rules: {
-      ...angularTemplate.configs.recommended.rules,
       'prettier/prettier': ['error', { parser: 'angular' }],
     },
   },
