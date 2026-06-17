@@ -50,6 +50,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly _tagsArray = signal<string[]>([]);
   coursesFilter: WritableSignal<Set<InstitutionEnum>> = signal<Set<InstitutionEnum>>(new Set<InstitutionEnum>());
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
+  searchQuery = signal<string>('');
 
   config = this.paginationService.createPaginationConfig('coursesPag', 5);
 
@@ -84,24 +85,24 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     const courses = this.allCourses();
     const institutionFilters = this.coursesFilter();
     const tagFilters = this.tagsFilter();
+    const query = this.searchQuery().toLowerCase().trim();
 
     // Early return if no filters
-    if (institutionFilters.size === 0 && tagFilters.size === 0) {
+    if (institutionFilters.size === 0 && tagFilters.size === 0 && !query) {
       return this.sortCourses(courses);
     }
 
     // Apply filters efficiently
     const result = courses.filter(course => {
-      // Check institution filter
       if (institutionFilters.size > 0 && !institutionFilters.has(course.institution as InstitutionEnum)) {
         return false;
       }
-
-      // Check tag filter
       if (tagFilters.size > 0 && !course.tags.some(tag => tagFilters.has(tag))) {
         return false;
       }
-
+      if (query && !course.name.toLowerCase().includes(query)) {
+        return false;
+      }
       return true;
     });
 
@@ -128,6 +129,23 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
     this.coursesFilter.set(new Set<InstitutionEnum>());
     this.tagsFilter.set(new Set<string>());
+    this.searchQuery.set('');
+    this.config().currentPage = 1;
+  }
+
+  removeTag(tag: string): void {
+    const current = new Set(this.tagsFilter());
+    current.delete(tag);
+    this.tagsFilter.set(current);
+    this.config().currentPage = 1;
+  }
+
+  removeInstitution(institutionKey: string): void {
+    const institution = InstitutionEnum[institutionKey as keyof typeof InstitutionEnum];
+    if (!institution) return;
+    const current = new Set(this.coursesFilter());
+    current.delete(institution);
+    this.coursesFilter.set(current);
     this.config().currentPage = 1;
   }
 

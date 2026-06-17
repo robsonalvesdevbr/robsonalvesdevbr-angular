@@ -47,6 +47,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [class.active]="activeSection() === 'about'"
             href="#about"
             [attr.aria-label]="'navigation.about' | translate"
             (click)="sobreAnalitics($event)"
@@ -57,6 +58,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [class.active]="activeSection() === 'graduation'"
             href="#graduation"
             [attr.aria-label]="'navigation.graduation' | translate"
             (click)="graduationAnalitics($event)"
@@ -67,6 +69,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [class.active]="activeSection() === 'courses'"
             href="#courses"
             [attr.aria-label]="'navigation.courses' | translate"
             (click)="coursesAnalitics($event)"
@@ -77,6 +80,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [class.active]="activeSection() === 'formationcourse'"
             href="#formationcourse"
             [attr.aria-label]="'navigation.formations' | translate"
             (click)="formationcourseAnalitics($event)"
@@ -87,6 +91,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [class.active]="activeSection() === 'books'"
             href="#books"
             [attr.aria-label]="'navigation.books' | translate"
             (click)="booksAnalitics($event)"
@@ -97,6 +102,7 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [class.active]="activeSection() === 'contact'"
             href="#contact"
             [attr.aria-label]="'navigation.contact' | translate"
             (click)="contactAnalitics($event)"

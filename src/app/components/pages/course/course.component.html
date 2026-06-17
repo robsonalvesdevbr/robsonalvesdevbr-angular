@@ -14,6 +14,17 @@
     </div>
     <div class="border border-1 rounded mb-2">
       <div>
+        <div class="px-3 pt-2 pb-1">
+          <input
+            type="search"
+            class="form-control form-control-sm"
+            [placeholder]="'courses.searchPlaceholder' | translate"
+            [value]="searchQuery()"
+            (input)="searchQuery.set($any($event.target).value)"
+            [attr.aria-label]="'courses.searchPlaceholder' | translate"
+          />
+        </div>
+        <hr class="p-0 m-1" />
         <div class="text-center bg-body-tertiary bg-gradient">
           <div class="has-text-centered">
             <fieldset
@@ -91,6 +102,32 @@
         </div>
       </div>
     </div>
+    @if (coursesFilter().size > 0 || tagsFilter().size > 0) {
+      <div class="d-flex flex-wrap gap-1 mb-2">
+        @for (institution of coursesFilter(); track institution) {
+          <span class="badge bg-primary d-inline-flex align-items-center gap-1">
+            {{ institution }}
+            <button
+              class="btn-close btn-close-white"
+              style="font-size: 0.5rem"
+              (click)="removeInstitution(institution)"
+              [attr.aria-label]="'courses.removeFilter' | translate: { filter: institution }"
+            ></button>
+          </span>
+        }
+        @for (tag of tagsFilter(); track tag) {
+          <span class="badge bg-secondary d-inline-flex align-items-center gap-1">
+            {{ tag }}
+            <button
+              class="btn-close btn-close-white"
+              style="font-size: 0.5rem"
+              (click)="removeTag(tag)"
+              [attr.aria-label]="'courses.removeFilter' | translate: { filter: tag }"
+            ></button>
+          </span>
+        }
+      </div>
+    }
     <div class="fontemenor12 pb-1 badge-offset">
       <i class="bi bi-star-fill icon-favorite"></i> {{ 'courses.favorite' | translate }}
     </div>
@@ -138,7 +175,7 @@
               </p>
             </div>
           </div>
-          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-secondary">
             {{ absoluteIndex(i) }}
             <span class="visually-hidden">{{ 'courses.unreadMessages' | translate }}</span>
           </span>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal, afterNextRender } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -22,6 +22,10 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
 
   // Menu state management
   isMenuOpen = signal(false);
+
+  // Scroll spy — seção atualmente visível
+  activeSection = signal<string>('');
+  private _scrollObserver: IntersectionObserver | null = null;
 
   // Cache navbar heights for performance
   private readonly navbarHeights = {
@@ -47,6 +51,32 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
     this.debouncedScrollToSection = debounce((sectionId: string) => {
       this.performScroll(sectionId);
     }, 50);
+
+    afterNextRender(() => {
+      this.setupScrollSpy();
+    });
+  }
+
+  private setupScrollSpy(): void {
+    const sectionIds = ['about', 'graduation', 'courses', 'formationcourse', 'books', 'contact'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            this.activeSection.set(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
+    );
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    this._scrollObserver = observer;
   }
 
   /**
@@ -124,6 +154,8 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
 
   ngOnDestroy(): void {
     this.analyticsBatcher.destroy();
+    this._scrollObserver?.disconnect();
+    this._scrollObserver = null;
     ElementCache.clear();
   }
 }

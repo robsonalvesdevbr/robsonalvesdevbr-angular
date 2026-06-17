@@ -93,3 +93,21 @@
     transition: none !important;
   }
 }
+
+// Scroll spy — indica a seção ativa na navbar
+.navbar-nav .nav-link.active {
+  color: var(--brand-accent) !important;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--brand-accent);
+    border-radius: 1px;
+  }
+}

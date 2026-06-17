@@ -49,6 +49,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   private readonly _tagsArray = signal<string[]>([]);
   publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<Set<PublishNameEnum>>(new Set<PublishNameEnum>());
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
+  searchQuery = signal<string>('');
 
   config = this.paginationService.createPaginationConfig('booksPag', 5);
 
@@ -83,24 +84,26 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const books = this.allBooks();
     const publisherFilters = this.publishNameFilter();
     const tagFilters = this.tagsFilter();
+    const query = this.searchQuery().toLowerCase().trim();
 
     // Early return if no filters
-    if (publisherFilters.size === 0 && tagFilters.size === 0) {
+    if (publisherFilters.size === 0 && tagFilters.size === 0 && !query) {
       return this.sortBooks(books);
     }
 
     // Apply filters efficiently
     const result = books.filter(book => {
-      // Check publisher filter
       if (publisherFilters.size > 0 && !publisherFilters.has(book.publishName as PublishNameEnum)) {
         return false;
       }
-
-      // Check tag filter
       if (tagFilters.size > 0 && !book.tags.some(tag => tagFilters.has(tag))) {
         return false;
       }
-
+      if (query) {
+        const titleMatch = book.title.toLowerCase().includes(query);
+        const authorMatch = book.author.some(a => a.toLowerCase().includes(query));
+        if (!titleMatch && !authorMatch) return false;
+      }
       return true;
     });
 
@@ -135,6 +138,23 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
     this.publishNameFilter.set(new Set<PublishNameEnum>());
     this.tagsFilter.set(new Set<string>());
+    this.searchQuery.set('');
+    this.config().currentPage = 1;
+  }
+
+  removeTag(tag: string): void {
+    const current = new Set(this.tagsFilter());
+    current.delete(tag);
+    this.tagsFilter.set(current);
+    this.config().currentPage = 1;
+  }
+
+  removePublisher(publisherKey: string): void {
+    const publisher = PublishNameEnum[publisherKey as keyof typeof PublishNameEnum];
+    if (!publisher) return;
+    const current = new Set(this.publishNameFilter());
+    current.delete(publisher);
+    this.publishNameFilter.set(current);
     this.config().currentPage = 1;
   }
 

@@ -15,6 +15,17 @@
 
     <div class="border border-1 rounded mb-2">
       <div>
+        <div class="px-3 pt-2 pb-1">
+          <input
+            type="search"
+            class="form-control form-control-sm"
+            [placeholder]="'books.searchPlaceholder' | translate"
+            [value]="searchQuery()"
+            (input)="searchQuery.set($any($event.target).value)"
+            [attr.aria-label]="'books.searchPlaceholder' | translate"
+          />
+        </div>
+        <hr class="p-0 m-1" />
         <div class="text-center bg-body-tertiary bg-gradient">
           <div class="s">
             <fieldset
@@ -93,6 +104,32 @@
       </div>
     </div>
 
+    @if (publishNameFilter().size > 0 || tagsFilter().size > 0) {
+      <div class="d-flex flex-wrap gap-1 mb-2">
+        @for (publisher of publishNameFilter(); track publisher) {
+          <span class="badge bg-primary d-inline-flex align-items-center gap-1">
+            {{ publisher }}
+            <button
+              class="btn-close btn-close-white"
+              style="font-size: 0.5rem"
+              (click)="removePublisher(publisher)"
+              [attr.aria-label]="'books.removeFilter' | translate: { filter: publisher }"
+            ></button>
+          </span>
+        }
+        @for (tag of tagsFilter(); track tag) {
+          <span class="badge bg-secondary d-inline-flex align-items-center gap-1">
+            {{ tag }}
+            <button
+              class="btn-close btn-close-white"
+              style="font-size: 0.5rem"
+              (click)="removeTag(tag)"
+              [attr.aria-label]="'books.removeFilter' | translate: { filter: tag }"
+            ></button>
+          </span>
+        }
+      </div>
+    }
     <div class="fontemenor12 pb-1 badge-offset">
       <i class="bi bi-star-fill icon-favorite"></i> {{ 'books.favorite' | translate }}
     </div>
@@ -145,9 +182,31 @@
                   ></span
                 >
               </p>
+              @if (item.progress > 0 && item.progress < 100) {
+                <div class="d-flex align-items-center gap-2 mt-1">
+                  <div
+                    class="progress flex-grow-1"
+                    style="height: 6px; max-width: 200px"
+                    role="progressbar"
+                    [attr.aria-valuenow]="item.progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    [attr.aria-label]="'books.readingProgress' | translate: { progress: item.progress.toString() }"
+                  >
+                    <div class="progress-bar bg-success" [style.width.%]="item.progress"></div>
+                  </div>
+                  <small class="text-muted text-nowrap">{{ item.progress }}%</small>
+                </div>
+              }
+              @if (item.progress === 100) {
+                <div class="d-flex align-items-center gap-1 mt-1">
+                  <i class="bi bi-check-circle-fill text-success" style="font-size: 0.75rem"></i>
+                  <small class="text-success">{{ 'books.completed' | translate }}</small>
+                </div>
+              }
             </div>
           </div>
-          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
+          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-secondary">
             {{ absoluteIndex(i) }}
             <span class="visually-hidden">{{ 'books.unreadMessages' | translate }}</span>
           </span>
