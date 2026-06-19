@@ -3,6 +3,21 @@ import { ICourse } from '@path-interfaces/ICourse';
 import { CourseTagEnum } from '../models/CourseTagEnum';
 
 export const Courses: ICourse[] = [
+  // ===== CERTIFICADOS =====
+  {
+
+    id: 'curso-go-expert-2026-06',
+    name: 'Go Expert',
+    institution: InstitutionEnum.FullCycle,
+    certificateUrl:
+      'https://fullcycle.com.br/certificado/ff7bd389-15ca-46d9-b7c2-848878bf68a3/',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Go,
+    ],
+    conclusion: new Date('2026-6-12'),
+    favorite: true,
+  },
   // ===== UDEMY =====
   {
 
