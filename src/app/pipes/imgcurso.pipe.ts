@@ -11,6 +11,7 @@ export class ImgcursoPipe implements PipeTransform {
     [InstitutionEnum.Alura, 'alura.jpg'],
     [InstitutionEnum.Udemy, 'udemy.png'],
     [InstitutionEnum.LinkedinLearning, 'linkedin.png'],
+    [InstitutionEnum.FullCycle, 'fullcycle.jpeg'],
   ]);
 
   transform(curso: InstitutionEnum): string {
