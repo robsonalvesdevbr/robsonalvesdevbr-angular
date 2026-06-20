@@ -14,6 +14,7 @@ export const Courses: ICourse[] = [
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.Go,
+      CourseTagEnum.Golang,
     ],
     conclusion: new Date('2026-6-12'),
     favorite: true,
