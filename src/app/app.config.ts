@@ -1,7 +1,7 @@
 import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
+import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
 
 import { routes } from './app.routes';
 import { provideConfigInitializer } from './initializer/startup';
@@ -21,11 +21,10 @@ export const appConfig: ApplicationConfig = {
     ),
     provideConfigInitializer(),
     importProvidersFrom(NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics, [
-      // Fix cookie_domain once at startup — prevents www vs non-www conflict.
-      // 'auto' lets GA pick the highest-level domain (.robsonalves.dev.br),
-      // which works for both www.robsonalves.dev.br and robsonalves.dev.br.
+      // Single gtag('config') at startup — prevents cookie_domain from being
+      // reset on every navigation (NgxGoogleAnalyticsRouterModule was calling
+      // gtag('config') on every NavigationEnd, overwriting the session cookie).
       { command: 'config', values: [environment.googleAnalytics, { cookie_domain: '.robsonalves.dev.br' }] },
     ])),
-    importProvidersFrom(NgxGoogleAnalyticsRouterModule.forRoot()),
   ],
 };
