@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
       // Fix cookie_domain once at startup — prevents www vs non-www conflict.
       // 'auto' lets GA pick the highest-level domain (.robsonalves.dev.br),
       // which works for both www.robsonalves.dev.br and robsonalves.dev.br.
-      { command: 'config', values: [environment.googleAnalytics, { cookie_domain: 'auto' }] },
+      { command: 'config', values: [environment.googleAnalytics, { cookie_domain: 'robsonalves.dev.br' }] },
     ])),
     importProvidersFrom(NgxGoogleAnalyticsRouterModule.forRoot()),
   ],
