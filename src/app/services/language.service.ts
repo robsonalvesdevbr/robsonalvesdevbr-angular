@@ -1,5 +1,6 @@
 import { Injectable, signal, computed, effect, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { finalize } from 'rxjs';
 
 export type Language = 'pt-BR' | 'en-US';
 export type NestedTranslations = { [key: string]: string | NestedTranslations };
@@ -16,6 +17,7 @@ export class LanguageService {
   // Signals para traduções carregadas
   private ptBRTranslations = signal<TranslationKeys>({});
   private enUSTranslations = signal<TranslationKeys>({});
+  private translationsReady = signal(false);
 
   // Computed signal para traduções do idioma atual
   currentTranslations = computed(() => {
@@ -50,8 +52,18 @@ export class LanguageService {
   }
 
   private loadTranslations(): void {
+    let pendingRequests = 2;
+
+    const markAsReady = () => {
+      pendingRequests -= 1;
+      if (pendingRequests === 0) {
+        this.translationsReady.set(true);
+      }
+    };
+
     // Carrega PT-BR
     this.http.get<TranslationKeys>('/assets/i18n/pt-BR.json')
+      .pipe(finalize(markAsReady))
       .subscribe({
         next: translations => this.ptBRTranslations.set(translations),
         error: err => console.error('Error loading PT-BR translations:', err)
@@ -59,6 +71,7 @@ export class LanguageService {
 
     // Carrega EN-US
     this.http.get<TranslationKeys>('/assets/i18n/en-US.json')
+      .pipe(finalize(markAsReady))
       .subscribe({
         next: translations => this.enUSTranslations.set(translations),
         error: err => console.error('Error loading EN-US translations:', err)
@@ -88,7 +101,9 @@ export class LanguageService {
     let value = this.getNestedValue(translations, key);
 
     if (!value) {
-      console.warn(`Translation missing for key: ${key}`);
+      if (this.translationsReady()) {
+        console.warn(`Translation missing for key: ${key}`);
+      }
       return key;
     }
 

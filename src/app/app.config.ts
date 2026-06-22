@@ -20,12 +20,7 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideConfigInitializer(),
-    importProvidersFrom(NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics, [
-      // Fix cookie_domain once at startup — prevents www vs non-www conflict.
-      // 'auto' lets GA pick the highest-level domain (.robsonalves.dev.br),
-      // which works for both www.robsonalves.dev.br and robsonalves.dev.br.
-      { command: 'config', values: [environment.googleAnalytics, { cookie_domain: 'auto' }] },
-    ])),
+    importProvidersFrom(NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics)),
     importProvidersFrom(NgxGoogleAnalyticsRouterModule.forRoot()),
   ],
 };
