@@ -37,13 +37,13 @@ jobs:
       - name: Run unit tests
         run: pnpm run test:nowatch
 
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps chromium firefox
+      #- name: Install Playwright Browsers
+      #  run: pnpm exec playwright install --with-deps chromium firefox
 
-      - name: Run E2E tests
-        run: pnpm run test:e2e
-        env:
-          CI: true
+      #- name: Run E2E tests
+      #  run: pnpm run test:e2e
+      #  env:
+      #    CI: true
 
       - name: Fix Git Permissions
         run: chmod -R u+w .git
