@@ -37,16 +37,17 @@ export class VirtualPageTrackingService {
     }
   };
 
-  sendVirtualPageView(sectionId: string, trigger: 'click' | 'scroll' | 'hash' = 'scroll'): void {
+  sendVirtualPageView(sectionId: string, _trigger: 'click' | 'scroll' | 'hash' = 'scroll'): void {
     const metadata = this.sectionMetadata[sectionId];
     if (!metadata) return;
 
     const pageLocation = `${window.location.origin}/#${sectionId}`;
 
-    this.gaService?.gtag('config', environment.googleAnalytics, {
+    // gtag('event', 'page_view') instead of gtag('config') to avoid
+    // resetting cookie_domain on every section change in SPAs
+    this.gaService?.gtag('event', 'page_view', {
       page_title: metadata.title,
       page_location: pageLocation,
-      custom_parameter_trigger: trigger
     });
 
     if (typeof document !== 'undefined') {
