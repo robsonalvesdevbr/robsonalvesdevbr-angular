@@ -1,8 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { NavigationComponent } from './navigation.component';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
-import { VirtualPageTrackingService } from '@path-services/virtual-page-tracking.service';
+import { AnalyticsService } from '@path-services/analytics.service';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
@@ -11,12 +10,13 @@ import { LanguageService } from '@path-services/language.service';
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
   let fixture: ComponentFixture<NavigationComponent>;
-  let mockGoogleAnalyticsService: jasmine.SpyObj<GoogleAnalyticsService>;
-  let mockVirtualPageService: jasmine.SpyObj<VirtualPageTrackingService>;
+  let mockAnalyticsService: jasmine.SpyObj<AnalyticsService>;
 
   beforeEach(async () => {
-    mockGoogleAnalyticsService = jasmine.createSpyObj('GoogleAnalyticsService', ['event']);
-    mockVirtualPageService = jasmine.createSpyObj('VirtualPageTrackingService', ['sendVirtualPageView']);
+    mockAnalyticsService = jasmine.createSpyObj('AnalyticsService', [
+      'trackMenuToggle',
+      'trackMenuClick',
+    ]);
 
     await TestBed.configureTestingModule({
   imports: [NavigationComponent],
@@ -24,8 +24,7 @@ describe('NavigationComponent', () => {
         provideZonelessChangeDetection(),
         provideHttpClient(withXhr()),
         provideHttpClientTesting(),
-        { provide: GoogleAnalyticsService, useValue: mockGoogleAnalyticsService },
-        { provide: VirtualPageTrackingService, useValue: mockVirtualPageService }
+        { provide: AnalyticsService, useValue: mockAnalyticsService },
       ],
     }).compileComponents();
 
@@ -102,13 +101,13 @@ describe('NavigationComponent', () => {
 
     it('should send analytics event when menu is toggled open', () => {
       component.toggleMenu();
-      expect(mockGoogleAnalyticsService.event).toHaveBeenCalledWith('menu_toggle', 'navigation', 'opened');
+      expect(mockAnalyticsService.trackMenuToggle).toHaveBeenCalledWith('opened');
     });
 
     it('should send analytics event when menu is toggled closed', () => {
       component.isMenuOpen.set(true);
       component.toggleMenu();
-      expect(mockGoogleAnalyticsService.event).toHaveBeenCalledWith('menu_toggle', 'navigation', 'closed');
+      expect(mockAnalyticsService.trackMenuToggle).toHaveBeenCalledWith('closed');
     });
 
     it('should close menu when closeMenu is called and menu is open', () => {

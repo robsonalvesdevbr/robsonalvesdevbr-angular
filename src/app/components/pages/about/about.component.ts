@@ -6,7 +6,7 @@ import {
   inject,
 } from '@angular/core';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { AnalyticsService } from '@path-services/analytics.service';
 import { SeoService } from '@path-services/seo.service';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 
@@ -17,18 +17,17 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent extends BasePageComponent implements OnInit {
-  private readonly gaService = inject(GoogleAnalyticsService);
+  private readonly analyticsService = inject(AnalyticsService);
   private readonly seoService = inject(SeoService);
 
   ngOnInit(): void {
-    // Set up SEO optimization for about page
     this.seoService.setAboutPageSeo();
     this.seoService.generateBreadcrumbStructuredData();
     this.seoService.updatePageCanonical();
   }
 
   onSocialLinkClick(platform: string): void {
-    this.gaService?.event('social_link_click', 'about', platform);
+    this.analyticsService.trackSocialLinkClick(platform, 'about');
   }
 
   constructor() {

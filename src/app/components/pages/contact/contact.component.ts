@@ -8,6 +8,7 @@ import {
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
+import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
@@ -19,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 export class ContactComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
+  private readonly analyticsService = inject(AnalyticsService);
 
   profiles = signal(this.dataService.getProfile());
 
@@ -26,7 +28,6 @@ export class ContactComponent extends BasePageComponent {
     return 1;
   }
 
-  // Escreva uma funcáo que retorne a idade de uma pessoa com base na data de nascimento
   calcularIdade(birthDate: Date): number {
     const today = new Date();
     const birth = new Date(birthDate);
@@ -36,5 +37,17 @@ export class ContactComponent extends BasePageComponent {
       age--;
     }
     return age;
+  }
+
+  onSocialLinkClick(platform: string): void {
+    this.analyticsService.trackSocialLinkClick(platform, 'contact');
+  }
+
+  onEmailClick(): void {
+    this.analyticsService.trackSocialLinkClick('email', 'contact');
+  }
+
+  onRepositoryClick(): void {
+    this.analyticsService.trackSocialLinkClick('github_repo', 'contact');
   }
 }

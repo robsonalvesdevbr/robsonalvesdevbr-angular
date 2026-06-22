@@ -42,6 +42,7 @@
                   class="text-muted text-decoration-none"
                   target="_blank"
                   rel="noopener"
+                  (click)="onSocialLinkClick(item.key)"
                   >{{ item.value }}</a
                 >
               </div>
@@ -56,6 +57,7 @@
                 "
                 [attr.aria-label]="'contact.sendEmail' | translate: { email: profiles().email }"
                 class="btn"
+                (click)="onEmailClick()"
                 ><i class="bi bi-envelope-at-fill icon-social"></i
               ></a>
               <a
@@ -64,6 +66,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener"
+                (click)="onSocialLinkClick('website')"
                 ><i class="bi bi-house-fill icon-social"></i
               ></a>
               <a
@@ -72,6 +75,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener"
+                (click)="onSocialLinkClick('linkedin')"
                 ><i class="bi bi-linkedin icon-social"></i
               ></a>
               <a
@@ -80,6 +84,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener"
+                (click)="onSocialLinkClick('instagram')"
                 ><i class="bi bi-instagram icon-social"></i
               ></a>
               <a
@@ -88,6 +93,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener"
+                (click)="onSocialLinkClick('github')"
                 ><i class="bi bi-github icon-social"></i
               ></a>
               <a
@@ -96,6 +102,7 @@
                 class="btn"
                 target="_blank"
                 rel="noopener"
+                (click)="onRepositoryClick()"
                 ><i class="bi bi-git icon-social"></i
               ></a>
             </p>

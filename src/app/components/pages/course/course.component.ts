@@ -6,6 +6,7 @@ import {
   inject,
   computed,
   signal,
+  effect,
   WritableSignal,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
@@ -17,9 +18,10 @@ import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
+import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { ICourse } from '@path-interfaces/ICourse';
+import { debounce } from '../../../utils/performance.utils';
 
 @Component({
   selector: 'app-course',
@@ -39,7 +41,7 @@ import { ICourse } from '@path-interfaces/ICourse';
 })
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
-  private readonly gaService = inject(GoogleAnalyticsService);
+  private readonly analyticsService = inject(AnalyticsService);
   private readonly paginationService = inject(PaginationService);
 
   private readonly allCourses = signal(this.dataService.getCourses());
@@ -54,6 +56,21 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   config = this.paginationService.createPaginationConfig('coursesPag', 5);
 
+  private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
+    if (term.length >= 2) {
+      this.analyticsService.trackSearch(term, 'courses', count);
+    }
+  }, 600);
+
+  constructor() {
+    super();
+    effect(() => {
+      const term = this.searchQuery().trim();
+      const count = this.filteredAndSortedCourses().length;
+      this.debouncedTrackSearch(term, count);
+    });
+  }
+
   ngOnInit(): void {
     const uniqueTags = new Set<string>();
     this.allCourses().forEach((course) =>
@@ -67,12 +84,10 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   availableTags = computed(() => {
     const institutionFilters = this.coursesFilter();
 
-    // If no institution filter, show all tags
     if (institutionFilters.size === 0) {
       return this.tagsArray();
     }
 
-    // Filter courses by selected institutions and accumulate their tags
     const uniqueTags = new Set<string>();
     this.allCourses()
       .filter(course => institutionFilters.has(course.institution as InstitutionEnum))
@@ -87,12 +102,10 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     const tagFilters = this.tagsFilter();
     const query = this.searchQuery().toLowerCase().trim();
 
-    // Early return if no filters
     if (institutionFilters.size === 0 && tagFilters.size === 0 && !query) {
       return this.sortCourses(courses);
     }
 
-    // Apply filters efficiently
     const result = courses.filter(course => {
       if (institutionFilters.size > 0 && !institutionFilters.has(course.institution as InstitutionEnum)) {
         return false;
@@ -122,10 +135,14 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     indexOnPage +
     1;
 
-  onPageChange = (number: number) => (this.config().currentPage = number);
+  onPageChange = (number: number) => {
+    this.config().currentPage = number;
+    const totalPages = Math.ceil(this.filteredAndSortedCourses().length / this.config().itemsPerPage);
+    this.analyticsService.trackPagination('courses', number, totalPages);
+  };
 
   clearFilters() {
-    this.gaService?.event('clear_filters', 'courses', 'filters_cleared');
+    this.analyticsService.trackClearFilters('courses');
 
     this.coursesFilter.set(new Set<InstitutionEnum>());
     this.tagsFilter.set(new Set<string>());
@@ -171,7 +188,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     if (!institution) return;
 
     const action = this.coursesFilter().has(institution) ? 'remove' : 'add';
-    this.gaService?.event('filter_institution', 'courses', `${action}_${institution}`);
+    this.analyticsService.trackFilterInstitution(institution, action);
 
     const currentFilters = new Set(this.coursesFilter());
     if (currentFilters.has(institution)) {
@@ -181,7 +198,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     }
     this.coursesFilter.set(currentFilters);
 
-    // Clean up invalid tags after filter change
     const availableTags = new Set(this.availableTags());
     const currentTags = new Set(this.tagsFilter());
     const validTags = new Set([...currentTags].filter(tag => availableTags.has(tag)));
@@ -196,11 +212,11 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   onClickTagEvent(e: Event) {
     const input = e.target as HTMLInputElement;
     if (!input || !input.id) return;
-    
+
     const id = input.id.replace('input_course_tag_', '');
-    
+
     const action = this.tagsFilter().has(id) ? 'remove' : 'add';
-    this.gaService?.event('filter_tag', 'courses', `${action}_${id}`);
+    this.analyticsService.trackFilterTag(id, action, 'courses');
 
     const currentTags = new Set(this.tagsFilter());
     if (currentTags.has(id)) {
@@ -213,7 +229,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   onCertificateClick(courseName: string, institution: string) {
-    this.gaService?.event('certificate_click', 'courses', `${courseName}_${institution}`);
+    this.analyticsService.trackCertificateClick(courseName, institution);
   }
 
   isInstitutionSelected(institutionKey: string): boolean {

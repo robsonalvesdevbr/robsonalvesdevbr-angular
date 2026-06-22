@@ -5,6 +5,7 @@ import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-go
 
 import { routes } from './app.routes';
 import { provideConfigInitializer } from './initializer/startup';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideConfigInitializer(),
-    importProvidersFrom(NgxGoogleAnalyticsModule.forRoot('G-4VZHRRWLF8')),
+    importProvidersFrom(NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics)),
     importProvidersFrom(NgxGoogleAnalyticsRouterModule.forRoot()),
   ],
 };

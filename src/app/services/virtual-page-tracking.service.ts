@@ -1,12 +1,15 @@
 import { Injectable, inject } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { AnalyticsService } from './analytics.service';
+import { environment } from '@path-environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VirtualPageTrackingService {
   private gaService = inject(GoogleAnalyticsService);
-  
+  private analyticsService = inject(AnalyticsService);
+
   private sectionMetadata: { [key: string]: { title: string; description: string } } = {
     'about': {
       title: 'Sobre - Robson Alves',
@@ -39,18 +42,13 @@ export class VirtualPageTrackingService {
     if (!metadata) return;
 
     const pageLocation = `${window.location.origin}/#${sectionId}`;
-    
-    // Send page view event
-    this.gaService?.gtag('config', 'G-4VZHRRWLF8', {
+
+    this.gaService?.gtag('config', environment.googleAnalytics, {
       page_title: metadata.title,
       page_location: pageLocation,
       custom_parameter_trigger: trigger
     });
 
-    // Send custom event for better tracking
-    this.gaService?.event('virtual_page_view', 'navigation', sectionId);
-
-    // Update document title for better UX
     if (typeof document !== 'undefined') {
       document.title = metadata.title;
     }
@@ -58,18 +56,7 @@ export class VirtualPageTrackingService {
 
   trackNavigationPattern(fromSection: string | null, toSection: string): void {
     if (fromSection) {
-      this.gaService?.event('navigation_flow', 'user_journey', `${fromSection}_to_${toSection}`);
+      this.analyticsService.trackNavigationFlow(fromSection, toSection);
     }
-  }
-
-  trackSectionEngagement(sectionId: string, timeSpent: number): void {
-    this.gaService?.event('section_engagement', 'engagement', sectionId, timeSpent);
-  }
-
-  private calculateEngagementQuality(timeSpent: number, scrollDepth: number): string {
-    if (timeSpent > 30 && scrollDepth > 75) return 'high';
-    if (timeSpent > 15 && scrollDepth > 50) return 'medium';
-    if (timeSpent > 5 && scrollDepth > 25) return 'low';
-    return 'bounce';
   }
 }

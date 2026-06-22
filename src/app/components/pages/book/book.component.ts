@@ -6,6 +6,7 @@ import {
   inject,
   computed,
   signal,
+  effect,
   WritableSignal,
 } from '@angular/core';
 import { HighlightDirective } from '@path-app/directives/highlight.directive';
@@ -16,10 +17,11 @@ import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
+import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
 import { IBook } from '@path-interfaces/IBook';
+import { debounce } from '../../../utils/performance.utils';
 
 @Component({
   selector: 'app-book',
@@ -39,7 +41,7 @@ import { IBook } from '@path-interfaces/IBook';
 })
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
-  private readonly gaService = inject(GoogleAnalyticsService);
+  private readonly analyticsService = inject(AnalyticsService);
   private readonly paginationService = inject(PaginationService);
 
   private readonly allBooks = signal(this.dataService.getBooks());
@@ -52,6 +54,21 @@ export class BookComponent extends BasePageComponent implements OnInit {
   searchQuery = signal<string>('');
 
   config = this.paginationService.createPaginationConfig('booksPag', 5);
+
+  private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
+    if (term.length >= 2) {
+      this.analyticsService.trackSearch(term, 'books', count);
+    }
+  }, 600);
+
+  constructor() {
+    super();
+    effect(() => {
+      const term = this.searchQuery().trim();
+      const count = this.filteredAndSortedBooks().length;
+      this.debouncedTrackSearch(term, count);
+    });
+  }
 
   ngOnInit(): void {
     const uniqueTags = new Set<string>();
@@ -66,12 +83,10 @@ export class BookComponent extends BasePageComponent implements OnInit {
   availableTags = computed(() => {
     const publisherFilters = this.publishNameFilter();
 
-    // If no publisher filter, show all tags
     if (publisherFilters.size === 0) {
       return this.tagsArray();
     }
 
-    // Filter books by selected publishers and accumulate their tags
     const uniqueTags = new Set<string>();
     this.allBooks()
       .filter(book => publisherFilters.has(book.publishName as PublishNameEnum))
@@ -86,12 +101,10 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const tagFilters = this.tagsFilter();
     const query = this.searchQuery().toLowerCase().trim();
 
-    // Early return if no filters
     if (publisherFilters.size === 0 && tagFilters.size === 0 && !query) {
       return this.sortBooks(books);
     }
 
-    // Apply filters efficiently
     const result = books.filter(book => {
       if (publisherFilters.size > 0 && !publisherFilters.has(book.publishName as PublishNameEnum)) {
         return false;
@@ -131,10 +144,12 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   onPageChange(number: number) {
     this.config().currentPage = number;
+    const totalPages = Math.ceil(this.filteredAndSortedBooks().length / this.config().itemsPerPage);
+    this.analyticsService.trackPagination('books', number, totalPages);
   }
 
   clearFilters() {
-    this.gaService?.event('clear_filters', 'books', 'filters_cleared');
+    this.analyticsService.trackClearFilters('books');
 
     this.publishNameFilter.set(new Set<PublishNameEnum>());
     this.tagsFilter.set(new Set<string>());
@@ -165,7 +180,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
 
     const action = this.publishNameFilter().has(publishName) ? 'remove' : 'add';
-    this.gaService?.event('filter_publisher', 'books', `${action}_${publishName}`);
+    this.analyticsService.trackFilterPublisher(publishName, action);
 
     const currentFilters = new Set(this.publishNameFilter());
     if (currentFilters.has(publishName)) {
@@ -175,7 +190,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
     }
     this.publishNameFilter.set(currentFilters);
 
-    // Clean up invalid tags after filter change
     const availableTags = new Set(this.availableTags());
     const currentTags = new Set(this.tagsFilter());
     const validTags = new Set([...currentTags].filter(tag => availableTags.has(tag)));
@@ -192,7 +206,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const id = link.id.replace('input_book_tag_', '');
 
     const action = this.tagsFilter().has(id) ? 'remove' : 'add';
-    this.gaService?.event('filter_tag', 'books', `${action}_${id}`);
+    this.analyticsService.trackFilterTag(id, action, 'books');
 
     const currentTags = new Set(this.tagsFilter());
     if (currentTags.has(id)) {
@@ -205,7 +219,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   onBookUrlClick(bookTitle: string, publishName: string) {
-    this.gaService?.event('book_url_click', 'books', `${bookTitle}_${publishName}`);
+    this.analyticsService.trackBookUrlClick(bookTitle, publishName);
   }
 
   isPublisherSelected(publisherKey: string): boolean {
