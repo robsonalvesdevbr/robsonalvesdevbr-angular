@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
       // Single gtag('config') at startup — prevents cookie_domain from being
       // reset on every navigation (NgxGoogleAnalyticsRouterModule was calling
       // gtag('config') on every NavigationEnd, overwriting the session cookie).
-      { command: 'config', values: [environment.googleAnalytics, { cookie_domain: '.robsonalves.dev.br' }] },
+      { command: 'config', values: [environment.googleAnalytics, { cookie_domain: '.robsonalves.dev.br', cookie_flags: 'SameSite=None;Secure' }] },
     ])),
   ],
 };
