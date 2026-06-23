@@ -7,6 +7,9 @@ import { routes } from './app.routes';
 import { provideConfigInitializer } from './initializer/startup';
 import { environment } from '../environments/environment';
 
+const debugMode = typeof window !== 'undefined' &&
+  new URLSearchParams(window.location.search).has('debug_mode');
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
@@ -24,7 +27,11 @@ export const appConfig: ApplicationConfig = {
       // Single gtag('config') at startup — prevents cookie_domain from being
       // reset on every navigation (NgxGoogleAnalyticsRouterModule was calling
       // gtag('config') on every NavigationEnd, overwriting the session cookie).
-      { command: 'config', values: [environment.googleAnalytics, { cookie_domain: '.robsonalves.dev.br', cookie_flags: 'SameSite=None;Secure' }] },
+      { command: 'config', values: [environment.googleAnalytics, {
+        cookie_domain: '.robsonalves.dev.br',
+        cookie_flags: 'SameSite=None;Secure',
+        ...(debugMode ? { debug_mode: true } : {}),
+      }] },
     ])),
   ],
 };
