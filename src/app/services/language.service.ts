@@ -41,13 +41,17 @@ export class LanguageService {
   }
 
   private getInitialLanguage(): Language {
-    // 1. Verifica localStorage
     const stored = localStorage.getItem(this.STORAGE_KEY) as Language;
     if (stored && this.isValidLanguage(stored)) {
       return stored;
     }
 
-    // 2. Sempre retorna PT-BR como padrão (conforme requisito)
+    const candidates = [...(navigator.languages ?? []), navigator.language].filter(Boolean);
+    for (const lang of candidates) {
+      if (lang.startsWith('pt')) return 'pt-BR';
+      if (lang.startsWith('en')) return 'en-US';
+    }
+
     return this.DEFAULT_LANGUAGE;
   }
 

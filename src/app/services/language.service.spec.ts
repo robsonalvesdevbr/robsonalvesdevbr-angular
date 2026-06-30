@@ -20,6 +20,8 @@ describe('LanguageService', () => {
 
   beforeEach(() => {
     localStorage.clear();
+    Object.defineProperty(navigator, 'language', { value: 'zz', configurable: true, writable: true });
+    Object.defineProperty(navigator, 'languages', { value: [], configurable: true, writable: true });
 
     TestBed.configureTestingModule({
       providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()],
@@ -161,5 +163,52 @@ describe('LanguageService', () => {
       req.error(new ErrorEvent('Network error'));
     }
     expect(errSvc).toBeTruthy();
+  });
+
+  describe('browser language detection', () => {
+    function createFreshService(browserLang: string, browserLangs: string[] = []): LanguageService {
+      Object.defineProperty(navigator, 'language', { value: browserLang, configurable: true, writable: true });
+      Object.defineProperty(navigator, 'languages', { value: browserLangs, configurable: true, writable: true });
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()],
+      });
+      const svc = TestBed.inject(LanguageService);
+      const freshHttp = TestBed.inject(HttpTestingController);
+      const reqs = freshHttp.match(req => req.url.includes('/assets/i18n/'));
+      for (const req of reqs) {
+        req.flush(req.request.url.endsWith('pt-BR.json') ? mockPtBR : mockEnUS);
+      }
+      return svc;
+    }
+
+    it('should detect pt-BR browser language', () => {
+      expect(createFreshService('pt-BR').currentLanguage()).toBe('pt-BR');
+    });
+
+    it('should detect pt base code as pt-BR', () => {
+      expect(createFreshService('pt').currentLanguage()).toBe('pt-BR');
+    });
+
+    it('should detect en-US browser language', () => {
+      expect(createFreshService('en-US').currentLanguage()).toBe('en-US');
+    });
+
+    it('should detect en base code as en-US', () => {
+      expect(createFreshService('en').currentLanguage()).toBe('en-US');
+    });
+
+    it('should fall back to pt-BR for unsupported browser language', () => {
+      expect(createFreshService('fr-FR').currentLanguage()).toBe('pt-BR');
+    });
+
+    it('should use first match from navigator.languages list', () => {
+      expect(createFreshService('', ['en-US', 'pt-BR']).currentLanguage()).toBe('en-US');
+    });
+
+    it('should prioritize localStorage over browser language', () => {
+      localStorage.setItem('app-language', 'en-US');
+      expect(createFreshService('pt-BR').currentLanguage()).toBe('en-US');
+    });
   });
 });

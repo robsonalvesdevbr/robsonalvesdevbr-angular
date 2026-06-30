@@ -22,6 +22,12 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting(),
 );
 
+// Neutraliza idioma do navegador no ambiente de testes
+// jsdom usa 'en-US' por padrão; sem isso a detecção automática de idioma quebraria
+// testes que esperam pt-BR como fallback. Cada spec pode sobrescrever por-teste.
+Object.defineProperty(navigator, 'language', { value: 'zz', configurable: true, writable: true });
+Object.defineProperty(navigator, 'languages', { value: [], configurable: true, writable: true });
+
 // Garante localStorage funcional após inicialização do ambiente Angular
 const _localStore: Record<string, string> = {};
 Object.defineProperty(window, 'localStorage', {
