@@ -4,4 +4,13 @@ export enum PublishNameEnum {
   Packts = 'Packts',
   Elsevier = 'Elsevier',
   AltaBooks = 'Alta Books',
+  Bookman = 'Bookman',
+  MicrosoftPress = 'Microsoft Press',
+  Wrox = 'Wrox',
+  MakronBooks = 'Makron Books',
+  VisualBooks = 'Visual Books',
+  CienciaModerna = 'Ciência Moderna',
+  Campus = 'Campus',
+  PortfolioPenguin = 'Portfolio Penguin',
+  DCComics = 'DC Comics',
 }

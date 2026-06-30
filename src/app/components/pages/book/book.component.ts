@@ -240,7 +240,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   getPublisherLogo(publishName: PublishNameEnum): string {
-    const logoMap: Record<PublishNameEnum, string> = {
+    const logoMap: Partial<Record<PublishNameEnum, string>> = {
       [PublishNameEnum.CasaDoCodigo]: 'assets/img/publishers/casa_do_cdigo_logo.jpeg',
       [PublishNameEnum.Novatec]: 'assets/img/publishers/novatec_editora_logo.jpeg',
       [PublishNameEnum.Packts]: 'assets/img/publishers/packt_publishing_logo.jpeg',

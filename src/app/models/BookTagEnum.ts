@@ -27,4 +27,13 @@ export enum BookTagEnum {
   Linux = 'linux',
   GraphAlgorithms = 'graph-algorithms',
   OO = 'oo',
+  Microservices = 'microservices',
+  Kubernetes = 'kubernetes',
+  Python = 'python',
+  CPlusPlus = 'cplusplus',
+  Security = 'security',
+  UML = 'uml',
+  Algorithms = 'algorithms',
+  Culture = 'culture',
+  Business = 'business',
 }
