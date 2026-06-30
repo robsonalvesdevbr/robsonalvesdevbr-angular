@@ -17,9 +17,9 @@ export enum FormationCourseTagEnum {
   DesignPattern = 'design-pattern',
   ApacheTechnologies = 'apache-technologies',
   Kafka = 'kafka',
-  CICD = 'ci/cd',
+  CICD = 'ci-cd',
   DevOps = 'devops',
   GitGithub = 'git-github',
-  Linux = "linux",
-  Python = "python",
+  Linux = 'linux',
+  Python = 'python',
 }

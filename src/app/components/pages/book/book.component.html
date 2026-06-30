@@ -96,7 +96,7 @@
                     id="label_book_tag_{{ tag | lowercase }}"
                     [ngClass]="{ active: tagsFilter().has(tag) }"
                     appHighlight
-                    >{{ tag }}</label
+                    >{{ tag | tagLabel }}</label
                   >
                 }
               </fieldset>
@@ -121,7 +121,7 @@
         }
         @for (tag of tagsFilter(); track tag) {
           <span class="badge bg-secondary d-inline-flex align-items-center gap-1">
-            {{ tag }}
+            {{ tag | tagLabel }}
             <button
               class="btn-close btn-close-white"
               style="font-size: 0.5rem"
@@ -173,7 +173,7 @@
                 {{ item.author | printTags }}
               </p>
               <p class="text-muted fontemenor">
-                <b>{{ 'books.tags' | translate }}: </b> {{ item.tags | printTags }} &nbsp;<span
+                <b>{{ 'books.tags' | translate }}: </b> {{ item.tags | printTags:true }} &nbsp;<span
                   class="text-muted fontemenor11"
                   >&nbsp;&nbsp;&nbsp;<a
                     [href]="item.bookUrl"

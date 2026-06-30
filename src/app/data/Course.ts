@@ -13,7 +13,6 @@ export const Courses: ICourse[] = [
       'https://fullcycle.com.br/certificado/ff7bd389-15ca-46d9-b7c2-848878bf68a3/',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Go,
       CourseTagEnum.Golang,
     ],
     conclusion: new Date('2026-6-12'),
@@ -43,7 +42,6 @@ export const Courses: ICourse[] = [
     certificateUrl:
       'https://www.udemy.com/certificate/UC-29b72ef1-0859-4d81-a837-febcf15df376',
     tags: [
-      CourseTagEnum.Go,
       CourseTagEnum.Golang,
       CourseTagEnum.SoftwareDevelopment
     ],
@@ -154,7 +152,6 @@ export const Courses: ICourse[] = [
       'https://www.udemy.com/certificate/UC-3680a779-14d8-4d87-9bd4-26c371778346',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Go,
       CourseTagEnum.Golang,
       CourseTagEnum.Google,
     ],
@@ -172,7 +169,6 @@ export const Courses: ICourse[] = [
       CourseTagEnum.ArtificialIntelligence,
       CourseTagEnum.Chatbot,
       CourseTagEnum.GPT,
-      CourseTagEnum.ChatGPT,
     ],
     conclusion: new Date('2024-9-10'),
     favorite: false,
@@ -244,7 +240,7 @@ export const Courses: ICourse[] = [
     tags: [
       CourseTagEnum.Architecture,
       CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Software,
+
     ],
     conclusion: new Date('2023-1-10'),
     favorite: false,
@@ -259,7 +255,7 @@ export const Courses: ICourse[] = [
     tags: [
       CourseTagEnum.Architecture,
       CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Software,
+
       CourseTagEnum.UML,
     ],
     conclusion: new Date('2023-2-3'),
@@ -317,7 +313,7 @@ export const Courses: ICourse[] = [
       'https://www.udemy.com/certificate/UC-2373b685-9826-465e-8ad5-93587c5339ff',
     tags: [
       CourseTagEnum.Kubernetes,
-      CourseTagEnum.K8S,
+
       CourseTagEnum.DockerContainer,
     ],
     conclusion: new Date('2022-6-22'),
@@ -379,7 +375,7 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.LinkedinLearning,
     certificateUrl:
       'https://www.linkedin.com/learning/certificates/1fe034be3576a625b3f6ceeebe4b4488d1dff545b51acccf20716a20b3e80c58?trk=share_certificate',
-    tags: [CourseTagEnum.Sustainability, CourseTagEnum.Technology],
+    tags: [CourseTagEnum.Sustainability],
     conclusion: new Date('2024-9-16'),
     favorite: false,
   },
@@ -1018,7 +1014,7 @@ export const Courses: ICourse[] = [
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.Java,
-      CourseTagEnum.Algorithm,
+      CourseTagEnum.Algorithms,
     ],
     conclusion: new Date('2022-7-18'),
     favorite: false,
@@ -1087,7 +1083,6 @@ export const Courses: ICourse[] = [
       'https://cursos.alura.com.br/certificate/f57bdcd5-11f7-404e-9aeb-427af45eaca1?lang=pt_BR',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Go,
       CourseTagEnum.Golang,
       CourseTagEnum.Google,
     ],
@@ -1103,7 +1098,6 @@ export const Courses: ICourse[] = [
       'https://cursos.alura.com.br/certificate/1d0fc6df-f017-41ef-91a3-3b28084cef4f?lang=pt_BR',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
-      CourseTagEnum.Go,
       CourseTagEnum.Golang,
       CourseTagEnum.Google,
     ],
@@ -1445,7 +1439,7 @@ export const Courses: ICourse[] = [
     institution: InstitutionEnum.Alura,
     certificateUrl:
       'https://cursos.alura.com.br/certificate/1a8a1419-079c-45ea-a5a1-b085f395d62a?lang=pt_BR',
-    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microservice],
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Microservices],
     conclusion: new Date('2021-9-17'),
     favorite: false,
   },

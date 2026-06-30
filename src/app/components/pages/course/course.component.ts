@@ -15,6 +15,7 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
+import { TagLabelPipe } from '@path-pipes/tag-label.pipe';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
@@ -34,6 +35,7 @@ import { debounce } from '../../../utils/performance.utils';
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
+    TagLabelPipe,
   ],
   templateUrl: './course.component.html',
   styleUrl: './course.component.scss',

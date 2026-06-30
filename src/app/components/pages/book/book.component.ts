@@ -13,6 +13,7 @@ import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
+import { TagLabelPipe } from '@path-pipes/tag-label.pipe';
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
@@ -34,6 +35,7 @@ import { debounce } from '../../../utils/performance.utils';
     NgOptimizedImage,
     HighlightDirective,
     EnumToArrayPipe,
+    TagLabelPipe,
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss',
