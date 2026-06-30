@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" rx="8" fill="#003366"/>
+  <text x="100" y="34" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Campus</text>
+  <text x="100" y="56" font-family="Arial,sans-serif" font-size="12" fill="#99bbdd" text-anchor="middle">Grupo Editorial</text>
+</svg>

@@ -246,6 +246,15 @@ export class BookComponent extends BasePageComponent implements OnInit {
       [PublishNameEnum.Packts]: 'assets/img/publishers/packt_publishing_logo.jpeg',
       [PublishNameEnum.Elsevier]: 'assets/img/publishers/elsevier_logo.jpeg',
       [PublishNameEnum.AltaBooks]: 'assets/img/publishers/editora_alta_books_logo.jpeg',
+      [PublishNameEnum.Bookman]: 'assets/img/publishers/bookman_logo.jpeg',
+      [PublishNameEnum.MicrosoftPress]: 'assets/img/publishers/microsoft_press_logo.jpeg',
+      [PublishNameEnum.Wrox]: 'assets/img/publishers/wrox_logo.jpeg',
+      [PublishNameEnum.DCComics]: 'assets/img/publishers/dc_comics_logo.jpeg',
+      [PublishNameEnum.PortfolioPenguin]: 'assets/img/publishers/portfolio_penguin_logo.jpeg',
+      [PublishNameEnum.Campus]: 'assets/img/publishers/campus_logo.svg',
+      [PublishNameEnum.CienciaModerna]: 'assets/img/publishers/ciencia_moderna_logo.svg',
+      [PublishNameEnum.VisualBooks]: 'assets/img/publishers/visual_books_logo.svg',
+      [PublishNameEnum.MakronBooks]: 'assets/img/publishers/makron_books_logo.svg',
     };
 
     return logoMap[publishName] || 'assets/img/others/livro.jpg';
