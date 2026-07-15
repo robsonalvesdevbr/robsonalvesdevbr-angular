@@ -46,13 +46,6 @@ export class SortbyPipe implements PipeTransform {
     }
   }
 
-  // Crie uma função para ordenar um array de string
-  // A função deve receber um array de string e um parâmetro que indica a ordem da ordenação
-  // A função deve retornar o array ordenado
-  // Se a ordem for 'asc', o array deve ser ordenado de forma crescente
-  // Se a ordem for 'desc', o array deve ser ordenado de forma decrescente
-  // A função deve ser chamada sortString
-  // Dica: use o método sort do array
   sortString(array: string[], order: 'asc' | 'desc'): string[] {
     return [...array].sort((a, b) =>
       order === 'asc' ? a.localeCompare(b) : b.localeCompare(a)

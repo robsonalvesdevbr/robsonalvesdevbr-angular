@@ -25,6 +25,7 @@
       "@path-data/*": ["./src/app/data/*"],
       "@path-interfaces/*": ["./src/app/interfaces/*"],
       "@path-pipes/*": ["./src/app/pipes/*"],
+      "@path-utils/*": ["./src/app/utils/*"],
       "@path-app/*": ["./src/app/*"],
       "@path-environments/*": ["./src/environments/*"]
     }

@@ -22,7 +22,7 @@ import { PaginationService } from '@path-services/pagination.service';
 import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ICourse } from '@path-interfaces/ICourse';
-import { debounce } from '../../../utils/performance.utils';
+import { debounce } from '@path-utils/performance.utils';
 
 @Component({
   selector: 'app-course',

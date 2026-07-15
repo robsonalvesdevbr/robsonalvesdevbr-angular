@@ -20,9 +20,9 @@ import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { EnumToArrayPipe } from '../../../pipes/enum-to-array.pipe';
+import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 import { IBook } from '@path-interfaces/IBook';
-import { debounce } from '../../../utils/performance.utils';
+import { debounce } from '@path-utils/performance.utils';
 
 @Component({
   selector: 'app-book',

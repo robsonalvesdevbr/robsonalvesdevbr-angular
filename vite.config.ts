@@ -53,6 +53,7 @@ export default defineConfig({
       '@path-data': path.resolve(__dirname, './src/app/data'),
       '@path-interfaces': path.resolve(__dirname, './src/app/interfaces'),
       '@path-pipes': path.resolve(__dirname, './src/app/pipes'),
+      '@path-utils': path.resolve(__dirname, './src/app/utils'),
       '@path-app': path.resolve(__dirname, './src/app'),
       '@path-environments': path.resolve(__dirname, './src/environments'),
     },

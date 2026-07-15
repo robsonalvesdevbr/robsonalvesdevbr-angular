@@ -95,18 +95,26 @@ describe('ContactComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should calculate age correctly', () => {
-    const birthdate = new Date(1990, 1, 1);
-    const age = component.calcularIdade(birthdate);
-    const currentYear = new Date();
-    const month = currentYear.getMonth() - birthdate.getMonth();
-    let ageCalc = currentYear.getFullYear() - birthdate.getFullYear();
-    if (
-      month < 0 ||
-      (month === 0 && currentYear.getDate() < birthdate.getDate())
-    ) {
-      ageCalc--;
-    }
-    expect(age).toBe(ageCalc);
+  describe('calcularIdade', () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date(2024, 5, 15));
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('should calculate age when birthday already occurred this year', () => {
+      expect(component.calcularIdade(new Date(1990, 1, 1))).toBe(34);
+    });
+
+    it('should calculate age when birthday has not occurred yet this year', () => {
+      expect(component.calcularIdade(new Date(1990, 11, 25))).toBe(33);
+    });
+
+    it('should calculate age on the exact birthday', () => {
+      expect(component.calcularIdade(new Date(1990, 5, 15))).toBe(34);
+    });
   });
 });

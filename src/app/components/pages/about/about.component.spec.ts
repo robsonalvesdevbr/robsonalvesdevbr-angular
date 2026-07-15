@@ -6,7 +6,7 @@ import { provideHttpClient, withXhr } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 import { flushI18n } from '@path-app/../testing/i18n-test.utils';
 
-describe('AbountComponent', () => {
+describe('AboutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AboutComponent],

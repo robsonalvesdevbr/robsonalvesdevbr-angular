@@ -69,9 +69,8 @@ npm run clean          # remove dist, cache, .angular
 ## Architecture
 
 ### Routing Pattern
-- Lazy loading usando `loadComponent` e `loadChildren`
-- Routes em `app.routes.ts` carregam `home.routes.ts`
-- Todas as rotas desconhecidas redirecionam para home
+- Existe uma única rota real (`app.routes.ts` → `home.routes.ts` → `HomeComponent`); todas as rotas desconhecidas redirecionam para home
+- O code-splitting de fato é feito via `@defer (on viewport; prefetch on idle)` em `home.component.ts`, não pelo Router
 
 ### Component Structure
 - **BasePageComponent:** classe base abstrata para páginas com lógica compartilhada (ex: bg-light)
@@ -90,7 +89,6 @@ npm run clean          # remove dist, cache, .angular
 #### Performance & Tracking
 - **PerformanceMonitorService**: Monitora métricas de performance da aplicação
 - **EngagementTrackingService**: Rastreia engajamento do usuário
-- **OptimizedEngagementTrackingService**: Versão otimizada com memoization
 - **VirtualPageTrackingService**: Tracking de visualizações virtuais para analytics
 
 #### Utilitários
@@ -106,6 +104,7 @@ npm run clean          # remove dist, cache, .angular
 @path-data/*         → ./src/app/data/*
 @path-interfaces/*   → ./src/app/interfaces/*
 @path-pipes/*        → ./src/app/pipes/*
+@path-utils/*        → ./src/app/utils/*
 @path-app/*          → ./src/app/*
 @path-environments/* → ./src/environments/*
 ```

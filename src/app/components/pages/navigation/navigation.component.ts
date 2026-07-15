@@ -3,7 +3,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AnalyticsService } from '@path-services/analytics.service';
-import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '../../../utils/performance.utils';
+import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '@path-utils/performance.utils';
 import { LanguageSwitcherComponent } from '@path-components/language-switcher/language-switcher.component';
 import { ThemeToggleComponent } from '@path-components/theme-toggle/theme-toggle.component';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
