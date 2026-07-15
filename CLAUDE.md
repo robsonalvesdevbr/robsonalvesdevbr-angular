@@ -149,37 +149,33 @@ npm run clean          # remove dist, cache, .angular
 
 ## Known Issues
 
-### SCSS @import Deprecation Warnings ⚠️
+### SCSS @import Deprecation Warnings ⚠️ (Resolvido)
 
-**Status**: Esperado, documentado e **não silenciável** no Angular CLI atual
-**Quantidade**: 23 warnings durante build
+**Status**: Silenciados via configuração no `angular.json` (Angular CLI 22+)
 **Root Cause**: Bootstrap 5.3.8 usa `@import` (deprecated em Dart Sass)
 **Impacto**: Nenhum (apenas informativo até Dart Sass 3.0)
-**Resolução Planejada**: Migração para Bootstrap 6 + @use/@forward
-**Timeline**: Quando Bootstrap 6 stable for lançado (estimativa: 2026)
+**Resolução Planejada**: Migração para Bootstrap 6 + @use/@forward, quando estável
 
-**Por que não corrigir agora?**
-- Bootstrap 5.3 não é compatível com @use/@forward
-- Migração manual não é viável (conflitos internos do Bootstrap)
-- Bootstrap 6 terá suporte nativo para o sistema modular do Sass
-- Investimento de tempo será feito uma única vez após Bootstrap 6
+**Como foi resolvido**
+A partir do Angular CLI 22, o builder `@angular/build:application` passou a suportar
+`stylePreprocessorOptions.sass.silenceDeprecations` no `angular.json`. O `.sassrc.json`
+continua **não sendo lido** pelo Angular CLI (arquivo pode ser removido ou mantido apenas
+como referência para ferramentas externas de Sass).
 
-**Por que não é possível silenciar os warnings?**
-- ✅ `.sassrc.json` existe no projeto mas **não é lido pelo Angular CLI**
-- ❌ `angular.json` com `stylePreprocessorOptions` não aceita `quietDeps` ou `silenceDeprecations`
-- ⚠️ Variável `SASS_QUIET_DEPS=1` reduz parcialmente (23 → 16) mas não elimina todos
-- 🔒 Angular CLI usa implementação embedded do Sass que não processa `.sassrc.json`
+```json
+"options": {
+  "stylePreprocessorOptions": {
+    "sass": {
+      "silenceDeprecations": ["import"]
+    }
+  }
+}
+```
 
-**Alternativas testadas e descartadas:**
-1. Arquivo `.sassrc.json` - Existe mas ignorado pelo Angular CLI
-2. Configuração em `angular.json` - Schema validation não permite as propriedades necessárias
-3. Variáveis de ambiente - Reduz mas não elimina completamente
-4. Migração manual Bootstrap → @use/@forward - Quebraria funcionalidades do Bootstrap 5
-
-**Conclusão**: Warnings são **informativos** e devem ser aceitos até Bootstrap 6. Não afetam funcionalidade, build ou produção.
+Validado com `npm run build`, `npm run build:prod` e `npm run test:nowatch`: zero warnings
+de deprecation, build e testes passando normalmente.
 
 **Referências**:
 - [Sass @import deprecation](https://sass-lang.com/documentation/at-rules/import)
 - [Bootstrap 6 roadmap](https://github.com/twbs/bootstrap/discussions)
 - Arquivos afetados: `src/scss/_bootstrap-custom.scss`, `src/css/styles.scss`
-- Arquivo de configuração (não lido): `.sassrc.json`
