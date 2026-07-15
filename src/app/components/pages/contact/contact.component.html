@@ -29,7 +29,7 @@
             <b>{{ 'contact.email' | translate }}:</b> {{ profiles().email }} <br />
             <b>{{ 'contact.birthday' | translate }}:</b>
             {{ profiles().birthday | date: 'dd/MM/yyyy' }}<br />
-            <b>{{ 'contact.age' | translate }}:</b> {{ calcularIdade(profiles().birthday) }}<br />
+            <b>{{ 'contact.age' | translate }}:</b> {{ calculateAge(profiles().birthday) }}<br />
 
             @for (item of profiles().urlList | keyvalue: asIsOrder; track item) {
               <div class="d-inline">

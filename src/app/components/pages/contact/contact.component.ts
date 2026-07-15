@@ -10,6 +10,7 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { calculateAge as calculateAgeUtil } from '@path-utils/age.utils';
 
 @Component({
   selector: 'app-contact',
@@ -28,15 +29,8 @@ export class ContactComponent extends BasePageComponent {
     return 1;
   }
 
-  calcularIdade(birthDate: Date): number {
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const month = today.getMonth() - birth.getMonth();
-    if (month < 0 || (month === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
+  calculateAge(birthDate: Date): number {
+    return calculateAgeUtil(birthDate);
   }
 
   onSocialLinkClick(platform: string): void {

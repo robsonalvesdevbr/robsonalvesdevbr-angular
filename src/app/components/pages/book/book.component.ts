@@ -19,10 +19,12 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { AnalyticsService } from '@path-services/analytics.service';
+import { CatalogFilterService } from '@path-services/catalog-filter.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 import { IBook } from '@path-interfaces/IBook';
 import { debounce } from '@path-utils/performance.utils';
+import { getPublisherLogo } from '@path-data/PublisherLogo';
 
 @Component({
   selector: 'app-book',
@@ -45,6 +47,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
   private readonly analyticsService = inject(AnalyticsService);
   private readonly paginationService = inject(PaginationService);
+  private readonly catalogFilterService = inject(CatalogFilterService);
 
   private readonly allBooks = signal(this.dataService.getBooks());
   publishNameList = PublishNameEnum;
@@ -73,54 +76,34 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const uniqueTags = new Set<string>();
-    this.allBooks().forEach((book) =>
-      book.tags.forEach((tag) => uniqueTags.add(tag.trim()))
-    );
-    this._tagsArray.set(Array.from(uniqueTags).sort());
+    this._tagsArray.set(this.catalogFilterService.collectUniqueTags(this.allBooks(), (book) => book.tags));
   }
 
   tagsArray = this._tagsArray.asReadonly();
 
-  availableTags = computed(() => {
-    const publisherFilters = this.publishNameFilter();
-
-    if (publisherFilters.size === 0) {
-      return this.tagsArray();
-    }
-
-    const uniqueTags = new Set<string>();
-    this.allBooks()
-      .filter(book => publisherFilters.has(book.publishName as PublishNameEnum))
-      .forEach(book => book.tags.forEach(tag => uniqueTags.add(tag.trim())));
-
-    return Array.from(uniqueTags).sort();
-  });
+  availableTags = computed(() =>
+    this.catalogFilterService.availableTags(
+      this.allBooks(),
+      this.publishNameFilter(),
+      (book) => book.publishName as PublishNameEnum,
+      (book) => book.tags
+    )
+  );
 
   filteredAndSortedBooks = computed(() => {
-    const books = this.allBooks();
-    const publisherFilters = this.publishNameFilter();
-    const tagFilters = this.tagsFilter();
     const query = this.searchQuery().toLowerCase().trim();
 
-    if (publisherFilters.size === 0 && tagFilters.size === 0 && !query) {
-      return this.sortBooks(books);
-    }
-
-    const result = books.filter(book => {
-      if (publisherFilters.size > 0 && !publisherFilters.has(book.publishName as PublishNameEnum)) {
-        return false;
-      }
-      if (tagFilters.size > 0 && !book.tags.some(tag => tagFilters.has(tag))) {
-        return false;
-      }
-      if (query) {
-        const titleMatch = book.title.toLowerCase().includes(query);
-        const authorMatch = book.author.some(a => a.toLowerCase().includes(query));
-        if (!titleMatch && !authorMatch) return false;
-      }
-      return true;
-    });
+    const result = this.catalogFilterService.filterByCategoryAndTags(
+      this.allBooks(),
+      this.publishNameFilter(),
+      (book) => book.publishName as PublishNameEnum,
+      this.tagsFilter(),
+      (book) => book.tags,
+      (book) =>
+        !query ||
+        book.title.toLowerCase().includes(query) ||
+        book.author.some((a) => a.toLowerCase().includes(query))
+    );
 
     return this.sortBooks(result);
   });
@@ -175,11 +158,14 @@ export class BookComponent extends BasePageComponent implements OnInit {
     this.config().currentPage = 1;
   }
 
-  onClickIntitutionEvent(e: MouseEvent) {
-    const link = e.target as HTMLInputElement;
-    const id = link.id.replace('input_book_institution_', '');
+  onClickIntitutionEvent(e: Event) {
+    const input = e.target as HTMLInputElement;
+    if (!input || !input.id) return;
 
+    const id = input.id.replace('input_book_institution_', '');
     const publishName = PublishNameEnum[id as keyof typeof PublishNameEnum];
+
+    if (!publishName) return;
 
     const action = this.publishNameFilter().has(publishName) ? 'remove' : 'add';
     this.analyticsService.trackFilterPublisher(publishName, action);
@@ -192,20 +178,19 @@ export class BookComponent extends BasePageComponent implements OnInit {
     }
     this.publishNameFilter.set(currentFilters);
 
-    const availableTags = new Set(this.availableTags());
-    const currentTags = new Set(this.tagsFilter());
-    const validTags = new Set([...currentTags].filter(tag => availableTags.has(tag)));
-
-    if (validTags.size !== currentTags.size) {
+    const validTags = this.catalogFilterService.reconcileTagFilters(this.availableTags(), this.tagsFilter());
+    if (validTags) {
       this.tagsFilter.set(validTags);
     }
 
     this.config().currentPage = 1;
   }
 
-  onClickTagEvent(e: MouseEvent) {
-    const link = e.target as HTMLInputElement;
-    const id = link.id.replace('input_book_tag_', '');
+  onClickTagEvent(e: Event) {
+    const input = e.target as HTMLInputElement;
+    if (!input || !input.id) return;
+
+    const id = input.id.replace('input_book_tag_', '');
 
     const action = this.tagsFilter().has(id) ? 'remove' : 'add';
     this.analyticsService.trackFilterTag(id, action, 'books');
@@ -241,24 +226,5 @@ export class BookComponent extends BasePageComponent implements OnInit {
     return tag;
   }
 
-  getPublisherLogo(publishName: PublishNameEnum): string {
-    const logoMap: Partial<Record<PublishNameEnum, string>> = {
-      [PublishNameEnum.CasaDoCodigo]: 'assets/img/publishers/casa_do_cdigo_logo.jpeg',
-      [PublishNameEnum.Novatec]: 'assets/img/publishers/novatec_editora_logo.jpeg',
-      [PublishNameEnum.Packts]: 'assets/img/publishers/packt_publishing_logo.jpeg',
-      [PublishNameEnum.Elsevier]: 'assets/img/publishers/elsevier_logo.jpeg',
-      [PublishNameEnum.AltaBooks]: 'assets/img/publishers/editora_alta_books_logo.jpeg',
-      [PublishNameEnum.Bookman]: 'assets/img/publishers/bookman_logo.jpeg',
-      [PublishNameEnum.MicrosoftPress]: 'assets/img/publishers/microsoft_press_logo.jpeg',
-      [PublishNameEnum.Wrox]: 'assets/img/publishers/wrox_logo.jpeg',
-      [PublishNameEnum.DCComics]: 'assets/img/publishers/dc_comics_logo.jpeg',
-      [PublishNameEnum.PortfolioPenguin]: 'assets/img/publishers/portfolio_penguin_logo.jpeg',
-      [PublishNameEnum.Campus]: 'assets/img/publishers/campus_logo.svg',
-      [PublishNameEnum.CienciaModerna]: 'assets/img/publishers/ciencia_moderna_logo.svg',
-      [PublishNameEnum.VisualBooks]: 'assets/img/publishers/visual_books_logo.svg',
-      [PublishNameEnum.MakronBooks]: 'assets/img/publishers/makron_books_logo.svg',
-    };
-
-    return logoMap[publishName] || 'assets/img/others/livro.jpg';
-  }
+  readonly getPublisherLogo = getPublisherLogo;
 }

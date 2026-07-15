@@ -95,26 +95,10 @@ describe('ContactComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('calcularIdade', () => {
-    beforeEach(() => {
-      vi.useFakeTimers();
-      vi.setSystemTime(new Date(2024, 5, 15));
-    });
-
-    afterEach(() => {
-      vi.useRealTimers();
-    });
-
-    it('should calculate age when birthday already occurred this year', () => {
-      expect(component.calcularIdade(new Date(1990, 1, 1))).toBe(34);
-    });
-
-    it('should calculate age when birthday has not occurred yet this year', () => {
-      expect(component.calcularIdade(new Date(1990, 11, 25))).toBe(33);
-    });
-
-    it('should calculate age on the exact birthday', () => {
-      expect(component.calcularIdade(new Date(1990, 5, 15))).toBe(34);
-    });
+  it('should delegate age calculation to the calculateAge util', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2024, 5, 15));
+    expect(component.calculateAge(new Date(1990, 1, 1))).toBe(34);
+    vi.useRealTimers();
   });
 });

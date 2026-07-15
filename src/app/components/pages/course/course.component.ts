@@ -20,6 +20,7 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { AnalyticsService } from '@path-services/analytics.service';
+import { CatalogFilterService } from '@path-services/catalog-filter.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ICourse } from '@path-interfaces/ICourse';
 import { debounce } from '@path-utils/performance.utils';
@@ -45,6 +46,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);
   private readonly analyticsService = inject(AnalyticsService);
   private readonly paginationService = inject(PaginationService);
+  private readonly catalogFilterService = inject(CatalogFilterService);
 
   private readonly allCourses = signal(this.dataService.getCourses());
 
@@ -74,52 +76,33 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const uniqueTags = new Set<string>();
-    this.allCourses().forEach((course) =>
-      course.tags.forEach((tag) => uniqueTags.add(tag.trim()))
+    this._tagsArray.set(
+      this.catalogFilterService.collectUniqueTags(this.allCourses(), (course) => course.tags)
     );
-    this._tagsArray.set(Array.from(uniqueTags).sort());
   }
 
   tagsArray = this._tagsArray.asReadonly();
 
-  availableTags = computed(() => {
-    const institutionFilters = this.coursesFilter();
-
-    if (institutionFilters.size === 0) {
-      return this.tagsArray();
-    }
-
-    const uniqueTags = new Set<string>();
-    this.allCourses()
-      .filter(course => institutionFilters.has(course.institution as InstitutionEnum))
-      .forEach(course => course.tags.forEach(tag => uniqueTags.add(tag.trim())));
-
-    return Array.from(uniqueTags).sort();
-  });
+  availableTags = computed(() =>
+    this.catalogFilterService.availableTags(
+      this.allCourses(),
+      this.coursesFilter(),
+      (course) => course.institution as InstitutionEnum,
+      (course) => course.tags
+    )
+  );
 
   filteredAndSortedCourses = computed(() => {
-    const courses = this.allCourses();
-    const institutionFilters = this.coursesFilter();
-    const tagFilters = this.tagsFilter();
     const query = this.searchQuery().toLowerCase().trim();
 
-    if (institutionFilters.size === 0 && tagFilters.size === 0 && !query) {
-      return this.sortCourses(courses);
-    }
-
-    const result = courses.filter(course => {
-      if (institutionFilters.size > 0 && !institutionFilters.has(course.institution as InstitutionEnum)) {
-        return false;
-      }
-      if (tagFilters.size > 0 && !course.tags.some(tag => tagFilters.has(tag))) {
-        return false;
-      }
-      if (query && !course.name.toLowerCase().includes(query)) {
-        return false;
-      }
-      return true;
-    });
+    const result = this.catalogFilterService.filterByCategoryAndTags(
+      this.allCourses(),
+      this.coursesFilter(),
+      (course) => course.institution as InstitutionEnum,
+      this.tagsFilter(),
+      (course) => course.tags,
+      (course) => !query || course.name.toLowerCase().includes(query)
+    );
 
     return this.sortCourses(result);
   });
@@ -132,16 +115,19 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     });
   }
 
-  absoluteIndex = (indexOnPage: number): number =>
-    this.config().itemsPerPage * (this.config().currentPage - 1) +
-    indexOnPage +
-    1;
+  absoluteIndex(indexOnPage: number): number {
+    return (
+      this.config().itemsPerPage * (this.config().currentPage - 1) +
+      indexOnPage +
+      1
+    );
+  }
 
-  onPageChange = (number: number) => {
+  onPageChange(number: number) {
     this.config().currentPage = number;
     const totalPages = Math.ceil(this.filteredAndSortedCourses().length / this.config().itemsPerPage);
     this.analyticsService.trackPagination('courses', number, totalPages);
-  };
+  }
 
   clearFilters() {
     this.analyticsService.trackClearFilters('courses');
@@ -200,11 +186,8 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     }
     this.coursesFilter.set(currentFilters);
 
-    const availableTags = new Set(this.availableTags());
-    const currentTags = new Set(this.tagsFilter());
-    const validTags = new Set([...currentTags].filter(tag => availableTags.has(tag)));
-
-    if (validTags.size !== currentTags.size) {
+    const validTags = this.catalogFilterService.reconcileTagFilters(this.availableTags(), this.tagsFilter());
+    if (validTags) {
       this.tagsFilter.set(validTags);
     }
 
