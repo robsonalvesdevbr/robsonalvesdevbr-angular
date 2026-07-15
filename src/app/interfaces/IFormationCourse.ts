@@ -1,11 +1,4 @@
-import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
+import { FormationCourseTagEnum } from '@path-app/models/FormationCourseTagEnum';
+import { ICourseBase } from '@path-interfaces/ICourseBase';
 
-export interface IFormationCourse {
-  id: string;
-  name: string;
-  institution: InstitutionEnum;
-  tags: string[];
-  certificateUrl: string | undefined | null;
-  conclusion: Date | undefined | null;
-  favorite: boolean;
-}
+export type IFormationCourse = ICourseBase<FormationCourseTagEnum>;

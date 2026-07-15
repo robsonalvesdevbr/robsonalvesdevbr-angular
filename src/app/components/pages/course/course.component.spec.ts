@@ -3,6 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
+import { CourseTagEnum } from '@path-app/models/CourseTagEnum';
 import { DataService } from '@path-services/data-service';
 import { CourseComponent } from './course.component';
 import { provideZonelessChangeDetection } from '@angular/core';
@@ -21,7 +22,7 @@ describe('CourseComponent', () => {
           institution: InstitutionEnum.Udemy,
           certificateUrl:
             'https://www.linkedin.com/learning/certificates/86c236d05e24c26443322a5d07c3026de9e74e8c9a13ae51d9266105b1ddc291?trk=share_certificate',
-          tags: ['Tag1', 'Tag2'],
+          tags: [CourseTagEnum.ArtificialIntelligence, CourseTagEnum.GitHub],
           conclusion: new Date('2024-8-22'),
           favorite: true,
         },
@@ -31,7 +32,7 @@ describe('CourseComponent', () => {
           institution: InstitutionEnum.Alura,
           certificateUrl:
             'https://www.linkedin.com/learning/certificates/f1cd3d0f28df30ef793720cf64234c5f249822e19e68e8f3fb3f9bd12d56ab7c?trk=share_certificate',
-          tags: ['Tag2', 'Tag3'],
+          tags: [CourseTagEnum.GitHub, CourseTagEnum.Copilot],
           conclusion: new Date('2024-8-30'),
           favorite: true,
         },
@@ -98,7 +99,7 @@ describe('CourseComponent', () => {
   it('should return sorted tags', () => {
     component.ngOnInit();
     const tags = component.tagsArray();
-    expect(tags).toEqual(['Tag1', 'Tag2', 'Tag3']);
+    expect(tags).toEqual(['artificial-intelligence', 'copilot', 'github']);
   });
 
   it('should calculate absolute index correctly', () => {

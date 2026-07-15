@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
+import { FormationCourseTagEnum } from '@path-app/models/FormationCourseTagEnum';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
@@ -29,10 +30,10 @@ describe('FormationCourseComponent', () => {
           certificateUrl:
             'https://cursos.alura.com.br/degree/certificate/2e01d0c3-8f5d-4715-a679-3061632a9298?lang=pt_BR',
           tags: [
-            'software-development',
-            'microsoft-technologies',
-            'csharp',
-            'dotnet',
+            FormationCourseTagEnum.SoftwareDevelopment,
+            FormationCourseTagEnum.MicrosoftTechnologies,
+            FormationCourseTagEnum.CSharp,
+            FormationCourseTagEnum.DotNet,
           ],
           conclusion: new Date('2021-4-26'),
           favorite: true,
@@ -43,7 +44,11 @@ describe('FormationCourseComponent', () => {
           institution: InstitutionEnum.Alura,
           certificateUrl:
             'https://cursos.alura.com.br/degree/certificate/ecc51fe7-41c9-4eed-afad-5fd31aa1232a?lang=pt_BR',
-          tags: ['kubernetes', 'docker-container', 'azure-cloud'],
+          tags: [
+            FormationCourseTagEnum.Kubernetes,
+            FormationCourseTagEnum.DockerContainer,
+            FormationCourseTagEnum.AzureCloud,
+          ],
           conclusion: new Date('2022-5-13'),
           favorite: true,
         },

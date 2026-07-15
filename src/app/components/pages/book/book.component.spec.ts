@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
+import { BookTagEnum } from '@path-app/models/BookTagEnum';
 import { FilterPipe } from '@path-pipes/filter.pipe';
 import { ImgcursoPipe } from '@path-pipes/imgcurso.pipe';
 import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.pipe';
@@ -31,7 +32,7 @@ describe('BookComponent', () => {
           author: ['Fabrício Carraro'],
           publishName: PublishNameEnum.AltaBooks,
           publishYear: 2023,
-          tags: ['Tag1', 'Tag2'],
+          tags: [BookTagEnum.SoftwareDevelopment, BookTagEnum.CSharp],
           bookUrl:
             'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
           pages: 223,
@@ -46,7 +47,7 @@ describe('BookComponent', () => {
           author: ['Fabrício Carraro'],
           publishName: PublishNameEnum.CasaDoCodigo,
           publishYear: 2023,
-          tags: ['Tag3', 'Tag4'],
+          tags: [BookTagEnum.DotNet, BookTagEnum.JavaScript],
           bookUrl:
             'https://www.casadocodigo.com.br/pages/sumario-inteligencia-artificial-chatgpt',
           pages: 223,
@@ -105,7 +106,7 @@ describe('BookComponent', () => {
 
   it('should return sorted tags', () => {
     const sortedTags = component.tagsArray();
-    expect(sortedTags).toEqual(['Tag1', 'Tag2', 'Tag3', 'Tag4']);
+    expect(sortedTags).toEqual(['csharp', 'dotnet', 'javascript', 'software-development']);
   });
 
   it('should calculate absolute index correctly', () => {

@@ -1,4 +1,5 @@
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
+import { BookTagEnum } from '@path-app/models/BookTagEnum';
 
 export interface IBook {
   id: string;
@@ -7,7 +8,7 @@ export interface IBook {
   author: string[];
   publishName: PublishNameEnum;
   publishYear: number;
-  tags: string[];
+  tags: BookTagEnum[];
   bookUrl: string | undefined | null;
   pages: number;
   progress: number;
