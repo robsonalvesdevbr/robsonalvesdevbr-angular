@@ -41,7 +41,7 @@ describe('NavigationComponent', () => {
         about: 'Sobre',
         graduation: '(Pós)Graduação',
         courses: 'Cursos',
-        formations: 'Formação',
+        formations: 'Trilhas',
         books: 'Leituras',
         contact: 'Contato',
         skipToContent: 'Ir para o conteúdo'
@@ -56,7 +56,7 @@ describe('NavigationComponent', () => {
         about: 'About',
         graduation: 'Graduation',
         courses: 'Courses',
-        formations: 'Formations',
+        formations: 'Tracks',
         books: 'Books',
         contact: 'Contact',
         skipToContent: 'Skip to content'
@@ -78,7 +78,7 @@ describe('NavigationComponent', () => {
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Sobre');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('(Pós)Graduação');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Cursos');
-    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Formação');
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Trilhas');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Leituras');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Contato');
   });
@@ -194,10 +194,10 @@ describe('NavigationComponent', () => {
       expect(component.isMenuOpen()).toBe(false);
     });
 
-    it('should close menu when "Formação" link is clicked', async () => {
+    it('should close menu when "Trilhas" link is clicked', async () => {
       component.isMenuOpen.set(true);
       const event = new Event('click');
-      component.formationcourseAnalitics(event);
+      component.trilhasAnalitics(event);
 
       await new Promise(resolve => setTimeout(resolve, 0));
       expect(component.isMenuOpen()).toBe(false);

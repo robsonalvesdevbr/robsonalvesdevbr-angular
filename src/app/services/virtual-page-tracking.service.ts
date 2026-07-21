@@ -23,9 +23,9 @@ export class VirtualPageTrackingService {
       title: 'Cursos - Robson Alves',
       description: 'Cursos e especializações realizados'
     },
-    'formationcourse': {
-      title: 'Formação - Robson Alves',
-      description: 'Formações complementares e treinamentos'
+    'trilhas': {
+      title: 'Trilhas - Robson Alves',
+      description: 'Trilhas complementares e treinamentos'
     },
     'books': {
       title: 'Leituras - Robson Alves',

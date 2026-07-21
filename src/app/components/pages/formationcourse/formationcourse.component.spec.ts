@@ -82,8 +82,8 @@ describe('FormationCourseComponent', () => {
     // Minimal translation keys used in the template
     httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
       formationCourse: {
-        title: 'Formações',
-        subtitle: 'Minhas formações',
+        title: 'Trilhas de Formação',
+        subtitle: 'Minhas trilhas de formação',
         quantity: 'Quantidade',
         logoAlt: 'Logo',
         institution: 'Instituição',
@@ -95,8 +95,8 @@ describe('FormationCourseComponent', () => {
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({
       formationCourse: {
-        title: 'Formations',
-        subtitle: 'My formations',
+        title: 'Formation Tracks',
+        subtitle: 'My formation tracks',
         quantity: 'Quantity',
         logoAlt: 'Logo',
         institution: 'Institution',

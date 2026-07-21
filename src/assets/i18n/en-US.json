@@ -129,7 +129,7 @@
   },
   "formationCourse": {
     "title": "Formation Tracks",
-    "subtitle": "Learn more about my formation courses",
+    "subtitle": "Learn more about my formation tracks",
     "quantity": "Quantity: {{count}}",
     "institution": "Institution",
     "tags": "Tags",

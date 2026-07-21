@@ -49,7 +49,7 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   }
 
   private setupScrollSpy(): void {
-    const sectionIds = ['about', 'graduation', 'courses', 'formationcourse', 'books', 'contact'];
+    const sectionIds = ['about', 'graduation', 'courses', 'trilhas', 'books', 'contact'];
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -128,7 +128,7 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   sobreAnalitics = this.createNavigationHandler('about');
   graduationAnalitics = this.createNavigationHandler('graduation');
   coursesAnalitics = this.createNavigationHandler('courses');
-  formationcourseAnalitics = this.createNavigationHandler('formationcourse');
+  trilhasAnalitics = this.createNavigationHandler('trilhas');
   booksAnalitics = this.createNavigationHandler('books');
   contactAnalitics = this.createNavigationHandler('contact');
 
