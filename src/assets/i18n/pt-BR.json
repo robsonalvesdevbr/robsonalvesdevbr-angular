@@ -19,7 +19,7 @@
     "about": "Sobre",
     "graduation": "(Pós)Graduação",
     "courses": "Cursos",
-    "formations": "Formação",
+    "formations": "Trilhas",
     "books": "Leituras",
     "contact": "Contato"
   },
@@ -128,7 +128,7 @@
     }
   },
   "formationCourse": {
-    "title": "Cursos de Formação",
+    "title": "Trilhas de Formação",
     "subtitle": "Saiba mais sobre meus cursos de formação",
     "quantity": "Quantidade: {{count}}",
     "institution": "Instituição",

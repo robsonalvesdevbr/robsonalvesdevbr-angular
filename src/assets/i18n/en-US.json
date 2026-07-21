@@ -19,7 +19,7 @@
     "about": "About",
     "graduation": "(Post)Graduation",
     "courses": "Courses",
-    "formations": "Formations",
+    "formations": "Tracks",
     "books": "Readings",
     "contact": "Contact"
   },
@@ -128,7 +128,7 @@
     }
   },
   "formationCourse": {
-    "title": "Formation Courses",
+    "title": "Formation Tracks",
     "subtitle": "Learn more about my formation courses",
     "quantity": "Quantity: {{count}}",
     "institution": "Institution",
