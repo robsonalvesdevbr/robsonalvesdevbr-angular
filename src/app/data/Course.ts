@@ -622,24 +622,255 @@ export const Courses: ICourse[] = [
   // ===== ALURA =====
   {
 
+    id: 'curso-linux-para-ciberseguranca-alura-2025-11',
+    name: 'Linux para cibersegurança: administração, shell scripting e Kali Linux',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/linux-ciberseguranca/certificate',
+    tags: [CourseTagEnum.Linux, CourseTagEnum.Security],
+    conclusion: new Date('2025-11-13'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-postgresql-views-sub-consultas-funcoes-alura-2025-11',
+    name: 'PostgreSQL: Views, Sub-Consultas e Funções',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/postgresql-views-sub-consultas-funcoes/certificate',
+    tags: [CourseTagEnum.Database, CourseTagEnum.Postgres],
+    conclusion: new Date('2025-11-10'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-postgresql-primeiros-passos-alura-2025-11',
+    name: 'PostgreSQL: primeiros passos',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/introducao-postgresql-primeiros-passos/certificate',
+    tags: [CourseTagEnum.Database, CourseTagEnum.Postgres],
+    conclusion: new Date('2025-11-5'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-fundamentos-de-ia-explorando-estrutura-alura-2025-11',
+    name: 'Fundamentos de IA: explorando a estrutura e abordagens de sistemas inteligentes',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/fundamentos-ia-explorando-estrutura-abordagens-sistemas-inteligentes/certificate',
+    tags: [CourseTagEnum.ArtificialIntelligence],
+    conclusion: new Date('2025-11-4'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-python-avance-orientacao-objetos-api-alura-2025-10',
+    name: 'Python: avance na Orientação a Objetos e consuma API',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/python-avance-orientacao-objetos-consuma-api/certificate',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Python],
+    conclusion: new Date('2025-10-31'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-python-aplicando-orientacao-objetos-alura-2025-10',
+    name: 'Python: aplicando a Orientação a Objetos',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/python-aplicando-orientacao-objetos/certificate',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Python],
+    conclusion: new Date('2025-10-31'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-python-crie-sua-primeira-aplicacao-alura-2025-10',
+    name: 'Python: crie a sua primeira aplicação',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/python-crie-sua-primeira-aplicacao/certificate',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Python],
+    conclusion: new Date('2025-10-31'),
+    favorite: false,
+  },
+  {
+
     id: 'curso-liamaindex-analisando-dados-panda-alura-2025-10',
     name: 'LlamaIndex: analisando dados com Pandas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/72fbbc57-79ad-42ea-9475-8f39a4fc9b0a?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/llamaIndex-analisando-dados-pandas/certificate',
     tags: [CourseTagEnum.ArtificialIntelligence, CourseTagEnum.Python],
     conclusion: new Date('2025-10-29'),
     favorite: false,
   },
   {
 
-    id: 'curso-seguranca-ofensiva-alura-2024-09',
-    name: 'Segurança Ofensiva',
+    id: 'curso-certificacao-linux-lpi-essentials-alura-2025-08',
+    name: 'Certificação Linux LPI Essentials: Open Source Software and Licensing',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/degree/certificate/525ab812-85ca-4276-84f2-b3f0f1c09e67?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/certificacao-linux-lpi-essentials-open-source-software-licensing/certificate',
+    tags: [CourseTagEnum.Linux],
+    conclusion: new Date('2025-8-21'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-linux-script-monitoramento-sistema-alura-2025-07',
+    name: 'Linux: criando script de monitoramento de sistema',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/linux-criando-script-monitoramento-sistema/certificate',
+    tags: [CourseTagEnum.Linux],
+    conclusion: new Date('2025-7-14'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-linux-script-processamento-logs-alura-2025-07',
+    name: 'Linux: criando script para processamento de arquivos de logs',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/linux-criando-script-processamento-arquivos-logs/certificate',
+    tags: [CourseTagEnum.Linux],
+    conclusion: new Date('2025-7-14'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-linux-gerenciando-diretorios-arquivos-alura-2025-07',
+    name: 'Linux: gerenciando diretórios, arquivos, permissões e processos',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/linux-gerenciando-diretorios-arquivos-permissoes-processos/certificate',
+    tags: [CourseTagEnum.Linux],
+    conclusion: new Date('2025-7-14'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-kafka-e-spring-integrando-aplicacoes-alura-2025-02',
+    name: 'Kafka e Spring: integrando aplicações e gerenciando fluxos de dados',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kafka-spring-aplicacoes-fluxos-dados/certificate',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Kafka],
+    conclusion: new Date('2025-2-3'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-kafka-idempotencia-e-garantias-alura-2025-02',
+    name: 'Kafka: idempotência e garantias',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kafka-idempotencia-e-garantias/certificate',
+    tags: [CourseTagEnum.Kafka],
+    conclusion: new Date('2025-2-3'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-kafka-batches-correlation-ids-dead-letters-alura-2025-02',
+    name: 'Kafka: Batches, correlation ids e dead letters',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kafka-batches-correlation-ids-e-dead-letters/certificate',
+    tags: [CourseTagEnum.Kafka],
+    conclusion: new Date('2025-2-3'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-kafka-fast-delegate-cluster-brokers-alura-2025-01',
+    name: 'Kafka: Fast delegate, evolução e cluster de brokers',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kafka-cluster-de-microservicos/certificate',
+    tags: [CourseTagEnum.Kafka],
+    conclusion: new Date('2025-1-31'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-csharp-boas-praticas-refatoracao-alura-2024-10',
+    name: 'C#: aplique boas práticas de refatoração e torne seu código mais legível',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/csharp-boas-praticas-refatoracao-codigo-legivel/certificate',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.CSharp, CourseTagEnum.DotNet],
+    conclusion: new Date('2024-10-22'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-csharp-principios-solid-padroes-projeto-alura-2024-10',
+    name: 'C#: aplique princípios SOLID e padrões de projeto',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/csharp-aplique-principios-solid-e-padroes-de-projeto/certificate',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.Solid,
+      CourseTagEnum.DesignPattern,
+    ],
+    conclusion: new Date('2024-10-22'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-csharp-testes-limpos-boas-praticas-alura-2024-10',
+    name: 'C#: aprenda a criar testes limpos com boas práticas',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/csharp-criar-testes-limpos-boas-praticas/certificate',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.CSharp,
+      CourseTagEnum.DotNet,
+      CourseTagEnum.SoftwareTesting,
+    ],
+    conclusion: new Date('2024-10-17'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-pentest-combinando-vulnerabilidades-shell-alura-2024-09',
+    name: 'Pentest: combinando vulnerabilidades e acessando o Shell',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/pentest-combinando-vulnerabilidades-acessando-shell/certificate',
     tags: [CourseTagEnum.Security],
     conclusion: new Date('2024-9-16'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-pentest-investigando-vulnerabilidades-servidor-alura-2024-09',
+    name: 'Pentest: investigando vulnerabilidades em um servidor de aplicações web',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/pentest-vulnerabilidades-servidor-aplicacoes-web/certificate',
+    tags: [CourseTagEnum.Security],
+    conclusion: new Date('2024-9-13'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-pentest-explorando-vulnerabilidades-web-alura-2024-09',
+    name: 'Pentest: explorando vulnerabilidades em aplicações web',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/pentest-explorando-vulnerabilidades-aplicacoes-web/certificate',
+    tags: [CourseTagEnum.Security],
+    conclusion: new Date('2024-9-13'),
     favorite: false,
   },
   {
@@ -648,7 +879,7 @@ export const Courses: ICourse[] = [
     name: 'Node.js: criando uma API Rest com Express e MongoDB',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/b66c4012-ba60-46db-a044-1b2e923c01ed?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/node-js-api-rest-express-mongodb/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Node],
     conclusion: new Date('2024-7-24'),
     favorite: false,
@@ -659,7 +890,7 @@ export const Courses: ICourse[] = [
     name: 'Node.js e terminal: dominando o ambiente de desenvolvimento front-end',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/279a0193-f327-4c54-a000-451aefd818bb?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/node-js-terminal-ambiente-desenvolvimento-front-end/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Node],
     conclusion: new Date('2024-7-20'),
     favorite: false,
@@ -670,7 +901,7 @@ export const Courses: ICourse[] = [
     name: 'Lógica de programação: explore funções e listas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/06a6aa9d-4057-46a9-a082-d2b810998a01?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/logica-programacao-funcoes-listas/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Logic],
     conclusion: new Date('2024-2-17'),
     favorite: false,
@@ -681,7 +912,7 @@ export const Courses: ICourse[] = [
     name: 'Lógica de programação: mergulhe em programação com JavaScript',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/f8a1f9fd-a3ac-4100-b398-38d891f09952?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/logica-programacao-mergulhe-programacao-javascript/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Logic],
     conclusion: new Date('2024-1-3'),
     favorite: false,
@@ -692,7 +923,7 @@ export const Courses: ICourse[] = [
     name: 'Microsoft SQL Server 2022: conhecendo SQL',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/573c53e0-215a-4138-8866-6b8a91621b81?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/microsoft-sql-server-conhecendo-sql/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2023-9-5'),
     favorite: false,
@@ -703,7 +934,7 @@ export const Courses: ICourse[] = [
     name: 'Azure Cloud: segurança e recursos avançados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/ee5f9313-467b-44a5-ad05-b553b39d77b5?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/azure-cloud-seguranca-recursos-avancados/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure],
     conclusion: new Date('2023-8-22'),
     favorite: false,
@@ -714,7 +945,7 @@ export const Courses: ICourse[] = [
     name: 'Azure Cloud: criando um servidor com banco de dados para receber uma aplicação',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/57764ba5-ebeb-4195-9cdd-67e578bb5b2b?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/azure-cloud-criando-servidor-banco-dados-receber-aplicacao/certificate',
     tags: [
       CourseTagEnum.CloudComputing,
       CourseTagEnum.Azure,
@@ -729,7 +960,7 @@ export const Courses: ICourse[] = [
     name: 'Kubernetes: prática, Helm e Cloud',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/1bd12d60-6a2f-438b-b669-03709ca8c734?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kubernetes-pratica-helm-cloud/certificate',
     tags: [
       CourseTagEnum.CloudComputing,
       CourseTagEnum.Azure,
@@ -745,7 +976,7 @@ export const Courses: ICourse[] = [
     name: 'Dart: criando e manipulando variáveis e listas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/362f75ac-a636-40d2-bcbf-0c448a39c528?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/dart-variaveis-listas/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Dart],
     conclusion: new Date('2023-3-1'),
     favorite: false,
@@ -756,9 +987,9 @@ export const Courses: ICourse[] = [
     name: 'OWASP Top 10: de Injections a Broken Access Control',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/54be0077-be6d-4d69-8573-86e5353a1c6c?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/owasp10-a5-broken-access-control/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Security],
-    conclusion: new Date('2023-1-19'),
+    conclusion: new Date('2024-9-10'),
     favorite: true,
   },
   {
@@ -767,7 +998,7 @@ export const Courses: ICourse[] = [
     name: '.NET 6: criando uma web API',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/e5b315fd-973e-45b5-b4a7-44d1d609bc37?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/dotnet-criando-web-api/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
@@ -778,11 +1009,22 @@ export const Courses: ICourse[] = [
   },
   {
 
+    id: 'curso-go-e-gin-criando-api-rest-simplicidade-alura-2023-01',
+    name: 'Go e Gin: criando API rest com simplicidade',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/go-gin-api-rest-simplicidade/certificate',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Golang],
+    conclusion: new Date('2023-1-9'),
+    favorite: false,
+  },
+  {
+
     id: 'curso-vue3-explorando-o-framework-alura-2022-08',
     name: 'Vue3: explorando o framework',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/a977f1f5-8f86-4589-a92b-d023fe439196?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/vue3-comecando-framework/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Vue],
     conclusion: new Date('2022-8-15'),
     favorite: false,
@@ -793,9 +1035,9 @@ export const Courses: ICourse[] = [
     name: 'Rust: a linguagem de programação performática e segura',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/bade0182-f781-44e4-a8ff-ebd874c0554f?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/rust-linguagem-programacao-performatica-segura/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Rust],
-    conclusion: new Date('2022-8-12'),
+    conclusion: new Date('2023-6-2'),
     favorite: true,
   },
   {
@@ -804,7 +1046,7 @@ export const Courses: ICourse[] = [
     name: 'Rust: aprenda mais sobre tipos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/1e1d3c58-87c4-4e5d-992a-d13e6217530b?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/rust-aprenda-sobre-tipos/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Rust],
     conclusion: new Date('2022-8-12'),
     favorite: true,
@@ -815,7 +1057,7 @@ export const Courses: ICourse[] = [
     name: 'SQL Server: administração do Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/41279343-fbd3-49e2-8373-29cda9909596?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/administracao-do-sql-server-2017/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-12'),
     favorite: false,
@@ -826,7 +1068,7 @@ export const Courses: ICourse[] = [
     name: 'SQL Server: T-SQL com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/a7f8d24d-aa64-404f-8197-6dfdb6a017c5?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/tsql-com-sql-server-2017/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-10'),
     favorite: false,
@@ -837,7 +1079,7 @@ export const Courses: ICourse[] = [
     name: 'SQL Server: Manipulação de dados com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/f9fcd1eb-e007-4e7a-a417-192a446c53b9?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/manipulacao-dados-com-sql-server-2017/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-9'),
     favorite: false,
@@ -848,7 +1090,7 @@ export const Courses: ICourse[] = [
     name: 'SQL Server: consultas avançadas com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/cab204dd-3c1a-4101-bdda-f778cdd7117b?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/consultas-sql-server-2017/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-8'),
     favorite: false,
@@ -859,7 +1101,7 @@ export const Courses: ICourse[] = [
     name: 'SQL Server: Introdução ao SQL com Microsoft SQL Server 2017',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/42559db4-15e4-4a16-9bd8-b13e8a94b345?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/sql-com-sql-server-2017/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-8'),
     favorite: false,
@@ -870,7 +1112,7 @@ export const Courses: ICourse[] = [
     name: 'Modelagem de banco de dados relacional: Álgebra Relacional',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/cf23a4eb-7223-4523-8b69-8c70f6b8fa21?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/modelagem-banco-dados-algebra-relacional/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-3'),
     favorite: false,
@@ -881,7 +1123,7 @@ export const Courses: ICourse[] = [
     name: 'Modelagem de banco de dados relacional: entendendo SQL',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/097df050-faa9-4504-80ba-5587925077fe?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/modelagem-banco-dados-relacional-sql/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-3'),
     favorite: false,
@@ -892,7 +1134,7 @@ export const Courses: ICourse[] = [
     name: 'Modelagem de banco de dados relacional: normalização',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/184457d6-5fe9-4187-ad29-6ed0e5015a4f?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/modelagem-banco-dados-relacional-normalizacao/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-3'),
     favorite: false,
@@ -903,7 +1145,7 @@ export const Courses: ICourse[] = [
     name: 'Modelagem de banco de dados relacional: modelagem lógica e física',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/6addd0fb-4be1-48f4-8b8e-8f2fe70699b3?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/modelagem-banco-dados-relacional-modelagem-logica-fisica/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-2'),
     favorite: false,
@@ -914,7 +1156,7 @@ export const Courses: ICourse[] = [
     name: 'Modelagem de banco de dados: entidades, relacionamentos e atributos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/f4fb9541-03d7-4214-a7ad-b960fb02f736?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/modelagem-banco-dados-entidades-relacionamentos-atributos/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.SQLServer],
     conclusion: new Date('2022-8-1'),
     favorite: false,
@@ -925,9 +1167,9 @@ export const Courses: ICourse[] = [
     name: 'Redis II: estruturas e recursos na sua base NoSQL',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/8b3d2118-b233-4530-ad60-d9254f091a7e?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/nosql-chave-valor-com-redis-2/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.Redis, CourseTagEnum.Cache],
-    conclusion: new Date('2022-7-20'),
+    conclusion: new Date('2022-11-6'),
     favorite: false,
   },
   {
@@ -936,9 +1178,9 @@ export const Courses: ICourse[] = [
     name: 'Redis I: armazenando chaves e valores',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/f3e017a1-fb3e-4b50-b33e-2a42fbf4cc74?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/nosql-chave-valor-com-redis-1/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.Redis, CourseTagEnum.Cache],
-    conclusion: new Date('2022-7-20'),
+    conclusion: new Date('2022-11-6'),
     favorite: false,
   },
   {
@@ -947,7 +1189,7 @@ export const Courses: ICourse[] = [
     name: 'Microsserviços e .NET6: implementando a comunicação',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/e51f515b-bb63-4333-9dfe-5961c2eb1da1?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/microsservicos-dotnet6-implementando-comunicacao/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
@@ -962,7 +1204,7 @@ export const Courses: ICourse[] = [
     name: 'Modelagem MongoDB: relacionamentos e cardinalidade',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/1fdb3723-9f1b-4f06-bc90-c268502224f7?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/mongodb-fundamentos-modelagem/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.NoSQL],
     conclusion: new Date('2022-7-25'),
     favorite: false,
@@ -973,7 +1215,7 @@ export const Courses: ICourse[] = [
     name: 'MongoDB: modelagem de dados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/ca5dbfc1-068a-43d7-8759-5134ab1263c4?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/mongodb-modelagem-dados/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.NoSQL],
     conclusion: new Date('2022-7-22'),
     favorite: false,
@@ -984,7 +1226,7 @@ export const Courses: ICourse[] = [
     name: 'MongoDB: uma alternativa aos bancos relacionais tradicionais',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/2cdd5a78-4b70-42e8-a4ba-d319cff5776a?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/mongodb/certificate',
     tags: [CourseTagEnum.Database, CourseTagEnum.NoSQL],
     conclusion: new Date('2022-7-22'),
     favorite: false,
@@ -995,7 +1237,7 @@ export const Courses: ICourse[] = [
     name: 'C#: entendendo exceções',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/31f830a1-a293-4840-9c26-b4fa1f89f655?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/c-sharp-entendendo-excecoes/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
@@ -1010,7 +1252,7 @@ export const Courses: ICourse[] = [
     name: 'Estrutura de Dados: computação na prática com Java',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/e40feed1-13aa-420c-8747-5e84bf1bb837?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/estrutura-de-dados/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.Java,
@@ -1025,7 +1267,7 @@ export const Courses: ICourse[] = [
     name: 'Microsoft AZ-900 parte 4: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/804c23fc-85e8-4bd2-9836-437c74a137a0?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/microsoft-az-900-parte-4-azure-fundamentals/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure],
     conclusion: new Date('2022-7-7'),
     favorite: false,
@@ -1036,9 +1278,9 @@ export const Courses: ICourse[] = [
     name: 'Microsoft AZ-900 parte 3: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/e4157be2-f56f-4559-8bdd-a21a0f012b0a?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/microsoft-az-900-parte-3-azure-fundamentals/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure],
-    conclusion: new Date('2022-7-5'),
+    conclusion: new Date('2022-8-8'),
     favorite: false,
   },
   {
@@ -1047,7 +1289,7 @@ export const Courses: ICourse[] = [
     name: 'Microsoft AZ-900 parte 2: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/8e362b2b-9d79-43e8-88a8-36c199413ecf?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/microsoft-az-900-parte-2-azure-fundamentals/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure],
     conclusion: new Date('2022-7-1'),
     favorite: false,
@@ -1058,7 +1300,7 @@ export const Courses: ICourse[] = [
     name: 'Microsoft AZ-900 parte 1: Azure Fundamentals',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/fd708be3-4db2-4d76-b7fc-712d6cd43210?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/Microsoft-az-900-parte-1-azure-fundamentals/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure],
     conclusion: new Date('2022-6-29'),
     favorite: false,
@@ -1069,7 +1311,7 @@ export const Courses: ICourse[] = [
     name: 'Git e Github: controle e compartilhe seu código',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/4f3c3358-1eae-432c-84b8-4a1fac6ecfcc?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/git-github-controle-de-versao/certificate',
     tags: [CourseTagEnum.Git],
     conclusion: new Date('2022-6-24'),
     favorite: false,
@@ -1080,7 +1322,7 @@ export const Courses: ICourse[] = [
     name: 'Go: validações, testes e páginas HTML',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/f57bdcd5-11f7-404e-9aeb-427af45eaca1?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/go-validacoes-testes-paginas-html/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.Golang,
@@ -1091,17 +1333,62 @@ export const Courses: ICourse[] = [
   },
   {
 
-    id: 'curso-go-a-linguagem-do-google-alura-2022-05',
-    name: 'Go: a linguagem do Google',
+    id: 'curso-go-desenvolvendo-uma-api-rest-alura-2022-06',
+    name: 'Go: desenvolvendo uma API Rest',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/1d0fc6df-f017-41ef-91a3-3b28084cef4f?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/go-desenvolvendo-api-rest/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.Golang,
       CourseTagEnum.Google,
     ],
-    conclusion: new Date('2022-5-27'),
+    conclusion: new Date('2022-6-3'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-go-crie-uma-aplicacao-web-alura-2022-06',
+    name: 'Go: crie uma aplicação web',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/go-lang-web/certificate',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
+    conclusion: new Date('2022-6-3'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-go-orientacao-a-objetos-alura-2022-06',
+    name: 'Go: Orientação a Objetos',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/go-lang-oo/certificate',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
+    conclusion: new Date('2022-6-2'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-go-a-linguagem-do-google-alura-2022-05',
+    name: 'Go: a linguagem do Google',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/user/robsonalves-us/course/golang/certificate',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Golang,
+      CourseTagEnum.Google,
+    ],
+    conclusion: new Date('2023-1-9'),
     favorite: false,
   },
   {
@@ -1110,13 +1397,13 @@ export const Courses: ICourse[] = [
     name: '.NET 5 e Identity: autenticando e autorizando usuários',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/af681830-f65c-4cea-a290-ec0ebe460365?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/net-5-identity-autenticando-autorizando-usuarios/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
       CourseTagEnum.CSharp,
     ],
-    conclusion: new Date('2022-5-25'),
+    conclusion: new Date('2024-3-14'),
     favorite: false,
   },
   {
@@ -1125,7 +1412,7 @@ export const Courses: ICourse[] = [
     name: '.NET 5 e Identity: implementando controle de usuário',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/0ebecc61-a94d-48a7-8cf3-17840664106c?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/net-5-identity-controle-usuario/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1140,7 +1427,7 @@ export const Courses: ICourse[] = [
     name: 'Delegação de tarefas: obtenha o melhor do seu time',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/dbb9e726-e557-4ec1-bad4-ed92744ae45d?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/delegacao-de-tarefas/certificate',
     tags: [CourseTagEnum.Agile],
     conclusion: new Date('2022-5-24'),
     favorite: false,
@@ -1151,7 +1438,7 @@ export const Courses: ICourse[] = [
     name: 'Mindset Digital: técnicas e habilidades para liderança remota',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/cf8c4ebe-4b3c-419a-b30c-6992a675687a?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/mindset-digital-tecnicas-habilidades-lideranca-remota/certificate',
     tags: [CourseTagEnum.Agile],
     conclusion: new Date('2022-5-24'),
     favorite: false,
@@ -1162,7 +1449,7 @@ export const Courses: ICourse[] = [
     name: 'Princípios do trabalho em equipe: relações colaborativas',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/23dedc0c-b5d3-4fca-9b05-e42cc6f28e28?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/principios-trabalho-equipe-relacao-colaborativa/certificate',
     tags: [CourseTagEnum.Agile],
     conclusion: new Date('2022-5-24'),
     favorite: false,
@@ -1173,7 +1460,7 @@ export const Courses: ICourse[] = [
     name: 'Selenium WebDriver e C# parte 2: outros recursos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/51ec0753-6343-459a-a83b-17afad4e57fe?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/selenium-csharp-mais-recursos/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1189,7 +1476,7 @@ export const Courses: ICourse[] = [
     name: 'Selenium WebDriver e C# parte 1: testes da sua web app',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/ab2636e8-4bd9-483e-8a42-8da43b7f65f3?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/selenium-csharp-webdriver/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1205,7 +1492,7 @@ export const Courses: ICourse[] = [
     name: 'Extreme Programming: metodologia de desenvolvimento ágil de software',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/fc26090e-5e5f-45ee-970b-5b8194e25c1d?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/xp-extreme-programming/certificate',
     tags: [CourseTagEnum.Agile],
     conclusion: new Date('2022-5-19'),
     favorite: false,
@@ -1216,7 +1503,7 @@ export const Courses: ICourse[] = [
     name: 'Testes em .NET: testes de interface usando Selenium',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/a9b65aba-b6da-47f6-b1f9-b4c5d580ab31?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/testes-net-testes-interface-selenium/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1232,7 +1519,7 @@ export const Courses: ICourse[] = [
     name: 'Testes em .NET: integração e entrega contínua com Azure DevOps',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/85310144-c8be-40db-89c6-166a741a315a?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/testes-net-integracao-entrega-continua-azure-devops/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1248,7 +1535,7 @@ export const Courses: ICourse[] = [
     name: 'Testes em .NET: integrando a aplicação com um banco de dados',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/52fada6f-39a9-440c-8462-630f6770fe52?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/testes-net-integrando-aplicacao-banco-dados/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1264,7 +1551,7 @@ export const Courses: ICourse[] = [
     name: 'Testes em .NET: testando software',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/b9ba25ed-660f-4b8e-a316-59543cd3373f?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/testes-net-teste-software/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.DotNet,
@@ -1280,9 +1567,9 @@ export const Courses: ICourse[] = [
     name: 'Amazon EKS: gerenciando aplicações conteinerizadas com Kubernetes',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/dd427b1b-ae43-4d8e-ae50-66932d9b3228?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/amazon-eks-kubernetes/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.AWS],
-    conclusion: new Date('2022-5-13'),
+    conclusion: new Date('2025-2-7'),
     favorite: false,
   },
   {
@@ -1324,9 +1611,9 @@ export const Courses: ICourse[] = [
     name: 'Azure: gerencie Kubernetes com AKS e ACR',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/ca4b1404-eafb-48a3-b4fe-dad28ed9c6e2?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/azure-gerencie-kubernetes-com-aks-acr/certificate',
     tags: [CourseTagEnum.CloudComputing, CourseTagEnum.Azure],
-    conclusion: new Date('2022-5-6'),
+    conclusion: new Date('2022-12-9'),
     favorite: false,
   },
   {
@@ -1346,9 +1633,9 @@ export const Courses: ICourse[] = [
     name: 'Kubernetes: Pods, Services e ConfigMaps',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/065f3e48-80b9-4f76-a2b9-081bf28b0f9c?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kubernetes-pods-services-configmap/certificate',
     tags: [CourseTagEnum.Kubernetes, CourseTagEnum.DockerContainer],
-    conclusion: new Date('2022-5-2'),
+    conclusion: new Date('2022-12-9'),
     favorite: false,
   },
   {
@@ -1449,13 +1736,13 @@ export const Courses: ICourse[] = [
     name: '.NET 5 e EF Core: relacionando entidades',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/4779bd73-714f-4631-a190-cf77e64b8f72?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/net-5-ef-core-relacionando-entidades/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
       CourseTagEnum.DotNet,
     ],
-    conclusion: new Date('2021-9-10'),
+    conclusion: new Date('2024-3-14'),
     favorite: false,
   },
   {
@@ -1464,13 +1751,13 @@ export const Courses: ICourse[] = [
     name: 'API Rest com .NET 5: operações essenciais com verbos HTTP',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/569e52ad-945f-4436-90ee-24719cec0dc9?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/api-rest-net-5-operacoes-verbos-http/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
       CourseTagEnum.DotNet,
     ],
-    conclusion: new Date('2021-9-9'),
+    conclusion: new Date('2024-3-14'),
     favorite: false,
   },
   {
@@ -1653,13 +1940,13 @@ export const Courses: ICourse[] = [
     name: 'C# parte 2: Entendendo a Orientação a Objetos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/f34c4a9f-9084-4a0e-ae2f-a28c88cff0a2?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/csharp-parte-2-introducao-orientacao-objetos/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
       CourseTagEnum.DotNet,
     ],
-    conclusion: new Date('2021-3-9'),
+    conclusion: new Date('2022-11-12'),
     favorite: false,
   },
   {
@@ -1679,13 +1966,13 @@ export const Courses: ICourse[] = [
     name: 'C# parte 1: primeiros passos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/e66dac5c-2f3f-4ed3-bb3b-5b784749bc86?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/csharp-parte-1-primeiros-passos/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
       CourseTagEnum.DotNet,
     ],
-    conclusion: new Date('2021-2-9'),
+    conclusion: new Date('2023-10-13'),
     favorite: false,
   },
   {
@@ -1694,9 +1981,9 @@ export const Courses: ICourse[] = [
     name: 'Kafka: produtores, consumidores e streams',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/2fc0994c-98ce-4fb5-9473-2fed548ed3fd?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/kafka-introducao-a-streams-em-microservicos/certificate',
     tags: [CourseTagEnum.All],
-    conclusion: new Date('2021-2-4'),
+    conclusion: new Date('2025-1-29'),
     favorite: false,
   },
   {
@@ -1738,14 +2025,14 @@ export const Courses: ICourse[] = [
     name: 'SOLID com C#: princípios da programação orientada a objetos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/7ad17dd8-69dd-47f4-a4b3-a9da4091cd8c?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/solid-csharp-principios-orientacao-a-objetos/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.CSharp,
       CourseTagEnum.DotNet,
       CourseTagEnum.Solid,
     ],
-    conclusion: new Date('2020-10-22'),
+    conclusion: new Date('2022-8-2'),
     favorite: false,
   },
   {
@@ -1791,9 +2078,9 @@ export const Courses: ICourse[] = [
     name: 'LGPD: conhecendo e entendendo seus impactos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/7c0cb1cd-87ea-4e0b-8886-75167e46a820?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/lgpd-visao-impactos/certificate',
     tags: [CourseTagEnum.LGPD],
-    conclusion: new Date('2020-7-7'),
+    conclusion: new Date('2024-5-15'),
     favorite: false,
   },
   {
@@ -1951,13 +2238,13 @@ export const Courses: ICourse[] = [
     name: 'JavaScript conhecendo o Browser e padrões de projeto',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/88d168f0-6a8a-4b42-978f-d49cb9547c39?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/javascript-es6-orientacao-a-objetos-parte-1/certificate',
     tags: [
       CourseTagEnum.SoftwareDevelopment,
       CourseTagEnum.JavaScript,
       CourseTagEnum.DesignPattern,
     ],
-    conclusion: new Date('2020-1-4'),
+    conclusion: new Date('2023-10-13'),
     favorite: false,
   },
   {
@@ -1977,9 +2264,9 @@ export const Courses: ICourse[] = [
     name: 'HTTP: Entendendo a web por baixo dos panos',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/5d54dc3e-3df3-4afb-84dc-159f33cdfb7b?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/http-entendendo-web-por-baixo-dos-panos/certificate',
     tags: [CourseTagEnum.HTTP],
-    conclusion: new Date('2019-12-1'),
+    conclusion: new Date('2024-7-16'),
     favorite: false,
   },
   {
@@ -2014,7 +2301,7 @@ export const Courses: ICourse[] = [
     name: 'Node.js e terminal: dominando o ambiente de desenvolvimento front-end',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/279a0193-f327-4c54-a000-451aefd818bb?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/node-js-terminal-ambiente-desenvolvimento-front-end/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Node],
     conclusion: new Date('2024-7-20'),
     favorite: false,
@@ -2025,20 +2312,9 @@ export const Courses: ICourse[] = [
     name: 'Node.js: criando uma API Rest com Express e MongoDB',
     institution: InstitutionEnum.Alura,
     certificateUrl:
-      'https://cursos.alura.com.br/certificate/b66c4012-ba60-46db-a044-1b2e923c01ed?lang=pt_BR',
+      'https://cursos.alura.com.br/user/robsonalves-us/course/node-js-api-rest-express-mongodb/certificate',
     tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Node],
     conclusion: new Date('2024-7-24'),
-    favorite: false,
-  },
-  {
-
-    id: 'curso-seguranca-ofensiva-alura-2024-09-2',
-    name: 'Segurança Ofensiva',
-    institution: InstitutionEnum.Alura,
-    certificateUrl:
-      'https://cursos.alura.com.br/degree/certificate/525ab812-85ca-4276-84f2-b3f0f1c09e67?lang=pt_BR',
-    tags: [CourseTagEnum.Security],
-    conclusion: new Date('2024-9-16'),
     favorite: false,
   },
 ];

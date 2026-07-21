@@ -22,4 +22,5 @@ export enum FormationCourseTagEnum {
   GitGithub = 'git-github',
   Linux = 'linux',
   Python = 'python',
+  Security = 'security',
 }

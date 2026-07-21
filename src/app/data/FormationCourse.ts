@@ -6,6 +6,17 @@ export const FormationCourses: IFormationCourse[] = [
   // ===== ALURA =====
   {
 
+    id: 'formacao-seguranca-ofensiva-alura-2024-09',
+    name: 'Segurança Ofensiva',
+    institution: InstitutionEnum.Alura,
+    certificateUrl:
+      'https://cursos.alura.com.br/degree/certificate/525ab812-85ca-4276-84f2-b3f0f1c09e67?lang=pt_BR',
+    tags: [FormationCourseTagEnum.Security],
+    conclusion: new Date('2024-9-16'),
+    favorite: false,
+  },
+  {
+
     id: 'formacao-aprenda-programar-python-oo-alura-2025-07',
     name: 'Aprenda a programar em Python com Orientação a Objetos',
     institution: InstitutionEnum.Alura,

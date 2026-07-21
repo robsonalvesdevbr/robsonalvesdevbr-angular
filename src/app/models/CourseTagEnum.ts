@@ -74,4 +74,5 @@ export enum CourseTagEnum {
   Dapper = 'dapper',
   Orm = 'orm',
   Kafka = 'kafka',
+  Linux = 'linux',
 }
