@@ -69,3 +69,5 @@ Thumbs.db
 
 # Claude Code configuration
 .claude/
+# Added by code-review-graph
+.code-review-graph/
