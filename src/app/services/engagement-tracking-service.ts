@@ -180,7 +180,7 @@ export class EngagementTrackingService {
     this.currentSection = sectionId;
 
     this.trackSectionView(sectionId);
-    this.virtualPageService.sendVirtualPageView(sectionId, 'scroll');
+    this.virtualPageService.sendVirtualPageView(sectionId);
     this.startTimeTracking(sectionId);
 
     if (previousSection) {

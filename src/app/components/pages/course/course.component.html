@@ -162,7 +162,7 @@
                 <b>{{ 'courses.institution' | translate }}:</b> {{ item.institution }}
               </p>
               <p class="text-muted fontemenor">
-                <b>{{ 'courses.tags' | translate }}: </b> {{ item.tags | printTags:true }}
+                <b>{{ 'courses.tags' | translate }}: </b> {{ item.tags | printTags: true }}
               </p>
               <p class="text-muted fontemenor">
                 {{ 'courses.completedOn' | translate }}
@@ -177,7 +177,9 @@
               </p>
             </div>
           </div>
-          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-secondary">
+          <span
+            class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-secondary"
+          >
             {{ absoluteIndex(i) }}
             <span class="visually-hidden">{{ 'courses.unreadMessages' | translate }}</span>
           </span>

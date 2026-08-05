@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { AnalyticsService } from './analytics.service';
-import { environment } from '@path-environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +36,7 @@ export class VirtualPageTrackingService {
     }
   };
 
-  sendVirtualPageView(sectionId: string, _trigger: 'click' | 'scroll' | 'hash' = 'scroll'): void {
+  sendVirtualPageView(sectionId: string): void {
     const metadata = this.sectionMetadata[sectionId];
     if (!metadata) return;
 
