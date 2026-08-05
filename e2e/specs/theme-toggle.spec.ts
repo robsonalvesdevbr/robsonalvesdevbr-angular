@@ -15,27 +15,32 @@ test.describe('Theme Toggle', () => {
     const toggle = page.getByTestId('theme-toggle');
     await expect(toggle).toBeVisible();
 
-    const initialTheme = await page.locator('html').getAttribute('data-bs-theme');
+    const html = page.locator('html');
+    const initialTheme = await html.getAttribute('data-bs-theme');
     await toggle.click();
 
-    const newTheme = await page.locator('html').getAttribute('data-bs-theme');
-    expect(newTheme).not.toBe(initialTheme);
-    expect(['light', 'dark']).toContain(newTheme);
+    // O atributo é escrito por um effect() zoneless, agendado assíncrono —
+    // usa expect com auto-retry em vez de ler o atributo uma vez só.
+    const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
+    await expect(html).toHaveAttribute('data-bs-theme', expectedTheme);
   });
 
   test('deve persistir o tema após reload', async ({ page }) => {
     const toggle = page.getByTestId('theme-toggle');
-    await toggle.click();
+    const html = page.locator('html');
+    const initialTheme = await html.getAttribute('data-bs-theme');
+    const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
 
-    const themeAfterToggle = await page.locator('html').getAttribute('data-bs-theme');
+    await toggle.click();
+    await expect(html).toHaveAttribute('data-bs-theme', expectedTheme);
+
     const storedTheme = await page.evaluate(() => localStorage.getItem('app-theme'));
-    expect(storedTheme).toBe(themeAfterToggle);
+    expect(storedTheme).toBe(expectedTheme);
 
     await page.reload();
     await page.waitForLoadState('networkidle');
 
-    const themeAfterReload = await page.locator('html').getAttribute('data-bs-theme');
-    expect(themeAfterReload).toBe(themeAfterToggle);
+    await expect(html).toHaveAttribute('data-bs-theme', expectedTheme);
   });
 
   test('deve ter aria-label acessível no botão de tema', async ({ page }) => {

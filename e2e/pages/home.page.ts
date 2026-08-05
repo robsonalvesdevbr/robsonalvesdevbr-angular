@@ -33,7 +33,7 @@ export class HomePage extends BasePage {
     this.aboutSection = page.locator('#about');
     this.graduationSection = page.locator('#graduation');
     this.courseSection = page.locator('[data-testid="courses-section"]');
-    this.formationCourseSection = page.locator('#formationcourse');
+    this.formationCourseSection = page.locator('#trilhas');
     this.bookSection = page.locator('[data-testid="books-section"]');
     this.contactSection = page.locator('[data-testid="contact-section"]');
     this.footerSection = page.locator('footer, [id*="footer"]');
@@ -42,7 +42,7 @@ export class HomePage extends BasePage {
     this.navAboutLink = page.locator('a[href*="about"], a[href*="#about"]').first();
     this.navGraduationLink = page.locator('a[href*="graduation"], a[href*="#graduation"]').first();
     this.navCourseLink = page.locator('a[href*="course"], a[href*="#course"]').first();
-    this.navFormationLink = page.locator('a[href*="formation"], a[href*="#formationcourse"]').first();
+    this.navFormationLink = page.locator('a[href*="#trilhas"]').first();
     this.navBookLink = page.locator('a[href*="book"], a[href*="#book"]').first();
     this.navContactLink = page.locator('a[href*="contact"], a[href*="#contact"]').first();
   }

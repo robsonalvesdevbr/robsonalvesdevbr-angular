@@ -39,6 +39,11 @@ export default defineConfig({
     // URL base da aplicação
     baseURL: 'http://localhost:4200',
 
+    // Locale do navegador — app detecta idioma via navigator.language quando
+    // não há preferência salva; sem isso, testes que assumem PT-BR padrão
+    // quebram em ambientes com locale do SO diferente de pt-BR.
+    locale: 'pt-BR',
+
     // Coleta de traces em caso de falha
     trace: 'on-first-retry',
 
