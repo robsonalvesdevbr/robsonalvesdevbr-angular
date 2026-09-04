@@ -15,6 +15,9 @@ export class EngagementTrackingService {
 
   private isInitialized = false;
   private resizeObserver?: ResizeObserver;
+  private intersectionObserver?: IntersectionObserver;
+  private scrollListener?: EventListener;
+  private hashChangeListener?: EventListener;
   private analyticsBatcher: BatchProcessor<() => void>;
 
   constructor() {
@@ -34,7 +37,8 @@ export class EngagementTrackingService {
       this.trackScrollDepth();
     }, 100);
 
-    window.addEventListener('scroll', debouncedScrollHandler, {
+    this.scrollListener = debouncedScrollHandler;
+    window.addEventListener('scroll', this.scrollListener, {
       passive: true,
       capture: false
     });
@@ -124,6 +128,15 @@ export class EngagementTrackingService {
   destroy(): void {
     this.analyticsBatcher.destroy();
     this.resizeObserver?.disconnect();
+    this.intersectionObserver?.disconnect();
+    if (this.scrollListener) {
+      window.removeEventListener('scroll', this.scrollListener);
+      this.scrollListener = undefined;
+    }
+    if (this.hashChangeListener) {
+      window.removeEventListener('hashchange', this.hashChangeListener);
+      this.hashChangeListener = undefined;
+    }
     this.scrollDepthTracked.clear();
     this.sectionTimeTracking.clear();
     ElementCache.clear();
@@ -152,13 +165,16 @@ export class EngagementTrackingService {
     const sections = Array.from(document.querySelectorAll('section[id]'));
     sections.forEach(section => observer.observe(section));
 
-    window.addEventListener('hashchange', () => {
+    this.intersectionObserver = observer;
+
+    this.hashChangeListener = () => {
       const newSection = window.location.hash.substring(1);
       if (newSection && this.currentSection !== newSection) {
         this.currentSection = newSection;
         this.batchAnalyticsCall(() => this.analyticsService.trackHashNavigation(newSection));
       }
-    });
+    };
+    window.addEventListener('hashchange', this.hashChangeListener);
   }
 
   private processSectionChanges(entries: IntersectionObserverEntry[]): void {

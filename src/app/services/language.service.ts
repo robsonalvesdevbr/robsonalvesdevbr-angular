@@ -35,15 +35,23 @@ export class LanguageService {
     // Effect para persistir mudanças
     effect(() => {
       const lang = this.currentLanguage();
-      localStorage.setItem(this.STORAGE_KEY, lang);
+      try {
+        localStorage.setItem(this.STORAGE_KEY, lang);
+      } catch {
+        // ignore storage errors (e.g., storage disabled)
+      }
       document.documentElement.lang = lang;
     });
   }
 
   private getInitialLanguage(): Language {
-    const stored = localStorage.getItem(this.STORAGE_KEY) as Language;
-    if (stored && this.isValidLanguage(stored)) {
-      return stored;
+    try {
+      const stored = localStorage.getItem(this.STORAGE_KEY) as Language;
+      if (stored && this.isValidLanguage(stored)) {
+        return stored;
+      }
+    } catch {
+      // ignore storage errors (e.g., storage disabled)
     }
 
     const candidates = [...(navigator.languages ?? []), navigator.language].filter(Boolean);
