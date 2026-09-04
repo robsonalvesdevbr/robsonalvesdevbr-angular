@@ -211,4 +211,53 @@ describe('LanguageService', () => {
       expect(createFreshService('pt-BR').currentLanguage()).toBe('en-US');
     });
   });
+
+  describe('storage resilience', () => {
+    it('should not throw and should fall back to browser language when localStorage.getItem fails', () => {
+      const getItemSpy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+        throw new Error('Storage disabled');
+      });
+
+      Object.defineProperty(navigator, 'language', { value: 'en-US', configurable: true, writable: true });
+      Object.defineProperty(navigator, 'languages', { value: [], configurable: true, writable: true });
+
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [LanguageService, provideZonelessChangeDetection(), provideHttpClient(withXhr()), provideHttpClientTesting()]
+      });
+
+      let svc!: LanguageService;
+      expect(() => {
+        svc = TestBed.inject(LanguageService);
+      }).not.toThrow();
+
+      const freshHttp = TestBed.inject(HttpTestingController);
+      const reqs = freshHttp.match(req => req.url.includes('/assets/i18n/'));
+      for (const req of reqs) {
+        req.flush(req.request.url.endsWith('pt-BR.json') ? mockPtBR : mockEnUS);
+      }
+
+      expect(svc.currentLanguage()).toBe('en-US');
+
+      getItemSpy.mockRestore();
+    });
+
+    it('should not throw and should still update document.lang when localStorage.setItem fails in the persistence effect', () => {
+      const setItemSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+        throw new Error('Storage disabled');
+      });
+
+      document.documentElement.lang = '';
+
+      expect(() => {
+        // Bypasses setLanguage()'s own try/catch to exercise the effect's guard directly
+        service.currentLanguage.set('en-US');
+        TestBed.tick();
+      }).not.toThrow();
+
+      expect(document.documentElement.lang).toBe('en-US');
+
+      setItemSpy.mockRestore();
+    });
+  });
 });

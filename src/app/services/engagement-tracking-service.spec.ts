@@ -226,6 +226,49 @@ describe('EngagementTrackingService', () => {
       service.destroy();
       expect(service).toBeTruthy();
     });
+
+    it('should disconnect the intersection observer on destroy', () => {
+      const disconnectSpy = vi.fn();
+      class MockIntersectionObserver {
+        observe = vi.fn();
+        unobserve = vi.fn();
+        disconnect = disconnectSpy;
+      }
+      window.IntersectionObserver = MockIntersectionObserver as any;
+
+      service.setupIntersectionObserver();
+      service.destroy();
+
+      expect(disconnectSpy).toHaveBeenCalled();
+    });
+
+    it('should remove the scroll and hashchange listeners on destroy', () => {
+      const addSpy = vi.spyOn(window, 'addEventListener');
+      const removeSpy = vi.spyOn(window, 'removeEventListener');
+
+      class MockIntersectionObserver {
+        observe = vi.fn();
+        unobserve = vi.fn();
+        disconnect = vi.fn();
+      }
+      window.IntersectionObserver = MockIntersectionObserver as any;
+
+      service.initializeScrollTracking();
+      service.setupIntersectionObserver();
+
+      const scrollHandler = addSpy.mock.calls.find(call => call[0] === 'scroll')?.[1];
+      const hashChangeHandler = addSpy.mock.calls.find(call => call[0] === 'hashchange')?.[1];
+      expect(scrollHandler).toBeDefined();
+      expect(hashChangeHandler).toBeDefined();
+
+      service.destroy();
+
+      expect(removeSpy).toHaveBeenCalledWith('scroll', scrollHandler);
+      expect(removeSpy).toHaveBeenCalledWith('hashchange', hashChangeHandler);
+
+      addSpy.mockRestore();
+      removeSpy.mockRestore();
+    });
   });
 
   describe('Batch Processing', () => {
