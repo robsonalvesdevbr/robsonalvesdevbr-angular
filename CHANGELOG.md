@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+#### Framework
+- Upgrade Angular 22.1.3 → 22.1.5 (latest stable da linha 22)
+- Upgrade @angular/cli e @angular/build 22.1.5 → 22.1.7
+- Upgrade @angular/compiler-cli 22.1.3 → 22.1.5
+- Upgrade angular-eslint / @angular-eslint/builder 22.1.0 → 22.5.0
+
+#### Testing & Quality
+- Upgrade Vitest e pacotes @vitest/* 4.1.11 → 5.0.0
+- Upgrade @playwright/test 1.62.1 → 1.63.0
+- Upgrade typescript-eslint 8.67.0 → 8.70.0
+- Upgrade eslint 10.9.0 → 10.10.0
+- Upgrade zone.js 0.16.2 → 0.16.3
+- 469/469 testes unitários passando
+
+### Removed
+- `@angular/platform-browser-dynamic` (deprecado no Angular 22): `test-setup.ts`
+  migrado para `BrowserTestingModule` / `platformBrowserTesting` de
+  `@angular/platform-browser/testing`
+
 ## [2.2.0] - 2026-05-26
 
 ### Changed
