@@ -3,9 +3,9 @@ import 'zone.js/testing';
 import './vitest-jasmine-shim';
 import { getTestBed } from '@angular/core/testing';
 import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from '@angular/platform-browser-dynamic/testing';
+  BrowserTestingModule,
+  platformBrowserTesting,
+} from '@angular/platform-browser/testing';
 
 // Suprimir warning NG0914 (esperado em testes com Zone.js + zoneless)
 const originalConsoleWarn = console.warn;
@@ -18,8 +18,8 @@ console.warn = (...args: unknown[]) => {
 
 // Setup do ambiente de testes Angular (com Zone.js para TestBed)
 getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  BrowserTestingModule,
+  platformBrowserTesting(),
 );
 
 // Neutraliza idioma do navegador no ambiente de testes
