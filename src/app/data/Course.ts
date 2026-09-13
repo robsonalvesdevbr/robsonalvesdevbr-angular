@@ -21,6 +21,20 @@ export const Courses: ICourse[] = [
   // ===== UDEMY =====
   {
 
+    id: 'curso-github-spec-driven-development-com-openspec-claude-code-m-udemy-2026-09',
+    name: 'Spec-Driven Development com OpenSpec e Claude Code',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-95ab1f22-3796-40dd-970b-74f84c43b620/',
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.ClaudeCode,
+    ],
+    conclusion: new Date('2026-9-13'),
+    favorite: true,
+  },
+  {
+
     id: 'curso-github-copilot-do-zero-a-produtividade-m-udemy-2025-09',
     name: 'GitHub Copilot: Do Zero à Produtividade Máxima com GenAI',
     institution: InstitutionEnum.Udemy,

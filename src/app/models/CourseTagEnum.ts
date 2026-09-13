@@ -1,5 +1,6 @@
 export enum CourseTagEnum {
   ArtificialIntelligence = 'artificial-intelligence',
+  ClaudeCode = 'claude-code',
   GitHub = 'github',
   Copilot = 'copilot',
   Communication = 'communication',
