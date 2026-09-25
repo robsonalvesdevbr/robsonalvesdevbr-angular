@@ -10,12 +10,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 #### Framework
+- Upgrade Angular 22.1.5 → 22.2.0 (latest stable da linha 22)
+- Upgrade @angular/cli e @angular/build 22.1.7 → 22.2.0
+- Upgrade @angular/compiler-cli 22.1.5 → 22.2.0
 - Upgrade Angular 22.1.3 → 22.1.5 (latest stable da linha 22)
 - Upgrade @angular/cli e @angular/build 22.1.5 → 22.1.7
 - Upgrade @angular/compiler-cli 22.1.3 → 22.1.5
 - Upgrade angular-eslint / @angular-eslint/builder 22.1.0 → 22.5.0
 
 #### Testing & Quality
+- Upgrade Vitest e pacotes @vitest/* 5.0.0 → 5.0.1
+- Upgrade typescript-eslint 8.70.0 → 8.70.1
+- Upgrade eslint 10.10.0 → 10.11.0
+- Upgrade prettier 3.9.6 → 3.9.9
+- Upgrade jsdom 30.0.1 → 30.1.1
+- Upgrade vite 8.2.2 → 8.3.0
+- Upgrade webpack-bundle-analyzer 5.3.2 → 5.4.0
 - Upgrade Vitest e pacotes @vitest/* 4.1.11 → 5.0.0
 - Upgrade @playwright/test 1.62.1 → 1.63.0
 - Upgrade typescript-eslint 8.67.0 → 8.70.0
