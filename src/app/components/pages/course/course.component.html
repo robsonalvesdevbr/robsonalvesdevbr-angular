@@ -13,100 +13,96 @@
       </h3>
     </div>
     <div class="border border-1 rounded mb-2">
-      <div class="px-3 py-2 d-flex flex-wrap align-items-center gap-2">
-        <input
-          id="course-search"
-          name="course-search"
-          type="search"
-          class="form-control form-control-sm w-auto flex-grow-1"
-          [placeholder]="'courses.searchPlaceholder' | translate"
-          [value]="searchQuery()"
-          (input)="searchQuery.set($any($event.target).value)"
-          [attr.aria-label]="'courses.searchPlaceholder' | translate"
-        />
-        <button
-          type="button"
-          class="btn btn-outline-secondary btn-sm"
-          data-testid="courses-filters-toggle"
-          aria-controls="courses-filters"
-          [attr.aria-expanded]="filtersOpen()"
-          (click)="toggleFilters()"
-        >
-          <i class="bi bi-funnel me-1" aria-hidden="true"></i>{{ 'courses.filters' | translate }}
-          @if (activeFilterCount() > 0) {
-            <span class="badge rounded-pill bg-primary ms-1">{{ activeFilterCount() }}</span>
-          }
-        </button>
-        @if (hasActiveFilters()) {
-          <button
-            type="button"
-            class="btn btn-link btn-sm"
-            (click)="clearFilters()"
-            [attr.aria-label]="'courses.ariaClearFilters' | translate"
-          >
-            {{ 'courses.clearFilters' | translate }}
-          </button>
-        }
-      </div>
-      @if (filtersOpen()) {
-        <div id="courses-filters" class="text-center bg-body-tertiary bg-gradient py-1">
-          <fieldset
-            class="btn-group-sm"
-            role="group"
-            [attr.aria-label]="'courses.filterInstitution' | translate"
-            id="group_label_course_institution"
-          >
-            <b class="p-1 m-1">{{ 'courses.filterInstitution' | translate }}:</b>
-            @for (
-              institution of institutionList | enumToArray;
-              track trackByInstitution($index, institution)
-            ) {
-              <input
-                type="checkbox"
-                class="btn-check"
-                id="input_course_institution_{{ institution.key }}"
-                autocomplete="off"
-                [checked]="isInstitutionSelected(institution.key)"
-                (click)="onClickIntitutionEvent($event)"
-              />
-              <label
-                class="btn btn-sm fontemenor p-1 ms-0"
-                for="input_course_institution_{{ institution.key }}"
-                id="label_course_institution_{{ institution.key }}"
-                [ngClass]="{ active: isInstitutionSelected(institution.key) }"
-                appHighlight
-                >{{ institution.value }}</label
-              >
-            }
-          </fieldset>
-          <hr class="p-0 m-1" />
-          <fieldset
-            class="btn-group-sm"
-            role="group"
-            [attr.aria-label]="'courses.filterTag' | translate"
-          >
-            <b class="p-1 m-1">{{ 'courses.filterTag' | translate }}:</b>
-            @for (tag of availableTags(); track trackByTag($index, tag)) {
-              <input
-                type="checkbox"
-                class="btn-check"
-                id="input_course_tag_{{ tag | lowercase }}"
-                autocomplete="off"
-                [checked]="tagsFilter().has(tag)"
-                (click)="onClickTagEvent($event)"
-              />
-              <label
-                class="btn btn-sm fontemenor p-1 ms-0"
-                for="input_course_tag_{{ tag | lowercase }}"
-                id="label_course_tag_{{ tag | lowercase }}"
-                [ngClass]="{ active: tagsFilter().has(tag) }"
-                appHighlight
-                >{{ tag | tagLabel }}</label
-              >
-            }
-          </fieldset>
+      <div>
+        <div class="px-3 pt-2 pb-1">
+          <input
+            id="course-search"
+            name="course-search"
+            type="search"
+            class="form-control form-control-sm"
+            [placeholder]="'courses.searchPlaceholder' | translate"
+            [value]="searchQuery()"
+            (input)="searchQuery.set($any($event.target).value)"
+            [attr.aria-label]="'courses.searchPlaceholder' | translate"
+          />
         </div>
-      }
+        <hr class="p-0 m-1" />
+        <div class="text-center bg-body-tertiary bg-gradient">
+          <div class="has-text-centered">
+            <fieldset
+              class="btn-group-sm"
+              role="group"
+              [attr.aria-label]="'courses.filterInstitution' | translate"
+              id="group_label_course_institution"
+            >
+              <button
+                type="button"
+                class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start"
+                (click)="clearFilters()"
+                [attr.aria-label]="'courses.ariaClearFilters' | translate"
+                [attr.title]="'courses.clearFilters' | translate"
+              >
+                {{ 'courses.clearFilters' | translate }}
+              </button>
+              <b class="p-1 m-1">{{ 'courses.filterInstitution' | translate }}:</b>
+
+              @for (
+                institution of institutionList | enumToArray;
+                track trackByInstitution($index, institution)
+              ) {
+                <input
+                  type="checkbox"
+                  class="btn-check"
+                  id="input_course_institution_{{ institution.key }}"
+                  autocomplete="off"
+                  [checked]="isInstitutionSelected(institution.key)"
+                  (click)="onClickIntitutionEvent($event)"
+                />
+                <label
+                  class="btn btn-sm fontemenor p-1 ms-0"
+                  for="input_course_institution_{{ institution.key }}"
+                  id="label_course_institution_{{ institution.key }}"
+                  [ngClass]="{ active: isInstitutionSelected(institution.key) }"
+                  appHighlight
+                  >{{ institution.value }}</label
+                >
+              }
+            </fieldset>
+          </div>
+        </div>
+        <hr class="p-0 m-1" />
+        <div>
+          <div class="text-center bg-body-tertiary bg-gradient">
+            <div class="has-text-centered">
+              <fieldset
+                class="btn-group-sm"
+                role="group"
+                [attr.aria-label]="'courses.filterTag' | translate"
+              >
+                <b class="p-1 m-1">{{ 'courses.filterTag' | translate }}:</b>
+                @for (tag of availableTags(); track trackByTag($index, tag)) {
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    id="input_course_tag_{{ tag | lowercase }}"
+                    autocomplete="off"
+                    [checked]="tagsFilter().has(tag)"
+                    (click)="onClickTagEvent($event)"
+                  />
+                  <label
+                    class="btn btn-sm fontemenor p-1 ms-0"
+                    for="input_course_tag_{{ tag | lowercase }}"
+                    id="label_course_tag_{{ tag | lowercase }}"
+                    [ngClass]="{ active: tagsFilter().has(tag) }"
+                    appHighlight
+                    >{{ tag | tagLabel }}</label
+                  >
+                }
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     @if (coursesFilter().size > 0 || tagsFilter().size > 0) {
       <div class="d-flex flex-wrap gap-1 mb-2">

@@ -114,52 +114,6 @@ describe('CourseComponent', () => {
     expect(component.config().currentPage).toBe(2);
   });
 
-  describe('collapsible filters', () => {
-    const root = () => fixture.nativeElement as HTMLElement;
-    const toggle = () => root().querySelector<HTMLButtonElement>('[data-testid="courses-filters-toggle"]');
-
-    it('should keep filters collapsed by default while the search stays visible', () => {
-      expect(component.filtersOpen()).toBe(false);
-      expect(root().querySelector('#course-search')).toBeTruthy();
-      expect(root().querySelector('#courses-filters')).toBeNull();
-      expect(toggle()?.getAttribute('aria-expanded')).toBe('false');
-    });
-
-    it('should expand and collapse the filter panel through the toggle', () => {
-      toggle()?.click();
-      fixture.detectChanges();
-      expect(root().querySelector('#courses-filters')).toBeTruthy();
-      expect(toggle()?.getAttribute('aria-expanded')).toBe('true');
-
-      toggle()?.click();
-      fixture.detectChanges();
-      expect(root().querySelector('#courses-filters')).toBeNull();
-    });
-
-    it('should count active filters and show the clear action only when something is active', () => {
-      expect(component.activeFilterCount()).toBe(0);
-      expect(component.hasActiveFilters()).toBe(false);
-
-      component.coursesFilter.set(new Set([InstitutionEnum.Udemy]));
-      component.tagsFilter.set(new Set(['github']));
-      fixture.detectChanges();
-
-      expect(component.activeFilterCount()).toBe(2);
-      expect(toggle()?.querySelector('.badge')?.textContent?.trim()).toBe('2');
-      expect(root().querySelector('button.btn-link')).toBeTruthy();
-
-      component.clearFilters();
-      fixture.detectChanges();
-      expect(root().querySelector('button.btn-link')).toBeNull();
-    });
-
-    it('should treat a non-empty search as something to clear', () => {
-      component.searchQuery.set('copilot');
-      expect(component.hasActiveFilters()).toBe(true);
-      expect(component.activeFilterCount()).toBe(0);
-    });
-  });
-
   it('should clear filters', () => {
     const currentInstitutions = new Set(component.coursesFilter());
     currentInstitutions.add(InstitutionEnum.Udemy);

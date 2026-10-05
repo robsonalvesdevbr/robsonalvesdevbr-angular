@@ -57,10 +57,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   coursesFilter: WritableSignal<Set<InstitutionEnum>> = signal<Set<InstitutionEnum>>(new Set<InstitutionEnum>());
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
-  filtersOpen = signal(false);
-
-  activeFilterCount = computed(() => this.coursesFilter().size + this.tagsFilter().size);
-  hasActiveFilters = computed(() => this.activeFilterCount() > 0 || this.searchQuery().trim() !== '');
 
   config = this.paginationService.createPaginationConfig('coursesPag', 5);
 
@@ -131,10 +127,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     this.config().currentPage = number;
     const totalPages = Math.ceil(this.filteredAndSortedCourses().length / this.config().itemsPerPage);
     this.analyticsService.trackPagination('courses', number, totalPages);
-  }
-
-  toggleFilters(): void {
-    this.filtersOpen.update(open => !open);
   }
 
   clearFilters() {
