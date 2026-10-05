@@ -12,7 +12,7 @@ import { PerformanceMonitorService } from '@path-services/performance-monitor.se
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Robson Candido dos Santos Alves';
+  title = 'Robson Alves';
 
   private readonly engagementService = inject(EngagementTrackingService);
   private readonly performanceService = inject(PerformanceMonitorService);

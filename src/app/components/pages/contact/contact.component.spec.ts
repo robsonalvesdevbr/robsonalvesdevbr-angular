@@ -13,7 +13,7 @@ describe('ContactComponent', () => {
   beforeEach(async () => {
     dataServiceStub = {
       getProfile: () => ({
-        name: 'Robson Candido dos Santos Alves',
+        name: 'Robson Alves',
         country: 'Brasil',
         state: 'Paraná',
         city: 'Curitiba',

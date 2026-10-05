@@ -1,7 +1,7 @@
 import { IProfile } from '@path-interfaces/IProfile';
 
 export const Profile: IProfile = {
-  name: 'Robson Candido dos Santos Alves',
+  name: 'Robson Alves',
   country: 'Brasil',
   state: 'Paraná',
   city: 'Curitiba',
