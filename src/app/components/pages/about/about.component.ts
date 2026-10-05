@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,7 +12,7 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './about.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

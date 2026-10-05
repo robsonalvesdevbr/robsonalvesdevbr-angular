@@ -37,32 +37,27 @@
       "instructor": {
         "period": "2001-2006",
         "title": "Starting as an Instructor",
-        "description": "I began my professional journey as an instructor at Alpha Tech, teaching Delphi programming, hardware, website design, and basic computing. For five years, I developed teaching skills and deepened my technical knowledge, including private lessons and corporate training.",
-        "imageAlt": "Career start"
+        "description": "I began my professional journey as an instructor at Alpha Tech, teaching Delphi programming, hardware, website design, and basic computing. For five years, I developed teaching skills and deepened my technical knowledge, including private lessons and corporate training."
       },
       "transition": {
         "period": "2006-2008",
         "title": "Transition to Development",
-        "description": "I transitioned from teaching to software development, working at Softpar. I applied my technical experience to enterprise system projects, consolidating knowledge in Delphi and databases. A fundamental period for understanding complex business rules and critical system development.",
-        "imageAlt": "Transition to development"
+        "description": "I transitioned from teaching to software development, working at Softpar. I applied my technical experience to enterprise system projects, consolidating knowledge in Delphi and databases. A fundamental period for understanding complex business rules and critical system development."
       },
       "financial": {
         "period": "2008-2019",
         "title": "11 Years in Financial Systems",
-        "description": "The longest and most transformative period at View Financial Systems. I developed critical financial systems focused on checking accounts, documents, and leasing operations. During these 11 years, I led the migration of Delphi systems to .NET, using technologies like C#, Visual Studio, Oracle, and SQL Server. Essential experience that shaped my expertise in high-availability systems.",
-        "imageAlt": "Financial systems"
+        "description": "The longest and most transformative period at View Financial Systems. I developed critical financial systems focused on checking accounts, documents, and leasing operations. During these 11 years, I led the migration of Delphi systems to .NET, using technologies like C#, Visual Studio, Oracle, and SQL Server. Essential experience that shaped my expertise in high-availability systems."
       },
       "modernization": {
         "period": "2019-2021",
         "title": "Modernization and New Technologies",
-        "description": "A period of great technical evolution at Zylix, working with industrial automation systems and adopting modern technologies. I implemented solutions with .NET Core, microservices, Docker, Kubernetes, and cloud platforms like Azure. A crucial phase for my definitive transition to software architecture.",
-        "imageAlt": "Technological evolution"
+        "description": "A period of great technical evolution at Zylix, working with industrial automation systems and adopting modern technologies. I implemented solutions with .NET Core, microservices, Docker, Kubernetes, and cloud platforms like Azure. A crucial phase for my definitive transition to software architecture."
       },
       "architect": {
         "period": "2021-Present",
         "title": "Software Architect at Consilux",
-        "description": "Currently working as Software Architect and consultant at Consilux, focusing on code review, cloud application management, and system architecture for the financial sector. I develop solutions for fintechs and payment gateways, using technologies like Azure, AWS, .NET, RabbitMQ, Kubernetes, and observability tools like DataDog and Grafana. Specialized in legacy system modernization and DevOps practices implementation.",
-        "imageAlt": "Software architect"
+        "description": "Currently working as Software Architect and consultant at Consilux, focusing on code review, cloud application management, and system architecture for the financial sector. I develop solutions for fintechs and payment gateways, using technologies like Azure, AWS, .NET, RabbitMQ, Kubernetes, and observability tools like DataDog and Grafana. Specialized in legacy system modernization and DevOps practices implementation."
       },
       "experience": {
         "line1": "23+ Years",

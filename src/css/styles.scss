@@ -731,6 +731,14 @@ header.masthead .masthead-actions {
   box-shadow: 0 0 20px rgba(var(--brand-accent-rgb), 0.4);
   border-color: var(--brand-accent);
 }
+.timeline > li .timeline-image .timeline-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.9rem;
+  color: #212529;
+}
 .timeline > li .timeline-image h4,
 .timeline > li .timeline-image .h4 {
   font-size: 10px;
@@ -790,6 +798,9 @@ header.masthead .masthead-actions {
     width: 100px;
     height: 100px;
     margin-left: -50px;
+  }
+  .timeline > li .timeline-image .timeline-icon {
+    font-size: 2.4rem;
   }
   .timeline > li .timeline-image h4,
   .timeline > li .timeline-image .h4 {
