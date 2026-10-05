@@ -18,8 +18,6 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 export class NavigationComponent extends BasePageComponent implements OnDestroy {
   private readonly analyticsService = inject(AnalyticsService);
 
-  readonly educationSections: readonly string[] = ['graduation', 'courses', 'trilhas', 'books'];
-
   isMenuOpen = signal(false);
   activeSection = signal<string>('');
   private _scrollObserver: IntersectionObserver | null = null;

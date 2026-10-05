@@ -19,7 +19,7 @@ test.describe('Language Switching', () => {
     await expect(aboutLink).toContainText('Sobre');
 
     const graduationLink = page.locator('[data-testid="nav-graduation"]');
-    await expect(graduationLink).toContainText('Formação');
+    await expect(graduationLink).toContainText('(Pós)Graduação');
 
     // Check language flag
     const flag = page.locator('[data-testid="language-flag"]');
@@ -44,7 +44,7 @@ test.describe('Language Switching', () => {
     await expect(aboutLink).toContainText('About');
 
     const graduationLink = page.locator('[data-testid="nav-graduation"]');
-    await expect(graduationLink).toContainText('Education');
+    await expect(graduationLink).toContainText('(Post)Graduation');
 
     // Check flag changed to US
     const flag = page.locator('[data-testid="language-flag"]');
@@ -103,8 +103,8 @@ test.describe('Language Switching', () => {
     // Elements to check
     const elementsToCheck = [
       { selector: '[data-testid="nav-about"]', ptText: 'Sobre', enText: 'About' },
-      { selector: '[data-testid="nav-skills"]', ptText: 'Skills', enText: 'Skills' },
-      { selector: '[data-testid="nav-graduation"]', ptText: 'Formação', enText: 'Education' },
+      { selector: '[data-testid="nav-courses"]', ptText: 'Cursos', enText: 'Courses' },
+      { selector: '[data-testid="nav-books"]', ptText: 'Leituras', enText: 'Readings' },
       { selector: '[data-testid="nav-contact"]', ptText: 'Contato', enText: 'Contact' }
     ];
 

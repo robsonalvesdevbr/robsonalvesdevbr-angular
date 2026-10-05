@@ -18,7 +18,6 @@
     "toggleNavigation": "Toggle navigation",
     "about": "About",
     "skills": "Skills",
-    "education": "Education",
     "graduation": "(Post)Graduation",
     "courses": "Courses",
     "formations": "Tracks",
@@ -28,7 +27,7 @@
   "masterhead": {
     "name": "Robson Alves",
     "role": "Software Architect · 23+ years of experience",
-    "tagline": "Specialist in .NET, Cloud (Azure/AWS) and financial systems modernization.",
+    "tagline": "Specialist in software architecture, .NET, Go and Cloud (Azure/AWS).",
     "contact": "Get in touch"
   },
   "about": {
@@ -81,7 +80,8 @@
       "messaging": "Messaging",
       "observability": "Observability",
       "data": "Databases",
-      "practices": "Architecture and practices"
+      "practices": "Engineering practices",
+      "architecture": "Software architecture"
     }
   },
   "courses": {

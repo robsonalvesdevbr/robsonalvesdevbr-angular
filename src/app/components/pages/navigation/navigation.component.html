@@ -52,8 +52,8 @@
             [attr.aria-label]="'navigation.about' | translate"
             (click)="sobreAnalitics($event)"
             data-testid="nav-about"
-            >{{ 'navigation.about' | translate }}</a
-          >
+            >{{ 'navigation.about' | translate }}<span class="sr-only"></span
+          ></a>
         </li>
         <li class="nav-item">
           <a
@@ -69,12 +69,45 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            [class.active]="educationSections.includes(activeSection())"
+            [class.active]="activeSection() === 'graduation'"
             href="#graduation"
-            [attr.aria-label]="'navigation.education' | translate"
+            [attr.aria-label]="'navigation.graduation' | translate"
             (click)="graduationAnalitics($event)"
             data-testid="nav-graduation"
-            >{{ 'navigation.education' | translate }}</a
+            >{{ 'navigation.graduation' | translate }}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [class.active]="activeSection() === 'courses'"
+            href="#courses"
+            [attr.aria-label]="'navigation.courses' | translate"
+            (click)="coursesAnalitics($event)"
+            data-testid="nav-courses"
+            >{{ 'navigation.courses' | translate }}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [class.active]="activeSection() === 'trilhas'"
+            href="#trilhas"
+            [attr.aria-label]="'navigation.formations' | translate"
+            (click)="trilhasAnalitics($event)"
+            data-testid="nav-formations"
+            >{{ 'navigation.formations' | translate }}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [class.active]="activeSection() === 'books'"
+            href="#books"
+            [attr.aria-label]="'navigation.books' | translate"
+            (click)="booksAnalitics($event)"
+            data-testid="nav-books"
+            >{{ 'navigation.books' | translate }}</a
           >
         </li>
         <li class="nav-item">

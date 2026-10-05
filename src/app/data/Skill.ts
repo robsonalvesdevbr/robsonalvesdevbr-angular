@@ -2,8 +2,19 @@ import { ISkillGroup } from '@path-interfaces/ISkillGroup';
 
 export const SkillGroups: ISkillGroup[] = [
   {
+    id: 'architecture',
+    skills: [
+      'Software Architecture',
+      'System Design',
+      'Clean Architecture',
+      'Domain-Driven Design',
+      'Event-Driven Architecture',
+      'Distributed Systems',
+    ],
+  },
+  {
     id: 'platforms',
-    skills: ['C#', '.NET', '.NET Core', 'Delphi'],
+    skills: ['C#', '.NET', '.NET Core', 'Go'],
   },
   {
     id: 'cloud',
@@ -11,7 +22,7 @@ export const SkillGroups: ISkillGroup[] = [
   },
   {
     id: 'messaging',
-    skills: ['RabbitMQ'],
+    skills: ['Kafka', 'RabbitMQ'],
   },
   {
     id: 'observability',
