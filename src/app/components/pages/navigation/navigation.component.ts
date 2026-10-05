@@ -18,6 +18,8 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 export class NavigationComponent extends BasePageComponent implements OnDestroy {
   private readonly analyticsService = inject(AnalyticsService);
 
+  readonly educationSections: readonly string[] = ['graduation', 'courses', 'trilhas', 'books'];
+
   isMenuOpen = signal(false);
   activeSection = signal<string>('');
   private _scrollObserver: IntersectionObserver | null = null;
@@ -49,7 +51,7 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   }
 
   private setupScrollSpy(): void {
-    const sectionIds = ['about', 'graduation', 'courses', 'trilhas', 'books', 'contact'];
+    const sectionIds = ['about', 'skills', 'graduation', 'courses', 'trilhas', 'books', 'contact'];
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -126,6 +128,7 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   }
 
   sobreAnalitics = this.createNavigationHandler('about');
+  skillsAnalitics = this.createNavigationHandler('skills');
   graduationAnalitics = this.createNavigationHandler('graduation');
   coursesAnalitics = this.createNavigationHandler('courses');
   trilhasAnalitics = this.createNavigationHandler('trilhas');

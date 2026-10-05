@@ -39,6 +39,8 @@ describe('NavigationComponent', () => {
         ariaLabel: 'Navegação principal',
         toggleNavigation: 'Alternar navegação',
         about: 'Sobre',
+        skills: 'Skills',
+        education: 'Formação',
         graduation: '(Pós)Graduação',
         courses: 'Cursos',
         formations: 'Trilhas',
@@ -54,6 +56,8 @@ describe('NavigationComponent', () => {
         ariaLabel: 'Main navigation',
         toggleNavigation: 'Toggle navigation',
         about: 'About',
+        skills: 'Skills',
+        education: 'Education',
         graduation: 'Graduation',
         courses: 'Courses',
         formations: 'Tracks',
@@ -76,10 +80,8 @@ describe('NavigationComponent', () => {
   it('should render navigation titles', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Sobre');
-    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('(Pós)Graduação');
-    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Cursos');
-    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Trilhas');
-    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Leituras');
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Skills');
+    expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Formação');
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Contato');
   });
 

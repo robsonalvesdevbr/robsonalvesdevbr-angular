@@ -9,6 +9,7 @@ import { FooterComponent } from '@path-components/pages/footer/footer.component'
 import { FormationCourseComponent } from '@path-components/pages/formationcourse/formationcourse.component';
 import { GraduationComponent } from '@path-components/pages/graduation/graduation.component';
 import { MasterheadComponent } from '@path-components/pages/masterhead/masterhead.component';
+import { SkillsComponent } from '@path-components/pages/skills/skills.component';
 import { NavigationComponent } from '@path-components/pages/navigation/navigation.component';
 
 @Component({
@@ -18,6 +19,7 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     NavigationComponent,
     MasterheadComponent,
     AboutComponent,
+    SkillsComponent,
     GraduationComponent,
     CourseComponent,
     FormationCourseComponent,
@@ -35,6 +37,7 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     <!-- Main content with viewport-based lazy loading -->
     @defer (on viewport; prefetch on idle) {
       <app-about />
+      <app-skills [bglight]="true" />
       <app-graduation />
       <app-course [bglight]="true" />
       <app-formationcourse />

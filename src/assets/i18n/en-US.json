@@ -17,6 +17,8 @@
     "ariaLabel": "Main navigation",
     "toggleNavigation": "Toggle navigation",
     "about": "About",
+    "skills": "Skills",
+    "education": "Education",
     "graduation": "(Post)Graduation",
     "courses": "Courses",
     "formations": "Tracks",
@@ -68,6 +70,18 @@
         "line2": "of",
         "line3": "Experience!"
       }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and practices I work with",
+    "groups": {
+      "platforms": "Languages and platforms",
+      "cloud": "Cloud and infrastructure",
+      "messaging": "Messaging",
+      "observability": "Observability",
+      "data": "Databases",
+      "practices": "Architecture and practices"
     }
   },
   "courses": {

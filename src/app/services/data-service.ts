@@ -4,11 +4,13 @@ import { Courses } from '@path-data/Course';
 import { FormationCourses } from '@path-data/FormationCourse';
 import { Graduations } from '@path-data/Graduation';
 import { Profile } from '@path-data/Profile';
+import { SkillGroups } from '@path-data/Skill';
 import { IBook } from '@path-interfaces/IBook';
 import { ICourse } from '@path-interfaces/ICourse';
 import { IFormationCourse } from '@path-interfaces/IFormationCourse';
 import { IGraduation } from '@path-interfaces/IGraduation';
 import { IProfile } from '@path-interfaces/IProfile';
+import { ISkillGroup } from '@path-interfaces/ISkillGroup';
 
 @Injectable({
   providedIn: 'root',
@@ -55,6 +57,10 @@ export class DataService {
 
   getFormationCourses(): readonly IFormationCourse[] {
     return this._formationCoursesProxy;
+  }
+
+  getSkillGroups(): readonly ISkillGroup[] {
+    return SkillGroups;
   }
 
   getProfile(): IProfile {

@@ -17,6 +17,8 @@
     "ariaLabel": "Navegação principal",
     "toggleNavigation": "Toggle navigation",
     "about": "Sobre",
+    "skills": "Skills",
+    "education": "Formação",
     "graduation": "(Pós)Graduação",
     "courses": "Cursos",
     "formations": "Trilhas",
@@ -68,6 +70,18 @@
         "line2": "de",
         "line3": "Experiência!"
       }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Tecnologias e práticas do meu dia a dia",
+    "groups": {
+      "platforms": "Linguagens e plataformas",
+      "cloud": "Cloud e infraestrutura",
+      "messaging": "Mensageria",
+      "observability": "Observabilidade",
+      "data": "Bancos de dados",
+      "practices": "Arquitetura e práticas"
     }
   },
   "courses": {
