@@ -37,9 +37,20 @@ export class CoursePage extends BasePage {
   }
 
   /**
+   * Abre o painel de filtros (recolhido por padrão)
+   */
+  async openFilters(): Promise<void> {
+    const toggle = this.courseSection.locator('[data-testid="courses-filters-toggle"]');
+    if ((await toggle.getAttribute('aria-expanded')) !== 'true') {
+      await toggle.click();
+    }
+  }
+
+  /**
    * Aplica filtro por categoria/tag
    */
   async filterByTag(tag: string): Promise<void> {
+    await this.openFilters();
     const filterButton = this.filterButtons.filter({ hasText: tag }).first();
     if (await filterButton.isVisible()) {
       await filterButton.click();

@@ -84,6 +84,7 @@
     "subtitle": "Learn more about my courses.",
     "quantity": "Quantity: {{count}}",
     "clearFilters": "Clear Filters",
+    "filters": "Filters",
     "filterInstitution": "Filter Institution",
     "filterTag": "Filter tag",
     "ariaClearFilters": "Clear Filters",

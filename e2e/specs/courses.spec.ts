@@ -30,6 +30,7 @@ test.describe('Seção de Cursos', () => {
   });
 
   test('deve permitir filtrar cursos por tag (se disponível)', async () => {
+    await coursePage.openFilters();
     const filterCount = await coursePage.filterButtons.count();
 
     if (filterCount > 0) {

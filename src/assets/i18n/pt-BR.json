@@ -84,6 +84,7 @@
     "subtitle": "Saiba mais sobre meus cursos.",
     "quantity": "Quantidade: {{count}}",
     "clearFilters": "Limpar Filtros",
+    "filters": "Filtros",
     "filterInstitution": "Filtrar Instituição",
     "filterTag": "Filtrar tag",
     "ariaClearFilters": "Limpar Filtros",
