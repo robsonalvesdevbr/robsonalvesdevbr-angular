@@ -361,6 +361,22 @@ p {
     margin-right: 0;
   }
 }
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  #mainNav .navbar-nav {
+    flex-wrap: nowrap;
+  }
+  #mainNav .navbar-nav .nav-item {
+    margin-right: 0;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    white-space: nowrap;
+  }
+}
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
