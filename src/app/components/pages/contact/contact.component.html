@@ -1,136 +1,63 @@
 <!-- Contact-->
 <section class="page-section" id="contact" data-testid="contact-section" [ngClass]="currentClass()">
   <div class="container">
-    <div class="text-center">
+    <div class="text-center mb-5">
       <h2 class="section-heading text-uppercase">{{ 'contact.title' | translate }}</h2>
     </div>
 
-    <div class="alert bg-body-tertiary border" role="alert">
-      <div class="container d-flex">
-        <div class="row justify-content-md-center">
-          <div class="col-md-auto align-self-center">
-            <div class="team-member align-self-center">
-              <img
-                ngSrc="/assets/img/myimage.jpg"
-                [alt]="'contact.photoAlt' | translate"
-                class="mx-auto rounded-circle"
-                width="480"
-                height="480"
-                sizes="(max-width: 768px) 40vw, 25vw"
-              />
-            </div>
-          </div>
-          <div class="col-md-auto mt-3">
-            <h4 class="alert-heading">{{ profiles().name }}</h4>
-            <b>{{ 'contact.location' | translate }}:</b> {{ profiles().country }},
-            {{ profiles().city }} /
-            {{ profiles().state }}
-            <br />
-            <b>{{ 'contact.email' | translate }}:</b> {{ profiles().email }} <br />
-            <b>{{ 'contact.birthday' | translate }}:</b>
-            {{ profiles().birthday | date: 'dd/MM/yyyy' }}<br />
-            <b>{{ 'contact.age' | translate }}:</b> {{ calculateAge(profiles().birthday) }}<br />
-
-            @for (item of profiles().urlList | keyvalue: asIsOrder; track item) {
-              <div class="d-inline">
-                <b>{{ item.key }}: </b>
-              </div>
-              <div class="d-inline">
-                <a
-                  [href]="item.value"
-                  [attr.aria-label]="item.key"
-                  class="text-muted text-decoration-none"
-                  target="_blank"
-                  rel="noopener"
-                  (click)="onSocialLinkClick(item.key)"
-                  >{{ item.value }}</a
-                >
-              </div>
-              <br />
-            }
-            <b>{{ 'contact.separator' | translate }}</b
-            ><br />
-            <p>
-              <a
-                [href]="
-                  'mailto:' + profiles().email + '?subject=Contato website robsonalves.dev.br'
-                "
-                [attr.aria-label]="'contact.sendEmail' | translate: { email: profiles().email }"
-                class="btn"
-                (click)="onEmailClick()"
-                ><i class="bi bi-envelope-at-fill icon-social"></i
-              ></a>
-              <a
-                [href]="profiles().urlList.get('WebSite')"
-                [attr.aria-label]="'contact.visitWebsite' | translate: { name: profiles().name }"
-                class="btn"
-                target="_blank"
-                rel="noopener"
-                (click)="onSocialLinkClick('website')"
-                ><i class="bi bi-house-fill icon-social"></i
-              ></a>
-              <a
-                [href]="profiles().urlList.get('LinkedIn')"
-                [attr.aria-label]="'contact.visitLinkedIn' | translate: { name: profiles().name }"
-                class="btn"
-                target="_blank"
-                rel="noopener"
-                (click)="onSocialLinkClick('linkedin')"
-                ><i class="bi bi-linkedin icon-social"></i
-              ></a>
-              <a
-                [href]="profiles().urlList.get('Instagram')"
-                [attr.aria-label]="'contact.visitInstagram' | translate: { name: profiles().name }"
-                class="btn"
-                target="_blank"
-                rel="noopener"
-                (click)="onSocialLinkClick('instagram')"
-                ><i class="bi bi-instagram icon-social"></i
-              ></a>
-              <a
-                [href]="profiles().urlList.get('GitHub')"
-                [attr.aria-label]="'contact.visitGitHub' | translate: { name: profiles().name }"
-                class="btn"
-                target="_blank"
-                rel="noopener"
-                (click)="onSocialLinkClick('github')"
-                ><i class="bi bi-github icon-social"></i
-              ></a>
-              <a
-                href="https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular"
-                [attr.aria-label]="'contact.visitRepository' | translate"
-                class="btn"
-                target="_blank"
-                rel="noopener"
-                (click)="onRepositoryClick()"
-                ><i class="bi bi-git icon-social"></i
-              ></a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
         <div class="card bg-body-tertiary">
-          <div class="card-header">{{ 'contact.aboutThisPage.title' | translate }}</div>
-          <div class="card-body">
-            <p class="card-text text-sm">
-              {{ 'contact.aboutThisPage.description' | translate }}
-            </p>
-            <div class="d-inline text-sm text-danger">
-              <b>{{ 'contact.aboutThisPage.sourceCode' | translate }} </b>
+          <div class="card-body p-4">
+            <div class="row align-items-center g-4">
+              <div class="col-md-auto text-center">
+                <img
+                  ngSrc="/assets/img/myimage.jpg"
+                  [alt]="'contact.photoAlt' | translate"
+                  class="contact-photo rounded-circle"
+                  width="480"
+                  height="480"
+                  sizes="(max-width: 768px) 40vw, 15vw"
+                />
+              </div>
+              <div class="col-md text-center text-md-start">
+                <h3 class="h4 mb-3">{{ profiles().name }}</h3>
+                <p class="mb-1">
+                  <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i
+                  ><span class="visually-hidden">{{ 'contact.location' | translate }}: </span
+                  >{{ profiles().country }}, {{ profiles().city }} / {{ profiles().state }}
+                </p>
+                <p class="mb-4">
+                  <i class="bi bi-person-fill me-2" aria-hidden="true"></i
+                  >{{ 'contact.age' | translate }}: {{ calculateAge(profiles().birthday) }}
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+                  <a
+                    class="btn btn-primary"
+                    [href]="
+                      'mailto:' + profiles().email + '?subject=Contato website robsonalves.dev.br'
+                    "
+                    [attr.aria-label]="'contact.sendEmail' | translate: { email: profiles().email }"
+                    data-testid="contact-email"
+                    (click)="onEmailClick()"
+                    ><i class="bi bi-envelope-at-fill me-2" aria-hidden="true"></i
+                    >{{ profiles().email }}</a
+                  >
+                  @for (item of profiles().urlList | keyvalue: asIsOrder; track item.key) {
+                    <a
+                      class="btn btn-outline-secondary"
+                      [href]="item.value"
+                      target="_blank"
+                      rel="noopener"
+                      (click)="onSocialLinkClick(item.key.toLowerCase())"
+                      ><i class="bi me-2" [ngClass]="iconFor(item.key)" aria-hidden="true"></i
+                      >{{ item.key }}</a
+                    >
+                  }
+                </div>
+              </div>
             </div>
-            <div class="d-inline text-sm">
-              <a
-                href="https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular"
-                [attr.aria-label]="'contact.aboutThisPage.visitRepo' | translate"
-                class="text-muted text-decoration-none d-block d-sm-inline mt-1 mt-sm-0"
-                target="_blank"
-                rel="noopener"
-                >github.com/robsonalvesdevbr/robsonalvesdevbr-angular</a
-              >
-            </div>
-            <p class="text-sm mt-2">{{ 'contact.aboutThisPage.thanks' | translate }}</p>
           </div>
         </div>
       </div>

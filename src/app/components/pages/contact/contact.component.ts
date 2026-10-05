@@ -23,6 +23,13 @@ export class ContactComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);
   private readonly analyticsService = inject(AnalyticsService);
 
+  private readonly socialIcons: Record<string, string> = {
+    WebSite: 'bi-house-fill',
+    LinkedIn: 'bi-linkedin',
+    Instagram: 'bi-instagram',
+    GitHub: 'bi-github',
+  };
+
   profiles = signal(this.dataService.getProfile());
 
   asIsOrder(): number {
@@ -41,7 +48,7 @@ export class ContactComponent extends BasePageComponent {
     this.analyticsService.trackSocialLinkClick('email', 'contact');
   }
 
-  onRepositoryClick(): void {
-    this.analyticsService.trackSocialLinkClick('github_repo', 'contact');
+  iconFor(platform: string): string {
+    return this.socialIcons[platform] ?? 'bi-link-45deg';
   }
 }

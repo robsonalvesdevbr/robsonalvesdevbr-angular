@@ -158,29 +158,16 @@
     "photoAlt": "Robson Alves profile photo",
     "location": "Location",
     "email": "Email",
-    "birthday": "Birthday",
     "age": "Age",
-    "separator": "--------------------------------------------------------------",
     "downloadResume": "Resume in English",
     "downloadResumeLink": "Click here to download",
-    "sendEmail": "Send email to {{email}}",
-    "visitWebsite": "Visit {{name}}'s personal website",
-    "visitLinkedIn": "Visit {{name}}'s LinkedIn profile",
-    "visitInstagram": "Visit {{name}}'s Instagram profile",
-    "visitGitHub": "Visit {{name}}'s GitHub profile",
-    "visitRepository": "Visit project repository on GitHub",
-    "aboutThisPage": {
-      "title": "About this page",
-      "description": "This page was created to showcase my career and knowledge, as well as to practice Angular and TypeScript. The project uses Angular (currently version 20), is versioned on GitHub, and deployment is automatically performed via GitHub Actions, being hosted on Azure Static Web Apps.",
-      "sourceCode": "Source code of this page:",
-      "visitRepo": "Visit the GitHub repository",
-      "thanks": "Thank you for visiting!"
-    }
+    "sendEmail": "Send email to {{email}}"
   },
   "footer": {
-    "copyright": "Robson Alves 2000-2025 · All rights reserved.",
+    "copyright": "Robson Alves 2000-{{year}} · All rights reserved.",
     "pageTemplate": "Page Template",
-    "termsOfUse": "Terms of Use"
+    "sourceCode": "Source code",
+    "about": "This page showcases my career and knowledge and serves as practice in Angular and TypeScript. The code is open on GitHub and deployed automatically via GitHub Actions to Azure Static Web Apps."
   },
   "common": {
     "loading": "Loading...",

@@ -158,29 +158,16 @@
     "photoAlt": "Foto de perfil de Robson Alves",
     "location": "Localização",
     "email": "Email",
-    "birthday": "Nascimento",
     "age": "Idade",
-    "separator": "--------------------------------------------------------------",
     "downloadResume": "Currículo em Inglês",
     "downloadResumeLink": "Clique aqui para download",
-    "sendEmail": "Enviar email para {{email}}",
-    "visitWebsite": "Acessar website pessoal de {{name}}",
-    "visitLinkedIn": "Acessar perfil LinkedIn de {{name}}",
-    "visitInstagram": "Acessar perfil Instagram de {{name}}",
-    "visitGitHub": "Acessar perfil GitHub de {{name}}",
-    "visitRepository": "Acessar repositório do projeto no GitHub",
-    "aboutThisPage": {
-      "title": "Sobre esta página",
-      "description": "Esta página foi criada para apresentar minha carreira e conhecimentos, além de servir como prática em Angular e TypeScript. O projeto utiliza Angular (atualmente na versão 20), está versionado no GitHub e o deploy é realizado automaticamente via GitHub Actions, sendo hospedado no Azure Static Web Apps.",
-      "sourceCode": "Código-fonte desta página:",
-      "visitRepo": "Visite o repositório do GitHub",
-      "thanks": "Obrigado por visitar!"
-    }
+    "sendEmail": "Enviar email para {{email}}"
   },
   "footer": {
-    "copyright": "Robson Alves 2000-2025 · Todos os direitos reservados.",
+    "copyright": "Robson Alves 2000-{{year}} · Todos os direitos reservados.",
     "pageTemplate": "Template da página",
-    "termsOfUse": "Termos de Uso"
+    "sourceCode": "Código-fonte",
+    "about": "Esta página apresenta minha carreira e conhecimentos e serve como prática em Angular e TypeScript. O código é aberto no GitHub e o deploy é automático via GitHub Actions no Azure Static Web Apps."
   },
   "common": {
     "loading": "Carregando...",

@@ -7,6 +7,7 @@ import { provideHttpClient, withXhr } from '@angular/common/http';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
+  let root: HTMLElement;
   let dataServiceStub: Partial<DataService>;
 
   beforeEach(async () => {
@@ -45,22 +46,8 @@ describe('ContactComponent', () => {
         photoAlt: 'Foto do perfil',
         location: 'Localização',
         email: 'E-mail',
-        birthday: 'Aniversário',
         age: 'Idade',
-        separator: '—',
         sendEmail: 'Enviar e-mail',
-        visitWebsite: 'Visitar site',
-        visitLinkedIn: 'Visitar LinkedIn',
-        visitInstagram: 'Visitar Instagram',
-        visitGitHub: 'Visitar GitHub',
-        visitRepository: 'Visitar repositório',
-        aboutThisPage: {
-          title: 'Sobre esta página',
-          description: 'Descrição',
-          sourceCode: 'Código fonte',
-          visitRepo: 'Visitar repo',
-          thanks: 'Obrigado'
-        }
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({
@@ -69,26 +56,13 @@ describe('ContactComponent', () => {
         photoAlt: 'Profile photo',
         location: 'Location',
         email: 'Email',
-        birthday: 'Birthday',
         age: 'Age',
-        separator: '—',
         sendEmail: 'Send email',
-        visitWebsite: 'Visit website',
-        visitLinkedIn: 'Visit LinkedIn',
-        visitInstagram: 'Visit Instagram',
-        visitGitHub: 'Visit GitHub',
-        visitRepository: 'Visit repository',
-        aboutThisPage: {
-          title: 'About this page',
-          description: 'Description',
-          sourceCode: 'Source code',
-          visitRepo: 'Visit repo',
-          thanks: 'Thanks'
-        }
       }
     });
     component = fixture.componentInstance;
     fixture.detectChanges();
+    root = fixture.nativeElement as HTMLElement;
   });
 
   it('should create', () => {
@@ -100,5 +74,24 @@ describe('ContactComponent', () => {
     vi.setSystemTime(new Date(2024, 5, 15));
     expect(component.calculateAge(new Date(1990, 1, 1))).toBe(34);
     vi.useRealTimers();
+  });
+
+  it('should render a primary email action and one labeled link per profile url', () => {
+    const email = root.querySelector<HTMLAnchorElement>('[data-testid="contact-email"]');
+    expect(email?.getAttribute('href')).toContain('mailto:robson.curitibapr@gmail.com');
+
+    const outline = Array.from(root.querySelectorAll<HTMLAnchorElement>('a.btn-outline-secondary'));
+    expect(outline.map(a => a.textContent?.trim())).toEqual(['WebSite', 'LinkedIn', 'Instagram', 'GitHub']);
+    outline.forEach(a => expect(a.getAttribute('rel')).toBe('noopener'));
+  });
+
+  it('should not expose the birth date or the repository meta card', () => {
+    expect(root.textContent).not.toContain('1980');
+    expect(root.querySelector('.card-header')).toBeNull();
+  });
+
+  it('should map known platforms to icons and fall back for unknown ones', () => {
+    expect(component.iconFor('GitHub')).toBe('bi-github');
+    expect(component.iconFor('Mastodon')).toBe('bi-link-45deg');
   });
 });

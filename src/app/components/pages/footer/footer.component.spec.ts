@@ -27,14 +27,14 @@ describe('FooterComponent', () => {
       footer: {
         copyright: 'Todos os direitos reservados',
         pageTemplate: 'Template da página',
-        termsOfUse: 'Termos de Uso'
+        sourceCode: 'Código-fonte'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({
       footer: {
         copyright: 'All rights reserved',
         pageTemplate: 'Page template',
-        termsOfUse: 'Terms of Use'
+        sourceCode: 'Source code'
       }
     });
   // Set language to EN to match expectation
@@ -43,7 +43,7 @@ describe('FooterComponent', () => {
   fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('div.container')?.textContent).toContain(
-      'Terms of Use'
+      'Source code'
     );
   });
 });

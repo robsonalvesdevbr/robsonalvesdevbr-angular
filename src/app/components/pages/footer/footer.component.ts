@@ -10,6 +10,7 @@ import { AnalyticsService } from '@path-services/analytics.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
+  readonly currentYear = String(new Date().getFullYear());
   private readonly analyticsService = inject(AnalyticsService);
 
   onFooterLinkClick(platform: string): void {
