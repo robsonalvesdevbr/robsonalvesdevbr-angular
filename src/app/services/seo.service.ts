@@ -69,13 +69,13 @@ export class SeoService {
   // Fallback usado até as traduções carregarem (mesmo conteúdo do index.html)
   private readonly defaultMeta: LocalizedMeta = {
     title: 'Sobre - Robson Alves | Arquiteto de Software com 23+ Anos de Experiência',
-    description: 'Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em .NET, Cloud (Azure/AWS), e modernização de sistemas financeiros. Trajetória única de instrutor a arquiteto.',
-    keywords: 'Robson Alves, Arquiteto de Software, .NET, Azure, AWS, Cloud Computing, C#, Desenvolvedor Senior, Líder Técnico, Sistemas Financeiros, Curitiba',
+    description: 'Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.',
+    keywords: 'Robson Alves, Arquiteto de Software, Arquitetura de Software, .NET, Go, Kafka, Azure, AWS, Cloud Computing, C#, Desenvolvedor Senior, Líder Técnico, Curitiba',
     ogTitle: 'Robson Alves - Arquiteto de Software | 23+ Anos de Experiência',
-    ogDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.',
+    ogDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.',
     ogLocale: 'pt_BR',
     twitterTitle: 'Robson Alves - Arquiteto de Software',
-    twitterDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.'
+    twitterDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.'
   };
 
   private seoInitialized = false;
@@ -179,13 +179,14 @@ export class SeoService {
         'C# Programming',
         'Microservices Architecture',
         'DevOps',
-        'Financial Software Systems',
+        'Go Programming',
+        'Distributed Systems',
         'Software Development Leadership'
       ],
       hasOccupation: [{
         '@type': 'Occupation',
         name: 'Software Architect',
-        description: 'Especialista em arquitetura de software, modernização de sistemas legados e liderança técnica no setor financeiro',
+        description: 'Especialista em arquitetura de software, modernização de sistemas legados e liderança técnica',
         experienceRequirements: '23+ years of software development experience',
         occupationLocation: {
           '@type': 'City',
