@@ -33,7 +33,7 @@
             <fieldset
               class="btn-group-sm"
               role="group"
-              aria-label="Basic checkbox toggle button group"
+              [attr.aria-label]="'books.filterPublisher' | translate"
               id="group_label_book_institution"
             >
               <button
@@ -78,7 +78,7 @@
               <fieldset
                 class="btn-group-sm"
                 role="group"
-                aria-label="Basic checkbox toggle button group"
+                [attr.aria-label]="'books.filterTag' | translate"
               >
                 <b class="p-1 m-1">{{ 'books.filterTag' | translate }}:</b>
                 @for (tag of availableTags(); track trackByTag($index, tag)) {

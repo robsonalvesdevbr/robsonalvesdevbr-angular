@@ -86,6 +86,15 @@ describe('NavigationComponent', () => {
     expect(compiled.querySelector('#navbarResponsive')?.textContent).toContain('Contato');
   });
 
+  it('should not duplicate the visible link text in aria-label or add redundant roles', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const links = compiled.querySelectorAll('#navbarResponsive a.nav-link');
+    expect(links.length).toBeGreaterThan(0);
+    links.forEach(link => expect(link.hasAttribute('aria-label')).toBe(false));
+    expect(compiled.querySelector('nav')?.hasAttribute('role')).toBe(false);
+    expect(compiled.querySelector('nav')?.getAttribute('aria-label')).toBeTruthy();
+  });
+
   describe('Menu Hamburger Functionality', () => {
     it('should start with menu closed', () => {
       expect(component.isMenuOpen()).toBe(false);

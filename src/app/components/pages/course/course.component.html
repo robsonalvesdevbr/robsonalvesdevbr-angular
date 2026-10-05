@@ -32,7 +32,7 @@
             <fieldset
               class="btn-group-sm"
               role="group"
-              aria-label="Basic checkbox toggle button group"
+              [attr.aria-label]="'courses.filterInstitution' | translate"
               id="group_label_course_institution"
             >
               <button
@@ -77,7 +77,7 @@
               <fieldset
                 class="btn-group-sm"
                 role="group"
-                aria-label="Basic checkbox toggle button group"
+                [attr.aria-label]="'courses.filterTag' | translate"
               >
                 <b class="p-1 m-1">{{ 'courses.filterTag' | translate }}:</b>
                 @for (tag of availableTags(); track trackByTag($index, tag)) {

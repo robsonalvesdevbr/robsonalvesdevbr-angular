@@ -36,7 +36,10 @@
                   <a
                     class="btn btn-primary"
                     [href]="
-                      'mailto:' + profiles().email + '?subject=Contato website robsonalves.dev.br'
+                      'mailto:' +
+                      profiles().email +
+                      '?subject=' +
+                      ('contact.emailSubject' | translate)
                     "
                     [attr.aria-label]="'contact.sendEmail' | translate: { email: profiles().email }"
                     data-testid="contact-email"

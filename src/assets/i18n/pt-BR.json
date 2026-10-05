@@ -15,7 +15,7 @@
     "themeToggleToDark": "Ativar tema escuro",
     "themeToggleToLight": "Ativar tema claro",
     "ariaLabel": "Navegação principal",
-    "toggleNavigation": "Toggle navigation",
+    "toggleNavigation": "Alternar navegação",
     "about": "Sobre",
     "skills": "Skills",
     "graduation": "(Pós)Graduação",
@@ -161,7 +161,8 @@
     "age": "Idade",
     "downloadResume": "Currículo em Inglês",
     "downloadResumeLink": "Clique aqui para download",
-    "sendEmail": "Enviar email para {{email}}"
+    "sendEmail": "Enviar email para {{email}}",
+    "emailSubject": "Contato via website robsonalves.dev.br"
   },
   "footer": {
     "copyright": "Robson Alves 2000-{{year}} · Todos os direitos reservados.",
@@ -172,6 +173,7 @@
   "common": {
     "loading": "Carregando...",
     "error": "Erro ao carregar dados",
-    "noData": "Nenhum dado disponível"
+    "noData": "Nenhum dado disponível",
+    "loadError": "Erro ao carregar o conteúdo. Tente recarregar a página."
   }
 }

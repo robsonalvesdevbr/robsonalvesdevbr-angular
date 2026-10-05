@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { afterNextRender, ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { LoadingComponent } from '@path-components/utils/loading/loading.component';
 import { PlaceholderComponent } from '@path-components/utils/placeholder/placeholder.component';
 import { AboutComponent } from '@path-components/pages/about/about.component';
@@ -29,6 +30,7 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     FooterComponent,
     PlaceholderComponent,
     LoadingComponent,
+    TranslatePipe,
   ],
   template: `
     <!-- Navigation and Header load immediately (critical) -->
@@ -51,8 +53,8 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
       <app-placeholder />
     } @error {
       <div class="error-fallback alert alert-warning text-center">
-        <i class="bi bi-exclamation-triangle"></i>
-        Erro ao carregar conteúdo. Tente recarregar a página.
+        <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+        {{ 'common.loadError' | translate }}
       </div>
     }
   `,

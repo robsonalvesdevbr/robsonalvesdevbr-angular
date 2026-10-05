@@ -161,7 +161,8 @@
     "age": "Age",
     "downloadResume": "Resume in English",
     "downloadResumeLink": "Click here to download",
-    "sendEmail": "Send email to {{email}}"
+    "sendEmail": "Send email to {{email}}",
+    "emailSubject": "Contact via robsonalves.dev.br website"
   },
   "footer": {
     "copyright": "Robson Alves 2000-{{year}} · All rights reserved.",
@@ -172,6 +173,7 @@
   "common": {
     "loading": "Loading...",
     "error": "Error loading data",
-    "noData": "No data available"
+    "noData": "No data available",
+    "loadError": "Error loading content. Try reloading the page."
   }
 }
