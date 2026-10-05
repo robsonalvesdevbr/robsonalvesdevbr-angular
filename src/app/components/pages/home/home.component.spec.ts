@@ -331,4 +331,60 @@ describe('HomeComponent', () => {
       expect(true).toBe(true); // Se chegou aqui, não houve crash
     });
   });
+
+  describe('Initial fragment (direct anchor)', () => {
+    const originalUrl = window.location.href;
+    let scrollIntoView: ReturnType<typeof vi.fn>;
+
+    beforeEach(() => {
+      scrollIntoView = vi.fn();
+      Element.prototype.scrollIntoView = scrollIntoView as unknown as typeof Element.prototype.scrollIntoView;
+      vi.stubGlobal(
+        'ResizeObserver',
+        class {
+          observe(): void {}
+          disconnect(): void {}
+        },
+      );
+    });
+
+    afterEach(() => {
+      window.history.replaceState(null, '', originalUrl);
+      vi.unstubAllGlobals();
+    });
+
+    it('should not eagerly load deferred content without a fragment', () => {
+      expect(TestBed.createComponent(HomeComponent).componentInstance.hasInitialFragment).toBe(false);
+    });
+
+    it('should load deferred content immediately when the URL has a fragment', () => {
+      window.history.replaceState(null, '', '/#skills');
+      expect(TestBed.createComponent(HomeComponent).componentInstance.hasInitialFragment).toBe(true);
+    });
+
+    it('should scroll to the target once it appears in the DOM', async () => {
+      window.history.replaceState(null, '', '/#late-section');
+      const tempFixture = TestBed.createComponent(HomeComponent);
+      tempFixture.detectChanges();
+      await tempFixture.whenStable();
+      expect(scrollIntoView).not.toHaveBeenCalled();
+
+      const target = document.createElement('section');
+      target.id = 'late-section';
+      document.body.appendChild(target);
+      await new Promise(resolve => setTimeout(resolve, 0));
+
+      expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start', behavior: 'instant' });
+      target.remove();
+      tempFixture.destroy();
+    });
+
+    it('should not scroll when there is no fragment', async () => {
+      const tempFixture = TestBed.createComponent(HomeComponent);
+      tempFixture.detectChanges();
+      await tempFixture.whenStable();
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      tempFixture.destroy();
+    });
+  });
 });
