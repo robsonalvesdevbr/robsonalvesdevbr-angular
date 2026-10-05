@@ -14,3 +14,5 @@ export const Profile: IProfile = {
     ['GitHub', 'https://github.com/robsonalvesdevbr'],
   ]),
 };
+
+export const RESUME_URL = 'assets/Curriculo_Robson_Alves.pdf';

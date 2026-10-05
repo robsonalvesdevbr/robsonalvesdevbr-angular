@@ -47,6 +47,7 @@ describe('ContactComponent', () => {
         location: 'Localização',
         email: 'E-mail',
         age: 'Idade',
+        resume: 'Currículo',
         sendEmail: 'Enviar e-mail',
       }
     });
@@ -83,6 +84,14 @@ describe('ContactComponent', () => {
     const outline = Array.from(root.querySelectorAll<HTMLAnchorElement>('a.btn-outline-secondary'));
     expect(outline.map(a => a.textContent?.trim())).toEqual(['WebSite', 'LinkedIn', 'Instagram', 'GitHub']);
     outline.forEach(a => expect(a.getAttribute('rel')).toBe('noopener'));
+  });
+
+  it('should link to the resume PDF in a new tab', () => {
+    const resume = root.querySelector<HTMLAnchorElement>('[data-testid="contact-resume"]');
+    expect(resume?.getAttribute('href')).toBe('assets/Curriculo_Robson_Alves.pdf');
+    expect(resume?.getAttribute('target')).toBe('_blank');
+    expect(resume?.getAttribute('rel')).toBe('noopener');
+    expect(resume?.textContent?.trim()).toBe('Currículo');
   });
 
   it('should not expose the birth date or the repository meta card', () => {

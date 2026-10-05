@@ -47,6 +47,16 @@
                     ><i class="bi bi-envelope-at-fill me-2" aria-hidden="true"></i
                     >{{ profiles().email }}</a
                   >
+                  <a
+                    class="btn btn-outline-primary"
+                    [href]="resumeUrl"
+                    target="_blank"
+                    rel="noopener"
+                    data-testid="contact-resume"
+                    (click)="onResumeClick()"
+                    ><i class="bi bi-file-earmark-pdf me-2" aria-hidden="true"></i
+                    >{{ 'contact.resume' | translate }}</a
+                  >
                   @for (item of profiles().urlList | keyvalue: asIsOrder; track item.key) {
                     <a
                       class="btn btn-outline-secondary"

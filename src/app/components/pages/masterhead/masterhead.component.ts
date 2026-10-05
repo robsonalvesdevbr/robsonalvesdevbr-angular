@@ -4,6 +4,7 @@ import { BasePageComponent } from '@path-components/base-page/base-page.componen
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { AnalyticsService } from '@path-services/analytics.service';
 import { DataService } from '@path-services/data-service';
+import { RESUME_URL } from '@path-data/Profile';
 
 @Component({
   selector: 'app-masterhead',
@@ -14,6 +15,7 @@ import { DataService } from '@path-services/data-service';
 export class MasterheadComponent extends BasePageComponent {
   private readonly analyticsService = inject(AnalyticsService);
 
+  readonly resumeUrl = RESUME_URL;
   readonly linkedInUrl = inject(DataService).getProfile().urlList.get('LinkedIn');
 
   onContactClick(): void {
@@ -22,5 +24,9 @@ export class MasterheadComponent extends BasePageComponent {
 
   onLinkedInClick(): void {
     this.analyticsService.trackSocialLinkClick('linkedin', 'masthead');
+  }
+
+  onResumeClick(): void {
+    this.analyticsService.trackSocialLinkClick('resume', 'masthead');
   }
 }

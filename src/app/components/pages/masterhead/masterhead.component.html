@@ -30,6 +30,16 @@
         (click)="onLinkedInClick()"
         >LinkedIn</a
       >
+      <a
+        class="btn btn-outline-light btn-xl text-uppercase"
+        [href]="resumeUrl"
+        target="_blank"
+        rel="noopener"
+        data-testid="masthead-resume"
+        (click)="onResumeClick()"
+        ><i class="bi bi-file-earmark-pdf me-2" aria-hidden="true"></i
+        >{{ 'masterhead.resume' | translate }}</a
+      >
     </div>
   </div>
 </header>

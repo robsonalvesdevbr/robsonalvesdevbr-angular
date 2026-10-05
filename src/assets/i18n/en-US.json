@@ -28,7 +28,8 @@
     "name": "Robson Alves",
     "role": "Software Architect · 23+ years of experience",
     "tagline": "Specialist in software architecture, .NET, Go and Cloud (Azure/AWS).",
-    "contact": "Get in touch"
+    "contact": "Get in touch",
+    "resume": "Resume (PT-BR)"
   },
   "about": {
     "title": "About",
@@ -154,10 +155,9 @@
     "location": "Location",
     "email": "Email",
     "age": "Age",
-    "downloadResume": "Resume in English",
-    "downloadResumeLink": "Click here to download",
     "sendEmail": "Send email to {{email}}",
-    "emailSubject": "Contact via robsonalves.dev.br website"
+    "emailSubject": "Contact via robsonalves.dev.br website",
+    "resume": "Resume (PT-BR)"
   },
   "footer": {
     "copyright": "Robson Alves 2000-{{year}} · All rights reserved.",

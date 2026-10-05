@@ -8,6 +8,7 @@ import {
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
+import { RESUME_URL } from '@path-data/Profile';
 import { AnalyticsService } from '@path-services/analytics.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { calculateAge as calculateAgeUtil } from '@path-utils/age.utils';
@@ -30,6 +31,7 @@ export class ContactComponent extends BasePageComponent {
     GitHub: 'bi-github',
   };
 
+  readonly resumeUrl = RESUME_URL;
   profiles = signal(this.dataService.getProfile());
 
   asIsOrder(): number {
@@ -46,6 +48,10 @@ export class ContactComponent extends BasePageComponent {
 
   onEmailClick(): void {
     this.analyticsService.trackSocialLinkClick('email', 'contact');
+  }
+
+  onResumeClick(): void {
+    this.analyticsService.trackSocialLinkClick('resume', 'contact');
   }
 
   iconFor(platform: string): string {

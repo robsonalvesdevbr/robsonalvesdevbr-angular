@@ -29,6 +29,7 @@ describe('MasterheadComponent', () => {
         role: 'Arquiteto de Software',
         tagline: 'Especialista em .NET',
         contact: 'Entrar em contato',
+        resume: 'Currículo',
       },
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({ masterhead: {} });
@@ -48,5 +49,11 @@ describe('MasterheadComponent', () => {
     const linkedin = compiled.querySelector<HTMLAnchorElement>('[data-testid="masthead-linkedin"]');
     expect(linkedin?.getAttribute('href')).toContain('linkedin.com');
     expect(linkedin?.getAttribute('rel')).toBe('noopener');
+
+    const resume = compiled.querySelector<HTMLAnchorElement>('[data-testid="masthead-resume"]');
+    expect(resume?.getAttribute('href')).toBe('assets/Curriculo_Robson_Alves.pdf');
+    expect(resume?.getAttribute('target')).toBe('_blank');
+    expect(resume?.getAttribute('rel')).toBe('noopener');
+    expect(resume?.textContent?.trim()).toBe('Currículo');
   });
 });
