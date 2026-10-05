@@ -19,33 +19,34 @@ describe('MasterheadComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render titles', () => {
+  it('should render identity and call-to-action links', () => {
     const fixture = TestBed.createComponent(MasterheadComponent);
     const httpMock = TestBed.inject(HttpTestingController);
     httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
+      contact: { photoAlt: 'Foto de perfil' },
       masterhead: {
-        welcome: 'Bem-vindo',
-        subtitle: 'Bem-vindo ao meu portfólio!',
-        learnMore: 'Saiba mais'
-      }
+        name: 'Robson Alves',
+        role: 'Arquiteto de Software',
+        tagline: 'Especialista em .NET',
+        contact: 'Entrar em contato',
+      },
     });
-    httpMock.expectOne('/assets/i18n/en-US.json').flush({
-      masterhead: {
-        welcome: 'Welcome',
-        subtitle: 'Welcome to my portfolio!',
-        learnMore: 'Learn more'
-      }
-    });
-    // Ensure PT-BR selected
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({ masterhead: {} });
     const lang = TestBed.inject(LanguageService);
     lang.setLanguage('pt-BR');
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(
-      compiled.querySelector('div.container div.masthead-subheading')
-        ?.textContent
-    ).toBe('Bem-vindo');
-    const headingText = compiled.querySelector('div.container div.masthead-heading')?.textContent?.trim();
-    expect(headingText).toBe('Bem-vindo ao meu portfólio!');
+
+    expect(compiled.querySelector('h1.masthead-heading')?.textContent?.trim()).toBe('Robson Alves');
+    expect(compiled.querySelector('.masthead-subheading')?.textContent?.trim()).toBe('Arquiteto de Software');
+    expect(compiled.querySelector('.masthead-tagline')?.textContent?.trim()).toBe('Especialista em .NET');
+
+    const contact = compiled.querySelector<HTMLAnchorElement>('[data-testid="masthead-contact"]');
+    expect(contact?.getAttribute('href')).toBe('#contact');
+    expect(contact?.textContent?.trim()).toBe('Entrar em contato');
+
+    const linkedin = compiled.querySelector<HTMLAnchorElement>('[data-testid="masthead-linkedin"]');
+    expect(linkedin?.getAttribute('href')).toContain('linkedin.com');
+    expect(linkedin?.getAttribute('rel')).toBe('noopener');
   });
 });

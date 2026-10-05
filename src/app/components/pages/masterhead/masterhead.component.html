@@ -1,15 +1,35 @@
 <!-- Masthead-->
-<header class="masthead">
+<header class="masthead" data-testid="masthead">
   <div class="container">
-    <div class="masthead-subheading">{{ 'masterhead.welcome' | translate }}</div>
-    <div class="masthead-heading text-uppercase">
-      {{ 'masterhead.subtitle' | translate }}
+    <img
+      ngSrc="assets/img/myimage.jpg"
+      [alt]="'contact.photoAlt' | translate"
+      class="masthead-photo rounded-circle"
+      width="160"
+      height="160"
+      sizes="(max-width: 768px) 40vw, 15vw"
+      priority
+    />
+    <h1 class="masthead-heading text-uppercase">{{ 'masterhead.name' | translate }}</h1>
+    <div class="masthead-subheading">{{ 'masterhead.role' | translate }}</div>
+    <p class="masthead-tagline">{{ 'masterhead.tagline' | translate }}</p>
+    <div class="masthead-actions">
+      <a
+        class="btn btn-primary btn-xl text-uppercase"
+        href="#contact"
+        data-testid="masthead-contact"
+        (click)="onContactClick()"
+        >{{ 'masterhead.contact' | translate }}</a
+      >
+      <a
+        class="btn btn-outline-light btn-xl text-uppercase"
+        [href]="linkedInUrl"
+        target="_blank"
+        rel="noopener"
+        data-testid="masthead-linkedin"
+        (click)="onLinkedInClick()"
+        >LinkedIn</a
+      >
     </div>
-    <a
-      class="btn btn-primary btn-xl text-uppercase"
-      href="#about"
-      [attr.aria-label]="'masterhead.learnMore' | translate"
-      >{{ 'masterhead.learnMore' | translate }}</a
-    >
   </div>
 </header>

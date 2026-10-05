@@ -24,9 +24,10 @@
     "contact": "Contato"
   },
   "masterhead": {
-    "welcome": "Bem-vindo ao meu portfólio!",
-    "subtitle": "É um prazer compartilhar minha trajetória e projetos com você.",
-    "learnMore": "Saiba mais"
+    "name": "Robson Alves",
+    "role": "Arquiteto de Software · 23+ anos de experiência",
+    "tagline": "Especialista em .NET, Cloud (Azure/AWS) e modernização de sistemas financeiros.",
+    "contact": "Entrar em contato"
   },
   "about": {
     "title": "Sobre",

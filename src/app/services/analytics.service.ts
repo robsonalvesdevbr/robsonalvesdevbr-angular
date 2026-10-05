@@ -86,7 +86,7 @@ export class AnalyticsService {
     });
   }
 
-  trackSocialLinkClick(platform: string, linkLocation: 'about' | 'contact' | 'footer'): void {
+  trackSocialLinkClick(platform: string, linkLocation: 'masthead' | 'about' | 'contact' | 'footer'): void {
     this.ga?.gtag('event', 'social_link_click', {
       platform,
       link_location: linkLocation,

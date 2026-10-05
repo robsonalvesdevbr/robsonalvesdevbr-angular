@@ -484,6 +484,43 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
+header.masthead .masthead-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+header.masthead .masthead-heading {
+  margin-bottom: 0.75rem;
+}
+header.masthead .masthead-subheading {
+  margin-bottom: 1rem;
+}
+header.masthead .masthead-tagline {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  font-size: 1.15rem;
+}
+header.masthead .masthead-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+  }
+  header.masthead .masthead-heading {
+    margin-bottom: 1rem;
+  }
+  header.masthead .masthead-tagline {
+    font-size: 1.35rem;
+    margin-bottom: 2.5rem;
+  }
+}
 #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;
