@@ -14,11 +14,11 @@ export const SkillGroups: ISkillGroup[] = [
   },
   {
     id: 'platforms',
-    skills: ['C#', '.NET', '.NET Core', 'Go'],
+    skills: ['C#', '.NET', '.NET Core', 'Go', 'Rust', 'TypeScript'],
   },
   {
     id: 'cloud',
-    skills: ['Azure', 'AWS', 'Docker', 'Kubernetes'],
+    skills: ['Azure', 'AWS', 'GCP', 'Docker', 'Kubernetes'],
   },
   {
     id: 'messaging',
@@ -30,10 +30,17 @@ export const SkillGroups: ISkillGroup[] = [
   },
   {
     id: 'data',
-    skills: ['Oracle', 'SQL Server'],
+    skills: ['Oracle', 'SQL Server', 'PostgreSQL', 'MongoDB'],
   },
   {
     id: 'practices',
-    skills: ['Microservices', 'Legacy modernization', 'DevOps', 'Code review'],
+    skills: [
+      'Microservices',
+      'Legacy modernization',
+      'DevOps',
+      'CI/CD',
+      'Code review',
+      'Technical leadership',
+    ],
   },
 ];
