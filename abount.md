@@ -319,7 +319,7 @@ git push origin feature/nova-funcionalidade
 ## 📞 Contato
 
 **Robson Alves** - Arquiteto de Software  
-📧 robson.curitibapr@gmail.com  
+📧 robsonalves.us@gmail.com  
 🌐 [www.robsonalves.dev.br](https://www.robsonalves.dev.br)  
 💼 [LinkedIn](https://linkedin.com/in/robsonalvesdevbr)
 
