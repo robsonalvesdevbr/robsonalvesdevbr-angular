@@ -70,7 +70,7 @@ export class SeoService {
   private readonly defaultMeta: LocalizedMeta = {
     title: 'Sobre - Robson Alves | Arquiteto de Software com 23+ Anos de Experiência',
     description: 'Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.',
-    keywords: 'Robson Alves, Arquiteto de Software, Arquitetura de Software, .NET, Go, Kafka, Azure, AWS, Cloud Computing, C#, Desenvolvedor Senior, Líder Técnico, Curitiba',
+    keywords: 'Robson Alves, Arquiteto de Software, Arquitetura de Software, .NET, C#, Go, Rust, Kubernetes, Azure, AWS, GCP, Kafka, PostgreSQL, Microservices, Cloud Computing, Desenvolvedor Senior, Líder Técnico, Curitiba',
     ogTitle: 'Robson Alves - Arquiteto de Software | 23+ Anos de Experiência',
     ogDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.',
     ogLocale: 'pt_BR',
