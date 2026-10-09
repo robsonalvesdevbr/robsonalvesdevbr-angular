@@ -35,6 +35,69 @@ export const Courses: ICourse[] = [
   },
   {
 
+    id: 'curso-traefik-proxy-reverso-para-containers-udemy-2026-08',
+    name: 'Traefik: Proxy reverso para containers',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-821d0907-4b9a-4a42-8ef3-5c4fc396bce0/',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.DevOps,
+      CourseTagEnum.DockerContainer,
+    ],
+    conclusion: new Date('2026-8-31'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-aprenda-markdown-udemy-2026-07',
+    name: 'Aprenda Markdown',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl: null,
+    tags: [CourseTagEnum.SoftwareDevelopment],
+    conclusion: new Date('2026-7-31'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-certificacao-digital-ssl-tls-fundamentos-e-p-udemy-2026-06',
+    name: 'CERTIFICAÇÃO DIGITAL SSL/TLS - FUNDAMENTOS E PRÁTICA',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-c11b1cb9-7433-499a-a363-3ebaec3d51cf/',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Security],
+    conclusion: new Date('2026-6-30'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-n8n-para-iniciantes-udemy-2025-12',
+    name: 'N8N Para Iniciantes',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl: null,
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.SoftwareDevelopment,
+    ],
+    conclusion: new Date('2025-12-3'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-mcp-na-pratica-crie-agentes-e-multi-agentes--udemy-2025-11',
+    name: 'MCP na Prática: Crie Agentes e Multi-Agentes com LLMs',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-c2c01548-9ddb-4c4d-a7de-5f9f386c1bf2/',
+    tags: [
+      CourseTagEnum.ArtificialIntelligence,
+      CourseTagEnum.SoftwareDevelopment,
+    ],
+    conclusion: new Date('2025-11-24'),
+    favorite: false,
+  },
+  {
+
     id: 'curso-github-copilot-do-zero-a-produtividade-m-udemy-2025-09',
     name: 'GitHub Copilot: Do Zero à Produtividade Máxima com GenAI',
     institution: InstitutionEnum.Udemy,
@@ -137,6 +200,16 @@ export const Courses: ICourse[] = [
       CourseTagEnum.Grafana,
       CourseTagEnum.DevOps,
     ],
+    conclusion: new Date('2025-1-21'),
+    favorite: false,
+  },
+  {
+
+    id: 'curso-introducao-a-arquitetura-hexagonal-udemy-2025-01',
+    name: 'Introdução a Arquitetura Hexagonal',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl: null,
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.Architecture],
     conclusion: new Date('2025-1-21'),
     favorite: false,
   },
@@ -364,6 +437,16 @@ export const Courses: ICourse[] = [
     ],
     conclusion: new Date('2019-6-6'),
     favorite: true,
+  },
+  {
+
+    id: 'curso-entendendo-e-documentando-rest-restful-ap-udemy-2019-05',
+    name: 'Entendendo e documentando REST / RESTful APIs',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl: 'https://www.udemy.com/certificate/UC-5NE8Y4SG/',
+    tags: [CourseTagEnum.SoftwareDevelopment, CourseTagEnum.HTTP],
+    conclusion: new Date('2019-5-24'),
+    favorite: false,
   },
   {
 
