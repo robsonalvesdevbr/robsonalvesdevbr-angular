@@ -21,6 +21,20 @@ export const Courses: ICourse[] = [
   // ===== UDEMY =====
   {
 
+    id: 'curso-java-completo-do-zero-ao-profissional-projetos-udemy-2026-10',
+    name: 'Java COMPLETO: Do Zero ao Profissional + Projetos!',
+    institution: InstitutionEnum.Udemy,
+    certificateUrl:
+      'https://www.udemy.com/certificate/UC-8dc6b30f-e17f-4eeb-83e6-2536c60985f7/',
+    tags: [
+      CourseTagEnum.SoftwareDevelopment,
+      CourseTagEnum.Java,
+    ],
+    conclusion: new Date('2026-10-11'),
+    favorite: true,
+  },
+  {
+
     id: 'curso-github-spec-driven-development-com-openspec-claude-code-m-udemy-2026-09',
     name: 'Spec-Driven Development com OpenSpec e Claude Code',
     institution: InstitutionEnum.Udemy,
