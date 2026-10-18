@@ -4,66 +4,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Portfolio pessoal Angular v21+ usando arquitetura standalone, zoneless change detection e Vitest para testes. Aplicação estática com dados hardcoded em arquivos TypeScript.
+Portfolio pessoal Angular v22+ usando arquitetura standalone, zoneless change detection e Vitest para testes. Aplicação estática com dados hardcoded em arquivos TypeScript.
 
 ## Tech Stack
 
-- **Framework:** Angular 21+ (standalone components, zoneless)
+- **Framework:** Angular 22+ (standalone components, zoneless)
 - **Testing:** Vitest (unit) + Playwright (E2E)
 - **Styling:** Bootstrap 5.3 + SCSS
 - **Linting:** Angular ESLint + Prettier
 - **Build:** Angular CLI com esbuild
-- **Node:** >= 22.12
+- **Node:** >= 24
+- **Package manager:** pnpm 11
 
 ## Development Commands
 
 ### Start Development
 ```bash
-npm start              # dev server on :4200
-npm run dev            # same as start but opens browser
-npm run start:prod     # production mode locally
+pnpm start              # dev server on :4200
+pnpm run dev            # same as start but opens browser
+pnpm run start:prod     # production mode locally
 ```
 
 ### Build
 ```bash
-npm run build          # development build
-npm run build:prod     # production optimized build
-npm run build:analyze  # build + bundle analysis
-npm run watch          # build with watch mode
+pnpm run build          # development build
+pnpm run build:prod     # production optimized build
+pnpm run build:analyze  # build + bundle analysis
+pnpm run watch          # build with watch mode
 ```
 
 ### Testing
 
 #### Unit Tests (Vitest)
 ```bash
-npm test                # watch mode
-npm run test:nowatch    # single run
-npm run test:coverage   # with coverage report
-npm run test:ui         # Vitest UI
+pnpm test                # watch mode
+pnpm run test:nowatch    # single run
+pnpm run test:coverage   # with coverage report
+pnpm run test:ui         # Vitest UI
 ```
 
 #### E2E Tests (Playwright)
 ```bash
-npm run test:e2e           # all browsers
-npm run test:e2e:chromium  # chromium only
-npm run test:e2e:firefox   # firefox only
-npm run test:e2e:ui        # interactive UI mode
-npm run test:e2e:debug     # debug mode
-npm run test:e2e:report    # show last report
+pnpm run test:e2e           # all browsers
+pnpm run test:e2e:chromium  # chromium only
+pnpm run test:e2e:firefox   # firefox only
+pnpm run test:e2e:ui        # interactive UI mode
+pnpm run test:e2e:debug     # debug mode
+pnpm run test:e2e:report    # show last report
 ```
 
 ### Code Quality
 ```bash
-npm run lint           # run ESLint
-npm run lint:fix       # auto-fix issues
-npm run format         # format with Prettier
-npm run format:check   # check formatting only
-npm run security:check # npm audit
+pnpm run lint           # run ESLint
+pnpm run lint:fix       # auto-fix issues
+pnpm run format         # format with Prettier
+pnpm run format:check   # check formatting only
+pnpm run security:check # pnpm audit
 ```
 
 ### Cleanup
 ```bash
-npm run clean          # remove dist, cache, .angular
+pnpm run clean          # remove dist, cache, .angular
 ```
 
 ## Architecture
