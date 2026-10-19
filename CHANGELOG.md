@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-10-19
+
+### Added
+- Filtro de tags de Cursos e Livros em acordeão: recolhido mostra uma linha de tags e a
+  seta (botão dourado em destaque) expande o restante; o foco por teclado em uma tag
+  oculta abre a lista
+- Chaves i18n `expandTags` e `collapseTags` (pt-BR e en-US) para Cursos e Livros
+- Testes unitários e e2e do acordeão e da numeração dos cards
+
+### Changed
+- Numeração sequencial dos cards de Cursos, Livros e Trilhas passa para o canto superior
+  direito, em selo dourado, maior e em negrito (rótulo acessível "Item N" mantido)
+
+### Fixed
+- Vitest passa a enxergar mudanças feitas só no template `.html`: o cache de módulos em
+  disco (`test.experimental.fsModuleCache`) foi desligado
+
 ## [2.3.0] - 2026-10-18
 
 ### Added
