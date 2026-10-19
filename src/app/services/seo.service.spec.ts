@@ -51,7 +51,7 @@ describe('SeoService', () => {
       service.setAboutPageSeo();
 
       expect(setTitleSpy).toHaveBeenCalledWith(
-        'Sobre - Robson Alves | Arquiteto de Software com 23+ Anos de Experiência'
+        'Sobre - Robson Alves | Arquiteto de Software com 25+ Anos de Experiência'
       );
     });
 

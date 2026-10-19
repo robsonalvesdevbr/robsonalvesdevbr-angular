@@ -68,14 +68,14 @@ export class SeoService {
 
   // Fallback usado até as traduções carregarem (mesmo conteúdo do index.html)
   private readonly defaultMeta: LocalizedMeta = {
-    title: 'Sobre - Robson Alves | Arquiteto de Software com 23+ Anos de Experiência',
-    description: 'Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.',
+    title: 'Sobre - Robson Alves | Arquiteto de Software com 25+ Anos de Experiência',
+    description: 'Conheça Robson Alves: Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.',
     keywords: 'Robson Alves, Arquiteto de Software, Arquitetura de Software, .NET, C#, Go, Rust, Kubernetes, Azure, AWS, GCP, Kafka, PostgreSQL, Microservices, Cloud Computing, Desenvolvedor Senior, Líder Técnico, Curitiba',
-    ogTitle: 'Robson Alves - Arquiteto de Software | 23+ Anos de Experiência',
-    ogDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.',
+    ogTitle: 'Robson Alves - Arquiteto de Software | 25+ Anos de Experiência',
+    ogDescription: 'Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.',
     ogLocale: 'pt_BR',
     twitterTitle: 'Robson Alves - Arquiteto de Software',
-    twitterDescription: 'Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.'
+    twitterDescription: 'Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.'
   };
 
   private seoInitialized = false;
@@ -155,7 +155,7 @@ export class SeoService {
       '@type': 'Person',
       name: Profile.name,
       alternateName: 'Robson Alves',
-      description: 'Arquiteto de Software com 23+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.',
+      description: 'Arquiteto de Software com 25+ anos de experiência, especialista em modernização de sistemas e arquitetura cloud.',
       url: 'https://www.robsonalves.dev.br',
       image: 'https://www.robsonalves.dev.br/assets/img/myimage.jpg',
       jobTitle: 'Arquiteto de Software & Líder Técnico',
@@ -187,7 +187,7 @@ export class SeoService {
         '@type': 'Occupation',
         name: 'Software Architect',
         description: 'Especialista em arquitetura de software, modernização de sistemas legados e liderança técnica',
-        experienceRequirements: '23+ years of software development experience',
+        experienceRequirements: '25+ years of software development experience',
         occupationLocation: {
           '@type': 'City',
           name: `${Profile.city}, ${Profile.state}, ${Profile.country}`

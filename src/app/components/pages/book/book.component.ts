@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { LowerCasePipe, NgClass, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,7 +9,6 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
-import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
@@ -29,18 +28,17 @@ import { getPublisherLogo } from '@path-data/PublisherLogo';
 @Component({
   selector: 'app-book',
   imports: [
-    CommonModule,
+    LowerCasePipe,
+    NgClass,
     PrintTagsPipe,
     SortbyPipe,
     TranslatePipe,
     NgxPaginationModule,
     NgOptimizedImage,
-    HighlightDirective,
     EnumToArrayPipe,
     TagLabelPipe,
   ],
   templateUrl: './book.component.html',
-  styleUrl: './book.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookComponent extends BasePageComponent implements OnInit {
@@ -58,7 +56,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
 
-  config = this.paginationService.createPaginationConfig('booksPag', 5);
+  config = this.paginationService.createPaginationConfig('booksPag', 8);
 
   private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
     if (term.length >= 2) {

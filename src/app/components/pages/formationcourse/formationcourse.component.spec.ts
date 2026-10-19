@@ -90,7 +90,7 @@ describe('FormationCourseComponent', () => {
         tags: 'Tags',
         completedOn: 'Concluído em',
         certificate: 'Certificado',
-        unreadMessages: 'Mensagens não lidas'
+        itemLabel: 'Mensagens não lidas'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({
@@ -103,7 +103,7 @@ describe('FormationCourseComponent', () => {
         tags: 'Tags',
         completedOn: 'Completed on',
         certificate: 'Certificate',
-        unreadMessages: 'Unread messages'
+        itemLabel: 'Unread messages'
       }
     });
     component = fixture.componentInstance;
@@ -115,7 +115,7 @@ describe('FormationCourseComponent', () => {
   });
 
   it('should have default pagination config', () => {
-    expect(component.config().itemsPerPage).toBe(5);
+    expect(component.config().itemsPerPage).toBe(8);
     expect(component.config().currentPage).toBe(1);
   });
 
@@ -132,5 +132,11 @@ describe('FormationCourseComponent', () => {
     const newPageNumber = 2;
     component.onPageChange(newPageNumber);
     expect(component.config().currentPage).toBe(newPageNumber);
+  });
+
+  it('should render one formation-card per course and the pagination controls', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelectorAll('[data-testid="formation-card"]')).toHaveLength(2);
+    expect(el.querySelector('pagination-controls')).toBeTruthy();
   });
 });

@@ -1,45 +1,62 @@
 <!-- Masthead-->
-<header class="masthead" data-testid="masthead">
+<header class="masthead" id="main-content" tabindex="-1" data-testid="masthead">
   <div class="container">
-    <img
-      ngSrc="assets/img/myimage.jpg"
-      [alt]="'contact.photoAlt' | translate"
-      class="masthead-photo rounded-circle"
-      width="160"
-      height="160"
-      sizes="(max-width: 768px) 40vw, 15vw"
-      priority
-    />
-    <h1 class="masthead-heading text-uppercase">{{ 'masterhead.name' | translate }}</h1>
-    <div class="masthead-subheading">{{ 'masterhead.role' | translate }}</div>
-    <p class="masthead-tagline">{{ 'masterhead.tagline' | translate }}</p>
-    <div class="masthead-actions">
-      <a
-        class="btn btn-primary btn-xl text-uppercase"
-        href="#contact"
-        data-testid="masthead-contact"
-        (click)="onContactClick()"
-        >{{ 'masterhead.contact' | translate }}</a
-      >
-      <a
-        class="btn btn-outline-light btn-xl text-uppercase"
-        [href]="linkedInUrl"
-        target="_blank"
-        rel="noopener"
-        data-testid="masthead-linkedin"
-        (click)="onLinkedInClick()"
-        >LinkedIn</a
-      >
-      <a
-        class="btn btn-outline-light btn-xl text-uppercase"
-        [href]="resumeUrl"
-        target="_blank"
-        rel="noopener"
-        data-testid="masthead-resume"
-        (click)="onResumeClick()"
-        ><i class="bi bi-file-earmark-pdf me-2" aria-hidden="true"></i
-        >{{ 'masterhead.resume' | translate }}</a
-      >
+    <div class="bento">
+      <div class="tile tile--span-8 tile--row-2 hero-main">
+        <p class="eyebrow masthead-subheading">{{ 'masterhead.role' | translate }}</p>
+        <h1 class="masthead-heading">{{ 'masterhead.name' | translate }}</h1>
+        <p class="masthead-tagline">{{ 'masterhead.tagline' | translate }}</p>
+        <div class="masthead-actions">
+          <a
+            class="btn-hero btn-hero--primary"
+            href="#contact"
+            data-testid="masthead-contact"
+            (click)="onContactClick()"
+            >{{ 'masterhead.contact' | translate }}</a
+          >
+          <a
+            class="btn-hero btn-hero--ghost"
+            [href]="linkedInUrl"
+            target="_blank"
+            rel="noopener"
+            data-testid="masthead-linkedin"
+            (click)="onLinkedInClick()"
+            >LinkedIn</a
+          >
+          <a
+            class="btn-hero btn-hero--ghost"
+            [href]="resumeUrl"
+            target="_blank"
+            rel="noopener"
+            data-testid="masthead-resume"
+            (click)="onResumeClick()"
+            ><i class="bi bi-file-earmark-pdf me-2" aria-hidden="true"></i
+            >{{ 'masterhead.resume' | translate }}</a
+          >
+        </div>
+      </div>
+
+      <figure class="tile tile--span-4 tile--row-2 hero-photo">
+        <img
+          ngSrc="assets/img/profile.webp"
+          [alt]="'contact.photoAlt' | translate"
+          class="masthead-photo"
+          width="800"
+          height="800"
+          sizes="(max-width: 860px) 100vw, 33vw"
+          priority
+        />
+        <figcaption>{{ profile.city }} · {{ profile.state }}</figcaption>
+      </figure>
+
+      <div class="hero-stats tile--span-12">
+        @for (stat of stats; track stat.labelKey) {
+          <div class="tile" data-testid="masthead-stat">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.labelKey | translate }}</span>
+          </div>
+        }
+      </div>
     </div>
   </div>
 </header>

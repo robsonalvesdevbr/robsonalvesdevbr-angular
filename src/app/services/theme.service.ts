@@ -5,7 +5,7 @@ export type Theme = 'light' | 'dark' | 'auto';
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly STORAGE_KEY = 'app-theme';
-  private readonly DEFAULT_THEME: Theme = 'auto';
+  private readonly DEFAULT_THEME: Theme = 'dark';
 
   private readonly document = inject(DOCUMENT);
 

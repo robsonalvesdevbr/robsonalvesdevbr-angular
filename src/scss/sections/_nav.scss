@@ -1,0 +1,142 @@
+// Navegação em pílula flutuante. A pílula é escura nos dois temas: o logotipo
+// (assets/img/others/robsonalves.png) é claro e só tem contraste sobre fundo escuro.
+#mainNav {
+  --nav-accent: #ffd43b;
+  --nav-accent-rgb: 255, 212, 59;
+
+  // A pílula é escura nos dois temas: o anel de foco global precisa do dourado claro.
+  --accent: #ffd43b;
+  --accent-rgb: 255, 212, 59;
+
+  --nav-bg: rgba(18, 20, 26, 0.9);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-shadow: var(--shadow-card);
+
+  padding: 12px 0 0;
+  background: transparent;
+  border: 0;
+  pointer-events: none; // só a pílula captura cliques
+
+  > .container {
+    pointer-events: auto;
+    width: calc(100% - 24px);
+    max-width: 1120px;
+    padding: 0.55rem 0.9rem 0.55rem 1.25rem;
+    background: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 28px;
+    box-shadow: var(--nav-shadow);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+
+    @media (min-width: 992px) {
+      border-radius: var(--radius-pill);
+    }
+
+    // Celulares estreitos: a linha logo + idioma + tema + toggler precisa caber sem quebrar.
+    @media (max-width: 399.98px) {
+      padding: 0.5rem 0.6rem 0.5rem 0.9rem;
+    }
+  }
+
+  .navbar-brand {
+    margin-right: 0.75rem;
+    padding: 0;
+
+    // O componente força height:auto; a largura define o tamanho do logotipo (proporção 224:38).
+    img {
+      width: 9rem;
+
+      @media (max-width: 399.98px) {
+        width: 7.25rem;
+      }
+
+      @media (max-width: 349.98px) {
+        width: 6rem;
+      }
+
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        width: 8.5rem;
+      }
+
+      @media (min-width: 1200px) {
+        width: 10.5rem;
+      }
+    }
+  }
+
+  // Em 320px a bandeira basta (o botão tem aria-label); o código do idioma faria a pílula quebrar.
+  .language-switcher .language-code {
+    @media (max-width: 349.98px) {
+      display: none;
+    }
+  }
+
+  .navbar-toggler {
+    padding: 0.5rem 0.65rem;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .navbar-nav {
+    gap: 0.15rem;
+
+    @media (max-width: 991.98px) {
+      padding: 0.75rem 0 0.5rem;
+    }
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.72);
+    border-radius: var(--radius-pill);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+
+    // 992–1199px (menu em uma linha): links mais compactos para caber também em en-US.
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      padding: 0.45rem 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    &.active {
+      color: var(--nav-accent);
+      background: rgba(var(--nav-accent-rgb), 0.14);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--nav-accent);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// No tema escuro a página já é quase preta: a pílula precisa de superfície mais clara, borda
+// marcada e um filete de luz no topo para se destacar do fundo.
+[data-bs-theme='dark'] #mainNav {
+  --nav-bg: rgba(44, 48, 60, 0.92);
+  --nav-border: rgba(255, 255, 255, 0.22);
+  --nav-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 212, 59, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}

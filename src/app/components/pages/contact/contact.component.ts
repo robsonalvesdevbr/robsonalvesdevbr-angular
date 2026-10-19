@@ -10,14 +10,12 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
 import { RESUME_URL } from '@path-data/Profile';
 import { AnalyticsService } from '@path-services/analytics.service';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { calculateAge as calculateAgeUtil } from '@path-utils/age.utils';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, NgxPaginationModule, NgOptimizedImage, TranslatePipe],
+  imports: [CommonModule, NgOptimizedImage, TranslatePipe],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent extends BasePageComponent {

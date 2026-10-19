@@ -21,12 +21,14 @@
       (function () {
         try {
           var theme = localStorage.getItem('app-theme');
-          if (theme !== 'light' && theme !== 'dark') {
+          if (theme === 'auto') {
             theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          } else if (theme !== 'light' && theme !== 'dark') {
+            theme = 'dark';
           }
           document.documentElement.setAttribute('data-bs-theme', theme);
         } catch (e) {
-          document.documentElement.setAttribute('data-bs-theme', 'light');
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
         }
       })();
     </script>
@@ -72,7 +74,7 @@
 
     <!-- Google fonts with font-display: swap for better performance -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@100;300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
       type="text/css"
       media="print"
@@ -80,7 +82,7 @@
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@100;300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
         type="text/css"
       />
@@ -89,7 +91,5 @@
 
   <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav">
     <app-root></app-root>
-    <!-- Core theme JS with defer for better performance -->
-    <script src="js/scripts.js" defer></script>
   </body>
 </html>

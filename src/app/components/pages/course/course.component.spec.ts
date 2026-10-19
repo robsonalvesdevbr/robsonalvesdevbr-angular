@@ -69,7 +69,7 @@ describe('CourseComponent', () => {
         tags: 'Tags',
         completedOn: 'Concluído em',
         certificate: 'Certificado',
-        unreadMessages: 'Não lidas'
+        itemLabel: 'Não lidas'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({ courses: { title: 'Courses' } });
@@ -177,5 +177,45 @@ describe('CourseComponent', () => {
     component.onClickTagEvent(event);
 
     expect(component.tagsFilter().has(id)).toBeFalse();
+  });
+
+  describe('card grid', () => {
+    const cards = () =>
+      (fixture.nativeElement as HTMLElement).querySelectorAll(
+        '.card-grid > [data-testid="course-card"]'
+      );
+
+    it('should render one course-card per course on the current page', () => {
+      expect(cards()).toHaveLength(2);
+    });
+
+    it('should show the favorite star and the certificate link on each card', () => {
+      expect(cards().length).toBeGreaterThan(0);
+      for (const card of Array.from(cards())) {
+        const star = card.querySelector<HTMLElement>('i.icon-favorite');
+        expect(star).toBeTruthy();
+        expect(star?.hasAttribute('hidden')).toBe(false);
+        expect(card.querySelector('a[href*="linkedin.com/learning/certificates"]')).toBeTruthy();
+      }
+    });
+
+    it('should not render a focusable control for the empty institution value', () => {
+      const root = fixture.nativeElement as HTMLElement;
+      expect(root.querySelector('#input_course_institution_Alura')).toBeTruthy();
+      expect(root.querySelector('#input_course_institution_All')).toBeNull();
+      expect(root.querySelector('#label_course_institution_All')).toBeNull();
+    });
+
+    it('should render no cards and keep working when the search matches nothing', () => {
+      component.searchQuery.set('zzz-sem-resultado');
+      fixture.detectChanges();
+
+      expect(cards()).toHaveLength(0);
+      expect((fixture.nativeElement as HTMLElement).querySelector('#courses')).toBeTruthy();
+    });
+  });
+
+  it('should paginate two full rows of the 4-column card grid per page', () => {
+    expect(component.config().itemsPerPage).toBe(8);
   });
 });

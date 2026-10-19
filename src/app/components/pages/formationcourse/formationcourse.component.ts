@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -18,7 +18,7 @@ import { IFormationCourse } from '@path-interfaces/IFormationCourse';
 @Component({
   selector: 'app-formationcourse',
   imports: [
-    CommonModule,
+    DatePipe,
     ImgcursoPipe,
     PrintTagsPipe,
     TranslatePipe,
@@ -34,7 +34,7 @@ export class FormationCourseComponent extends BasePageComponent {
   private readonly paginationService = inject(PaginationService);
   
   formationCourses = signal(this.dataService.getFormationCourses());
-  config = this.paginationService.createPaginationConfig('formationCoursesPag', 5);
+  config = this.paginationService.createPaginationConfig('formationCoursesPag', 8);
 
   absoluteIndex(indexOnPage: number): number {
     return (

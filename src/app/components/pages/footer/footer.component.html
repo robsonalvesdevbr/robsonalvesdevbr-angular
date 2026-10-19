@@ -1,13 +1,10 @@
 <!-- Footer-->
-<footer class="footer py-4">
+<footer class="site-footer">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 text-lg-start">
-        &copy; {{ 'footer.copyright' | translate: { year: currentYear } }}
-      </div>
-      <div class="col-lg-6 text-lg-end mt-3 mt-lg-0">
+    <div class="site-footer-row">
+      <span>&copy; {{ 'footer.copyright' | translate: { year: currentYear } }}</span>
+      <span class="site-footer-links">
         <a
-          class="link-body-emphasis text-decoration-none me-3"
           href="https://startbootstrap.com/theme/agency"
           target="_blank"
           rel="noopener"
@@ -15,15 +12,14 @@
           >{{ 'footer.pageTemplate' | translate }}</a
         >
         <a
-          class="link-body-emphasis text-decoration-none"
           href="https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular"
           target="_blank"
           rel="noopener"
           (click)="onFooterLinkClick('github_repo')"
           >{{ 'footer.sourceCode' | translate }}</a
         >
-      </div>
+      </span>
     </div>
-    <p class="small text-muted text-center mt-3 mb-0">{{ 'footer.about' | translate }}</p>
+    <p class="site-footer-about">{{ 'footer.about' | translate }}</p>
   </div>
 </footer>

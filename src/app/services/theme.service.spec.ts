@@ -22,9 +22,37 @@ describe('ThemeService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should default to auto theme', () => {
+  const stubSystemPrefersDark = (matches: boolean): void => {
+    vi.stubGlobal(
+      'matchMedia',
+      vi.fn().mockReturnValue({ matches, addEventListener: vi.fn() }),
+    );
+  };
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('should default to dark when nothing is stored', () => {
+    stubSystemPrefersDark(false);
+    const service = TestBed.inject(ThemeService);
+    expect(service.theme()).toBe('dark');
+    expect(service.resolvedTheme()).toBe('dark');
+  });
+
+  it('should honor stored auto over the dark default', () => {
+    localStorage.setItem('app-theme', 'auto');
+    stubSystemPrefersDark(false);
     const service = TestBed.inject(ThemeService);
     expect(service.theme()).toBe('auto');
+    expect(service.resolvedTheme()).toBe('light');
+  });
+
+  it('should honor stored light over the dark default', () => {
+    localStorage.setItem('app-theme', 'light');
+    stubSystemPrefersDark(true);
+    const service = TestBed.inject(ThemeService);
+    expect(service.resolvedTheme()).toBe('light');
   });
 
   it('should restore theme from localStorage', () => {
@@ -37,7 +65,7 @@ describe('ThemeService', () => {
   it('should ignore invalid stored theme', () => {
     localStorage.setItem('app-theme', 'invalid');
     const service = TestBed.inject(ThemeService);
-    expect(service.theme()).toBe('auto');
+    expect(service.theme()).toBe('dark');
   });
 
   it('should persist theme on setTheme', () => {
@@ -50,7 +78,7 @@ describe('ThemeService', () => {
   it('should not accept invalid theme on setTheme', () => {
     const service = TestBed.inject(ThemeService);
     service.setTheme('invalid' as never);
-    expect(service.theme()).toBe('auto');
+    expect(service.theme()).toBe('dark');
   });
 
   it('should toggle between light and dark', () => {
@@ -74,6 +102,7 @@ describe('ThemeService', () => {
   });
 
   it('should resolve auto theme based on system preference', () => {
+    localStorage.setItem('app-theme', 'auto');
     const service = TestBed.inject(ThemeService);
     expect(service.theme()).toBe('auto');
     expect(['light', 'dark']).toContain(service.resolvedTheme());

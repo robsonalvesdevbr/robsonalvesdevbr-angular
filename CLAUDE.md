@@ -10,7 +10,7 @@ Portfolio pessoal Angular v22+ usando arquitetura standalone, zoneless change de
 
 - **Framework:** Angular 22+ (standalone components, zoneless)
 - **Testing:** Vitest (unit) + Playwright (E2E)
-- **Styling:** Bootstrap 5.3 + SCSS
+- **Styling:** SCSS com design tokens próprios (layout Bento Grid) + Bootstrap 5.3 só para grid/utilitários/formulários
 - **Linting:** Angular ESLint + Prettier
 - **Build:** Angular CLI com esbuild
 - **Node:** >= 24
@@ -119,14 +119,32 @@ pnpm run clean          # remove dist, cache, .angular
 ### Testing Setup
 - **Vitest:** usa jsdom, setup em `src/test-setup.ts`
 - **Coverage exclusions:** test files, configs, main.ts, environments
-- **Playwright:** testes em `e2e/`, múltiplos browsers (chromium, firefox, mobile-chrome)
+- **Playwright:** testes em `e2e/`, múltiplos browsers (chromium, firefox, mobile-chrome). Se o navegador não estiver instalado: `pnpm exec playwright install`
+- **E2E e `@defer`:** o conteúdo abaixo da dobra só entra no DOM depois de rolar; use `HomePage.loadDeferredContent()` (`e2e/pages/home.page.ts`) antes de localizar seções
+- **Vitest e templates:** o plugin em `vite.config.ts` inlina `templateUrl`; se só o `.html` mudou, o cache de transform pode servir o template antigo — altere também o `.ts` do componente ou limpe o cache do Vite
 
 ### Styling Notes
-- Bootstrap 5.3 integrado via SCSS
-- Estilos globais: `src/styles.scss` e `src/css/styles.scss`
-- Bootstrap Icons via CSS
-- SCSS como `inlineStyleLanguage` padrão
-- Evitar `@import` no SCSS para compatibilidade Bootstrap 5.x
+- Layout **Bento Grid**: cards de vidro (`.tile`) sobre fundo em mesh, tema escuro por padrão
+- Entrypoints globais (em `angular.json`): `src/css/styles.scss` (Bootstrap customizado + âncoras/skip-link/foco) → `src/css/bento.scss` (design system, carregado por último)
+- `src/scss/_tokens.scss`: tokens em CSS custom properties (`--bg`, `--surface`, `--text`, `--accent`, `--radius-card`, `--space-*`...). Tema via `[data-bs-theme]` em `<html>` (escrito por `ThemeService`; padrão `dark`; valores salvos `light|dark|auto` são respeitados)
+- `src/scss/_bento.scss`: primitivas `.bento` (grid 12 colunas, 1 coluna <860px), `.tile`, `.pill`, `.eyebrow`, `.mesh-bg`
+- `src/scss/sections/*`: um parcial por seção (`_nav`, `_hero`, `_about`, `_skills`, `_cards`, `_catalog`, `_contact`, `_section`); registrar novos em `src/css/bento.scss` com `@use`
+- `src/scss/_motion.scss`: entrada dos cards com scroll-driven animations (`.tile`), só em `@media screen` + `prefers-reduced-motion: no-preference` + `@supports (animation-timeline)`
+- `.card-grid` (flex com crescimento): 1 coluna (<768px), 2 (≥768px), 4 (≥1100px; `.card-grid--3` usa 3). A última linha sempre estica para ficar completa. Tamanhos de página: Cursos, Livros e Trilhas 8 (4x2) — manter múltiplos de 4
+- A navegação em pílula é escura nos dois temas (o logo `robsonalves.png` só tem contraste em fundo escuro); ao mudar a altura dela, atualizar só `--navbar-height-normal|mobile` em `src/css/styles.scss` (a rolagem por âncora em `navigation.component.ts` lê essas variáveis)
+- O skip-link aponta para `#main-content` (o `<header>` do masthead, `tabindex="-1"`), que existe antes do `@defer`
+- Estilos novos vão em parciais globais, não em `styles:` de componente (budget de 3 kB por componente)
+- Bootstrap Icons via CSS; SCSS como `inlineStyleLanguage` padrão
+- `@import` só em `src/scss/_bootstrap-custom.scss` (Bootstrap 5.x); SCSS novo usa `@use`
+- Bootstrap importado: só módulos usados (ver `_bootstrap-custom.scss`; `progress`, `close`, `card`, `badge` e `list-group` **não** estão importados)
+
+### Imagens
+- Retrato único otimizado em `src/assets/img/profile.webp` (800x800), usado no hero e no contato; `myimage.jpg` segue em og:image/SEO
+- Originais de alta resolução ficam fora do bundle (`.superpowers/originals/`, ignorado pelo git)
+
+### Conteúdo calculado vs. fixo
+- O hero calcula anos de experiência (`yearsSince(CAREER_START_YEAR)` em `src/app/utils/career.utils.ts`, início em 2001) e conta cursos/livros/graduações pelos dados
+- Os textos fixos (i18n `pt-BR.json`/`en-US.json`, `seo.service.ts`, `virtual-page-tracking.service.ts`) dizem "25+ anos": atualizar manualmente quando o número virar
 
 ### Performance Optimizations
 - Zoneless change detection (signals-based)

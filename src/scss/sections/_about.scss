@@ -1,0 +1,97 @@
+.about-highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(var(--accent-rgb), 0.28), transparent 60%),
+    var(--surface);
+
+  @media (min-width: 860px) {
+    align-self: start;
+    position: sticky;
+    top: calc(var(--navbar-height-normal) + var(--space-3));
+  }
+
+  .highlight-line1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+  }
+
+  .highlight-line2 {
+    margin: 0.25rem 0;
+    color: var(--text-muted);
+  }
+
+  .highlight-line3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+// Reutilizada pela seção de (Pós)Graduação.
+.bento-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding: 0 0 var(--space-4) 3.25rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      bottom: 0.25rem;
+      left: 1.125rem;
+      width: 2px;
+      background: var(--surface-border);
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.14);
+    border-radius: 50%;
+  }
+
+  .period {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .stage-title {
+    margin: 0.1rem 0 0.25rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+  }
+
+  .stage-description {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+}

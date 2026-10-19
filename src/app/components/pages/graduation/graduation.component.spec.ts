@@ -5,6 +5,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { LanguageService } from '@path-services/language.service';
 import { flushI18n } from '@path-app/../testing/i18n-test.utils';
+import { DataService } from '@path-services/data-service';
 
 describe('GraduationComponent', () => {
   beforeEach(async () => {
@@ -67,8 +68,60 @@ describe('GraduationComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
       compiled.querySelector(
-        'div.container div.text-center h2.section-heading.text-uppercase'
+        'div.container div.text-center h2.section-heading'
       )?.textContent
     ).toBe('(Pós)Graduação');
+  });
+
+  describe('cards', () => {
+    const i18n = {
+      graduation: {
+        title: 'Formação',
+        subtitle: 'Sub',
+        quantity: '{{count}}',
+        logoAlt: 'Logo {{name}}',
+        visitWebsite: 'Visitar {{name}}',
+        finalMessage: { line1: 'a', line2: 'b', line3: 'c' },
+      },
+    };
+
+    it('should render one graduation-card per graduation', () => {
+      const fixture = TestBed.createComponent(GraduationComponent);
+      const expected = TestBed.inject(DataService).getGraduations().length;
+      flushI18n(TestBed.inject(HttpTestingController), i18n, i18n);
+      TestBed.inject(LanguageService).setLanguage('pt-BR');
+      fixture.detectChanges();
+
+      const cards = (fixture.nativeElement as HTMLElement).querySelectorAll(
+        '[data-testid="graduation-card"]'
+      );
+      expect(cards).toHaveLength(expected);
+    });
+
+    it('should fall back to the default logo when the institution has none', () => {
+      TestBed.overrideProvider(DataService, {
+        useValue: {
+          getGraduations: () => [
+            {
+              id: 'sem-logo',
+              name: 'Curso sem logo',
+              institution: 'Instituição X',
+              conclusionDate: new Date(2020, 0),
+              conclusion: 'completed',
+              websiteInstituition: 'https://example.com',
+            },
+          ],
+        },
+      });
+      const fixture = TestBed.createComponent(GraduationComponent);
+      flushI18n(TestBed.inject(HttpTestingController), i18n, i18n);
+      TestBed.inject(LanguageService).setLanguage('pt-BR');
+      fixture.detectChanges();
+
+      const logo = (fixture.nativeElement as HTMLElement).querySelector<HTMLImageElement>(
+        '[data-testid="graduation-card"] img'
+      );
+      expect(logo?.getAttribute('src')).toContain('assets/img/others/formacao.png');
+    });
   });
 });

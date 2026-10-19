@@ -38,11 +38,11 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
 
       .theme-toggle-btn:hover,
       .theme-toggle-btn:focus-visible {
-        color: var(--brand-accent);
+        color: var(--nav-accent);
       }
 
       .theme-toggle-btn:focus-visible {
-        outline: 3px solid var(--brand-accent);
+        outline: 3px solid var(--nav-accent);
         outline-offset: 2px;
         border-radius: 0.25rem;
       }

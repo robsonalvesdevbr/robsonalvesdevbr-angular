@@ -22,12 +22,6 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   activeSection = signal<string>('');
   private _scrollObserver: IntersectionObserver | null = null;
 
-  private readonly navbarHeights = {
-    mobile: 110,
-    shrink: 106,
-    normal: 126
-  };
-
   private analyticsBatcher: BatchProcessor<() => void>;
   private debouncedScrollToSection: (sectionId: string) => void;
 
@@ -91,7 +85,7 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
 
     if (!element || !navbar) return;
 
-    const offset = this.calculateOptimalOffset(navbar);
+    const offset = this.calculateOptimalOffset();
     const elementTop = element.getBoundingClientRect().top + window.scrollY;
     const finalPosition = Math.max(0, elementTop - offset);
 
@@ -103,13 +97,12 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
     });
   }
 
-  private calculateOptimalOffset(navbar: HTMLElement): number {
-    const isNavbarShrink = navbar.classList.contains('navbar-shrink');
+  // A altura da pílula vem de --navbar-height-* (src/css/styles.scss): uma fonte só para CSS e rolagem.
+  private calculateOptimalOffset(): number {
     const isMobile = window.innerWidth < 992;
-
-    if (isMobile) return this.navbarHeights.mobile;
-    if (isNavbarShrink) return this.navbarHeights.shrink;
-    return this.navbarHeights.normal;
+    const variable = isMobile ? '--navbar-height-mobile' : '--navbar-height-normal';
+    const value = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(variable));
+    return Number.isFinite(value) ? value : isMobile ? 88 : 96;
   }
 
   private createNavigationHandler(section: string) {

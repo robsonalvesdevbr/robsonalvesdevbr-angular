@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { HomePage } from '../pages/home.page';
 
 test.describe('Language Switching', () => {
   test.beforeEach(async ({ page }) => {
@@ -126,7 +127,8 @@ test.describe('Language Switching', () => {
   });
 
   test('should translate about section', async ({ page }) => {
-    // Navigate to about section (scroll into view)
+    // A seção só existe depois que o @defer carrega
+    await new HomePage(page).loadDeferredContent();
     await page.evaluate(() => {
       document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
     });
@@ -146,7 +148,7 @@ test.describe('Language Switching', () => {
     await expect(aboutTitle).toContainText('About');
 
     const aboutSubtitle = page.locator('[data-testid="about-subtitle"]');
-    await expect(aboutSubtitle).toContainText('Learn about my 23+ years professional journey');
+    await expect(aboutSubtitle).toContainText('Learn about my 25+ years professional journey');
   });
 
   test('should work on mobile viewport', async ({ page }) => {

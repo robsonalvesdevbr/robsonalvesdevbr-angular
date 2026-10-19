@@ -82,15 +82,6 @@ describe('HomeComponent', () => {
       expect(masterheadElement).toBeTruthy();
     });
 
-    it('should render masterhead with bglight input', () => {
-      fixture.detectChanges();
-
-      const masterheadElement = fixture.nativeElement.querySelector('app-masterhead');
-
-      expect(masterheadElement).toBeTruthy();
-      // O input bglight é passado, mas não podemos verificar diretamente no DOM
-      // pois é uma propriedade do componente, não um atributo HTML
-    });
   });
 
   describe('@defer Block Behavior', () => {
@@ -213,24 +204,6 @@ describe('HomeComponent', () => {
     });
   });
 
-  describe('bglight Input Propagation', () => {
-    it('should pass bglight=true to masterhead', () => {
-      fixture.detectChanges();
-
-      // bglight é passado como input, verificamos que o componente está presente
-      const masterheadElement = fixture.nativeElement.querySelector('app-masterhead');
-
-      expect(masterheadElement).toBeTruthy();
-    });
-
-    it('should pass bglight to components that support it', () => {
-      fixture.detectChanges();
-
-      // Course e Book recebem [bglight]="true" no template
-      // Verificamos que os componentes existem
-      expect(component).toBeTruthy();
-    });
-  });
 
   describe('Accessibility', () => {
     it('should render semantic HTML structure', () => {

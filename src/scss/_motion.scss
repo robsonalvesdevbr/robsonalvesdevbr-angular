@@ -1,0 +1,24 @@
+// Entrada dos cards ao rolar, via scroll-driven animations. Navegadores sem suporte
+// (e quem prefere menos movimento, ou imprime) simplesmente veem os cards parados e visíveis.
+@keyframes tile-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .tile {
+      // `backwards` (e não `both`): depois da entrada o :hover volta a controlar o transform.
+      animation: tile-reveal linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}

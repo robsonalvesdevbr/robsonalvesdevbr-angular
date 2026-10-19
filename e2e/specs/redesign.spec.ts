@@ -1,0 +1,123 @@
+import { test, expect, Locator } from '@playwright/test';
+import { HomePage } from '../pages/home.page';
+
+const imageLoaded = (img: Locator) => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0);
+
+test.describe('Redesign bento', () => {
+  let home: HomePage;
+
+  test.beforeEach(async ({ page }) => {
+    home = new HomePage(page);
+    await home.navigate();
+  });
+
+  test('hero deve exibir nome, retrato carregado e as quatro métricas', async ({ page }) => {
+    await expect(page.locator('h1.masthead-heading')).toHaveText('Robson Alves');
+    await expect.poll(() => imageLoaded(page.locator('img.masthead-photo'))).toBe(true);
+
+    const stats = page.getByTestId('masthead-stat');
+    await expect(stats).toHaveCount(4);
+    for (const stat of await stats.all()) {
+      await expect(stat.locator('.stat-value')).toHaveText(/^\d+\+?$/);
+    }
+  });
+
+  test('skills devem ser exibidas como cards com pílulas', async ({ page }) => {
+    await home.loadDeferredContent();
+    const section = page.getByTestId('skills-section');
+    await expect(section.locator('.tile').first()).toBeAttached();
+    expect(await section.locator('.pill').count()).toBeGreaterThan(5);
+  });
+
+  test('(pós)graduação deve exibir cards com logo da instituição', async ({ page }) => {
+    await home.loadDeferredContent();
+    const cards = page.getByTestId('graduation-card');
+    expect(await cards.count()).toBeGreaterThan(0);
+    for (const card of await cards.all()) {
+      await expect(card.locator('img.item-logo')).toHaveAttribute('src', /.+/);
+    }
+  });
+
+  test('trilhas devem paginar e atualizar a numeração dos cards', async ({ page }) => {
+    await home.loadDeferredContent();
+    const cards = page.getByTestId('formation-card');
+    await expect(cards).toHaveCount(8);
+    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/\b1\s*$/);
+
+    const next = page.locator('#trilhas .pagination-next a');
+    await next.scrollIntoViewIfNeeded();
+    await next.click();
+    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/\b9\s*$/);
+  });
+
+  test('chip de instituição deve filtrar cursos e mostrar o filtro ativo', async ({ page }) => {
+    await home.loadDeferredContent();
+    const cards = page.getByTestId('course-card');
+    const quantity = page.locator('#courses .section-subheading .pill');
+    const before = await quantity.innerText();
+
+    const chip = page.locator('label[id^="label_course_institution_"]', { hasText: 'Alura' });
+    await chip.scrollIntoViewIfNeeded();
+    await chip.click();
+
+    await expect(chip).toHaveClass(/active/);
+    await expect(page.locator('#courses .catalog-active .pill', { hasText: 'Alura' })).toBeVisible();
+    await expect(page.locator('#courses .item-meta', { hasText: 'Alura' }).first()).toBeVisible();
+    expect(await cards.count()).toBeGreaterThan(0);
+    await expect(quantity).not.toHaveText(before);
+  });
+
+  test('contato deve exibir foto carregada, e-mail e currículo', async ({ page }) => {
+    await home.loadDeferredContent();
+    const section = page.getByTestId('contact-section');
+    await section.scrollIntoViewIfNeeded();
+
+    await expect.poll(() => imageLoaded(section.locator('img.contact-photo'))).toBe(true);
+    await expect(page.getByTestId('contact-email')).toHaveAttribute('href', /^mailto:.+@.+/);
+    await expect(page.getByTestId('contact-resume')).toHaveAttribute('href', /Curriculo.*\.pdf$/);
+  });
+
+  test('rodapé deve abrir links externos com rel="noopener"', async ({ page }) => {
+    await home.loadDeferredContent();
+    const links = page.locator('footer.site-footer a[target="_blank"]');
+    await expect(links).toHaveCount(2);
+    for (const link of await links.all()) {
+      await expect(link).toHaveAttribute('rel', 'noopener');
+    }
+  });
+
+  test('o primeiro Tab deve focar o skip-link', async ({ page }) => {
+    await page.keyboard.press('Tab');
+    await expect(page.getByTestId('skip-link')).toBeFocused();
+  });
+
+  test('ativar o skip-link deve levar o foco ao conteúdo principal antes de qualquer rolagem', async ({
+    page,
+  }) => {
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#main-content')).toBeFocused();
+  });
+
+  test('tema deve mudar a cor de fundo do documento ao alternar', async ({ page }) => {
+    const background = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    const dark = await background();
+
+    await page.getByTestId('theme-toggle').click();
+    await expect(page.locator('html')).toHaveAttribute('data-bs-theme', 'light');
+    await expect.poll(background).not.toBe(dark);
+  });
+
+  test('menu mobile deve abrir e fechar ao escolher uma seção', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 800 });
+    await page.reload();
+    await home.loadDeferredContent();
+
+    const toggler = page.locator('.navbar-toggler');
+    await toggler.click();
+    await expect(toggler).toHaveAttribute('aria-expanded', 'true');
+
+    await page.getByTestId('nav-skills').click();
+    await expect(toggler).toHaveAttribute('aria-expanded', 'false');
+  });
+});

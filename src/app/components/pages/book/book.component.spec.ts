@@ -91,7 +91,7 @@ describe('BookComponent', () => {
         filterPublisher: 'Editora', filterTag: 'Tag', favorite: 'Favorito',
         logoAlt: 'Logo {{name}}', publishedIn: 'publicado em', subtitle_label: 'Subtítulo',
         publisher: 'Editora', author: 'Autor', tags: 'Tags', moreDetails: 'Mais detalhes',
-        unreadMessages: 'Não lidas'
+        itemLabel: 'Não lidas'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({ books: { title: 'Books' } });
@@ -112,7 +112,7 @@ describe('BookComponent', () => {
   it('should calculate absolute index correctly', () => {
     component.config().currentPage = 2;
     const index = component.absoluteIndex(2);
-    expect(index).toBe(8);
+    expect(index).toBe(component.config().itemsPerPage + 2 + 1);
   });
 
   it('should change page on onPageChange', () => {
@@ -185,5 +185,31 @@ describe('BookComponent', () => {
     component.onClickTagEvent(event);
 
     expect(component.tagsFilter().has(id)).toBeFalse();
+  });
+
+  describe('card grid', () => {
+    const cards = () =>
+      (fixture.nativeElement as HTMLElement).querySelectorAll(
+        '.card-grid > [data-testid="book-card"]'
+      );
+
+    it('should render one book-card per book with the publisher logo', () => {
+      expect(cards()).toHaveLength(2);
+      for (const card of Array.from(cards())) {
+        expect(card.querySelector('img.publisher-logo')).toBeTruthy();
+      }
+    });
+
+    it('should render no cards and keep working when the search matches nothing', () => {
+      component.searchQuery.set('zzz-sem-resultado');
+      fixture.detectChanges();
+
+      expect(cards()).toHaveLength(0);
+      expect((fixture.nativeElement as HTMLElement).querySelector('#books')).toBeTruthy();
+    });
+  });
+
+  it('should paginate two full rows of the 4-column card grid per page', () => {
+    expect(component.config().itemsPerPage).toBe(8);
   });
 });

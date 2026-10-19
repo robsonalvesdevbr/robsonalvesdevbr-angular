@@ -35,16 +35,16 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
   template: `
     <!-- Navigation and Header load immediately (critical) -->
     <app-navigation />
-    <app-masterhead [bglight]="true" />
+    <app-masterhead />
 
     <!-- Main content with viewport-based lazy loading -->
     @defer (on viewport; prefetch on idle; when hasInitialFragment) {
       <app-about />
-      <app-skills [bglight]="true" />
+      <app-skills />
       <app-graduation />
-      <app-course [bglight]="true" />
+      <app-course />
       <app-formationcourse />
-      <app-book [bglight]="true" />
+      <app-book />
       <app-contact />
       <app-footer />
     } @loading (minimum 100ms; after 500ms) {
@@ -57,6 +57,9 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
         {{ 'common.loadError' | translate }}
       </div>
     }
+
+    <!-- Fixed backdrop: kept last so the navigation/masthead stay the first children -->
+    <div class="mesh-bg" aria-hidden="true"></div>
   `,
 })
 export class HomeComponent {

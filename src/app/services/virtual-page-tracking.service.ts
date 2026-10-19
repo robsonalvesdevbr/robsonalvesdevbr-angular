@@ -12,7 +12,7 @@ export class VirtualPageTrackingService {
   private sectionMetadata: { [key: string]: { title: string; description: string } } = {
     'about': {
       title: 'Sobre - Robson Alves',
-      description: 'Conheça minha trajetória profissional de 23+ anos'
+      description: 'Conheça minha trajetória profissional de 25+ anos'
     },
     'graduation': {
       title: '(Pós)Graduação - Robson Alves',
