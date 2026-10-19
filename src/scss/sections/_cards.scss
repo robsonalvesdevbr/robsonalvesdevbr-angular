@@ -50,6 +50,24 @@
     min-width: 0;
   }
 
+  // Em uma coluna o texto fica ao lado do logo: reserva espaço para o número no canto.
+  @media (max-width: 767.98px) {
+    &:has(> .item-index) .item-body {
+      padding-right: 1.75rem;
+    }
+  }
+
+  // Número sequencial no canto superior direito do card.
+  .item-index {
+    position: absolute;
+    top: 0.85rem;
+    right: 1.1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+
   .item-eyebrow {
     margin: 0;
     font-size: 0.75rem;

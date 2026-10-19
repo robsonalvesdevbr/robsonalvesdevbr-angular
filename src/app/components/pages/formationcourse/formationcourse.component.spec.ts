@@ -139,4 +139,13 @@ describe('FormationCourseComponent', () => {
     expect(el.querySelectorAll('[data-testid="formation-card"]')).toHaveLength(2);
     expect(el.querySelector('pagination-controls')).toBeTruthy();
   });
+
+  it('should place the sequential number in the top-right index of each card', () => {
+    const first = (fixture.nativeElement as HTMLElement).querySelector(
+      '[data-testid="formation-card"]'
+    );
+    const index = first?.querySelector(':scope > .item-index');
+    expect(index?.textContent?.trim()).toMatch(/\b1$/);
+    expect(first?.querySelector('.item-body .item-eyebrow')).toBeNull();
+  });
 });

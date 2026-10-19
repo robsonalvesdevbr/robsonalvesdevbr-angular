@@ -122,6 +122,10 @@
         let i = $index
       ) {
         <article class="tile item-card" data-testid="book-card">
+          <span class="item-index"
+            ><span class="visually-hidden">{{ 'books.itemLabel' | translate }} </span
+            >{{ absoluteIndex(i) }}</span
+          >
           <img
             class="item-logo publisher-logo"
             [ngSrc]="getPublisherLogo(item.publishName)"
@@ -131,10 +135,6 @@
             decoding="async"
           />
           <div class="item-body">
-            <p class="item-eyebrow">
-              <span class="visually-hidden">{{ 'books.itemLabel' | translate }} </span
-              >{{ absoluteIndex(i) }}
-            </p>
             <p class="item-title fw-bold">
               {{ item.title }}
               <i class="bi bi-star-fill icon-favorite" [hidden]="!item.favorite"></i>

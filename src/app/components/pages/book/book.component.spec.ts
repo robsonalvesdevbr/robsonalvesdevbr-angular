@@ -200,6 +200,15 @@ describe('BookComponent', () => {
       }
     });
 
+    it('should place the sequential number in the top-right index of each card', () => {
+      const first = (fixture.nativeElement as HTMLElement).querySelector(
+        '.card-grid > [data-testid="book-card"]'
+      );
+      const index = first?.querySelector(':scope > .item-index');
+      expect(index?.textContent?.trim()).toMatch(/\b1$/);
+      expect(first?.querySelector('.item-body .item-eyebrow')).toBeNull();
+    });
+
     it('should render no cards and keep working when the search matches nothing', () => {
       component.searchQuery.set('zzz-sem-resultado');
       fixture.detectChanges();

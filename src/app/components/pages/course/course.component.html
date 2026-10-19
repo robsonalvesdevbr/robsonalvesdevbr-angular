@@ -122,6 +122,10 @@
         let i = $index
       ) {
         <article class="tile item-card" data-testid="course-card">
+          <span class="item-index"
+            ><span class="visually-hidden">{{ 'courses.itemLabel' | translate }} </span
+            >{{ absoluteIndex(i) }}</span
+          >
           <img
             class="item-logo"
             ngSrc="assets/img/others/{{ item.institution | imgcurso }}"
@@ -131,10 +135,6 @@
             decoding="async"
           />
           <div class="item-body">
-            <p class="item-eyebrow">
-              <span class="visually-hidden">{{ 'courses.itemLabel' | translate }} </span
-              >{{ absoluteIndex(i) }}
-            </p>
             <p class="item-title fw-bold">
               {{ item.name }}
               <i class="bi bi-star-fill icon-favorite" [hidden]="!item.favorite"></i>

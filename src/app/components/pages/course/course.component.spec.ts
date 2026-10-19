@@ -199,6 +199,15 @@ describe('CourseComponent', () => {
       }
     });
 
+    it('should place the sequential number in the top-right index of each card', () => {
+      const first = (fixture.nativeElement as HTMLElement).querySelector(
+        '.card-grid > [data-testid="course-card"]'
+      );
+      const index = first?.querySelector(':scope > .item-index');
+      expect(index?.textContent?.trim()).toMatch(/\b1$/);
+      expect(first?.querySelector('.item-body .item-eyebrow')).toBeNull();
+    });
+
     it('should not render a focusable control for the empty institution value', () => {
       const root = fixture.nativeElement as HTMLElement;
       expect(root.querySelector('#input_course_institution_Alura')).toBeTruthy();
