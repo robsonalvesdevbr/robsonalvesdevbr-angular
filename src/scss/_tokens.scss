@@ -13,6 +13,7 @@
   --cyan: #29d0ff;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
   --mesh-opacity: 0.35;
+  --success-text: #3ddc97;
 }
 
 [data-bs-theme='light'] {
@@ -28,6 +29,7 @@
   --cyan: #0a7aa8;
   --shadow-card: 0 10px 30px rgba(20, 22, 28, 0.08);
   --mesh-opacity: 0.18;
+  --success-text: #1b7f4b; // contraste >= 4.5:1 sobre o card claro
 }
 
 :root {
