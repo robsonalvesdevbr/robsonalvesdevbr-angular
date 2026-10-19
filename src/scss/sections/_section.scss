@@ -1,0 +1,21 @@
+// Cabeçalho comum das seções migradas (sobrescreve as regras do template Agency).
+.page-section {
+  padding: var(--space-5) 0;
+
+  h2.section-heading {
+    margin: 0 0 var(--space-2);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: none;
+  }
+
+  h3.section-subheading {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-muted) !important;
+  }
+}

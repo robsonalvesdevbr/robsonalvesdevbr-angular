@@ -1,8 +1,8 @@
 <!-- About -->
-<section class="page-section" id="about" [ngClass]="currentClass()">
+<section class="page-section" id="about">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="section-heading text-uppercase" data-testid="about-title">
+      <h2 class="section-heading" data-testid="about-title">
         {{ 'about.title' | translate }}
       </h2>
       <h3 class="section-subheading text-muted" data-testid="about-subtitle">
@@ -10,102 +10,27 @@
       </h3>
     </div>
 
-    <!-- Career Timeline -->
-    <ul class="timeline">
-      <li class="mb-5">
-        <div class="timeline-image">
-          <i class="bi bi-mortarboard-fill timeline-icon" aria-hidden="true"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4>{{ 'about.timeline.instructor.period' | translate }}</h4>
-            <h4 class="subheading">{{ 'about.timeline.instructor.title' | translate }}</h4>
-          </div>
-          <div class="timeline-body">
-            <span class="text-muted">
-              {{ 'about.timeline.instructor.description' | translate }}
-            </span>
-          </div>
-        </div>
-      </li>
+    <div class="bento">
+      <div class="tile tile--span-4 about-highlight" data-testid="about-experience">
+        <span class="highlight-line1">{{ 'about.timeline.experience.line1' | translate }}</span>
+        <span class="highlight-line2">{{ 'about.timeline.experience.line2' | translate }}</span>
+        <span class="highlight-line3">{{ 'about.timeline.experience.line3' | translate }}</span>
+      </div>
 
-      <li class="timeline-inverted mb-5">
-        <div class="timeline-image">
-          <i class="bi bi-code-slash timeline-icon" aria-hidden="true"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4>{{ 'about.timeline.transition.period' | translate }}</h4>
-            <h4 class="subheading">{{ 'about.timeline.transition.title' | translate }}</h4>
-          </div>
-          <div class="timeline-body">
-            <span class="text-muted">
-              {{ 'about.timeline.transition.description' | translate }}
-            </span>
-          </div>
-        </div>
-      </li>
-
-      <li class="mb-5">
-        <div class="timeline-image">
-          <i class="bi bi-bank2 timeline-icon" aria-hidden="true"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4>{{ 'about.timeline.financial.period' | translate }}</h4>
-            <h4 class="subheading">{{ 'about.timeline.financial.title' | translate }}</h4>
-          </div>
-          <div class="timeline-body">
-            <span class="text-muted">
-              {{ 'about.timeline.financial.description' | translate }}
-            </span>
-          </div>
-        </div>
-      </li>
-
-      <li class="timeline-inverted mb-5">
-        <div class="timeline-image">
-          <i class="bi bi-cloud-arrow-up-fill timeline-icon" aria-hidden="true"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4>{{ 'about.timeline.modernization.period' | translate }}</h4>
-            <h4 class="subheading">{{ 'about.timeline.modernization.title' | translate }}</h4>
-          </div>
-          <div class="timeline-body">
-            <span class="text-muted">
-              {{ 'about.timeline.modernization.description' | translate }}
-            </span>
-          </div>
-        </div>
-      </li>
-
-      <li class="mb-5">
-        <div class="timeline-image">
-          <i class="bi bi-diagram-3-fill timeline-icon" aria-hidden="true"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4>{{ 'about.timeline.architect.period' | translate }}</h4>
-            <h4 class="subheading">{{ 'about.timeline.architect.title' | translate }}</h4>
-          </div>
-          <div class="timeline-body">
-            <span class="text-muted">
-              {{ 'about.timeline.architect.description' | translate }}
-            </span>
-          </div>
-        </div>
-      </li>
-
-      <li class="timeline-inverted">
-        <div class="timeline-image">
-          <h4>
-            {{ 'about.timeline.experience.line1' | translate }}<br />
-            {{ 'about.timeline.experience.line2' | translate }}<br />
-            {{ 'about.timeline.experience.line3' | translate }}
-          </h4>
-        </div>
-      </li>
-    </ul>
+      <div class="tile tile--span-8">
+        <ol class="bento-timeline">
+          @for (stage of timeline; track stage.key) {
+            <li>
+              <span class="marker"><i class="bi" [class]="stage.icon" aria-hidden="true"></i></span>
+              <p class="period">{{ 'about.timeline.' + stage.key + '.period' | translate }}</p>
+              <h4 class="stage-title">{{ 'about.timeline.' + stage.key + '.title' | translate }}</h4>
+              <p class="stage-description">
+                {{ 'about.timeline.' + stage.key + '.description' | translate }}
+              </p>
+            </li>
+          }
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
