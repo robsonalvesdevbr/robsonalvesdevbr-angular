@@ -9,7 +9,6 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
-import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
@@ -36,7 +35,6 @@ import { getPublisherLogo } from '@path-data/PublisherLogo';
     TranslatePipe,
     NgxPaginationModule,
     NgOptimizedImage,
-    HighlightDirective,
     EnumToArrayPipe,
     TagLabelPipe,
   ],

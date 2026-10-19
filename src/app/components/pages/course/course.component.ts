@@ -9,7 +9,6 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
-import { HighlightDirective } from '@path-app/directives/highlight.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
@@ -36,7 +35,6 @@ import { debounce } from '@path-utils/performance.utils';
     TranslatePipe,
     NgxPaginationModule,
     NgOptimizedImage,
-    HighlightDirective,
     EnumToArrayPipe,
     TagLabelPipe,
   ],

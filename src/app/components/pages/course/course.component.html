@@ -3,7 +3,7 @@
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading">{{ 'courses.title' | translate }}</h2>
-      <h3 class="section-subheading text-muted mb-3">
+      <h3 class="section-subheading mb-3">
         {{ 'courses.subtitle' | translate }}
         <span class="pill ms-2">{{
           'courses.quantity' | translate: { count: filteredAndSortedCourses().length.toString() }
@@ -56,7 +56,6 @@
               for="input_course_institution_{{ institution.key }}"
               id="label_course_institution_{{ institution.key }}"
               [ngClass]="{ active: isInstitutionSelected(institution.key) }"
-              appHighlight
               >{{ institution.value }}</label
             >
           }
@@ -82,7 +81,6 @@
             for="input_course_tag_{{ tag | lowercase }}"
             id="label_course_tag_{{ tag | lowercase }}"
             [ngClass]="{ active: tagsFilter().has(tag) }"
-            appHighlight
             >{{ tag | tagLabel }}</label
           >
         }
@@ -134,8 +132,8 @@
           />
           <div class="item-body">
             <p class="item-eyebrow">
-              {{ absoluteIndex(i) }}
-              <span class="visually-hidden">{{ 'courses.unreadMessages' | translate }}</span>
+              <span class="visually-hidden">{{ 'courses.itemLabel' | translate }} </span
+              >{{ absoluteIndex(i) }}
             </p>
             <p class="item-title fw-bold">
               {{ item.name }}

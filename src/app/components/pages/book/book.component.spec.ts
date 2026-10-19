@@ -91,7 +91,7 @@ describe('BookComponent', () => {
         filterPublisher: 'Editora', filterTag: 'Tag', favorite: 'Favorito',
         logoAlt: 'Logo {{name}}', publishedIn: 'publicado em', subtitle_label: 'Subtítulo',
         publisher: 'Editora', author: 'Autor', tags: 'Tags', moreDetails: 'Mais detalhes',
-        unreadMessages: 'Não lidas'
+        itemLabel: 'Não lidas'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({ books: { title: 'Books' } });

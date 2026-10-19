@@ -90,7 +90,7 @@ describe('FormationCourseComponent', () => {
         tags: 'Tags',
         completedOn: 'Concluído em',
         certificate: 'Certificado',
-        unreadMessages: 'Mensagens não lidas'
+        itemLabel: 'Mensagens não lidas'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({
@@ -103,7 +103,7 @@ describe('FormationCourseComponent', () => {
         tags: 'Tags',
         completedOn: 'Completed on',
         certificate: 'Certificate',
-        unreadMessages: 'Unread messages'
+        itemLabel: 'Unread messages'
       }
     });
     component = fixture.componentInstance;

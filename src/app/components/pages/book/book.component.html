@@ -3,7 +3,7 @@
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading">{{ 'books.title' | translate }}</h2>
-      <h3 class="section-subheading text-muted mb-3">
+      <h3 class="section-subheading mb-3">
         {{ 'books.subtitle' | translate }}
         <span class="pill ms-2">{{
           'books.quantity' | translate: { count: filteredAndSortedBooks().length.toString() }
@@ -56,7 +56,6 @@
               for="input_book_institution_{{ publishName.key }}"
               id="label_book_institution_{{ publishName.key }}"
               [ngClass]="{ active: isPublisherSelected(publishName.key) }"
-              appHighlight
               >{{ publishName.value }}</label
             >
           }
@@ -82,7 +81,6 @@
             for="input_book_tag_{{ tag | lowercase }}"
             id="label_book_tag_{{ tag | lowercase }}"
             [ngClass]="{ active: tagsFilter().has(tag) }"
-            appHighlight
             >{{ tag | tagLabel }}</label
           >
         }
@@ -134,8 +132,8 @@
           />
           <div class="item-body">
             <p class="item-eyebrow">
-              {{ absoluteIndex(i) }}
-              <span class="visually-hidden">{{ 'books.unreadMessages' | translate }}</span>
+              <span class="visually-hidden">{{ 'books.itemLabel' | translate }} </span
+              >{{ absoluteIndex(i) }}
             </p>
             <p class="item-title fw-bold">
               {{ item.title }}

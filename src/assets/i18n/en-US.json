@@ -102,7 +102,7 @@
     "completedOn": "Completed on",
     "certificate": "Certificate",
     "logoAlt": "Institution logo {{name}}",
-    "unreadMessages": "unread messages",
+    "itemLabel": "Item",
     "sortBy": "Sort by",
     "sortOptions": {
       "name": "Name",
@@ -130,7 +130,7 @@
     "tags": "Tags",
     "moreDetails": "More details",
     "logoAlt": "Publisher logo {{name}}",
-    "unreadMessages": "unread messages"
+    "itemLabel": "Item"
   },
   "graduation": {
     "title": "(Post)Graduation",
@@ -153,7 +153,7 @@
     "completedOn": "Completed on",
     "certificate": "Certificate",
     "logoAlt": "Institution logo {{name}}",
-    "unreadMessages": "unread messages"
+    "itemLabel": "Item"
   },
   "contact": {
     "title": "Contact",

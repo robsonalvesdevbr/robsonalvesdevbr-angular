@@ -69,7 +69,7 @@ describe('CourseComponent', () => {
         tags: 'Tags',
         completedOn: 'Concluído em',
         certificate: 'Certificado',
-        unreadMessages: 'Não lidas'
+        itemLabel: 'Não lidas'
       }
     });
     httpMock.expectOne('/assets/i18n/en-US.json').flush({ courses: { title: 'Courses' } });
