@@ -1,0 +1,84 @@
+// Primitivas do Bento Grid. Sem backdrop-filter nos tiles (custo de pintura em dezenas de cards).
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
+
+  @media (max-width: 859.98px) {
+    grid-template-columns: 1fr;
+
+    > * {
+      grid-column: auto !important;
+      grid-row: auto !important;
+    }
+  }
+}
+
+.tile {
+  position: relative;
+  padding: var(--space-4);
+  overflow: hidden;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-card);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(var(--accent-rgb), 0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@each $span in (3, 4, 5, 7, 8, 12) {
+  .tile--span-#{$span} {
+    grid-column: span $span;
+  }
+}
+
+.tile--row-2 {
+  grid-row: span 2;
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8125rem;
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-pill);
+}
+
+// Fundo em mesh: gradientes radiais em um único elemento fixo (sem filter: blur).
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--mesh-opacity);
+  background:
+    radial-gradient(520px 520px at 5% -5%, var(--violet), transparent 70%),
+    radial-gradient(460px 460px at 100% 12%, var(--accent), transparent 70%),
+    radial-gradient(420px 420px at 40% 105%, var(--cyan), transparent 70%);
+}

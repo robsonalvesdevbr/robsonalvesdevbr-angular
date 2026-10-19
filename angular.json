@@ -61,7 +61,8 @@
             "styles": [
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.scss",
-              "src/css/styles.scss"
+              "src/css/styles.scss",
+              "src/css/bento.scss"
             ],
             "scripts": []
           },
