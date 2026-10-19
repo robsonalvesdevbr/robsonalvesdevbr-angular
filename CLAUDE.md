@@ -131,6 +131,7 @@ pnpm run clean          # remove dist, cache, .angular
 - `src/scss/sections/*`: um parcial por seção (`_nav`, `_hero`, `_about`, `_skills`, `_cards`, `_catalog`, `_contact`, `_section`); registrar novos em `src/css/bento.scss` com `@use`
 - `src/scss/_motion.scss`: entrada dos cards com scroll-driven animations (`.tile`), só em `@media screen` + `prefers-reduced-motion: no-preference` + `@supports (animation-timeline)`
 - `.card-grid` (flex com crescimento): 1 coluna (<768px), 2 (≥768px), 4 (≥1100px; `.card-grid--3` usa 3). A última linha sempre estica para ficar completa. Tamanhos de página: Cursos, Livros e Trilhas 8 (4x2) — manter múltiplos de 4
+- Filtro de tags de Cursos/Livros é um acordeão (`.catalog-chips-list.is-collapsed` + `.catalog-toggle`): recolhido mostra uma linha (`max-height`), a seta expande; `:focus-within` abre a lista para o foco por teclado nunca cair num chip oculto
 - A navegação em pílula é escura nos dois temas (o logo `robsonalves.png` só tem contraste em fundo escuro); ao mudar a altura dela, atualizar só `--navbar-height-normal|mobile` em `src/css/styles.scss` (a rolagem por âncora em `navigation.component.ts` lê essas variáveis)
 - O skip-link aponta para `#main-content` (o `<header>` do masthead, `tabindex="-1"`), que existe antes do `@defer`
 - Estilos novos vão em parciais globais, não em `styles:` de componente (budget de 3 kB por componente)

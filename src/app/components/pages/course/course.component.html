@@ -62,28 +62,50 @@
         }
       </fieldset>
       <fieldset
-        class="catalog-chips"
+        class="catalog-chips catalog-chips--tags"
         role="group"
         [attr.aria-label]="'courses.filterTag' | translate"
       >
         <b class="catalog-chips-label">{{ 'courses.filterTag' | translate }}:</b>
-        @for (tag of availableTags(); track trackByTag($index, tag)) {
-          <input
-            type="checkbox"
-            class="btn-check"
-            id="input_course_tag_{{ tag | lowercase }}"
-            autocomplete="off"
-            [checked]="tagsFilter().has(tag)"
-            (click)="onClickTagEvent($event)"
-          />
-          <label
-            class="catalog-chip"
-            for="input_course_tag_{{ tag | lowercase }}"
-            id="label_course_tag_{{ tag | lowercase }}"
-            [ngClass]="{ active: tagsFilter().has(tag) }"
-            >{{ tag | tagLabel }}</label
-          >
-        }
+        <div
+          class="catalog-chips-list"
+          id="course-tag-chips"
+          [class.is-collapsed]="!tagsExpanded()"
+        >
+          @for (tag of availableTags(); track trackByTag($index, tag)) {
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="input_course_tag_{{ tag | lowercase }}"
+              autocomplete="off"
+              [checked]="tagsFilter().has(tag)"
+              (click)="onClickTagEvent($event)"
+            />
+            <label
+              class="catalog-chip"
+              for="input_course_tag_{{ tag | lowercase }}"
+              id="label_course_tag_{{ tag | lowercase }}"
+              [ngClass]="{ active: tagsFilter().has(tag) }"
+              >{{ tag | tagLabel }}</label
+            >
+          }
+        </div>
+        <button
+          type="button"
+          class="catalog-toggle"
+          [class.is-open]="tagsExpanded()"
+          (click)="toggleTags()"
+          [attr.aria-expanded]="tagsExpanded()"
+          aria-controls="course-tag-chips"
+          [attr.aria-label]="
+            (tagsExpanded() ? 'courses.collapseTags' : 'courses.expandTags') | translate
+          "
+          [attr.title]="
+            (tagsExpanded() ? 'courses.collapseTags' : 'courses.expandTags') | translate
+          "
+        >
+          <i class="bi bi-chevron-down" aria-hidden="true"></i>
+        </button>
       </fieldset>
     </div>
 

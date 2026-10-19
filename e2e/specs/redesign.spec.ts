@@ -67,6 +67,40 @@ test.describe('Redesign bento', () => {
     await expect(quantity).not.toHaveText(before);
   });
 
+  for (const [name, section, list] of [
+    ['cursos', '#courses', '#course-tag-chips'],
+    ['livros', '#books', '#book-tag-chips'],
+  ]) {
+    test(`filtro de tags de ${name} deve mostrar uma linha e expandir pela seta`, async ({ page }) => {
+      await home.loadDeferredContent();
+      const chips = page.locator(list);
+      const toggle = page.locator(`${section} .catalog-toggle`);
+      await toggle.scrollIntoViewIfNeeded();
+
+      const heightOf = () => chips.evaluate(el => el.getBoundingClientRect().height);
+      expect(await heightOf(), 'recolhido: só a primeira linha').toBeLessThan(40);
+      await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+      await expect.poll(heightOf).toBeGreaterThan(80);
+
+      await toggle.click();
+      await expect.poll(heightOf).toBeLessThan(40);
+    });
+
+    test(`foco por teclado em tag oculta de ${name} deve abrir a lista`, async ({ page }) => {
+      await home.loadDeferredContent();
+      const chips = page.locator(list);
+      await chips.scrollIntoViewIfNeeded();
+
+      await chips.locator('input').last().focus();
+      await expect
+        .poll(() => chips.evaluate(el => el.getBoundingClientRect().height))
+        .toBeGreaterThan(80);
+    });
+  }
+
   test('contato deve exibir foto carregada, e-mail e currículo', async ({ page }) => {
     await home.loadDeferredContent();
     const section = page.getByTestId('contact-section');
