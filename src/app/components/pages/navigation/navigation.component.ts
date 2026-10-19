@@ -23,9 +23,9 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
   private _scrollObserver: IntersectionObserver | null = null;
 
   private readonly navbarHeights = {
-    mobile: 110,
-    shrink: 106,
-    normal: 126
+    mobile: 88,
+    shrink: 96,
+    normal: 96
   };
 
   private analyticsBatcher: BatchProcessor<() => void>;
