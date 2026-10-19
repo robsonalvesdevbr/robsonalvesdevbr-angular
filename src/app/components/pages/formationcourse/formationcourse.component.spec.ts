@@ -133,4 +133,10 @@ describe('FormationCourseComponent', () => {
     component.onPageChange(newPageNumber);
     expect(component.config().currentPage).toBe(newPageNumber);
   });
+
+  it('should render one formation-card per course and the pagination controls', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelectorAll('[data-testid="formation-card"]')).toHaveLength(2);
+    expect(el.querySelector('pagination-controls')).toBeTruthy();
+  });
 });

@@ -57,3 +57,12 @@
 [data-bs-theme='light'] {
   --on-accent: #ffffff;
 }
+
+// Matizes de apoio para pontos/ícones de cards (ciclam por índice).
+:root {
+  --hue-0: #7c5cff;
+  --hue-1: #29d0ff;
+  --hue-2: #ff7a45;
+  --hue-3: #3ddc97;
+  --hue-4: #ff5d8f;
+}

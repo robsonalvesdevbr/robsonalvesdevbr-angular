@@ -14,7 +14,7 @@ describe('SkillsComponent', () => {
     }).compileComponents();
   });
 
-  it('should render one card per skill group with translated titles', () => {
+  it('should render one tile per skill group with translated titles', () => {
     const fixture = TestBed.createComponent(SkillsComponent);
     const groups = TestBed.inject(DataService).getSkillGroups();
     const httpMock = TestBed.inject(HttpTestingController);
@@ -28,8 +28,8 @@ describe('SkillsComponent', () => {
     const el = fixture.nativeElement as HTMLElement;
 
     expect(el.querySelector('#skills')).toBeTruthy();
-    expect(el.querySelectorAll('.card').length).toBe(groups.length);
-    expect(el.querySelector('.card-title')?.textContent?.trim()).toBe(`Grupo ${groups[0].id}`);
-    expect(el.querySelectorAll('.badge').length).toBe(groups.reduce((n, g) => n + g.skills.length, 0));
+    expect(el.querySelectorAll('.tile').length).toBe(groups.length);
+    expect(el.querySelector('.tile .group-title')?.textContent?.trim()).toBe(`Grupo ${groups[0].id}`);
+    expect(el.querySelectorAll('.pill').length).toBe(groups.reduce((n, g) => n + g.skills.length, 0));
   });
 });

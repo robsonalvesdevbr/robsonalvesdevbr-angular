@@ -1,0 +1,21 @@
+.skill-group {
+  --tile-hue: var(--hue-0);
+
+  .group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 var(--space-3);
+    font-size: 1.0625rem;
+    font-weight: 700;
+
+    &::before {
+      content: '';
+      width: 0.6rem;
+      height: 0.6rem;
+      background: var(--tile-hue);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--tile-hue) 22%, transparent);
+    }
+  }
+}

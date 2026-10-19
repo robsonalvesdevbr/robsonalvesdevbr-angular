@@ -1,69 +1,58 @@
-<!-- About-->
-<section class="page-section" id="graduation" [ngClass]="currentClass()">
+<!-- Graduation -->
+<section class="page-section" id="graduation">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">{{ 'graduation.title' | translate }}</h2>
+      <h2 class="section-heading">{{ 'graduation.title' | translate }}</h2>
       <h3 class="section-subheading text-muted">
-        {{ 'graduation.subtitle' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;<span
-          class="badge rounded-pill bg-warning fs-7 text-dark"
-          >{{ 'graduation.quantity' | translate: { count: graduations().length.toString() } }}</span
-        >
+        {{ 'graduation.subtitle' | translate }}
+        <span class="pill ms-2">{{
+          'graduation.quantity' | translate: { count: graduations().length.toString() }
+        }}</span>
       </h3>
     </div>
-    <ul class="timeline">
+    <div class="card-grid">
       @for (
         graduation of graduations() | sortby: 'conclusionDate' : 'desc';
-        track trackByGraduation($index, graduation);
-        let i = $index
+        track trackByGraduation($index, graduation)
       ) {
-        <li [ngClass]="{ 'timeline-inverted': i % 2 !== 0 }" class="mb-5">
-          <div class="timeline-image">
-            <img
-              class="rounded-circle img-fluid"
-              [ngSrc]="graduation.institutionLogo || 'assets/img/others/formacao.png'"
-              [alt]="'graduation.logoAlt' | translate: { name: graduation.institution }"
-              fill
-              decoding="async"
-              sizes="(max-width: 768px) 30vw, 20vw"
-            />
+        <article class="tile item-card" data-testid="graduation-card">
+          <img
+            class="item-logo"
+            [ngSrc]="graduation.institutionLogo || 'assets/img/others/formacao.png'"
+            [alt]="'graduation.logoAlt' | translate: { name: graduation.institution }"
+            width="56"
+            height="56"
+            decoding="async"
+          />
+          <div class="item-body">
+            <p class="item-eyebrow">{{ graduation.conclusionDate | date: 'yyyy' }}</p>
+            <h4 class="item-title">{{ graduation.name }}</h4>
+            <p class="item-meta">
+              <b>{{ graduation.conclusion | messageDateConclusion }}</b>
+            </p>
+            <p class="item-meta">{{ graduation.institution }}</p>
+            @if (graduation.websiteInstituition) {
+              <a
+                class="item-link"
+                [href]="graduation.websiteInstituition"
+                target="_blank"
+                rel="noopener"
+                [attr.aria-label]="
+                  'graduation.visitWebsite' | translate: { name: graduation.institution }
+                "
+                >{{ graduation.websiteInstituition }}</a
+              >
+            }
           </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h5>{{ graduation.conclusionDate | date: 'yyyy' }}</h5>
-              <h5 class="subheading">{{ graduation.name }}</h5>
-            </div>
-            <div class="timeline-body">
-              <p class="text-muted">
-                <b>{{ graduation.conclusion | messageDateConclusion }}</b>
-              </p>
-              <p class="text-muted">{{ graduation.institution }}</p>
-              <p class="text-muted">
-                <a
-                  [href]="graduation.websiteInstituition"
-                  target="_blank"
-                  rel="noopener"
-                  [attr.aria-label]="
-                    'graduation.visitWebsite' | translate: { name: graduation.institution }
-                  "
-                  >{{ graduation.websiteInstituition }}</a
-                >
-              </p>
-            </div>
-          </div>
-        </li>
+        </article>
       }
-
-      <li class="timeline-inverted">
-        <div class="timeline-image">
-          <h4>
-            {{ 'graduation.finalMessage.line1' | translate }}
-            <br />
-            {{ 'graduation.finalMessage.line2' | translate }}
-            <br />
-            {{ 'graduation.finalMessage.line3' | translate }}
-          </h4>
-        </div>
-      </li>
-    </ul>
+      <div class="tile item-card item-card--note">
+        <p class="item-note">
+          {{ 'graduation.finalMessage.line1' | translate }}<br />
+          {{ 'graduation.finalMessage.line2' | translate }}<br />
+          {{ 'graduation.finalMessage.line3' | translate }}
+        </p>
+      </div>
+    </div>
   </div>
 </section>

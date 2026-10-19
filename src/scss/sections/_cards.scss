@@ -1,0 +1,103 @@
+// Cards de lista (graduação, trilhas, cursos, livros).
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+
+  .item-logo {
+    flex: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+    border: 1px solid var(--surface-border);
+    border-radius: 50%;
+  }
+
+  .item-body {
+    min-width: 0;
+  }
+
+  .item-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .item-title {
+    margin: 0.1rem 0 0.4rem;
+    font-size: 1rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .item-meta {
+    margin: 0 0 0.2rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .item-link {
+    font-size: 0.8125rem;
+    color: var(--accent);
+    overflow-wrap: anywhere;
+  }
+
+  &--note {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), 0.22), transparent 70%),
+      var(--surface);
+
+    .item-note {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+  }
+}
+
+// ngx-pagination traz cores fixas pensadas para fundo claro.
+.ngx-pagination {
+  margin: 0;
+  padding: 0;
+
+  li {
+    color: var(--text-muted);
+  }
+
+  a,
+  button {
+    color: var(--text) !important;
+    border-radius: 8px;
+  }
+
+  a:hover,
+  button:hover {
+    background: var(--surface) !important;
+  }
+
+  .current {
+    color: var(--on-accent);
+    background: var(--accent);
+    border-radius: 8px;
+  }
+
+  .disabled {
+    color: var(--text-muted);
+  }
+}

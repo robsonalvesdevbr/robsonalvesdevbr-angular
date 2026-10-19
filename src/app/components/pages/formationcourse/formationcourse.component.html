@@ -1,68 +1,59 @@
-<!-- About-->
-<section class="page-section" id="trilhas" [ngClass]="currentClass()">
+<!-- Formation courses -->
+<section class="page-section" id="trilhas">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">{{ 'formationCourse.title' | translate }}</h2>
-      <h3 class="section-subheading text-muted mb-3">
-        {{ 'formationCourse.subtitle' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;<span
-          class="badge rounded-pill bg-warning fs-7 text-dark"
-          >{{
-            'formationCourse.quantity' | translate: { count: formationCourses().length.toString() }
-          }}</span
-        >
+      <h2 class="section-heading">{{ 'formationCourse.title' | translate }}</h2>
+      <h3 class="section-subheading text-muted">
+        {{ 'formationCourse.subtitle' | translate }}
+        <span class="pill ms-2">{{
+          'formationCourse.quantity' | translate: { count: formationCourses().length.toString() }
+        }}</span>
       </h3>
     </div>
-    <ul class="list-group list-group-light mb-4">
+    <div class="card-grid mb-4">
       @for (
         course of formationCourses() | sortby: 'conclusion' : 'desc' | paginate: config();
         track trackByFormationCourse($index, course);
         let i = $index
       ) {
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center ms-5">
-            <img
-              ngSrc="assets/img/others/{{ course.institution | imgcurso }}"
-              [alt]="'formationCourse.logoAlt' | translate: { name: course.institution }"
-              width="60"
-              height="60"
-              class="rounded-circle"
-              decoding="async"
-            />
-            <div class="ms-3">
-              <p class="fw-bold mb-0">{{ course.name }}</p>
-              <p class="text-muted fontemenor">
-                <b>{{ 'formationCourse.institution' | translate }}:</b> {{ course.institution }}
-              </p>
-              <p class="text-muted fontemenor">
-                <b>{{ 'formationCourse.tags' | translate }}: </b>
-                {{ course.tags | printTags: true }}
-              </p>
-              <p class="text-muted fontemenor">
-                {{ 'formationCourse.completedOn' | translate }}
-                {{ course.conclusion | date: 'dd/MM/yyyy' }}
-                &nbsp;&nbsp;&nbsp;&nbsp;<a
-                  [href]="course.certificateUrl"
-                  target="_blank"
-                  rel="noopener"
-                  >{{ 'formationCourse.certificate' | translate }}</a
-                >
-              </p>
-            </div>
+        <article class="tile item-card" data-testid="formation-card">
+          <img
+            class="item-logo"
+            ngSrc="assets/img/others/{{ course.institution | imgcurso }}"
+            [alt]="'formationCourse.logoAlt' | translate: { name: course.institution }"
+            width="56"
+            height="56"
+            decoding="async"
+          />
+          <div class="item-body">
+            <p class="item-eyebrow">
+              {{ absoluteIndex(i) }}
+              <span class="visually-hidden">{{ 'formationCourse.unreadMessages' | translate }}</span>
+            </p>
+            <h4 class="item-title">{{ course.name }}</h4>
+            <p class="item-meta">
+              <b>{{ 'formationCourse.institution' | translate }}:</b> {{ course.institution }}
+            </p>
+            <p class="item-meta">
+              <b>{{ 'formationCourse.tags' | translate }}: </b>
+              {{ course.tags | printTags: true }}
+            </p>
+            <p class="item-meta">
+              {{ 'formationCourse.completedOn' | translate }}
+              {{ course.conclusion | date: 'dd/MM/yyyy' }}
+              <a class="item-link ms-2" [href]="course.certificateUrl" target="_blank" rel="noopener">{{
+                'formationCourse.certificate' | translate
+              }}</a>
+            </p>
           </div>
-          <span class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-danger">
-            {{ absoluteIndex(i) }}
-            <span class="visually-hidden">{{ 'formationCourse.unreadMessages' | translate }}</span>
-          </span>
-        </li>
+        </article>
       }
-    </ul>
+    </div>
     <div class="text-center">
-      <div class="has-text-centered">
-        <pagination-controls
-          (pageChange)="onPageChange($event)"
-          id="formationCoursesPag"
-        ></pagination-controls>
-      </div>
+      <pagination-controls
+        (pageChange)="onPageChange($event)"
+        id="formationCoursesPag"
+      ></pagination-controls>
     </div>
   </div>
 </section>

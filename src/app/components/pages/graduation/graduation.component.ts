@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -10,15 +10,13 @@ import { MessageDateConclusionPipe } from '@path-pipes/message-date-conclusion.p
 import { SortbyPipe } from '@path-pipes/sortby.pipe';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { DataService } from '@path-services/data-service';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { IGraduation } from '@path-interfaces/IGraduation';
 
 @Component({
   selector: 'app-graduation',
   imports: [
-    CommonModule,
+    DatePipe,
     MessageDateConclusionPipe,
-    NgxPaginationModule,
     SortbyPipe,
     TranslatePipe,
     NgOptimizedImage,

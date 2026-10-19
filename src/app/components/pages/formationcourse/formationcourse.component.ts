@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -18,7 +18,7 @@ import { IFormationCourse } from '@path-interfaces/IFormationCourse';
 @Component({
   selector: 'app-formationcourse',
   imports: [
-    CommonModule,
+    DatePipe,
     ImgcursoPipe,
     PrintTagsPipe,
     TranslatePipe,
