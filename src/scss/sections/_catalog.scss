@@ -209,27 +209,38 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
-  color: var(--text);
+  color: var(--on-accent);
   cursor: pointer;
-  background: var(--bg-elevated);
-  border: 1px solid var(--surface-border);
+  background: var(--accent);
+  border: 0;
   border-radius: var(--radius-pill);
-  transition: border-color 0.2s ease;
+  box-shadow:
+    0 0 0 4px rgba(var(--accent-rgb), 0.22),
+    0 4px 14px rgba(var(--accent-rgb), 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
-    border-color: rgba(var(--accent-rgb), 0.6);
+    transform: scale(1.08);
+    box-shadow:
+      0 0 0 5px rgba(var(--accent-rgb), 0.3),
+      0 6px 18px rgba(var(--accent-rgb), 0.45);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: 3px solid var(--text);
+    outline-offset: 3px;
   }
 
   .bi {
-    font-size: 0.8125rem;
+    // -webkit-text-stroke engrossa o traço da seta da fonte de ícones
+    font-size: 1.15rem;
+    line-height: 1;
+    -webkit-text-stroke: 1.2px currentcolor;
     transition: transform 0.25s ease;
   }
 
@@ -238,6 +249,12 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+
     .bi {
       transition: none;
     }
