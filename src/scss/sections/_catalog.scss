@@ -155,28 +155,46 @@
   }
 }
 
-// Filtro de tags em acordeão: uma linha visível; a seta mostra o resto.
-.catalog-chips--tags {
+// Filtros em acordeão (tags, instituições, editoras): uma linha visível; a seta mostra o resto.
+// A coluna do botão tem largura fixa para a lista não mudar de largura quando ele some.
+.catalog-chips--collapsible {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr 2.25rem;
   align-items: start;
   gap: 0.35rem 0.5rem;
+
+  .catalog-chips-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 1.75rem;
+  }
 
   .catalog-chips-label {
     // mesma altura de um chip, para alinhar com a primeira linha
     line-height: 1.75rem;
   }
 
-  @media (max-width: 575.98px) {
-    grid-template-columns: 1fr auto;
+  .catalog-toggle {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: -0.25rem;
+  }
 
-    .catalog-chips-label {
+  @media (max-width: 575.98px) {
+    grid-template-columns: 1fr 2.25rem;
+
+    .catalog-chips-head {
       grid-column: 1;
     }
 
     .catalog-chips-list {
       grid-column: 1 / -1;
       grid-row: 2;
+    }
+
+    .catalog-toggle {
+      grid-column: 2;
     }
   }
 }
@@ -258,5 +276,34 @@
     .bi {
       transition: none;
     }
+  }
+}
+
+// Favorito como selo no canto inferior direito do logo.
+.item-logo-wrap {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+}
+
+.item-favorite {
+  position: absolute;
+  right: -0.4rem;
+  bottom: -0.4rem;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--on-accent);
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px var(--bg-elevated),
+    0 2px 8px rgba(var(--accent-rgb), 0.45);
+
+  .icon-favorite {
+    font-size: 0.75rem;
+    line-height: 1;
+    color: inherit;
   }
 }

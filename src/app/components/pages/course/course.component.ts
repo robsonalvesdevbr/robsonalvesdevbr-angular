@@ -9,6 +9,7 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
+import { ChipsAccordionDirective } from '@path-app/directives/chips-accordion.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
@@ -27,6 +28,7 @@ import { debounce } from '@path-utils/performance.utils';
 @Component({
   selector: 'app-course',
   imports: [
+    ChipsAccordionDirective,
     DatePipe,
     LowerCasePipe,
     NgClass,
@@ -56,13 +58,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   coursesFilter: WritableSignal<Set<InstitutionEnum>> = signal<Set<InstitutionEnum>>(new Set<InstitutionEnum>());
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
-
-  // Filtro de tags recolhido em uma linha; a seta expande o restante.
-  readonly tagsExpanded = signal(false);
-
-  toggleTags(): void {
-    this.tagsExpanded.update(expanded => !expanded);
-  }
 
   config = this.paginationService.createPaginationConfig('coursesPag', 8);
 

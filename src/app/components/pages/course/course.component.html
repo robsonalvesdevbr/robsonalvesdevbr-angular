@@ -23,54 +23,90 @@
         [attr.aria-label]="'courses.searchPlaceholder' | translate"
       />
       <fieldset
-        class="catalog-chips"
+        class="catalog-chips catalog-chips--collapsible"
         role="group"
         [attr.aria-label]="'courses.filterInstitution' | translate"
         id="group_label_course_institution"
       >
-        <button
-          type="button"
-          class="catalog-clear"
-          (click)="clearFilters()"
-          [attr.aria-label]="'courses.ariaClearFilters' | translate"
-          [attr.title]="'courses.clearFilters' | translate"
+        <div class="catalog-chips-head">
+          <button
+            type="button"
+            class="catalog-clear"
+            (click)="clearFilters()"
+            [attr.aria-label]="'courses.ariaClearFilters' | translate"
+            [attr.title]="'courses.clearFilters' | translate"
+          >
+            {{ 'courses.clearFilters' | translate }}
+          </button>
+          <b class="catalog-chips-label">{{ 'courses.filterInstitution' | translate }}:</b>
+        </div>
+        <div
+          class="catalog-chips-list"
+          id="course-institution-chips"
+          appChipsAccordion
+          #institutionChips="chipsAccordion"
         >
-          {{ 'courses.clearFilters' | translate }}
-        </button>
-        <b class="catalog-chips-label">{{ 'courses.filterInstitution' | translate }}:</b>
-        @for (
-          institution of institutionList | enumToArray;
-          track trackByInstitution($index, institution)
-        ) {
-          @if (institution.value) {
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="input_course_institution_{{ institution.key }}"
-              autocomplete="off"
-              [checked]="isInstitutionSelected(institution.key)"
-              (click)="onClickIntitutionEvent($event)"
-            />
-            <label
-              class="catalog-chip"
-              for="input_course_institution_{{ institution.key }}"
-              id="label_course_institution_{{ institution.key }}"
-              [ngClass]="{ active: isInstitutionSelected(institution.key) }"
-              >{{ institution.value }}</label
-            >
+          @for (
+            institution of institutionList | enumToArray;
+            track trackByInstitution($index, institution)
+          ) {
+            @if (institution.value) {
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="input_course_institution_{{ institution.key }}"
+                autocomplete="off"
+                [checked]="isInstitutionSelected(institution.key)"
+                (click)="onClickIntitutionEvent($event)"
+              />
+              <label
+                class="catalog-chip"
+                for="input_course_institution_{{ institution.key }}"
+                id="label_course_institution_{{ institution.key }}"
+                [ngClass]="{ active: isInstitutionSelected(institution.key) }"
+                >{{ institution.value }}</label
+              >
+            }
           }
+        </div>
+        @if (institutionChips.overflowing()) {
+          <button
+            type="button"
+            class="catalog-toggle"
+            [class.is-open]="institutionChips.expanded()"
+            (click)="institutionChips.toggle()"
+            [attr.aria-expanded]="institutionChips.expanded()"
+            aria-controls="course-institution-chips"
+            [attr.aria-label]="
+              (institutionChips.expanded()
+                ? 'courses.collapseInstitutions'
+                : 'courses.expandInstitutions'
+              ) | translate
+            "
+            [attr.title]="
+              (institutionChips.expanded()
+                ? 'courses.collapseInstitutions'
+                : 'courses.expandInstitutions'
+              ) | translate
+            "
+          >
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
         }
       </fieldset>
       <fieldset
-        class="catalog-chips catalog-chips--tags"
+        class="catalog-chips catalog-chips--collapsible"
         role="group"
         [attr.aria-label]="'courses.filterTag' | translate"
       >
-        <b class="catalog-chips-label">{{ 'courses.filterTag' | translate }}:</b>
+        <div class="catalog-chips-head">
+          <b class="catalog-chips-label">{{ 'courses.filterTag' | translate }}:</b>
+        </div>
         <div
           class="catalog-chips-list"
           id="course-tag-chips"
-          [class.is-collapsed]="!tagsExpanded()"
+          appChipsAccordion
+          #tagChips="chipsAccordion"
         >
           @for (tag of availableTags(); track trackByTag($index, tag)) {
             <input
@@ -90,22 +126,24 @@
             >
           }
         </div>
-        <button
-          type="button"
-          class="catalog-toggle"
-          [class.is-open]="tagsExpanded()"
-          (click)="toggleTags()"
-          [attr.aria-expanded]="tagsExpanded()"
-          aria-controls="course-tag-chips"
-          [attr.aria-label]="
-            (tagsExpanded() ? 'courses.collapseTags' : 'courses.expandTags') | translate
-          "
-          [attr.title]="
-            (tagsExpanded() ? 'courses.collapseTags' : 'courses.expandTags') | translate
-          "
-        >
-          <i class="bi bi-chevron-down" aria-hidden="true"></i>
-        </button>
+        @if (tagChips.overflowing()) {
+          <button
+            type="button"
+            class="catalog-toggle"
+            [class.is-open]="tagChips.expanded()"
+            (click)="tagChips.toggle()"
+            [attr.aria-expanded]="tagChips.expanded()"
+            aria-controls="course-tag-chips"
+            [attr.aria-label]="
+              (tagChips.expanded() ? 'courses.collapseTags' : 'courses.expandTags') | translate
+            "
+            [attr.title]="
+              (tagChips.expanded() ? 'courses.collapseTags' : 'courses.expandTags') | translate
+            "
+          >
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+        }
       </fieldset>
     </div>
 
@@ -148,18 +186,25 @@
             ><span class="visually-hidden">{{ 'courses.itemLabel' | translate }} </span
             >{{ absoluteIndex(i) }}</span
           >
-          <img
-            class="item-logo"
-            ngSrc="assets/img/others/{{ item.institution | imgcurso }}"
-            [alt]="'courses.logoAlt' | translate: { name: item.institution }"
-            height="56"
-            width="56"
-            decoding="async"
-          />
+          <span class="item-logo-wrap">
+            <img
+              class="item-logo"
+              ngSrc="assets/img/others/{{ item.institution | imgcurso }}"
+              [alt]="'courses.logoAlt' | translate: { name: item.institution }"
+              height="56"
+              width="56"
+              decoding="async"
+            />
+            @if (item.favorite) {
+              <span class="item-favorite" [attr.title]="'courses.favorite' | translate">
+                <i class="bi bi-star-fill icon-favorite" aria-hidden="true"></i>
+                <span class="visually-hidden">{{ 'courses.favorite' | translate }}</span>
+              </span>
+            }
+          </span>
           <div class="item-body">
             <p class="item-title fw-bold">
               {{ item.name }}
-              <i class="bi bi-star-fill icon-favorite" [hidden]="!item.favorite"></i>
             </p>
             <p class="item-meta">
               <b>{{ 'courses.institution' | translate }}:</b> {{ item.institution }}

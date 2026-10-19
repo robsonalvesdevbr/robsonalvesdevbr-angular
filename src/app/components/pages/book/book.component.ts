@@ -9,6 +9,7 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
+import { ChipsAccordionDirective } from '@path-app/directives/chips-accordion.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
@@ -28,6 +29,7 @@ import { getPublisherLogo } from '@path-data/PublisherLogo';
 @Component({
   selector: 'app-book',
   imports: [
+    ChipsAccordionDirective,
     LowerCasePipe,
     NgClass,
     PrintTagsPipe,
@@ -55,13 +57,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
   publishNameFilter: WritableSignal<Set<PublishNameEnum>> = signal<Set<PublishNameEnum>>(new Set<PublishNameEnum>());
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
-
-  // Filtro de tags recolhido em uma linha; a seta expande o restante.
-  readonly tagsExpanded = signal(false);
-
-  toggleTags(): void {
-    this.tagsExpanded.update(expanded => !expanded);
-  }
 
   config = this.paginationService.createPaginationConfig('booksPag', 8);
 

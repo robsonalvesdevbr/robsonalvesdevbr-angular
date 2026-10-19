@@ -189,6 +189,13 @@ describe('CourseComponent', () => {
       expect(cards()).toHaveLength(2);
     });
 
+    it('should show the favorite as a badge on the logo, not inline in the title', () => {
+      for (const card of Array.from(cards())) {
+        expect(card.querySelector('.item-logo-wrap > .item-favorite i.icon-favorite')).toBeTruthy();
+        expect(card.querySelector('.item-title i.icon-favorite')).toBeNull();
+      }
+    });
+
     it('should show the favorite star and the certificate link on each card', () => {
       expect(cards().length).toBeGreaterThan(0);
       for (const card of Array.from(cards())) {
@@ -228,34 +235,35 @@ describe('CourseComponent', () => {
     expect(component.config().itemsPerPage).toBe(8);
   });
 
-  describe('tag filter accordion', () => {
-    const query = () => {
-      const root = fixture.nativeElement as HTMLElement;
-      return {
-        toggle: root.querySelector<HTMLButtonElement>('button.catalog-toggle'),
-        list: root.querySelector<HTMLElement>('.catalog-chips-list'),
+  describe('chip accordions', () => {
+    for (const listId of ['course-tag-chips', 'course-institution-chips']) {
+      const query = () => {
+        const root = fixture.nativeElement as HTMLElement;
+        return {
+          toggle: root.querySelector<HTMLButtonElement>(
+            `button.catalog-toggle[aria-controls="${listId}"]`
+          ),
+          list: root.querySelector<HTMLElement>(`#${listId}`),
+        };
       };
-    };
 
-    it('should start collapsed to a single row of tags', () => {
-      const { toggle, list } = query();
-      expect(component.tagsExpanded()).toBe(false);
-      expect(toggle?.getAttribute('aria-expanded')).toBe('false');
-      expect(list?.classList.contains('is-collapsed')).toBe(true);
-      expect(toggle?.getAttribute('aria-controls')).toBe(list?.id);
-    });
+      it(`${listId} should start collapsed to a single row`, () => {
+        const { toggle, list } = query();
+        expect(toggle?.getAttribute('aria-expanded')).toBe('false');
+        expect(list?.classList.contains('is-collapsed')).toBe(true);
+      });
 
-    it('should expand and collapse the tag list from the arrow button', () => {
-      query().toggle?.click();
-      fixture.detectChanges();
-      expect(component.tagsExpanded()).toBe(true);
-      expect(query().toggle?.getAttribute('aria-expanded')).toBe('true');
-      expect(query().list?.classList.contains('is-collapsed')).toBe(false);
+      it(`${listId} should expand and collapse from the arrow button`, () => {
+        query().toggle?.click();
+        fixture.detectChanges();
+        expect(query().toggle?.getAttribute('aria-expanded')).toBe('true');
+        expect(query().list?.classList.contains('is-collapsed')).toBe(false);
 
-      query().toggle?.click();
-      fixture.detectChanges();
-      expect(component.tagsExpanded()).toBe(false);
-      expect(query().list?.classList.contains('is-collapsed')).toBe(true);
-    });
+        query().toggle?.click();
+        fixture.detectChanges();
+        expect(query().toggle?.getAttribute('aria-expanded')).toBe('false');
+        expect(query().list?.classList.contains('is-collapsed')).toBe(true);
+      });
+    }
   });
 });
