@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-10-19
+
+### Added
+- `ChipsAccordionDirective`: acordeão também nos filtros de instituições (Cursos) e editoras
+  (Livros), além das tags. A seta só aparece quando algum chip quebra de linha; sem layout
+  (jsdom) assume que há o que expandir
+- Chaves i18n `expandInstitutions`/`collapseInstitutions` (Cursos) e
+  `expandPublishers`/`collapsePublishers` (Livros), em pt-BR e en-US
+- Testes unitários da diretiva e e2e dos acordeões, da seta que some quando os chips cabem
+  em uma linha e do selo de favorito
+
+### Changed
+- Favorito de Cursos e Livros passa a ser um selo dourado no canto inferior direito do
+  logo do card, em vez de uma estrela no título (texto "Favorito" mantido para leitor de tela)
+- Estado do acordeão de tags sai dos componentes e passa para a diretiva
+
+### Fixed
+- As listas de filtro mostram sempre todas as opções: a lista de tags não encolhe mais ao
+  selecionar uma instituição ou editora, e uma tag selecionada não é mais removida ao trocar
+  essa seleção
+
+### Removed
+- `CatalogFilterService.availableTags` e `reconcileTagFilters` (sem uso) e seus testes
+
 ## [2.4.0] - 2026-10-19
 
 ### Added
