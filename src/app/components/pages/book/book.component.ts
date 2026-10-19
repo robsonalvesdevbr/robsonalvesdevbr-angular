@@ -81,13 +81,9 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   tagsArray = this._tagsArray.asReadonly();
 
+  // Sempre todas as tags: os filtros não dependem da página nem de outros filtros selecionados.
   availableTags = computed(() =>
-    this.catalogFilterService.availableTags(
-      this.allBooks(),
-      this.publishNameFilter(),
-      (book) => book.publishName as PublishNameEnum,
-      (book) => book.tags
-    )
+    this.catalogFilterService.collectUniqueTags(this.allBooks(), (book) => book.tags)
   );
 
   filteredAndSortedBooks = computed(() => {
@@ -178,10 +174,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
     }
     this.publishNameFilter.set(currentFilters);
 
-    const validTags = this.catalogFilterService.reconcileTagFilters(this.availableTags(), this.tagsFilter());
-    if (validTags) {
-      this.tagsFilter.set(validTags);
-    }
 
     this.config().currentPage = 1;
   }

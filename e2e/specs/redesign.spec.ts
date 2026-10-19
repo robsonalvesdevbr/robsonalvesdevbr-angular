@@ -94,6 +94,27 @@ test.describe('Redesign bento', () => {
     });
   }
 
+  for (const [name, section, chipId, tagList] of [
+    ['cursos', '#courses', 'label_course_institution_Alura', '#course-tag-chips'],
+    ['livros', '#books', 'label_book_institution_AltaBooks', '#book-tag-chips'],
+  ]) {
+    test(`filtrar por instituição em ${name} não deve reduzir a lista de tags`, async ({
+      page,
+    }) => {
+      await home.loadDeferredContent();
+      const tags = page.locator(`${tagList} label`);
+      const before = await tags.count();
+      expect(before).toBeGreaterThan(5);
+
+      const chip = page.locator(`${section} label[id="${chipId}"]`);
+      await chip.scrollIntoViewIfNeeded();
+      await chip.click();
+      await expect(chip).toHaveClass(/active/);
+
+      await expect(tags).toHaveCount(before);
+    });
+  }
+
   test('a seta do filtro de instituições some quando os chips cabem em uma linha', async ({
     page,
   }) => {

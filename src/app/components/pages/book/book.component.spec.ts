@@ -187,6 +187,24 @@ describe('BookComponent', () => {
     expect(component.tagsFilter().has(id)).toBeFalse();
   });
 
+  describe('filter options', () => {
+    const renderedTags = () =>
+      Array.from(
+        (fixture.nativeElement as HTMLElement).querySelectorAll('#book-tag-chips label')
+      ).map(label => label.id);
+
+    it('should list every tag even after selecting a publisher', () => {
+      const before = renderedTags();
+      expect(before.length).toBeGreaterThan(2);
+
+      component.publishNameFilter.set(new Set([PublishNameEnum.AltaBooks]));
+      fixture.detectChanges();
+
+      expect(component.availableTags()).toEqual(component.tagsArray());
+      expect(renderedTags()).toEqual(before);
+    });
+  });
+
   describe('card grid', () => {
     const cards = () =>
       (fixture.nativeElement as HTMLElement).querySelectorAll(

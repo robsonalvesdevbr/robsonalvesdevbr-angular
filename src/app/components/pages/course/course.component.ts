@@ -84,13 +84,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   tagsArray = this._tagsArray.asReadonly();
 
+  // Sempre todas as tags: os filtros não dependem da página nem de outros filtros selecionados.
   availableTags = computed(() =>
-    this.catalogFilterService.availableTags(
-      this.allCourses(),
-      this.coursesFilter(),
-      (course) => course.institution as InstitutionEnum,
-      (course) => course.tags
-    )
+    this.catalogFilterService.collectUniqueTags(this.allCourses(), (course) => course.tags)
   );
 
   filteredAndSortedCourses = computed(() => {
@@ -187,10 +183,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     }
     this.coursesFilter.set(currentFilters);
 
-    const validTags = this.catalogFilterService.reconcileTagFilters(this.availableTags(), this.tagsFilter());
-    if (validTags) {
-      this.tagsFilter.set(validTags);
-    }
 
     this.config().currentPage = 1;
   }

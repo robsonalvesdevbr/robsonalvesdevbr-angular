@@ -179,6 +179,33 @@ describe('CourseComponent', () => {
     expect(component.tagsFilter().has(id)).toBeFalse();
   });
 
+  describe('filter options', () => {
+    const allTags = ['artificial-intelligence', 'copilot', 'github'];
+    const renderedTags = () =>
+      Array.from(
+        (fixture.nativeElement as HTMLElement).querySelectorAll('#course-tag-chips label')
+      ).map(label => label.id.replace('label_course_tag_', ''));
+
+    it('should list every tag even after selecting an institution', () => {
+      expect(renderedTags()).toEqual(allTags);
+
+      // Udemy não tem "copilot": a lista não pode encolher conforme o filtro
+      component.coursesFilter.set(new Set([InstitutionEnum.Udemy]));
+      fixture.detectChanges();
+
+      expect(component.availableTags()).toEqual(allTags);
+      expect(renderedTags()).toEqual(allTags);
+    });
+
+    it('should keep a selected tag when the institution selection changes', () => {
+      component.tagsFilter.set(new Set(['copilot']));
+      component.coursesFilter.set(new Set([InstitutionEnum.Udemy]));
+      fixture.detectChanges();
+
+      expect(component.tagsFilter().has('copilot')).toBe(true);
+    });
+  });
+
   describe('card grid', () => {
     const cards = () =>
       (fixture.nativeElement as HTMLElement).querySelectorAll(
