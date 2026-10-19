@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "Robson Alves - Software Architect | 23+ Years of Experience",
-    "description": "Meet Robson Alves: Software Architect with 23+ years of experience, specialist in software architecture, .NET, Go, and Cloud (Azure/AWS). A unique journey from instructor to architect.",
+    "title": "Robson Alves - Software Architect | 25+ Years of Experience",
+    "description": "Meet Robson Alves: Software Architect with 25+ years of experience, specialist in software architecture, .NET, Go, and Cloud (Azure/AWS). A unique journey from instructor to architect.",
     "keywords": "Robson Alves, Software Architect, Software Architecture, .NET, C#, Go, Rust, Kubernetes, Azure, AWS, GCP, Kafka, PostgreSQL, Microservices, Cloud Computing, Senior Developer, Tech Lead, Curitiba",
-    "ogTitle": "Robson Alves - Software Architect | 23+ Years of Experience",
-    "ogDescription": "Software Architect with 23+ years of experience, specialist in software architecture, .NET, Go, and cloud.",
+    "ogTitle": "Robson Alves - Software Architect | 25+ Years of Experience",
+    "ogDescription": "Software Architect with 25+ years of experience, specialist in software architecture, .NET, Go, and cloud.",
     "ogLocale": "en_US",
     "twitterTitle": "Robson Alves - Software Architect",
-    "twitterDescription": "Software Architect with 23+ years of experience, specialist in software architecture, .NET, Go, and cloud."
+    "twitterDescription": "Software Architect with 25+ years of experience, specialist in software architecture, .NET, Go, and cloud."
   },
   "navigation": {
     "skipToContent": "Skip to main content",
@@ -26,7 +26,7 @@
   },
   "masterhead": {
     "name": "Robson Alves",
-    "role": "Software Architect · 23+ years of experience",
+    "role": "Software Architect · 25+ years of experience",
     "tagline": "Specialist in software architecture, .NET, Go and Cloud (Azure/AWS).",
     "contact": "Get in touch",
     "resume": "Resume (PT-BR)",
@@ -39,7 +39,7 @@
   },
   "about": {
     "title": "About",
-    "subtitle": "Learn about my 23+ years professional journey",
+    "subtitle": "Learn about my 25+ years professional journey",
     "timeline": {
       "instructor": {
         "period": "2001-2006",
@@ -67,7 +67,7 @@
         "description": "Currently working as Software Architect and consultant at Consilux, focusing on code review, cloud application management, and system architecture for the financial sector. I develop solutions for fintechs and payment gateways, using technologies like Azure, AWS, .NET, RabbitMQ, Kubernetes, and observability tools like DataDog and Grafana. Specialized in legacy system modernization and DevOps practices implementation."
       },
       "experience": {
-        "line1": "23+ Years",
+        "line1": "25+ Years",
         "line2": "of",
         "line3": "Experience!"
       }

@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "Robson Alves - Arquiteto de Software | 23+ Anos de Experiência",
-    "description": "Conheça Robson Alves: Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.",
+    "title": "Robson Alves - Arquiteto de Software | 25+ Anos de Experiência",
+    "description": "Conheça Robson Alves: Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.",
     "keywords": "Robson Alves, Arquiteto de Software, Arquitetura de Software, .NET, C#, Go, Rust, Kubernetes, Azure, AWS, GCP, Kafka, PostgreSQL, Microservices, Cloud Computing, Desenvolvedor Senior, Líder Técnico, Curitiba",
-    "ogTitle": "Robson Alves - Arquiteto de Software | 23+ Anos de Experiência",
-    "ogDescription": "Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.",
+    "ogTitle": "Robson Alves - Arquiteto de Software | 25+ Anos de Experiência",
+    "ogDescription": "Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.",
     "ogLocale": "pt_BR",
     "twitterTitle": "Robson Alves - Arquiteto de Software",
-    "twitterDescription": "Arquiteto de Software com 23+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud."
+    "twitterDescription": "Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud."
   },
   "navigation": {
     "skipToContent": "Pular para conteúdo principal",
@@ -26,7 +26,7 @@
   },
   "masterhead": {
     "name": "Robson Alves",
-    "role": "Arquiteto de Software · 23+ anos de experiência",
+    "role": "Arquiteto de Software · 25+ anos de experiência",
     "tagline": "Especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS).",
     "contact": "Entrar em contato",
     "resume": "Currículo",
@@ -39,7 +39,7 @@
   },
   "about": {
     "title": "Sobre",
-    "subtitle": "Conheça minha trajetória profissional de 23+ anos",
+    "subtitle": "Conheça minha trajetória profissional de 25+ anos",
     "timeline": {
       "instructor": {
         "period": "2001-2006",
@@ -67,7 +67,7 @@
         "description": "Atualmente atuo como Arquiteto de Software e consultor na Consilux, com foco em revisão de código, gerenciamento de aplicações em nuvem e arquitetura de sistemas para o setor financeiro. Desenvolvo soluções para fintechs e gateways de pagamento, utilizando tecnologias como Azure, AWS, .NET, RabbitMQ, Kubernetes e ferramentas de observabilidade como DataDog e Grafana. Especializado em modernização de sistemas legados e implementação de práticas DevOps."
       },
       "experience": {
-        "line1": "23+ Anos",
+        "line1": "25+ Anos",
         "line2": "de",
         "line3": "Experiência!"
       }
