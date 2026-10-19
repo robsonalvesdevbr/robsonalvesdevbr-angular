@@ -46,4 +46,24 @@ describe('FooterComponent', () => {
       'Source code'
     );
   });
+
+  it('should render the copyright and two external links that open safely', () => {
+    const fixture = TestBed.createComponent(FooterComponent);
+    const httpMock = TestBed.inject(HttpTestingController);
+    const copy = { footer: { copyright: 'Direitos {{year}}', pageTemplate: 'Template', sourceCode: 'Código' } };
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush(copy);
+    httpMock.expectOne('/assets/i18n/en-US.json').flush(copy);
+    TestBed.inject(LanguageService).setLanguage('pt-BR');
+    fixture.detectChanges();
+    const footer = (fixture.nativeElement as HTMLElement).querySelector('footer.site-footer');
+
+    expect(footer).toBeTruthy();
+    expect(footer?.textContent).toContain(`Direitos ${new Date().getFullYear()}`);
+    const links = Array.from(footer!.querySelectorAll<HTMLAnchorElement>('a[target="_blank"]'));
+    expect(links.map(a => a.getAttribute('href'))).toEqual([
+      'https://startbootstrap.com/theme/agency',
+      'https://github.com/robsonalvesdevbr/robsonalvesdevbr-angular',
+    ]);
+    links.forEach(a => expect(a.getAttribute('rel')).toBe('noopener'));
+  });
 });

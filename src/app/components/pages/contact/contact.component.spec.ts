@@ -81,7 +81,7 @@ describe('ContactComponent', () => {
     const email = root.querySelector<HTMLAnchorElement>('[data-testid="contact-email"]');
     expect(email?.getAttribute('href')).toContain('mailto:robsonalves.us@gmail.com');
 
-    const outline = Array.from(root.querySelectorAll<HTMLAnchorElement>('a.btn-outline-secondary'));
+    const outline = Array.from(root.querySelectorAll<HTMLAnchorElement>('a.contact-social'));
     expect(outline.map(a => a.textContent?.trim())).toEqual(['WebSite', 'LinkedIn', 'Instagram', 'GitHub']);
     outline.forEach(a => expect(a.getAttribute('rel')).toBe('noopener'));
   });

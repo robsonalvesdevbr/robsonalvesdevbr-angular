@@ -407,34 +407,6 @@ p {
   height: 2.75rem;
 }
 
-section#contact {
-  background-color: var(--brand-surface-dark);
-  background-image: url('../assets/img/map-image.png');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-section#contact .section-heading {
-  color: #fff;
-}
-
-.footer {
-  text-align: center;
-  font-size: 0.9rem;
-  font-family:
-    'Montserrat',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-}
-
 /* Performance e loading otimizações */
 .fade-in {
   opacity: 0;
@@ -494,44 +466,10 @@ section#contact .section-heading {
   transition-delay: 0s !important;
 }
 
-/* ===========================
-   Enhanced About Section Styles
-   =========================== */
-
-/* Contact Section */
-.contact-section {
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1) !important;
-  }
-
-  .social-links .btn {
-    transition: all 0.2s ease;
-
-    &:hover {
-      transform: translateY(-1px);
-    }
-  }
-}
-
 /* Enhanced animations for counters */
 .h2.fw-bold {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-}
-
-/* Responsive improvements for about section */
-@media (max-width: 768px) {
-  .contact-section {
-    .social-links .btn {
-      margin-bottom: 0.5rem;
-      width: 100%;
-      max-width: 200px;
-    }
-  }
-
 }
 
 /* Additional Bootstrap icon colors */

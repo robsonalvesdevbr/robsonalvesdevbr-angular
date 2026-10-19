@@ -91,9 +91,10 @@
     background: var(--surface) !important;
   }
 
-  .current {
-    color: var(--on-accent);
-    background: var(--accent);
+  // O CSS da biblioteca é injetado depois e usa cor fixa: precisa de mais força.
+  li.current {
+    color: var(--on-accent) !important;
+    background: var(--accent) !important;
     border-radius: 8px;
   }
 
