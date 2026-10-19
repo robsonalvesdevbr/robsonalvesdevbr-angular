@@ -55,12 +55,10 @@
               "src/robots.txt",
               "src/sitemap.xml",
               "src/assets",
-              "src/js",
               "src/.well-known"
             ],
             "styles": [
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "src/styles.scss",
               "src/css/styles.scss",
               "src/css/bento.scss"
             ],

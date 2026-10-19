@@ -9,7 +9,6 @@ html {
 /* Altura ocupada pela pílula flutuante (margem + altura + respiro), usada nas âncoras */
 :root {
   --navbar-height-normal: 96px;
-  --navbar-height-shrink: 96px; /* a pílula tem altura constante */
   --navbar-height-mobile: 88px;
 }
 
@@ -17,16 +16,6 @@ html {
 section[id],
 .page-section {
   scroll-margin-top: var(--navbar-height-normal);
-}
-
-/* A classe navbar-shrink é aplicada por js/scripts.js ao rolar */
-@media (min-width: 992px) {
-  body:has(.navbar-shrink) section[id],
-  body:has(.navbar-shrink) .page-section,
-  .navbar-shrink-active section[id],
-  .navbar-shrink-active .page-section {
-    scroll-margin-top: var(--navbar-height-shrink);
-  }
 }
 
 @media (max-width: 991.98px) {

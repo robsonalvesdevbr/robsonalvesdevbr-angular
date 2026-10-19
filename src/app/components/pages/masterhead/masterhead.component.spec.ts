@@ -84,4 +84,15 @@ describe('MasterheadComponent', () => {
     const photo = compiled.querySelector<HTMLImageElement>('img.masthead-photo');
     expect(photo?.getAttribute('alt')).toBe('Foto de perfil');
   });
+
+  it('should expose the main-content landmark target used by the skip link', () => {
+    const fixture = TestBed.createComponent(MasterheadComponent);
+    const httpMock = TestBed.inject(HttpTestingController);
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush({});
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({});
+    fixture.detectChanges();
+
+    const target = (fixture.nativeElement as HTMLElement).querySelector('header#main-content');
+    expect(target?.getAttribute('tabindex')).toBe('-1');
+  });
 });

@@ -22,6 +22,7 @@ export class MasterheadComponent extends BasePageComponent {
   readonly profile = this.dataService.getProfile();
   readonly linkedInUrl = this.profile.urlList.get('LinkedIn');
 
+  // Métricas derivadas dos dados (e do ano corrente), nunca digitadas à mão.
   readonly stats: readonly { labelKey: string; value: string }[] = [
     { labelKey: 'masterhead.stats.years', value: `${yearsSince(CAREER_START_YEAR)}+` },
     { labelKey: 'masterhead.stats.courses', value: String(this.dataService.getCourses().length) },

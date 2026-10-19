@@ -241,4 +241,32 @@ describe('NavigationComponent', () => {
       expect(component['analyticsBatcher'].destroy).toHaveBeenCalled();
     });
   });
+
+  it('should offset anchor scrolling by the navbar height declared in CSS', () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: false }));
+    document.documentElement.style.setProperty('--navbar-height-normal', '200px');
+    Object.defineProperty(window, 'innerWidth', { value: 1280, configurable: true });
+    const section = document.createElement('section');
+    section.id = 'about';
+    const nav = document.createElement('nav');
+    nav.id = 'mainNav';
+    document.body.append(section, nav);
+    vi.spyOn(section, 'getBoundingClientRect').mockReturnValue({ top: 1000 } as DOMRect);
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined);
+
+    try {
+      component.sobreAnalitics();
+      vi.advanceTimersByTime(100);
+
+      expect(scrollTo).toHaveBeenCalledTimes(1);
+      expect(scrollTo.mock.calls[0][0]).toMatchObject({ top: 1000 + window.scrollY - 200 });
+    } finally {
+      vi.useRealTimers();
+      vi.unstubAllGlobals();
+      document.documentElement.style.removeProperty('--navbar-height-normal');
+      section.remove();
+      nav.remove();
+    }
+  });
 });
