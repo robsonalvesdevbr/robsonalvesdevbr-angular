@@ -23,51 +23,87 @@
         [attr.aria-label]="'books.searchPlaceholder' | translate"
       />
       <fieldset
-        class="catalog-chips"
+        class="catalog-chips catalog-chips--collapsible"
         role="group"
         [attr.aria-label]="'books.filterPublisher' | translate"
         id="group_label_book_institution"
       >
-        <button
-          type="button"
-          class="catalog-clear"
-          (click)="clearFilters()"
-          [attr.aria-label]="'books.ariaClearFilters' | translate"
-          [attr.title]="'books.clearFilters' | translate"
+        <div class="catalog-chips-head">
+          <button
+            type="button"
+            class="catalog-clear"
+            (click)="clearFilters()"
+            [attr.aria-label]="'books.ariaClearFilters' | translate"
+            [attr.title]="'books.clearFilters' | translate"
+          >
+            {{ 'books.clearFilters' | translate }}
+          </button>
+          <b class="catalog-chips-label">{{ 'books.filterPublisher' | translate }}:</b>
+        </div>
+        <div
+          class="catalog-chips-list"
+          id="book-institution-chips"
+          appChipsAccordion
+          #publisherChips="chipsAccordion"
         >
-          {{ 'books.clearFilters' | translate }}
-        </button>
-        <b class="catalog-chips-label">{{ 'books.filterPublisher' | translate }}:</b>
-        @for (
-          publishName of publishNameList | enumToArray | sortby: 'value' : 'asc';
-          track trackByPublisher($index, publishName)
-        ) {
-          @if (publishName.value) {
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="input_book_institution_{{ publishName.key }}"
-              autocomplete="off"
-              [checked]="isPublisherSelected(publishName.key)"
-              (click)="onClickIntitutionEvent($event)"
-            />
-            <label
-              class="catalog-chip"
-              for="input_book_institution_{{ publishName.key }}"
-              id="label_book_institution_{{ publishName.key }}"
-              [ngClass]="{ active: isPublisherSelected(publishName.key) }"
-              >{{ publishName.value }}</label
-            >
+          @for (
+            publishName of publishNameList | enumToArray | sortby: 'value' : 'asc';
+            track trackByPublisher($index, publishName)
+          ) {
+            @if (publishName.value) {
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="input_book_institution_{{ publishName.key }}"
+                autocomplete="off"
+                [checked]="isPublisherSelected(publishName.key)"
+                (click)="onClickIntitutionEvent($event)"
+              />
+              <label
+                class="catalog-chip"
+                for="input_book_institution_{{ publishName.key }}"
+                id="label_book_institution_{{ publishName.key }}"
+                [ngClass]="{ active: isPublisherSelected(publishName.key) }"
+                >{{ publishName.value }}</label
+              >
+            }
           }
+        </div>
+        @if (publisherChips.overflowing()) {
+          <button
+            type="button"
+            class="catalog-toggle"
+            [class.is-open]="publisherChips.expanded()"
+            (click)="publisherChips.toggle()"
+            [attr.aria-expanded]="publisherChips.expanded()"
+            aria-controls="book-institution-chips"
+            [attr.aria-label]="
+              (publisherChips.expanded() ? 'books.collapsePublishers' : 'books.expandPublishers')
+                | translate
+            "
+            [attr.title]="
+              (publisherChips.expanded() ? 'books.collapsePublishers' : 'books.expandPublishers')
+                | translate
+            "
+          >
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
         }
       </fieldset>
       <fieldset
-        class="catalog-chips catalog-chips--tags"
+        class="catalog-chips catalog-chips--collapsible"
         role="group"
         [attr.aria-label]="'books.filterTag' | translate"
       >
-        <b class="catalog-chips-label">{{ 'books.filterTag' | translate }}:</b>
-        <div class="catalog-chips-list" id="book-tag-chips" [class.is-collapsed]="!tagsExpanded()">
+        <div class="catalog-chips-head">
+          <b class="catalog-chips-label">{{ 'books.filterTag' | translate }}:</b>
+        </div>
+        <div
+          class="catalog-chips-list"
+          id="book-tag-chips"
+          appChipsAccordion
+          #tagChips="chipsAccordion"
+        >
           @for (tag of availableTags(); track trackByTag($index, tag)) {
             <input
               type="checkbox"
@@ -86,20 +122,24 @@
             >
           }
         </div>
-        <button
-          type="button"
-          class="catalog-toggle"
-          [class.is-open]="tagsExpanded()"
-          (click)="toggleTags()"
-          [attr.aria-expanded]="tagsExpanded()"
-          aria-controls="book-tag-chips"
-          [attr.aria-label]="
-            (tagsExpanded() ? 'books.collapseTags' : 'books.expandTags') | translate
-          "
-          [attr.title]="(tagsExpanded() ? 'books.collapseTags' : 'books.expandTags') | translate"
-        >
-          <i class="bi bi-chevron-down" aria-hidden="true"></i>
-        </button>
+        @if (tagChips.overflowing()) {
+          <button
+            type="button"
+            class="catalog-toggle"
+            [class.is-open]="tagChips.expanded()"
+            (click)="tagChips.toggle()"
+            [attr.aria-expanded]="tagChips.expanded()"
+            aria-controls="book-tag-chips"
+            [attr.aria-label]="
+              (tagChips.expanded() ? 'books.collapseTags' : 'books.expandTags') | translate
+            "
+            [attr.title]="
+              (tagChips.expanded() ? 'books.collapseTags' : 'books.expandTags') | translate
+            "
+          >
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+        }
       </fieldset>
     </div>
 
@@ -142,18 +182,25 @@
             ><span class="visually-hidden">{{ 'books.itemLabel' | translate }} </span
             >{{ absoluteIndex(i) }}</span
           >
-          <img
-            class="item-logo publisher-logo"
-            [ngSrc]="getPublisherLogo(item.publishName)"
-            [alt]="'books.logoAlt' | translate: { name: item.publishName }"
-            width="56"
-            height="56"
-            decoding="async"
-          />
+          <span class="item-logo-wrap">
+            <img
+              class="item-logo publisher-logo"
+              [ngSrc]="getPublisherLogo(item.publishName)"
+              [alt]="'books.logoAlt' | translate: { name: item.publishName }"
+              width="56"
+              height="56"
+              decoding="async"
+            />
+            @if (item.favorite) {
+              <span class="item-favorite" [attr.title]="'books.favorite' | translate">
+                <i class="bi bi-star-fill icon-favorite" aria-hidden="true"></i>
+                <span class="visually-hidden">{{ 'books.favorite' | translate }}</span>
+              </span>
+            }
+          </span>
           <div class="item-body">
             <p class="item-title fw-bold">
               {{ item.title }}
-              <i class="bi bi-star-fill icon-favorite" [hidden]="!item.favorite"></i>
               <span class="item-year">
                 ( {{ 'books.publishedIn' | translate }} {{ item.publishYear }} )</span
               >

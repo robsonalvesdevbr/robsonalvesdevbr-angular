@@ -9,6 +9,7 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
+import { ChipsAccordionDirective } from '@path-app/directives/chips-accordion.directive';
 import { PublishNameEnum } from '@path-app/models/PublishNameEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { PrintTagsPipe } from '@path-pipes/print-tags.pipe';
@@ -28,6 +29,7 @@ import { getPublisherLogo } from '@path-data/PublisherLogo';
 @Component({
   selector: 'app-book',
   imports: [
+    ChipsAccordionDirective,
     LowerCasePipe,
     NgClass,
     PrintTagsPipe,
@@ -56,13 +58,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
 
-  // Filtro de tags recolhido em uma linha; a seta expande o restante.
-  readonly tagsExpanded = signal(false);
-
-  toggleTags(): void {
-    this.tagsExpanded.update(expanded => !expanded);
-  }
-
   config = this.paginationService.createPaginationConfig('booksPag', 8);
 
   private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
@@ -86,13 +81,9 @@ export class BookComponent extends BasePageComponent implements OnInit {
 
   tagsArray = this._tagsArray.asReadonly();
 
+  // Sempre todas as tags: os filtros não dependem da página nem de outros filtros selecionados.
   availableTags = computed(() =>
-    this.catalogFilterService.availableTags(
-      this.allBooks(),
-      this.publishNameFilter(),
-      (book) => book.publishName as PublishNameEnum,
-      (book) => book.tags
-    )
+    this.catalogFilterService.collectUniqueTags(this.allBooks(), (book) => book.tags)
   );
 
   filteredAndSortedBooks = computed(() => {
@@ -183,10 +174,6 @@ export class BookComponent extends BasePageComponent implements OnInit {
     }
     this.publishNameFilter.set(currentFilters);
 
-    const validTags = this.catalogFilterService.reconcileTagFilters(this.availableTags(), this.tagsFilter());
-    if (validTags) {
-      this.tagsFilter.set(validTags);
-    }
 
     this.config().currentPage = 1;
   }

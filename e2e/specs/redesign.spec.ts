@@ -67,14 +67,18 @@ test.describe('Redesign bento', () => {
     await expect(quantity).not.toHaveText(before);
   });
 
-  for (const [name, section, list] of [
-    ['cursos', '#courses', '#course-tag-chips'],
-    ['livros', '#books', '#book-tag-chips'],
-  ]) {
-    test(`filtro de tags de ${name} deve mostrar uma linha e expandir pela seta`, async ({ page }) => {
+  for (const [name, listId, width] of [
+    ['tags de cursos', 'course-tag-chips', 1280],
+    ['tags de livros', 'book-tag-chips', 1280],
+    ['instituições de cursos', 'course-institution-chips', 375],
+    ['editoras de livros', 'book-institution-chips', 768],
+  ] as const) {
+    test(`filtro de ${name} deve mostrar uma linha e expandir pela seta`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.reload();
       await home.loadDeferredContent();
-      const chips = page.locator(list);
-      const toggle = page.locator(`${section} .catalog-toggle`);
+      const chips = page.locator(`#${listId}`);
+      const toggle = page.locator(`button[aria-controls="${listId}"]`);
       await toggle.scrollIntoViewIfNeeded();
 
       const heightOf = () => chips.evaluate(el => el.getBoundingClientRect().height);
@@ -83,15 +87,53 @@ test.describe('Redesign bento', () => {
 
       await toggle.click();
       await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-      await expect.poll(heightOf).toBeGreaterThan(80);
+      await expect.poll(heightOf).toBeGreaterThan(60);
 
       await toggle.click();
       await expect.poll(heightOf).toBeLessThan(40);
     });
+  }
 
+  for (const [name, section, chipId, tagList] of [
+    ['cursos', '#courses', 'label_course_institution_Alura', '#course-tag-chips'],
+    ['livros', '#books', 'label_book_institution_AltaBooks', '#book-tag-chips'],
+  ]) {
+    test(`filtrar por instituição em ${name} não deve reduzir a lista de tags`, async ({
+      page,
+    }) => {
+      await home.loadDeferredContent();
+      const tags = page.locator(`${tagList} label`);
+      const before = await tags.count();
+      expect(before).toBeGreaterThan(5);
+
+      const chip = page.locator(`${section} label[id="${chipId}"]`);
+      await chip.scrollIntoViewIfNeeded();
+      await chip.click();
+      await expect(chip).toHaveClass(/active/);
+
+      await expect(tags).toHaveCount(before);
+    });
+  }
+
+  test('a seta do filtro de instituições some quando os chips cabem em uma linha', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1920, height: 900 });
+    await page.reload();
+    await home.loadDeferredContent();
+    await page.locator('#course-institution-chips').scrollIntoViewIfNeeded();
+
+    await expect(page.locator('button[aria-controls="course-institution-chips"]')).toHaveCount(0);
+    await expect(page.locator('button[aria-controls="course-tag-chips"]')).toHaveCount(1);
+  });
+
+  for (const [name, listId] of [
+    ['cursos', 'course-tag-chips'],
+    ['livros', 'book-tag-chips'],
+  ]) {
     test(`foco por teclado em tag oculta de ${name} deve abrir a lista`, async ({ page }) => {
       await home.loadDeferredContent();
-      const chips = page.locator(list);
+      const chips = page.locator(`#${listId}`);
       await chips.scrollIntoViewIfNeeded();
 
       await chips.locator('input').last().focus();
@@ -100,6 +142,21 @@ test.describe('Redesign bento', () => {
         .toBeGreaterThan(80);
     });
   }
+
+  test('favorito deve ser um selo no canto do logo do card', async ({ page }) => {
+    await home.loadDeferredContent();
+    const card = page.getByTestId('course-card').first();
+    await card.scrollIntoViewIfNeeded();
+
+    const logo = await card.locator('img.item-logo').boundingBox();
+    const badge = await card.locator('.item-favorite').boundingBox();
+    expect(badge, 'selo de favorito presente no primeiro card').not.toBeNull();
+    // canto inferior direito do logo: o selo encosta no logo e fica à direita/abaixo do centro
+    expect(badge!.x).toBeLessThan(logo!.x + logo!.width);
+    expect(badge!.x + badge!.width).toBeGreaterThan(logo!.x + logo!.width - 4);
+    expect(badge!.y + badge!.height).toBeGreaterThan(logo!.y + logo!.height - 4);
+    await expect(card.locator('.item-title i.icon-favorite')).toHaveCount(0);
+  });
 
   test('contato deve exibir foto carregada, e-mail e currículo', async ({ page }) => {
     await home.loadDeferredContent();

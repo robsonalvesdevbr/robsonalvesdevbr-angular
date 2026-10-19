@@ -9,6 +9,7 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
+import { ChipsAccordionDirective } from '@path-app/directives/chips-accordion.directive';
 import { InstitutionEnum } from '@path-app/models/InstitutionEnum';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
@@ -27,6 +28,7 @@ import { debounce } from '@path-utils/performance.utils';
 @Component({
   selector: 'app-course',
   imports: [
+    ChipsAccordionDirective,
     DatePipe,
     LowerCasePipe,
     NgClass,
@@ -57,13 +59,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
 
-  // Filtro de tags recolhido em uma linha; a seta expande o restante.
-  readonly tagsExpanded = signal(false);
-
-  toggleTags(): void {
-    this.tagsExpanded.update(expanded => !expanded);
-  }
-
   config = this.paginationService.createPaginationConfig('coursesPag', 8);
 
   private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
@@ -89,13 +84,9 @@ export class CourseComponent extends BasePageComponent implements OnInit {
 
   tagsArray = this._tagsArray.asReadonly();
 
+  // Sempre todas as tags: os filtros não dependem da página nem de outros filtros selecionados.
   availableTags = computed(() =>
-    this.catalogFilterService.availableTags(
-      this.allCourses(),
-      this.coursesFilter(),
-      (course) => course.institution as InstitutionEnum,
-      (course) => course.tags
-    )
+    this.catalogFilterService.collectUniqueTags(this.allCourses(), (course) => course.tags)
   );
 
   filteredAndSortedCourses = computed(() => {
@@ -192,10 +183,6 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     }
     this.coursesFilter.set(currentFilters);
 
-    const validTags = this.catalogFilterService.reconcileTagFilters(this.availableTags(), this.tagsFilter());
-    if (validTags) {
-      this.tagsFilter.set(validTags);
-    }
 
     this.config().currentPage = 1;
   }
