@@ -1,10 +1,5 @@
-import { test, expect, Page } from '@playwright/test';
-
-// O conteúdo abaixo da dobra é carregado por @defer (on viewport): rola para dispará-lo.
-async function loadDeferredContent(page: Page): Promise<void> {
-  await page.mouse.wheel(0, 600);
-  await page.locator('section#contact').waitFor({ state: 'attached' });
-}
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../pages/home.page';
 
 test.describe('Layout bento', () => {
   for (const width of [375, 768, 1280]) {
@@ -14,7 +9,7 @@ test.describe('Layout bento', () => {
       await page.click('[data-testid="language-switcher-button"]');
       await page.click('[data-testid="lang-en-us"]');
       await expect(page.locator('[data-testid="nav-about"]')).toContainText('About');
-      await loadDeferredContent(page);
+      await new HomePage(page).loadDeferredContent();
 
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth - window.innerWidth,
@@ -28,7 +23,7 @@ test.describe('Layout bento', () => {
   }) => {
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.goto('/');
-    await loadDeferredContent(page);
+    await new HomePage(page).loadDeferredContent();
 
     const name = await page
       .locator('section#contact .tile')
@@ -42,7 +37,7 @@ test.describe('Layout bento', () => {
   }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/');
-    await loadDeferredContent(page);
+    await new HomePage(page).loadDeferredContent();
 
     const tile = page.locator('section#contact .tile').first();
     await tile.scrollIntoViewIfNeeded();

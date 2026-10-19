@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 import { BasePage } from './base.page';
 
 /**
@@ -66,9 +66,28 @@ export class HomePage extends BasePage {
   }
 
   /**
+   * Dispara o @defer (on viewport) do conteúdo abaixo da dobra.
+   * Sem rolar, o placeholder pode ficar fora da viewport e as seções nunca entram no DOM.
+   */
+  async loadDeferredContent(): Promise<void> {
+    await this.masterheadSection.waitFor({ state: 'visible' });
+    // Um único wheel logo após reload/boot pode se perder; repete até o conteúdo entrar no DOM.
+    await expect
+      .poll(
+        async () => {
+          await this.page.mouse.wheel(0, 400);
+          return this.contactSection.count();
+        },
+        { timeout: 15_000, intervals: [250, 500, 1000] },
+      )
+      .toBeGreaterThan(0);
+  }
+
+  /**
    * Aguarda seções com lazy loading estarem visíveis
    */
   async waitForLazyLoadedSections(timeout: number = 10000): Promise<void> {
+    await this.loadDeferredContent();
     await this.page.waitForSelector('app-about', { state: 'visible', timeout });
     await this.page.waitForSelector('app-footer', { state: 'visible', timeout });
   }
@@ -77,6 +96,7 @@ export class HomePage extends BasePage {
    * Navega para uma seção específica através do scroll
    */
   async navigateToSection(section: 'about' | 'graduation' | 'course' | 'formation' | 'book' | 'contact'): Promise<void> {
+    await this.loadDeferredContent();
     const sectionLocator = this.getSectionLocator(section);
     await sectionLocator.scrollIntoViewIfNeeded();
     await this.page.waitForTimeout(500); // Aguarda animação de scroll

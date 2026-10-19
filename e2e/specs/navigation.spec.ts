@@ -26,9 +26,7 @@ test.describe('Navegação', () => {
       page,
     }) => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
-      // O conteúdo é carregado por @defer (on viewport): rola um pouco para disparar o carregamento.
-      await page.mouse.wheel(0, 600);
-      await page.locator('section#contact').waitFor({ state: 'attached' });
+      await homePage.loadDeferredContent();
 
       for (const [link, section] of [
         ['nav-about', 'about'],
