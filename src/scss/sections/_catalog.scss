@@ -61,11 +61,6 @@
     outline-offset: 2px;
   }
 
-  // InstitutionEnum.All tem valor vazio; sem texto não há o que mostrar.
-  &:empty {
-    display: none;
-  }
-
   &.active {
     font-weight: 600;
     color: var(--accent);

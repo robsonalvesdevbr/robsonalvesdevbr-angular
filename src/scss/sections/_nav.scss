@@ -4,6 +4,10 @@
   --nav-accent: #ffd43b;
   --nav-accent-rgb: 255, 212, 59;
 
+  // A pílula é escura nos dois temas: o anel de foco global precisa do dourado claro.
+  --accent: #ffd43b;
+  --accent-rgb: 255, 212, 59;
+
   padding: 12px 0 0;
   background: transparent;
   border: 0;
@@ -24,6 +28,11 @@
     @media (min-width: 992px) {
       border-radius: var(--radius-pill);
     }
+
+    // Celulares estreitos: a linha logo + idioma + tema + toggler precisa caber sem quebrar.
+    @media (max-width: 399.98px) {
+      padding: 0.5rem 0.6rem 0.5rem 0.9rem;
+    }
   }
 
   .navbar-brand {
@@ -34,9 +43,28 @@
     img {
       width: 9rem;
 
-      @media (min-width: 992px) {
+      @media (max-width: 399.98px) {
+        width: 7.25rem;
+      }
+
+      @media (max-width: 349.98px) {
+        width: 6rem;
+      }
+
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        width: 8.5rem;
+      }
+
+      @media (min-width: 1200px) {
         width: 10.5rem;
       }
+    }
+  }
+
+  // Em 320px a bandeira basta (o botão tem aria-label); o código do idioma faria a pílula quebrar.
+  .language-switcher .language-code {
+    @media (max-width: 349.98px) {
+      display: none;
     }
   }
 
@@ -73,6 +101,13 @@
     transition:
       color 0.2s ease,
       background-color 0.2s ease;
+
+    // 992–1199px (menu em uma linha): links mais compactos para caber também em en-US.
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      padding: 0.45rem 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
 
     &:hover,
     &:focus-visible {
