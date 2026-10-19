@@ -42,12 +42,12 @@ test.describe('Redesign bento', () => {
     await home.loadDeferredContent();
     const cards = page.getByTestId('formation-card');
     await expect(cards).toHaveCount(8);
-    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/^\s*1\b/);
+    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/\b1\s*$/);
 
     const next = page.locator('#trilhas .pagination-next a');
     await next.scrollIntoViewIfNeeded();
     await next.click();
-    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/^\s*9\b/);
+    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/\b9\s*$/);
   });
 
   test('chip de instituição deve filtrar cursos e mostrar o filtro ativo', async ({ page }) => {
@@ -89,6 +89,14 @@ test.describe('Redesign bento', () => {
   test('o primeiro Tab deve focar o skip-link', async ({ page }) => {
     await page.keyboard.press('Tab');
     await expect(page.getByTestId('skip-link')).toBeFocused();
+  });
+
+  test('ativar o skip-link deve levar o foco ao conteúdo principal antes de qualquer rolagem', async ({
+    page,
+  }) => {
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#main-content')).toBeFocused();
   });
 
   test('tema deve mudar a cor de fundo do documento ao alternar', async ({ page }) => {

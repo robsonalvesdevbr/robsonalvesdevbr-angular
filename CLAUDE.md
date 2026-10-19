@@ -125,13 +125,14 @@ pnpm run clean          # remove dist, cache, .angular
 
 ### Styling Notes
 - Layout **Bento Grid**: cards de vidro (`.tile`) sobre fundo em mesh, tema escuro por padrão
-- Entrypoints globais (em `angular.json`): `src/styles.scss` (utilitários) → `src/css/styles.scss` (Bootstrap customizado + âncoras/skip-link/foco) → `src/css/bento.scss` (design system novo, carregado por último)
+- Entrypoints globais (em `angular.json`): `src/css/styles.scss` (Bootstrap customizado + âncoras/skip-link/foco) → `src/css/bento.scss` (design system, carregado por último)
 - `src/scss/_tokens.scss`: tokens em CSS custom properties (`--bg`, `--surface`, `--text`, `--accent`, `--radius-card`, `--space-*`...). Tema via `[data-bs-theme]` em `<html>` (escrito por `ThemeService`; padrão `dark`; valores salvos `light|dark|auto` são respeitados)
 - `src/scss/_bento.scss`: primitivas `.bento` (grid 12 colunas, 1 coluna <860px), `.tile`, `.pill`, `.eyebrow`, `.mesh-bg`
 - `src/scss/sections/*`: um parcial por seção (`_nav`, `_hero`, `_about`, `_skills`, `_cards`, `_catalog`, `_contact`, `_section`); registrar novos em `src/css/bento.scss` com `@use`
 - `src/scss/_motion.scss`: entrada dos cards com scroll-driven animations (`.tile`), só em `@media screen` + `prefers-reduced-motion: no-preference` + `@supports (animation-timeline)`
 - `.card-grid` (flex com crescimento): 1 coluna (<768px), 2 (≥768px), 4 (≥1100px; `.card-grid--3` usa 3). A última linha sempre estica para ficar completa. Tamanhos de página: Cursos, Livros e Trilhas 8 (4x2) — manter múltiplos de 4
-- A navegação em pílula é escura nos dois temas (o logo `robsonalves.png` só tem contraste em fundo escuro); ao mudar a altura dela, atualizar `--navbar-height-*` (`src/css/styles.scss`) **e** `navbarHeights` em `navigation.component.ts`
+- A navegação em pílula é escura nos dois temas (o logo `robsonalves.png` só tem contraste em fundo escuro); ao mudar a altura dela, atualizar só `--navbar-height-normal|mobile` em `src/css/styles.scss` (a rolagem por âncora em `navigation.component.ts` lê essas variáveis)
+- O skip-link aponta para `#main-content` (o `<header>` do masthead, `tabindex="-1"`), que existe antes do `@defer`
 - Estilos novos vão em parciais globais, não em `styles:` de componente (budget de 3 kB por componente)
 - Bootstrap Icons via CSS; SCSS como `inlineStyleLanguage` padrão
 - `@import` só em `src/scss/_bootstrap-custom.scss` (Bootstrap 5.x); SCSS novo usa `@use`
