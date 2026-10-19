@@ -1,130 +1,109 @@
-<!-- About-->
-<section class="page-section" id="books" data-testid="books-section" [ngClass]="currentClass()">
+<!-- Books -->
+<section class="page-section" id="books" data-testid="books-section">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">{{ 'books.title' | translate }}</h2>
+      <h2 class="section-heading">{{ 'books.title' | translate }}</h2>
       <h3 class="section-subheading text-muted mb-3">
-        {{ 'books.subtitle' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;<span
-          class="badge rounded-pill bg-warning fs-7 text-dark"
-          >{{
-            'books.quantity' | translate: { count: filteredAndSortedBooks().length.toString() }
-          }}</span
-        >
+        {{ 'books.subtitle' | translate }}
+        <span class="pill ms-2">{{
+          'books.quantity' | translate: { count: filteredAndSortedBooks().length.toString() }
+        }}</span>
       </h3>
     </div>
 
-    <div class="border border-1 rounded mb-2">
-      <div>
-        <div class="px-3 pt-2 pb-1">
+    <div class="tile catalog-toolbar">
+      <input
+        id="book-search"
+        name="book-search"
+        type="search"
+        class="form-control form-control-sm catalog-search"
+        [placeholder]="'books.searchPlaceholder' | translate"
+        [value]="searchQuery()"
+        (input)="searchQuery.set($any($event.target).value)"
+        [attr.aria-label]="'books.searchPlaceholder' | translate"
+      />
+      <fieldset
+        class="catalog-chips"
+        role="group"
+        [attr.aria-label]="'books.filterPublisher' | translate"
+        id="group_label_book_institution"
+      >
+        <button
+          type="button"
+          class="catalog-clear"
+          (click)="clearFilters()"
+          [attr.aria-label]="'books.ariaClearFilters' | translate"
+          [attr.title]="'books.clearFilters' | translate"
+        >
+          {{ 'books.clearFilters' | translate }}
+        </button>
+        <b class="catalog-chips-label">{{ 'books.filterPublisher' | translate }}:</b>
+        @for (
+          publishName of publishNameList | enumToArray | sortby: 'value' : 'asc';
+          track trackByPublisher($index, publishName)
+        ) {
           <input
-            id="book-search"
-            name="book-search"
-            type="search"
-            class="form-control form-control-sm"
-            [placeholder]="'books.searchPlaceholder' | translate"
-            [value]="searchQuery()"
-            (input)="searchQuery.set($any($event.target).value)"
-            [attr.aria-label]="'books.searchPlaceholder' | translate"
+            type="checkbox"
+            class="btn-check"
+            id="input_book_institution_{{ publishName.key }}"
+            autocomplete="off"
+            [checked]="isPublisherSelected(publishName.key)"
+            (click)="onClickIntitutionEvent($event)"
           />
-        </div>
-        <hr class="p-0 m-1" />
-        <div class="text-center bg-body-tertiary bg-gradient">
-          <div class="s">
-            <fieldset
-              class="btn-group-sm"
-              role="group"
-              [attr.aria-label]="'books.filterPublisher' | translate"
-              id="group_label_book_institution"
-            >
-              <button
-                type="button"
-                class="btn btn-primary btn-sm ms-3 mt-1 pt-0 pb-0 d-flex float-start"
-                (click)="clearFilters()"
-                [attr.aria-label]="'books.ariaClearFilters' | translate"
-                [attr.title]="'books.clearFilters' | translate"
-              >
-                {{ 'books.clearFilters' | translate }}
-              </button>
-
-              <b class="p-1 m-1">{{ 'books.filterPublisher' | translate }}:</b>
-              @for (
-                publishName of publishNameList | enumToArray | sortby: 'value' : 'asc';
-                track trackByPublisher($index, publishName)
-              ) {
-                <input
-                  type="checkbox"
-                  class="btn-check"
-                  id="input_book_institution_{{ publishName.key }}"
-                  autocomplete="off"
-                  [checked]="isPublisherSelected(publishName.key)"
-                  (click)="onClickIntitutionEvent($event)"
-                />
-                <label
-                  class="btn btn-sm fontemenor p-1 ms-0"
-                  for="input_book_institution_{{ publishName.key }}"
-                  id="label_book_institution_{{ publishName.key }}"
-                  [ngClass]="{ active: isPublisherSelected(publishName.key) }"
-                  appHighlight
-                  >{{ publishName.value }}</label
-                >
-              }
-            </fieldset>
-          </div>
-        </div>
-        <hr class="p-0 m-1" />
-        <div>
-          <div class="text-center bg-body-tertiary bg-gradient">
-            <div class="has-text-centered">
-              <fieldset
-                class="btn-group-sm"
-                role="group"
-                [attr.aria-label]="'books.filterTag' | translate"
-              >
-                <b class="p-1 m-1">{{ 'books.filterTag' | translate }}:</b>
-                @for (tag of availableTags(); track trackByTag($index, tag)) {
-                  <input
-                    type="checkbox"
-                    class="btn-check"
-                    id="input_book_tag_{{ tag | lowercase }}"
-                    autocomplete="off"
-                    [checked]="tagsFilter().has(tag)"
-                    (click)="onClickTagEvent($event)"
-                  />
-                  <label
-                    class="btn btn-sm fontemenor p-1 ms-0"
-                    for="input_book_tag_{{ tag | lowercase }}"
-                    id="label_book_tag_{{ tag | lowercase }}"
-                    [ngClass]="{ active: tagsFilter().has(tag) }"
-                    appHighlight
-                    >{{ tag | tagLabel }}</label
-                  >
-                }
-              </fieldset>
-            </div>
-          </div>
-        </div>
-      </div>
+          <label
+            class="catalog-chip"
+            for="input_book_institution_{{ publishName.key }}"
+            id="label_book_institution_{{ publishName.key }}"
+            [ngClass]="{ active: isPublisherSelected(publishName.key) }"
+            appHighlight
+            >{{ publishName.value }}</label
+          >
+        }
+      </fieldset>
+      <fieldset
+        class="catalog-chips"
+        role="group"
+        [attr.aria-label]="'books.filterTag' | translate"
+      >
+        <b class="catalog-chips-label">{{ 'books.filterTag' | translate }}:</b>
+        @for (tag of availableTags(); track trackByTag($index, tag)) {
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="input_book_tag_{{ tag | lowercase }}"
+            autocomplete="off"
+            [checked]="tagsFilter().has(tag)"
+            (click)="onClickTagEvent($event)"
+          />
+          <label
+            class="catalog-chip"
+            for="input_book_tag_{{ tag | lowercase }}"
+            id="label_book_tag_{{ tag | lowercase }}"
+            [ngClass]="{ active: tagsFilter().has(tag) }"
+            appHighlight
+            >{{ tag | tagLabel }}</label
+          >
+        }
+      </fieldset>
     </div>
 
     @if (publishNameFilter().size > 0 || tagsFilter().size > 0) {
-      <div class="d-flex flex-wrap gap-1 mb-2">
+      <div class="catalog-active d-flex flex-wrap gap-1">
         @for (publisher of publishNameFilter(); track publisher) {
-          <span class="badge bg-primary d-inline-flex align-items-center gap-1">
+          <span class="pill">
             {{ publisher }}
             <button
-              class="btn-close btn-close-white"
-              style="font-size: 0.5rem"
+              class="btn-close"
               (click)="removePublisher(publisher)"
               [attr.aria-label]="'books.removeFilter' | translate: { filter: publisher }"
             ></button>
           </span>
         }
         @for (tag of tagsFilter(); track tag) {
-          <span class="badge bg-secondary d-inline-flex align-items-center gap-1">
+          <span class="pill">
             {{ tag | tagLabel }}
             <button
-              class="btn-close btn-close-white"
-              style="font-size: 0.5rem"
+              class="btn-close"
               (click)="removeTag(tag)"
               [attr.aria-label]="'books.removeFilter' | translate: { filter: tag }"
             ></button>
@@ -132,100 +111,90 @@
         }
       </div>
     }
-    <div class="fontemenor12 pb-1 badge-offset">
+    <p class="catalog-legend">
       <i class="bi bi-star-fill icon-favorite"></i> {{ 'books.favorite' | translate }}
-    </div>
-    <ul class="list-group list-group-light mb-4">
+    </p>
+
+    <div class="card-grid mb-4">
       @for (
         item of filteredAndSortedBooks() | paginate: config();
         track trackByBook($index, item);
         let i = $index
       ) {
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-          data-testid="book-card"
-        >
-          <div class="d-flex align-items-center ms-5">
-            <img
-              [ngSrc]="getPublisherLogo(item.publishName)"
-              [alt]="'books.logoAlt' | translate: { name: item.publishName }"
-              width="60"
-              height="60"
-              class="rounded-circle publisher-logo"
-              decoding="async"
-            />
-            <div class="ms-3">
-              <p class="fw-bold mb-0">
-                {{ item.title }}
-                <i class="bi bi-star-fill fontemenor12 icon-favorite" [hidden]="!item.favorite"></i
-                >&nbsp;&nbsp;<span class="text-muted fontemenor11">
-                  ( {{ 'books.publishedIn' | translate }} {{ item.publishYear }} )</span
+        <article class="tile item-card" data-testid="book-card">
+          <img
+            class="item-logo publisher-logo"
+            [ngSrc]="getPublisherLogo(item.publishName)"
+            [alt]="'books.logoAlt' | translate: { name: item.publishName }"
+            width="56"
+            height="56"
+            decoding="async"
+          />
+          <div class="item-body">
+            <p class="item-eyebrow">
+              {{ absoluteIndex(i) }}
+              <span class="visually-hidden">{{ 'books.unreadMessages' | translate }}</span>
+            </p>
+            <p class="item-title fw-bold">
+              {{ item.title }}
+              <i class="bi bi-star-fill icon-favorite" [hidden]="!item.favorite"></i>
+              <span class="item-year">
+                ( {{ 'books.publishedIn' | translate }} {{ item.publishYear }} )</span
+              >
+            </p>
+            <p class="item-meta">
+              <b>{{ 'books.subtitle_label' | translate }}:</b> {{ item.subtitle }}
+            </p>
+            <p class="item-meta">
+              <b>{{ 'books.publisher' | translate }}: </b>
+              {{ item.publishName }}
+              <b class="ms-3">{{ 'books.author' | translate }}: </b>
+              {{ item.author | printTags }}
+            </p>
+            <p class="item-meta">
+              <b>{{ 'books.tags' | translate }}: </b>
+              {{ item.tags | printTags: true }}
+              <a
+                class="item-link ms-2"
+                [href]="item.bookUrl"
+                target="_blank"
+                rel="noopener"
+                (click)="onBookUrlClick(item.title, item.publishName)"
+                >{{ 'books.moreDetails' | translate }}</a
+              >
+            </p>
+            @if (item.progress > 0 && item.progress < 100) {
+              <div class="item-progress">
+                <div
+                  class="progress flex-grow-1"
+                  role="progressbar"
+                  [attr.aria-valuenow]="item.progress"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  [attr.aria-label]="
+                    'books.readingProgress' | translate: { progress: item.progress.toString() }
+                  "
                 >
-              </p>
-              <p class="text-muted fontemenor">
-                <b>{{ 'books.subtitle_label' | translate }}:</b> {{ item.subtitle }}
-              </p>
-              <p class="text-muted fontemenor">
-                <b>{{ 'books.publisher' | translate }}: </b>
-                {{ item.publishName }} &nbsp;&nbsp;&nbsp;&nbsp;<b
-                  >{{ 'books.author' | translate }}:
-                </b>
-                {{ item.author | printTags }}
-              </p>
-              <p class="text-muted fontemenor">
-                <b>{{ 'books.tags' | translate }}: </b>
-                {{ item.tags | printTags: true }} &nbsp;<span class="text-muted fontemenor11"
-                  >&nbsp;&nbsp;&nbsp;<a
-                    [href]="item.bookUrl"
-                    target="_blank"
-                    rel="noopener"
-                    (click)="onBookUrlClick(item.title, item.publishName)"
-                    >{{ 'books.moreDetails' | translate }}</a
-                  ></span
-                >
-              </p>
-              @if (item.progress > 0 && item.progress < 100) {
-                <div class="d-flex align-items-center gap-2 mt-1">
-                  <div
-                    class="progress flex-grow-1"
-                    style="height: 6px; max-width: 200px"
-                    role="progressbar"
-                    [attr.aria-valuenow]="item.progress"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    [attr.aria-label]="
-                      'books.readingProgress' | translate: { progress: item.progress.toString() }
-                    "
-                  >
-                    <div class="progress-bar bg-success" [style.width.%]="item.progress"></div>
-                  </div>
-                  <small class="text-muted text-nowrap">{{ item.progress }}%</small>
+                  <div class="progress-bar" [style.width.%]="item.progress"></div>
                 </div>
-              }
-              @if (item.progress === 100) {
-                <div class="d-flex align-items-center gap-1 mt-1">
-                  <i class="bi bi-check-circle-fill text-success" style="font-size: 0.75rem"></i>
-                  <small class="text-success">{{ 'books.completed' | translate }}</small>
-                </div>
-              }
-            </div>
+                <small class="text-nowrap">{{ item.progress }}%</small>
+              </div>
+            }
+            @if (item.progress === 100) {
+              <p class="item-done">
+                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                {{ 'books.completed' | translate }}
+              </p>
+            }
           </div>
-          <span
-            class="position-absolute top-50 ms-3 translate-middle badge rounded-pill bg-secondary"
-          >
-            {{ absoluteIndex(i) }}
-            <span class="visually-hidden">{{ 'books.unreadMessages' | translate }}</span>
-          </span>
-        </li>
+        </article>
       }
-    </ul>
+    </div>
     <div class="text-center">
-      <div class="has-text-centered">
-        <pagination-controls
-          (pageChange)="onPageChange($event)"
-          id="booksPag"
-        ></pagination-controls>
-      </div>
+      <pagination-controls
+        (pageChange)="onPageChange($event)"
+        id="booksPag"
+      ></pagination-controls>
     </div>
   </div>
 </section>

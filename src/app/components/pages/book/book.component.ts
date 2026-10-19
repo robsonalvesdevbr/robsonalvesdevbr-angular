@@ -40,7 +40,6 @@ import { getPublisherLogo } from '@path-data/PublisherLogo';
     TagLabelPipe,
   ],
   templateUrl: './book.component.html',
-  styleUrl: './book.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookComponent extends BasePageComponent implements OnInit {

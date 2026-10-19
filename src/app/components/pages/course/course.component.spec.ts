@@ -178,4 +178,33 @@ describe('CourseComponent', () => {
 
     expect(component.tagsFilter().has(id)).toBeFalse();
   });
+
+  describe('card grid', () => {
+    const cards = () =>
+      (fixture.nativeElement as HTMLElement).querySelectorAll(
+        '.card-grid > [data-testid="course-card"]'
+      );
+
+    it('should render one course-card per course on the current page', () => {
+      expect(cards()).toHaveLength(2);
+    });
+
+    it('should show the favorite star and the certificate link on each card', () => {
+      expect(cards().length).toBeGreaterThan(0);
+      for (const card of Array.from(cards())) {
+        const star = card.querySelector<HTMLElement>('i.icon-favorite');
+        expect(star).toBeTruthy();
+        expect(star?.hasAttribute('hidden')).toBe(false);
+        expect(card.querySelector('a[href*="linkedin.com/learning/certificates"]')).toBeTruthy();
+      }
+    });
+
+    it('should render no cards and keep working when the search matches nothing', () => {
+      component.searchQuery.set('zzz-sem-resultado');
+      fixture.detectChanges();
+
+      expect(cards()).toHaveLength(0);
+      expect((fixture.nativeElement as HTMLElement).querySelector('#courses')).toBeTruthy();
+    });
+  });
 });

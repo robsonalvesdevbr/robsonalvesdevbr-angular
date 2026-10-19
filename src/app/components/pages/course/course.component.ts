@@ -39,7 +39,6 @@ import { debounce } from '@path-utils/performance.utils';
     TagLabelPipe,
   ],
   templateUrl: './course.component.html',
-  styleUrl: './course.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseComponent extends BasePageComponent implements OnInit {

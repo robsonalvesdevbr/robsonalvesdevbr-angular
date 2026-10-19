@@ -186,4 +186,26 @@ describe('BookComponent', () => {
 
     expect(component.tagsFilter().has(id)).toBeFalse();
   });
+
+  describe('card grid', () => {
+    const cards = () =>
+      (fixture.nativeElement as HTMLElement).querySelectorAll(
+        '.card-grid > [data-testid="book-card"]'
+      );
+
+    it('should render one book-card per book with the publisher logo', () => {
+      expect(cards()).toHaveLength(2);
+      for (const card of Array.from(cards())) {
+        expect(card.querySelector('img.publisher-logo')).toBeTruthy();
+      }
+    });
+
+    it('should render no cards and keep working when the search matches nothing', () => {
+      component.searchQuery.set('zzz-sem-resultado');
+      fixture.detectChanges();
+
+      expect(cards()).toHaveLength(0);
+      expect((fixture.nativeElement as HTMLElement).querySelector('#books')).toBeTruthy();
+    });
+  });
 });
