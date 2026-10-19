@@ -61,6 +61,8 @@ export default defineConfig({
   assetsInclude: ['**/*.html', '**/*.scss'],
   test: {
     globals: true,
+    // O cache em disco não enxerga mudanças só no .html (o plugin inlina o template no .ts)
+    experimental: { fsModuleCache: false },
     environment: 'jsdom',
     environmentOptions: {
       jsdom: {

@@ -121,7 +121,7 @@ pnpm run clean          # remove dist, cache, .angular
 - **Coverage exclusions:** test files, configs, main.ts, environments
 - **Playwright:** testes em `e2e/`, múltiplos browsers (chromium, firefox, mobile-chrome). Se o navegador não estiver instalado: `pnpm exec playwright install`
 - **E2E e `@defer`:** o conteúdo abaixo da dobra só entra no DOM depois de rolar; use `HomePage.loadDeferredContent()` (`e2e/pages/home.page.ts`) antes de localizar seções
-- **Vitest e templates:** o plugin em `vite.config.ts` inlina `templateUrl`; se só o `.html` mudou, o cache de transform pode servir o template antigo — altere também o `.ts` do componente ou limpe o cache do Vite
+- **Vitest e templates:** o plugin em `vite.config.ts` inlina `templateUrl`; por isso `test.experimental.fsModuleCache` está **desligado** (com o cache em disco, mudança só no `.html` servia o template antigo). Não reative
 
 ### Styling Notes
 - Layout **Bento Grid**: cards de vidro (`.tile`) sobre fundo em mesh, tema escuro por padrão
