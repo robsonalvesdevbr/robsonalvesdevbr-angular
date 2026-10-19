@@ -33,7 +33,6 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     TranslatePipe,
   ],
   template: `
-    <div class="mesh-bg" aria-hidden="true"></div>
     <!-- Navigation and Header load immediately (critical) -->
     <app-navigation />
     <app-masterhead [bglight]="true" />
@@ -58,6 +57,9 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
         {{ 'common.loadError' | translate }}
       </div>
     }
+
+    <!-- Fixed backdrop: kept last so the navigation/masthead stay the first children -->
+    <div class="mesh-bg" aria-hidden="true"></div>
   `,
 })
 export class HomeComponent {
