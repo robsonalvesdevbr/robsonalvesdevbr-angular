@@ -33,6 +33,7 @@ import { NavigationComponent } from '@path-components/pages/navigation/navigatio
     TranslatePipe,
   ],
   template: `
+    <div class="mesh-bg" aria-hidden="true"></div>
     <!-- Navigation and Header load immediately (critical) -->
     <app-navigation />
     <app-masterhead [bglight]="true" />

@@ -56,4 +56,32 @@ describe('MasterheadComponent', () => {
     expect(resume?.getAttribute('rel')).toBe('noopener');
     expect(resume?.textContent?.trim()).toBe('Currículo');
   });
+
+  it('should render the portrait and one stat tile per computed metric', () => {
+    const fixture = TestBed.createComponent(MasterheadComponent);
+    const httpMock = TestBed.inject(HttpTestingController);
+    httpMock.expectOne('/assets/i18n/pt-BR.json').flush({
+      contact: { photoAlt: 'Foto de perfil' },
+      masterhead: {
+        stats: { years: 'anos', courses: 'cursos', graduations: 'formações', books: 'livros' },
+      },
+    });
+    httpMock.expectOne('/assets/i18n/en-US.json').flush({ masterhead: {} });
+    TestBed.inject(LanguageService).setLanguage('pt-BR');
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    const stats = Array.from(compiled.querySelectorAll('[data-testid="masthead-stat"]'));
+    expect(stats).toHaveLength(4);
+    expect(stats[0].textContent).toMatch(/^\s*\d+\+\s*anos\s*$/);
+    expect(stats.map(stat => stat.querySelector('.stat-label')?.textContent?.trim())).toEqual([
+      'anos',
+      'cursos',
+      'formações',
+      'livros',
+    ]);
+
+    const photo = compiled.querySelector<HTMLImageElement>('img.masthead-photo');
+    expect(photo?.getAttribute('alt')).toBe('Foto de perfil');
+  });
 });

@@ -49,3 +49,11 @@
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
 }
+
+[data-bs-theme='dark'] {
+  --on-accent: #111111;
+}
+
+[data-bs-theme='light'] {
+  --on-accent: #ffffff;
+}

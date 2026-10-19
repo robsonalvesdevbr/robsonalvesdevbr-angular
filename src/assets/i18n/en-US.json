@@ -29,7 +29,13 @@
     "role": "Software Architect · 23+ years of experience",
     "tagline": "Specialist in software architecture, .NET, Go and Cloud (Azure/AWS).",
     "contact": "Get in touch",
-    "resume": "Resume (PT-BR)"
+    "resume": "Resume (PT-BR)",
+    "stats": {
+      "years": "years of experience",
+      "courses": "completed courses",
+      "graduations": "(post)graduate degrees",
+      "books": "books read"
+    }
   },
   "about": {
     "title": "About",

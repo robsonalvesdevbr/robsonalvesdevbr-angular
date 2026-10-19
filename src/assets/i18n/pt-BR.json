@@ -29,7 +29,13 @@
     "role": "Arquiteto de Software · 23+ anos de experiência",
     "tagline": "Especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS).",
     "contact": "Entrar em contato",
-    "resume": "Currículo"
+    "resume": "Currículo",
+    "stats": {
+      "years": "anos de experiência",
+      "courses": "cursos concluídos",
+      "graduations": "(pós)graduações",
+      "books": "livros lidos"
+    }
   },
   "about": {
     "title": "Sobre",

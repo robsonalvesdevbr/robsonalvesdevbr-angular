@@ -49,6 +49,7 @@ section[id] {
   .navbar-shrink-active .page-section {
     scroll-margin-top: var(--navbar-height-shrink);
   }
+
 }
 
 /* Ajuste para dispositivos móveis */
@@ -57,6 +58,7 @@ section[id] {
   .page-section {
     scroll-margin-top: var(--navbar-height-mobile);
   }
+
 }
 
 /* Melhoria adicional: transição suave para mudanças de scroll-margin */
@@ -155,18 +157,21 @@ p {
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
+
 }
 
 @media (min-width: 577px) and (max-width: 767px) {
   section {
     padding: 6rem 0;
   }
+
 }
 
 @media (min-width: 768px) {
   section {
     padding: 9rem 0;
   }
+
 }
 .btn-xl {
   padding: 1.25rem 2.5rem;
@@ -246,90 +251,11 @@ p {
   .btn-social i {
     font-size: 1.5rem !important;
   }
-}
 
-header.masthead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
-  text-align: center;
-  color: #fff;
-  background-image: url('../assets/img/header-bg.jpg');
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  position: relative;
-}
-
-header.masthead::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-header.masthead > * {
-  position: relative;
-  z-index: 2;
-}
-header.masthead .masthead-subheading {
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.5rem;
-  margin-bottom: 25px;
-  font-family:
-    'Roboto Slab',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-}
-header.masthead .masthead-heading {
-  font-size: 3.25rem;
-  font-weight: 500;
-  line-height: 3.25rem;
-  margin-bottom: 2rem;
-  font-family:
-    'Montserrat',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
 }
 
 /* Mobile responsividade melhorada */
 @media (max-width: 576px) {
-  header.masthead {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-  }
-  header.masthead .masthead-subheading {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  header.masthead .masthead-heading {
-    font-size: 2.5rem;
-    line-height: 2.8rem;
-    margin-bottom: 1.5rem;
-  }
   .btn-xl {
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -337,76 +263,7 @@ header.masthead .masthead-heading {
   .timeline > li .timeline-panel {
     padding: 0 10px 0 80px;
   }
-}
 
-@media (min-width: 576px) and (max-width: 767px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 8rem;
-  }
-  header.masthead .masthead-subheading {
-    font-size: 1.75rem;
-  }
-  header.masthead .masthead-heading {
-    font-size: 3.5rem;
-    line-height: 3.8rem;
-  }
-}
-
-@media (min-width: 768px) {
-  header.masthead {
-    padding-top: 17rem;
-    padding-bottom: 12.5rem;
-  }
-  header.masthead .masthead-subheading {
-    font-size: 2.25rem;
-    font-style: italic;
-    line-height: 2.25rem;
-    margin-bottom: 2rem;
-  }
-  header.masthead .masthead-heading {
-    font-size: 4.5rem;
-    font-weight: 700;
-    line-height: 4.5rem;
-    margin-bottom: 4rem;
-  }
-}
-header.masthead .masthead-photo {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
-}
-header.masthead .masthead-heading {
-  margin-bottom: 0.75rem;
-}
-header.masthead .masthead-subheading {
-  margin-bottom: 1rem;
-}
-header.masthead .masthead-tagline {
-  max-width: 40rem;
-  margin: 0 auto 2rem;
-  font-size: 1.15rem;
-}
-header.masthead .masthead-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-@media (min-width: 768px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 8rem;
-  }
-  header.masthead .masthead-heading {
-    margin-bottom: 1rem;
-  }
-  header.masthead .masthead-tagline {
-    font-size: 1.35rem;
-    margin-bottom: 2.5rem;
-  }
 }
 #portfolio .portfolio-item {
   max-width: 26rem;
@@ -684,6 +541,7 @@ header.masthead .masthead-actions {
     padding: 0 30px 20px 20px;
     text-align: left;
   }
+
 }
 @media (min-width: 992px) {
   .timeline > li {
@@ -706,6 +564,7 @@ header.masthead .masthead-actions {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 20px 20px;
   }
+
 }
 @media (min-width: 1200px) {
   .timeline > li {
@@ -726,6 +585,7 @@ header.masthead .masthead-actions {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 100px 20px 20px;
   }
+
 }
 .team-member {
   margin-bottom: 3rem;
@@ -870,6 +730,7 @@ section#contact .section-heading {
       max-width: 200px;
     }
   }
+
 }
 
 /* Additional Bootstrap icon colors */
