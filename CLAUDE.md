@@ -130,7 +130,7 @@ pnpm run clean          # remove dist, cache, .angular
 - `src/scss/_bento.scss`: primitivas `.bento` (grid 12 colunas, 1 coluna <860px), `.tile`, `.pill`, `.eyebrow`, `.mesh-bg`
 - `src/scss/sections/*`: um parcial por seção (`_nav`, `_hero`, `_about`, `_skills`, `_cards`, `_catalog`, `_contact`, `_section`); registrar novos em `src/css/bento.scss` com `@use`
 - `src/scss/_motion.scss`: entrada dos cards com scroll-driven animations (`.tile`), só em `@media screen` + `prefers-reduced-motion: no-preference` + `@supports (animation-timeline)`
-- `.card-grid` (flex com crescimento): 1 coluna (<768px), 2 (≥768px), 4 (≥1100px; `.card-grid--3` usa 3). A última linha sempre estica para ficar completa. Tamanhos de página: Cursos e Livros 16 (4x4), Trilhas 8 (4x2) — manter múltiplos de 4
+- `.card-grid` (flex com crescimento): 1 coluna (<768px), 2 (≥768px), 4 (≥1100px; `.card-grid--3` usa 3). A última linha sempre estica para ficar completa. Tamanhos de página: Cursos, Livros e Trilhas 8 (4x2) — manter múltiplos de 4
 - A navegação em pílula é escura nos dois temas (o logo `robsonalves.png` só tem contraste em fundo escuro); ao mudar a altura dela, atualizar `--navbar-height-*` (`src/css/styles.scss`) **e** `navbarHeights` em `navigation.component.ts`
 - Estilos novos vão em parciais globais, não em `styles:` de componente (budget de 3 kB por componente)
 - Bootstrap Icons via CSS; SCSS como `inlineStyleLanguage` padrão
@@ -138,7 +138,7 @@ pnpm run clean          # remove dist, cache, .angular
 - Bootstrap importado: só módulos usados (ver `_bootstrap-custom.scss`; `progress`, `close`, `card`, `badge` e `list-group` **não** estão importados)
 
 ### Imagens
-- Retratos otimizados em `src/assets/img/profile-hero.webp` (hero) e `profile-contact.webp` (contato); `myimage.jpg` segue em og:image/SEO
+- Retrato único otimizado em `src/assets/img/profile.webp` (800x800), usado no hero e no contato; `myimage.jpg` segue em og:image/SEO
 - Originais de alta resolução ficam fora do bundle (`.superpowers/originals/`, ignorado pelo git)
 
 ### Conteúdo calculado vs. fixo

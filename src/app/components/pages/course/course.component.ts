@@ -57,7 +57,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
 
-  config = this.paginationService.createPaginationConfig('coursesPag', 16);
+  config = this.paginationService.createPaginationConfig('coursesPag', 8);
 
   private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
     if (term.length >= 2) {

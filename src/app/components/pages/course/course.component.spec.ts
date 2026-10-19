@@ -208,8 +208,7 @@ describe('CourseComponent', () => {
     });
   });
 
-  it('should paginate in whole rows of the 4-column card grid', () => {
-    expect(component.config().itemsPerPage).toBe(16);
-    expect(component.config().itemsPerPage % 4).toBe(0);
+  it('should paginate two full rows of the 4-column card grid per page', () => {
+    expect(component.config().itemsPerPage).toBe(8);
   });
 });
