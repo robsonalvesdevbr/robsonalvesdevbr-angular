@@ -38,19 +38,37 @@ test.describe('Navegação', () => {
           await page.getByRole('button', { name: /navega/i }).click();
         }
         await page.getByTestId(link).click();
+        // A rolagem é suave e começa após um debounce: espera a posição ficar estável.
         await page.waitForFunction(
           () =>
             new Promise<boolean>(resolve => {
-              const y = window.scrollY;
-              setTimeout(() => resolve(window.scrollY === y), 250);
+              let last = window.scrollY;
+              let stable = 0;
+              const timer = setInterval(() => {
+                if (window.scrollY === last) {
+                  if (++stable >= 4) {
+                    clearInterval(timer);
+                    resolve(true);
+                  }
+                } else {
+                  stable = 0;
+                  last = window.scrollY;
+                }
+              }, 120);
             }),
+          undefined,
+          { timeout: 10_000 },
         );
 
         const navBox = await homePage.navigationSection.boundingBox();
-        const headingBox = await page.locator(`section#${section} h2`).first().boundingBox();
-        expect(headingBox!.y, `título de #${section}`).toBeGreaterThanOrEqual(
-          navBox!.y + navBox!.height,
-        );
+        const sectionBox = await page.locator(`section#${section}`).boundingBox();
+        // O topo da seção fica logo abaixo da pílula (offset de rolagem), nem escondido nem longe demais.
+        const gap = sectionBox!.y - (navBox!.y + navBox!.height);
+        expect(gap, `distância entre a pílula e #${section}`).toBeGreaterThanOrEqual(0);
+        // #contact está no fim da página e pode não alcançar o offset; as demais têm de alcançar.
+        if (section !== 'contact') {
+          expect(gap, `distância entre a pílula e #${section}`).toBeLessThanOrEqual(48);
+        }
       }
     });
   }

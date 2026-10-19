@@ -42,12 +42,12 @@ test.describe('Redesign bento', () => {
     await home.loadDeferredContent();
     const cards = page.getByTestId('formation-card');
     await expect(cards).toHaveCount(8);
-    await expect(cards.first().locator('.item-eyebrow')).toContainText('1');
+    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/^\s*1\b/);
 
     const next = page.locator('#trilhas .pagination-next a');
     await next.scrollIntoViewIfNeeded();
     await next.click();
-    await expect(cards.first().locator('.item-eyebrow')).toContainText('9');
+    await expect(cards.first().locator('.item-eyebrow')).toHaveText(/^\s*9\b/);
   });
 
   test('chip de instituição deve filtrar cursos e mostrar o filtro ativo', async ({ page }) => {

@@ -15,6 +15,47 @@ test.describe('Layout bento', () => {
         () => document.documentElement.scrollWidth - window.innerWidth,
       );
       expect(overflow).toBeLessThanOrEqual(0);
+
+      // `.page-section` usa contain: paint, que recorta o excesso sem gerar rolagem horizontal;
+      // por isso o teste também mede cada elemento (e a navegação, que é fixed).
+      const offenders = await page.evaluate(() => {
+        const limit = window.innerWidth;
+        const bad: string[] = [];
+        for (const el of document.querySelectorAll<HTMLElement>(
+          '#mainNav, #mainNav *, section *, footer *',
+        )) {
+          if (el.closest('.visually-hidden') || el.classList.contains('btn-check')) continue;
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) continue;
+          if (rect.right > limit + 1 || rect.left < -1) {
+            bad.push(`${el.tagName.toLowerCase()}.${el.className}`.slice(0, 70));
+          }
+        }
+        return bad.slice(0, 10);
+      });
+      expect(offenders).toEqual([]);
+    });
+  }
+
+  for (const width of [320, 360, 992, 1024, 1100, 1199]) {
+    test(`a navegação deve caber numa linha dentro da pílula em EN-US a ${width}px`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto('/');
+      await page.click('[data-testid="language-switcher-button"]');
+      await page.click('[data-testid="lang-en-us"]');
+      await expect(page.locator('[data-testid="nav-about"]')).toContainText('About');
+
+      const pill = await page.locator('#mainNav > .container').boundingBox();
+      expect(pill!.height, 'a pílula não pode quebrar em duas linhas').toBeLessThanOrEqual(72);
+
+      if (width >= 992) {
+        const last = await page.getByTestId('nav-contact').boundingBox();
+        expect(last!.x + last!.width, 'último link dentro da pílula').toBeLessThanOrEqual(
+          pill!.x + pill!.width,
+        );
+      }
     });
   }
 
@@ -23,6 +64,8 @@ test.describe('Layout bento', () => {
   }) => {
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.goto('/');
+    const supported = await page.evaluate(() => CSS.supports('animation-timeline: view()'));
+    test.skip(!supported, 'navegador sem suporte a scroll-driven animations');
     await new HomePage(page).loadDeferredContent();
 
     const name = await page
