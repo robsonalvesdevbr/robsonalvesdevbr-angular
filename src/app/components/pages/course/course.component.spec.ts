@@ -199,6 +199,15 @@ describe('CourseComponent', () => {
       }
     });
 
+    it('should place the sequential number in the top-right index of each card', () => {
+      const first = (fixture.nativeElement as HTMLElement).querySelector(
+        '.card-grid > [data-testid="course-card"]'
+      );
+      const index = first?.querySelector(':scope > .item-index');
+      expect(index?.textContent?.trim()).toMatch(/\b1$/);
+      expect(first?.querySelector('.item-body .item-eyebrow')).toBeNull();
+    });
+
     it('should not render a focusable control for the empty institution value', () => {
       const root = fixture.nativeElement as HTMLElement;
       expect(root.querySelector('#input_course_institution_Alura')).toBeTruthy();
@@ -217,5 +226,36 @@ describe('CourseComponent', () => {
 
   it('should paginate two full rows of the 4-column card grid per page', () => {
     expect(component.config().itemsPerPage).toBe(8);
+  });
+
+  describe('tag filter accordion', () => {
+    const query = () => {
+      const root = fixture.nativeElement as HTMLElement;
+      return {
+        toggle: root.querySelector<HTMLButtonElement>('button.catalog-toggle'),
+        list: root.querySelector<HTMLElement>('.catalog-chips-list'),
+      };
+    };
+
+    it('should start collapsed to a single row of tags', () => {
+      const { toggle, list } = query();
+      expect(component.tagsExpanded()).toBe(false);
+      expect(toggle?.getAttribute('aria-expanded')).toBe('false');
+      expect(list?.classList.contains('is-collapsed')).toBe(true);
+      expect(toggle?.getAttribute('aria-controls')).toBe(list?.id);
+    });
+
+    it('should expand and collapse the tag list from the arrow button', () => {
+      query().toggle?.click();
+      fixture.detectChanges();
+      expect(component.tagsExpanded()).toBe(true);
+      expect(query().toggle?.getAttribute('aria-expanded')).toBe('true');
+      expect(query().list?.classList.contains('is-collapsed')).toBe(false);
+
+      query().toggle?.click();
+      fixture.detectChanges();
+      expect(component.tagsExpanded()).toBe(false);
+      expect(query().list?.classList.contains('is-collapsed')).toBe(true);
+    });
   });
 });

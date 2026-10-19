@@ -121,7 +121,7 @@ pnpm run clean          # remove dist, cache, .angular
 - **Coverage exclusions:** test files, configs, main.ts, environments
 - **Playwright:** testes em `e2e/`, múltiplos browsers (chromium, firefox, mobile-chrome). Se o navegador não estiver instalado: `pnpm exec playwright install`
 - **E2E e `@defer`:** o conteúdo abaixo da dobra só entra no DOM depois de rolar; use `HomePage.loadDeferredContent()` (`e2e/pages/home.page.ts`) antes de localizar seções
-- **Vitest e templates:** o plugin em `vite.config.ts` inlina `templateUrl`; se só o `.html` mudou, o cache de transform pode servir o template antigo — altere também o `.ts` do componente ou limpe o cache do Vite
+- **Vitest e templates:** o plugin em `vite.config.ts` inlina `templateUrl`; por isso `test.experimental.fsModuleCache` está **desligado** (com o cache em disco, mudança só no `.html` servia o template antigo). Não reative
 
 ### Styling Notes
 - Layout **Bento Grid**: cards de vidro (`.tile`) sobre fundo em mesh, tema escuro por padrão
@@ -131,6 +131,7 @@ pnpm run clean          # remove dist, cache, .angular
 - `src/scss/sections/*`: um parcial por seção (`_nav`, `_hero`, `_about`, `_skills`, `_cards`, `_catalog`, `_contact`, `_section`); registrar novos em `src/css/bento.scss` com `@use`
 - `src/scss/_motion.scss`: entrada dos cards com scroll-driven animations (`.tile`), só em `@media screen` + `prefers-reduced-motion: no-preference` + `@supports (animation-timeline)`
 - `.card-grid` (flex com crescimento): 1 coluna (<768px), 2 (≥768px), 4 (≥1100px; `.card-grid--3` usa 3). A última linha sempre estica para ficar completa. Tamanhos de página: Cursos, Livros e Trilhas 8 (4x2) — manter múltiplos de 4
+- Filtro de tags de Cursos/Livros é um acordeão (`.catalog-chips-list.is-collapsed` + `.catalog-toggle`): recolhido mostra uma linha (`max-height`), a seta expande; `:focus-within` abre a lista para o foco por teclado nunca cair num chip oculto
 - A navegação em pílula é escura nos dois temas (o logo `robsonalves.png` só tem contraste em fundo escuro); ao mudar a altura dela, atualizar só `--navbar-height-normal|mobile` em `src/css/styles.scss` (a rolagem por âncora em `navigation.component.ts` lê essas variáveis)
 - O skip-link aponta para `#main-content` (o `<header>` do masthead, `tabindex="-1"`), que existe antes do `@defer`
 - Estilos novos vão em parciais globais, não em `styles:` de componente (budget de 3 kB por componente)

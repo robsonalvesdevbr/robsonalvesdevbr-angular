@@ -154,3 +154,109 @@
     color: var(--success-text);
   }
 }
+
+// Filtro de tags em acordeão: uma linha visível; a seta mostra o resto.
+.catalog-chips--tags {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 0.35rem 0.5rem;
+
+  .catalog-chips-label {
+    // mesma altura de um chip, para alinhar com a primeira linha
+    line-height: 1.75rem;
+  }
+
+  @media (max-width: 575.98px) {
+    grid-template-columns: 1fr auto;
+
+    .catalog-chips-label {
+      grid-column: 1;
+    }
+
+    .catalog-chips-list {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+}
+
+.catalog-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+  max-height: 60rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  // Uma linha de chips (~1,75rem); a segunda começa depois do gap e fica oculta.
+  &.is-collapsed {
+    max-height: 1.9rem;
+
+    // Tab em um chip oculto abre a lista: o foco nunca fica num controle invisível.
+    &:focus-within {
+      max-height: 60rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.catalog-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  color: var(--on-accent);
+  cursor: pointer;
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--radius-pill);
+  box-shadow:
+    0 0 0 4px rgba(var(--accent-rgb), 0.22),
+    0 4px 14px rgba(var(--accent-rgb), 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow:
+      0 0 0 5px rgba(var(--accent-rgb), 0.3),
+      0 6px 18px rgba(var(--accent-rgb), 0.45);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--text);
+    outline-offset: 3px;
+  }
+
+  .bi {
+    // -webkit-text-stroke engrossa o traço da seta da fonte de ícones
+    font-size: 1.15rem;
+    line-height: 1;
+    -webkit-text-stroke: 1.2px currentcolor;
+    transition: transform 0.25s ease;
+  }
+
+  &.is-open .bi {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+
+    .bi {
+      transition: none;
+    }
+  }
+}

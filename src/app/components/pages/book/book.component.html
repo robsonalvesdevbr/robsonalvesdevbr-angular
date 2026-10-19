@@ -62,28 +62,44 @@
         }
       </fieldset>
       <fieldset
-        class="catalog-chips"
+        class="catalog-chips catalog-chips--tags"
         role="group"
         [attr.aria-label]="'books.filterTag' | translate"
       >
         <b class="catalog-chips-label">{{ 'books.filterTag' | translate }}:</b>
-        @for (tag of availableTags(); track trackByTag($index, tag)) {
-          <input
-            type="checkbox"
-            class="btn-check"
-            id="input_book_tag_{{ tag | lowercase }}"
-            autocomplete="off"
-            [checked]="tagsFilter().has(tag)"
-            (click)="onClickTagEvent($event)"
-          />
-          <label
-            class="catalog-chip"
-            for="input_book_tag_{{ tag | lowercase }}"
-            id="label_book_tag_{{ tag | lowercase }}"
-            [ngClass]="{ active: tagsFilter().has(tag) }"
-            >{{ tag | tagLabel }}</label
-          >
-        }
+        <div class="catalog-chips-list" id="book-tag-chips" [class.is-collapsed]="!tagsExpanded()">
+          @for (tag of availableTags(); track trackByTag($index, tag)) {
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="input_book_tag_{{ tag | lowercase }}"
+              autocomplete="off"
+              [checked]="tagsFilter().has(tag)"
+              (click)="onClickTagEvent($event)"
+            />
+            <label
+              class="catalog-chip"
+              for="input_book_tag_{{ tag | lowercase }}"
+              id="label_book_tag_{{ tag | lowercase }}"
+              [ngClass]="{ active: tagsFilter().has(tag) }"
+              >{{ tag | tagLabel }}</label
+            >
+          }
+        </div>
+        <button
+          type="button"
+          class="catalog-toggle"
+          [class.is-open]="tagsExpanded()"
+          (click)="toggleTags()"
+          [attr.aria-expanded]="tagsExpanded()"
+          aria-controls="book-tag-chips"
+          [attr.aria-label]="
+            (tagsExpanded() ? 'books.collapseTags' : 'books.expandTags') | translate
+          "
+          [attr.title]="(tagsExpanded() ? 'books.collapseTags' : 'books.expandTags') | translate"
+        >
+          <i class="bi bi-chevron-down" aria-hidden="true"></i>
+        </button>
       </fieldset>
     </div>
 
@@ -122,6 +138,10 @@
         let i = $index
       ) {
         <article class="tile item-card" data-testid="book-card">
+          <span class="item-index"
+            ><span class="visually-hidden">{{ 'books.itemLabel' | translate }} </span
+            >{{ absoluteIndex(i) }}</span
+          >
           <img
             class="item-logo publisher-logo"
             [ngSrc]="getPublisherLogo(item.publishName)"
@@ -131,10 +151,6 @@
             decoding="async"
           />
           <div class="item-body">
-            <p class="item-eyebrow">
-              <span class="visually-hidden">{{ 'books.itemLabel' | translate }} </span
-              >{{ absoluteIndex(i) }}
-            </p>
             <p class="item-title fw-bold">
               {{ item.title }}
               <i class="bi bi-star-fill icon-favorite" [hidden]="!item.favorite"></i>
