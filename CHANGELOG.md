@@ -7,7 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-10-18
+
+### Added
+- Redesign **Bento Grid** em todas as seções: navegação em pílula flutuante, hero com
+  retrato e métricas calculadas (anos de experiência, cursos, (pós)graduações, livros),
+  cards de vidro (`.tile`), fundo em mesh e entrada dos cards com scroll-driven animations
+- Design system em `src/scss/` (tokens, primitivas `.bento`/`.tile`/`.pill`, um parcial por seção)
+- Grade de cards que completa as linhas (4 colunas em telas largas; Cursos, Livros e Trilhas
+  paginam de 8 em 8)
+- Retrato único otimizado (`profile.webp`) no hero e no contato
+- Testes e2e do novo layout (`redesign.spec.ts`, `layout.spec.ts`) e
+  `HomePage.loadDeferredContent()` para o conteúdo carregado com `@defer`
+- `career.utils.ts` (`yearsSince`) para calcular os anos de experiência
+
 ### Changed
+- Tema escuro passa a ser o padrão (valores `light`/`dark`/`auto` salvos continuam respeitados)
+- Fonte Inter no lugar de Montserrat e Roboto Slab
+- "23+ anos" → "25+ anos" no i18n e no SEO
+- Skip-link aponta para `#main-content`, que existe antes do `@defer`
+- Rolagem por âncora lê `--navbar-height-*` do CSS
+- Rótulo acessível dos cards passa a ser "Item N" (chave i18n `itemLabel`)
+- `CLAUDE.md` documenta o design system e as particularidades de teste
 
 #### Framework
 - Upgrade Angular 22.1.5 → 22.2.0 (latest stable da linha 22)
@@ -31,9 +52,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade typescript-eslint 8.67.0 → 8.70.0
 - Upgrade eslint 10.9.0 → 10.10.0
 - Upgrade zone.js 0.16.2 → 0.16.3
-- 469/469 testes unitários passando
+- 467/467 testes unitários e 63/63 testes e2e passando
 
 ### Removed
+- CSS do template Agency (`#portfolio`, modal, timeline, `navbar-shrink`, `src/styles.scss`)
+  e `src/js/scripts.js`
+- `HighlightDirective` e o input `bglight` (sem uso)
+- Módulos Bootstrap `card`, `badge` e `list-group` do build
 - `@angular/platform-browser-dynamic` (deprecado no Angular 22): `test-setup.ts`
   migrado para `BrowserTestingModule` / `platformBrowserTesting` de
   `@angular/platform-browser/testing`

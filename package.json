@@ -1,6 +1,6 @@
 {
   "name": "robsonalvesdevbr-angular",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "packageManager": "pnpm@11.5.0",
   "engines": {
     "node": ">=24"
