@@ -8,6 +8,10 @@
   --accent: #ffd43b;
   --accent-rgb: 255, 212, 59;
 
+  --nav-bg: rgba(18, 20, 26, 0.9);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-shadow: var(--shadow-card);
+
   padding: 12px 0 0;
   background: transparent;
   border: 0;
@@ -18,10 +22,10 @@
     width: calc(100% - 24px);
     max-width: 1120px;
     padding: 0.55rem 0.9rem 0.55rem 1.25rem;
-    background: rgba(18, 20, 26, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--nav-bg);
+    border: 1px solid var(--nav-border);
     border-radius: 28px;
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--nav-shadow);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
 
@@ -124,4 +128,15 @@
       outline-offset: 2px;
     }
   }
+}
+
+// No tema escuro a página já é quase preta: a pílula precisa de superfície mais clara, borda
+// marcada e um filete de luz no topo para se destacar do fundo.
+[data-bs-theme='dark'] #mainNav {
+  --nav-bg: rgba(44, 48, 60, 0.92);
+  --nav-border: rgba(255, 255, 255, 0.22);
+  --nav-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 212, 59, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
