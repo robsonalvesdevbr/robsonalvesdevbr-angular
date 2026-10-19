@@ -10,7 +10,7 @@
         }}</span>
       </h3>
     </div>
-    <div class="card-grid">
+    <div class="card-grid card-grid--3">
       @for (
         graduation of graduations() | sortby: 'conclusionDate' : 'desc';
         track trackByGraduation($index, graduation)

@@ -43,13 +43,9 @@
             <p class="item-meta">
               {{ 'formationCourse.completedOn' | translate }}
               {{ course.conclusion | date: 'dd/MM/yyyy' }}
-              <a
-                class="item-link ms-2"
-                [href]="course.certificateUrl"
-                target="_blank"
-                rel="noopener"
-                >{{ 'formationCourse.certificate' | translate }}</a
-              >
+              <a class="item-link" [href]="course.certificateUrl" target="_blank" rel="noopener">{{
+                'formationCourse.certificate' | translate
+              }}</a>
             </p>
           </div>
         </article>

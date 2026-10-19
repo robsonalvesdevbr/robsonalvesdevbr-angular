@@ -57,7 +57,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   tagsFilter: WritableSignal<Set<string>> = signal<Set<string>>(new Set<string>());
   searchQuery = signal<string>('');
 
-  config = this.paginationService.createPaginationConfig('booksPag', 5);
+  config = this.paginationService.createPaginationConfig('booksPag', 16);
 
   private readonly debouncedTrackSearch = debounce((term: string, count: number) => {
     if (term.length >= 2) {

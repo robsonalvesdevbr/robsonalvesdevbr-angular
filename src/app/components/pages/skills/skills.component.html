@@ -5,12 +5,9 @@
       <h2 class="section-heading">{{ 'skills.title' | translate }}</h2>
       <h3 class="section-subheading text-muted">{{ 'skills.subtitle' | translate }}</h3>
     </div>
-    <div class="bento">
+    <div class="card-grid">
       @for (group of skillGroups; track group.id; let i = $index) {
-        <div
-          class="tile tile--span-4 skill-group"
-          [style.--tile-hue]="'var(--hue-' + (i % 5) + ')'"
-        >
+        <div class="tile skill-group" [style.--tile-hue]="'var(--hue-' + (i % 5) + ')'">
           <h4 class="group-title">{{ 'skills.groups.' + group.id | translate }}</h4>
           <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
             @for (skill of group.skills; track skill) {

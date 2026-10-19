@@ -115,7 +115,7 @@ describe('FormationCourseComponent', () => {
   });
 
   it('should have default pagination config', () => {
-    expect(component.config().itemsPerPage).toBe(5);
+    expect(component.config().itemsPerPage).toBe(8);
     expect(component.config().currentPage).toBe(1);
   });
 

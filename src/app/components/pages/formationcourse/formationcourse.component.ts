@@ -34,7 +34,7 @@ export class FormationCourseComponent extends BasePageComponent {
   private readonly paginationService = inject(PaginationService);
   
   formationCourses = signal(this.dataService.getFormationCourses());
-  config = this.paginationService.createPaginationConfig('formationCoursesPag', 5);
+  config = this.paginationService.createPaginationConfig('formationCoursesPag', 8);
 
   absoluteIndex(indexOnPage: number): number {
     return (

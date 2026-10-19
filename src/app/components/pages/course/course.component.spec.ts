@@ -207,4 +207,9 @@ describe('CourseComponent', () => {
       expect((fixture.nativeElement as HTMLElement).querySelector('#courses')).toBeTruthy();
     });
   });
+
+  it('should paginate in whole rows of the 4-column card grid', () => {
+    expect(component.config().itemsPerPage).toBe(16);
+    expect(component.config().itemsPerPage % 4).toBe(0);
+  });
 });

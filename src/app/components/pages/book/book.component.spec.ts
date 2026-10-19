@@ -112,7 +112,7 @@ describe('BookComponent', () => {
   it('should calculate absolute index correctly', () => {
     component.config().currentPage = 2;
     const index = component.absoluteIndex(2);
-    expect(index).toBe(8);
+    expect(index).toBe(component.config().itemsPerPage + 2 + 1);
   });
 
   it('should change page on onPageChange', () => {
@@ -207,5 +207,10 @@ describe('BookComponent', () => {
       expect(cards()).toHaveLength(0);
       expect((fixture.nativeElement as HTMLElement).querySelector('#books')).toBeTruthy();
     });
+  });
+
+  it('should paginate in whole rows of the 4-column card grid', () => {
+    expect(component.config().itemsPerPage).toBe(16);
+    expect(component.config().itemsPerPage % 4).toBe(0);
   });
 });

@@ -1,9 +1,29 @@
-// Cards de lista (graduação, trilhas, cursos, livros).
+// Cards de lista (skills, graduação, trilhas, cursos, livros). Flex com crescimento: cada linha
+// termina completa, inclusive a última (ex.: 4x4 com 16 itens; com 14, a última linha estica).
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  --cols: 1;
+
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-4);
+
+  > * {
+    flex: 1 1 calc((100% - (var(--cols) - 1) * var(--space-3)) / var(--cols));
+    min-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    --cols: 2;
+  }
+
+  @media (min-width: 1100px) {
+    --cols: var(--cols-wide, 4);
+  }
+
+  &--3 {
+    --cols-wide: 3;
+  }
 }
 
 .item-card {
@@ -11,6 +31,11 @@
   align-items: flex-start;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
+
+  // Em várias colunas o logo vai acima do texto: sobra mais largura para o conteúdo.
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
 
   .item-logo {
     flex: none;
@@ -46,6 +71,12 @@
     line-height: 1.5;
     color: var(--text-muted);
     overflow-wrap: anywhere;
+  }
+
+  // Links dentro de .item-meta (certificado, detalhes) ficam em linha própria.
+  .item-meta .item-link {
+    display: block;
+    margin-top: 0.2rem;
   }
 
   .item-link {
