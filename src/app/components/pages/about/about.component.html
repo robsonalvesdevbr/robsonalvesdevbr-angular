@@ -23,7 +23,9 @@
             <li>
               <span class="marker"><i class="bi" [class]="stage.icon" aria-hidden="true"></i></span>
               <p class="period">{{ 'about.timeline.' + stage.key + '.period' | translate }}</p>
-              <h4 class="stage-title">{{ 'about.timeline.' + stage.key + '.title' | translate }}</h4>
+              <h4 class="stage-title">
+                {{ 'about.timeline.' + stage.key + '.title' | translate }}
+              </h4>
               <p class="stage-description">
                 {{ 'about.timeline.' + stage.key + '.description' | translate }}
               </p>

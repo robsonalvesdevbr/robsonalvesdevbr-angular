@@ -1,6 +1,10 @@
 // Cabeçalho comum das seções migradas (sobrescreve as regras do template Agency).
 .page-section {
-  padding: var(--space-5) 0;
+  padding: var(--space-6) 0;
+
+  @media (max-width: 575.98px) {
+    padding: var(--space-5) 0;
+  }
 
   h2.section-heading {
     margin: 0 0 var(--space-2);

@@ -22,8 +22,8 @@
           >{{ profiles().country }}, {{ profiles().city }} / {{ profiles().state }}
         </p>
         <p class="contact-line">
-          <i class="bi bi-person-fill me-2" aria-hidden="true"></i
-          >{{ 'contact.age' | translate }}: {{ calculateAge(profiles().birthday) }}
+          <i class="bi bi-person-fill me-2" aria-hidden="true"></i>{{ 'contact.age' | translate }}:
+          {{ calculateAge(profiles().birthday) }}
         </p>
 
         <div class="contact-actions">
@@ -35,8 +35,7 @@
             [attr.aria-label]="'contact.sendEmail' | translate: { email: profiles().email }"
             data-testid="contact-email"
             (click)="onEmailClick()"
-            ><i class="bi bi-envelope-at-fill me-2" aria-hidden="true"></i
-            >{{ profiles().email }}</a
+            ><i class="bi bi-envelope-at-fill me-2" aria-hidden="true"></i>{{ profiles().email }}</a
           >
           <a
             class="btn-hero btn-hero--ghost"

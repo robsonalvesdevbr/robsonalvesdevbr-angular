@@ -6,65 +6,34 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Solução para navbar fixo - usando CSS custom properties para flexibilidade */
+/* Altura ocupada pela pílula flutuante (margem + altura + respiro), usada nas âncoras */
 :root {
-  --navbar-height-normal: 96px; /* Pílula flutuante (desktop): margem + altura + respiro */
-  --navbar-height-shrink: 96px; /* Pílula tem altura constante: igual ao normal */
-  --navbar-height-mobile: 88px; /* Pílula flutuante (mobile) */
-
-  /* Tokens de marca - cor de assinatura dourada e superfícies */
-  --brand-accent: #ffc800;
-  --brand-accent-rgb: 255, 200, 0;
-  --brand-focus-ring: #b38600; /* contraste >= 3:1 sobre fundo claro */
-  --brand-surface-dark: #212529; /* navbar e seção de contato */
-  --brand-star: #ffc107; /* estrelas de favorito */
-}
-
-[data-bs-theme='dark'] {
-  --brand-accent: #ffd43b; /* dourado mais claro para legibilidade no escuro */
-  --brand-accent-rgb: 255, 212, 59;
-  --brand-focus-ring: #ffd43b;
-  --brand-surface-dark: #1a1d20; /* diferencia navbar/contato do body escuro */
+  --navbar-height-normal: 96px;
+  --navbar-height-shrink: 96px; /* a pílula tem altura constante */
+  --navbar-height-mobile: 88px;
 }
 
 /* Scroll margin padrão para seções - funciona nativamente com âncoras */
-section[id] {
-  scroll-margin-top: var(--navbar-height-normal);
-}
-
+section[id],
 .page-section {
   scroll-margin-top: var(--navbar-height-normal);
 }
 
-/* Ajuste dinâmico baseado no estado do navbar para desktop */
+/* A classe navbar-shrink é aplicada por js/scripts.js ao rolar */
 @media (min-width: 992px) {
-  /* Aplicar scroll margin reduzido quando o navbar está shrink */
   body:has(.navbar-shrink) section[id],
-  body:has(.navbar-shrink) .page-section {
-    scroll-margin-top: var(--navbar-height-shrink);
-  }
-
-  /* Fallback para navegadores que não suportam :has() */
+  body:has(.navbar-shrink) .page-section,
   .navbar-shrink-active section[id],
   .navbar-shrink-active .page-section {
     scroll-margin-top: var(--navbar-height-shrink);
   }
-
 }
 
-/* Ajuste para dispositivos móveis */
 @media (max-width: 991.98px) {
   section[id],
   .page-section {
     scroll-margin-top: var(--navbar-height-mobile);
   }
-
-}
-
-/* Melhoria adicional: transição suave para mudanças de scroll-margin */
-section[id],
-.page-section {
-  transition: scroll-margin-top 0.3s ease;
 }
 
 /* Skip Link para acessibilidade */
@@ -101,9 +70,9 @@ a.text-muted:hover {
 .btn:focus,
 .nav-link:focus,
 a:focus {
-  outline: 3px solid var(--brand-focus-ring);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(var(--brand-accent-rgb), 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
 }
 
 body {
@@ -115,349 +84,6 @@ p {
   line-height: 1.75;
 }
 
-.page-section {
-  padding: 2rem 0;
-}
-.page-section h2.section-heading,
-.page-section .section-heading.h2 {
-  font-size: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-.page-section h3.section-subheading,
-.page-section .section-subheading.h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  font-style: italic;
-  font-family:
-    'Roboto Slab',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-  margin-bottom: 2rem;
-}
-
-/* Ajustes de seção para mobile */
-@media (max-width: 576px) {
-  section {
-    padding: 4rem 0;
-  }
-  .page-section {
-    padding: 3rem 0;
-  }
-  .page-section h2.section-heading {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-}
-
-@media (min-width: 577px) and (max-width: 767px) {
-  section {
-    padding: 6rem 0;
-  }
-
-}
-
-@media (min-width: 768px) {
-  section {
-    padding: 9rem 0;
-  }
-
-}
-.btn-xl {
-  padding: 1.25rem 2.5rem;
-  font-family:
-    'Montserrat',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-  font-size: 1.125rem;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-xl:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(var(--brand-accent-rgb), 0.3);
-}
-
-.btn-xl:active {
-  transform: translateY(0);
-}
-
-.btn-social {
-  height: 2.5rem;
-  width: 2.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 100%;
-  transition: all 0.3s ease;
-  position: relative;
-  margin: 0.25rem;
-}
-
-.btn-social:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.btn-social:hover i {
-  animation: bounce 0.6s ease;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  60%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-8px);
-  }
-  80% {
-    transform: translateY(-4px);
-  }
-}
-
-/* Melhor espaçamento em mobile */
-@media (max-width: 576px) {
-  .btn-social {
-    height: 3rem;
-    width: 3rem;
-    margin: 0.5rem 0.25rem;
-  }
-  .btn-social i {
-    font-size: 1.5rem !important;
-  }
-
-}
-
-/* Mobile responsividade melhorada */
-@media (max-width: 576px) {
-  .btn-xl {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  }
-
-}
-#portfolio .portfolio-item {
-  max-width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-#portfolio .portfolio-item .portfolio-link {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-}
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(var(--brand-accent-rgb), 0.9);
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: all 0.4s ease;
-  transform: scale(0.8);
-}
-
-#portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
-  opacity: 1;
-  transform: scale(1);
-}
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
-  font-size: 1.25rem;
-  color: white;
-}
-#portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
-  opacity: 1;
-}
-#portfolio .portfolio-item .portfolio-caption {
-  padding: 1.5rem;
-  text-align: center;
-  background-color: var(--bs-body-bg);
-}
-#portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
-  font-size: 1.5rem;
-  font-family:
-    'Montserrat',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-  font-weight: 700;
-  margin-bottom: 0;
-}
-#portfolio .portfolio-item .portfolio-caption .portfolio-caption-subheading {
-  font-style: italic;
-  font-family:
-    'Roboto Slab',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-}
-
-.portfolio-modal .modal-dialog {
-  margin: 1rem;
-  max-width: 100vw;
-}
-.portfolio-modal .modal-content {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  text-align: center;
-}
-.portfolio-modal .modal-content h2,
-.portfolio-modal .modal-content .h2 {
-  font-size: 3rem;
-  line-height: 3rem;
-}
-.portfolio-modal .modal-content p.item-intro {
-  font-style: italic;
-  margin-bottom: 2rem;
-  font-family:
-    'Roboto Slab',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-}
-.portfolio-modal .modal-content p {
-  margin-bottom: 2rem;
-}
-.portfolio-modal .modal-content ul.list-inline {
-  margin-bottom: 2rem;
-}
-.portfolio-modal .modal-content img {
-  margin-bottom: 2rem;
-}
-.portfolio-modal .close-modal {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-  background-color: transparent;
-}
-.portfolio-modal .close-modal:hover {
-  opacity: 0.3;
-}
-.team-member {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.team-member img {
-  width: 14rem;
-  height: 14rem;
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
-}
-.team-member h4,
-.team-member .h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-}
-
-.img-brand {
-  height: 2.75rem;
-}
-
-/* Performance e loading otimizações */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slideUp 0.6s ease-out forwards;
-}
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Lazy loading placeholder */
-.img-loading {
-  background: linear-gradient(
-    90deg,
-    var(--bs-secondary-bg) 25%,
-    var(--bs-tertiary-bg) 50%,
-    var(--bs-secondary-bg) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmerImg 1.5s infinite;
-}
-
-@keyframes shimmerImg {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 /* Preload states */
 .preload * {
   animation-duration: 0s !important;
@@ -466,21 +92,7 @@ p {
   transition-delay: 0s !important;
 }
 
-/* Enhanced animations for counters */
-.h2.fw-bold {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-}
-
-/* Additional Bootstrap icon colors */
-.bi-rocket {
-  color: var(--bs-warning);
-}
-
-.bi-graph-up {
-  color: var(--bs-primary);
-}
-
-.icon-social {
-  font-size: 2.1875rem; /* 35px */
+/* Performance: CSS Containment for isolated components */
+.page-section {
+  contain: layout style paint;
 }
