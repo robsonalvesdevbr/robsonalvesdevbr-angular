@@ -6,11 +6,6 @@
 
   @media (max-width: 859.98px) {
     grid-template-columns: 1fr;
-
-    > * {
-      grid-column: auto !important;
-      grid-row: auto !important;
-    }
   }
 }
 
@@ -40,14 +35,17 @@
   }
 }
 
-@each $span in (3, 4, 5, 7, 8, 12) {
-  .tile--span-#{$span} {
-    grid-column: span $span;
+// Os spans só valem com a grade de 12 colunas (>= 860px); abaixo disso tudo empilha em 1 coluna.
+@media (min-width: 860px) {
+  @each $span in (3, 4, 5, 7, 8, 12) {
+    .tile--span-#{$span} {
+      grid-column: span $span;
+    }
   }
-}
 
-.tile--row-2 {
-  grid-row: span 2;
+  .tile--row-2 {
+    grid-row: span 2;
+  }
 }
 
 .eyebrow {

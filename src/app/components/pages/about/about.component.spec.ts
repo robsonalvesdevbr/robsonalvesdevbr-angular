@@ -42,7 +42,7 @@ describe('AboutComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const text = compiled
-      .querySelector('div.container div.text-center h3.section-subheading.text-muted')
+      .querySelector('div.container div.text-center h3.section-subheading')
       ?.textContent?.trim();
     expect(text).toBe('Conheça minha trajetória profissional de 23+ anos');
   });

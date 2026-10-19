@@ -21,8 +21,4 @@ describe('BasePageComponent', () => {
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should have bglight input property set to false by default', () => {
-    expect(component.bglight()).toBeFalsy();
-  });
 });

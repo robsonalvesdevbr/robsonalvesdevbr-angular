@@ -77,8 +77,7 @@
     gap: 0.15rem;
 
     @media (max-width: 991.98px) {
-      padding-top: 0.75rem !important;
-      padding-bottom: 0.5rem !important;
+      padding: 0.75rem 0 0.5rem;
     }
 
     @media (min-width: 992px) and (max-width: 1199.98px) {
