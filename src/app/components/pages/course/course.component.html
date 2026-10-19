@@ -42,22 +42,24 @@
           institution of institutionList | enumToArray;
           track trackByInstitution($index, institution)
         ) {
-          <input
-            type="checkbox"
-            class="btn-check"
-            id="input_course_institution_{{ institution.key }}"
-            autocomplete="off"
-            [checked]="isInstitutionSelected(institution.key)"
-            (click)="onClickIntitutionEvent($event)"
-          />
-          <label
-            class="catalog-chip"
-            for="input_course_institution_{{ institution.key }}"
-            id="label_course_institution_{{ institution.key }}"
-            [ngClass]="{ active: isInstitutionSelected(institution.key) }"
-            appHighlight
-            >{{ institution.value }}</label
-          >
+          @if (institution.value) {
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="input_course_institution_{{ institution.key }}"
+              autocomplete="off"
+              [checked]="isInstitutionSelected(institution.key)"
+              (click)="onClickIntitutionEvent($event)"
+            />
+            <label
+              class="catalog-chip"
+              for="input_course_institution_{{ institution.key }}"
+              id="label_course_institution_{{ institution.key }}"
+              [ngClass]="{ active: isInstitutionSelected(institution.key) }"
+              appHighlight
+              >{{ institution.value }}</label
+            >
+          }
         }
       </fieldset>
       <fieldset

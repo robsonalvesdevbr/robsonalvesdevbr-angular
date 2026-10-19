@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { LowerCasePipe, NgClass, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -29,7 +29,8 @@ import { getPublisherLogo } from '@path-data/PublisherLogo';
 @Component({
   selector: 'app-book',
   imports: [
-    CommonModule,
+    LowerCasePipe,
+    NgClass,
     PrintTagsPipe,
     SortbyPipe,
     TranslatePipe,

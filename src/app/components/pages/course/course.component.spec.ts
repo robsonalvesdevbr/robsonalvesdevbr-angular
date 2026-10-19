@@ -199,6 +199,13 @@ describe('CourseComponent', () => {
       }
     });
 
+    it('should not render a focusable control for the empty institution value', () => {
+      const root = fixture.nativeElement as HTMLElement;
+      expect(root.querySelector('#input_course_institution_Alura')).toBeTruthy();
+      expect(root.querySelector('#input_course_institution_All')).toBeNull();
+      expect(root.querySelector('#label_course_institution_All')).toBeNull();
+    });
+
     it('should render no cards and keep working when the search matches nothing', () => {
       component.searchQuery.set('zzz-sem-resultado');
       fixture.detectChanges();

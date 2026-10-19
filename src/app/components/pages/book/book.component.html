@@ -42,22 +42,24 @@
           publishName of publishNameList | enumToArray | sortby: 'value' : 'asc';
           track trackByPublisher($index, publishName)
         ) {
-          <input
-            type="checkbox"
-            class="btn-check"
-            id="input_book_institution_{{ publishName.key }}"
-            autocomplete="off"
-            [checked]="isPublisherSelected(publishName.key)"
-            (click)="onClickIntitutionEvent($event)"
-          />
-          <label
-            class="catalog-chip"
-            for="input_book_institution_{{ publishName.key }}"
-            id="label_book_institution_{{ publishName.key }}"
-            [ngClass]="{ active: isPublisherSelected(publishName.key) }"
-            appHighlight
-            >{{ publishName.value }}</label
-          >
+          @if (publishName.value) {
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="input_book_institution_{{ publishName.key }}"
+              autocomplete="off"
+              [checked]="isPublisherSelected(publishName.key)"
+              (click)="onClickIntitutionEvent($event)"
+            />
+            <label
+              class="catalog-chip"
+              for="input_book_institution_{{ publishName.key }}"
+              id="label_book_institution_{{ publishName.key }}"
+              [ngClass]="{ active: isPublisherSelected(publishName.key) }"
+              appHighlight
+              >{{ publishName.value }}</label
+            >
+          }
         }
       </fieldset>
       <fieldset

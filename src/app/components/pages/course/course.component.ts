@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { DatePipe, LowerCasePipe, NgClass, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -28,7 +28,9 @@ import { debounce } from '@path-utils/performance.utils';
 @Component({
   selector: 'app-course',
   imports: [
-    CommonModule,
+    DatePipe,
+    LowerCasePipe,
+    NgClass,
     ImgcursoPipe,
     PrintTagsPipe,
     TranslatePipe,
