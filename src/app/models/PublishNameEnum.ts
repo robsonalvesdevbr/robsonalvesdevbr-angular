@@ -13,4 +13,5 @@ export enum PublishNameEnum {
   Campus = 'Campus',
   PortfolioPenguin = 'Portfolio Penguin',
   DCComics = 'DC Comics',
+  Independente = 'Independente',
 }

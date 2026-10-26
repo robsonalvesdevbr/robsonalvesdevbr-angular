@@ -1105,4 +1105,20 @@ export const Books: IBook[] = [
     progress: 100,
     favorite: false,
   },
+
+  // ===== INDEPENDENTE =====
+  {
+    id: 'livro-competente-o-suficiente-independente-2026',
+    title: 'Competente o Suficiente',
+    subtitle:
+      'Um ano colocando a inteligência artificial à prova, sem medo e sem propaganda',
+    author: ['Fabio Akita'],
+    publishName: PublishNameEnum.Independente,
+    publishYear: 2026,
+    tags: [BookTagEnum.ArtificialIntelligence, BookTagEnum.SoftwareDevelopment],
+    bookUrl: 'https://ailair.akitaonrails.com/pt-br/book/',
+    pages: 531,
+    progress: 69,
+    favorite: false,
+  },
 ];
