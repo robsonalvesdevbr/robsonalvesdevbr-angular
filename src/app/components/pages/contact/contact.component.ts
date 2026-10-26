@@ -25,7 +25,6 @@ export class ContactComponent extends BasePageComponent {
   private readonly socialIcons: Record<string, string> = {
     WebSite: 'bi-house-fill',
     LinkedIn: 'bi-linkedin',
-    Instagram: 'bi-instagram',
     GitHub: 'bi-github',
   };
 

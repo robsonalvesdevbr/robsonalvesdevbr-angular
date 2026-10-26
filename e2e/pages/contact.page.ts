@@ -16,7 +16,7 @@ export class ContactPage extends BasePage {
 
     this.contactSection = page.locator('[data-testid="contact-section"]');
     this.emailLinks = this.contactSection.locator('a[href^="mailto:"]');
-    this.socialLinks = this.contactSection.locator('a[href*="linkedin"], a[href*="github"], a[href*="instagram"]');
+    this.socialLinks = this.contactSection.locator('a[href*="linkedin"], a[href*="github"]');
     this.linkedinLink = this.contactSection.locator('a[href*="linkedin"]').first();
     this.githubLink = this.contactSection.locator('a[href*="github"]').first();
   }

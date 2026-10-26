@@ -10,7 +10,6 @@ export const Profile: IProfile = {
   urlList: new Map<string, string>([
     ['WebSite', 'https://www.robsonalves.dev.br'],
     ['LinkedIn', 'https://www.linkedin.com/in/robsonalves-us'],
-    ['Instagram', 'https://www.instagram.com/robsondesenvolvimento'],
     ['GitHub', 'https://github.com/robsonalvesdevbr'],
   ]),
 };

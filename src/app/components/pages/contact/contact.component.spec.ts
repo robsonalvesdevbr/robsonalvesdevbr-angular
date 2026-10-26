@@ -22,7 +22,6 @@ describe('ContactComponent', () => {
         urlList: new Map<string, string>([
           ['WebSite', 'https://www.robsonalves.dev.br'],
           ['LinkedIn', 'https://www.linkedin.com/in/robson-curitiba'],
-          ['Instagram', 'https://www.instagram.com/robsondesenvolvimento'],
           ['GitHub', 'https://github.com/robsonalvesdevbr'],
         ]),
       }),
@@ -82,7 +81,7 @@ describe('ContactComponent', () => {
     expect(email?.getAttribute('href')).toContain('mailto:robsonalves.us@gmail.com');
 
     const outline = Array.from(root.querySelectorAll<HTMLAnchorElement>('a.contact-social'));
-    expect(outline.map(a => a.textContent?.trim())).toEqual(['WebSite', 'LinkedIn', 'Instagram', 'GitHub']);
+    expect(outline.map(a => a.textContent?.trim())).toEqual(['WebSite', 'LinkedIn', 'GitHub']);
     outline.forEach(a => expect(a.getAttribute('rel')).toBe('noopener'));
   });
 
