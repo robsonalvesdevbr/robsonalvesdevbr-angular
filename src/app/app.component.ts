@@ -4,6 +4,7 @@ import { Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EngagementTrackingService } from '@path-services/engagement-tracking-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
+import { isLocalHostname } from '@path-utils/analytics-config.utils';
 
 @Component({
   selector: 'app-root',
@@ -51,9 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private isProduction(): boolean {
-    return globalThis.window !== undefined &&
-           globalThis.location.hostname !== 'localhost' &&
-           !globalThis.location.hostname.includes('127.0.0.1');
+    return globalThis.window !== undefined && !isLocalHostname(globalThis.location.hostname);
   }
 
   ngOnDestroy(): void {

@@ -74,3 +74,7 @@ Thumbs.db
 
 # superpowers brainstorm/sdd scratch
 .superpowers/
+
+# Quality tool output
+.metrics/
+.tokensave/

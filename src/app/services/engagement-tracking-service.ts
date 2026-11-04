@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { AnalyticsService } from './analytics.service';
 import { VirtualPageTrackingService } from './virtual-page-tracking.service';
 import { debounce, ElementCache, BatchProcessor, scheduleIdleWork } from '../utils/performance.utils';
+import { nextScrollMilestone } from '@path-utils/engagement.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -47,26 +48,16 @@ export class EngagementTrackingService {
   }
 
   private trackScrollDepth(): void {
-    const documentHeight = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
-    const scrollY = window.scrollY;
-
-    if (documentHeight <= windowHeight) return;
-
-    const scrollPercent = Math.round(
-      (scrollY / (documentHeight - windowHeight)) * 100
+    const milestone = nextScrollMilestone(
+      window.scrollY,
+      document.documentElement.scrollHeight,
+      window.innerHeight,
+      this.scrollDepthTracked,
     );
+    if (milestone === undefined) return;
 
-    const milestones = [25, 50, 75, 90, 100];
-
-    const milestone = milestones.find(m =>
-      scrollPercent >= m && !this.scrollDepthTracked.has(m)
-    );
-
-    if (milestone) {
-      this.scrollDepthTracked.add(milestone);
-      this.batchAnalyticsCall(() => this.analyticsService.trackScrollDepth(milestone));
-    }
+    this.scrollDepthTracked.add(milestone);
+    this.batchAnalyticsCall(() => this.analyticsService.trackScrollDepth(milestone));
   }
 
   private setupResizeObserver(): void {

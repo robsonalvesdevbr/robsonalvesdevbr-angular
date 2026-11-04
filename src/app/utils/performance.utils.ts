@@ -19,23 +19,22 @@ export class ElementCache {
   private static readonly MAX_CACHE_SIZE = 50; // Limit cache size
 
   static get(id: string): HTMLElement | null {
-    if (!this.cache.has(id)) {
-      const element = document.getElementById(id);
-      if (element) {
-        // If cache is at limit, remove oldest entry
-        if (this.cache.size >= this.MAX_CACHE_SIZE) {
-          const firstKey = this.cache.keys().next().value;
-          if (firstKey) {
-            this.cache.delete(firstKey);
-          }
-        }
-        
-        this.cache.set(id, element);
-        this.setupMutationObserver();
-      }
-      return element;
+    const cached = this.cache.get(id);
+    if (cached) return cached;
+
+    const element = document.getElementById(id);
+    if (element) {
+      this.evictOldestIfFull();
+      this.cache.set(id, element);
+      this.setupMutationObserver();
     }
-    return this.cache.get(id) || null;
+    return element;
+  }
+
+  private static evictOldestIfFull(): void {
+    if (this.cache.size < this.MAX_CACHE_SIZE) return;
+    const oldest = this.cache.keys().next().value;
+    if (oldest !== undefined) this.cache.delete(oldest);
   }
 
   private static setupMutationObserver(): void {

@@ -279,4 +279,30 @@ describe('BookComponent', () => {
       });
     }
   });
+
+  describe('sortBooks', () => {
+    const sort = (books: unknown[]) =>
+      (component as unknown as { sortBooks(b: unknown[]): { id: string }[] })
+        .sortBooks(books)
+        .map((b) => b.id);
+
+    it('puts favorites first, then newest publishYear first', () => {
+      const ids = sort([
+        { id: 'old', favorite: false, publishYear: 2010 },
+        { id: 'fav-old', favorite: true, publishYear: 2005 },
+        { id: 'new', favorite: false, publishYear: 2022 },
+        { id: 'fav-new', favorite: true, publishYear: 2020 },
+      ]);
+      expect(ids).toEqual(['fav-new', 'fav-old', 'new', 'old']);
+    });
+
+    it('treats a missing publishYear as oldest and does not mutate the input', () => {
+      const input = [
+        { id: 'none', favorite: false },
+        { id: 'y', favorite: false, publishYear: 1999 },
+      ];
+      expect(sort(input)).toEqual(['y', 'none']);
+      expect(input.map((b) => b.id)).toEqual(['none', 'y']);
+    });
+  });
 });

@@ -3,6 +3,7 @@ import { Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PerformanceMonitor, scheduleIdleWork } from '../utils/performance.utils';
 import { LoggerService } from './logger.service';
+import { heapSnapshot } from '../utils/heap.utils';
 
 export type MetricCategory = 'timing' | 'memory' | 'network' | 'custom';
 
@@ -89,28 +90,12 @@ export class PerformanceMonitorService {
     if ('memory' in performance) {
       const trackMemory = () => {
         const memory = (performance as unknown as { memory: { usedJSHeapSize: number; totalJSHeapSize: number } }).memory;
-        const usedMB = memory.usedJSHeapSize / 1024 / 1024;
-        const totalMB = memory.totalJSHeapSize / 1024 / 1024;
+        const snapshot = heapSnapshot(memory, this.metrics.findLast((m) => m.name === 'heap-used')?.value ?? 0);
+        if (!snapshot) return;
 
-        // Only track if significant change (>5MB) to reduce noise
-        const lastUsedMetric = this.getLastMetric('heap-used');
-        const lastUsed = lastUsedMetric?.value || 0;
-
-        if (Math.abs(usedMB - lastUsed) > 5) {
-          this.addMetric({
-            name: 'heap-used',
-            value: usedMB,
-            timestamp: Date.now(),
-            category: 'memory'
-          });
-
-          this.addMetric({
-            name: 'heap-total',
-            value: totalMB,
-            timestamp: Date.now(),
-            category: 'memory'
-          });
-        }
+        const timestamp = Date.now();
+        this.addMetric({ name: 'heap-used', value: snapshot.usedMB, timestamp, category: 'memory' });
+        this.addMetric({ name: 'heap-total', value: snapshot.totalMB, timestamp, category: 'memory' });
       };
 
       // Use RxJS interval with scheduleIdleWork for better performance
@@ -143,15 +128,6 @@ export class PerformanceMonitorService {
     if (this.metrics.length > 1000) {
       this.metrics = this.metrics.slice(-500);
     }
-  }
-
-  private getLastMetric(name: string): PerformanceMetric | undefined {
-    for (let i = this.metrics.length - 1; i >= 0; i--) {
-      if (this.metrics[i].name === name) {
-        return this.metrics[i];
-      }
-    }
-    return undefined;
   }
 
   // Public API methods

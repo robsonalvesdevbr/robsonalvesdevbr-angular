@@ -22,3 +22,7 @@ export function resolveAnalyticsConfig(googleAnalyticsId: string): AnalyticsConf
 
   return { gaId, debugMode };
 }
+
+export function isLocalHostname(hostname: string): boolean {
+  return hostname === 'localhost' || hostname.includes('127.0.0.1');
+}

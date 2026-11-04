@@ -1,4 +1,4 @@
-import { resolveAnalyticsConfig } from './analytics-config.utils';
+import { isLocalHostname, resolveAnalyticsConfig } from './analytics-config.utils';
 
 function setBrowser(url: string, webdriver = false): void {
   Object.defineProperty(window, 'location', {
@@ -38,5 +38,15 @@ describe('resolveAnalyticsConfig', () => {
     expect(resolveAnalyticsConfig('G-123').debugMode).toBe(true);
     setBrowser('https://robsonalves.dev.br/');
     expect(resolveAnalyticsConfig('G-123').debugMode).toBe(false);
+  });
+});
+
+describe('isLocalHostname', () => {
+  it.each([
+    ['localhost', true],
+    ['127.0.0.1', true],
+    ['robsonalves.dev.br', false],
+  ])('%s -> %s', (hostname, expected) => {
+    expect(isLocalHostname(hostname)).toBe(expected);
   });
 });
