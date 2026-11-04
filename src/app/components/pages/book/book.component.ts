@@ -25,6 +25,7 @@ import { EnumToArrayPipe } from '@path-pipes/enum-to-array.pipe';
 import { IBook } from '@path-interfaces/IBook';
 import { debounce } from '@path-utils/performance.utils';
 import { getPublisherLogo } from '@path-data/PublisherLogo';
+import { absoluteItemIndex, toggleInSet } from '@path-utils/catalog.utils';
 
 @Component({
   selector: 'app-book',
@@ -116,11 +117,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
   }
 
   absoluteIndex(indexOnPage: number): number {
-    return (
-      this.config().itemsPerPage * (this.config().currentPage - 1) +
-      indexOnPage +
-      1
-    );
+    return absoluteItemIndex(this.config(), indexOnPage);
   }
 
   onPageChange(number: number) {
@@ -166,13 +163,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const action = this.publishNameFilter().has(publishName) ? 'remove' : 'add';
     this.analyticsService.trackFilterPublisher(publishName, action);
 
-    const currentFilters = new Set(this.publishNameFilter());
-    if (currentFilters.has(publishName)) {
-      currentFilters.delete(publishName);
-    } else {
-      currentFilters.add(publishName);
-    }
-    this.publishNameFilter.set(currentFilters);
+    this.publishNameFilter.set(toggleInSet(this.publishNameFilter(), publishName));
 
 
     this.config().currentPage = 1;
@@ -187,13 +178,7 @@ export class BookComponent extends BasePageComponent implements OnInit {
     const action = this.tagsFilter().has(id) ? 'remove' : 'add';
     this.analyticsService.trackFilterTag(id, action, 'books');
 
-    const currentTags = new Set(this.tagsFilter());
-    if (currentTags.has(id)) {
-      currentTags.delete(id);
-    } else {
-      currentTags.add(id);
-    }
-    this.tagsFilter.set(currentTags);
+    this.tagsFilter.set(toggleInSet(this.tagsFilter(), id));
     this.config().currentPage = 1;
   }
 

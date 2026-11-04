@@ -14,6 +14,7 @@ import { DataService } from '@path-services/data-service';
 import { PaginationService } from '@path-services/pagination.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { IFormationCourse } from '@path-interfaces/IFormationCourse';
+import { absoluteItemIndex } from '@path-utils/catalog.utils';
 
 @Component({
   selector: 'app-formationcourse',
@@ -37,11 +38,7 @@ export class FormationCourseComponent extends BasePageComponent {
   config = this.paginationService.createPaginationConfig('formationCoursesPag', 8);
 
   absoluteIndex(indexOnPage: number): number {
-    return (
-      this.config().itemsPerPage * (this.config().currentPage - 1) +
-      indexOnPage +
-      1
-    );
+    return absoluteItemIndex(this.config(), indexOnPage);
   }
 
   onPageChange(number: number) {

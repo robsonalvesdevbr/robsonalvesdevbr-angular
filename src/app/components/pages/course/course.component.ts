@@ -24,6 +24,7 @@ import { CatalogFilterService } from '@path-services/catalog-filter.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ICourse } from '@path-interfaces/ICourse';
 import { debounce } from '@path-utils/performance.utils';
+import { absoluteItemIndex, toggleInSet } from '@path-utils/catalog.utils';
 
 @Component({
   selector: 'app-course',
@@ -113,11 +114,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
   }
 
   absoluteIndex(indexOnPage: number): number {
-    return (
-      this.config().itemsPerPage * (this.config().currentPage - 1) +
-      indexOnPage +
-      1
-    );
+    return absoluteItemIndex(this.config(), indexOnPage);
   }
 
   onPageChange(number: number) {
@@ -175,13 +172,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     const action = this.coursesFilter().has(institution) ? 'remove' : 'add';
     this.analyticsService.trackFilterInstitution(institution, action);
 
-    const currentFilters = new Set(this.coursesFilter());
-    if (currentFilters.has(institution)) {
-      currentFilters.delete(institution);
-    } else {
-      currentFilters.add(institution);
-    }
-    this.coursesFilter.set(currentFilters);
+    this.coursesFilter.set(toggleInSet(this.coursesFilter(), institution));
 
 
     this.config().currentPage = 1;
@@ -196,13 +187,7 @@ export class CourseComponent extends BasePageComponent implements OnInit {
     const action = this.tagsFilter().has(id) ? 'remove' : 'add';
     this.analyticsService.trackFilterTag(id, action, 'courses');
 
-    const currentTags = new Set(this.tagsFilter());
-    if (currentTags.has(id)) {
-      currentTags.delete(id);
-    } else {
-      currentTags.add(id);
-    }
-    this.tagsFilter.set(currentTags);
+    this.tagsFilter.set(toggleInSet(this.tagsFilter(), id));
     this.config().currentPage = 1;
   }
 
