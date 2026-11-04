@@ -154,7 +154,6 @@ pnpm run clean          # remove dist, cache, .angular
 - Lazy loading de rotas
 - OnPush change detection strategy nos componentes
 - DataService usa Proxy para evitar clones desnecessários
-- Memoization utils em `src/app/utils/memoize.utils.ts`
 
 ### Bundle Budgets (production)
 - Initial: warn 600kB, error 800kB
