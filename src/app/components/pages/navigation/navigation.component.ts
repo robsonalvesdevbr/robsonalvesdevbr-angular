@@ -7,6 +7,7 @@ import { ElementCache, debounce, BatchProcessor, isReducedMotion } from '@path-u
 import { LanguageSwitcherComponent } from '@path-components/language-switcher/language-switcher.component';
 import { ThemeToggleComponent } from '@path-components/theme-toggle/theme-toggle.component';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
+import { firstIntersectingId } from '@path-utils/scroll-spy.utils';
 
 @Component({
   selector: 'app-navigation',
@@ -46,12 +47,8 @@ export class NavigationComponent extends BasePageComponent implements OnDestroy 
     const sectionIds = ['about', 'skills', 'graduation', 'courses', 'trilhas', 'books', 'contact'];
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            this.activeSection.set(entry.target.id);
-            break;
-          }
-        }
+        const id = firstIntersectingId(entries);
+        if (id) this.activeSection.set(id);
       },
       { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
     );

@@ -1,6 +1,7 @@
 import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, output, viewChild, ElementRef, effect } from '@angular/core';
 
 import { LanguageService, Language } from '@path-services/language.service';
+import { dropdownPlacement } from '@path-utils/dropdown-placement.utils';
 
 @Component({
   selector: 'app-language-switcher',
@@ -44,28 +45,9 @@ export class LanguageSwitcherComponent {
     const button = this.dropdownButton();
     if (!button) return;
 
-    const buttonRect = button.nativeElement.getBoundingClientRect();
-    const dropdownWidth = 180;
-    const viewportWidth = window.innerWidth;
-
-    // Em telas muito estreitas (<400px), usa position fixed
-    if (viewportWidth < 400) {
-      // Calcula a posição top logo abaixo do botão
-      const topPosition = buttonRect.bottom + 2;
-      this.dropdownTop.set(`${topPosition}px`);
-      // Não importa o alinhamento, pois vai ocupar quase toda a largura
-      this.dropdownAlignRight.set(false);
-    } else {
-      // Comportamento normal: verifica espaço à direita
-      this.dropdownTop.set('100%'); // Posição relativa padrão
-      const spaceOnRight = viewportWidth - buttonRect.right;
-
-      if (spaceOnRight < dropdownWidth + 16) {
-        this.dropdownAlignRight.set(false);
-      } else {
-        this.dropdownAlignRight.set(true);
-      }
-    }
+    const placement = dropdownPlacement(button.nativeElement.getBoundingClientRect(), window.innerWidth);
+    this.dropdownTop.set(placement.top);
+    this.dropdownAlignRight.set(placement.alignRight);
   }
 
   // Computed para informações do idioma
