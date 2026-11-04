@@ -352,4 +352,31 @@ describe('EngagementTrackingService', () => {
       }, 100);
     });
   });
+
+  describe('section change', () => {
+    const change = (id: string) =>
+      (service as unknown as { handleSectionChange(id: string): void }).handleSectionChange(id);
+
+    it('sends a virtual page view and updates the hash on the first section', () => {
+      change('about');
+      expect(_virtualPageService.sendVirtualPageView).toHaveBeenCalledWith('about');
+      expect(_virtualPageService.trackNavigationPattern).not.toHaveBeenCalled();
+      expect(window.location.hash).toBe('#about');
+    });
+
+    it('ignores a repeated section', () => {
+      change('about');
+      change('about');
+      expect(_virtualPageService.sendVirtualPageView).toHaveBeenCalledTimes(1);
+    });
+
+    it('records the navigation pattern and closes the previous section', () => {
+      const end = vi.spyOn(service, 'endTimeTracking');
+      change('about');
+      change('skills');
+      expect(end).toHaveBeenCalledWith('about');
+      expect(_virtualPageService.trackNavigationPattern).toHaveBeenCalledWith('about', 'skills');
+      expect(window.location.hash).toBe('#skills');
+    });
+  });
 });

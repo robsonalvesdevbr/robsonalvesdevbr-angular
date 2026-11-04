@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { PerformanceMonitorService } from './performance-monitor.service';
+import { PerformanceMonitorService, categorizeEntryType } from './performance-monitor.service';
 import { LoggerService } from './logger.service';
 
 describe('PerformanceMonitorService', () => {
@@ -102,5 +102,18 @@ describe('PerformanceMonitorService', () => {
       service.destroy();
       service.destroy();
     }).not.toThrow();
+  });
+});
+
+describe('categorizeEntryType', () => {
+  it.each([
+    ['navigation', 'timing'],
+    ['measure', 'timing'],
+    ['paint', 'timing'],
+    ['resource', 'network'],
+    ['longtask', 'custom'],
+    ['toString', 'custom'],
+  ])('maps %s to %s', (entryType, expected) => {
+    expect(categorizeEntryType(entryType)).toBe(expected);
   });
 });

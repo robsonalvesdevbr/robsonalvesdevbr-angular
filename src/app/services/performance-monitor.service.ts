@@ -4,11 +4,24 @@ import { takeUntil } from 'rxjs/operators';
 import { PerformanceMonitor, scheduleIdleWork } from '../utils/performance.utils';
 import { LoggerService } from './logger.service';
 
+export type MetricCategory = 'timing' | 'memory' | 'network' | 'custom';
+
+const CATEGORY_BY_ENTRY_TYPE: ReadonlyMap<string, MetricCategory> = new Map([
+  ['navigation', 'timing'],
+  ['measure', 'timing'],
+  ['paint', 'timing'],
+  ['resource', 'network'],
+]);
+
+export function categorizeEntryType(entryType: string): MetricCategory {
+  return CATEGORY_BY_ENTRY_TYPE.get(entryType) ?? 'custom';
+}
+
 interface PerformanceMetric {
   name: string;
   value: number;
   timestamp: number;
-  category: 'timing' | 'memory' | 'network' | 'custom';
+  category: MetricCategory;
 }
 
 @Injectable({
@@ -38,7 +51,7 @@ export class PerformanceMonitorService {
             name: entry.name,
             value: entry.duration || entry.startTime,
             timestamp: Date.now(),
-            category: this.categorizeEntry(entry)
+            category: categorizeEntryType(entry.entryType)
           });
         });
       });
@@ -50,13 +63,6 @@ export class PerformanceMonitorService {
         this.logger.warn('Performance Observer not fully supported:', error);
       }
     }
-  }
-
-  private categorizeEntry(entry: PerformanceEntry): 'timing' | 'memory' | 'network' | 'custom' {
-    if (entry.entryType === 'navigation' || entry.entryType === 'measure') return 'timing';
-    if (entry.entryType === 'resource') return 'network';
-    if (entry.entryType === 'paint') return 'timing';
-    return 'custom';
   }
 
   private trackCoreWebVitals(): void {
