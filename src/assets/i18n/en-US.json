@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Robson Alves - Software Architect | 25+ Years of Experience",
-    "description": "Meet Robson Alves: Software Architect with 25+ years of experience, specialist in software architecture, .NET, Go, and Cloud (Azure/AWS). A unique journey from instructor to architect.",
+    "description": "Robson Alves, software architect with 25+ years of experience. I work with architecture, .NET, Go and the cloud (Azure/AWS), and I started my career as an instructor.",
     "keywords": "Robson Alves, Software Architect, Software Architecture, .NET, C#, Go, Rust, Kubernetes, Azure, AWS, GCP, Kafka, PostgreSQL, Microservices, Cloud Computing, Senior Developer, Tech Lead, Curitiba",
     "ogTitle": "Robson Alves - Software Architect | 25+ Years of Experience",
-    "ogDescription": "Software Architect with 25+ years of experience, specialist in software architecture, .NET, Go, and cloud.",
+    "ogDescription": "Software architect with 25+ years of experience. I work with architecture, .NET, Go and the cloud.",
     "ogLocale": "en_US",
     "twitterTitle": "Robson Alves - Software Architect",
-    "twitterDescription": "Software Architect with 25+ years of experience, specialist in software architecture, .NET, Go, and cloud."
+    "twitterDescription": "Software architect with 25+ years of experience. I work with architecture, .NET, Go and the cloud."
   },
   "navigation": {
     "skipToContent": "Skip to main content",
@@ -27,7 +27,7 @@
   "masterhead": {
     "name": "Robson Alves",
     "role": "Software Architect · 25+ years of experience",
-    "tagline": "Specialist in software architecture, .NET, Go and Cloud (Azure/AWS).",
+    "tagline": "Software architecture, .NET, Go and the cloud (Azure/AWS).",
     "contact": "Get in touch",
     "resume": "Resume (PT-BR)",
     "stats": {
@@ -44,27 +44,27 @@
       "instructor": {
         "period": "2001-2006",
         "title": "Starting as an Instructor",
-        "description": "I began my professional journey as an instructor at Alpha Tech, teaching Delphi programming, hardware, website design, and basic computing. For five years, I developed teaching skills and deepened my technical knowledge, including private lessons and corporate training."
+        "description": "I started as an instructor at Alpha Tech, teaching Delphi programming, hardware, website design and basic computing. Five years of classes, corporate training and private lessons, and that's where I learned to explain what I knew."
       },
       "transition": {
         "period": "2006-2008",
         "title": "Transition to Development",
-        "description": "I transitioned from teaching to software development, working at Softpar. I applied my technical experience to enterprise system projects, consolidating knowledge in Delphi and databases. A fundamental period for understanding complex business rules and critical system development."
+        "description": "I left the classroom for software development, at Softpar. I worked on enterprise systems with Delphi and databases, and that's where I came to understand complex business rules and critical systems."
       },
       "financial": {
         "period": "2008-2019",
         "title": "11 Years in Financial Systems",
-        "description": "The longest and most transformative period at View Financial Systems. I developed critical financial systems focused on checking accounts, documents, and leasing operations. During these 11 years, I led the migration of Delphi systems to .NET, using technologies like C#, Visual Studio, Oracle, and SQL Server. Essential experience that shaped my expertise in high-availability systems."
+        "description": "My longest stint, at View Financial Systems: financial systems for checking accounts, documents and leasing. Almost everything was Delphi 7, until the client asked for digital signing of bank slips (boletos) and SOAP web services with digital certificates. Delphi couldn't handle it, and there were no components or budget to buy any. I proposed C#, a language I already knew well: I wrote a document with pros and cons, built an MVP of a .NET library exposed as COM+ on Windows, and had Delphi call the C# code through that interface. I presented it to the directors, they liked it, and it shipped."
       },
       "modernization": {
         "period": "2019-2021",
         "title": "Modernization and New Technologies",
-        "description": "A period of great technical evolution at Zylix, working with industrial automation systems and adopting modern technologies. I implemented solutions with .NET Core, microservices, Docker, Kubernetes, and cloud platforms like Azure. A crucial phase for my definitive transition to software architecture."
+        "description": "At Zylix, I worked on industrial automation and moved a .NET Framework and Windows Forms project to the web. Containerization, better security and client access to the software's features came with it. It was the step that took me fully into software architecture."
       },
       "architect": {
         "period": "2021-Present",
         "title": "Software Architect at Consilux",
-        "description": "Currently working as Software Architect and consultant at Consilux, focusing on code review, cloud application management, and system architecture for the financial sector. I develop solutions for fintechs and payment gateways, using technologies like Azure, AWS, .NET, RabbitMQ, Kubernetes, and observability tools like DataDog and Grafana. Specialized in legacy system modernization and DevOps practices implementation."
+        "description": "I was hired at Consilux as a software architecture and development specialist, and started out giving internal consulting to several teams. Later I was handed part of a ride-hailing app system, Uber-style, split across three teams: the app and driver matching, financial control, and the company's own bank, which already had the white-label logic. I led the financial control team (the ledger, driver payments, and passenger and driver balances) as architect and developer, and we delivered solid work. When the CTO of CSX, a Consilux division, left, I took over the development team and the technology decisions, which is now my main job. I still support the whole company, and I'm currently working on vehicle radar systems and a digital wall. Among other cases, I rebuilt a file importer that took at least 3 days to import 1 day of files: after an architecture analysis and a new implementation, it takes under 1 hour."
       },
       "experience": {
         "line1": "25+ Years",

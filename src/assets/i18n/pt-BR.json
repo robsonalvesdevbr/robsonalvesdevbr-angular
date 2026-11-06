@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Robson Alves - Arquiteto de Software | 25+ Anos de Experiência",
-    "description": "Conheça Robson Alves: Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS). Trajetória única de instrutor a arquiteto.",
+    "description": "Robson Alves, arquiteto de software com 25+ anos de experiência. Trabalho com arquitetura, .NET, Go e nuvem (Azure/AWS) e comecei a carreira como instrutor.",
     "keywords": "Robson Alves, Arquiteto de Software, Arquitetura de Software, .NET, C#, Go, Rust, Kubernetes, Azure, AWS, GCP, Kafka, PostgreSQL, Microservices, Cloud Computing, Desenvolvedor Senior, Líder Técnico, Curitiba",
     "ogTitle": "Robson Alves - Arquiteto de Software | 25+ Anos de Experiência",
-    "ogDescription": "Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud.",
+    "ogDescription": "Arquiteto de software com 25+ anos de experiência. Trabalho com arquitetura, .NET, Go e nuvem.",
     "ogLocale": "pt_BR",
     "twitterTitle": "Robson Alves - Arquiteto de Software",
-    "twitterDescription": "Arquiteto de Software com 25+ anos de experiência, especialista em arquitetura de software, .NET, Go e cloud."
+    "twitterDescription": "Arquiteto de software com 25+ anos de experiência. Trabalho com arquitetura, .NET, Go e nuvem."
   },
   "navigation": {
     "skipToContent": "Pular para conteúdo principal",
@@ -27,7 +27,7 @@
   "masterhead": {
     "name": "Robson Alves",
     "role": "Arquiteto de Software · 25+ anos de experiência",
-    "tagline": "Especialista em arquitetura de software, .NET, Go e Cloud (Azure/AWS).",
+    "tagline": "Arquitetura de software, .NET, Go e nuvem (Azure/AWS).",
     "contact": "Entrar em contato",
     "resume": "Currículo",
     "stats": {
@@ -44,27 +44,27 @@
       "instructor": {
         "period": "2001-2006",
         "title": "Início como Instrutor",
-        "description": "Iniciei minha trajetória profissional como instrutor na Alpha Tech, lecionando programação em Delphi, hardware, design de websites e informática básica. Durante cinco anos, desenvolvi habilidades didáticas e aprofundei conhecimentos técnicos, incluindo aulas particulares e treinamentos corporativos."
+        "description": "Comecei como instrutor na Alpha Tech, ensinando programação em Delphi, hardware, design de sites e informática básica. Foram cinco anos entre aulas, treinamentos corporativos e aulas particulares, e foi ali que aprendi a explicar o que eu sabia."
       },
       "transition": {
         "period": "2006-2008",
         "title": "Transição para Desenvolvimento",
-        "description": "Transicionei do ensino para o desenvolvimento de software, trabalhando na Softpar. Apliquei minha experiência técnica em projetos de sistemas empresariais, consolidando conhecimentos em Delphi e bancos de dados. Período fundamental para compreender regras de negócio complexas e desenvolvimento de sistemas críticos."
+        "description": "Saí da sala de aula para o desenvolvimento de software, na Softpar. Trabalhei em sistemas empresariais com Delphi e bancos de dados, e foi onde passei a entender regras de negócio complexas e sistemas críticos."
       },
       "financial": {
         "period": "2008-2019",
         "title": "11 Anos em Sistemas Financeiros",
-        "description": "Período mais longo e transformador na View Financial Systems. Desenvolvi sistemas financeiros críticos focados em contas-correntes, documentos e operações de leasing. Durante estes 11 anos, liderei a migração de sistemas Delphi para .NET, utilizando tecnologias como C#, Visual Studio, Oracle e SQL Server. Experiência essencial que moldou minha expertise em sistemas de alta disponibilidade."
+        "description": "Meu período mais longo, na View Financial Systems: sistemas financeiros de contas-correntes, documentos e leasing. Quase tudo era em Delphi 7, até o cliente pedir assinatura digital de boletos e acesso a web services SOAP com certificado digital. O Delphi não dava conta, e não havia componentes nem orçamento para comprar. Propus usar C#, linguagem que eu já dominava: escrevi um documento com prós e contras, montei um MVP de uma biblioteca .NET exposta como COM+ no Windows e fiz o Delphi chamar o código em C# por essa interface. Apresentei para a diretoria, eles gostaram e a solução foi para produção."
       },
       "modernization": {
         "period": "2019-2021",
         "title": "Modernização e Novas Tecnologias",
-        "description": "Período de grande evolução técnica na Zylix, trabalhando com sistemas de automação industrial e adotando tecnologias modernas. Implementei soluções com .NET Core, microsserviços, Docker, Kubernetes e plataformas em nuvem como Azure. Fase crucial para minha transição definitiva para arquitetura de software."
+        "description": "Na Zylix, trabalhei com automação industrial e levei um projeto em .NET Framework e Windows Forms para a web. Veio junto a containerização, mais segurança e acesso do cliente aos recursos do software. Foi o passo que me levou de vez para a arquitetura de software."
       },
       "architect": {
         "period": "2021-Atual",
         "title": "Arquiteto de Software na Consilux",
-        "description": "Atualmente atuo como Arquiteto de Software e consultor na Consilux, com foco em revisão de código, gerenciamento de aplicações em nuvem e arquitetura de sistemas para o setor financeiro. Desenvolvo soluções para fintechs e gateways de pagamento, utilizando tecnologias como Azure, AWS, .NET, RabbitMQ, Kubernetes e ferramentas de observabilidade como DataDog e Grafana. Especializado em modernização de sistemas legados e implementação de práticas DevOps."
+        "description": "Fui contratado na Consilux como especialista em arquitetura e desenvolvimento de software e comecei prestando consultoria interna para várias equipes. Depois me delegaram parte de um conjunto de sistemas de um aplicativo de mobilidade, nos moldes do Uber, dividido em três equipes: o app e a busca de motoristas, o controle financeiro e o banco próprio da empresa, que já trazia a lógica de white label. Liderei a do controle financeiro (livro-razão, pagamento de motoristas e saldo de passageiros e motoristas) como arquiteto e desenvolvedor, e entregamos um bom trabalho. Quando o CTO da CSX, divisão da Consilux, saiu, assumi a equipe de desenvolvimento e as decisões de tecnologia, hoje minha principal atividade. Sigo apoiando a empresa toda, e agora trabalho em sistemas de radares veiculares e muralha digital. Entre os casos, refiz um importador de arquivos que levava no mínimo 3 dias para importar 1 dia de arquivos: depois da análise de arquitetura e do novo desenvolvimento, leva menos de 1 hora."
       },
       "experience": {
         "line1": "25+ Anos",
@@ -132,7 +132,7 @@
     "completed": "Leitura concluída",
     "favorite": "Favorito",
     "publishedIn": "Publicado em",
-    "subtitle_label": "Subtitulo",
+    "subtitle_label": "Subtítulo",
     "publisher": "Editora",
     "author": "Autor",
     "tags": "Tags",
