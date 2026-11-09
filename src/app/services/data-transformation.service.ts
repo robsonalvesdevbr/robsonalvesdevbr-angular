@@ -1,13 +1,11 @@
-import { Injectable, computed, Signal } from '@angular/core';
+import { Service, computed, Signal } from '@angular/core';
 
 export interface SortOptions {
   key: string;
   direction: 'asc' | 'desc';
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class DataTransformationService {
 
   createSortedSignal<T>(

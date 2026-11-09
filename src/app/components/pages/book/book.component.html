@@ -63,7 +63,7 @@
                 class="catalog-chip"
                 for="input_book_institution_{{ publishName.key }}"
                 id="label_book_institution_{{ publishName.key }}"
-                [ngClass]="{ active: isPublisherSelected(publishName.key) }"
+                [class.active]="isPublisherSelected(publishName.key)"
                 >{{ publishName.value }}</label
               >
             }
@@ -117,7 +117,7 @@
               class="catalog-chip"
               for="input_book_tag_{{ tag | lowercase }}"
               id="label_book_tag_{{ tag | lowercase }}"
-              [ngClass]="{ active: tagsFilter().has(tag) }"
+              [class.active]="tagsFilter().has(tag)"
               >{{ tag | tagLabel }}</label
             >
           }

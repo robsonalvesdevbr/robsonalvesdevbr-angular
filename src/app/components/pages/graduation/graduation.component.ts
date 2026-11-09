@@ -1,6 +1,5 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   inject,
   signal,
@@ -22,7 +21,6 @@ import { IGraduation } from '@path-interfaces/IGraduation';
     NgOptimizedImage,
   ],
   templateUrl: './graduation.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GraduationComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);

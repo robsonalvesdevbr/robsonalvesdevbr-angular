@@ -1,8 +1,8 @@
-import { Injectable, signal, computed, effect, inject, DOCUMENT } from '@angular/core';
+import { Service, signal, computed, effect, inject, DOCUMENT } from '@angular/core';
 
 export type Theme = 'light' | 'dark' | 'auto';
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ThemeService {
   private readonly STORAGE_KEY = 'app-theme';
   private readonly DEFAULT_THEME: Theme = 'dark';

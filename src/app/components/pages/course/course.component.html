@@ -63,7 +63,7 @@
                 class="catalog-chip"
                 for="input_course_institution_{{ institution.key }}"
                 id="label_course_institution_{{ institution.key }}"
-                [ngClass]="{ active: isInstitutionSelected(institution.key) }"
+                [class.active]="isInstitutionSelected(institution.key)"
                 >{{ institution.value }}</label
               >
             }
@@ -121,7 +121,7 @@
               class="catalog-chip"
               for="input_course_tag_{{ tag | lowercase }}"
               id="label_course_tag_{{ tag | lowercase }}"
-              [ngClass]="{ active: tagsFilter().has(tag) }"
+              [class.active]="tagsFilter().has(tag)"
               >{{ tag | tagLabel }}</label
             >
           }

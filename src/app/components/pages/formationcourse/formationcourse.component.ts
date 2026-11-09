@@ -1,6 +1,5 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   inject,
   signal,
@@ -28,7 +27,6 @@ import { absoluteItemIndex } from '@path-utils/catalog.utils';
     NgOptimizedImage,
   ],
   templateUrl: './formationcourse.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormationCourseComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);

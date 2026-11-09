@@ -1,4 +1,4 @@
-import { Injectable, inject, effect, DOCUMENT } from '@angular/core';
+import { Service, inject, effect, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Profile } from '@path-data/Profile';
 import { LanguageService } from '@path-services/language.service';
@@ -57,9 +57,7 @@ interface StructuredDataPerson {
   }>;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class SeoService {
   private readonly document = inject(DOCUMENT);
   private readonly meta = inject(Meta);

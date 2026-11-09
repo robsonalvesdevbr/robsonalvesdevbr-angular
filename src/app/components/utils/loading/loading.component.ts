@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 
 @Component({
   selector: 'app-loading',
   imports: [TranslatePipe],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="loading-container">
       <div class="spinner-border spinner-custom" role="status" aria-live="polite">

@@ -1,6 +1,5 @@
-import { DatePipe, LowerCasePipe, NgClass, NgOptimizedImage } from '@angular/common';
+import { DatePipe, LowerCasePipe, NgOptimizedImage } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   OnInit,
   inject,
@@ -32,7 +31,6 @@ import { absoluteItemIndex, toggleInSet } from '@path-utils/catalog.utils';
     ChipsAccordionDirective,
     DatePipe,
     LowerCasePipe,
-    NgClass,
     ImgcursoPipe,
     PrintTagsPipe,
     TranslatePipe,
@@ -42,7 +40,6 @@ import { absoluteItemIndex, toggleInSet } from '@path-utils/catalog.utils';
     TagLabelPipe,
   ],
   templateUrl: './course.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal, afterNextRender } from '@angular/core';
+import { Component, inject, OnDestroy, signal, afterNextRender } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { BasePageComponent } from '@path-components/base-page/base-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -14,7 +14,6 @@ import { firstIntersectingId } from '@path-utils/scroll-spy.utils';
   imports: [NgxPaginationModule, NgOptimizedImage, LanguageSwitcherComponent, ThemeToggleComponent, TranslatePipe],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent extends BasePageComponent implements OnDestroy {
   private readonly analyticsService = inject(AnalyticsService);

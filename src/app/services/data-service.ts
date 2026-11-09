@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { Books } from '@path-data/Book';
 import { Courses } from '@path-data/Course';
 import { FormationCourses } from '@path-data/FormationCourse';
@@ -12,9 +12,7 @@ import { IGraduation } from '@path-interfaces/IGraduation';
 import { IProfile } from '@path-interfaces/IProfile';
 import { ISkillGroup } from '@path-interfaces/ISkillGroup';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class DataService {
   private readonly _courses = Courses;
   private readonly _graduations = Graduations;

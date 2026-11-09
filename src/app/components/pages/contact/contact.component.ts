@@ -1,6 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   inject,
   signal,
@@ -16,7 +15,6 @@ import { calculateAge as calculateAgeUtil } from '@path-utils/age.utils';
   selector: 'app-contact',
   imports: [CommonModule, NgOptimizedImage, TranslatePipe],
   templateUrl: './contact.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent extends BasePageComponent {
   private readonly dataService = inject(DataService);

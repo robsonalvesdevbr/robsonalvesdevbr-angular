@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PerformanceMonitor, scheduleIdleWork } from '../utils/performance.utils';
@@ -25,9 +25,7 @@ interface PerformanceMetric {
   category: MetricCategory;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class PerformanceMonitorService {
   private readonly logger = inject(LoggerService);
   private metrics: PerformanceMetric[] = [];

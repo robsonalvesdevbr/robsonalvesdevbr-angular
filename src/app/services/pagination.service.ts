@@ -1,4 +1,4 @@
-import { Injectable, signal, computed, WritableSignal } from '@angular/core';
+import { Service, signal, computed, WritableSignal } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 
 export interface PaginationConfig {
@@ -7,9 +7,7 @@ export interface PaginationConfig {
   currentPage: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class PaginationService {
   private configs = new Map<string, WritableSignal<PaginationInstance>>();
 

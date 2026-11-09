@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@path-pipes/translate.pipe';
 import { AnalyticsService } from '@path-services/analytics.service';
 
@@ -6,7 +6,6 @@ import { AnalyticsService } from '@path-services/analytics.service';
   selector: 'app-footer',
   imports: [TranslatePipe],
   templateUrl: './footer.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   readonly currentYear = String(new Date().getFullYear());

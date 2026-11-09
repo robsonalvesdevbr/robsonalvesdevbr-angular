@@ -1,10 +1,8 @@
-import { Injectable, inject } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { AnalyticsService } from './analytics.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class VirtualPageTrackingService {
   private gaService = inject(GoogleAnalyticsService);
   private analyticsService = inject(AnalyticsService);

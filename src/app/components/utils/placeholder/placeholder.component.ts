@@ -1,9 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-placeholder',
   imports: [],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="skeleton" role="status" aria-busy="true">
       <span class="visually-hidden">Carregando...</span>

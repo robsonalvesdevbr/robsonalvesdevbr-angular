@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, DestroyRef, afterNextRender, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
-import { Subject, interval } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { interval } from 'rxjs';
 import { EngagementTrackingService } from '@path-services/engagement-tracking-service';
 import { PerformanceMonitorService } from '@path-services/performance-monitor.service';
 import { isLocalHostname } from '@path-utils/analytics-config.utils';
@@ -10,18 +10,24 @@ import { isLocalHostname } from '@path-utils/analytics-config.utils';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
   title = 'Robson Alves';
 
   private readonly engagementService = inject(EngagementTrackingService);
   private readonly performanceService = inject(PerformanceMonitorService);
-  private readonly destroy$ = new Subject<void>();
+  private readonly destroyRef = inject(DestroyRef);
 
-  ngOnInit(): void {
-    this.setupPerformanceMonitoring();
-    this.setupEngagementTracking();
+  constructor() {
+    afterNextRender(() => {
+      this.setupPerformanceMonitoring();
+      this.setupEngagementTracking();
+    });
+
+    this.destroyRef.onDestroy(() => {
+      this.engagementService.destroy();
+      this.performanceService.destroy();
+    });
   }
 
   private setupPerformanceMonitoring(): void {
@@ -31,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
       // Log performance report every 60 seconds in development (increased from 30s)
       interval(60000)
-        .pipe(takeUntil(this.destroy$))
+        .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe(() => {
           this.performanceService.logPerformanceReport();
         });
@@ -53,12 +59,5 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private isProduction(): boolean {
     return globalThis.window !== undefined && !isLocalHostname(globalThis.location.hostname);
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-    this.engagementService.destroy();
-    this.performanceService.destroy();
   }
 }

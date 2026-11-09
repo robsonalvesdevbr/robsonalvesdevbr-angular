@@ -1,12 +1,10 @@
-import { Injectable, inject } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { AnalyticsService } from './analytics.service';
 import { VirtualPageTrackingService } from './virtual-page-tracking.service';
 import { debounce, ElementCache, BatchProcessor, scheduleIdleWork } from '../utils/performance.utils';
 import { nextScrollMilestone } from '@path-utils/engagement.utils';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class EngagementTrackingService {
   private analyticsService = inject(AnalyticsService);
   private virtualPageService = inject(VirtualPageTrackingService);

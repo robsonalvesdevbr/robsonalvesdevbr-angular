@@ -1,6 +1,5 @@
-import { LowerCasePipe, NgClass, NgOptimizedImage } from '@angular/common';
+import { LowerCasePipe, NgOptimizedImage } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   OnInit,
   inject,
@@ -32,7 +31,6 @@ import { absoluteItemIndex, toggleInSet } from '@path-utils/catalog.utils';
   imports: [
     ChipsAccordionDirective,
     LowerCasePipe,
-    NgClass,
     PrintTagsPipe,
     SortbyPipe,
     TranslatePipe,
@@ -42,7 +40,6 @@ import { absoluteItemIndex, toggleInSet } from '@path-utils/catalog.utils';
     TagLabelPipe,
   ],
   templateUrl: './book.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookComponent extends BasePageComponent implements OnInit {
   private readonly dataService = inject(DataService);

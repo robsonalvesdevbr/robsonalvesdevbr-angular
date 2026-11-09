@@ -1,4 +1,4 @@
-import { Component, inject, computed, ChangeDetectionStrategy, signal, HostListener, output, viewChild, ElementRef, effect } from '@angular/core';
+import { Component, inject, computed, signal, output, viewChild, ElementRef, effect } from '@angular/core';
 
 import { LanguageService, Language } from '@path-services/language.service';
 import { dropdownPlacement } from '@path-utils/dropdown-placement.utils';
@@ -9,7 +9,7 @@ import { dropdownPlacement } from '@path-utils/dropdown-placement.utils';
   imports: [],
   templateUrl: './language-switcher.component.html',
   styleUrls: ['./language-switcher.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  host: { '(document:click)': 'onDocumentClick($event)' },
 })
 export class LanguageSwitcherComponent {
   private languageService = inject(LanguageService);
@@ -64,7 +64,6 @@ export class LanguageSwitcherComponent {
   });
 
   // Fecha o dropdown ao clicar fora
-  @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     // Não faz nada se o dropdown já está fechado
     if (!this.isOpen()) {
@@ -84,7 +83,7 @@ export class LanguageSwitcherComponent {
   }
 
   toggleDropdown(event: Event): void {
-    // Para a propagação para evitar que o HostListener capture imediatamente
+    // Para a propagação para evitar que o listener de document:click capture imediatamente
     event.stopPropagation();
     event.preventDefault();
 

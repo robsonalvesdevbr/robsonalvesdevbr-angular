@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   OnInit,
   inject,
@@ -13,7 +12,6 @@ import { TranslatePipe } from '@path-pipes/translate.pipe';
   selector: 'app-about',
   imports: [TranslatePipe],
   templateUrl: './about.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent extends BasePageComponent implements OnInit {
   readonly timeline = [

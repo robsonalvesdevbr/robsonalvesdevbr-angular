@@ -1,4 +1,4 @@
-import { Injectable, signal, computed, effect, inject } from '@angular/core';
+import { Service, signal, computed, effect, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { finalize } from 'rxjs';
 
@@ -6,7 +6,7 @@ export type Language = 'pt-BR' | 'en-US';
 export type NestedTranslations = { [key: string]: string | NestedTranslations };
 export type TranslationKeys = NestedTranslations;
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class LanguageService {
   private readonly STORAGE_KEY = 'app-language';
   private readonly DEFAULT_LANGUAGE: Language = 'pt-BR';

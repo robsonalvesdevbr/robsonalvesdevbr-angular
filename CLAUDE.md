@@ -162,10 +162,10 @@ pnpm run clean          # remove dist, cache, .angular
 
 ## Code Conventions
 
-- **Components:** ChangeDetectionStrategy.OnPush por padrão
+- **Components:** OnPush é o padrão do Angular 22; não declarar `changeDetection` (só para optar por `Eager`)
 - **Signals:** usar input() para inputs de componentes (implementado em BasePageComponent)
 - **Pipes:** standalone, pure quando possível
-- **Services:** providedIn: 'root'
+- **Services:** `@Service()` (equivale a `providedIn: 'root'`)
 - **File naming:** dot-separated (ex: `data-service.ts`, `base-page.component.ts`)
 
 ## Known Issues

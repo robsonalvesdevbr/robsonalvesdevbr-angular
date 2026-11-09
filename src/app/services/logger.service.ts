@@ -1,12 +1,10 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Service, isDevMode } from '@angular/core';
 
 /**
  * Logger service that only logs in development mode
  * This prevents console pollution in production and potential information leakage
  */
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class LoggerService {
   /**
    * Log a message to the console (development only)
