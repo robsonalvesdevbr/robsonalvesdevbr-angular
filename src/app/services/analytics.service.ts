@@ -1,9 +1,9 @@
 import { Service, inject } from '@angular/core';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { GtagService } from './gtag.service';
 
 @Service()
 export class AnalyticsService {
-  private readonly ga = inject(GoogleAnalyticsService);
+  private readonly ga = inject(GtagService);
 
   trackSectionView(sectionName: string): void {
     this.ga?.gtag('event', 'section_view', { section_name: sectionName });

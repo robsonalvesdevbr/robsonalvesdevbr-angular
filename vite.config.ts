@@ -94,7 +94,6 @@ export default defineConfig({
           '@angular/core',
           '@angular/common',
           '@angular/platform-browser',
-          'ngx-google-analytics',
           'ngx-pagination',
         ],
       },

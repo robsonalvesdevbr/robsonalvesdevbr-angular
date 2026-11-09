@@ -1,10 +1,10 @@
 import { Service, inject } from '@angular/core';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { GtagService } from './gtag.service';
 import { AnalyticsService } from './analytics.service';
 
 @Service()
 export class VirtualPageTrackingService {
-  private gaService = inject(GoogleAnalyticsService);
+  private gaService = inject(GtagService);
   private analyticsService = inject(AnalyticsService);
 
   private sectionMetadata: { [key: string]: { title: string; description: string } } = {

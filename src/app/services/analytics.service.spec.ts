@@ -1,25 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { GtagService } from './gtag.service';
 import { AnalyticsService } from './analytics.service';
 
 describe('AnalyticsService', () => {
   let service: AnalyticsService;
-  let ga: jasmine.SpyObj<GoogleAnalyticsService>;
+  let ga: jasmine.SpyObj<GtagService>;
 
   beforeEach(() => {
-    const gaSpy = jasmine.createSpyObj('GoogleAnalyticsService', ['gtag']);
+    const gaSpy = jasmine.createSpyObj('GtagService', ['gtag']);
 
     TestBed.configureTestingModule({
       providers: [
         provideZonelessChangeDetection(),
         AnalyticsService,
-        { provide: GoogleAnalyticsService, useValue: gaSpy },
+        { provide: GtagService, useValue: gaSpy },
       ],
     });
 
     service = TestBed.inject(AnalyticsService);
-    ga = TestBed.inject(GoogleAnalyticsService) as jasmine.SpyObj<GoogleAnalyticsService>;
+    ga = TestBed.inject(GtagService) as jasmine.SpyObj<GtagService>;
   });
 
   it('should be created', () => {

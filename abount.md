@@ -19,7 +19,7 @@ Este projeto representa meu portfolio pessoal, desenvolvido como estudo prático
 - 🚀 **Detecção de Mudanças Zoneless** (production-ready no Angular 21)
 - 🔧 **Path Aliases personalizados** para melhor organização
 - 📱 **Design Responsivo** para todos os dispositivos
-- 📊 **Google Analytics** integrado via ngx-google-analytics
+- 📊 **Google Analytics** integrado via gtag.js (provider próprio)
 
 ## ⚡ Quick Start
 

@@ -46,7 +46,7 @@ Aplicação single-page moderna que apresenta:
 
 ### Analytics
 
-- **Google Analytics** - Rastreamento de uso via ngx-google-analytics
+- **Google Analytics** - Rastreamento de uso via gtag.js (provider próprio)
 
 ### Build & Dev Tools
 

@@ -1,29 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { GtagService } from './gtag.service';
 import { VirtualPageTrackingService } from './virtual-page-tracking.service';
 import { AnalyticsService } from './analytics.service';
 
 describe('VirtualPageTrackingService', () => {
   let service: VirtualPageTrackingService;
-  let gaService: jasmine.SpyObj<GoogleAnalyticsService>;
+  let gaService: jasmine.SpyObj<GtagService>;
   let analyticsService: jasmine.SpyObj<AnalyticsService>;
 
   beforeEach(() => {
-    const gaSpy = jasmine.createSpyObj('GoogleAnalyticsService', ['gtag']);
+    const gaSpy = jasmine.createSpyObj('GtagService', ['gtag']);
     const analyticsSpy = jasmine.createSpyObj('AnalyticsService', ['trackNavigationFlow']);
 
     TestBed.configureTestingModule({
       providers: [
         provideZonelessChangeDetection(),
         VirtualPageTrackingService,
-        { provide: GoogleAnalyticsService, useValue: gaSpy },
+        { provide: GtagService, useValue: gaSpy },
         { provide: AnalyticsService, useValue: analyticsSpy },
       ],
     });
 
     service = TestBed.inject(VirtualPageTrackingService);
-    gaService = TestBed.inject(GoogleAnalyticsService) as jasmine.SpyObj<GoogleAnalyticsService>;
+    gaService = TestBed.inject(GtagService) as jasmine.SpyObj<GtagService>;
     analyticsService = TestBed.inject(AnalyticsService) as jasmine.SpyObj<AnalyticsService>;
   });
 
